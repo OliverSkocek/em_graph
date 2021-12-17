@@ -102,7 +102,7 @@ Oliver \textsc{Sko\v{c}ek} \\[4cm]
 
 
 \chapter*{Einf\"uhrung}
-Die Theorie elektromagnetischer Wechselwirkung wird auf Graphen entwickelt. Hierzu starten wir zun\"achst bei statischen Problemen analog zu elektrischen Netzwerken und definieren anschlie\ss{}end Funktionen auf Ecken und Kanten von Graphen und Operatoren die solche Funktionen inneinander \"uberf\"uhren um eine Theorie der Maxwellgleichungen auf Graphen zu entwickeln. Nachdem wir Algorithmen zur L\"osung dieser Gleichungen und den Grenzfall von kontinuierliche Graphen behandelt haben, werden wir eine Quantenelektrodynamik auf Graphen skizzieren.
+Es werden einige Grundlagen der Graphentheorie eingef\"uhrt. Insbesondere werden planare Graphen und die zugeh\"orenden dualen Graphen definiert. Anschließend werden Funktionenr\"aume auf Graphen definiert und zum Gradienten, der Divergenz und der Rotation aus der Vektoranalysis analoge Operatoren, die jene R\"aume ineinander \"uberf\"uhren. Ein zum de Rham Komplex analoges Theorem wird vorgestellt und bewiesen. Die so entwickelte Theorie wird anschlie\ss{}end verwendet um das verallgemeinerte Poissonproblem und seine L\"osungstheorie zu formulieren. Abschließend wird analog zu den zweidimensionalen Maxwellgleichungen, ein gew\"ohnliches lineares Differentialgleichungssystem vorgestellt und dessen L\"osbarkeit untersucht.
 
 \chapter{Planare Graphen}
 
@@ -272,8 +272,19 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen.
 	f\"ur eine beliebige Ecke $x$ die Divergenz von $f$.
 \end{definition}
 \noindent
-	Der Gradient hebt eine Eckfunktion auf die Kanten, und die Divergenz eine Kantenfunktion auf die Ecken. Der Graph $G$ und der duale Graph $G_D$ haben dieselben  Kantenfunktionen, daher bildet dieser Raum eine Verbindung zwischen Gradient und Divergenz des Graphen und des dualen Graphen. Der Gradient und die Divergenz des dualen Graphen werden durch $grad_D$ respektive $div_D$ symbolisiert. Falls eine Kantenfunktion als Fluss interpretiert wird, entspricht die Divergenz der Kantenfunktion dem Nettofluss zu den Ecken.\\
-	\\
+	Der Gradient hebt eine Eckfunktion auf die Kanten, und die Divergenz eine Kantenfunktion auf die Ecken. Der Graph $G$ und der duale Graph $G_D$ haben dieselben  Kantenfunktionen, daher bildet dieser Raum eine Verbindung zwischen Gradient und Divergenz des Graphen und des dualen Graphen. Der Gradient und die Divergenz des dualen Graphen werden durch $grad_D$ respektive $div_D$ symbolisiert. Falls eine Kantenfunktion als Fluss interpretiert wird, entspricht die Divergenz der Kantenfunktion dem Nettofluss von den Ecken weg.
+\begin{proposition}
+		Sei $G$ ein planarer Graph mit Orientierung, dann sind der Gradient und die Divergenz lineare Operatoren und es gilt:
+		$$div = -grad^T$$
+		wobei sich die Adjunktion auf das Standardskalarprodukt bezieht.
+\end{proposition}
+\begin{proof}
+Sei $u\in\mathfrak{E}(G)$ und $v\in \mathfrak{K}$, dann schreiben wir das Skalarprodukt:
+$$\langle v, \text{grad}(u)\rangle_\mathfrak{K} = \sum_{x\in E} v(x) * (u(p(x) - u(q(x)))) = $$
+$$\sum_{x\in E} v(x) * u(p(x)) - \sum_{x\in V} v(x) * u(q(x))=$$
+$$\sum_{e\in V} u(e) * \sum_{j\in E, p(j)=e}v(j) - \sum_{e\in V} u(e) * \sum_{j\in E, q(j)=e}v(j) =$$
+$$-\langle \text{div}(u), v\rangle_\mathfrak{E}$$
+\end{proof}
 	Es besteht eine Analogie der hier definierten Operatoren zu den Differential\-operatoren der Vektoranalysis. Interessanterweise entspricht die duale Divergenz der Rotation. Die Analogie untermauernd kann man folgendes Theorem formulieren.
 \begin{theorem}[Der de Rham Komplex]
 	Die Operator $grad$, $div$, $grad_D$ und $div_D$ erf\"ullen folgende exakte Sequenzen, daher das Bild der Abbildungen entspricht dem Kern der nachfolgenden Abbildung. Beachte, dass $\mathbb{R}$ in den Formeln f\"ur die dem entsprechenden Raum zugeh\"origen konstanten Funktionen steht.
@@ -285,7 +296,7 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen.
 \end{equation}
 \end{theorem}
 \begin{proof}
-	
+	Wird im Kapitel "Das Poisson Problem" nachgeholt".
 \end{proof}
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
@@ -293,13 +304,13 @@ Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostat
 Sei $G$ ein planarer Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann wird eine Eckfunktion $u$ gesucht sodass gilt:
 
 \begin{align}
-	div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
+	-div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
 	u(x) = g(x)\text{  falls } x\in \partial
 \end{align}
 Die Bedingung 2.4 ist motiviert durch Randwertprobleme aus der Theorie der partiellen Differential\-gleichungen.
 \begin{definition}
 	Sei $G$ ein planarer Graph mit Orientierung, $r$ eine positive Kantenfunktion, dann nennt man $\Delta_r$, definiert durch 
-	$$\Delta_r(u) = div(r * grad(u))\text{ falls }u\in\mathfrak{K}(G)$$
+	$$\Delta_r(u) = -div(r * grad(u))\text{ falls }u\in\mathfrak{K}(G)$$
 	den \textbf{$r$-gewichteten Laplace} Operator
 \end{definition}
 \paragraph{Die Formulierung f\"ur elektrische Netzwerke}Gegeben ein Netzwerk(Graph) bestehend aus Spannungsquellen, Stromquellen und linearen Komponenten (elektrische Widerst\"ande), finde  die elektrische Spannung zwischen beliebigen zwei Punkten im Netzwerk, und f\"ur jeden Leiter im Netzwerk, den durch\-flie\ss{}enden elektrischen Strom.
@@ -319,13 +330,6 @@ Physikalisch wird $\Omega$ ein Hohlraum in einem guten elektrischen Leiter, wie 
 \\
 Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theorie nur in Grenzf\"allen anwendbar. Dieser Spezialfall tritt ein falls $\rho$ und $\Omega$ o.B.d.A entlang der z-Achse konstant sind, daher das Problem effektiv zwei Dimensional wird. F\"ur genau diesen Fall wird eine Theorie der zweidimensionalen Maxwell Gleichungen im n\"achsten Kapitel entwickelt. 
 \begin{proposition}
-	Sei $G$ ein planarer Graph mit Orientierung, dann sind der Gradient und die Divergenz lineare Operatoren und es gilt:
-	$$div = grad^T$$
-\end{proposition}
-\begin{proof}
-	
-\end{proof}
-\begin{corollary}
 	Sei $G$ ein planarer Graph, $r$ eine positive Kantenfunktion und $\Delta_r$ der $r$-gewichtete Laplace Operator, dann gilt:
 	\begin{itemize}
 		\item Die Form der Matrix $\Delta_r$ is unabh\"angig von der gew\"ahlten Orientierung auf $G$. 
@@ -333,9 +337,21 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 		\item $\Delta_r$ ist positiv semidefinit.\\
 		\item Der Kern von $\Delta_r$ ist der Raum der konstanten Eckfunktionen.
 	\end{itemize}
-\end{corollary}
+\end{proposition}
 \begin{proof}
-	
+	Seien $p_0$ und $p_1$ Orientierungen auf $G$ und $grad_0$ und $grad_1$ die zugeh\"oringen Gradienten, dann gilt:
+	$$grad_0 = D * grad_1$$
+	wobei $D$ eine Diagonalmatrix ist, deren Eintr\"age $\pm 1 $ sind. Wegen Satz 2.1 folgt die erste Aussage.\\
+	\\
+	Die zweite Aussage folgt direkt aus der Definition von $\Delta_r$ und Satz 2.1. Seien hierzu $u$ und $v\in\mathfrak{E}$, dann gilt:
+	$$\langle u, \Delta_r(v)\rangle_\mathfrak{E} = \langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}$$
+	Analog zeigt man die dritte Aussage, indem man $u=v$ setzt.
+	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(u)\rangle_\mathfrak{K}\geq 0$$
+	Die letzte Aussage: $u\in\text{ker}(\Delta_r)$ gilt genau dann wenn f\"ur jedes $v\in\mathfrak{E}$
+	$$\langle v, \Delta_r(u)\rangle_\mathfrak{E}=0$$
+	also genau dann wenn
+	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}=0$$
+	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{ker}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann gibt es genau eine Eckfunktion welche das verallgemeinerte Poisson-Problem l\"ost.
