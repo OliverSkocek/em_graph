@@ -354,10 +354,36 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{ker}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann gibt es genau eine Eckfunktion welche das verallgemeinerte Poisson-Problem l\"ost.
+	Sei $G$ ein planarer Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
 \end{theorem}
 \begin{proof}
-	
+	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
+	\\
+	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, gilt:\\
+	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt, und nehmen wir an, dass diese quadratische Matrix nicht invertierbar ist, daher einen nicht trivialen Kern besitzt. Sei $x$ ein Element des Kerns von $A$ das ungleich Null ist, dann k\"onnen wir ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null hat und sonst den Wert den $x$ an der Ecke hat. Es gilt dann:
+	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
+	und
+	$$\langle \sqrt{r}\text{grad}(\hat{x}),  \sqrt{r}\text{grad}(\hat{x})\rangle = \langle \hat{x}, \Delta_r(\hat{x})\rangle = 0$$
+	Damit muss aber $\hat{x}$ zum Kern von $\partial_r$ geh\"oren, also eine konstante Funktion sein und somit gleich Null sein, ein Widerspruch.\\
+	\\
+	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im allgemeinen von Null verschiedenen Inhomogenit\"at.\\
+	\\
+	Der Fall $\partial=V$ ist trivialerweise erf\"ullt.
+\end{proof}
+\noindent
+Jetzt wurden alle Grundlagen gelegt um Theorem 2.4 (de Rham Komplex) zu beweisen
+\begin{proof}[Beweis de Rham Komplex]
+	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf die Dualmatrix folgt.\\
+	\\
+	Zuerst muss gezeigt werden, dass die konstanten Funktionen auf den Ecken genau der Kern von $\text{grad}$ sind. Dies wurde bereits im Satz 3.1 gezeigt.\\
+	\\
+	Anschlie\ss{}end muss gezeigt werden, dass das Bild von $\text{grad}$ mit dem Kern von $\Delta_r$ \"ubereinstimmt. 
+	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
+	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} (-1)^{\sigma(i)} * (-1)^{\sigma(i)} * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
+	$\sigma_i$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
+	Da module $k$ $k=0$ ist, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
+	\\
+	Abschlie\ss{}end verbleibt es zu zeigen, dass die Divergenz jeden Wert im orthogonalen Komplement der konstanten Fl\"achenfunktionen annimmt, was ja bereits durch Theorem 3.2 gezeigt wurde.
 \end{proof}
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
