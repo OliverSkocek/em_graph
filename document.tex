@@ -14,6 +14,12 @@
 \usepackage{svg}
 \usepackage{amsmath}
 \usepackage{delarray}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
 \newcommand{\eps}{\varepsilon}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
@@ -373,18 +379,73 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 \noindent
 Jetzt wurden alle Grundlagen gelegt um Theorem 2.4 (de Rham Komplex) zu beweisen
 \begin{proof}[Beweis de Rham Komplex]
-	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf die Dualmatrix folgt.\\
+	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
 	\\
 	Zuerst muss gezeigt werden, dass die konstanten Funktionen auf den Ecken genau der Kern von $\text{grad}$ sind. Dies wurde bereits im Satz 3.1 gezeigt.\\
 	\\
 	Anschlie\ss{}end muss gezeigt werden, dass das Bild von $\text{grad}$ mit dem Kern von $\Delta_r$ \"ubereinstimmt. 
 	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
 	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} (-1)^{\sigma(i)} * (-1)^{\sigma(i)} * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
-	$\sigma_i$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
-	Da module $k$ $k=0$ ist, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
+	$\sigma(i)$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
+	Da $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
 	\\
 	Abschlie\ss{}end verbleibt es zu zeigen, dass die Divergenz jeden Wert im orthogonalen Komplement der konstanten Fl\"achenfunktionen annimmt, was ja bereits durch Theorem 3.2 gezeigt wurde.
 \end{proof}
+\noindent
+Wandeln wir zur Untermauerung der theoretischen Arbeit an einem Beispiel den elektrischen Stromkreis in Abbildung 3.1 in einen Graphen in dem bisher entwickelten Formalismus um.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{Abbildungen/elektro.pdf}
+		\caption{Beispiel Stromkreis (Graph).}
+	\end{center}
+\end{figure}
+\noindent
+An den elektrischen Widerst\"anden jeder Kante k\"onnen wir in Abbildung 3.2 die Korrespondenz zu Abbildung 3.1 erkennen. Die Kehrwerte der Widerst\"ande entsprechen der Kantenfunktion $r$ und $\partial=\{2, 3\}$, $g(2)=5$, $g(3)=0$ und $f\equiv 0$. Das $V$ steht f\"ur die Spannungsquelle beziehungsweise die Randbedingung.\\
+\begin{center}
+$
+\Delta_r  = \text{grad}.T * r * \text{grad} = 
+\begin{pmatrix}
+1 & -1 & 0 & 0\\
+1 & 0 & -1 & 0\\
+1 & 0 & 0 & -1\\
+0 & -1 & 1 & 0\\
+0 & 0 & 1 & -1\\
+0 & -1 & 0& 1\\
+\end{pmatrix}^T
+\begin{pmatrix}
+\frac{1}{500}& 0 &0& 0& 0&0\\
+0& \frac{1}{1000} & 0 & 0 &0&0\\
+0 & 0 & \frac{1}{2000} & 0 &0&0\\
+0 & 0 & 0 & V & 0&0\\
+0 & 0 & 0 & 0 & \frac{1}{4700}&0\\
+0 & 0 & 0& 0 & 0 &\frac{1}{400}\\
+\end{pmatrix}
+\begin{pmatrix}
+1 & -1 & 0 & 0\\
+1 & 0 & -1 & 0\\
+1 & 0 & 0 & -1\\
+0 & -1 & 1 & 0\\
+0 & 0 & 1 & -1\\
+0 & -1 & 0& 1\\
+\end{pmatrix}=
+\begin{pmatrix}
+	\frac{1}{500} + \frac{1}{1000} + \frac{1}{2000}& -\frac{1}{500}  & -\frac{1}{1000} & -\frac{1}{2000}\\
+	-\frac{1}{500}  & \frac{1}{500} + V + \frac{1}{400} & -V & -\frac{1}{400}\\
+	-\frac{1}{1000} & -V& \frac{1}{1000} + V + \frac{1}{4700} & -\frac{1}{4700} \\
+	-\frac{1}{2000} & -\frac{1}{400}&-\frac{1}{4700}  & \frac{1}{400} + \frac{1}{4700} + \frac{1}{2000}
+\end{pmatrix}
+$
+\end{center}
+Anschlie\ss{}end wendet man die Randbedingung an, daher man setzt die zweite Komponente des gesuchten Vektors $5$ und die Dritte Komponente $0$, dies entspricht dem streichen der mit $V$ markierten Ecken und bilden der passenden Inhomogenit\"at.
+\begin{center}
+	$
+	\begin{pmatrix}[cc|c]
+	\frac{1}{500} + \frac{1}{1000} + \frac{1}{2000} & -\frac{1}{2000} & \frac{5}{500}\\
+	-\frac{1}{2000}& \frac{1}{400} + \frac{1}{4700} + \frac{1}{2000} & \frac{5}{400}
+	\end{pmatrix}
+	$
+\end{center}
+Dies entspricht genau der Matrixgleichung, die man mit den gebr\"auchlichen Methoden in der Physik zu diesem Problem erh\"alt.
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
