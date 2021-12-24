@@ -330,8 +330,8 @@ Die Bedingung 2.4 ist motiviert durch Randwertprobleme aus der Theorie der parti
 \noindent
 \paragraph{Die Formulierung in der Elektrostatik} Sei $\Omega$ eine offene Teilmenge des $\mathbb{R}^3$ mit glatten Rand $\partial\Omega$ und $\rho$ die elektrische Ladungsdichte in $\Omega$. Gesucht ist das Potential $\phi:\Omega\rightarrow\mathbb{R}$ sodass:
 \begin{align}
-\Delta u(x) = \rho(x)\text{  falls } x\in \Omega\\
-u(x) = 0\text{  falls } x\in \partial\Omega
+\Delta \phi(x) = \rho(x)\text{  falls } x\in \Omega\\
+\phi(x) = 0\text{  falls } x\in \partial\Omega
 \end{align}
 Physikalisch wird $\Omega$ ein Hohlraum in einem guten elektrischen Leiter, wie etwa einem Metall, sein,  da ein Solcher das Potential am Rand des Hohlraumes auf einen konstanten Wert zwingt.\\
 \\
@@ -367,13 +367,13 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
 	\\
 	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, gilt:\\
-	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt, und nehmen wir an, dass diese quadratische Matrix nicht invertierbar ist, daher einen nicht trivialen Kern besitzt. Sei $x$ ein Element des Kerns von $A$ das ungleich Null ist, dann k\"onnen wir ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null hat und sonst den Wert den $x$ an der Ecke hat. Es gilt dann:
+	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt, und nehmen wir an, dass diese quadratische Matrix nicht invertierbar ist, daher einen nicht trivialen Kern besitzt. Sei $x$ ein Element des Kerns von $A$ das ungleich Null ist, dann k\"onnen wir ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert bekommt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
 	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
 	und
-	$$\langle \sqrt{r}\text{grad}(\hat{x}),  \sqrt{r}\text{grad}(\hat{x})\rangle = \langle \hat{x}, \Delta_r(\hat{x})\rangle = 0$$
-	Damit muss aber $\hat{x}$ zum Kern von $\partial_r$ geh\"oren, also eine konstante Funktion sein und somit gleich Null sein, ein Widerspruch.\\
+	$$\langle \sqrt{r}\text{grad}(\hat{x}),  \sqrt{r}\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
+	Damit muss aber $\hat{x}$ zum Kern von $\Delta_r$ geh\"oren, also eine konstante Funktion sein und somit gleich Null sein, ein Widerspruch.\\
 	\\
-	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im allgemeinen von Null verschiedenen Inhomogenit\"at.\\
+	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
 	\\
 	Der Fall $\partial=V$ ist trivialerweise erf\"ullt.
 \end{proof}
