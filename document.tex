@@ -354,11 +354,11 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	$$\langle u, \Delta_r(v)\rangle_\mathfrak{E} = \langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}$$
 	Analog zeigt man die dritte Aussage, indem man $u=v$ setzt.
 	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(u)\rangle_\mathfrak{K}\geq 0$$
-	Die letzte Aussage: $u\in\text{ker}(\Delta_r)$ gilt genau dann wenn f\"ur jedes $v\in\mathfrak{E}$
+	Die letzte Aussage: $u\in\text{kern}(\Delta_r)$ gilt genau dann wenn f\"ur jedes $v\in\mathfrak{E}$
 	$$\langle v, \Delta_r(u)\rangle_\mathfrak{E}=0$$
 	also genau dann wenn
 	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}=0$$
-	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{ker}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
+	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{kern}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
@@ -367,11 +367,11 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
 	\\
 	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, gilt:\\
-	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt, und nehmen wir an, dass diese quadratische Matrix nicht invertierbar ist, daher einen nicht trivialen Kern besitzt. Sei $x$ ein Element des Kerns von $A$ das ungleich Null ist, dann k\"onnen wir ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert bekommt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
+	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt und sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
 	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
-	und
+	und somit
 	$$\langle \sqrt{r}\text{grad}(\hat{x}),  \sqrt{r}\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
-	Damit muss aber $\hat{x}$ zum Kern von $\Delta_r$ geh\"oren, also eine konstante Funktion sein und somit gleich Null sein, ein Widerspruch.\\
+	Damit muss aber $\hat{x}$ zum Kern von $\Delta_r$ geh\"oren, also eine konstante Funktion sein. Die einzige M\"oglichkeit wie $\hat{x}$ eine konstante Funktion ist, ist wenn es identisch Null ist. Es wurde somit gezeigt, dass der Kern von $A$ trivial ist und somit $A$ invertierbar ist.\\
 	\\
 	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
 	\\
