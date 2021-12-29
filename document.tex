@@ -260,6 +260,9 @@ Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten ke
 	\end{center}
 \end{figure}
 \noindent
+\begin{definition}
+	Sei $G$ ein planarer Graph mit Orientierung, dann nennt man eine Folge von Ecken $(x_0, x_1,\dots,x_n)$, sodass auf einander folgende Ecken immer durch eine Kante verbunden sind, einen \textbf{Pfad} auf $G$. Falls $x_0 = x_n$ gilt, nennt man dies einenen \textbf{geschlossenen Pfad}.
+\end{definition}
 \chapter{Funktionenr\"aume und Operatoren}
 Im letzten Kapitel wurden Graphen mit zus\"atzlicher Struktur beschrieben, nämlich planare Graphen und das Konzept des dualen Graphen. In diesem Kapitel sollen die drei Arten von Funktionen auf planaren Graphen und Operatoren, die diese Funktionen aufeinander abbilden vorgestellt werden.
 \begin{definition}
@@ -291,6 +294,24 @@ $$\sum_{x\in E} v(x) * u(p(x)) - \sum_{x\in V} v(x) * u(q(x))=$$
 $$\sum_{e\in V} u(e) * \sum_{j\in E, p(j)=e}v(j) - \sum_{e\in V} u(e) * \sum_{j\in E, q(j)=e}v(j) =$$
 $$-\langle \text{div}(v), u\rangle_\mathfrak{E}$$
 \end{proof}
+\begin{definition}
+	Sei $G$ ein planarer Graph mit Orientierung und $f\in\mathfrak{K}(G)$, $(x_i)_{i=1}^n$ ein Pfad auf $G$, $(e_i)_{i=1}^{n-1}$ die Folge der Kanten die f\"ur jedes $1\leq i \leq n-1$ $x_i$ und $x_{i+1}$ verbindet und es sei $\sigma_i$ f\"ur jedes $1\leq i \leq n-1$ gleich $-1$ falls $p(e_i)=x_i$ ist und sonst $+1$, dann nennt man die Summe
+	$$ \sum_{i=1}^{n-1} \sigma_i f(e_i)$$
+	die \textbf{Pfadsumme.}
+\end{definition}
+\begin{proposition}
+	Sei $G$ ein planarer Graph mit Orientierung, $f\in\mathfrak{K}(G)$ sodass $\text{div}_D(f)=0$, dann gilt dass f\"ur jeden geschlossenen Pfad in $G$ die Pfadsumme gleich Null ist.
+\end{proposition}
+\begin{proof}
+Zu allererst reicht es \textbf{einfach geschlossene Pfad}e zu betrachten daher jene in denen nur das erste Glied mehrfach und zwar doppelt auftaucht. Diese Einschränkung ist zul\"assig weil sich f\"ur alle anderen geschlossenen Pfade die Pfadsumme sich als Summe solcher einfach geschlossenen Pfade schreiben l\"asst.\\
+\\
+Jeder einfach geschlossene Pfad zerteilt den Graph in zwei Teilgraphen, sodass die Vereinigung der Teilgraphen ganz $G$ ist und der Durchschnitt nur den geschlossenen Pfad enth\"alt. Jener Teilgraph, der keinen Teil des Randes von $G$ enth\"alt ist der innere Graph.\\
+\\
+Sei $f\in\mathfrak{K}(G)$, dann gilt f\"ur jeden Zyklus in $G$, dass falls er als Pfad gegen den Uhrzeigersinn orientiert geschrieben wird, die Pfadsumme gleich dem Wert von $\text{div}_D$ ist.\\
+\\
+Sein nun $(x_i)_{i=1}$ ein einfach geschlossener Pfad, dann k\"onnen wird die Pfad- summe als Summe \"uber alle Zyklen des zugeh\"origen inneren Graphen schreiben, da die Pfade \"uber die Zyklen immer als gegen den Uhrzeigersinn orientiert angenommen werden, heben sich alle Kantenwerte auf, die nicht zum Pfad $(x_i)_{i=1}$ geh\"oren.
+Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
+\end{proof}
 \noindent
 	Es besteht eine Analogie der hier definierten Operatoren zu den Differential\-operatoren der Vektoranalysis. Interessanterweise entspricht die duale Divergenz der Rotation. Die Analogie untermauernd kann man folgendes Theorem formulieren.
 \begin{theorem}[Der de Rham Komplex]
@@ -302,9 +323,28 @@ $$-\langle \text{div}(v), u\rangle_\mathfrak{E}$$
 	\mathbb{R}\longrightarrow\mathfrak{A}(G) \overset{grad_D}{\longrightarrow}\mathfrak{K}(G) \overset{div}{\longrightarrow}\mathfrak{E}(G)/\mathbb{R}\longrightarrow 0
 \end{equation}
 \end{theorem}
-\begin{proof}
-	Wird im Kapitel "Das Poisson Problem" nachgeholt".
+\begin{proof}[Beweis de Rham Komplex]
+	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
+	\\
+	\textbf{Erste zu beweisende Aussage:} Der Kern von $\text{grad}$ sind genau die konstanten Eckfunktionen.\\
+	\\
+	Dies wurde bereits im Satz 3.1 gezeigt.\\
+	\\
+	\textbf{Zweite zu beweisende Aussage:} Das Bild des $\text{grad}$ ist genau der Kern von $\text{div}_D$.
+	\\
+	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
+	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma(i) * \sigma(i) * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
+	$\sigma(i)$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
+	Da $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
+	Es fehlt noch zu zeigen, dass es zu jedem Element im Kern von $\text{div}_D$ auch im Bild von $\text{grad}$ ist.\\
+	Sei $f$ eine Kantenfunktion, sodass gilt $\text{div}_D(f)=0$, dann gilt wegen dem Satz 2.2, dass f\"ur beliebige Ecken $a, b\in V$ gilt, dass die Pfadsummen f\"ur alle Pfade, die in $a$ starten und in $b$ enden, gleich sind.\\
+	W\"ahlen wir nun eine beliebige Ecke $x_0$ und weil $G$ zusammenh\"angend ist, k\"onnen wir von $x_0$ zu jeder Ecke in $G$ einen Pfad bilden. Definiere nun $F\in\mathfrak(E)(G)$, sodass f\"ur jede Ecke $x$ $F$ als Wert die Pfadsumme eines Pfades von $x_0$ nach $x$ hat. Es gilt nun $\text{grad}(F) = f$.
+	\\
+	\\
+	\textbf{Die letzte zu beweisende Aussage:} Das Bild von $\text{div}_D$ ist genau das orthogonale Komplement der konstanten Fl\"achenfunktionen.\\
+	Wegen dem Satz 2.1 und der ersten Aussage in diesem Beweis folgt die Aussage.
 \end{proof}
+\noindent
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
 \paragraph{Das verallgemeinerte Poisson Problem}
@@ -376,21 +416,6 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
 	\\
 	Der Fall $\partial=V$ ist trivialerweise erf\"ullt.
-\end{proof}
-\noindent
-Jetzt wurden alle Grundlagen gelegt um Theorem 2.4 (de Rham Komplex) zu beweisen
-\begin{proof}[Beweis de Rham Komplex]
-	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
-	\\
-	Zuerst muss gezeigt werden, dass die konstanten Funktionen auf den Ecken genau der Kern von $\text{grad}$ sind. Dies wurde bereits im Satz 3.1 gezeigt.\\
-	\\
-	Anschlie\ss{}end muss gezeigt werden, dass das Bild von $\text{grad}$ mit dem Kern von $\text{div}_D$ \"ubereinstimmt. 
-	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
-	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} (-1)^{\sigma(i)} * (-1)^{\sigma(i)} * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
-	$\sigma(i)$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
-	Da $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
-	\\
-	Abschlie\ss{}end verbleibt es zu zeigen, dass die Divergenz jeden Wert im orthogonalen Komplement der konstanten Fl\"achenfunktionen annimmt, was ja bereits durch Theorem 3.2 gezeigt wurde.
 \end{proof}
 \noindent
 Wandeln wir zur Untermauerung der theoretischen Arbeit an einem Beispiel den elektrischen Stromkreis in Abbildung 3.1 in einen Graphen in dem bisher entwickelten Formalismus um.
