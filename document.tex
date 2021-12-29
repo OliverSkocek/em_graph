@@ -177,7 +177,8 @@ Das Resultat ergibt dann f\"ur kannten 4, 7 und 8 folgende Inzidenz mit den Ecke
 \end{center}
 Eine spezielle Art von Teilgraph erh\"alt man, wenn man eine Teilmenge $U$ der Ecken fixiert und alle Kanten aus dem Graphen entfernt, die eine nicht in der Teilmenge $U$ enthaltene Ecke verbinden. Man nennt so einen Graph den durch die Menge $U$ \textbf{induzierten Teilgraph}. Der Teilgraph in Abbildung 2.2 ist ein solches Beispiel. Es ist der durch $U =\{3, 4, 5\}$ induzierte Teilgraph des Beispielgraphen.
 \begin{definition}
-	Sei $G$ ein Graph, dann nennt man $G$ \textbf{zusammenh\"angend} falls man von jeder Ecke von $G$ jede andere Ecke \"uber Kanten erreichen kann. Sei weiters $k\in\mathbb{N}$, dann sagt man ein Graph ist \textbf{$k$-fach zusammen\-h\"angend}, falls man $k - 1$ beliebige Kanten entfernen k\"onnte und der resultierende Graph immer noch zusammenh\"angend w\"are.
+	Sei $G$ ein Graph und $n$ eine nat\"urliche Zahl, dann nennt man eine Folge von Ecken $(x_0, x_1,\dots,x_n)$ f\"ur die gilt, dass auf einander folgende Ecken immer durch eine Kante verbunden sind, einen \textbf{Pfad} auf $G$. Falls $x_0 = x_n$ gilt, nennt man dies einenen \textbf{geschlossenen Pfad}. Falls zus\"atzlich bis auf $x_0$ und $x_n$ keine Ecke mehrfach vorkommt, nennt man den Pfad \textbf{einfach geschlossen}.\\
+	Man nennt $G$ \textbf{zusammenh\"angend}, falls man von jeder Ecke von $G$ jede andere Ecke \"uber einen Pfad erreichen kann. Sei weiters $k\in\mathbb{N}$, dann sagt man ein Graph ist \textbf{$k$-fach zusammen\-h\"angend}, falls man $k - 1$ beliebige Kanten entfernen k\"onnte und der resultierende Graph immer noch zusammenh\"angend w\"are.
 \end{definition}
 \noindent
 Alle Graphen werden von hier an als zusammenh\"angend angenommen. Allgemein l\"asst sich jeder Graph als Ansammlung von zusammenh\"angenden Teilgraphen darstellen, wodurch diese Annahme im Sinne einer Vereinfachung gerechtfertigt wird.
@@ -215,7 +216,7 @@ Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Eine \textbf
 \end{definition}
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.4]{Abbildungen/graph_1_planar_flach.pdf}
+		\includegraphics[scale=0.3]{Abbildungen/graph_1_planar_flach.pdf}
 		\caption{Beispiel Graph (planar) mit Fl\"achen.}
 	\end{center}
 \end{figure}
@@ -260,9 +261,7 @@ Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten ke
 	\end{center}
 \end{figure}
 \noindent
-\begin{definition}
-	Sei $G$ ein planarer Graph mit Orientierung, dann nennt man eine Folge von Ecken $(x_0, x_1,\dots,x_n)$, sodass auf einander folgende Ecken immer durch eine Kante verbunden sind, einen \textbf{Pfad} auf $G$. Falls $x_0 = x_n$ gilt, nennt man dies einenen \textbf{geschlossenen Pfad}.
-\end{definition}
+
 \chapter{Funktionenr\"aume und Operatoren}
 Im letzten Kapitel wurden Graphen mit zus\"atzlicher Struktur beschrieben, nämlich planare Graphen und das Konzept des dualen Graphen. In diesem Kapitel sollen die drei Arten von Funktionen auf planaren Graphen und Operatoren, die diese Funktionen aufeinander abbilden vorgestellt werden.
 \begin{definition}
@@ -303,7 +302,7 @@ $$-\langle \text{div}(v), u\rangle_\mathfrak{E}$$
 	Sei $G$ ein planarer Graph mit Orientierung, $f\in\mathfrak{K}(G)$ sodass $\text{div}_D(f)=0$, dann gilt dass f\"ur jeden geschlossenen Pfad in $G$ die Pfadsumme gleich Null ist.
 \end{proposition}
 \begin{proof}
-Zu allererst reicht es \textbf{einfach geschlossene Pfad}e zu betrachten daher jene in denen nur das erste Glied mehrfach und zwar doppelt auftaucht. Diese Einschränkung ist zul\"assig weil sich f\"ur alle anderen geschlossenen Pfade die Pfadsumme sich als Summe solcher einfach geschlossenen Pfade schreiben l\"asst.\\
+Zu allererst reicht es einfach geschlossene Pfade zu betrachten. Diese Einschränkung ist zul\"assig weil sich f\"ur alle anderen geschlossenen Pfade die Pfadsumme sich als Summe solcher einfach geschlossenen Pfade schreiben l\"asst.\\
 \\
 Jeder einfach geschlossene Pfad zerteilt den Graph in zwei Teilgraphen, sodass die Vereinigung der Teilgraphen ganz $G$ ist und der Durchschnitt nur den geschlossenen Pfad enth\"alt. Jener Teilgraph, der keinen Teil des Randes von $G$ enth\"alt ist der innere Graph.\\
 \\
@@ -344,7 +343,8 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 	\\
 	\\
 	\textbf{Die letzte zu beweisende Aussage:} Das Bild von $\text{div}_D$ ist genau das orthogonale Komplement der konstanten Fl\"achenfunktionen.\\
-	Wegen dem Satz 2.1 und der ersten Aussage in diesem Beweis folgt die Aussage.
+	\\
+	Wegen des Satzes 2.1 und der ersten Aussage in diesem Beweis folgt die Aussage.
 \end{proof}
 \noindent
 \chapter{Das Poisson Problem}
