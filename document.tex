@@ -330,15 +330,17 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 	\\
 	Da $G$ zusammenh\"angend ist und da $\text{grad}$ an einer Kante nur Null sein kann wenn beide Ecken, welche die Kante verbindet, den selben Wert haben, ist $\text{grad}(f)$ genau dann Null wenn $f$ konstant ist.\\
 	\\
-	\textbf{Zweite zu beweisende Aussage:} Das Bild des $\text{grad}$ ist genau der Kern von $\text{div}_D$.
+	\textbf{Zweite zu beweisende Aussage:} Das Bild von $\text{grad}$ ist genau der Kern von $\text{div}_D$.\\
 	\\
 	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
 	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma(i) * \sigma(i) * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
-	$\sigma(i)$ ist $-1$ falls die Kante zwischen $x_i$ und $x_{i+1}$ im Uhrzeigersinn durchlaufen wird und $+1$ sonst.
 	Da $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
+	\\
 	Es fehlt noch zu zeigen, dass es zu jedem Element im Kern von $\text{div}_D$ auch im Bild von $\text{grad}$ ist.\\
+	\\
 	Sei $f$ eine Kantenfunktion, sodass gilt $\text{div}_D(f)=0$, dann gilt wegen dem Satz 2.2, dass f\"ur beliebige Ecken $a, b\in V$ gilt, dass die Pfadsummen f\"ur alle Pfade, die in $a$ starten und in $b$ enden, gleich sind.\\
-	W\"ahlen wir nun eine beliebige Ecke $x_0$ und weil $G$ zusammenh\"angend ist, k\"onnen wir von $x_0$ zu jeder Ecke in $G$ einen Pfad bilden. Definiere nun $F\in\mathfrak(E)(G)$, sodass f\"ur jede Ecke $x$ $F$ als Wert die Pfadsumme eines Pfades von $x_0$ nach $x$ hat. Es gilt nun $\text{grad}(F) = f$.
+	\\
+	W\"ahlen wir nun eine beliebige Ecke $x_0$, weil $G$ zusammenh\"angend ist, k\"onnen wir von $x_0$ zu jeder Ecke in $G$ einen Pfad bilden um $F\in\mathfrak(E)(G)$ zu definieren, sodass f\"ur jede Ecke $x$ $F(x)$ gleich der Pfadsumme eines Pfades von $x_0$ nach $x$ hat. Dies ist ja eindeutig. Es gilt nun $\text{grad}(F) = f$.
 	\\
 	\\
 	\textbf{Die letzte zu beweisende Aussage:} Das Bild von $\text{div}_D$ ist genau das orthogonale Komplement der konstanten Fl\"achenfunktionen.\\
