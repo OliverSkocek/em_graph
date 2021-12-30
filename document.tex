@@ -316,10 +316,10 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 \begin{theorem}[Der de Rham Komplex]
 	Die Operator $grad$, $div$, $grad_D$ und $div_D$ erf\"ullen folgende exakte Sequenzen, daher das Bild der Abbildungen entspricht dem Kern der nachfolgenden Abbildung. Beachte, dass $\mathbb{R}$ in den Formeln f\"ur die dem entsprechenden Raum zugeh\"origen konstanten Funktionen steht.
 \begin{equation}
-	\mathbb{R}\longrightarrow\mathfrak{E}(G) \overset{grad}{\longrightarrow}\mathfrak{K}(G) \overset{div_D}{\longrightarrow}\mathfrak{A}(G)/\mathbb{R}\longrightarrow 0
+	\mathbb{R}\longrightarrow\mathfrak{E}(G) \overset{grad}{\longrightarrow}\mathfrak{K}(G) \overset{div_D}{\longrightarrow}\mathfrak{F}(G)/\mathbb{R}\longrightarrow 0
 \end{equation}
 \begin{equation}
-	\mathbb{R}\longrightarrow\mathfrak{A}(G) \overset{grad_D}{\longrightarrow}\mathfrak{K}(G) \overset{div}{\longrightarrow}\mathfrak{E}(G)/\mathbb{R}\longrightarrow 0
+	\mathbb{R}\longrightarrow\mathfrak{F}(G) \overset{grad_D}{\longrightarrow}\mathfrak{K}(G) \overset{div}{\longrightarrow}\mathfrak{E}(G)/\mathbb{R}\longrightarrow 0
 \end{equation}
 \end{theorem}
 \begin{proof}[Beweis de Rham Komplex]
@@ -477,11 +477,11 @@ Dies entspricht genau der Matrixgleichung, die man mit den gebr\"auchlichen Meth
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Schar von Kantenfunctionen $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$, eine Schar von Fl\"achenfunktionen $b:\mathbb{R}\rightarrow\mathfrak{A}(G)$ und eine Schar von Eckfunktionen $q:\mathbb{R}\rightarrow\mathfrak{E}(G)$ sodass f\"ur alle $t\in\mathbb{R}$ gilt (wobei $j(t) := \sigma e(t)$)
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Schar von Kantenfunctionen $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$, eine Schar von Fl\"achenfunktionen $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ und eine Schar von Eckfunktionen $q:\mathbb{R}\rightarrow\mathfrak{E}(G)$ sodass f\"ur alle $t\in\mathbb{R}$ gilt (wobei $j(t) := \sigma e(t)$)
 	\begin{align}
-		div(r * \epsilon * e(t)) = q(t)\\
-		div_d(r * e(t)) = -\frac{\partial b(t)}{\partial t}\\
-		r * grad_d(\mu * b(t)) = \epsilon * \frac{\partial e(t)}{\partial t} + j(t)
+		\text{div}(r * \epsilon * e(t)) = q(t)\\
+		\text{div}_D(r^{-1} * e(t)) = -\frac{\partial b(t)}{\partial t}\\
+		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * \frac{\partial e(t)}{\partial t} + j(t)
 	\end{align} 
 	und die Anfangsbedingungen
 \begin{align}
@@ -491,7 +491,38 @@ Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder ve
 \end{align}
 erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
 \end{definition}
-
+\begin{remark}
+	Größen erklären
+\end{remark}
+\noindent
+Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische Ladung und Energie. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit innernander umgewandlet werden.
+\begin{proposition}\textbf{Energieerhaltung}
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
+	$$E = \sum_{a\in f} b(a)^2 /\mu(a) + \sum_{k\in E} \epsilon(k) * e(k)^2 $$
+	die \textbf{Energie} und solange der elektrische Strom $j\equiv 0$ gilt, bleibt die Energie unver\"andert. 
+\end{proposition}
+\begin{proof}
+	Sei $e$ und $b$ wie in der Voraussetzung des Satzes dann gilt f\"ur die Ableitung der magnetischen Energie:
+	$$(\sum_{a\in f} b(a)^2 /\mu(a))^\prime = \sum_{a\in f} 2 * b(a) * b(a)^\prime /\mu(a) = -\sum_{a\in f} 2 * b(a) * \text{div}_D(r^{-1} * e)(a) /\mu(a)=$$
+	$$-2 * \langle b /\mu, \text{div}_D(r^{-1} * e\rangle_{\mathfrak{F}}$$
+	und f\"ur die Ableitung der elektrischen Energie:
+	$$(\sum_{k\in E} \epsilon(k) * e(k)^2)^\prime = \sum_{k\in E} 2 * \epsilon(k) * e(k) * e(k)^\prime = $$
+	$$-\sum_{k\in E} 2 * e(k) * (r^{-1} * \text{grad}_D(\mu * b) + j) (k)=-2 * \langle e, (r^{-1} * \text{grad}_D(\mu * b) + j) \rangle_{\mathfrak{K}}=$$
+	$$2 * (\langle \text{div}_D(r^{-1} * e), b /\mu\rangle_{\mathfrak{F}} - \langle e, r^{-1} * j\rangle_{\mathfrak{K}})$$
+	Fassen wir zusammen:
+	$$E^\prime = -2 * \langle e, r^{-1} * j\rangle_{\mathfrak{K}}$$
+\end{proof}
+\begin{proposition}\textbf{Kontinuit\"atsgesetz}
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
+	$$q^\prime = - \text{div}(r*j)$$
+\end{proposition}
+\begin{proof}
+	
+	Dividiere (4.3) in Definition 4.1 durch $\epsilon$ und dann wende $\text{div}(r * \epsilon * .)$ auf (4.3) an:
+	$$\text{div}(r * \epsilon * (-\epsilon^{-1} * r^{-1} * \text{grad}_D(b(t) / \mu))) = \text{div}(r * \epsilon * (\frac{\partial e}{\partial t} + j/\epsilon))$$
+	$$0 = \text{div}(r * \epsilon * e)^\prime + \text{div}(r * j))$$
+	$$0 = q^\prime + \text{div}(r * j)$$
+\end{proof}
 \end{document}
 das poisson problem randbedingung die in zusammenhangskomponenten zerfallen lässt.
 dirchlet und neumann
