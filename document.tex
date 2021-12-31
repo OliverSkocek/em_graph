@@ -73,7 +73,7 @@
 \vspace*{5cm}
 \begin{center}
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \Huge \bfseries Graphische elektronische Methoden} \\[0.2cm]
+{ \Huge \bfseries Elektromagnetismus auf planaren Graphen} \\[0.2cm]
 \rule{\linewidth}{0.5mm} \\[3.5cm]
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
@@ -108,7 +108,8 @@ Oliver \textsc{Sko\v{c}ek} \\[4cm]
 
 
 \chapter*{Einf\"uhrung}
-Es werden einige Grundlagen der Graphentheorie eingef\"uhrt. Insbesondere werden planare Graphen und die zugeh\"orenden dualen Graphen definiert. Anschließend werden Funktionenr\"aume auf Graphen definiert und zum Gradienten, der Divergenz und der Rotation aus der Vektoranalysis analoge Operatoren, die jene R\"aume ineinander \"uberf\"uhren. Ein zum de Rham Komplex analoges Theorem wird vorgestellt und bewiesen. Die so entwickelte Theorie wird anschlie\ss{}end verwendet um das verallgemeinerte Poissonproblem und seine L\"osungstheorie zu formulieren. Abschließend wird analog zu den zweidimensionalen Maxwellgleichungen, ein gew\"ohnliches lineares Differentialgleichungssystem vorgestellt und dessen Eigenschaften untersucht.
+Die Absicht dieser Arbeit ist es ausgehend von der Theorie elektrischer Netzwerke eine Theorie elektromagnetischer Ph\"anomene in der Ebene zu entwickeln. Dabei soll kein Kontinuums\"ubergang gemacht werden sondern allein mit planaren Graphen gearbeitet werden. Zu diesem Zwecke werden einige grundlegende Begriffe der Graphentheorie eingef\"uhrt. Darauf aufbauened werden dann Funktionnenr\"aume auf diesen Graphen definiert und analog zur mehrdimensionalen Analysis wird eine Theorie mit Analogien zum gewohnten Gradienten, der Divergenz und dem Rotor vorgestellt. Abgeschlossen wird diese Theorie durch ein zum de Rham Komplex analoges Theorem. \\Im n\"achsten Kapitel wird dann ein verallgemeinertes Poissonproblem vorgestellt, dass direkt verwendet werden kann um Widerstandsnetzwerke zu l\"osen. Dies zeigt, dass viele Analogien zwischen dem Problem der Widerstandsnetzwerke und dem Poissonproblem der Elektrostatik existieren.\\
+Im letzten Kapitel wird dann eine Version der Maxwell Gleichungen auf planaren Graphen vorgestellt und zwei wichtige Eigenschaften, Energieerhaltung und Ladungserhaltung behandelt.
 
 \chapter{Planare Graphen}
 
@@ -480,8 +481,8 @@ Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder ve
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Schar von Kantenfunctionen $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$, eine Schar von Fl\"achenfunktionen $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ und eine Schar von Eckfunktionen $q:\mathbb{R}\rightarrow\mathfrak{E}(G)$ sodass f\"ur alle $t\in\mathbb{R}$ gilt (wobei $j(t) := \sigma e(t)$)
 	\begin{align}
 		\text{div}(r * \epsilon * e(t)) = q(t)\\
-		\text{div}_D(r^{-1} * e(t)) = -\frac{\partial b(t)}{\partial t}\\
-		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * \frac{\partial e(t)}{\partial t} + j(t)
+		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
+		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * e^\prime(t) + j(t)
 	\end{align} 
 	und die Anfangsbedingungen
 \begin{align}
@@ -519,6 +520,7 @@ Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 \begin{proposition}\textbf{Kontinuit\"atsgesetz}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
 	$$q^\prime = - \text{div}(r*j)$$
+	Dies zeigt, dass die gesamte elektrische Ladung erhalten bleibt.
 \end{proposition}
 \begin{proof}
 	
@@ -526,8 +528,13 @@ Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	$$\text{div}(r * \epsilon * (-\epsilon^{-1} * r^{-1} * \text{grad}_D(b(t) / \mu))) = \text{div}(r * \epsilon * (\frac{\partial e}{\partial t} + j/\epsilon))$$
 	$$0 = \text{div}(r * \epsilon * e)^\prime + \text{div}(r * j))$$
 	$$0 = q^\prime + \text{div}(r * j)$$
+	Summieren wir nun die obige Gleichung \"uber alle Ecken heben sich die Beitr\"age der Kanten in $\text{div}(r*j)$ gegenseitig auf, da jede Kante einmal in dem $\text{div}$-Term der Ecke von der er wegzeigt und einmal im Term der Ecke auf die er zeigt vorkommt.
+	$$\sum_{v\in V}q^\prime=0$$
 \end{proof}
 \noindent
-Abschluss
+\chapter*{Abschluss}
+Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
+\\
+Es war sehr sch\"on, es hat mich sehr gefreut!
 \end{document}
 
