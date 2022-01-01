@@ -296,7 +296,7 @@ $$\sum_{e\in V} u(e) * \sum_{j\in E, p(j)=e}v(j) - \sum_{e\in V} u(e) * \sum_{j\
 $$-\langle \text{div}(v), u\rangle_\mathfrak{E}$$
 \end{proof}
 \begin{definition}
-	Sei $G$ ein planarer Graph mit Orientierung und $f\in\mathfrak{K}(G)$, $(x_i)_{i=1}^n$ ein Pfad auf $G$, $(e_i)_{i=1}^{n-1}$ die Folge der Kanten die f\"ur jedes $1\leq i \leq n-1$ $x_i$ und $x_{i+1}$ verbindet und es sei $\sigma_i$ f\"ur jedes $1\leq i \leq n-1$ gleich $-1$ falls $p(e_i)=x_i$ ist und sonst $+1$, dann nennt man die Summe
+	Sei $G$ ein planarer Graph mit Orientierung und $f\in\mathfrak{K}(G)$, $(x_i)_{i=1}^n$ ein Pfad auf $G$, $(e_i)_{i=1}^{n-1}$ die Folge der Kanten, die f\"ur jedes $1\leq i \leq n-1$ $x_i$ und $x_{i+1}$ verbinden und es sei $\sigma_i$ f\"ur jedes $1\leq i \leq n-1$ gleich $-1$ falls $p(e_i)=x_i$ ist und sonst $+1$, dann nennt man die Summe
 	$$ \sum_{i=1}^{n-1} \sigma_i f(e_i)$$
 	die \textbf{Pfadsumme.}
 \end{definition}
@@ -316,7 +316,7 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 \noindent
 	Es besteht eine Analogie der hier definierten Operatoren zu den Differential\-operatoren der Vektoranalysis. Interessanterweise entspricht die duale Divergenz der Rotation. Die Analogie untermauernd kann man folgendes Theorem formulieren.
 \begin{theorem}[Der de Rham Komplex]
-	Die Operator $grad$, $div$, $grad_D$ und $div_D$ erf\"ullen folgende exakte Sequenzen, daher das Bild der Abbildungen entspricht dem Kern der nachfolgenden Abbildung. Beachte, dass $\mathbb{R}$ in den Formeln f\"ur die dem entsprechenden Raum zugeh\"origen konstanten Funktionen steht.
+	Die Operatoren $grad$, $div$, $grad_D$ und $div_D$ erf\"ullen folgende exakte Sequenzen, daher das Bild der Abbildungen entspricht dem Kern der nachfolgenden Abbildung. Beachte, dass $\mathbb{R}$ in den Formeln f\"ur die dem entsprechenden Raum zugeh\"origen konstanten Funktionen steht.
 \begin{equation}
 	\mathbb{R}\longrightarrow\mathfrak{E}(G) \overset{grad}{\longrightarrow}\mathfrak{K}(G) \overset{div_D}{\longrightarrow}\mathfrak{F}(G)/\mathbb{R}\longrightarrow 0
 \end{equation}
@@ -333,9 +333,9 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 	\\
 	\textbf{Zweite zu beweisende Aussage:} Das Bild von $\text{grad}$ ist genau der Kern von $\text{div}_D$.\\
 	\\
-	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ die Folge der Ecken des Zyklus im Uhrzeigersinn durchgez\"ahlt und $f\in\mathfrak{E}$, dann gilt:
-	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma(i) * \sigma(i) * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))$$
-	Da $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
+	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ ein Pfad der die Ecken des Zyklus gegen den Uhrzeigersinn durchl\"auft und $f\in\mathfrak{E}$, dann gilt:
+	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma(i) * \overbrace{\sigma(i) * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))}^{\text{grad}}$$
+	Da ja $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
 	\\
 	Es fehlt noch zu zeigen, dass es zu jedem Element im Kern von $\text{div}_D$ auch im Bild von $\text{grad}$ ist.\\
 	\\
@@ -358,7 +358,7 @@ Sei $G$ ein planarer Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positi
 	-div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
 	u(x) = g(x)\text{  falls } x\in \partial
 \end{align}
-Die Bedingung 2.4 ist motiviert durch Randwertprobleme aus der Theorie der partiellen Differential\-gleichungen.
+Die Bedingung 3.2 ist motiviert durch Randwertprobleme aus der Theorie der partiellen Differential\-gleichungen.
 \begin{definition}
 	Sei $G$ ein planarer Graph mit Orientierung, $r$ eine positive Kantenfunktion, dann nennt man $\Delta_r$, definiert durch 
 	$$\Delta_r(u) = -div(r * grad(u))\text{ falls }u\in\mathfrak{E}(G)$$
@@ -414,10 +414,10 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt und sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
 	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
 	und somit
-	$$\langle \sqrt{r}\text{grad}(\hat{x}),  \sqrt{r}\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
+	$$\langle \sqrt{r}*\text{grad}(\hat{x}),  \sqrt{r}*\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
 	Damit muss aber $\hat{x}$ zum Kern von $\Delta_r$ geh\"oren, also eine konstante Funktion sein. Die einzige M\"oglichkeit wie $\hat{x}$ eine konstante Funktion ist, ist wenn es identisch Null ist. Es wurde somit gezeigt, dass der Kern von $A$ trivial ist und somit $A$ invertierbar ist.\\
 	\\
-	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeile sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
+	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeilen sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
 	\\
 	Der Fall $\partial=V$ ist trivialerweise erf\"ullt.
 \end{proof}
@@ -495,11 +495,13 @@ erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
 \end{definition}
 \begin{remark}
 	(4.1) nennt man das Gau\ss{}sche Gesetz und beschreibt wie das elektrische Feld $e$ mit seinen Quellen den elektrischen Ladungen zusammenh\"angt. Betrachtet man es von der Perspektive eines Flu\ss{}es ist die elektrische Ladung der Nettoflu\ss{} aus der Ecke.\\
+	\\
 	(4.2) nennt man das Faradaysche Gesetz und es beschreibt die zeitliche \"Anderung des magnetischen Feldes $b$ in Abh\"angigkeit des elektrischen Feldes. Die Kantenfunktion $r$ ist die L\"ange der Kante. $\epsilon$ und $\mu$ sind der elektrische und der magnetische Leitwert, respektive. Diese beiden Funktionen geben an wie gut die Kanten das Feld durchlassen.\\
+	\\
 	(4.3) nennt man das Amperesche Gesetz und beschreibt analog zum Faradayschen Gesetz wie die zeitliche \"Anderung des elektrischen Feldes vom magnetischen Feld, aber auch vom elektrischen Strom $j$ abh\"angig ist. Der elektrische Strom verh\"alt sich in der Gleichung wie ein Reibungsterm und wir werden sehen, dass dies tats\"achlich f\"ur Energieverlust ins W\"armebad verantwortlich ist.
 \end{remark}
 \noindent
-Die Maxwell-Gleichungen sind ein gew\"ohnliches lineares Differentialgleichungssystem und als solche gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.\\
+Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.\\
 \\
 Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische Ladung und Energie. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit innernander umgewandlet werden.
 \begin{proposition}\textbf{Energieerhaltung}
@@ -521,7 +523,7 @@ Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 \begin{proposition}\textbf{Kontinuit\"atsgesetz}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
 	$$q^\prime = - \text{div}(r*j)$$
-	Dies zeigt, dass die gesamte elektrische Ladung erhalten bleibt.
+	Dies zeigt, dass die Gesamtladung erhalten bleibt.
 \end{proposition}
 \begin{proof}
 	
@@ -529,7 +531,7 @@ Aus den Maxwell Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	$$\text{div}(r * \epsilon * (-\epsilon^{-1} * r^{-1} * \text{grad}_D(b(t) / \mu))) = \text{div}(r * \epsilon * (\frac{\partial e}{\partial t} + j/\epsilon))$$
 	$$0 = \text{div}(r * \epsilon * e)^\prime + \text{div}(r * j))$$
 	$$0 = q^\prime + \text{div}(r * j)$$
-	Summieren wir nun die obige Gleichung \"uber alle Ecken heben sich die Beitr\"age der Kanten in $\text{div}(r*j)$ gegenseitig auf, da jede Kante einmal in dem $\text{div}$-Term der Ecke von der er wegzeigt und einmal im Term der Ecke auf die er zeigt vorkommt.
+	Summieren wir nun die obige Gleichung \"uber alle Ecken, dann heben sich die Beitr\"age der Kanten in $\text{div}(r*j)$ gegenseitig auf, da jede Kante einmal in dem $\text{div}$-Term der Ecke von der er wegzeigt und einmal im Term der Ecke auf die er zeigt vorkommt. Folglich gilt:
 	$$\sum_{v\in V}q^\prime=0$$
 \end{proof}
 \noindent
