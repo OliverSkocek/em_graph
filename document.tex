@@ -209,18 +209,19 @@ Es ist also zus\"atzliche Information notwendig um eine planare Darstellung eind
 \end{definition}
 \noindent
 Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Eine \textbf{Fl\"ache} ist hier ein Zyklus, der keine Ecke einschlie\ss{}t.
-\begin{remark}
-	Sei $G$ ein Graph und $\{A_1, A_2, \dots, A_n\}$ eine Menge von zyklischen induzierten Teilgraphen, sodass jede Kante von $G$ in maximal zwei der Zyklen vorkommt und jede Ecke von $G$ in mindestens einem der Zyklen vorkommt, dann gibt es eine eindeutige planare Darstellung des Graphen $G$, dessen Fl\"achen genau die $\{A_1, A_2, \dots, A_n\}$ sind.  
-\end{remark}
-\begin{definition}
-	Ein planarer Graph $G=(g, f)$ ist ein Graph $g$ und eine Menge $f$ von Zyklen aus $g$ wie in Bemerkung 1.6. beschrieben. Sei weiters $e$ eine Kante von $g$, dann sagt man $e$ liegt am \textbf{Rand} des Graphen wenn $e$ genau einmal in einer Fl\"ache vorkommt. Der Teilgraph, der genau die am Rand liegenden Kanten enth\"alt nennt man den \textbf{Rand des Graphen}.
-\end{definition}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{Abbildungen/graph_1_planar_flach.pdf}
 		\caption{Beispiel Graph (planar) mit Fl\"achen.}
 	\end{center}
 \end{figure}
+\noindent
+\begin{remark}
+	Sei $G$ ein Graph und $\{A_1, A_2, \dots, A_n\}$ eine Menge von zyklischen induzierten Teilgraphen, sodass jede Kante von $G$ in maximal zwei der Zyklen vorkommt und jede Ecke von $G$ in mindestens einem der Zyklen vorkommt, dann gibt es eine eindeutige planare Darstellung des Graphen $G$, dessen Fl\"achen genau die $\{A_1, A_2, \dots, A_n\}$ sind.  
+\end{remark}
+\begin{definition}
+	Ein planarer Graph $G=(g, f)$ ist ein Graph $g$ und eine Menge $f$ von Zyklen aus $g$ wie in Bemerkung 1.6. beschrieben. Sei weiters $e$ eine Kante von $g$, dann sagt man $e$ liegt am \textbf{Rand} des Graphen wenn $e$ genau einmal in einer Fl\"ache vorkommt. Der Teilgraph, der genau die am Rand liegenden Kanten enth\"alt nennt man den \textbf{Rand des Graphen}.
+\end{definition}
 \noindent
 Die in Bemerkung 1.6. beschriebene Struktur legt ein mit planaren Graphen eng verkn\"upftes Konzept nahe. Jede Kante des Graphen ist entweder ein Bindeglied zwischen zwei Fl\"achen oder es liegt am Rand des Graphen. Die am Rand liegenden Kanten k\"onnen wiederum als Bindeglied mit der den Graphen umgebenden Fl\"ache, genannt $A_{\infty}$, angesehen werden und somit haben wir das Konzept des dualen Graphen entdeckt.
 \begin{definition}
@@ -326,7 +327,7 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 \begin{proof}[Beweis de Rham Komplex]
 	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
 	\\
-	\textbf{Erste zu beweisende Aussage:} Der Kern von $\text{grad}$ sind genau die konstanten Eckfunktionen.\\
+	\textbf{Erste zu beweisende Aussage:} Der Kern von $\text{grad}$ ist genau der Raum der konstanten Eckfunktionen.\\
 	\\
 	Da $G$ zusammenh\"angend ist und da $\text{grad}$ an einer Kante nur Null sein kann wenn beide Ecken, welche die Kante verbindet, den selben Wert haben, ist $\text{grad}(f)$ genau dann Null wenn $f$ konstant ist.\\
 	\\
