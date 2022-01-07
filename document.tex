@@ -352,7 +352,7 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
 \paragraph{Das verallgemeinerte Poisson Problem}
-Sei $G$ ein planarer Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann wird eine Eckfunktion $u$ gesucht sodass gilt:
+Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann wird eine Eckfunktion $u$ gesucht sodass gilt:
 
 \begin{align}
 	-div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
@@ -381,7 +381,7 @@ Physikalisch wird $\Omega$ ein Hohlraum in einem guten elektrischen Leiter, wie 
 \\
 Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theorie nur in Grenzf\"allen anwendbar. Dieser Spezialfall tritt ein falls $\rho$ und $\Omega$ o.B.d.A entlang der z-Achse konstant sind, daher das Problem effektiv zwei Dimensional wird. F\"ur genau diesen Fall wird eine Theorie der zweidimensionalen Maxwell Gleichungen im n\"achsten Kapitel entwickelt. 
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $r$ eine positive Kantenfunktion und $\Delta_r$ der $r$-gewichtete Laplace Operator, dann gilt:
+	Sei $G$ ein  Graph, $r$ eine positive Kantenfunktion und $\Delta_r$ der $r$-gewichtete Laplace Operator, dann gilt:
 	\begin{itemize}
 		\item Die Form der Matrix $\Delta_r$ is unabh\"angig von der gew\"ahlten Orientierung auf $G$. 
 		\item $\Delta_r$ ist symmetrisch.\\
@@ -404,14 +404,28 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}=0$$
 	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{kern}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
+\begin{proposition}[Poincare Inequality]
+	Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r>0$ eine Kantenfunktion und $u\in\mathfrak{E}$, sodass $u|_\partial=0$ dann gilt:
+	$$\langle u, u\rangle_{\mathfrak{E}}\leq \frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
+\end{proposition}
+\begin{proof}
+	Sei $x\in\partial^c$ and $(x_i)_{i=1}^n$ ein Pfad von $\partial$ nach $x$, dann gilt f\"ur die Pfadsumme:
+	$$u(x)^2 = (\sum_{i=1}^{n-1} \sigma_i *\text{grad}(u)(e_i))^2\leq \sum_{i=1}^{n-1}\text{grad}(u)(e_i)^2$$
+	Summieren wir nun \"uber $V$ und sch\"atzen weiter ab:
+	$$\langle u, u\rangle_{\mathfrak{E}}\leq |V|\langle \text{grad}(u), \text{grad}(u)\rangle_{\mathfrak{K}}\leq\frac{|V|}{\min_{x\notin\partial}r(x)} \langle \text{grad}(u), r*\text{grad}(u)\rangle_{\mathfrak{K}}=$$
+	$$\frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
+\end{proof}
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
+	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
 \end{theorem}
 \begin{proof}
 	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
 	\\
-	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, gilt:\\
-	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt und sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
+	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, sollen zwei Alternativen gezeigt werden dies zu beweisen:\\
+	\\
+	\textbf{1. Alternative:} Die Poincare Ungleichung zeigt dies bereits, da der Kern trivial sein muss.\\
+	\\
+	\textbf{2. Alternative:} Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt und sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
 	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
 	und somit
 	$$\langle \sqrt{r}*\text{grad}(\hat{x}),  \sqrt{r}*\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
