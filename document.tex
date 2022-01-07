@@ -421,11 +421,14 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 \begin{proof}
 	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
 	\\
-	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, sollen zwei Alternativen gezeigt werden dies zu beweisen:\\
+	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, sollen gilt:\\
+	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt.\\
 	\\
-	\textbf{1. Alternative:} Die Poincare Ungleichung zeigt dies bereits, da der Kern trivial sein muss.\\
+	Zwei alternative Wege die Trivialit\"at des Kernes von $A$ zu zeigen:\\
 	\\
-	\textbf{2. Alternative:} Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt und sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
+	\textbf{1. Alternative:} Die Poincare Ungleichung zeigt dies bereits, dass der Kern trivial sein muss.\\
+	\\
+	\textbf{2. Alternative:}  Sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"oennen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
 	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
 	und somit
 	$$\langle \sqrt{r}*\text{grad}(\hat{x}),  \sqrt{r}*\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
