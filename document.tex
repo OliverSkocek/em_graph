@@ -410,10 +410,14 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 \end{proposition}
 \begin{proof}
 	Sei $x\in\partial^c$ and $(x_i)_{i=1}^n$ ein Pfad von $\partial$ nach $x$, dann gilt f\"ur die Pfadsumme:
-	$$u(x)^2 = (\sum_{i=1}^{n-1} \sigma_i *\text{grad}(u)(e_i))^2\leq \sum_{i=1}^{n-1}\text{grad}(u)(e_i)^2$$
-	Summieren wir nun \"uber $V$ und sch\"atzen weiter ab:
-	$$\langle u, u\rangle_{\mathfrak{E}}\leq |V|\langle \text{grad}(u), \text{grad}(u)\rangle_{\mathfrak{K}}\leq\frac{|V|}{\min_{x\notin\partial}r(x)} \langle \text{grad}(u), r*\text{grad}(u)\rangle_{\mathfrak{K}}=$$
-	$$\frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
+	$$u(x)^2 = (\sum_{i=1}^{n-1} \sigma_i *\text{grad}(u)(e_i))^2 \leq $$
+	$$(\max_{x\notin\partial}\frac{\sum_{k\in E}\sqrt{r}(k)}{\sqrt{r}})^2*(\sum_{i=1}^{n-1} \sigma_i *\frac{\sqrt{r}}{\sum_{k\in E}\sqrt{r}(k)}\text{grad}(u)(e_i))^2$$
+	Wende die Jensen Ungleichung an und fasse zusammen:
+	$$u(x)^2\leq (\max_{x\notin\partial}\frac{\sum_{k\in E}\sqrt{r}(k)}{\sqrt{r}})^2*\sum_{i=1}^{n-1} (\frac{\sqrt{r}}{\sum_{k\in E}\sqrt{r}(k)}\text{grad}(u)(e_i))^2=$$
+	$$(\max_{x\notin\partial}\frac{1}{r})*\sum_{i=1}^{n-1} (\sqrt{r}\text{grad}(u)(e_i))^2$$
+	Summieren wir nun \"uber $V$:
+	$$\langle u, u\rangle_{\mathfrak{E}}\leq |V|(\max_{x\notin\partial}\frac{1}{r})\langle \sqrt{r}\text{grad}(u), \sqrt{r}\text{grad}(u)\rangle_{\mathfrak{K}}=$$
+	$$\frac{|V|}{\min_{x\notin\partial}r(x)} \langle \text{grad}(u), r*\text{grad}(u)\rangle_{\mathfrak{K}}=\frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
 \end{proof}
 \begin{theorem}
 	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
