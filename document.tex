@@ -404,6 +404,8 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}=0$$
 	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{kern}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
+\noindent
+In der kontinuierlichen Theorie des Poissonproblems sind Sobolevr\"aume und die Poincare Ungleichung von zentraler Bedeutung. Ein Analogon gibt es nat\"urlich auch in der diskreten oder graphischen Theorie.
 \begin{proposition}[Poincare Ungleichung]
 	Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r>0$ eine Kantenfunktion und $u\in\mathfrak{E}$, sodass $u|_\partial=0$ dann gilt:
 	$$\langle u, u\rangle_{\mathfrak{E}}\leq \frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
@@ -419,6 +421,8 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	$$\langle u, u\rangle_{\mathfrak{E}}\leq |V|(\max_{x\notin\partial}\frac{1}{r})\langle \sqrt{r}\text{grad}(u), \sqrt{r}\text{grad}(u)\rangle_{\mathfrak{K}}=$$
 	$$\frac{|V|}{\min_{x\notin\partial}r(x)} \langle \text{grad}(u), r*\text{grad}(u)\rangle_{\mathfrak{K}}=\frac{|V|}{\min_{x\notin\partial}r(x)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
 \end{proof}
+\noindent
+Es wurde nun genug Vorarbeit geleistet um das zentrale Existenz Theorem dieses Kapitels zu beweisen.
 \begin{theorem}
 	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
 \end{theorem}
