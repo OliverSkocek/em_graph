@@ -500,7 +500,18 @@ Anschlie\ss{}end wendet man die Randbedingung an, daher man setzt die zweite Kom
 	\end{pmatrix}
 	$
 \end{center}
-Dies entspricht genau der Matrixgleichung, die man mit den gebr\"auchlichen Methoden in der Physik zu diesem Problem erh\"alt.
+Dies entspricht genau der Matrixgleichung, die man mit den gebr\"auchlichen Methoden in der Physik zu diesem Problem erh\"alt.\\
+\\
+Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu einem Theorem der klassischen Vektoranalysis zu formulieren.
+\begin{corollary}[Helmoltz Zerlegung]
+	Sei $G$ ein planarer Graph mit Orientierung dann gilt:
+	$$\mathfrak{K}(G) = im(\text{grad}) \bigoplus im(\text{grad}_D)$$
+\end{corollary}
+\begin{proof}
+	Eine Anwendung des de'Rham Komplexes und etwas elementare lineare Algebra liefert:
+	$$\mathfrak{K}(G) = \text{kern}(\text{div}_D)\bigoplus\text{kern}(\text{div}_D)^\perp = \text{im}(\text{grad})\bigoplus\text{kern}(\text{div}_D)^\perp$$	
+	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{im}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und$\text{im}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{kern}(\text{div}_D)^\perp$ ist.
+\end{proof}
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
@@ -560,9 +571,29 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 \noindent
 Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.
 \begin{theorem}
-	Die Maxwellgleichungen sind eindeutig l\"osbar, solange ihre Anfangsbedingung (4.1) erf\"ullt. Die L\"osung l\"asst sich durch die Methode der Variation der Konstante darstellen.
+	Die Maxwellgleichungen sind eindeutig l\"osbar, solange ihre Anfangsbedingung (4.1) erf\"ullt sind.
 \end{theorem}
-\chapter{Quantisierung des elektromagnetischen Feldes}
+\begin{proof}
+\end{proof}
+\paragraph{Potentialformulierung der Maxwellgleichungen}
+Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen \"uber Potentiale ausdr\"ucken. 
+\begin{definition}
+Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kantenfunktion $a$ ein Vektorpotential und eine Eckfunktion $\phi$ ein Skalarpotential falls
+	\begin{align}
+		b = \text{div}_D(a) \\
+		e = -a^\prime - \text{grad}(\phi)
+	\end{align}
+\end{definition}
+\noindent
+Es ist hierbei zu bedenken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind. Dies scheint auf den ersten Blick eine Einschr\"ankung zu sein, aber eine kurze Betrachtung der Maxwellgleichungen zeigt uns, dass der konstante Anteil des Magnetfeldes keine Auswirkung auf das elektrische Feld hat, solange $\mu$ konstant ist. Viel wichtiger noch findet die einzige \"Anderung des Magnetfeldes, die unter G\"ultigkeit der Maxwellgleichungen passieren darf im orthogonalen Komplement der konstanten Fl\"achenfunktionen statt.\\
+Wir fordern nun zus\"atzlich zu den Maxwellgleichungen, dass das Magnetfeld $b$ orthogonal zu den konstanten Fl\"achenfunktionen ist: 
+$$b\in \mathbb{R}^\perp$$
+Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
+\\
+
+\chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
+Wir wollen nun eine Quantenmechanik der Maxwellgleichungen auf planaren Graphen entwickeln.  Nur haben wir in unserer Konstruktion kein Helmoltz Theorem zur Verf\"ugung. $\text{grad}$ und $\text{rot} = \text{div}_D$ zeigen auf unterschiedliche R\"aume und 
+
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
