@@ -581,7 +581,7 @@ Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen \"uber Poten
 Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Schar von Kantenfunktion $a$ ein Vektorpotential und eine Schar von Eckfunktion $\phi$ ein Skalarpotential falls f\"ur alle $t\in\mathbb{R}$
 	\begin{align}
 		b(t) = \text{div}_D(r^{-1}a(t)) \\
-		e(t) = -a^\prime(t) - r^{-1}\text{grad}(\phi(t))
+		e(t) = -a^\prime(t) - r\text{grad}(\phi(t))
 	\end{align}
 \end{definition}
 \noindent
@@ -591,19 +591,26 @@ f\"ur jeden Zeitpunkt $t\in\mathbb{R}$ orthogonal zu den konstanten Fl\"achenfun
 $$b(t)\in \mathbb{R}^\perp$$
 Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
 \\
-Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes \"uber das Vektorpotential abgeleitet ergibt sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
+Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes (4.7) abgeleitet ergibt durch Einsetzen von (4.8) sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
 \begin{equation}
 \text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (r * a^{\prime\prime} + \text{grad}(\phi^\prime)) - r * j(t)
 \end{equation}
-Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at durch die so genannten \textbf{Eichtransformationen}.
+Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at..
+\begin{definition}
+	Seien $\phi$ und $a$ Potentiale wie in Definition 4.4, und $\xi$ eine Schar von Eckfunktionen, dann nennt man die Transformation definiert durch
+	\begin{align}
+	\hat{\phi} = \phi - \xi^\prime\\
+	\hat{a} = a + r\text{grad}(\xi) 
+	\end{align}
+	die zu $xi$ geh\"orende \textbf{Eichtransformation}.
+\end{definition}
+\noindent
 Die Potential $a$ und $\phi$ sind n\"amlich nicht eindeutig durch die Maxwellgleichungen bestimmt.
 \begin{proposition}
-	Seien $\phi$ und $a$ wie in Definition 4.4, und $\xi$ eine Schar von Eckfunktionen, dann gilt, dass die eichtransformierten Potentiale
-	\begin{align}
-		\hat{\phi} = \phi - \xi^\prime\\
-		\hat{a} = a + \text{grad}(\xi) 
-	\end{align}
-	nach (4.7) und (4.8) dieselben Felder $e$ und $b$ erzeugen.
+	Seien $\phi$, $a$ und $\xi$ wie in Definition 4.5, dann erzeugen $\phi$ und $a$
+	nach (4.7) und (4.8) dieselben Felder $e$ und $b$ wie ihre zu $\xi$ geh\"orende Eichtransformation $\hat{\phi}$ und $\hat{a}$.\\
+	\\
+	Insbesondere bleibt dadurch auch (4.9) unver\"andert unter Eichtransformation.
 \end{proposition}
 \begin{proof}
 
