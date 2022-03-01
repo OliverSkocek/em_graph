@@ -578,18 +578,36 @@ Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialglei
 \paragraph{Potentialformulierung der Maxwellgleichungen}
 Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen \"uber Potentiale ausdr\"ucken. 
 \begin{definition}
-Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kantenfunktion $a$ ein Vektorpotential und eine Eckfunktion $\phi$ ein Skalarpotential falls
+Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Schar von Kantenfunktion $a$ ein Vektorpotential und eine Schar von Eckfunktion $\phi$ ein Skalarpotential falls f\"ur alle $t\in\mathbb{R}$
 	\begin{align}
-		b = \text{div}_D(a) \\
-		e = -a^\prime - \text{grad}(\phi)
+		b(t) = \text{div}_D(r^{-1}a(t)) \\
+		e(t) = -a^\prime(t) - r^{-1}\text{grad}(\phi(t))
 	\end{align}
 \end{definition}
 \noindent
 Es ist hierbei zu bedenken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind. Dies scheint auf den ersten Blick eine Einschr\"ankung zu sein, aber eine kurze Betrachtung der Maxwellgleichungen zeigt uns, dass der konstante Anteil des Magnetfeldes keine Auswirkung auf das elektrische Feld hat, solange $\mu$ konstant ist. Viel wichtiger noch findet die einzige \"Anderung des Magnetfeldes, die unter G\"ultigkeit der Maxwellgleichungen passieren darf im orthogonalen Komplement der konstanten Fl\"achenfunktionen statt.\\
-Wir fordern nun zus\"atzlich zu den Maxwellgleichungen, dass das Magnetfeld $b$ orthogonal zu den konstanten Fl\"achenfunktionen ist: 
-$$b\in \mathbb{R}^\perp$$
+Wir fordern nun zus\"atzlich zu den Maxwellgleichungen, dass das Magnetfeld $b$
+f\"ur jeden Zeitpunkt $t\in\mathbb{R}$ orthogonal zu den konstanten Fl\"achenfunktionen ist: 
+$$b(t)\in \mathbb{R}^\perp$$
 Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
 \\
+Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes \"uber das Vektorpotential abgeleitet ergibt sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
+\begin{equation}
+\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (r * a^{\prime\prime} + \text{grad}(\phi^\prime)) - r * j(t)
+\end{equation}
+Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at durch die so genannten \textbf{Eichtransformationen}.
+Die Potential $a$ und $\phi$ sind n\"amlich nicht eindeutig durch die Maxwellgleichungen bestimmt.
+\begin{proposition}
+	Seien $\phi$ und $a$ wie in Definition 4.4, und $\xi$ eine Schar von Eckfunktionen, dann gilt, dass die eichtransformierten Potentiale
+	\begin{align}
+		\hat{\phi} = \phi - \xi^\prime\\
+		\hat{a} = a + \text{grad}(\xi) 
+	\end{align}
+	nach (4.7) und (4.8) dieselben Felder $e$ und $b$ erzeugen.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
 
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
 Wir wollen nun eine Quantenmechanik der Maxwellgleichungen auf planaren Graphen entwickeln.  Nur haben wir in unserer Konstruktion kein Helmoltz Theorem zur Verf\"ugung. $\text{grad}$ und $\text{rot} = \text{div}_D$ zeigen auf unterschiedliche R\"aume und 
