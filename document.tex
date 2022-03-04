@@ -593,7 +593,7 @@ Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidim
 \\
 Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes (4.7) abgeleitet ergibt durch Einsetzen von (4.8) sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
 \begin{equation}
-\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (r * a^{\prime\prime} + \text{grad}(\phi^\prime)) - r * j(t)
+r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prime} + r\text{grad}(\phi^\prime)) - j(t)
 \end{equation}
 Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at..
 \begin{definition}
@@ -617,7 +617,6 @@ Die Potential $a$ und $\phi$ sind n\"amlich nicht eindeutig durch die Maxwellgle
 \end{proof}
 
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
-Wir wollen nun eine Quantenmechanik der Maxwellgleichungen auf planaren Graphen entwickeln.  Nur haben wir in unserer Konstruktion kein Helmoltz Theorem zur Verf\"ugung. $\text{grad}$ und $\text{rot} = \text{div}_D$ zeigen auf unterschiedliche R\"aume und 
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
