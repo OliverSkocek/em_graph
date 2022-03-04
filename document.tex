@@ -515,7 +515,7 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $j:\mathbb{R}\rightarrow\mathfrak{K}(G)$ eine Schar von Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Schar von Kantenfunctionen $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$, eine Schar von Fl\"achenfunktionen $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ und eine Schar von Eckfunktionen $q:\mathbb{R}\rightarrow\mathfrak{E}(G)$ sodass f\"ur alle $t\in\mathbb{R}$ gilt:
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $j:\mathbb{R}\rightarrow\mathfrak{K}(G)$ eine Schar von Kantenfunktionen, $\mu$ und $b_0$ Fl\"achen-funktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$ , eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
 		\text{div}(r * \epsilon * e(t)) = q(t)\\
 		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
@@ -617,6 +617,15 @@ Die Potential $a$ und $\phi$ sind n\"amlich nicht eindeutig durch die Maxwellgle
 \end{proof}
 
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
+Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
+Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
+\\
+Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theorie am Beispiel der Maxwellgleichungen auf planaren Graphen erkunden.\\
+\\
+Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
+\begin{definition}
+	
+\end{definition}
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
