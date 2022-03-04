@@ -515,7 +515,7 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $j:\mathbb{R}\rightarrow\mathfrak{K}(G)$ eine Schar von Kantenfunktionen, $\mu$ und $b_0$ Fl\"achen-funktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$ , eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $e_0$ Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$ eine Kurve, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$, eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
 		\text{div}(r * \epsilon * e(t)) = q(t)\\
 		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
@@ -575,10 +575,10 @@ Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialglei
 \end{theorem}
 \begin{proof}
 \end{proof}
-\paragraph{Potentialformulierung der Maxwellgleichungen}
-Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen \"uber Potentiale ausdr\"ucken. 
+\chapter{Potentialformulierung der Maxwellgleichungen}
+Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen auf planaren Graphen \"uber Potentiale ausdr\"ucken. 
 \begin{definition}
-Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Schar von Kantenfunktion $a$ ein Vektorpotential und eine Schar von Eckfunktion $\phi$ ein Skalarpotential falls f\"ur alle $t\in\mathbb{R}$
+Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kurve $a\in C^1(\mathbb{R}, \mathfrak{K})$ ein Vektorpotential und eine Kurve $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ ein Skalarpotential falls f\"ur alle $t\in\mathbb{R}$
 	\begin{align}
 		b(t) = \text{div}_D(r^{-1}a(t)) \\
 		e(t) = -a^\prime(t) - r\text{grad}(\phi(t))
@@ -624,7 +624,10 @@ Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theori
 \\
 Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
 \begin{definition}
-	
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion und $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.9), dann nennt man 
+\begin{equation}
+	L(\phi, A, \phi^\prime, A^\prime) =
+\end{equation}
 \end{definition}
 
 \chapter*{Abschluss}
