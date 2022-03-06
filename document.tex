@@ -571,7 +571,7 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 \noindent
 Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.
 \begin{theorem}
-	Die Maxwellgleichungen sind eindeutig l\"osbar, solange ihre Anfangsbedingung (4.1) erf\"ullt sind.
+	Die Maxwellgleichungen sind eindeutig l\"osbar, solange die Anfangsbedingung (4.1) erf\"ullt sind.
 \end{theorem}
 \begin{proof}
 \end{proof}
@@ -591,26 +591,30 @@ f\"ur jeden Zeitpunkt $t\in\mathbb{R}$ orthogonal zu den konstanten Fl\"achenfun
 $$b(t)\in \mathbb{R}^\perp$$
 Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
 \\
-Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes (4.7) abgeleitet ergibt durch Einsetzen von (4.8) sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
+Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes (5.1) abgeleitet ergibt durch Einsetzen von (5.2) sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
 \begin{equation}
 r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prime} + r\text{grad}(\phi^\prime)) - j(t)
 \end{equation}
-Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at..
+Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at.\\
+\\
+Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in Felder um wandelt nicht injektiv ist.\\
+\\
+Die Charakterisierung des Kerns dieser Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
 \begin{definition}
-	Seien $\phi$ und $a$ Potentiale wie in Definition 4.4, und $\xi$ eine Schar von Eckfunktionen, dann nennt man die Transformation definiert durch
+	Seien $\phi$ und $a$ Potentiale wie in Definition 5.1, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation definiert durch
 	\begin{align}
 	\hat{\phi} = \phi - \xi^\prime\\
 	\hat{a} = a + r\text{grad}(\xi) 
 	\end{align}
-	die zu $xi$ geh\"orende \textbf{Eichtransformation}.
+	die zu $\xi$ geh\"orende \textbf{Eichtransformation}.
 \end{definition}
 \noindent
-Die Potential $a$ und $\phi$ sind n\"amlich nicht eindeutig durch die Maxwellgleichungen bestimmt.
+Die Potentiale werden immer genau bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.
 \begin{proposition}
-	Seien $\phi$, $a$ und $\xi$ wie in Definition 4.5, dann erzeugen $\phi$ und $a$
-	nach (4.7) und (4.8) dieselben Felder $e$ und $b$ wie ihre zu $\xi$ geh\"orende Eichtransformation $\hat{\phi}$ und $\hat{a}$.\\
-	\\
-	Insbesondere bleibt dadurch auch (4.9) unver\"andert unter Eichtransformation.
+	Sei $T$ die Operation aus Definition 5.1, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
+	\begin{equation}
+		\text{kern}(T)=\{(-\xi^\prime, r\text{grad}(\xi))| \xi\in C^1(\mathbb{R},\mathfrak{E})\}
+	\end{equation}
 \end{proposition}
 \begin{proof}
 
@@ -623,13 +627,22 @@ Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der
 Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theorie am Beispiel der Maxwellgleichungen auf planaren Graphen erkunden.\\
 \\
 Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
-\begin{definition}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion und $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.9), dann nennt man 
+\begin{theorem}
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
-	L(\phi, A, \phi^\prime, A^\prime) =
+	S(f_1, f_2) = \int_{r}^{s}\sum_{e\in E}W(f_1, f_2, f_1^\prime, f_2^\prime)(e)dt
 \end{equation}
-\end{definition}
+Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
+$W$ ist dabei definiert durch:
+\begin{equation}
+	W(q_1, q_2, v_1, v_2) = \frac{1}{2}(\epsilon(v_2 + r\text{grad}(q_1))^2 - \text{div}_D(r^{-1}q_2)^2/\mu) + q_2j
+\end{equation}
+\end{theorem}
+\begin{proof}
 
+\end{proof}
+\noindent
+Im n\"achsten Schritt wird diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende Hamiltonfunktion umgewandelt. Hierbei werden wir eine Eichung der Potentiale einf\"uhren um das Skalarpotential zu eliminieren. 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
