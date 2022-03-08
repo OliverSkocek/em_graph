@@ -630,19 +630,68 @@ Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrange
 \begin{theorem}
 Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
-	S(f_1, f_2) = \int_{r}^{s}\sum_{e\in E}W(f_1, f_2, f_1^\prime, f_2^\prime)(e)dt
+	S(f_1, f_2) = \int_{r}^{s}W(f_1, f_2, f_1^\prime, f_2^\prime)dt
 \end{equation}
+\noindent
 Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
-$W$ ist dabei definiert durch:
-\begin{equation}
-	W(q_1, q_2, v_1, v_2) = \frac{1}{2}(\epsilon(v_2 + r\text{grad}(q_1))^2 - \text{div}_D(r^{-1}q_2)^2/\mu) + q_2j
-\end{equation}
+Sie ist dabei gegeben durch:
+\begin{align*}
+	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\epsilon\langle v_2 + r\text{grad}(q_1), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)\rangle_\mathfrak{K}/\mu) + \langle q_2, j\rangle_\mathfrak{K}
+\end{align*}
 \end{theorem}
 \begin{proof}
 
 \end{proof}
 \noindent
-Im n\"achsten Schritt wird diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende Hamiltonfunktion umgewandelt. Hierbei werden wir eine Eichung der Potentiale einf\"uhren um das Skalarpotential zu eliminieren. 
+Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umgewandelt.
+\begin{definition}
+	Sei $g:\mapsto\mathbb{R}$ eine konvexe Funktion auf einem Vektorraum $V$, dann ist die \textbf{Legendretransformation} $f^*$ definiert durch:
+	\begin{equation}
+		f^*(y) = \sup_{x\in V}(xy-f(x))
+	\end{equation}
+\end{definition}
+\noindent
+Zuvor sollte aber noch eine kleine Modifikation an der Lagrangefunktion vorgenommen werden um eine sch\"one geschlossene Darstellung der Hamiltonfunktion zu erhalten.
+\begin{proposition}
+	Sei $g:\mapsto\mathbb{R}$ eine strikt konvexe stetig differenzierbare Funktion, dann ist die Legendretransformation gegeben durch:
+	\begin{equation}
+		f^*(y) = f((\frac{\partial L}{\partial x})^{-1}(y))
+	\end{equation}
+\end{proposition}
+\noindent
+Um diese Darstellung ausnutzen zu k\"onnen m\"ussen wir das Skalarpotential $\phi$ aus der Lagrangefunktion entfernen.\\
+Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vektorpotentials eine Eichtransformation gibt, die diese in ein Paar umwandelt, dessen Skalarpotential gleich Null ist.\\
+\\
+Die resultierende Lagrangefunktion ist gegeben durch 
+\begin{equation}
+	L(q, v) =\frac{1}{2}(\epsilon\langle v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_\mathfrak{K}/\mu) + \langle q, j\rangle_\mathfrak{K}
+\end{equation}
+\noindent
+Das \"ubrige Vektorpotential (hier q) ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (5.2) zu einem konstanten $\xi$ korrespondieren.\\
+\\
+Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.4) bez\"uglich der Variablen $v$.
+\begin{equation}
+	H(\pi, q) = \frac{1}{2\epsilon}\langle p, p\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}}
+\end{equation}
+Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
+\begin{proposition}
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
+\begin{align}
+	q^\prime = \frac{\partial H}{\partial \pi}\\
+	\pi^\prime = - \frac{\partial H}{\partial q}
+\end{align}
+\end{proposition}
+\begin{proof}
+	Inhalt...
+\end{proof}
+\noindent
+An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven in einem Raum von Operatoren definiert auf einem Hilbertraum.
+\begin{definition}
+	Sei $G$ ein planarer Graph und $r>0$ eine Kantenfunktion, dann ist der Hilbertraum unserer Theorie gegeben durch
+	\begin{equation}
+		\mathfrak{H} = L^2(\mathfrak{K}(G) / \text{kern}(r^{-1}\text{div}_D))
+	\end{equation}
+\end{definition}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
