@@ -638,7 +638,7 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mat
 Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
 Sie ist dabei gegeben durch:
 \begin{align*}
-	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\epsilon\langle v_2 + r\text{grad}(q_1), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)\rangle_\mathfrak{K}/\mu) + \langle q_2, j\rangle_\mathfrak{K}
+	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(q_1)), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)\rangle_\mathfrak{K}/\mu) + \langle q_2, j\rangle_\mathfrak{K}
 \end{align*}
 \end{theorem}
 \begin{proof}
@@ -666,14 +666,14 @@ Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vekt
 \\
 Die resultierende Lagrangefunktion ist gegeben durch 
 \begin{equation}
-	L(q, v) =\frac{1}{2}(\epsilon\langle v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_\mathfrak{K}/\mu) + \langle q, j\rangle_\mathfrak{K}
+	L(q, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_\mathfrak{K}/\mu) + \langle q, j\rangle_\mathfrak{K}
 \end{equation}
 \noindent
 Das \"ubrige Vektorpotential (hier q) ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (5.2) zu einem konstanten $\xi$ korrespondieren.\\
 \\
 Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.4) bez\"uglich der Variablen $v$.
 \begin{equation}
-	H(\pi, q) = \frac{1}{2\epsilon}\langle p, p\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}}
+	H(\pi, q) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}}
 \end{equation}
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
@@ -687,21 +687,36 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mat
 	Inhalt...
 \end{proof}
 \noindent
-An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven in einem Raum von Operatoren definiert auf einem Hilbertraum.
+An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven $\hat{\pi}$ und $\hat{q}$ in einem Raum von Operatoren auf einem Hilbertraum.
 \begin{definition}
 	Sei $G$ ein planarer Graph und $r>0$ eine Kantenfunktion, dann ist der Hilbertraum unserer Theorie gegeben durch
 	\begin{equation}
-		\mathfrak{H} = L^2(\text{kern}(\text{div}_Dr^{-1})^\perp,\mathbb{C})
+		\mathfrak{H} = L^2(\mathfrak{K}(G),\mathbb{C};\lambda)
 	\end{equation}
-	Der Raum der komplexen Funktionen auf dem reelen Vektorraum\\ $\text{kern}(\text{div}_Dr^{-1})^\perp\subset \mathfrak{K}(G)$ der Quadrate ein endliches Integral \"uber den gesamten Raum haben.
+	Der Raum der komplexen Funktionen auf $\mathfrak{K}(G)$ deren Quadrate ein endliches Integral bez\"uglich dem Ma\ss{} $\lambda$\footnote{$\lambda$ wird zu einem sp\"ateren Zeitpunkt festgelegt.} hat.
 \end{definition}
 \noindent
-Zwischen den Operatoren $\pi$ und $q$ wird die kanonische Vertauschungsrelation gefordert:
+Zwischen den Operatoren $\hat{\pi}$ und $\hat{q}$ wird die kanonische Vertauschungsrelation gefordert:
 \begin{equation}
-	[\pi(e'), q(e)] = i\delta_{e, e'}
+	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
 \end{equation}
 f\"ur jede Kante $e\in E$.\\
 \\
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(e)$ und $\hat{\pi}(e)$ ist gegeben durch:
+\begin{align}
+	\hat{\pi}(e):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_e}(q))\\
+	\hat{q}(e):(q\mapsto\psi(q)) \mapsto (q\mapsto q_e\psi(q))
+\end{align}
+\noindent
+Die Ableitung $\frac{\partial}{\partial q_e}$ bezieht sich dabei auf die zweite Ableitung nach dem Wert der Kante $e\in E$ und $q_e$ ist der Kantenfunktion $q$ an der Stelle $e\in E$.
+\\
+\\
+Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(e)$ f\"ur jedes $e\in E$ in einem Potential. Die Schr\"odingergleichung l\"asst sich entsprechend schreiben als:
+\begin{equation}
+	-\sum_{e\in E}\frac{1}{2\epsilon(e)}\frac{\partial^2\psi}{\partial q_e^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})\psi = i\frac{\partial\psi}{\partial t}
+\end{equation}
+\noindent
+
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
