@@ -517,7 +517,7 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $e_0$ Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$ eine Kurve, $\mu$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$, eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$ eine Kurve, $\mu>0$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$, eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
 		\text{div}(r * \epsilon * e(t)) = q(t)\\
 		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
@@ -541,7 +541,7 @@ erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
 \noindent
 Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische Ladung und Energie. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit innernander umgewandlet werden.
 \begin{proposition}\textbf{Energieerhaltung}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
 	$$E = \sum_{a\in f} b(a)^2 /\mu(a) + \sum_{k\in E} \epsilon(k) * e(k)^2 $$
 	die \textbf{Energie} und solange der elektrische Strom $j\equiv 0$ gilt, bleibt die Energie unver\"andert. 
 \end{proposition}
@@ -557,7 +557,7 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	$$E^\prime = -2 * \langle e, r^{-1} * j\rangle_{\mathfrak{K}}$$
 \end{proof}
 \begin{proposition}\textbf{Kontinuit\"atsgesetz}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon$, $\sigma$, $e_0$ Kantenfunktionen, $\mu$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
 	$$q^\prime = - \text{div}(r*j)$$
 	Dies zeigt, dass die Gesamtladung erhalten bleibt.
 \end{proposition}
@@ -630,7 +630,7 @@ Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theori
 \\
 Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
 \begin{theorem}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
 	S(f_1, f_2) = \int_{r}^{s}W(f_1, f_2, f_1^\prime, f_2^\prime)dt
 \end{equation}
@@ -677,7 +677,7 @@ Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformatio
 \end{equation}
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
 \begin{align}
 	q^\prime = \frac{\partial H}{\partial \pi}\\
 	\pi^\prime = - \frac{\partial H}{\partial q}
@@ -711,12 +711,22 @@ Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(e)$ und $\hat{\pi}(e)$ is
 Die Ableitung $\frac{\partial}{\partial q_e}$ bezieht sich dabei auf die zweite Ableitung nach dem Wert der Kante $e\in E$ und $q_e$ ist der Kantenfunktion $q$ an der Stelle $e\in E$.
 \\
 \\
-Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(e)$ f\"ur jedes $e\in E$ in einem Potential. Die Schr\"odingergleichung l\"asst sich entsprechend schreiben als:
+Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(e)$ f\"ur jedes $e\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
 \begin{equation}
-	-\sum_{e\in E}\frac{1}{2\epsilon(e)}\frac{\partial^2\psi}{\partial q_e^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})\psi = i\frac{\partial\psi}{\partial t}
+	\hat{H}=-\sum_{e\in E}\frac{1}{2\epsilon(e)}\frac{\partial^2}{\partial q_e^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})
+\end{equation}	
+Die Schr\"odingergleichung ist dann gegeben durch:
+\begin{equation}
+	\hat{H}\psi = i\psi^\prime
 \end{equation}
 \noindent
-
+Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
+\begin{theorem}[Ehrenfest Theorem]
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung auf $G$, dann gilt:
+	\begin{equation}
+		\langle \psi, (-\hat{\pi}\psi\rangle^\prime = 
+	\end{equation}
+\end{theorem}
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
