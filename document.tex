@@ -693,27 +693,32 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 	\begin{equation}
 		\mathfrak{H} = L^2(\mathfrak{K}(G),\mathbb{C};\lambda)
 	\end{equation}
-	Der Raum der komplexen Funktionen auf $\mathfrak{K}(G)$ deren Quadrate ein endliches Integral bez\"uglich dem Ma\ss{} $\lambda$\footnote{$\lambda$ wird zu einem sp\"ateren Zeitpunkt festgelegt.} hat.
+	Der Raum der komplexen Funktionen auf $\mathfrak{K}(G)$ deren Quadrate ein endliches Integral bez\"uglich dem Ma\ss{} $\lambda$\footnote{$\lambda$ wird zu einem sp\"ateren Zeitpunkt festgelegt.} hat.\\
+	\\
+	Das Skalarprodukt auf $\mathfrak{H}$ ist dabei definiert durch:
+	\begin{equation}
+		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_\mathfrak{K} \overline{\phi}(q)\xi(x)d\lambda(x)
+	\end{equation}
 \end{definition}
 \noindent
-Zwischen den Operatoren $\hat{\pi}$ und $\hat{q}$ wird die kanonische Vertauschungsrelation gefordert:
+Zwischen den Operator Kurven $\hat{\pi}$ und $\hat{q}$ wird dann nach Heisenberg die kanonische Vertauschungsrelation gefordert:
 \begin{equation}
 	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
 \end{equation}
 f\"ur jede Kante $e\in E$.\\
 \\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(e)$ und $\hat{\pi}(e)$ ist gegeben durch:
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$ ist f\"ur jedes $k\in E$ gegeben durch:
 \begin{align}
-	\hat{\pi}(e):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_e}(q))\\
-	\hat{q}(e):(q\mapsto\psi(q)) \mapsto (q\mapsto q_e\psi(q))
+	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_k}(q))\\
+	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))
 \end{align}
 \noindent
-Die Ableitung $\frac{\partial}{\partial q_e}$ bezieht sich dabei auf die zweite Ableitung nach dem Wert der Kante $e\in E$ und $q_e$ ist der Kantenfunktion $q$ an der Stelle $e\in E$.
+Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert.
 \\
 \\
-Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(e)$ f\"ur jedes $e\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
+Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(k)$ f\"ur jedes $k\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
 \begin{equation}
-	\hat{H}=-\sum_{e\in E}\frac{1}{2\epsilon(e)}\frac{\partial^2}{\partial q_e^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})
+	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})
 \end{equation}	
 Die Schr\"odingergleichung ist dann gegeben durch:
 \begin{equation}
@@ -723,11 +728,21 @@ Die Schr\"odingergleichung ist dann gegeben durch:
 Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
 \begin{theorem}[Ehrenfest Theorem]
 	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung auf $G$, dann gilt:
-	\begin{equation}
-		\langle \psi, (-\hat{\pi}\psi\rangle^\prime = 
-	\end{equation}
+	\begin{align}
+		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,b\psi\rangle_{\mathfrak{H}})/\mu -  \langle \psi, j \psi\rangle_{\mathfrak{H}}\\
+		&\langle \psi, (\hat{b}\psi)\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
+	\end{align}
+	wobei der elektrische und magnetische Feldoperator gegeben sind durch:
+	\begin{align}
+		&\hat{e} = \frac{-\hat{\pi}}{\epsilon}\\
+		&\hat{b} = \text{div}_D(r^{-1}\hat{q})
+	\end{align}
 \end{theorem}
-
+\begin{proof}
+\end{proof}
+\noindent
+Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.\\
+Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit $\hat{j}=0$ untersucht werden.
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
