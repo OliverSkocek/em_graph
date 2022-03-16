@@ -1,4 +1,5 @@
 \documentclass[11pt,a4paper,leqno]{report}
+\usepackage{tikz-cd}
 \usepackage{tikz}
 %\usepackage[german]{babel}
 \usepackage{amsmath}
@@ -701,25 +702,25 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 	\end{equation}
 \end{definition}
 \noindent
-\paragraph{Interpretation}Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein Operator $\hat{\Omega}$ auf $\mathfrak{H}$. Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist zuf\"allig und der Mittelwert der Messungen ist gleich $\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}$.
+\paragraph{Interpretation}Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender Operator $\hat{\Omega}$ auf $\mathfrak{H}$. Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist zuf\"allig und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
 \\
 \\
-Zwischen den Operator Kurven $\hat{\pi}$ und $\hat{q}$ wird dann nach Heisenberg die kanonische Vertauschungsrelation gefordert:
+Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jede Kante $e\in E$ die kanonische Vertauschungsrelation:
 \begin{equation}
 	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
 \end{equation}
-f\"ur jede Kante $e\in E$.\\
+gefordert.\\
 \\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$ ist f\"ur jedes $k\in E$ gegeben durch:
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, die (6.10) erf\"ullt ist gegeben durch:
 \begin{align}
-	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_k}(q))\\
-	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))
+	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
+	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
 \end{align}
 \noindent
 Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert.
 \\
 \\
-Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt eine \"Aquivalenz des Problems zu einer $|E|$ Punktma\ss{}en mit Massen $r(k)$ f\"ur jedes $k\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
+Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
 \begin{equation}
 	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})
 \end{equation}	
@@ -729,11 +730,8 @@ Die Schr\"odingergleichung ist dann gegeben durch:
 \end{equation}
 \noindent
 Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
-\\
-\\
-
 \begin{theorem}[Ehrenfest Theorem]
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung auf $G$, dann gilt:
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
 	\begin{align}
 		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,b\psi\rangle_{\mathfrak{H}})/\mu -  \langle \psi, j \psi\rangle_{\mathfrak{H}}\\
 		&\langle \psi, (\hat{b}\psi)\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
@@ -747,8 +745,37 @@ Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen h
 \begin{proof}
 \end{proof}
 \noindent
-Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.\\
+Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
+\iffalse
 Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit $\hat{j}=0$ untersucht werden.
+\begin{theorem}
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann kommutiert das folgende Diagramm f\"ur jedes $\xi\in\mathfrak{E}$ und $x\in\mathfrak{K}$:\\
+	\begin{tikzcd}
+		\psi(x,t) \arrow{d}{+\Delta t}\arrow{r}{+r\text{grad}(\xi)} & \psi(x+r\text{grad}(\xi),t) \arrow{d}{+\Delta t}\\
+		\psi(x,t+\Delta t) \arrow{r}{+r\text{grad}(\xi)}& \psi(x+r\text{grad}(\xi),t+\Delta t) \\
+	\end{tikzcd}
+\end{theorem}
+\begin{proof}
+\end{proof}
+\noindent
+TODO\\
+\fi
+Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (6.14) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
+\begin{theorem}
+	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine orthogonale Abbildung $U$ auf $\mathfrak{K}$ sodass:
+	\begin{equation}
+	\hat{H}\circ U  = \sum_{j=1}^{|E|}h_j
+	\end{equation}
+	Wobei $g_j$ freie Hamiltonoperatoren sind und $h_j$ harmonische Oszillatoren, also:
+\[ \begin{cases} 
+-\frac{\partial^2}{\partial x_j^2} & j\leq |V| - 1 \\
+-\frac{\partial^2}{\partial x_j^2} + \omega_j x_j^2 & \text{sonst.} 
+\end{cases}
+\]
+\end{theorem}
+\begin{proof}
+	Inhalt...
+\end{proof}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
