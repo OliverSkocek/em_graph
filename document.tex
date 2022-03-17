@@ -639,7 +639,7 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\m
 Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
 Sie ist dabei gegeben durch:
 \begin{align*}
-	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(q_1)), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)\rangle_\mathfrak{K}/\mu) + \langle q_2, j\rangle_\mathfrak{K}
+	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(q_1)), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)/\mu\rangle_\mathfrak{K}) + \langle q_2, j\rangle_\mathfrak{K}
 \end{align*}
 \end{theorem}
 \begin{proof}
@@ -667,14 +667,14 @@ Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vekt
 \\
 Die resultierende Lagrangefunktion ist gegeben durch 
 \begin{equation}
-	L(q, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_\mathfrak{K}/\mu) + \langle q, j\rangle_\mathfrak{K}
+	L(q, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_\mathfrak{K}) + \langle q, j\rangle_\mathfrak{K}
 \end{equation}
 \noindent
 Das \"ubrige Vektorpotential (hier q) ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (5.2) zu einem konstanten $\xi$ korrespondieren.\\
 \\
 Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.4) bez\"uglich der Variablen $v$.
 \begin{equation}
-	H(\pi, q) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}}
+	H(\pi, q) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{K}} - \langle q, j\rangle_{\mathfrak{K}}
 \end{equation}
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
@@ -702,9 +702,13 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 	\end{equation}
 \end{definition}
 \noindent
-\paragraph{Interpretation}Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender Operator $\hat{\Omega}$ auf $\mathfrak{H}$. Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist zuf\"allig und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
-\\
-\\
+\paragraph{Interpretation}
+\begin{itemize}
+\item Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. 
+\item Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
+\item Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist zuf\"allig und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
+\end{itemize}
+\noindent
 Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jede Kante $e\in E$ die kanonische Vertauschungsrelation:
 \begin{equation}
 	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
@@ -722,7 +726,7 @@ Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\f
 \\
 Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
 \begin{equation}
-	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}/\mu - \langle q, j\rangle_{\mathfrak{K}})
+	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{K}} - \langle q, j\rangle_{\mathfrak{K}})
 \end{equation}	
 Die Schr\"odingergleichung ist dann gegeben durch:
 \begin{equation}
@@ -733,7 +737,7 @@ Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen h
 \begin{theorem}[Ehrenfest Theorem]
 	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
 	\begin{align}
-		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,b\psi\rangle_{\mathfrak{H}})/\mu -  \langle \psi, j \psi\rangle_{\mathfrak{H}}\\
+		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,b\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, j \psi\rangle_{\mathfrak{H}}\\
 		&\langle \psi, (\hat{b}\psi)\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
 	\end{align}
 	wobei der elektrische und magnetische Feldoperator gegeben sind durch:
@@ -762,9 +766,9 @@ TODO\\
 \fi
 Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (6.14) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine orthogonale Abbildung $U$ auf $\mathfrak{K}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (6.13) mit $\hat{j}\equiv 0 $ gilt:
+	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (6.13) mit $\hat{j}\equiv 0 $ gilt:
 	\begin{equation}
-	\hat{H}\circ U  = \sum_{j=1}^{|E|}h_j
+	\hat{U}^\dagger\hat{H}\hat{U}  = \sum_{j=1}^{|E|}h_j
 	\end{equation}
 Wobei die $h_j$ gegeben sind durch:
 \[h_j= \begin{cases} 
@@ -774,8 +778,55 @@ Wobei die $h_j$ gegeben sind durch:
 \]
 \end{theorem}
 \begin{proof}
-	Inhalt...
+	Der Hamiltonoperator l\"asst sich folgenderma\ss{}en zerlegen:
+	\begin{equation*}
+		\hat{H} = \hat{T} + \hat{V}
+	\end{equation*}
+	wobei
+	\begin{align*}
+		&\hat{T} = -\frac{1}{2}\sum_{k\in E}\frac{\partial^2}{\partial q_k^2}\\
+	    &\hat{V} = \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}
+	\end{align*}
+	Wir formen nun $\hat{V}$ um
+	\begin{align*}
+		&\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}=\\
+		&\frac{1}{2}\langle q, (-r^{-1}\text{grad}_D\text{div}_D)(r^{-1}q)\rangle_{\mathfrak{K}}=
+	\end{align*}
+	und f\"uhren einen linearen Operator $Q=-r^{-1}\text{grad}_D\text{div}_Dr^{-1}$ ein
+	\begin{align}
+		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}
+	\end{align}
+	$Q$ ist positiv semidefinit und symmetrisch. Die Dimension des Kerns von $Q$ ist nach der Helmoltz Zerlegung (3.3) gleich $|V| - 1$. Das orthogonale Komplement desselben Kerns ist entsprechend $|f| - 1$ dimensional.\footnote{Der eulersche Polyedersatz ist eine Folgerung der Helmoltz Zerlegung.}
+	Nach dem Spektralsatz linearer Operatoren auf endlich dimensionalen komplexen Vektorr\"aumen l\"asst sich $Q$ schreiben als:
+	\begin{equation*}
+		Q = U^\dagger R U
+	\end{equation*}
+	Die Diagonalmatrix $R$ is nicht-negativ und hat genau $|f| - 1$ positive Eintr\"age.\\
+	Ein wenig umformen von (6.20) liefert dann
+	\begin{align*}
+		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}=\\
+		&\frac{1}{2}\langle q, U^\dagger R U(q)\rangle_{\mathfrak{K}}=\\
+		&\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}
+	\end{align*}
+	Wir k\"onnen $U$ und $r$ so w\"ahlen, dass die ersten $|V|-1$ Eintr\"age Null sind und definieren 
+	\begin{equation*}
+		\omega_j = R_{|V|-1 + j} \text{ f\"ur }1\leq j \leq |f| - 1
+	\end{equation*}
+	Wir konstruieren nun den unit\"aren Operator $\hat{U}$. Sei $\phi\in\mathfrak{H}$ und $x\in\mathfrak{K}$
+	\begin{equation*}
+		\hat{U}(\phi)(x)=\phi(U(x))
+	\end{equation*}
+	Der Operator $\hat{U}$ ist offensichtlich invertierbar und weil $U$ unit\"ar auf $\mathfrak{K}$ ist nach dem Transformationssatz f\"ur Integrale auch unit\"ar.\\
+	F\"ur den Operator $\hat{V}$ ist die gesuchte Transformationseigenschaft (6.19) bereits erf\"ullt.
+	\begin{align*}
+		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(x)= \\
+		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(x))=\\
+		&\frac{1}{2}\langle U^\dagger U(q), R U^\dagger U(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(x))\\
+		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(x)
+	\end{align*}
+	Der Operator $\hat{T}$ ist der Laplaceoperator und somit invariant unter orthogonaler Transformation.
 \end{proof}
+Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbstadjungierten Operatoren mit bekannten Spektra.
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
