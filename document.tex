@@ -648,19 +648,29 @@ Sie ist dabei gegeben durch:
 \noindent
 Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umgewandelt.
 \begin{definition}
-	Sei $g:\mapsto\mathbb{R}$ eine konvexe Funktion auf einem Vektorraum $V$, dann ist die \textbf{Legendretransformation} $f^*$ definiert durch:
+	Sei $f:X\mapsto\mathbb{R}$ eine konvexe Funktion auf einem Skalarproduktraum $X$, dann ist die \textbf{Legendretransformation} $f^*$ definiert durch:
 	\begin{equation}
-		f^*(y) = \sup_{x\in V}(xy-f(x))
+		f^*(y) = \sup_{x\in X}(\langle x, y\rangle-f(x))
 	\end{equation}
 \end{definition}
 \noindent
 Zuvor sollte aber noch eine kleine Modifikation an der Lagrangefunktion vorgenommen werden um eine sch\"one geschlossene Darstellung der Hamiltonfunktion zu erhalten.
 \begin{proposition}
-	Sei $g:\mapsto\mathbb{R}$ eine strikt konvexe stetig differenzierbare Funktion, dann ist die Legendretransformation gegeben durch:
+	Sei $f:X\mapsto\mathbb{R}$ eine strikt konvexe stetig differenzierbare Funktion auf einem Skalarproduktraum $X$, sodass die Abbildung $x\mapsto Df(x)$ invertierbar ist, dann ist die Legendretransformation gegeben durch:
 	\begin{equation}
-		f^*(y) = f((\frac{\partial L}{\partial x})^{-1}(y))
+		f^*(y) = \langle (Df)^{-1}(y), y\rangle-f((Df)^{-1}(y))
 	\end{equation}
 \end{proposition}
+\begin{proof}
+Die Funktion $g_y(x)=\langle x, y\rangle-f(x)$ ist streng konkav und hat daher ein eindeutiges Maximum $x_0\in X$.
+\begin{equation*}
+	Dg_y(x_0) = y - Df(x_0)=0\Rightarrow x_0 = (Df)^{-1}(y)
+\end{equation*}
+Eingesetzt in $g_y$ erhalten wir dann
+\begin{equation*}
+	f^*(y)=g_y(x_0) = \langle (Df)^{-1}(y), y\rangle-f((Df)^{-1}(y))
+\end{equation*}
+\end{proof}
 \noindent
 Um diese Darstellung ausnutzen zu k\"onnen m\"ussen wir das Skalarpotential $\phi$ aus der Lagrangefunktion entfernen.\\
 Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vektorpotentials eine Eichtransformation gibt, die diese in ein Paar umwandelt, dessen Skalarpotential gleich Null ist.\\
