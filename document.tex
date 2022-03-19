@@ -574,18 +574,38 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 \noindent
 Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.
 \begin{theorem}
-	Die Maxwellgleichungen sind eindeutig l\"osbar, solange die Anfangsbedingung (4.1) erf\"ullt sind.
+	Die Maxwellgleichungen sind eindeutig l\"osbar, solange die Anfangsbedingung (4.1) erf\"ullt ist.
 \end{theorem}
 \begin{proof}
 \end{proof}
 \chapter{Potentialformulierung der Maxwellgleichungen}
 Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen auf planaren Graphen \"uber Potentiale ausdr\"ucken. 
 \begin{definition}
-Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kurve $a\in C^1(\mathbb{R}, \mathfrak{K})$ ein Vektorpotential und eine Kurve $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ ein Skalarpotential falls f\"ur alle $t\in\mathbb{R}$
+Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kurve $a\in C^1(\mathbb{R}, \mathfrak{K})$ ein Vektorpotential und eine Kurve $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ ein Skalarpotential.\\
+\\
+Sei weiters $r>0$ eine Kantenfunktio auf $G$, dann definieren wir eine Transformation $T$,
+die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, durch
 	\begin{align}
-		b(t) = \text{div}_D(r^{-1}a(t)) \\
-		e(t) = -a^\prime(t) - r\text{grad}(\phi(t))
+		\left(
+		\begin{array}{c}
+		b(t)\\
+		e(t)
+		\end{array}
+		\right)=
+		T(\left(
+		\begin{array}{c}
+		\phi(t)\\
+		a(t)
+		\end{array}
+		\right))=
+		\left(
+		\begin{array}{c}
+		\text{div}_D(r^{-1}a(t))\\
+		-a^\prime(t) - r\text{grad}(\phi(t))
+		\end{array}
+		\right)
 	\end{align}
+ f\"ur alle $t\in\mathbb{R}$. 
 \end{definition}
 \noindent
 Es ist hierbei zu bedenken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind. Dies scheint auf den ersten Blick eine Einschr\"ankung zu sein, aber eine kurze Betrachtung der Maxwellgleichungen zeigt uns, dass der konstante Anteil des Magnetfeldes keine Auswirkung auf das elektrische Feld hat, solange $\mu$ konstant ist. Viel wichtiger noch findet die einzige \"Anderung des Magnetfeldes, die unter G\"ultigkeit der Maxwellgleichungen passieren darf im orthogonalen Komplement der konstanten Fl\"achenfunktionen statt.\\
@@ -594,7 +614,9 @@ f\"ur jeden Zeitpunkt $t\in\mathbb{R}$ orthogonal zu den konstanten Fl\"achenfun
 $$b(t)\in \mathbb{R}^\perp$$
 Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
 \\
-Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. Die Definition des Magnetfeldes (5.1) abgeleitet ergibt durch Einsetzen von (5.2) sofort das Faradaysche Gesetz. Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
+Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. 
+Die Definition des Magnetfeldes in (5.1) abgeleitet ergibt durch Einsetzen der Definition des elektrischen Feldes sofort das Faradaysche Gesetz. 
+Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
 \begin{equation}
 r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prime} + r\text{grad}(\phi^\prime)) - j(t)
 \end{equation}
@@ -604,22 +626,32 @@ Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in
 \\
 Die Charakterisierung des Kerns dieser Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
 \begin{definition}
-	Seien $\phi$ und $a$ Potentiale wie in Definition 5.1, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation definiert durch
-	\begin{align}
-	\hat{\phi} = \phi - \xi^\prime\\
-	\hat{a} = a + r\text{grad}(\xi) 
-	\end{align}
+	Seien $\phi$ und $a$ Potentiale wie in Definition 5.1, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
+\begin{equation}
+\gamma_\xi(\left(
+\begin{array}{c}\phi\\
+a
+\end{array}\right))=
+\left(
+\begin{array}{c}\phi - \xi^\prime\\
+a + r\text{grad}(\xi) 
+\end{array}\right)
+\end{equation}
 	die zu $\xi$ geh\"orende \textbf{Eichtransformation}.
 \end{definition}
 \noindent
 Die Potentiale werden immer genau bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.
 \begin{proposition}
-	Sei $T$ die Operation aus Definition 5.1, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
+	Sei $T$ die lineare Operation aus Definition 5.1, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
 	\begin{equation}
-		\text{kern}(T)=\{(-\xi^\prime, r\text{grad}(\xi))| \xi\in C^1(\mathbb{R},\mathfrak{E})\}
+	\text{kern}(T)=\{\left(
+	\begin{array}{c}-\xi^\prime\\
+	r\text{grad}(\xi)
+	\end{array}\right)| \xi\in C^1(\mathbb{R},\mathfrak{E})\}
 	\end{equation}
 \end{proposition}
 \begin{proof}
+($\supset$)\\
 
 \end{proof}
 
@@ -631,7 +663,7 @@ Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theori
 \\
 Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
 \begin{theorem}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.2), genau dann wenn alle Richtungsableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
 	S(f_1, f_2) = \int_{r}^{s}W(f_1, f_2, f_1^\prime, f_2^\prime)dt
 \end{equation}
@@ -688,7 +720,7 @@ Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformatio
 \end{equation}
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.3), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.2), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
 \begin{align}
 	q^\prime = \frac{\partial H}{\partial \pi}\\
 	\pi^\prime = - \frac{\partial H}{\partial q}
