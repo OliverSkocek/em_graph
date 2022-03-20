@@ -624,7 +624,7 @@ Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gl
 \\
 Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in Felder um wandelt nicht injektiv ist.\\
 \\
-Die Charakterisierung des Kerns dieser Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
+Die Charakterisierung des Kerns dieser linearen Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
 \begin{definition}
 	Seien $\phi$ und $a$ Potentiale wie in Definition 5.1, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
 \begin{equation}
@@ -651,10 +651,43 @@ Die Potentiale werden immer genau bis auf eine Eichtransformation eindeutig durc
 	\end{equation}
 \end{proposition}
 \begin{proof}
-($\supset$)\\
-
+Wir starten mit der Inklusion $(\supset)$
+Sei $(\phi, a)\in \text{kern}(T)$, dann gilt f\"ur alle $t\in\mathbb{R}$
+\begin{equation*}
+	0 = \text{div}_D(r^{-1}a(t))
+\end{equation*} 
+Wir wissen wegen dem de'Rham Komplex Theorem, und weil $r>0$ ist, dass es eine  $\chi:img(\text{grad})\mapsto \mathbb{R}^\perp$ gibt, sodass gilt:
+\begin{equation*}
+	x = \text{grad}(\chi(x)) \text{ f\"ur  alle }x\in\mathfrak{K}(G)
+\end{equation*}
+Daher k\"onnen wir f\"ur alle $t\in\mathbb{R}$ definieren 
+\begin{equation*}
+\xi(t) = \chi(r^{-1}a(t))
+\end{equation*} sodass gilt
+\begin{equation*}
+	a=r\text{grad}(\xi)
+\end{equation*} und $\xi\in C^1(\mathbb{R},\mathfrak{E})$.\\
+Wir setzen den so gewonnenen Ausdruck f\"ur $a$ nun ein in
+\begin{equation*}
+	0=-a^\prime(t) - r\text{grad}(\phi(t))
+\end{equation*} 
+und erhalten f\"ur alle $t\in\mathbb{R}$
+\begin{equation*}
+0=\text{grad}(\xi^\prime(t))+\text{grad}(\phi(t))
+\end{equation*} 
+Somit gilt die Gleichheit modulo einer Konstante $c$
+\begin{equation*}
+\phi(t)=-\xi^\prime(t) +c
+\end{equation*}
+Die Konstante $c$ kann man weil sie im Kern des Gradienten liegt in $\xi$ einziehen.
+\begin{equation*}
+	\xi(t) = \chi(r^{-1}a(t)) -c*t
+\end{equation*}
+\noindent
+Die andere Inklusion $(\subset)$ wird gezeigt indem man den Ausdruck in der Mengendefinition (5.4) in $T$ eingesetzt wird.
 \end{proof}
-
+\noindent
+Hiermit wurden die wichtigsten Aspekte der Potentialdarstellung vorgestellt. Dies ist eine Grundvoraussetzung f\"ur die Quantisierung der Maxwellgleichungen.
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
 Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
 Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
