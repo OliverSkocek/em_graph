@@ -799,14 +799,18 @@ Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, d
 Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert.
 \\
 \\
-Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. Der Hamiltonoperator des elektromagnetischen Feldes auf dem planaren Graphen $G$ l\"asst sich daher schreiben als:
-\begin{equation}
+Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
+\begin{definition}
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der der Hamiltonoperator des elektromagnetischen Feldes gegeben durch:
+	\begin{equation}
 	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{K}} - \langle q, j\rangle_{\mathfrak{K}})
-\end{equation}	
-Die Schr\"odingergleichung ist dann gegeben durch:
+	\end{equation}
+	Sei weiters $\psi\in C^1(\mathbb{R},\mathfrak{H})$, dann nennt man $\psi$ eine L\"osung der
+\textbf{Schr\"odinger-gleichung} falls:
 \begin{equation}
-	\hat{H}\psi = i\psi^\prime
+\hat{H}\psi = i\psi^\prime
 \end{equation}
+\end{definition}
 \noindent
 Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
 \begin{theorem}[Ehrenfest Theorem]
@@ -822,6 +826,17 @@ Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen h
 	\end{align}
 \end{theorem}
 \begin{proof}
+	
+\begin{align*}
+	\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =
+\end{align*}
+
+	
+	
+	
+	
+	
+	
 \end{proof}
 \noindent
 Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
