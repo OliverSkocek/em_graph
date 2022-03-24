@@ -914,19 +914,21 @@ Wobei die $h_j$ gegeben sind durch:
 	\begin{equation*}
 		\omega_j = R_{|V|-1 + j} \text{ f\"ur }1\leq j \leq |f| - 1
 	\end{equation*}
-	Wir konstruieren nun den unit\"aren Operator $\hat{U}$. Sei $\phi\in\mathfrak{H}$ und $x\in\mathfrak{K}$
+	Wir konstruieren nun den unit\"aren Operator $\hat{U}$. Sei $\phi\in\mathfrak{H}$ und $q\in\mathfrak{K}$
 	\begin{equation*}
-		\hat{U}(\phi)(x)=\phi(U(x))
+		\hat{U}(\phi)(q)=\phi(U(q))
 	\end{equation*}
+	Der Operator $\hat{T}$ ist der Laplaceoperator und somit invariant unter orthogonaler Transformation.\\
+	\\
 	Der Operator $\hat{U}$ ist offensichtlich invertierbar und weil $U$ unit\"ar auf $\mathfrak{K}$ ist nach dem Transformationssatz f\"ur Integrale auch unit\"ar.\\
-	F\"ur den Operator $\hat{V}$ ist die gesuchte Transformationseigenschaft (6.19) bereits erf\"ullt.
+	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (6.19) durch einige wenige Umformungen gezeigt werden.
 	\begin{align*}
-		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(x)= \\
-		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(x))=\\
-		&\frac{1}{2}\langle U^\dagger U(q), R U^\dagger U(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(x))\\
-		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(x)
+		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \\
+		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
+		&\frac{1}{2}\langle U^\dagger U(q), R U^\dagger U(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(q))\\
+		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(q)
 	\end{align*}
-	Der Operator $\hat{T}$ ist der Laplaceoperator und somit invariant unter orthogonaler Transformation.
+
 \end{proof}
 \noindent
 Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbstadjungierten Operatoren mit bekannten Spektra.
