@@ -708,7 +708,7 @@ Sie ist dabei gegeben durch:
 \end{align*}
 \end{theorem}
 \begin{proof}
-
+Siehe beliebiges Fachbuch zur theoretischen Physik.
 \end{proof}
 \noindent
 Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umgewandelt.
@@ -760,7 +760,7 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\m
 \end{align}
 \end{proposition}
 \begin{proof}
-	Inhalt...
+	Siehe beliebiges Fachbuch zur theoretischen Physik.
 \end{proof}
 \noindent
 An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven $\hat{\pi}$ und $\hat{q}$ in einem Raum von Operatoren auf einem Hilbertraum.
@@ -792,7 +792,7 @@ gefordert.\\
 \\
 Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, die (6.10) erf\"ullt ist gegeben durch:
 \begin{align}
-	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
+	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto -i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
 	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
 \end{align}
 \noindent
@@ -803,7 +803,7 @@ Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der der Hamiltonoperator des elektromagnetischen Feldes gegeben durch:
 	\begin{equation}
-	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{K}} - \langle q, j\rangle_{\mathfrak{K}})
+	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + (\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{K}} - \langle q, \hat{j}\rangle_{\mathfrak{K}})
 	\end{equation}
 	Sei weiters $\psi\in C^1(\mathbb{R},\mathfrak{H})$, dann nennt man $\psi$ eine L\"osung der
 \textbf{Schr\"odinger-gleichung} falls:
@@ -826,17 +826,29 @@ Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen h
 	\end{align}
 \end{theorem}
 \begin{proof}
-	
+Wir starten mit der linken Seite von (6.15), wenden die Produktregel der Differentiation an und formen um:
 \begin{align*}
-	\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =
+	&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime = -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime=\\
+	&-(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}})=\\
+	&\langle i\hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}i\hat{H}\psi\rangle_{\mathfrak{H}})=\\
+	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
+	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{H}\hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
+	&-r^{-1} \text{grad}_D(\langle\psi,\text{div}_D(r^{-1}\hat{q})\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
+	&-r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}
 \end{align*}
-
-	
-	
-	
-	
-	
-	
+Nun zeigen wir (6.16) indem wir ausgehend von (6.18) die Formel
+	\begin{align}
+\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = \text{div}_D(r^{-1}\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime)
+\end{align}
+ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck $\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um
+	\begin{align*}
+	&\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime= (\langle \psi^\prime, \hat{q}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{q}\psi^\prime\rangle_{\mathfrak{H}})=\\
+	&i(\langle \psi, \hat{H}\hat{q}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{q}\hat{H}\psi\rangle_{\mathfrak{H}})=\\
+	&i\langle \psi, [\hat{H},\hat{q}]\psi\rangle_{\mathfrak{H}}=i\langle \psi, [\frac{1}{2\epsilon}\hat{\pi}^2,\hat{q}]\psi\rangle_{\mathfrak{H}}\\
+	&\langle \psi, \frac{\hat{\pi}}{\epsilon}\psi\rangle_{\mathfrak{H}}=-\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}
+\end{align*}		
+Am Ende haben wir hier die kanonischen Vertauschungsrelationen und die Rechenregeln des Kommutators verwendet.
+Wir setzen den erhaltenen Ausdruck nun in (6.19) ein und erhalten das gesuchte Resultat.
 \end{proof}
 \noindent
 Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
