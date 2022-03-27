@@ -543,7 +543,9 @@ erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
 Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische Ladung und Energie. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit innernander umgewandlet werden.
 \begin{proposition}\textbf{Energieerhaltung}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
-	$$E = \sum_{a\in f} b(a)^2 /\mu(a) + \sum_{k\in E} \epsilon(k) * e(k)^2 $$
+	\begin{equation}
+	E = \frac{1}{2}(\sum_{a\in f} b(a)^2 /\mu(a) + \sum_{k\in E} \epsilon(k) * e(k)^2)
+	\end{equation}
 	die \textbf{Energie} und solange der elektrische Strom $j\equiv 0$ gilt, bleibt die Energie unver\"andert. 
 \end{proposition}
 \begin{proof}
@@ -555,7 +557,7 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	$$-\sum_{k\in E} 2 * e(k) * (r^{-1} * \text{grad}_D(\mu * b) + j) (k)=-2 * \langle e, (r^{-1} * \text{grad}_D(\mu * b) + j) \rangle_{\mathfrak{K}}=$$
 	$$2 * (\langle \text{div}_D(r^{-1} * e), b /\mu\rangle_{\mathfrak{F}} - \langle e, r^{-1} * j\rangle_{\mathfrak{K}})$$
 	Fassen wir zusammen:
-	$$E^\prime = -2 * \langle e, r^{-1} * j\rangle_{\mathfrak{K}}$$
+	$$E^\prime = -\langle e, r^{-1} * j\rangle_{\mathfrak{K}}$$
 \end{proof}
 \begin{proposition}\textbf{Kontinuit\"atsgesetz}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
@@ -932,7 +934,10 @@ Wobei die $h_j$ gegeben sind durch:
 
 \end{proof}
 \noindent
-Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbstadjungierten Operatoren mit bekannten Spektra.
+Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbstadjungierten Operatoren mit bekannten Spektra. Widmen wir uns nun einer detailierteren Analyse des gefundenen Spektrums.
+
+\chapter{Zweite Quantisierung der Maxwellgleichungen}
+Das elektromagnetische Feld tauscht Energie in Quanten oder festen Portionen mit der Materie aus. Die Energieportionen nennt man Photonen und die Energie $E$ eines Photons ist proportional zu seiner Frequenz $\nu$. Diese Eigentschaft der Quantentheorie des elektromagnetischen Feldes spiegelt sich noch nicht in unserer Beschreibung wieder. Wir m\"ussen ausgehend 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
