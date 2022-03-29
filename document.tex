@@ -939,9 +939,28 @@ Wobei die $h_j$ gegeben sind durch:
 Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbst-adjungierten Operatoren mit bekannten Spektra. 
 
 \chapter{Zweite Quantisierung des elektromagnetischen Feldes}
-Das elektromagnetische Feld tauscht Energie in Quanten oder festen Portionen mit der Materie aus. Die Energieportionen nennt man Photonen und die Energie $E$ eines Photons ist proportional zu seiner Frequenz $\nu$. Diese Eigenschaft der Quantentheorie des elektromagnetischen Feldes spiegelt sich noch nicht in unserer Beschreibung wieder.\\
+Das elektromagnetische Feld tauscht Energie mit Materie in Quanten also festen Portionen aus. Diese Portionen nennt man Photonen und die Energie $E$ eines Photons ist proportional zu seiner Frequenz $\nu$. Diese Eigenschaft der Quantentheorie des elektromagnetischen Feldes spiegelt sich noch nicht in unserer Beschreibung wieder.\\
 \\
-
+Unsere bisheriges Modell beschreibt ein einzelnes Photon. Wir erweitern es nun zu einem Multi-Photonen-Modell.
+\begin{definition}
+	Sei $\mathfrak{H}$ der Ein-Photonen-Hilbertraum aus Definition (6.3), dann definieren wir den symmetrischen Tensorprodukt-Raum rekursiv als
+	\begin{align}
+		&\mathfrak{H}^0 = \mathbb{C}\\
+		&\mathfrak{H}^n = S(\mathfrak{H}^{n-1}\otimes\mathfrak{H})
+	\end{align}
+	wobei f\"ur jedes $m\geq 1$ und jedes $\phi\in\mathfrak{H}^m$ $S$ definiert ist durch \begin{equation}
+		S(\phi)(x_1,\dots,x_m)=
+		\frac{1}{N!}\sum_{\sigma\in\text{Aut}([m])}\phi(x_{\sigma(1)},\dots,x_{\sigma(m)})
+	\end{equation}
+	Der \textbf{Fockraum} ist dann definiert als die direkte Summe der symmetrischen Tensorprodukte
+	\begin{equation}
+		F(\mathfrak{H})=\oplus_{j\geq 0}\mathfrak{H}^j
+	\end{equation}
+	Der Fockraum ist der Raum der Zust\"ande mit beliebiger Teilchenanzahl.
+\end{definition}
+\noindent
+Der Raum der symmetrischen Tensorprodukte wird gew\"ahlt, da Photonen ununterscheidbar sind und daher kein Zustand existieren kann indem ein Photon ausgezeichnet ist.\\
+\\
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
