@@ -583,10 +583,8 @@ Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialglei
 \chapter{Potentialformulierung der Maxwellgleichungen}
 Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen auf planaren Graphen \"uber Potentiale ausdr\"ucken. 
 \begin{definition}
-Sei $G$ ein planarer Graph mit Orientierung dann nennt man eine Kurve $a\in C^1(\mathbb{R}, \mathfrak{K})$ ein Vektorpotential und eine Kurve $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ ein Skalarpotential.\\
-\\
-Sei weiters $r>0$ eine Kantenfunktio auf $G$, dann definieren wir eine Transformation $T$,
-die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, durch
+Sei $G$ ein planarer Graph mit Orientierung und $r>0$ eine Kantenfunktion auf $G$, dann definieren wir eine Transformation $T$,
+die Kurven $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, durch
 	\begin{align}
 		\left(
 		\begin{array}{c}
@@ -607,7 +605,7 @@ die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\
 		\end{array}
 		\right)
 	\end{align}
- f\"ur alle $t\in\mathbb{R}$. 
+ f\"ur alle $t\in\mathbb{R}$. Die Kurven $\phi$ und $a$ nennt man Potentiale, ersteres ist das Skalarpotential und letzteres das Vektorpotential.
 \end{definition}
 \noindent
 Es ist hierbei zu bedenken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind. Dies scheint auf den ersten Blick eine Einschr\"ankung zu sein, aber eine kurze Betrachtung der Maxwellgleichungen zeigt uns, dass der konstante Anteil des Magnetfeldes keine Auswirkung auf das elektrische Feld hat, solange $\mu$ konstant ist. Viel wichtiger noch findet die einzige \"Anderung des Magnetfeldes, die unter G\"ultigkeit der Maxwellgleichungen passieren darf im orthogonalen Komplement der konstanten Fl\"achenfunktionen statt.\\
@@ -943,6 +941,9 @@ Daraus folgt direkt die Existenz und Eindeutigkeit von L\"osungen mit beliebigen
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung.
 \end{theorem}
+\begin{proof}
+	Mit Hilfe eines Produktansatzes l\"asst sich die Schr\"odingergleichung des freien elektromagnetischen Feldes in $|V|-1$ eindimensionale freie und $|f|-1$ eindimensionale Schr\"dingergleichungen des harmonischen Oszillators zerlegen......
+\end{proof}
 \chapter{Zweite Quantisierung des elektromagnetischen Feldes}
 Das elektromagnetische Feld tauscht Energie mit Materie in Quanten also festen Portionen aus. Diese Portionen nennt man Photonen und die Energie $E$ eines Photons ist proportional zu seiner Frequenz $\nu$. Diese Eigenschaft der Quantentheorie des elektromagnetischen Feldes spiegelt sich noch nicht in unserer Beschreibung wieder.\\
 \\
@@ -968,7 +969,18 @@ Der Raum der symmetrischen Tensorprodukte wird gew\"ahlt, da Photonen ununtersch
 \\
 Einen Zustand mit Null Teilchen nennt man Vakuumzustand.\\
 \\
-\chapter{Die Klein-Gordongleichung und ihr Eichfeld}
+Als n\"achstes betrachten wir die Konsequenzen einer Mehrphotonendarstellung auf die messbaren Eigenschaften des elektromagnetischen Feldes.
+\paragraph{Forderungen}: 
+\begin{itemize}
+	\item Sei $\psi\in \mathfrak{H}^n$ ein Zustand mit $n\geq 0$ Photonen, dann ist das gemessene elektromagnetische Feld gegeben als die Summe der Felder der einzelnen Photonen.\\
+	\item Die Gesamtenergie des elektromagnetischen Feldes ist ebenso die Summe der Energien der einzelnen Photonen.
+\end{itemize}
+Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators auf dem Fockraum.
+\begin{definition}
+Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
+\end{definition} 
+\chapter{Die Klein-Gordongleichung}
+Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$. 
 \chapter{Quantisierung der Klein-Gordongleichung}
 \chapter{Quantenelektrodynamik des planaren Graphen}
 \chapter*{Abschluss}
@@ -976,4 +988,8 @@ Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich 
 \\
 Es war sehr sch\"on, es hat mich sehr gefreut!
 \end{document}
+
+
+Comparatoren exp(ix)
+Eichgradient
 
