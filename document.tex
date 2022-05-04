@@ -820,7 +820,7 @@ Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen h
 	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
 	\begin{align}
 		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
-		&\langle \psi, (\hat{b}\psi)\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
+		&\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
 	\end{align}
 	wobei der elektrische und magnetische Feldoperator gegeben sind durch:
 	\begin{align}
@@ -979,19 +979,20 @@ Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators a
 \begin{definition}
 Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
 \end{definition} 
+\iffalse
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \begin{definition}
-	Sei $G$ ein planarer Graph $m>0$ und $\Phi_0$ sowie $v_0$ Kurven von Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{R})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph $m>0$ und $\Phi_0$ sowie $v_0$ Kurven von komplexen Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
-		\Phi^{\prime \prime} - \Delta_1^(\Phi))+ m \Phi = 0
+		\Phi^{\prime \prime} - \Delta_1\Phi+ m \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
 	&\Phi(0)=\Phi_0\\
-	&\Phi^\wedge(0)=v_0
+	&\Phi^\prime(0)=v_0
 \end{align}
 erf\"ullt ist.
 \end{definition}
@@ -999,8 +1000,31 @@ erf\"ullt ist.
 Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form eine Lorentz invariante Feldgleichung f\"ur Materie anzuschreiben.\\
 \\
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
+\begin{proposition}
+	Sei $G$ ein planarer Graph $m>0$ und $Phi$ eine L\"sung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	\begin{equation}
+		q^\prime + \text{div}(j) = 0 
+	\end{equation}
+	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
+	\begin{align}
+		&q = \frac{i}{2m}(\overline{\Phi}\Phi^\prime - \Phi\overline{\Phi^\prime})\\
+		&j = \frac{i}{2m}(\overline{\Phi}\text{grad}(\Phi) - \Phi\text{grad}(\overline{\Phi}))
+	\end{align}
+\end{proposition}
+\begin{proof}
+	Inhalt...
+\end{proof}
+\noindent
+Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ einem Potential entspricht.
+\\
+\\
+Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir fordern,
+\begin{definition}
+	
+\end{definition}
 \chapter{Quantisierung der Klein-Gordongleichung}
 \chapter{Quantenelektrodynamik des planaren Graphen}
+\fi
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
