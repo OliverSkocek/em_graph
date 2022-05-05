@@ -513,7 +513,7 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \begin{proof}
 	Eine Anwendung des de'Rham Komplexes und etwas elementare lineare Algebra liefert:
 	$$\mathfrak{K}(G) = \text{kern}(\text{div}_D)\bigoplus\text{kern}(\text{div}_D)^\perp = \text{im}(\text{grad})\bigoplus\text{kern}(\text{div}_D)^\perp$$	
-	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{im}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und$\text{im}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{kern}(\text{div}_D)^\perp$ ist.
+	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{im}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{im}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und  $\text{kern}(\text{div}_D)^\perp$ ist.
 \end{proof}
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
@@ -979,7 +979,6 @@ Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators a
 \begin{definition}
 Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
 \end{definition} 
-\iffalse
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
@@ -1007,12 +1006,29 @@ Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensg
 	\end{equation}
 	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
 	\begin{align}
-		&q = \frac{i}{2m}(\overline{\Phi}\Phi^\prime - \Phi\overline{\Phi^\prime})\\
-		&j = \frac{i}{2m}(\overline{\Phi}\text{grad}(\Phi) - \Phi\text{grad}(\overline{\Phi}))
+		&q = \Im(\overline{\Phi}\Phi^\prime)\\
+		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta_1(\Phi))
 	\end{align}
 \end{proposition}
 \begin{proof}
-	Inhalt...
+Starten mir bei der linken Seite von (8.4)
+\begin{align*}
+	&q^\prime = (\Im(\overline{\Phi}\Phi^\prime))^\prime=(\frac{\overline{\Phi}\Phi^\prime - \Phi\overline{\Phi}^\prime}{2})^\prime=\\
+	&\frac{1}{2}((\overline{\Phi^\prime}\Phi^\prime + \overline{\Phi}\Phi^{\prime\prime})-(\Phi^\prime\overline{\Phi}^\prime+\Phi\overline{\Phi}^{\prime\prime}))=\\
+	&\frac{1}{2}(\overline{\Phi}\Phi^{\prime\prime}-\Phi\overline{\Phi}^{\prime\prime})=
+	\frac{1}{2}(\overline{\Phi}(\Delta_1\Phi - m \Phi)-\Phi\overline{(\Delta_1\Phi - m \Phi)})=\\
+	&\frac{1}{2}(\overline{\Phi}\Delta_1\Phi-\Phi\Delta_1\overline{\Phi})
+\end{align*}
+Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(e)=a(e)+ib(e)$ f\"ur alle $e\in E$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Realteil
+\begin{equation*}
+	\sum_{e\in E} \Re(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} a(e)\Delta_1a(e) + b(e)\Delta_1b(e)=\sum_{e\in E} \Re(\Phi\Delta_1\overline{\Phi})
+\end{equation*}
+und f\"ur den Imagin\"arteil
+\begin{align*}
+	&\sum_{e\in E} \Im(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} a(e)\Delta_1b(e) - b(e)\Delta_1a(e)=\\
+	&\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=-\langle \text{grad}(a),\text{grad}(b)\rangle_{\mathfrak{E}}+\langle \text{grad}(b) ,\text{grad}(a)\rangle_{\mathfrak{E}}=\\
+	&\sum_{e\in E} \Im(\Phi\Delta_1\overline{\Phi})
+\end{align*}
 \end{proof}
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ einem Potential entspricht.
@@ -1024,7 +1040,7 @@ Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die s
 \end{definition}
 \chapter{Quantisierung der Klein-Gordongleichung}
 \chapter{Quantenelektrodynamik des planaren Graphen}
-\fi
+
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
