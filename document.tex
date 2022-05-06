@@ -1017,18 +1017,17 @@ Starten mir bei der linken Seite von (8.4)
 	&\frac{1}{2}((\overline{\Phi^\prime}\Phi^\prime + \overline{\Phi}\Phi^{\prime\prime})-(\Phi^\prime\overline{\Phi}^\prime+\Phi\overline{\Phi}^{\prime\prime}))=\\
 	&\frac{1}{2}(\overline{\Phi}\Phi^{\prime\prime}-\Phi\overline{\Phi}^{\prime\prime})=
 	\frac{1}{2}(\overline{\Phi}(\Delta_1\Phi - m \Phi)-\Phi\overline{(\Delta_1\Phi - m \Phi)})=\\
-	&\frac{1}{2}(\overline{\Phi}\Delta_1\Phi-\Phi\Delta_1\overline{\Phi})
+	&\frac{1}{2}(\overline{\Phi}\Delta_1\Phi-\Phi\Delta_1\overline{\Phi})=\Im(\overline{\Phi}\Delta_1(\Phi))
 \end{align*}
-Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(e)=a(e)+ib(e)$ f\"ur alle $e\in E$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Realteil
-\begin{equation*}
-	\sum_{e\in E} \Re(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} a(e)\Delta_1a(e) + b(e)\Delta_1b(e)=\sum_{e\in E} \Re(\Phi\Delta_1\overline{\Phi})
-\end{equation*}
-und f\"ur den Imagin\"arteil
+Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(e)=a(e)+ib(e)$ f\"ur alle $e\in E$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
 \begin{align*}
-	&\sum_{e\in E} \Im(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} a(e)\Delta_1b(e) - b(e)\Delta_1a(e)=\\
-	&\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=-\langle \text{grad}(a),\text{grad}(b)\rangle_{\mathfrak{E}}+\langle \text{grad}(b) ,\text{grad}(a)\rangle_{\mathfrak{E}}=\\
-	&\sum_{e\in E} \Im(\Phi\Delta_1\overline{\Phi})
+	&\sum_{e\in E} \Im(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} (a(e)\Delta_1b(e) - b(e)\Delta_1a(e))=\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=\\
+	&-\langle \text{grad}(a),\text{grad}(b)\rangle_{\mathfrak{E}}+\langle \text{grad}(b) ,\text{grad}(a)\rangle_{\mathfrak{E}}=0
 \end{align*}
+Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweiter werden kann, was uns zum gesuchten Resultat f\"uhrt.
+\begin{equation*}
+	q^\prime =\Im(\overline{\Phi}\Delta_1(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}\Delta_1(\Phi))))
+\end{equation*}
 \end{proof}
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ einem Potential entspricht.
