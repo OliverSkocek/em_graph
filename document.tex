@@ -988,7 +988,7 @@ Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des e
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \begin{definition}
-	Sei $G$ ein planarer Graph $m>0$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
 		\Phi^{\prime \prime} - \Delta_1\Phi+ m \Phi = 0
 	\end{equation}
@@ -1023,9 +1023,9 @@ Starten mir bei der linken Seite von (8.4)
 	\frac{1}{2}(\overline{\Phi}(\Delta_1\Phi - m \Phi)-\Phi\overline{(\Delta_1\Phi - m \Phi)})=\\
 	&\frac{1}{2}(\overline{\Phi}\Delta_1\Phi-\Phi\Delta_1\overline{\Phi})=\Im(\overline{\Phi}\Delta_1(\Phi))
 \end{align*}
-Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(e)=a(e)+ib(e)$ f\"ur alle $e\in E$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
+Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(v)=a(v)+ib(v)$ f\"ur alle $v\in V$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
 \begin{align*}
-	&\sum_{e\in E} \Im(\overline{\Phi}\Delta_1\Phi)=\sum_{e\in E} (a(e)\Delta_1b(e) - b(e)\Delta_1a(e))=\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=\\
+	&\sum_{v\in V} \Im(\overline{\Phi}\Delta_1\Phi)(v)=\sum_{v\in V} (a(v)\Delta_1b(v) - b(v)\Delta_1 a(v))=\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=\\
 	&-\langle \text{grad}(a),\text{grad}(b)\rangle_{\mathfrak{E}}+\langle \text{grad}(b) ,\text{grad}(a)\rangle_{\mathfrak{E}}=0
 \end{align*}
 Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweiter werden kann, was uns zum gesuchten Resultat f\"uhrt.
@@ -1036,7 +1036,7 @@ Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befind
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie ist.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
+	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
 	\begin{equation}
 	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle \text{grad}(\Phi), \text{grad}(\Phi)\rangle_{\mathfrak{E}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
 	\end{equation}	
@@ -1050,17 +1050,32 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 TODO
 \end{proof}
 TODO Existenz Lösungen
+Wir kommen nun zur Quantisierung der Klein-Gordontheorie. Wie bereits bei den Maxwellgleichungen definieren wir einen Hilbertraum.
 \begin{definition}
 	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
 	\begin{equation}
-		\mathfrak{H} = L^2(\mathfrak{E}(G)^2,\mathbb{C};\lambda)
+		\mathfrak{H}(G) = L^2(\mathfrak{E}(G)^2,\mathbb{C})
 	\end{equation}
 	Der Raum der komplexen Funktionen auf $\mathfrak{E}(G)$ deren Quadrate ein endliches Integral aufweisen.\\
 	\\
-	Das Skalarprodukt auf $\mathfrak{H}$ ist dabei definiert durch:
+	Das Skalarprodukt auf $\mathfrak{H}$ f\"ur $\phi,\xi\in \mathfrak{H}$ ist hier definiert durch:
 	\begin{equation}
 		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_{\mathfrak{E}^2} \overline{\phi}(q)\xi(x)d\lambda(x)
 	\end{equation}
+\end{definition}
+\noindent
+Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns dann wie beim elektromagnetischen Feld die zugeh\"orige Schr\"odingergleichung.
+\begin{definition}
+	Sei $G$ ein planarer Graph, $m>0$ $\mathfrak{H}(G)$, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
+	\begin{equation}
+		\hat{H}=-\sum_{k\in V}\frac{1}{2}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}(\langle \text{grad}(\Phi), \text{grad}(\Phi)\rangle_{\mathfrak{E}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
+	\end{equation}
+	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
+	\begin{equation}
+		\hat{H}\psi(t) = i\psi^\prime(t)
+	\end{equation}
+	f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"ullt ist, dann nennt man $\psi$ eine L\"osung der
+	\textbf{Schr\"odingergleichung} des Klein-Gordonfeldes.
 \end{definition}
 \noindent
 \chapter{Quantenelektrodynamik des planaren Graphen}
