@@ -622,7 +622,7 @@ r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prim
 \end{equation}
 Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at.\\
 \\
-Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in Felder um wandelt nicht injektiv ist.\\
+Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in Felder umwandelt nicht injektiv ist.\\
 \\
 Die Charakterisierung des Kerns dieser linearen Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
 \begin{definition}
@@ -988,7 +988,7 @@ Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des e
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \begin{definition}
-	Sei $G$ ein planarer Graph $m>0$ und $\Phi_0$ sowie $v_0$ Kurven von komplexen Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph $m>0$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
 		\Phi^{\prime \prime} - \Delta_1\Phi+ m \Phi = 0
 	\end{equation}
@@ -1004,7 +1004,7 @@ Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form eine 
 \\
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ und $Phi$ eine L\"sung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	Sei $G$ ein planarer Graph $m>0$ und $\Phi$ eine L\"sung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
 	\begin{equation}
 		q^\prime + \text{div}(j) = 0 
 	\end{equation}
@@ -1034,16 +1034,37 @@ Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befind
 \end{equation*}
 \end{proof}
 \noindent
-Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ einem Potential entspricht.
-\\
-\\
-Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir fordern,
+Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie ist.
+\begin{proposition}
+	Sei $G$ ein planarer Graph $m>0$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
+	\begin{equation}
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle \text{grad}(\Phi), \text{grad}(\Phi)\rangle_{\mathfrak{E}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
+	\end{equation}	
+	die Hamiltonfunktion der Klein-Gordontheorie und $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
+	\begin{align}
+		\Phi^\prime = \frac{\partial H}{\partial \pi}\\
+		\pi^\prime = - \frac{\partial H}{\partial \Phi}
+	\end{align} erf\"ullt sind.
+\end{proposition}
+\begin{proof}
+TODO
+\end{proof}
+TODO Existenz Lösungen
 \begin{definition}
-	
+	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
+	\begin{equation}
+		\mathfrak{H} = L^2(\mathfrak{E}(G)^2,\mathbb{C};\lambda)
+	\end{equation}
+	Der Raum der komplexen Funktionen auf $\mathfrak{E}(G)$ deren Quadrate ein endliches Integral aufweisen.\\
+	\\
+	Das Skalarprodukt auf $\mathfrak{H}$ ist dabei definiert durch:
+	\begin{equation}
+		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_{\mathfrak{E}^2} \overline{\phi}(q)\xi(x)d\lambda(x)
+	\end{equation}
 \end{definition}
-\chapter{Quantisierung der Klein-Gordongleichung}
+\noindent
 \chapter{Quantenelektrodynamik des planaren Graphen}
-
+Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir fordern,
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
