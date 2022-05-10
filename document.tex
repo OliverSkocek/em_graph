@@ -777,7 +777,7 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 	\end{equation}
 	Der Raum der komplexen Funktionen auf $\mathfrak{K}(G)$ deren Quadrate ein endliches Integral bez\"uglich dem Ma\ss{} $\lambda$\footnote{$\lambda$ wird zu einem sp\"ateren Zeitpunkt festgelegt.} hat.\\
 	\\
-	Das Skalarprodukt auf $\mathfrak{H}$ ist dabei definiert durch:
+	Das Skalarprodukt von $\xi,\phi\in\mathfrak{H}$ ist dabei definiert durch:
 	\begin{equation}
 		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_\mathfrak{K} \overline{\phi}(q)\xi(x)d\lambda(x)
 	\end{equation}
@@ -816,7 +816,7 @@ Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses 
 \hat{H}\psi(t) = i\psi^\prime(t)
 \end{equation}
 f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"ullt ist, dann nennt man $\psi$ eine L\"osung der
-\textbf{Schr\"odingergleichung}.
+\textbf{Schr\"odingergleichung} des elektromagnetischen Feldes.
 \end{definition}
 \noindent
 Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
@@ -988,9 +988,9 @@ Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des e
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \begin{definition}
-	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
-		\Phi^{\prime \prime} - \Delta_1\Phi+ m \Phi = 0
+		\Phi^{\prime \prime} - \Delta_{r^{-2}}\Phi+ m \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
@@ -1004,14 +1004,14 @@ Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form eine 
 \\
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ und $\Phi$ eine L\"sung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion und $\Phi$ eine L\"sung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
 	\begin{equation}
 		q^\prime + \text{div}(j) = 0 
 	\end{equation}
 	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
 	\begin{align}
 		&q = \Im(\overline{\Phi}\Phi^\prime)\\
-		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta_1(\Phi))
+		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1020,25 +1020,27 @@ Starten mir bei der linken Seite von (8.4)
 	&q^\prime = (\Im(\overline{\Phi}\Phi^\prime))^\prime=(\frac{\overline{\Phi}\Phi^\prime - \Phi\overline{\Phi}^\prime}{2})^\prime=\\
 	&\frac{1}{2}((\overline{\Phi^\prime}\Phi^\prime + \overline{\Phi}\Phi^{\prime\prime})-(\Phi^\prime\overline{\Phi}^\prime+\Phi\overline{\Phi}^{\prime\prime}))=\\
 	&\frac{1}{2}(\overline{\Phi}\Phi^{\prime\prime}-\Phi\overline{\Phi}^{\prime\prime})=
-	\frac{1}{2}(\overline{\Phi}(\Delta_1\Phi - m \Phi)-\Phi\overline{(\Delta_1\Phi - m \Phi)})=\\
-	&\frac{1}{2}(\overline{\Phi}\Delta_1\Phi-\Phi\Delta_1\overline{\Phi})=\Im(\overline{\Phi}\Delta_1(\Phi))
+	\frac{1}{2}(\overline{\Phi}(\Delta_{r^{-2}}\Phi - m \Phi)-\Phi\overline{(\Delta_{r^{-2}}\Phi - m \Phi)})=\\
+	&\frac{1}{2}(\overline{\Phi}\Delta_{r^{-2}}\Phi-\Phi\Delta_{r^{-2}}\overline{\Phi})=\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))
 \end{align*}
 Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(v)=a(v)+ib(v)$ f\"ur alle $v\in V$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
 \begin{align*}
-	&\sum_{v\in V} \Im(\overline{\Phi}\Delta_1\Phi)(v)=\sum_{v\in V} (a(v)\Delta_1b(v) - b(v)\Delta_1 a(v))=\langle a,\Delta_1b\rangle_{\mathfrak{E}}-\langle b ,\Delta_1a\rangle_{\mathfrak{E}}=\\
-	&-\langle \text{grad}(a),\text{grad}(b)\rangle_{\mathfrak{E}}+\langle \text{grad}(b) ,\text{grad}(a)\rangle_{\mathfrak{E}}=0
+	&\sum_{v\in V} \Im(\overline{\Phi}\Delta_{r^{-2}}\Phi)(v)=\\
+	&\sum_{v\in V} (a(v)\Delta_{r^{-2}} b(v) - b(v)\Delta_{r^{-2}} a(v))=
+	\langle a,\Delta_{r^{-2}} b\rangle_{\mathfrak{E}}-\langle b ,\Delta_{r^{-2}} a\rangle_{\mathfrak{E}}=\\
+	&-\langle r^{-1}\text{grad}(a),r^{-1}\text{grad}(b)\rangle_{\mathfrak{E}}+\langle r^{-1}\text{grad}(b) , r^{-1}\text{grad}(a)\rangle_{\mathfrak{E}}=0
 \end{align*}
 Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweiter werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
-	q^\prime =\Im(\overline{\Phi}\Delta_1(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}\Delta_1(\Phi))))
+	q^\prime =\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))))
 \end{equation*}
 \end{proof}
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie ist.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
+	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
 	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle \text{grad}(\Phi), \text{grad}(\Phi)\rangle_{\mathfrak{E}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{E}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
 	\end{equation}	
 	die Hamiltonfunktion der Klein-Gordontheorie und $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
@@ -1050,6 +1052,7 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 TODO
 \end{proof}
 TODO Existenz Lösungen
+\\
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie. Wie bereits bei den Maxwellgleichungen definieren wir einen Hilbertraum.
 \begin{definition}
 	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
@@ -1066,9 +1069,9 @@ Wir kommen nun zur Quantisierung der Klein-Gordontheorie. Wie bereits bei den Ma
 \noindent
 Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns dann wie beim elektromagnetischen Feld die zugeh\"orige Schr\"odingergleichung.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ $\mathfrak{H}(G)$, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ eine Kantenfunktion, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}\frac{1}{2}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}(\langle \text{grad}(\Phi), \text{grad}(\Phi)\rangle_{\mathfrak{E}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
+		\hat{H}=-\sum_{k\in V}\frac{1}{2}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}(\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{E}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
 	\end{equation}
 	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
 	\begin{equation}
@@ -1078,6 +1081,9 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 	\textbf{Schr\"odingergleichung} des Klein-Gordonfeldes.
 \end{definition}
 \noindent
+\begin{theorem}
+	Sei $G$ ein planarer Graph, $r>0$ eine Kantenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
+\end{theorem}
 \chapter{Quantenelektrodynamik des planaren Graphen}
 Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir fordern,
 \chapter*{Abschluss}
