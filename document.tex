@@ -1000,7 +1000,7 @@ und die Anfangsbedingung:
 erf\"ullt ist.
 \end{definition}
 \noindent
-Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form eine Lorentz invariante Feldgleichung f\"ur Materie anzuschreiben.\\
+Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form einer Lorentz invariante Feldgleichung. Sie beschreibt ein skalares daher strukturloses Feld mit \\
 \\
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
@@ -1028,7 +1028,7 @@ Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Dive
 	&\sum_{v\in V} \Im(\overline{\Phi}\Delta_{r^{-2}}\Phi)(v)=\\
 	&\sum_{v\in V} (a(v)\Delta_{r^{-2}} b(v) - b(v)\Delta_{r^{-2}} a(v))=
 	\langle a,\Delta_{r^{-2}} b\rangle_{\mathfrak{E}}-\langle b ,\Delta_{r^{-2}} a\rangle_{\mathfrak{E}}=\\
-	&-\langle r^{-1}\text{grad}(a),r^{-1}\text{grad}(b)\rangle_{\mathfrak{E}}+\langle r^{-1}\text{grad}(b) , r^{-1}\text{grad}(a)\rangle_{\mathfrak{E}}=0
+	&-\langle r^{-1}\text{grad}(a),r^{-1}\text{grad}(b)\rangle_{\mathfrak{K}}+\langle r^{-1}\text{grad}(b) , r^{-1}\text{grad}(a)\rangle_{\mathfrak{K}}=0
 \end{align*}
 Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweiter werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
@@ -1040,7 +1040,7 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 \begin{proposition}
 	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi,\Phi\in C^1(\mathfrak{E}, \mathbb{C})$, dann nennt man
 	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{E}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E}}+\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{K}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E}})
 	\end{equation}	
 	die Hamiltonfunktion der Klein-Gordontheorie und $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
@@ -1071,7 +1071,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ eine Kantenfunktion, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}\frac{1}{2}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}(\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{E}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
+		\hat{H}=-\sum_{k\in V}\frac{1}{2}\frac{\partial^2}{\partial \Phi_k^2} + \frac{1}{2}(\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{K}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
 	\end{equation}
 	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
 	\begin{equation}
@@ -1084,8 +1084,36 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $r>0$ eine Kantenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
 \end{theorem}
+\noindent
+
 \chapter{Quantenelektrodynamik des planaren Graphen}
-Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir fordern,
+Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Felder der Quellen, also Ladung und Strom, quantenmechanisch beschreibt.\\
+\\ 
+Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir f\"ur die Lagrangefunktion $L$ der Theorie Invarianz unter folgender Transformation fordern:
+\begin{equation}
+\gamma_\xi(\left(
+\begin{array}{c}\phi\\
+	a\\
+	\Phi
+\end{array}\right))=
+\left(
+\begin{array}{c}\phi - \xi^\prime\\
+	a + r\text{grad}(\xi) \\
+	\Phi e^{ir\xi}
+\end{array}\right)
+\end{equation} 
+\begin{definition}
+	Sei $G$ ein planarer Graph, $A$ eine Kantenfunktion und $\Phi$ eine Eckfunktion, dann ist der Eichgradient definiert durch:
+	\begin{equation}
+		\text{grad}^A(\Phi)(e) = \Phi(p(e)) - \Phi(q(e))e^{iA(e)}
+	\end{equation}
+\end{definition}
+
+\begin{align*}
+	L(\phi, a, \Phi, \phi^\prime, a^\prime, \Phi^\prime) =&\frac{1}{2}(\langle \overline{\Phi^\prime}, \Phi^\prime\rangle_{\mathfrak{E}}-
+	\langle \overline{\text{grad}^A(\Phi)}, \text{grad}^A(\Phi)\rangle_{\mathfrak{K}} - m^2\langle \overline{\Phi}, \Phi\rangle_{\mathfrak{E}}+ \\
+	&\langle \epsilon(a^\prime + r\text{grad}(\phi)), a^\prime + r\text{grad}(\phi)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_\mathfrak{K})
+\end{align*}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
