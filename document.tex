@@ -984,7 +984,7 @@ Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators a
 Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
 \end{definition} 
 \chapter{Die Klein-Gordongleichung}
-Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
+Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \begin{definition}
@@ -1023,14 +1023,14 @@ Starten mir bei der linken Seite von (8.4)
 	\frac{1}{2}(\overline{\Phi}(\Delta_{r^{-2}}\Phi - m \Phi)-\Phi\overline{(\Delta_{r^{-2}}\Phi - m \Phi)})=\\
 	&\frac{1}{2}(\overline{\Phi}\Delta_{r^{-2}}\Phi-\Phi\Delta_{r^{-2}}\overline{\Phi})=\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))
 \end{align*}
-Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(v)=a(v)+ib(v)$ f\"ur alle $v\in V$ und beachte, dass $\Delta_1$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
+Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(v)=a(v)+ib(v)$ f\"ur alle $v\in V$ und beachte, dass $\Delta_{r^{-2}}$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
 \begin{align*}
 	&\sum_{v\in V} \Im(\overline{\Phi}\Delta_{r^{-2}}\Phi)(v)=\\
 	&\sum_{v\in V} (a(v)\Delta_{r^{-2}} b(v) - b(v)\Delta_{r^{-2}} a(v))=
 	\langle a,\Delta_{r^{-2}} b\rangle_{\mathfrak{E}}-\langle b ,\Delta_{r^{-2}} a\rangle_{\mathfrak{E}}=\\
 	&-\langle r^{-1}\text{grad}(a),r^{-1}\text{grad}(b)\rangle_{\mathfrak{K}}+\langle r^{-1}\text{grad}(b) , r^{-1}\text{grad}(a)\rangle_{\mathfrak{K}}=0
 \end{align*}
-Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweiter werden kann, was uns zum gesuchten Resultat f\"uhrt.
+Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
 	q^\prime =\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))))
 \end{equation*}
