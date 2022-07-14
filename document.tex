@@ -427,7 +427,7 @@ In der kontinuierlichen Theorie des Poissonproblems sind Sobolevr\"aume und die 
 \noindent
 Es wurde nun genug Vorarbeit geleistet um das zentrale Existenz Theorem dieses Kapitels zu beweisen.
 \begin{theorem}
-	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem genau dann l\"osbar wenn entweder $\partial$ nicht leer ist oder $f$ im orthogonalen Komplement der konstanten Funktionen ist.
+	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem eindeutig l\"osbar falls $\partial$ nicht leer ist. Wenn $\partial$ jedoch leer ist gibt es nur eine L\"osung wenn $f$ im orthogonalen Komplement der konstanten Funktionen liegt.
 \end{theorem}
 \begin{proof}
 	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
@@ -819,7 +819,8 @@ f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"
 \textbf{Schr\"odingergleichung} des elektromagnetischen Feldes.
 \end{definition}
 \noindent
-Es wird Zeit einen Gang runter zu schalten und zu analysieren was wir gewonnen haben. Hierzu geh\"ort es im ersten Schritt zu zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
+Widmen wir uns nun dem Korrespondenzprinzip zwischen der klassischen und quantenmechanischen Theorie.
+Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
 \begin{theorem}[Ehrenfest Theorem]
 	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
 	\begin{align}
@@ -925,15 +926,27 @@ Wobei die $h_j$ gegeben sind durch:
 	\begin{equation*}
 		\hat{U}(\phi)(q)=\phi(U(q))
 	\end{equation*}
-	Der Operator $\hat{U}$ ist offensichtlich invertierbar und weil $U$ unit\"ar auf $\mathfrak{K}$ ist nach dem Transformationssatz f\"ur Integrale auch unit\"ar.\\
+	Mit Hilfe des Transformationssatzes f\"ur Integrale kann gezeigt werden, dass der Operator $\hat{U}$ unit\"ar ist, da $U$ auf $\mathfrak{K}$ unit\"ar ist.\\
 	\\
-		Der Operator $\hat{T}$ ist der Laplaceoperator und somit invariant unter orthogonaler Transformation.\\
-	\\
+	Der Nabla-Operator vertauscht mit diesem unit\"aren Operator folgendermaßen:\\
+	Sei $\phi$ hierzu in $\mathfrak{H}$ und $x\in \mathfrak{K}$
+	\begin{align}
+		\nabla \hat{U}\phi(x)=U^T * (\nabla \phi) (U(x)) = U^T * \hat{U}(\nabla \phi) (x)
+	\end{align}
+	Der Operator $\hat{T}$ ist der Laplaceoperator und invariant unter orthogonaler Transformation.
+	\begin{align*}
+		\hat{U}^\dagger\hat{T}\hat{U} &= -\frac{1}{2}\hat{U}^\dagger\nabla^T * \nabla \hat{U}\\
+		&=-\frac{1}{2}\hat{U}^\dagger\nabla^T\hat{U} * \hat{U}^\dagger\nabla \hat{U}\\
+		&=-\frac{1}{2}(U^T*\nabla)^T*(U^T*\nabla)\\
+		&=-\frac{1}{2}(\nabla)^T*(\nabla)
+	\end{align*}
+	Man unterscheide hierbei das endlichdimensionale Produkt $*$ und dem Produkt zwischen Operatoren auf dem unendlichdimensionalen Hilbertraum $\mathfrak{H}$, sowie die entsprechende Transponierte $^T$ und Adjungierte $^\dagger$.\\  
+	\\ 
 	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (6.19) durch einige wenige Umformungen gezeigt werden.
 	\begin{align*}
 		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \\
 		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
-		&\frac{1}{2}\langle U^\dagger U(q), R U^\dagger U(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(q))\\
+		&\frac{1}{2}\langle  UU^\dagger(q), R  UU^\dagger(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(q))\\
 		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(q)
 	\end{align*}
 
@@ -942,6 +955,57 @@ Wobei die $h_j$ gegeben sind durch:
 Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), daher mit $\hat{j}\equiv 0$, zerlegen l\"asst in eine endliche Summe von selbst-adjungierten Operatoren mit bekannten Spektra.\\
 \\
 Daraus folgt direkt die Existenz und Eindeutigkeit von L\"osungen mit beliebigen Anfangsbedingungen.
+\\
+\\
+Die Transformation $U$ zerlegt den Raum der Kantenfunktionen in einen $|V| - 1$-dimensionalen Teilraum $A$ auf dem das Potential $V$ der Schr\"odingergleichung konstant ist und in sein orthogonales $|F| - 1$-dimensionales Komplement $B$. Als Konsequenz haben wir gesehen ist die Dynamik in Richtung des Raumes $A$ frei und in Richtung des Raums $B$ die eines mehrdimensionalen harmonischen Oszillators.\\
+\\
+Der harmonische Oszillator hat $|F| - 1$ reine Frequenzen/Moden in denen er schwingen kann. Jede einzelne dieser Moden kann Energie nur in ganzzahligen Vielfachen seiner Frequenz aufnehmen. Diese Moden korrespondieren zu denen sich im Raum fortpflanzenden elektromagnetischen Wellen. Der Raum $B$ ist n\"amlich genau der Raum der Wirbelfelder wie wir gleich sehen werden.
+\begin{corollary}
+	Sei $G$, $\epsilon$, $r$, $\mu$ und $\hat{U}$ wie in Theorem 6.6 und zus\"atzlich sei der Raum frei von elektrischer Ladung
+	\begin{equation}
+		\text{div}(r * \epsilon * \hat{e}) = 0
+	\end{equation}
+	dann ist die L\"osung der Schr\"dingergleichung $\psi$ entlang jeder Richtung des gerade definierten Raums $A$ konstant.
+	\begin{equation}
+		\forall x\in \mathfrak{K}:\forall y\in A: \psi(x+y)=\psi(x)
+	\end{equation}
+	Die so eingeschr\"ankte Schr\"odingergleichung hat ein reines Punktspektrum.
+\end{corollary} 
+\begin{proof}
+	Sei $e$ eine Kantenfunktion sodass 
+	\begin{equation*}
+		\text{div}(r * \epsilon * e) = 0
+	\end{equation*} dies gilt nach dem de Rham Theorem genau dann wenn es ein $\phi\in\mathfrak{F}$ gibt sodass 
+\begin{equation*}
+	e = \frac{1}{r}\text{grad}_D\phi
+\end{equation*}
+Ein klassisches Resultat aus der linearen Algebra liefert dann:
+\begin{align*}
+	 (\text{kern} (\text{div}_D\frac{1}{r}))^\perp 
+	 =(\text{kern}(\frac{1}{r}\text{grad}_D)^T)^\perp =\text{im}\frac{1}{r}\text{grad}_D
+\end{align*}
+Damit wurde gezeigt, dass $B=\text{im}\frac{1}{r}\text{grad}_D$ und $A=\text{kern}(\text{div}(r*.)$\\
+\\
+Der elektrische Feldoperator $\hat{e}$ verh\"alt sich wegen (6.12, 6.23) unter \"Ahnlichkeitstransformation durch $\hat{U}$ folgenderma\ss{}en:
+\begin{equation*}
+	\hat{U}^\dagger \hat{e}\hat{U} = U^T * \hat{e}
+\end{equation*}
+Wenn wir nun $\text{div}(r*\epsilon * .)$ von links anwenden ($\epsilon =1$), dann sind die ersten $|V| -1 $ Komponenten des transformierten Feldoperators Null.
+\end{proof}
+\iffalse
+Alternativ f\"uhren wir eine zus\"atzlich zu $\phi=0$ die Eichung:
+\begin{equation*}
+	\text{div}(a)=0
+\end{equation*}
+ein. Dies ist erlaubt da:
+\begin{align}
+	...
+\end{align}
+TODO
+
+*zwei wege
+*
+
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung.
 \end{theorem}
@@ -983,6 +1047,7 @@ Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators a
 \begin{definition}
 Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
 \end{definition} 
+\fi
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
