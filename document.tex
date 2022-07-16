@@ -965,7 +965,7 @@ Der harmonische Oszillator hat $|F| - 1$ reine Frequenzen/Moden in denen er schw
 	\begin{equation}
 		\text{div}(r * \epsilon * \hat{e}) = 0
 	\end{equation}
-	dann ist die L\"osung der Schr\"dingergleichung $\psi$ entlang jeder Richtung des gerade definierten Raums $A$ konstant.
+	dann ist die L\"osung der Schr\"dingergleichung $\psi$ entlang jeder Richtung des gerade definierten Raums $A$  fast \"uberall konstant.
 	\begin{equation}
 		\forall x\in \mathfrak{K}:\forall y\in A: \psi(x+y)=\psi(x)
 	\end{equation}
@@ -986,13 +986,20 @@ Ein klassisches Resultat aus der linearen Algebra liefert dann:
 \end{align*}
 Damit wurde gezeigt, dass $B=\text{im}\frac{1}{r}\text{grad}_D$ und $A=\text{kern}(\text{div}(r*.)$\\
 \\
-Der elektrische Feldoperator $\hat{e}$ verh\"alt sich wegen (6.12, 6.23) unter \"Ahnlichkeitstransformation durch $\hat{U}$ folgenderma\ss{}en:
-\begin{equation*}
-	\hat{U}^\dagger \hat{e}\hat{U} = U^T * \hat{e}
-\end{equation*}
-Wenn wir nun $\text{div}(r*\epsilon * .)$ von links anwenden ($\epsilon =1$), dann sind die ersten $|V| -1 $ Komponenten des transformierten Feldoperators Null.
+Der elektrische Feldoperator $\hat{e}$ transformiert wegen (6.12) und (6.23) analog zum Vektorpotential Operator $\hat{a}$:
+\begin{align}
+	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U * \hat{a}\\
+	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U * \hat{e}
+\end{align}
+Als n\"achstes betrachten wir das Produkt $w = \text{div} * r * U^T$.
+Die ersten $|V| - 1$ Spalten von $U^T$ sind Vektoren aus $A$ und die \"ubrigen Spaltenvektoren sind aus $B$. Daher ist der Kern der Abbildung $w$ der Raum aller Vektoren aus $\mathbb{R}^{|E|}$ deren letzte $|f| - 1$ Komponenten Null sind.\\
+\\
+Als Konsequenz m\"ussen f\"ur alle stetig differenzierbaren $\phi\in\mathfrak{H}$ die Richtungsableitungen in Richtungen aus dem Raum $B$ gleich Null sein und damit entlang dieser konstant.\\
+F\"ur allgemeine $\phi\in\mathfrak{H}$ folgt das Resultat aus einem Dichtheitsargument.\\
+\\
+Der Rest folgt aus Theorem 6.6.
 \end{proof}
-\iffalse
+Alternativ h\"atten wir vor der Quantisierung zus\"tzlich zur $\phi=0$ Eichung fordern 
 Alternativ f\"uhren wir eine zus\"atzlich zu $\phi=0$ die Eichung:
 \begin{equation*}
 	\text{div}(a)=0

@@ -8,5 +8,7 @@
 \contentsline {chapter}{\numberline {5}Potentialformulierung der Maxwellgleichungen}{23}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Kanonische Quantisierung des elektromagnetischen Feldes}{26}{chapter.6}%
 \contentsline {paragraph}{Interpretation}{29}{section*.6}%
-\contentsline {chapter}{\numberline {7}Die Klein-Gordongleichung}{35}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Quantenelektrodynamik des planaren Graphen}{39}{chapter.8}%
+\contentsline {chapter}{\numberline {7}Zweite Quantisierung des elektromagnetischen Feldes}{36}{chapter.7}%
+\contentsline {paragraph}{Forderungen}{37}{section*.7}%
+\contentsline {chapter}{\numberline {8}Die Klein-Gordongleichung}{38}{chapter.8}%
+\contentsline {chapter}{\numberline {9}Quantenelektrodynamik des planaren Graphen}{42}{chapter.9}%
