@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  16 JUL 2022 22:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  17 JUL 2022 15:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1336,126 +1336,96 @@ Underfull \hbox (badness 10000) in paragraph at lines 993--1001
 
  []
 
-[34] [35]
+
+Overfull \hbox (10.13998pt too wide) in paragraph at lines 1009--1013
+\OT1/lmr/m/n/10.95 h^^?atte zu einer Hamil-ton-funk-tion gef^^?uhrt die durch Q
+uan-tisierung zur gesuchten
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1013
+
+ []
+
+[34]
 Kapitel 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1023--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1077
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1048
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1093
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1042--1048
-
- []
-
-[36
+[35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1050--1051
-
- []
-
-
-Overfull \hbox (7.3264pt too wide) in paragraph at lines 1051--1052
-[]\OT1/lmr/m/n/10.95 Die Gesamten-ergie des elek-tro-mag-netis-chen Feldes ist 
-ebenso die Summe
- []
-
-! Extra \fi.
-l.1057 \fi
-          
-I'm ignoring this; it doesn't match any \if.
-
-[37]
-Kapitel 8.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1059--1062
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1074--1078
-
- []
-
-[38
-
-]
-Overfull \hbox (10.5502pt too wide) in paragraph at lines 1104--1106
+Overfull \hbox (10.5502pt too wide) in paragraph at lines 1119--1121
 \OT1/lmr/m/n/10.95 befindet und somit mit $[][][]$ er-weit-ert wer-den kann, wa
 s uns zum gesuchten
  []
 
-[39]
-Underfull \hbox (badness 10000) in paragraph at lines 1135--1139
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1154
 
  []
 
 
-Overfull \hbox (4.07161pt too wide) in paragraph at lines 1143--1145
+Overfull \hbox (4.07161pt too wide) in paragraph at lines 1158--1160
 \OT1/lmr/m/n/10.95 Eine kurze Be-tra-ch-tung der Hamil-ton-funk-tion der Klein-
 Gordontheorie liefert
  []
 
 
-Overfull \hbox (24.25244pt too wide) in paragraph at lines 1143--1145
+Overfull \hbox (24.25244pt too wide) in paragraph at lines 1158--1160
 \OT1/lmr/m/n/10.95 uns dann wie beim elek-tro-mag-netis-chen Feld die zugeh^^?o
 rige Schr^^?odingergleichung. 
  []
 
 
-Overfull \hbox (12.75427pt too wide) in paragraph at lines 1153--1156
+Overfull \hbox (12.75427pt too wide) in paragraph at lines 1168--1171
 \OT1/lmr/m/it/10.95 nennt man $\OML/lmm/m/it/10.95  $ \OT1/lmr/m/it/10.95 eine 
 L^^?osung der \OT1/lmr/bx/it/10.95 Schr^^?odingergleichung \OT1/lmr/m/it/10.95 
 des Klein-Gordonfeldes. 
  []
 
-[40] [41]
-Kapitel 9.
+[37] [38]
+Kapitel 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1164--1167
+Underfull \hbox (badness 10000) in paragraph at lines 1179--1182
 
  []
 
-[42
+[39
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1192--1195
+Underfull \hbox (badness 10000) in paragraph at lines 1207--1210
 
  []
 
-[43
+[40
 
 ]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1195.
+(LaTeX3)     1210.
 
  (./document.aux)
-
-Package rerunfilecheck Warning: File `document.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `document.out':
-(rerunfilecheck)             Before: A1E448529A9FB1AA5971D43028B2C079;536
-(rerunfilecheck)             After:  DA8C8691ADEC2B3E6FD75EFB43FA1E7F;622.
+Package rerunfilecheck Info: File `document.out' has not changed.
+(rerunfilecheck)             Checksum: A1E448529A9FB1AA5971D43028B2C079;536.
  ) 
 Here is how much of TeX's memory you used:
- 20270 strings out of 481199
- 388911 string characters out of 5913479
+ 20259 strings out of 481199
+ 388808 string characters out of 5913479
  707968 words of memory out of 5000000
- 36595 multiletter control sequences out of 15000+600000
+ 36594 multiletter control sequences out of 15000+600000
  470051 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  127i,16n,130p,975b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
 m-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/
@@ -1470,14 +1440,13 @@ lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (44 pages, 495172 bytes).
+hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on document.pdf (41 pages, 482221 bytes).
 PDF statistics:
- 629 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 188 named destinations out of 1000 (max. 500000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 495 compressed objects within 5 object streams
+ 178 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
