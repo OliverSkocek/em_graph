@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  17 JUL 2022 22:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  27 JUL 2022 20:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1350,42 +1350,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 1010--1014
 [34]
 Kapitel 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1075--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1075
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1090--1094
+Underfull \hbox (badness 10000) in paragraph at lines 1087--1091
 
  []
 
 [35
 
 ]
-Overfull \hbox (10.5502pt too wide) in paragraph at lines 1120--1122
+Overfull \hbox (10.5502pt too wide) in paragraph at lines 1117--1119
 \OT1/lmr/m/n/10.95 befindet und somit mit $[][][]$ er-weit-ert wer-den kann, wa
 s uns zum gesuchten
  []
 
 [36]
-Underfull \hbox (badness 10000) in paragraph at lines 1151--1155
+Underfull \hbox (badness 10000) in paragraph at lines 1148--1152
 
  []
 
 
-Overfull \hbox (4.07161pt too wide) in paragraph at lines 1159--1161
+Overfull \hbox (4.07161pt too wide) in paragraph at lines 1156--1158
 \OT1/lmr/m/n/10.95 Eine kurze Be-tra-ch-tung der Hamil-ton-funk-tion der Klein-
 Gordontheorie liefert
  []
 
 
-Overfull \hbox (24.25244pt too wide) in paragraph at lines 1159--1161
+Overfull \hbox (24.25244pt too wide) in paragraph at lines 1156--1158
 \OT1/lmr/m/n/10.95 uns dann wie beim elek-tro-mag-netis-chen Feld die zugeh^^?o
 rige Schr^^?odingergleichung. 
  []
 
 
-Overfull \hbox (12.75427pt too wide) in paragraph at lines 1169--1172
+Overfull \hbox (12.75427pt too wide) in paragraph at lines 1166--1169
 \OT1/lmr/m/it/10.95 nennt man $\OML/lmm/m/it/10.95  $ \OT1/lmr/m/it/10.95 eine 
 L^^?osung der \OT1/lmr/bx/it/10.95 Schr^^?odingergleichung \OT1/lmr/m/it/10.95 
 des Klein-Gordonfeldes. 
@@ -1394,14 +1394,14 @@ des Klein-Gordonfeldes.
 [37] [38]
 Kapitel 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1180--1183
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1180
 
  []
 
 [39
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1211
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1208
 
  []
 
@@ -1410,15 +1410,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1208--1211
 ]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1211.
+(LaTeX3)     1208.
 
  (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: A1E448529A9FB1AA5971D43028B2C079;536.
  ) 
 Here is how much of TeX's memory you used:
- 20259 strings out of 481199
- 388808 string characters out of 5913479
+ 20258 strings out of 481199
+ 388795 string characters out of 5913479
  707968 words of memory out of 5000000
  36594 multiletter control sequences out of 15000+600000
  470051 words of font info for 73 fonts, out of 8000000 for 9000
@@ -1443,10 +1443,10 @@ public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (41 pages, 482202 bytes).
+Output written on document.pdf (41 pages, 482156 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 495 compressed objects within 5 object streams
- 178 named destinations out of 1000 (max. 500000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 494 compressed objects within 5 object streams
+ 177 named destinations out of 1000 (max. 500000)
  127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
