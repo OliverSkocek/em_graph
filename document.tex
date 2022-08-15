@@ -1014,20 +1014,43 @@ Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur
 \subsection{Photonen - die Teilcheninterpretation}
 Wir folgen in diesem Abschnitt Dirac um Erzeugungs- und Vernichtungsoperatoren f\"ur Photonen zu konstruieren. Zu jedem Eigenwert $\omega_j$ von $Q$ gibt es laut Theorem 6.6 ein 
 \begin{equation*}
-	h_j = \frac{1}{2}(\pi_j^2 + \omega_j^2 q^2)
+	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{q}^2)
 \end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
-Wir definieren als den Vernichtungsoperator $\hat{a}_\omega$
+Wir definieren als n\"achstes den so genannten Vernichtungsoperator $\hat{a}_\omega$
 \begin{equation*}
-	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(q + i \frac{1}{\omega}\pi)
+	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{q} + i \frac{1}{\omega}\hat{\pi})
 \end{equation*}
-Die Adjungierte des Vernichtungsoperators $\hat{a}_\omega^\dagger$ nennen wir den Erzeugungsoperator. Diese Operatoren erzeugen und vernichten etwas, dass im entferntesten Sinn als Teilchen bezeichnet werden kann, ein Teilchen der Mode $\omega$ Um diese Interpretation etwas z\"ahlbaren zu untermauern definieren wir den Teilchenzahloperator 
+Die Adjungierte des Vernichtungsoperators $\hat{a}_\omega^\dagger$ nennen wir den Erzeugungsoperator. Es gilt die Vertauschungsrelation:
+\begin{equation*}
+	[\hat{a}_\omega, \hat{a}_\omega^\dagger] = 1
+\end{equation*}
+Wir k\"onnen mit Hilfe dieser Operatoren das Eigenwertproblem des eindimensionalen harmonischen Oszillators l\"osen. Hierzu definiere man zun\"achst den Besetzungszahloperator 
 \begin{equation*}
 	\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega
 \end{equation*}
+Der Operator $\hat{N}$ erf\"ullt folgende Vertauschungsrelationen
+\begin{align*}
+	& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
+	& [\hat{N}_\omega, \hat{a^\dagger}_\omega] = \hat{a^\dagger}_\omega
+\end{align*}
+Es kann dann gezeigt werden, dass die Eigenwerte des Besetzungszahloperators $\hat{N}_\omega$ genau die nat\"urlichen Zahlen sind und die zugeh\"origen Eigenr\"aume eindimensional sind.
+\\
+\\
+Der Vernichtungsoperator verringert die Besetzungszahl um eins
+\begin{equation*}
+	\hat{N}\psi = n \psi \rightarrow \hat{N}\hat{a}\psi = (n-1)\hat{a}\psi
+\end{equation*} 
+Insbesondere gilt $\hat{a}\psi_1=0$, wobei $\psi_1$ der Eigenvektor zum Eigenwert eins ist.\\
+\\
+Umgekehrt erhöht der Erzeugungsoperator die Besetzungszahl um eins.
+\begin{equation*}
+	\hat{N}\psi = n \psi \rightarrow \hat{N}\hat{a}^\dagger\psi = (n+1)\hat{a^\dagger}\psi
+\end{equation*} 
 Der Summand $h_\omega$ l\"asst sich schreiben als
 \begin{equation*}
-	h_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
+	\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
 \end{equation*}
+Wir interpretieren nun den Besetzungszahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.\footnote{Dies ist nat\"urlich nur im entferntesten Sinn ein Teilchen, wie wir es gewohnt sind.}
  \iffalse 
 Alternativ f\"uhren wir eine zus\"atzlich zu $\phi=0$ die Eichung:
 \begin{equation*}

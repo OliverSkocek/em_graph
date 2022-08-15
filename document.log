@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  10 AUG 2022 21:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  15 AUG 2022 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1351,45 +1351,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 1010--1014
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 1014.
 
-[34] [35]
-Kapitel 7.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1091
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1040
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1103--1107
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1046
+
+ []
+
+
+Overfull \hbox (22.66199pt too wide) in paragraph at lines 1052--1110
+\OT1/lmr/m/n/10.95 Teilchen oder Pho-to-nen der Mode $\OML/lmm/m/it/10.95 !$ \O
+T1/lmr/m/n/10.95 des elek-tro-mag-netis-chen Feldes. Erzeugungs-
+ []
+
+
+Overfull \hbox (13.33385pt too wide) in paragraph at lines 1052--1110
+\OT1/lmr/m/n/10.95 und Ver-nich-tung-sop-er-a-toren erzeu-gen beziehungsweise v
+er-nichten entsprechend
+ []
+
+[35]
+Kapitel 7.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1111--1114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1126--1130
 
  []
 
 [36
 
 ]
-Overfull \hbox (10.5502pt too wide) in paragraph at lines 1133--1135
+Overfull \hbox (10.5502pt too wide) in paragraph at lines 1156--1158
 \OT1/lmr/m/n/10.95 befindet und somit mit $[][][]$ er-weit-ert wer-den kann, wa
 s uns zum gesuchten
  []
 
 [37]
-Underfull \hbox (badness 10000) in paragraph at lines 1167--1171
+Underfull \hbox (badness 10000) in paragraph at lines 1190--1194
 
  []
 
 
-Overfull \hbox (4.07161pt too wide) in paragraph at lines 1175--1177
+Overfull \hbox (4.07161pt too wide) in paragraph at lines 1198--1200
 \OT1/lmr/m/n/10.95 Eine kurze Be-tra-ch-tung der Hamil-ton-funk-tion der Klein-
 Gordontheorie liefert
  []
 
 
-Overfull \hbox (24.25244pt too wide) in paragraph at lines 1175--1177
+Overfull \hbox (24.25244pt too wide) in paragraph at lines 1198--1200
 \OT1/lmr/m/n/10.95 uns dann wie beim elek-tro-mag-netis-chen Feld die zugeh^^?o
 rige Schr^^?odingergleichung. 
  []
 
 [38]
-Overfull \hbox (12.75427pt too wide) in paragraph at lines 1185--1188
+Overfull \hbox (12.75427pt too wide) in paragraph at lines 1208--1211
 \OT1/lmr/m/it/10.95 nennt man $\OML/lmm/m/it/10.95  $ \OT1/lmr/m/it/10.95 eine 
 L^^?osung der \OT1/lmr/bx/it/10.95 Schr^^?odingergleichung \OT1/lmr/m/it/10.95 
 des Klein-Gordonfeldes. 
@@ -1398,14 +1420,14 @@ des Klein-Gordonfeldes.
 [39]
 Kapitel 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1196--1199
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1222
 
  []
 
 [40
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1224--1227
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1250
 
  []
 
@@ -1414,15 +1436,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1224--1227
 ]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1227.
+(LaTeX3)     1250.
 
  (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
 (rerunfilecheck)             Checksum: 79BFBEE2E4391D8F058DCE667619184F;624.
  ) 
 Here is how much of TeX's memory you used:
- 20263 strings out of 481199
- 388867 string characters out of 5913479
+ 20264 strings out of 481199
+ 388878 string characters out of 5913479
  707971 words of memory out of 5000000
  36595 multiletter control sequences out of 15000+600000
  472997 words of font info for 74 fonts, out of 8000000 for 9000
@@ -1447,10 +1469,10 @@ public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (42 pages, 489204 bytes).
+Output written on document.pdf (42 pages, 490888 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 507 compressed objects within 6 object streams
- 181 named destinations out of 1000 (max. 500000)
+ 617 PDF objects out of 1000 (max. 8388607)
+ 509 compressed objects within 6 object streams
+ 182 named destinations out of 1000 (max. 500000)
  135 words of extra memory for PDF output out of 10000 (max. 10000000)
 
