@@ -769,7 +769,7 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\m
 	Siehe beliebiges Fachbuch zur theoretischen Physik.
 \end{proof}
 \noindent
-An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven $\hat{\pi}$ und $\hat{q}$ in einem Raum von Operatoren auf einem Hilbertraum.
+An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven $\hat{\pi}$ und $\hat{q}$ in einem Raum von Operatoren auf einem Hilbertraum.\footnote{Operator auf einem Hilbertraum bedeutet ein dicht definierter linearer Operator.}
 \begin{definition}
 	Sei $G$ ein planarer Graph und $r>0$ eine Kantenfunktion, dann ist der Hilbertraum unserer Theorie gegeben durch
 	\begin{equation}
@@ -783,11 +783,11 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 	\end{equation}
 \end{definition}
 \noindent
-\paragraph{Interpretation}
+\subsection{Interpretation}
 \begin{itemize}
 \item Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. 
 \item Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
-\item Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist zuf\"allig und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
+\item Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist ein zuf\"alliges Element des Spektrums von $\Omega$ und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
 \end{itemize}
 \noindent
 Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die kanonische Vertauschungsrelation:
@@ -807,11 +807,11 @@ Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\f
 \\
 Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der der Hamiltonoperator des elektromagnetischen Feldes gegeben durch:
+	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der Hamiltonoperator $\hat{H}:D(\hat{H})\rightarrow \mathfrak{H}(G)$ des elektromagnetischen Feldes gegeben durch:\footnote{$D(\hat{H})$ ist eine dichte Teilmenge von $\mathfrak{H}(G)$ die zu einem sp\"ateren Zeitpunkt festgelegt wird.}
 	\begin{equation}
 	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{F}} - \langle q, \hat{j}\rangle_{\mathfrak{K}}
 	\end{equation}
-	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
+	Sei $\psi_0\in D(\hat{H})$ und $\psi\in C^1(\mathbb{R}, D(\hat{H}))$, sodass:
 \begin{equation}
 \hat{H}\psi(t) = i\psi^\prime(t)
 \end{equation}
@@ -1010,7 +1010,7 @@ Alternativ h\"atten wir vor der Quantisierung den ladungsfreien Fall
 \end{equation}
 Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"atte zu einer Hamiltonfunktion gef\"uhrt die durch Quantisierung zur gesuchten Schr\"odingergleichung f\"uhrt.\\
 \\
-Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgaben kann. 
+Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. 
 \subsection{Photonen - die Teilcheninterpretation}
 Wir folgen in diesem Abschnitt Dirac um Erzeugungs- und Vernichtungsoperatoren f\"ur Photonen zu konstruieren. Zu jedem Eigenwert $\omega_j$ von $Q$ gibt es laut Theorem 6.6 ein 
 \begin{equation*}
@@ -1033,7 +1033,7 @@ Der Operator $\hat{N}$ erf\"ullt folgende Vertauschungsrelationen
 	& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
 	& [\hat{N}_\omega, \hat{a^\dagger}_\omega] = \hat{a^\dagger}_\omega
 \end{align*}
-Es kann dann gezeigt werden, dass die Eigenwerte des Besetzungszahloperators $\hat{N}_\omega$ genau die nat\"urlichen Zahlen sind und die zugeh\"origen Eigenr\"aume eindimensional sind.
+Es kann dann gezeigt werden, dass die Eigenwerte des Besetzungszahloperators $\hat{N}_\omega$ genau die nat\"urlichen Zahlen sind und die zugeh\"origen Eigenr\"aume eindimensional sind.\footnote{Dies wird im Anhang gezeigt.}
 \\
 \\
 Der Vernichtungsoperator verringert die Besetzungszahl um eins
@@ -1050,63 +1050,8 @@ Der Summand $h_\omega$ l\"asst sich schreiben als
 \begin{equation*}
 	\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
 \end{equation*}
-Wir interpretieren nun den Besetzungszahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.\footnote{Dies ist nat\"urlich nur im entferntesten Sinn ein Teilchen, wie wir es gewohnt sind.}
- \iffalse 
-Alternativ f\"uhren wir eine zus\"atzlich zu $\phi=0$ die Eichung:
-\begin{equation*}
-	\text{div}(a)=0
-\end{equation*}
-ein. Dies ist erlaubt da:
-\begin{align}
-	...
-\end{align}
-TODO
+Wir interpretieren nun den Besetzungszahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen. Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.
 
-*zwei wege
-*
-
-\begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung.
-\end{theorem}
-\begin{proof}
-	Mit Hilfe eines Produktansatzes l\"asst sich die Schr\"odingergleichung des freien elektromagnetischen Feldes in $|V|-1$ eindimensionale freie und $|f|-1$ eindimensionale Schr\"dingergleichungen des harmonischen Oszillators zerlegen......
-\end{proof}
-\chapter{Zweite Quantisierung des elektromagnetischen Feldes}
-Das elektromagnetische Feld tauscht Energie mit Materie in Quanten also festen Portionen aus. Diese Portionen nennt man Photonen und die Energie $E$ eines Photons ist proportional zu seiner Frequenz $\nu$. Diese Eigenschaft der Quantentheorie des elektromagnetischen Feldes spiegelt sich noch nicht in unserer Beschreibung wieder.\\
-\\
-Unsere bisheriges Modell beschreibt ein einzelnes Photon. Wir erweitern es nun zu einem Multi-Photonen-Modell.
-\begin{definition}
-	Sei $\mathfrak{H}$ der Ein-Photonen-Hilbertraum aus Definition (6.3), dann definieren wir den symmetrischen Tensorprodukt-Raum rekursiv als
-	\begin{align}
-		&\mathfrak{H}^0 = \mathbb{C}\\
-		&\mathfrak{H}^n = S(\mathfrak{H}^{n-1}\otimes\mathfrak{H})
-	\end{align}
-	wobei f\"ur jedes $m\geq 1$ und jedes $\phi\in\mathfrak{H}^m$ $S$ definiert ist durch \begin{equation}
-		S(\phi)(x_1,\dots,x_m)=
-		\frac{1}{N!}\sum_{\sigma\in\text{Aut}([m])}\phi(x_{\sigma(1)},\dots,x_{\sigma(m)})
-	\end{equation}
-	Der \textbf{Fockraum} ist dann definiert als die direkte Summe der symmetrischen Tensorprodukte
-	\begin{equation}
-		F(\mathfrak{H})=\oplus_{j\geq 0}\mathfrak{H}^j
-	\end{equation}
-	Der Fockraum ist der Raum der Zust\"ande mit beliebiger Teilchenanzahl.
-\end{definition}
-\noindent
-Der Raum der symmetrischen Tensorprodukte wird gew\"ahlt, da Photonen ununterscheidbar sind und daher kein Zustand existieren kann indem ein Photon ausgezeichnet ist.\\
-\\
-Einen Zustand mit Null Teilchen nennt man Vakuumzustand.\\
-\\
-Als n\"achstes betrachten wir die Konsequenzen einer Mehrphotonendarstellung auf die messbaren Eigenschaften des elektromagnetischen Feldes.
-\paragraph{Forderungen}: 
-\begin{itemize}
-	\item Sei $\psi\in \mathfrak{H}^n$ ein Zustand mit $n\geq 0$ Photonen, dann ist das gemessene elektromagnetische Feld gegeben als die Summe der Felder der einzelnen Photonen.\\
-	\item Die Gesamtenergie des elektromagnetischen Feldes ist ebenso die Summe der Energien der einzelnen Photonen.
-\end{itemize}
-Diese Forderungen f\"uhrt direkt zu folgender Definition des Hamiltonoperators auf dem Fockraum.
-\begin{definition}
-Sei $G$ ein planarer Graph, $F(\mathfrak{H})$ der Fockraum auf $G$ und $H_1$ der Hamiltonoperator aus Definition 6.4, dann ist der Hamiltonoperator auf dem Fockraum gegeben durch:
-\end{definition} 
-\fi
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\

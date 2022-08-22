@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  15 AUG 2022 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.4.28)  22 AUG 2022 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,35 +834,35 @@ LaTeX Info: Redefining \nameref on input line 69.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./document.toc
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-1.
+0.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-11.
+10.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-11.
+10.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 11.
+(Font)              <10.95> on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 11.
+(Font)              <8> on input line 10.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 11.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+(Font)              <6> on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -888,7 +888,7 @@ is-son-prob-lem vorgestellt,
 
 ]
 Kapitel 1.
-<Abbildungen/graph_1.pdf, id=72, 222.20775pt x 277.08548pt>
+<Abbildungen/graph_1.pdf, id=77, 222.20775pt x 277.08548pt>
 File: Abbildungen/graph_1.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1.pdf>
 Package pdftex.def Info: Abbildungen/graph_1.pdf  used on input line 122.
@@ -902,7 +902,7 @@ Overfull \hbox (5.06125pt too wide) in paragraph at lines 126--129
 [3
 
  <./Abbildungen/graph_1.pdf>]
-<Abbildungen/graph_1_teil.pdf, id=88, 154.45462pt x 151.25822pt>
+<Abbildungen/graph_1_teil.pdf, id=93, 154.45462pt x 151.25822pt>
 File: Abbildungen/graph_1_teil.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_teil.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_teil.pdf  used on input line 167.
@@ -913,14 +913,14 @@ Overfull \hbox (3.68977pt too wide) in paragraph at lines 187--189
 er Vere-in-fachung
  []
 
-<Abbildungen/graph_1_planar.pdf, id=106, 181.10924pt x 277.08548pt>
+<Abbildungen/graph_1_planar.pdf, id=111, 181.10924pt x 277.08548pt>
 File: Abbildungen/graph_1_planar.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_planar.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_planar.pdf  used on input line 196
 .
 (pdftex.def)             Requested size: 72.4424pt x 110.83221pt.
 [5]
-<Abbildungen/graph_1_planar2.pdf, id=117, 202.02573pt x 201.44559pt>
+<Abbildungen/graph_1_planar2.pdf, id=122, 202.02573pt x 201.44559pt>
 File: Abbildungen/graph_1_planar2.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_planar2.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_planar2.pdf  used on input line 20
@@ -931,7 +931,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--210
 
  []
 
-<Abbildungen/graph_1_planar_flach.pdf, id=118, 181.10924pt x 277.08548pt>
+<Abbildungen/graph_1_planar_flach.pdf, id=123, 181.10924pt x 277.08548pt>
 File: Abbildungen/graph_1_planar_flach.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_planar_flach.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_planar_flach.pdf  used on input li
@@ -946,19 +946,19 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Abbildungen/graph_1_planar2.pdf): PDF
 pdfTeX warning: /usr/bin/pdflatex (file ./Abbildungen/graph_1_planar_flach.pdf)
 : PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<Abbildungen/graph_1_dual.pdf, id=150, 245.22055pt x 301.4679pt>
+<Abbildungen/graph_1_dual.pdf, id=155, 245.22055pt x 301.4679pt>
 File: Abbildungen/graph_1_dual.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_dual.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_dual.pdf  used on input line 237.
 (pdftex.def)             Requested size: 98.08647pt x 120.585pt.
  [7 <./Abbildungen/graph_1_dual.pdf>]
-<Abbildungen/graph_1_orient.pdf, id=176, 181.10924pt x 152.76387pt>
+<Abbildungen/graph_1_orient.pdf, id=181, 181.10924pt x 152.76387pt>
 File: Abbildungen/graph_1_orient.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_orient.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_orient.pdf  used on input line 253
 .
 (pdftex.def)             Requested size: 72.4424pt x 61.10445pt.
-<Abbildungen/graph_1_dual_orient.pdf, id=177, 244.13762pt x 301.70128pt>
+<Abbildungen/graph_1_dual_orient.pdf, id=182, 244.13762pt x 301.70128pt>
 File: Abbildungen/graph_1_dual_orient.pdf Graphic file (type pdf)
 <use Abbildungen/graph_1_dual_orient.pdf>
 Package pdftex.def Info: Abbildungen/graph_1_dual_orient.pdf  used on input lin
@@ -1061,7 +1061,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--353
 
 [13]
 Kapitel 3.
-<Abbildungen/stromkreis_1.pdf, id=237, 174.95413pt x 147.88184pt>
+<Abbildungen/stromkreis_1.pdf, id=242, 174.95413pt x 147.88184pt>
 File: Abbildungen/stromkreis_1.pdf Graphic file (type pdf)
 <use Abbildungen/stromkreis_1.pdf>
 Package pdftex.def Info: Abbildungen/stromkreis_1.pdf  used on input line 373.
@@ -1135,7 +1135,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 445--451
  []
 
 [17]
-<Abbildungen/elektro.pdf, id=282, 181.10924pt x 152.76387pt>
+<Abbildungen/elektro.pdf, id=287, 181.10924pt x 152.76387pt>
 File: Abbildungen/elektro.pdf Graphic file (type pdf)
 <use Abbildungen/elektro.pdf>
 Package pdftex.def Info: Abbildungen/elektro.pdf  used on input line 456.
@@ -1258,15 +1258,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 757--761
  []
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 778.
+(Font)              <9> on input line 772.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 778.
+(Font)              <5> on input line 772.
 
 Underfull \hbox (badness 10000) in paragraph at lines 777--781
 
  []
 
 [28]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 786.
+
+
 Overfull \hbox (7.79962pt too wide) in paragraph at lines 789--790
 []\OT1/lmr/m/n/10.95 Jeder Messgr^^?o^^Ye $
 $ des klas-sis-chen elek-tro-mag-netis-chen Feldes entspricht
@@ -1282,24 +1287,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 803--809
 
  []
 
-[29] [30]
+[29] [30] [31]
 Overfull \hbox (2.32742pt too wide) in paragraph at lines 913--916
 \OT1/lmr/m/n/10.95 Die Di-ag-o-nal-ma-trix $\OML/lmm/m/it/10.95 R$ \OT1/lmr/m/n
 /10.95 is nicht-negativ und hat genau $\OMS/lmsy/m/n/10.95 j\OML/lmm/m/it/10.95
  f\OMS/lmsy/m/n/10.95 j ^^@ \OT1/lmr/m/n/10.95 1$ pos-i-tive Eintr^^?age. 
  []
 
-[31]
+
 Underfull \hbox (badness 10000) in paragraph at lines 928--933
 
  []
 
-
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 942--946
 
  []
 
-[32]
+
 Underfull \hbox (badness 10000) in paragraph at lines 954--963
 
  []
@@ -1336,7 +1341,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 993--1001
 
  []
 
-
+[34]
 Overfull \hbox (10.13998pt too wide) in paragraph at lines 1010--1014
 \OT1/lmr/m/n/10.95 h^^?atte zu einer Hamil-ton-funk-tion gef^^?uhrt die durch Q
 uan-tisierung zur gesuchten
@@ -1348,110 +1353,112 @@ Underfull \hbox (badness 10000) in paragraph at lines 1010--1014
  []
 
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1014.
-
-[34]
 Underfull \hbox (badness 10000) in paragraph at lines 1035--1040
 
  []
 
-
+[35]
 Underfull \hbox (badness 10000) in paragraph at lines 1042--1046
 
  []
 
 
-Overfull \hbox (22.66199pt too wide) in paragraph at lines 1052--1110
+Overfull \hbox (22.66199pt too wide) in paragraph at lines 1052--1054
 \OT1/lmr/m/n/10.95 Teilchen oder Pho-to-nen der Mode $\OML/lmm/m/it/10.95 !$ \O
 T1/lmr/m/n/10.95 des elek-tro-mag-netis-chen Feldes. Erzeugungs-
  []
 
 
-Overfull \hbox (13.33385pt too wide) in paragraph at lines 1052--1110
+Overfull \hbox (13.33385pt too wide) in paragraph at lines 1052--1054
 \OT1/lmr/m/n/10.95 und Ver-nich-tung-sop-er-a-toren erzeu-gen beziehungsweise v
 er-nichten entsprechend
  []
 
-[35]
+
+Overfull \hbox (29.75912pt too wide) in paragraph at lines 1052--1054
+\OT1/lmr/m/n/10.95 deres als die zu den Moden des Feldes geh^^?orenden Eigen-fu
+nk-tio-nen beziehungsweise
+ []
+
+[36]
 Kapitel 7.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1111--1114
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1059
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1130
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1075
 
  []
 
-[36
+[37
 
 ]
-Overfull \hbox (10.5502pt too wide) in paragraph at lines 1156--1158
+Overfull \hbox (10.5502pt too wide) in paragraph at lines 1101--1103
 \OT1/lmr/m/n/10.95 befindet und somit mit $[][][]$ er-weit-ert wer-den kann, wa
 s uns zum gesuchten
  []
 
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 1190--1194
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1139
 
  []
 
 
-Overfull \hbox (4.07161pt too wide) in paragraph at lines 1198--1200
+Overfull \hbox (4.07161pt too wide) in paragraph at lines 1143--1145
 \OT1/lmr/m/n/10.95 Eine kurze Be-tra-ch-tung der Hamil-ton-funk-tion der Klein-
 Gordontheorie liefert
  []
 
 
-Overfull \hbox (24.25244pt too wide) in paragraph at lines 1198--1200
+Overfull \hbox (24.25244pt too wide) in paragraph at lines 1143--1145
 \OT1/lmr/m/n/10.95 uns dann wie beim elek-tro-mag-netis-chen Feld die zugeh^^?o
 rige Schr^^?odingergleichung. 
  []
 
-[38]
-Overfull \hbox (12.75427pt too wide) in paragraph at lines 1208--1211
+[39]
+Overfull \hbox (12.75427pt too wide) in paragraph at lines 1153--1156
 \OT1/lmr/m/it/10.95 nennt man $\OML/lmm/m/it/10.95  $ \OT1/lmr/m/it/10.95 eine 
 L^^?osung der \OT1/lmr/bx/it/10.95 Schr^^?odingergleichung \OT1/lmr/m/it/10.95 
 des Klein-Gordonfeldes. 
  []
 
-[39]
+[40]
 Kapitel 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1219--1222
-
- []
-
-[40
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1247--1250
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1167
 
  []
 
 [41
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 1192--1195
+
+ []
+
+[42
+
+]
 
 LaTeX3 Info: Redefining command \BeforeClosingMainAux with sig. 'm' on line
-(LaTeX3)     1250.
+(LaTeX3)     1195.
 
  (./document.aux)
 Package rerunfilecheck Info: File `document.out' has not changed.
-(rerunfilecheck)             Checksum: 79BFBEE2E4391D8F058DCE667619184F;624.
+(rerunfilecheck)             Checksum: 3700D336DE69862F512F1ABD16B1C2D8;697.
  ) 
 Here is how much of TeX's memory you used:
- 20264 strings out of 481199
- 388878 string characters out of 5913479
- 707971 words of memory out of 5000000
- 36595 multiletter control sequences out of 15000+600000
+ 20268 strings out of 481199
+ 388931 string characters out of 5913479
+ 708974 words of memory out of 5000000
+ 36596 multiletter control sequences out of 15000+600000
  472997 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 127i,16n,130p,975b,417s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 127i,16n,130p,975b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
 m-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rmsc.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/
@@ -1469,10 +1476,10 @@ public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/publi
 c/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on document.pdf (42 pages, 490888 bytes).
+Output written on document.pdf (43 pages, 499731 bytes).
 PDF statistics:
- 617 PDF objects out of 1000 (max. 8388607)
- 509 compressed objects within 6 object streams
- 182 named destinations out of 1000 (max. 500000)
- 135 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 630 PDF objects out of 1000 (max. 8388607)
+ 521 compressed objects within 6 object streams
+ 185 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

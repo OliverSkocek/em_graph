@@ -7,7 +7,7 @@
 \contentsline {chapter}{\numberline {4}Die Maxwell-Gleichungen}{20}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Potentialformulierung der Maxwellgleichungen}{23}{chapter.5}%
 \contentsline {chapter}{\numberline {6}Kanonische Quantisierung des elektromagnetischen Feldes}{26}{chapter.6}%
-\contentsline {paragraph}{Interpretation}{29}{section*.6}%
-\contentsline {subsection}{\numberline {6.0.1}Photonen - die Teilcheninterpretation}{35}{subsection.6.0.1}%
-\contentsline {chapter}{\numberline {7}Die Klein-Gordongleichung}{36}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Quantenelektrodynamik des planaren Graphen}{40}{chapter.8}%
+\contentsline {subsection}{\numberline {6.0.1}Interpretation}{29}{subsection.6.0.1}%
+\contentsline {subsection}{\numberline {6.0.2}Photonen - die Teilcheninterpretation}{35}{subsection.6.0.2}%
+\contentsline {chapter}{\numberline {7}Die Klein-Gordongleichung}{37}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Quantenelektrodynamik des planaren Graphen}{41}{chapter.8}%
