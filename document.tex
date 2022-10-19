@@ -1053,13 +1053,34 @@ Der Summand $h_\omega$ l\"asst sich schreiben als
 Wir interpretieren nun den Besetzungszahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen. Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.
 
 \chapter{Die Klein-Gordongleichung}
-Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen ist mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
+Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
+\\
+\\
+Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph, $a$ eine Kantenfunktion und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $e\in E$ definiert durch:
 	\begin{equation}
-		\Phi^{\prime \prime} - \Delta_{r^{-2}}\Phi+ m \Phi = 0
+		\text{grad}^a(\Phi)(e) = \Phi(p(e)) - \Phi(q(e))e^{ia(e)}
+	\end{equation}
+	Sei weiters $r>0$ eine Kantenfunktion und $v\in V$ , eine Ecke dann nennen wir 
+		\begin{equation}
+		\Delta^a_r(\Phi)(v) = (\text{grad}^a)^\dagger(r*\text{grad}^a(\Phi)(v))
+	\end{equation} 
+	den Eich-Laplace Operator. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
+\end{definition}
+\begin{lemma}
+	Sei $G$ ein planarer Graph, $a$ eine reele und $\xi$ eine komplexe Kantenfunktion, sodass $|\xi|=1$ gilt.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $e$.
+	\begin{equation}
+		\text{grad}^{a+\text{grad}(\xi)}a(e^{i\xi(e)}\Phi)(e)=e^{i\xi(p(e))}\text{grad}^a(\Phi)(e)
+	\end{equation}
+\end{lemma}
+
+\begin{definition}
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$, $a$ Kantenfunktionen und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	\begin{equation}
+		\Phi^{\prime \prime} - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
@@ -1069,18 +1090,16 @@ und die Anfangsbedingung:
 erf\"ullt ist.
 \end{definition}
 \noindent
-Die Klein-Gordongleichung ist im kontinuierlichen Fall die einfachste Form einer Lorentz invariante Feldgleichung. Sie beschreibt ein skalares daher strukturloses Feld mit \\
-\\
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$, $a$ Kantenfunktionen und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
 	\begin{equation}
 		q^\prime + \text{div}(j) = 0 
 	\end{equation}
 	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
 	\begin{align}
 		&q = \Im(\overline{\Phi}\Phi^\prime)\\
-		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta_{r^{-2}}(\Phi))
+		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_{r^{-2}}(\Phi))
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1089,23 +1108,22 @@ Starten wir bei der linken Seite von (7.4)
 	&q^\prime = (\Im(\overline{\Phi}*\Phi^\prime))^\prime=(\frac{\overline{\Phi}*\Phi^\prime - \Phi*\overline{\Phi}^\prime}{2i})^\prime=\\
 	&\frac{1}{2i}((\overline{\Phi^\prime}*\Phi^\prime + \overline{\Phi}*\Phi^{\prime\prime})-(\Phi^\prime*\overline{\Phi}^\prime+\Phi*\overline{\Phi}^{\prime\prime}))=\\
 	&\frac{1}{2i}(\overline{\Phi}*\Phi^{\prime\prime}-\Phi*\overline{\Phi}^{\prime\prime})=
-	\frac{1}{2i}(\overline{\Phi}*(\Delta_{r^{-2}}\Phi - m \Phi)-\Phi*\overline{(\Delta_{r^{-2}}\Phi - m \Phi)})=\\
-	&\frac{1}{2i}(\overline{\Phi}*\Delta_{r^{-2}}\Phi-\Phi*\Delta_{r^{-2}}\overline{\Phi})=\Im(\overline{\Phi}*\Delta_{r^{-2}}(\Phi))
+	\frac{1}{2i}(\overline{\Phi}*(\Delta^a_{r^{-2}}\Phi - m \Phi)-\Phi*\overline{(\Delta^a_{r^{-2}}\Phi - m \Phi)})=\\
+	&\frac{1}{2i}(\overline{\Phi}*\Delta^a_{r^{-2}}\Phi-\Phi*\overline{\Delta^a_{r^{-2}}\Phi})=\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))
 \end{align*}
-Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist. Sei hierzu  $\Phi(v)=a(v)+ib(v)$ f\"ur alle $v\in V$ und beachte, dass $\Delta_{r^{-2}}$ komponentenweise angewendet wird, dann gilt f\"ur den Imagin\"arteil
-\begin{align*}
-	&\sum_{v\in V} \Im(\overline{\Phi}*\Delta_{r^{-2}}\Phi)(v)=\\
-	&\sum_{v\in V} (a(v)*\Delta_{r^{-2}} b(v) - b(v)*\Delta_{r^{-2}} a(v))=
-	\langle a,\Delta_{r^{-2}} b\rangle_{\mathfrak{E}}-\langle b ,\Delta_{r^{-2}} a\rangle_{\mathfrak{E}}=\\
-	&-\langle r^{-1}\text{grad}(a),r^{-1}\text{grad}(b)\rangle_{\mathfrak{K}}+\langle r^{-1}\text{grad}(b) , r^{-1}\text{grad}(a)\rangle_{\mathfrak{K}}=0
-\end{align*}
+Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist.\footnote{Hier ist $\langle, \rangle$ immer als das komplexe Skalarprodukt zu verstehen.}
+\begin{equation*}
+	\sum_{v\in V}\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\Im(\sum_{v\in V}\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\Im(\langle\Phi, \Delta^a_{r^{-2}}(\Phi)\rangle_{\mathfrak{E}})
+\end{equation*}
+Der Ausdruck im Imagin\"arteilfunktional ist der Erwartungswert des selbstadjungierten Eich-Laplace Operators und daher reel.\\
+\\
 Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
-	q^\prime =\Im(\overline{\Phi}*\Delta_{r^{-2}}(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta_{r^{-2}}(\Phi))))
+	q^\prime =\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))))
 \end{equation*}
 \end{proof}
 \noindent
-Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie ist.
+Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.
 \begin{proposition}
 	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi_R, \pi_I, \Phi_R, \Phi_I\in C^1(\mathfrak{E}, \mathbb{R})$ und $\Phi=\Phi_R + i\Phi_I$ sowie $\pi=\pi_R + i\pi_I$, dann nennt man
 	\begin{align*}
