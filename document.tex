@@ -74,7 +74,7 @@
 \vspace*{5cm}
 \begin{center}
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \Huge \bfseries Elektromagnetismus auf planaren Graphen} \\[0.2cm]
+{ \Huge \bfseries Eine Spielmodell des Elektromagnetismus auf planaren Graphen} \\[0.2cm]
 \rule{\linewidth}{0.5mm} \\[3.5cm]
 \begin{minipage}[t]{0.4\textwidth}
 \begin{flushleft} \large
@@ -1078,7 +1078,7 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 \end{lemma}
 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
 		\Phi^{\prime \prime} - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
 	\end{equation}
@@ -1125,12 +1125,12 @@ Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befind
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$. Weiters schreiben wir:
+	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$. Weiters schreiben wir Realteil und Imagin\"arteil als:
 	\begin{align}
-		&\Phi = \Phi_R + i *\Phi_I\\
-		&\pi = \pi_R + i *\pi_I
+		\Phi &= \Phi_R + i *\Phi_I\\
+	     \pi &= \pi_R + i *\pi_I
 	\end{align}
-	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathbb{C}^E$ und $\mathbb{C}^K$.}
+	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.}
 	\begin{equation}
 	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}^a(\Phi), r^{-1}\text{grad}^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}	
@@ -1144,11 +1144,19 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 TODO
 \end{proof}
 \iffalse
+TODO Eichtransformation
 TODO Existenz Lösungen
 TODO Teilchen Antiteilchen Koordinatentransformation inklusive ladungskonjugation
 TODO Energieerhaltung
 \fi
-Wir kommen nun zur Quantisierung der Klein-Gordontheorie. Wie bereits bei den Maxwellgleichungen definieren wir einen Hilbertraum.
+\begin{proposition}
+	content...
+\end{proposition}
+\begin{proof}
+\end{proof}
+\noindent
+Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
+Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
 \begin{definition}
 	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
 	\begin{equation}
