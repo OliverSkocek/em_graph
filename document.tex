@@ -270,7 +270,7 @@ Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten ke
 \chapter{Funktionenr\"aume und Operatoren}
 Im letzten Kapitel wurden Graphen mit zus\"atzlicher Struktur beschrieben, nämlich planare Graphen und das Konzept des dualen Graphen. In diesem Kapitel sollen die drei Arten von Funktionen auf planaren Graphen und Operatoren, die diese Funktionen aufeinander abbilden vorgestellt werden.
 \begin{definition}
-	Sei $G$ ein planarer Graph und $G^D$ sein dualer Graph, des weiteren sei $V$ die Menge der Ecken, $E$ die Menge der Kanten und $A$ die Menge der Fl\"achen (inklusive umgebende Fl\"ache), dann unterscheiden wir drei verschiedene (endlichdimensionale) Funktionenr\"aume auf dieser Struktur, den Raum der Kantenfunktionen $\mathfrak{K}=\{f|f: E\rightarrow\mathbb{R}\}$, den Raum der Eckfunktionen $\mathfrak{E}=\{f|f: V\rightarrow\mathbb{R}\}$ und den Raum der Fl\"achenfunktionen $\mathfrak{F}=\{f|f: A\rightarrow\mathbb{R}\}$.
+	Sei $G$ ein planarer Graph und $G^D$ sein dualer Graph, des weiteren sei $V$ die Menge der Ecken, $E$ die Menge der Kanten und $A$ die Menge der Fl\"achen (inklusive umgebende Fl\"ache), dann unterscheiden wir drei verschiedene (endlichdimensionale) Funktionenr\"aume auf dieser Struktur, den Raum der Kantenfunktionen $\mathfrak{K}=\{f|f: E\rightarrow\mathbb{R}\}$, den Raum der Eckfunktionen $\mathfrak{E}=\{f|f: V\rightarrow\mathbb{R}\}$ und den Raum der Fl\"achenfunktionen $\mathfrak{F}=\{f|f: A\rightarrow\mathbb{R}\}$. Die analogen komplexen Funktionenr\"aume werden abgek\"urzt als $\mathfrak{F}_\mathbb{C}$,$\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.
 \end{definition}
 \noindent
 Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen. 
@@ -1078,7 +1078,7 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 \end{lemma}
 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$, $a$ Kantenfunktionen und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathfrak{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
 		\Phi^{\prime \prime} - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
 	\end{equation}
@@ -1092,7 +1092,7 @@ erf\"ullt ist.
 \noindent
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$, $a$ Kantenfunktionen und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
 	\begin{equation}
 		q^\prime + \text{div}(j) = 0 
 	\end{equation}
@@ -1125,10 +1125,10 @@ Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befind
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.
 \begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$, $a$ Kantenfunktionen, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$. Weiters schreiben wir:
+	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathfrak{E}, \mathbb{C})$. Weiters schreiben wir:
 	\begin{align}
 		&\Phi = \Phi_R + i *\Phi_I\\
-		&\pi = \pi_R + i *\pi_I\\
+		&\pi = \pi_R + i *\pi_I
 	\end{align}
 	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathbb{C}^E$ und $\mathbb{C}^K$.}
 	\begin{equation}
@@ -1136,8 +1136,8 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 	\end{equation}	
 	 $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
-		\frac{1}{2}\Phi^\prime = \frac{\partial H}{\partial \overline{\pi}}\\
-		\frac{1}{2}\pi^\prime = - \frac{\partial H}{\partial \overline{\Phi}}
+		\frac{1}{2}\Phi^\prime &= \frac{\partial H}{\partial \overline{\pi}}\\
+		\frac{1}{2}\pi^\prime &= - \frac{\partial H}{\partial \overline{\Phi}}
 	\end{align} erf\"ullt sind.\footnote{Ableitungen sind hier im Sinne des Wirtinger Kalk\"uls zu verstehen.}
 \end{proposition}
 \begin{proof}
