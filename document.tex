@@ -1078,9 +1078,9 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 \end{lemma}
 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
-		\Phi^{\prime \prime} - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
+		(\frac{\partial}{\partial t} - \phi)^2\Phi - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
@@ -1090,6 +1090,27 @@ und die Anfangsbedingung:
 erf\"ullt ist.
 \end{definition}
 \noindent
+Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden sehen wie sich die Stromdichte und Ladung der Materie leiten sich aus $\Phi$ ab. Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. 
+\begin{proposition}
+Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$, $\xi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi$ eine L\"osung der zugeh\"origen Klein-Gordongleichung
+	\begin{equation}
+	(\frac{\partial}{\partial t} - \phi)^2\Phi - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
+\end{equation}
+ist, dann ist auch 
+\begin{equation}
+	\tilde{\Phi}=\Phi*e^{i\xi}
+\end{equation}
+L\"osung der Klein-Gordongleichung
+	\begin{equation}
+	(\frac{\partial}{\partial t} - (\phi-\xi^\prime))^2\tilde{\Phi} - \Delta^{a + \text{grad}\xi}_{r^{-2}}\tilde{\Phi}+ m \tilde{\Phi} = 0
+\end{equation}
+\end{proposition}
+\begin{proof}
+	content...
+\end{proof}
+\noindent
+Wir k\"onnen uns somit, wie bei der Maxwelltheorie ohne Beschr\"ankung der Allgemeinheit, auf den Fall $\phi\equiv 0$ beschr\"anken und werden dies von hier an auch so tun.\\
+\\ 
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
@@ -1149,9 +1170,12 @@ TODO Existenz Lösungen
 TODO Teilchen Antiteilchen Koordinatentransformation inklusive ladungskonjugation
 TODO Energieerhaltung
 \fi
-\begin{proposition}
-	content...
-\end{proposition}
+\begin{corollary}
+Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$, dann gilt
+\begin{equation}
+	\frac{dH(\Phi(t), \pi(t),t)}{dt} = \frac{\partial H}{\partial t}(\Phi(t), \pi(t),t)
+\end{equation}
+\end{corollary}
 \begin{proof}
 \end{proof}
 \noindent
