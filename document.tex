@@ -1227,9 +1227,9 @@ Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbert
 \noindent
 Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns dann wie beim elektromagnetischen Feld die zugeh\"orige Schr\"odingergleichung.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ eine Kantenfunktion, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}2\overline{\partial_k}\partial_k + \frac{1}{2}(\langle r^{-1}\text{grad}(\Phi), r^{-1}\text{grad}(\Phi)\rangle_{\mathfrak{K}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
+		\hat{H}=-\sum_{k\in V}2\overline{\partial_k}\partial_k + \frac{1}{2}(\langle r^{-1}\text{grad}^a(\Phi), r^{-1}\text{grad}^a(\Phi)\rangle_{\mathfrak{K}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
 	\end{equation}
 	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
 	\begin{equation}
@@ -1240,33 +1240,17 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \end{definition}
 \noindent
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $r>0$ eine Kantenfunktion, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
+	Sei $G$ ein planarer Graph, $r>0$ sowie $a$ Kantenfunktionenn, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
 \end{theorem}
+\begin{proof}
+	content...
+\end{proof}
 \noindent
 
 \chapter{Quantenelektrodynamik des planaren Graphen}
 Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Felder der Quellen, also Ladung und Strom, quantenmechanisch beschreibt.\\
 \\ 
-Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden fordern wir die so genannte lokale $U(1)$-Eichinvarianz. Dies bedeutet, dass wir f\"ur die Lagrangefunktion $L$ der Theorie Invarianz unter folgender Transformation fordern:
-\begin{equation}
-\gamma_\xi(\left(
-\begin{array}{c}\phi\\
-	a\\
-	\Phi
-\end{array}\right))=
-\left(
-\begin{array}{c}\phi - \xi^\prime\\
-	a + r\text{grad}(\xi) \\
-	\Phi e^{ir\xi}
-\end{array}\right)
-\end{equation} 
-\begin{definition}
-	Sei $G$ ein planarer Graph, $A$ eine Kantenfunktion und $\Phi$ eine Eckfunktion, dann ist der Eichgradient definiert durch:
-	\begin{equation}
-		\text{grad}^A(\Phi)(e) = \Phi(p(e)) - \Phi(q(e))e^{iA(e)}
-	\end{equation}
-\end{definition}
-
+Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.16 die ersten beiden Terme von 6.6 hinzu.
 \begin{align*}
 	L(\phi, a, \Phi, \phi^\prime, a^\prime, \Phi^\prime) =&\frac{1}{2}(\langle \overline{\Phi^\prime + i \phi}, \Phi^\prime + i \phi\rangle_{\mathfrak{E}}-
 	\langle r^{-1}\overline{\text{grad}^A(\Phi)}, r^{-1}\text{grad}^A(\Phi)\rangle_{\mathfrak{K}}\\
