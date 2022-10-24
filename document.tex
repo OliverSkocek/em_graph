@@ -1080,7 +1080,7 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
-		(\frac{\partial}{\partial t} - \phi)^2\Phi - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
+		(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_{r^{-2}}\Phi+ m^2 \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
@@ -1090,11 +1090,11 @@ und die Anfangsbedingung:
 erf\"ullt ist.
 \end{definition}
 \noindent
-Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden sehen wie sich die Stromdichte und Ladung der Materie leiten sich aus $\Phi$ ab. Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. 
+Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden sehen wie sich die Stromdichte und Ladung der Materie aus $\Phi$ ableiten. Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. 
 \begin{proposition}
 Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$, $\xi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi$ eine L\"osung der zugeh\"origen Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - \phi)^2\Phi - \Delta^a_{r^{-2}}\Phi+ m \Phi = 0
+	(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_{r^{-2}}\Phi+ m^2 \Phi = 0
 \end{equation}
 ist, dann ist auch 
 \begin{equation}
@@ -1102,7 +1102,7 @@ ist, dann ist auch
 \end{equation}
 L\"osung der Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - (\phi-\xi^\prime))^2\tilde{\Phi} - \Delta^{a + \text{grad}\xi}_{r^{-2}}\tilde{\Phi}+ m \tilde{\Phi} = 0
+	(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} - \Delta^{a + \text{grad}\xi}_{r^{-2}}\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
 \end{equation}
 \end{proposition}
 \begin{proof}
