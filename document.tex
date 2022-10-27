@@ -1064,11 +1064,11 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 	\begin{equation}
 		\text{grad}_r^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i\frac{a}{r}(\tilde{e})}
 	\end{equation}
-	Sei weiters $r>0$ eine Kantenfunktion und $v\in V$ , eine Ecke dann nennen wir 
+	Sei weiters $v\in V$ , eine Ecke dann nennen wir 
 		\begin{equation}
 		\Delta^a_r(\Phi)(v) = (\text{grad}_r^{a\dagger}*r^{-2}*\text{grad}_r^a)(\Phi)(v)
 	\end{equation} 
-	den Eich-Laplace Operator. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
+	den \textbf{Eich-Laplace Operator}. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
 \end{definition}
 \begin{lemma}
 	Sei $G$ ein planarer Graph, $r>0$, $a$ reele Kantenfunktionen und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
@@ -1238,10 +1238,19 @@ Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbert
 \noindent
 Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns dann wie beim elektromagnetischen Feld die zugeh\"orige Schr\"odingergleichung.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}2\overline{\partial_k}\partial_k + \frac{1}{2}(\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
+		\hat{H}=-\sum_{k\in V}2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}
+	Der Wirtinger-Operator $\partial$ wird definiert durch:
+	\begin{equation}
+		\partial_j =\frac{1}{2}(\frac{\partial}{\partial a_j} - \frac{\partial}{\partial b_j})
+	\end{equation}
+	wobei f\"ur jede Ecke $j$ gilt
+	\begin{align*}
+	&\Phi_j = a_j + ib_j\\
+	&a_j, b_j\in \mathbb{R}
+	\end{align*}
 	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
 	\begin{equation}
 		\hat{H}\psi(t) = i\psi^\prime(t)
@@ -1251,7 +1260,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \end{definition}
 \noindent
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
+	Sei $G$ ein planarer Graph, $r>0$ und $a$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
 \end{theorem}
 \begin{proof}
 	content...
