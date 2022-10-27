@@ -1097,19 +1097,48 @@ und die Anfangsbedingung:
 erf\"ullt ist.
 \end{definition}
 \noindent
-Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden sehen wie sich die Stromdichte und Ladung der Materie aus $\Phi$ ableiten. Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. 
+Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden in K\"urze sehen wie sich die Stromdichte und Ladung der Materie aus $\Phi$ ableiten.\\ 
+\\
+Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. Diese Transformation lehnt sich an die Eichtransformation der Maxwelltheorie an und erweitert Diese. Diese erweiterte Eichtransformation dient zur Kopplung des Klein-Gordon Feldes mit den Feldern der Maxwelltheorie. 
+\begin{definition}
+	Seien $\phi$, $r$ und $a$ wie in Definition 7.2, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
+	\begin{equation}
+		\gamma_\xi(\left(
+		\begin{array}{c}\phi\\
+			a\\
+			\Phi
+		\end{array}\right))=
+		\left(
+		\begin{array}{c}\phi - \xi^\prime\\
+			a + r\text{grad}(\xi) \\
+			\Phi e^{i\xi}
+		\end{array}\right)
+	\end{equation} 
+	die zu $\xi$ geh\"orende \textbf{erweiterte Eichtransformation}.
+\end{definition}
+\noindent
 \begin{proposition}
 Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$, $\xi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi$ eine L\"osung der zugeh\"origen Klein-Gordongleichung
 	\begin{equation}
 	(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_r\Phi+ m^2 \Phi = 0
 \end{equation}
-ist, dann ist auch 
-\begin{equation}
-	\tilde{\Phi}=\Phi e^{i\xi}
-\end{equation}
+dann ist auch 
+	\begin{equation}
+	\left(
+	\begin{array}{c}
+		\tilde{\phi}\\
+		\tilde{a}\\
+		\tilde{\Phi}
+	\end{array}\right)=
+	\gamma_\xi(\left(
+\begin{array}{c}\phi\\
+	a\\
+	\Phi
+\end{array}\right))
+\end{equation} 
 L\"osung der Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} - \Delta^{a + r\text{grad}\xi}_r\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
+	(\frac{\partial}{\partial t} - i\tilde{\phi})(\frac{\partial}{\partial t} + i\tilde{\phi})\tilde{\phi} - \Delta^{\tilde{a}}_r\tilde{\phi}+ m^2 \tilde{\phi} = 0
 \end{equation}
 \end{proposition}
 \begin{proof}
@@ -1118,24 +1147,6 @@ L\"osung der Klein-Gordongleichung
 		(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} = e^{i\xi}(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi
 	\end{equation*}
 \end{proof}
-\noindent
-Analog zur Maxwelltheorie finden wir f\"ur die  Klein-Gordongleichung daher folgende Eichtransformation:
-\begin{definition}
-	Seien $\phi$ und $a$ wie in Definition 7.2, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
-\begin{equation}
-	\gamma_\xi(\left(
-	\begin{array}{c}\phi\\
-		a\\
-		\Phi
-	\end{array}\right))=
-	\left(
-	\begin{array}{c}\phi - \xi^\prime\\
-		a + r\text{grad}(\xi) \\
-		\Phi e^{i\xi}
-	\end{array}\right)
-\end{equation} 
-	die zu $\xi$ geh\"orende \textbf{Eichtransformation}.
-\end{definition}
 \noindent
 Wir k\"onnen uns somit, wie bei der Maxwelltheorie ohne Beschr\"ankung der Allgemeinheit, auf den Fall $\phi\equiv 0$ beschr\"anken und werden dies von hier an auch so tun um eine hamiltonsche Formulierung der Theorie zu erhalten.\\
 \\ 
