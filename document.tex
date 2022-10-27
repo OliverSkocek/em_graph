@@ -1053,41 +1053,41 @@ Der Summand $h_\omega$ l\"asst sich schreiben als
 Wir interpretieren nun den Besetzungszahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen. Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.
 
 \chapter{Die Klein-Gordongleichung}
-Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
+Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
 \\
 Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
 \\
 \\
 Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $a$ eine Kantenfunktion und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $\tilde{e}\in E$ definiert durch:
+	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $\tilde{e}\in E$ definiert durch:
 	\begin{equation}
-		\text{grad}^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{ia(\tilde{e})}
+		\text{grad}_r^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i\frac{a}{r}(\tilde{e})}
 	\end{equation}
 	Sei weiters $r>0$ eine Kantenfunktion und $v\in V$ , eine Ecke dann nennen wir 
 		\begin{equation}
-		\Delta^a_r(\Phi)(v) = (\text{grad}^a)^\dagger(r*\text{grad}^a(\Phi)(v))
+		\Delta^a_r(\Phi)(v) = (\text{grad}_r^{a\dagger}*r^{-2}*\text{grad}_r^a)(\Phi)(v)
 	\end{equation} 
 	den Eich-Laplace Operator. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planarer Graph, $a$ eine reele Kantenfunktion und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
+	Sei $G$ ein planarer Graph, $r>0$, $a$ reele Kantenfunktionen und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
 	\begin{equation}
-		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e})=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
+		\text{grad}_r^{a+r*\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e})=e^{i\xi(p(\tilde{e}))}\text{grad}_r^a(\Phi)(\tilde{e})
 	\end{equation}
 \end{lemma}
 \begin{proof}
 	Sei $\tilde{e}\in E$
 	\begin{align*}
-		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e}) &= e^{i\xi(p(\tilde{e}))}\Phi(p(\tilde{e})) - e^{i\xi(q(\tilde{e}))}(q(\tilde{e}))e^{i(a+\text{grad}(\xi))(\tilde{e})}\\
-		&= e^{i\xi(p(\tilde{e}))}(\Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{ia(\tilde{e})})\\
+		\text{grad}_r^{a+r*\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e}) &= e^{i\xi(p(\tilde{e}))}\Phi(p(\tilde{e})) - e^{i\xi(q(\tilde{e}))}(q(\tilde{e}))e^{i(\frac{a}{r}+\text{grad}(\xi))(\tilde{e})}\\
+		&= e^{i\xi(p(\tilde{e}))}(\Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i\frac{a}{r}(\tilde{e})})\\
 		&=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
 	\end{align*}
 \end{proof}
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
 	\begin{equation}
-		(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_{r^{-2}}\Phi+ m^2 \Phi = 0
+		(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta_r^a\Phi+ m^2 \Phi = 0
 	\end{equation}
 und die Anfangsbedingung:
 \begin{align}
@@ -1101,7 +1101,7 @@ Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden sehen wie sich d
 \begin{proposition}
 Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$, $\xi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi$ eine L\"osung der zugeh\"origen Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_{r^{-2}}\Phi+ m^2 \Phi = 0
+	(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_r\Phi+ m^2 \Phi = 0
 \end{equation}
 ist, dann ist auch 
 \begin{equation}
@@ -1109,13 +1109,13 @@ ist, dann ist auch
 \end{equation}
 L\"osung der Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} - \Delta^{a + \text{grad}\xi}_{r^{-2}}\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
+	(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} - \Delta^{a + r\text{grad}\xi}_r\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
 \end{equation}
 \end{proposition}
 \begin{proof}
 	Nach Hilfsatz 7.2 verbleibt es zu zeigen, dass 
 	\begin{equation*}
-		(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} = e^{i\xi}(\frac{\partial}{\partial t} - i(\phi))(\frac{\partial}{\partial t} + i(\phi))\Phi
+		(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} = e^{i\xi}(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi
 	\end{equation*}
 \end{proof}
 \noindent
@@ -1131,7 +1131,7 @@ Analog zur Maxwelltheorie finden wir f\"ur die  Klein-Gordongleichung daher folg
 	\left(
 	\begin{array}{c}\phi - \xi^\prime\\
 		a + r\text{grad}(\xi) \\
-		\Phi e^{ir\xi}
+		\Phi e^{i\xi}
 	\end{array}\right)
 \end{equation} 
 	die zu $\xi$ geh\"orende \textbf{Eichtransformation}.
@@ -1148,7 +1148,7 @@ Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensg
 	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
 	\begin{align}
 		&q = \Im(\overline{\Phi}\Phi^\prime)\\
-		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_{r^{-2}}(\Phi))
+		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1157,18 +1157,18 @@ Starten wir bei der linken Seite von (7.11)
 	&q^\prime = (\Im(\overline{\Phi}*\Phi^\prime))^\prime=(\frac{\overline{\Phi}*\Phi^\prime - \Phi*\overline{\Phi}^\prime}{2i})^\prime=\\
 	&\frac{1}{2i}((\overline{\Phi^\prime}*\Phi^\prime + \overline{\Phi}*\Phi^{\prime\prime})-(\Phi^\prime*\overline{\Phi}^\prime+\Phi*\overline{\Phi}^{\prime\prime}))=\\
 	&\frac{1}{2i}(\overline{\Phi}*\Phi^{\prime\prime}-\Phi*\overline{\Phi}^{\prime\prime})=
-	\frac{1}{2i}(\overline{\Phi}*(\Delta^a_{r^{-2}}\Phi - m \Phi)-\Phi*\overline{(\Delta^a_{r^{-2}}\Phi - m \Phi)})=\\
-	&\frac{1}{2i}(\overline{\Phi}*\Delta^a_{r^{-2}}\Phi-\Phi*\overline{\Delta^a_{r^{-2}}\Phi})=\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))
+	\frac{1}{2i}(\overline{\Phi}*(\Delta^a_r\Phi - m \Phi)-\Phi*\overline{(\Delta^a_r\Phi - m \Phi)})=\\
+	&\frac{1}{2i}(\overline{\Phi}*\Delta^a_r\Phi-\Phi*\overline{\Delta^a_r\Phi})=\Im(\overline{\Phi}*\Delta^a_r(\Phi))
 \end{align*}
 Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist.\footnote{Hier ist $\langle, \rangle$ immer als das komplexe Skalarprodukt zu verstehen.}
 \begin{equation*}
-	\sum_{v\in V}\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\Im(\sum_{v\in V}\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\Im(\langle\Phi, \Delta^a_{r^{-2}}(\Phi)\rangle_{\mathfrak{E}})
+	\sum_{v\in V}\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\Im(\sum_{v\in V}\overline{\Phi}*\Delta^a_r(\Phi))=\Im(\langle\Phi, \Delta^a_r(\Phi)\rangle_{\mathfrak{E}})
 \end{equation*}
 Der Ausdruck im Imagin\"arteilfunktional ist der Erwartungswert des selbstadjungierten Eich-Laplace Operators und daher reel.\\
 \\
 Hiermit wurde gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
-	q^\prime =\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_{r^{-2}}(\Phi))))
+	q^\prime =\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))
 \end{equation*}
 \end{proof}
 \noindent
@@ -1176,12 +1176,12 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 \begin{proposition}
 	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$. Weiters schreiben wir Realteil und Imagin\"arteil als:
 	\begin{align}
-		\Phi &= \Phi_R + i *\Phi_I\\
-	     \pi &= \pi_R + i *\pi_I
+		\Phi &= \Phi_R + i\Phi_I\\
+	     \pi &= \pi_R + i\pi_I
 	\end{align}
 	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.}
 	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}^a(\Phi), r^{-1}\text{grad}^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}	
 	 $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
@@ -1229,7 +1229,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}2\overline{\partial_k}\partial_k + \frac{1}{2}(\langle r^{-1}\text{grad}^a(\Phi), r^{-1}\text{grad}^a(\Phi)\rangle_{\mathfrak{K}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
+		\hat{H}=-\sum_{k\in V}2\overline{\partial_k}\partial_k + \frac{1}{2}(\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E}})
 	\end{equation}
 	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
 	\begin{equation}
@@ -1240,7 +1240,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \end{definition}
 \noindent
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $r>0$ sowie $a$ Kantenfunktionenn, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
+	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung der Schr\"odingergleichung des Klein-Gordonfeldes.
 \end{theorem}
 \begin{proof}
 	content...
