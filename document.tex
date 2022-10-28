@@ -1060,27 +1060,27 @@ Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden
 \\
 Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $\tilde{e}\in E$ definiert durch:
+	Sei $G$ ein planarer Graph, $a$ eine Kantenfunktion und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $\tilde{e}\in E$ definiert durch:
 	\begin{equation}
-		\text{grad}_r^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i\frac{a}{r}(\tilde{e})}
+		\text{grad}^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{ia(\tilde{e})}
 	\end{equation}
-	Sei weiters $v\in V$ , eine Ecke dann nennen wir 
+	Sei weiters $r>0$ eine Kantenfunktion und $v\in V$ eine Ecke, dann nennen wir 
 		\begin{equation}
-		\Delta^a_r(\Phi)(v) = (\text{grad}_r^{a\dagger}*r^{-2}*\text{grad}_r^a)(\Phi)(v)
+		\Delta^a_r(\Phi)(v) = (\text{grad}^{{\frac{a}{r}}\dagger}*r^{-2}*\text{grad}^{\frac{a}{r}})(\Phi)(v)
 	\end{equation} 
 	den \textbf{Eich-Laplace Operator}. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planarer Graph, $r>0$, $a$ reele Kantenfunktionen und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
+	Sei $G$ ein planarer Graph, $a$ eine reele Kantenfunktion und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
 	\begin{equation}
-		\text{grad}_r^{a+r*\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e})=e^{i\xi(p(\tilde{e}))}\text{grad}_r^a(\Phi)(\tilde{e})
+		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e})=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
 	\end{equation}
 \end{lemma}
 \begin{proof}
 	Sei $\tilde{e}\in E$
 	\begin{align*}
-		\text{grad}_r^{a+r*\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e}) &= e^{i\xi(p(\tilde{e}))}\Phi(p(\tilde{e})) - e^{i\xi(q(\tilde{e}))}(q(\tilde{e}))e^{i(\frac{a}{r}+\text{grad}(\xi))(\tilde{e})}\\
-		&= e^{i\xi(p(\tilde{e}))}(\Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i\frac{a}{r}(\tilde{e})})\\
+		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e}) &= e^{i\xi(p(\tilde{e}))}\Phi(p(\tilde{e})) - e^{i\xi(q(\tilde{e}))}\Phi(q(\tilde{e}))e^{i(a+\text{grad}(\xi))(\tilde{e})}\\
+		&= e^{i\xi(p(\tilde{e}))}(\Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i a(\tilde{e})})\\
 		&=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
 	\end{align*}
 \end{proof}
@@ -1142,10 +1142,26 @@ L\"osung der Klein-Gordongleichung
 \end{equation}
 \end{proposition}
 \begin{proof}
-	Nach Hilfsatz 7.2 verbleibt es zu zeigen, dass 
+	Sei $u$ eine komplexe Eckfunktion, dann gilt:
+	\begin{align*}
+		\langle u, e^{i\xi}\Delta_r^a(\Phi)\rangle = &\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle\\
+		&\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle
+	\end{align*}
+	Anschlie\ss{}end erweitern wir den Skalarproduktausdruck mit $e^{i\xi(p(\tilde{e}))}$ und wenden anschlie\ss{}end Hilfssatz 7.2 an
+	\begin{align*}
+		&\langle r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}(\Phi)\rangle=\\
+		&\langle r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}u, r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}(e^{i\xi}\Phi)\rangle=
+		\langle u, \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle
+	\end{align*}
+	Nachdem $u$ beliebig war haben wir gezeigt, dass gilt
+	\begin{equation*}
+		e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
+	\end{equation*}
+	Es ist eine einfache \"Ubung zu zeigen, dass 
 	\begin{equation*}
 		(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} = e^{i\xi}(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi
 	\end{equation*}
+	Damit haben wir gezeigt, dass wir Gleichung 7.10 durch Umformung aus Gleichung 7.8 erhalten.
 \end{proof}
 \noindent
 Wir k\"onnen uns somit, wie bei der Maxwelltheorie ohne Beschr\"ankung der Allgemeinheit, auf den Fall $\phi\equiv 0$ beschr\"anken und werden dies von hier an auch so tun um eine hamiltonsche Formulierung der Theorie zu erhalten.\\
@@ -1192,7 +1208,7 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 	\end{align}
 	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.}
 	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}	
 	 $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
@@ -1240,7 +1256,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}_r^a(\Phi), r^{-1}\text{grad}_r^a(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
+		\hat{H}=-\sum_{k\in V}2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}
 	Der Wirtinger-Operator $\partial$ wird definiert durch:
 	\begin{equation}
