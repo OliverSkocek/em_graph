@@ -1144,18 +1144,18 @@ L\"osung der Klein-Gordongleichung
 \begin{proof}
 	Sei $u$ eine komplexe Eckfunktion, dann gilt:
 	\begin{align*}
-		\langle u, e^{i\xi}\Delta_r^a(\Phi)\rangle = &\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle\\
-		&\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle
+		\langle u, e^{i\xi}\Delta_r^a(\Phi)\rangle = &\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}\\
+		&\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}
 	\end{align*}
 	Anschlie\ss{}end erweitern wir den Skalarproduktausdruck mit $e^{i\xi(p(\tilde{e}))}$ und wenden anschlie\ss{}end Hilfssatz 7.2 an
 	\begin{align*}
-		&\langle r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}(\Phi)\rangle=\\
-		&\langle r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}u, r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}(e^{i\xi}\Phi)\rangle=
-		\langle u, \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle
+		&\langle r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}=\\
+		&\langle r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}u, r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}}=
+		\langle u, \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}}
 	\end{align*}
 	Wir haben somit gezeigt:
-		\begin{equation*}
-		\langle u, e^{i\xi}\Delta_r^a(\Phi) - \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle = 0
+	\begin{equation*}
+		\langle u, e^{i\xi}\Delta_r^a(\Phi) - \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}} = 0
 	\end{equation*}
 	Nachdem $u$ beliebig war, gilt somit:
 	\begin{equation*}
@@ -1172,7 +1172,7 @@ Wir k\"onnen uns somit, wie bei der Maxwelltheorie ohne Beschr\"ankung der Allge
 \\ 
 Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$ , dann gilt die Kontinuit\"atsgleichung:
+	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$, dann gilt die Kontinuit\"atsgleichung:
 	\begin{equation}
 		q^\prime + \text{div}(j) = 0 
 	\end{equation}
@@ -1197,13 +1197,31 @@ Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Dive
 \end{equation*}
 Der Ausdruck im Imagin\"arteilfunktional ist der Erwartungswert des selbstadjungierten Eich-Laplace Operators und daher reel.\\
 \\
-Durch Anwendung des de'Rham Komplex Theorems haben wir damit gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
+Damit haben wir gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
 \begin{equation*}
 	q^\prime =\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))
 \end{equation*}
 \end{proof}
 \noindent
-Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.
+Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.\\
+\\
+Vergewissern wir uns zun\"achst, dass die Ladung definiert in 7.12 und der Strom definiert in 7.13 tats\"achlich unver\"andert unter erweiterter Eichtransformation\footnote{Da wir annehmen $\phi\equiv 0$ gilt $\xi$ ist konstant.} bleiben.
+\begin{corollary}
+	Sei $G$, $m>0$, $r>0$, $Phi$ und $a$ wie in Satz 7.2. Sei weiters $\xi\in \mathfrak{E}$, dann bleibt die Ladung $q$ und der Strom $j$, definiert in 7.12 und 7.13, nach Anwendung der Transformation $\gamma_\xi$ unver\"andert:
+\end{corollary}
+\begin{proof}
+	$q$ bleibt offensichtlich unver\"andert nachdem $\xi$ zeitunabh\"angig ist.\\
+	\\
+	Um zu zeigen, dass $j$ unver\"andert bleibt reicht es zu zeigen, dass $$\Im(\overline{\Phi}\Delta^a_r(\Phi))$$ unver\"andert bleibt.\\
+	\\
+	Im Beweis von Satz 7.1 haben wir gezeigt, dass 
+	\begin{equation*}
+		e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
+	\end{equation*}
+	woraus das Resultat folgt.
+\end{proof}
+\noindent
+Genauso wie in der Maxwelltheorie gibt es eine Energiefunktion, die das Systems beschreibt. Es gilt hierbei der Energieerhaltungssatz falls $a$ zeitunabh\"angig ist.
 \begin{proposition}
 	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$. Weiters schreiben wir Realteil und Imagin\"arteil als:
 	\begin{align}
@@ -1224,6 +1242,7 @@ Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon T
 TODO
 \end{proof}
 \iffalse
+TODO Ladungskonjugation
 TODO Existenz Lösungen: m+\omega, teilchen abhängig von feld, 
 TODO Teilchen Antiteilchen Koordinatentransformation inklusive ladungskonjugation
 TODO charge operator, current operator
@@ -1245,6 +1264,8 @@ Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\
 	\end{align*}
 \end{proof}
 \noindent
+Als n\"achstes widmen wir uns kurz einer Reihe von Transformation, welche die Ladung $q$ und den Strom $j$ invertieren.\\
+\\
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
 \begin{definition}
