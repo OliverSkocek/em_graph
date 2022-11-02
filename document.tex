@@ -1089,12 +1089,12 @@ Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten.
 	\begin{equation}
 		(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta_r^a\Phi+ m^2 \Phi = 0
 	\end{equation}
-und die Anfangsbedingung:
-\begin{align}
-	&\Phi(0)=\Phi_0\\
-	&\Phi^\prime(0)=v_0
-\end{align}
-erf\"ullt ist.
+	und die Anfangsbedingung:
+	\begin{align}
+		\Phi(0)&=\Phi_0\\
+		\Phi^\prime(0)&=v_0
+	\end{align}
+	erf\"ullt ist.
 \end{definition}
 \noindent
 Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden in K\"urze sehen wie sich die Stromdichte und Ladung der Materie aus $\Phi$ ableiten.\\ 
@@ -1138,8 +1138,8 @@ dann ist auch
 \end{equation} 
 L\"osung der Klein-Gordongleichung
 	\begin{equation}
-	(\frac{\partial}{\partial t} - i\tilde{\phi})(\frac{\partial}{\partial t} + i\tilde{\phi})\tilde{\phi} - \Delta^{\tilde{a}}_r\tilde{\phi}+ m^2 \tilde{\phi} = 0
-\end{equation}
+	(\frac{\partial}{\partial t} - i\tilde{\phi})(\frac{\partial}{\partial t} + i\tilde{\phi})\tilde{\Phi} - \Delta^{\tilde{a}}_r\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
+	\end{equation}
 \end{proposition}
 \begin{proof}
 	Sei $u$ eine komplexe Eckfunktion, dann gilt:
@@ -1242,7 +1242,6 @@ Genauso wie in der Maxwelltheorie gibt es eine Energiefunktion, die das Systems 
 TODO
 \end{proof}
 \iffalse
-TODO Ladungskonjugation
 TODO Existenz Lösungen: m+\omega, teilchen abhängig von feld, 
 TODO Teilchen Antiteilchen Koordinatentransformation inklusive ladungskonjugation
 TODO charge operator, current operator
@@ -1264,8 +1263,41 @@ Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\
 	\end{align*}
 \end{proof}
 \noindent
-Als n\"achstes widmen wir uns kurz einer Reihe von Transformation, welche die Ladung $q$ und den Strom $j$ invertieren.\\
-\\
+Als n\"achstes widmen wir uns kurz einer Transformation, welche die Ladung $q$ und den Strom $j$ invertiert. 
+\begin{proposition}
+	Sei $G$, $m>0$, $r>0$ und $a$ wie in Definition 7.3. Wenn $\Phi$ eine L\"osung der Klein-Gordongleichung
+	\begin{equation}
+		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi+ m^2 \Phi = 0
+	\end{equation}
+ ist, dann ist $\overline{\Phi}$ eine L\"osung der Klein-Gordongleichung
+ 	\begin{equation}
+ 	\frac{\partial^2}{\partial t^2}\overline{\Phi} - \Delta^{-a}_r\overline{\Phi}+ m^2 \overline{\Phi} = 0
+ 	\end{equation}
+ und f\"ur die Ladung (7.12) und den Strom (7.13) gilt:
+ \begin{align}
+ 	q_\Phi &= - q_{\overline{\Phi}}\\
+ 	j_\Phi^a &= - j_{\overline{\Phi}}^{-a}
+ \end{align}
+\end{proposition}
+\begin{proof}
+	Um zu sehen, dass $\overline{\Phi}$ (7.21) erf\"ullt, wende komplexe Konjugation auf 7.20 an.\\
+	\\
+	(7.22) und (7.23) k\"onnen durch ein paar einfache Umformungen gezeigt werden.
+	\begin{equation*}
+		q_{\overline{\Phi}}\ = \Im(\overline{\overline{\Phi}}\overline{\Phi}^\prime)
+		 = \Im(\overline{\overline{\Phi}\Phi^\prime}) = -\Im(\overline{\Phi}\Phi^\prime)
+		 = -q_\Phi
+	\end{equation*}
+	\begin{align*}
+j_{\overline{\Phi}}^{-a} &= -\text{div}^{-1}\Im(\overline{\overline{\Phi}}\Delta^{-a}_r(\overline{\Phi}))
+= -\text{div}^{-1}\Im(\overline{\overline{\Phi}\Delta^a_r(\Phi)})\\
+&= \text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))= -j_{\Phi}^a
+	\end{align*}
+\end{proof}
+
+
+
+\chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
 \begin{definition}
