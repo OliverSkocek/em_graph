@@ -1015,13 +1015,13 @@ Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"a
 \\
 Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. 
 \paragraph{Photonen - die Teilcheninterpretation}
-Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 6.6 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Es gibt zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 6.6) ein 
+Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 6.6 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Konkret gibt es zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 6.6) einen Operator
 \begin{equation*}
 	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{q}^2)
 \end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
-Jeder dieser Operatoren ist ein Hamiltonoperator zu einem eindimensionaler harmonischer Oszillator. Bisher waren wir in Bezug auf die Theorie linearer Operatoren noch sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
+Jeder dieser Operatoren hat die Form eines Hamiltonoperators zu einem eindimensionaler harmonischen Oszillators. Bisher waren wir in Bezug auf die Theorie linearer Operatoren sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
 \begin{definition}
-	Sei $\Omega=\{x\mapsto p(x)e^{-x^2 / 2}: \text{p ist ein Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
+	Sei $\Omega=\{q\mapsto p(q)e^{-x^2 / 2}: \text{p ist ein Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
 	\begin{equation}
 		\hat{a}_\omega: \Omega \mapsto \Omega
 	\end{equation}
@@ -1040,7 +1040,7 @@ Vernichtungsoperators fest.
 	\begin{equation}
 		\hat{a}_\omega^\dagger = \sqrt{\frac{\omega}{2}}(q - \frac{1}{\omega}\frac{d}{dq})
 	\end{equation}
-	und ebenfalls ein dicht definierter linearer Operator und es gilt auf einer dichten Teilmenge:
+	und ebenfalls ein dicht definierter linearer Operator und es gilt:
 	\begin{equation}
 		[\hat{a}_\omega, \hat{a}_\omega^\dagger] = 1
 	\end{equation}
@@ -1049,15 +1049,17 @@ Vernichtungsoperators fest.
 	content...
 \end{proof}
 \noindent
-Den adjungierten Operator nennen wir den \textbf{Erzeugungsoperator} und als n\"achstes untersuchen wir den \textbf{Teilchenzahloperator}
+Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator}.\\
+Wir werden als n\"achstes den \textbf{Teilchenzahloperator}
 \begin{equation}
 	\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega
 \end{equation}
+untersuchen
 \begin{lemma}
 	Der Teilchenzahloperator ist ein dicht definierer linearer Operator und erf\"ullt folgende Vertauschungsrelationen
 	\begin{align}
 		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
-		& [\hat{N}_\omega, \hat{a^\dagger}_\omega] = \hat{a^\dagger}_\omega
+		& [\hat{N}_\omega, \hat{a}^\dagger_\omega] = \hat{a}^\dagger_\omega
 	\end{align}
 \end{lemma}
 \begin{proof}
@@ -1065,7 +1067,7 @@ Den adjungierten Operator nennen wir den \textbf{Erzeugungsoperator} und als n\"
 \end{proof}
 \noindent
 Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.
-Den Kern des Vernichtungsoperator nennen wir den Vakuumzustand des freien elektromagnetischen Feldes.\\
+Den Kern des Vernichtungsoperators nennen wir den Vakuumzustand des freien elektromagnetischen Feldes.\\
 Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.\\
 \\
 Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator weiter.
