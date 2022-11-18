@@ -885,6 +885,10 @@ Wobei die $\hat{h}_j$ gegeben sind durch:
 -\frac{1}{2}\frac{\partial^2}{\partial x_j^2} + \frac{1}{2}\omega_j^2 x_j^2 & \text{sonst.} 
 \end{cases}
 \]
+Insbesondere gilt daher:
+\begin{equation*}
+	\forall k,n \in \mathbb{N}:[\hat{h}_k, \hat{h}_n]=0 
+\end{equation*}
 \end{theorem}
 \begin{proof}
 	Der Hamiltonoperator l\"asst sich folgenderma\ss{}en zerlegen:
@@ -1011,45 +1015,74 @@ Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"a
 \\
 Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. 
 \paragraph{Photonen - die Teilcheninterpretation}
-Wir folgen in diesem Abschnitt Dirac um Erzeugungs- und Vernichtungsoperatoren f\"ur Photonen zu konstruieren. Zu jedem Eigenwert $\omega_j$ von $Q$ gibt es laut Theorem 6.6 ein 
+Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 6.6 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Es gibt zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 6.6) ein 
 \begin{equation*}
 	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{q}^2)
 \end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
-Wir definieren als n\"achstes den so genannten Vernichtungsoperator $\hat{a}_\omega$
-\begin{equation*}
-	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{q} + i \frac{\hat{\pi}}{\omega})
-\end{equation*}
-Die Adjungierte des Vernichtungsoperators $\hat{a}_\omega^\dagger$ nennen wir den Erzeugungsoperator. Es gilt die Vertauschungsrelation:
-\begin{equation*}
-	[\hat{a}_\omega, \hat{a}_\omega^\dagger] = 1
-\end{equation*}
-Wir k\"onnen mit Hilfe dieser Operatoren das Eigenwertproblem des eindimensionalen harmonischen Oszillators l\"osen. Hierzu definiere man zun\"achst den Teilchenzahloperator 
-\begin{equation*}
+Jeder dieser Operatoren ist ein Hamiltonoperator zu einem eindimensionaler harmonischer Oszillator. Bisher waren wir in Bezug auf die Theorie linearer Operatoren noch sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
+\begin{definition}
+	Sei $\Omega=\{x\mapsto p(x)e^{-x^2 / 2}: \text{p ist ein Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
+	\begin{equation}
+		\hat{a}_\omega: \Omega \mapsto \Omega
+	\end{equation}
+ein linearer Operator definiert durch 
+\begin{equation}
+	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{q} + i \frac{\hat{\pi}}{\omega}) = \sqrt{\frac{\omega}{2}}(q +  \frac{1}{\omega}\frac{d}{dq})
+\end{equation}
+dann nennen wir $\hat{a}_\omega$ den \textbf{Vernichtungsoperator} der Mode $\omega$.
+\end{definition}
+\noindent
+Halten wir zun\"achst einige wichtige Eigenschaften des 
+Vernichtungsoperators fest.
+\begin{proposition}
+	Der Operator $\hat{a}_\omega$ aus Definition 6.8 ist ein dicht definierter linearer Operator auf $L^2(\mathbb{R}, \mathbb{C},\lambda)$, und der Kern des Operators ist eindimensional.\\
+	Des weiteren ist die Adjungierte des Operators gegeben durch 
+	\begin{equation}
+		\hat{a}_\omega^\dagger = \sqrt{\frac{\omega}{2}}(q - \frac{1}{\omega}\frac{d}{dq})
+	\end{equation}
+	und ebenfalls ein dicht definierter linearer Operator und es gilt auf einer dichten Teilmenge:
+	\begin{equation}
+		[\hat{a}_\omega, \hat{a}_\omega^\dagger] = 1
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	content...
+\end{proof}
+\noindent
+Den adjungierten Operator nennen wir den \textbf{Erzeugungsoperator} und als n\"achstes untersuchen wir den \textbf{Teilchenzahloperator}
+\begin{equation}
 	\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega
-\end{equation*}
-Der Operator $\hat{N}$ erf\"ullt folgende Vertauschungsrelationen
-\begin{align*}
-	& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
-	& [\hat{N}_\omega, \hat{a^\dagger}_\omega] = \hat{a^\dagger}_\omega
-\end{align*}
-Es kann dann gezeigt werden, dass die Eigenwerte des Teilchenzahloperators $\hat{N}_\omega$ genau die nat\"urlichen Zahlen sind und die zugeh\"origen Eigenr\"aume eindimensional sind.\footnote{Dies wird im Anhang gezeigt.}
+\end{equation}
+\begin{lemma}
+	Der Teilchenzahloperator ist ein dicht definierer linearer Operator und erf\"ullt folgende Vertauschungsrelationen
+	\begin{align}
+		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
+		& [\hat{N}_\omega, \hat{a^\dagger}_\omega] = \hat{a^\dagger}_\omega
+	\end{align}
+\end{lemma}
+\begin{proof}
+	content...
+\end{proof}
+\noindent
+Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.
+Den Kern des Vernichtungsoperator nennen wir den Vakuumzustand des freien elektromagnetischen Feldes.\\
+Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.\\
 \\
-\\
-Der Vernichtungsoperator verringert die Teilchenzahl um eins
-\begin{equation*}
-	\hat{N}\psi = n \psi \rightarrow \hat{N}\hat{a}\psi = (n-1)\hat{a}\psi
-\end{equation*} 
-Insbesondere gilt $\hat{a}\psi_0=0$, wobei $\psi_0$ der Eigenvektor zum Eigenwert Null ist.\\
-\\
-Umgekehrt erhöht der Erzeugungsoperator die Teilchenzahl um eins.
-\begin{equation*}
-	\hat{N}\psi = n \psi \rightarrow \hat{N}\hat{a}^\dagger\psi = (n+1)\hat{a^\dagger}\psi
-\end{equation*} 
-Der Summand $h_\omega$ l\"asst sich schreiben als
-\begin{equation*}
-	\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
-\end{equation*}
-Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen. Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.
+Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator weiter.
+\begin{proposition}
+	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen
+	\begin{equation}
+		\sigma(\hat{N}_\omega)=\mathbb{N}
+	\end{equation}
+	Des weiteren gilt die Identit\"at
+	\begin{equation}
+		\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	content...
+\end{proof}
+
 
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
@@ -1430,7 +1463,7 @@ Das Spektrum von $\hat{q}$ ist genau $\mathbb{Z}$.
 \chapter{Quantenelektrodynamik des planaren Graphen}
 Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Felder der Quellen, also Ladung und Strom, quantenmechanisch beschreibt.\\
 \\ 
-Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.16 die ersten beiden Terme von 6.6 hinzu.
+Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.20 die ersten beiden Terme von 6.6 hinzu.
 
 \begin{align*}
 	H(\Phi, \pi_\Phi, a, \pi_a) = \frac{1}{2}(&\langle \pi_\Phi, \pi_\Phi\rangle_{\mathfrak{E},\mathbb{C}}+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &\langle \frac{\pi_a}{\epsilon}, \pi_a\rangle_{\mathfrak{K}} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
