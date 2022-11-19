@@ -1021,7 +1021,7 @@ Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harm
 \end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
 Jeder dieser Operatoren hat die Form eines Hamiltonoperators zu einem eindimensionaler harmonischen Oszillators. Bisher waren wir in Bezug auf die Theorie linearer Operatoren sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
 \begin{definition}
-	Sei $\Omega=\{q\mapsto p(q)e^{-x^2 / 2}: \text{p ist ein Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
+	Sei $\Omega=\{q\mapsto p(q)e^{-x^2 / 2}: \text{p ist ein komplexes Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
 	\begin{equation}
 		\hat{a}_\omega: \Omega \mapsto \Omega
 	\end{equation}
@@ -1046,7 +1046,25 @@ Vernichtungsoperators fest.
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	content...
+	Sei $f\in\Omega$, dann gibt es ein komplexes Polynom $p$ auf $\mathbb{R}$, sodass gilt
+	\begin{align*}
+		\hat{a}_\omega (q\mapsto p(q)e^{-q^2/2}) &= q \mapsto \sqrt{\frac{\omega}{2}}(q p(q)e^{-q^2/2} +  \frac{1}{\omega}(\frac{dp}{dq}e^{-q^2/2} - q p(q)e^{-q^2/2}))\\&=(q \mapsto (\sqrt{\frac{\omega}{2}}(q p(q) +  \frac{1}{\omega}(\frac{dp}{dq} - q p(q))))e^{-q^2/2})\in \Omega
+	\end{align*}
+Es folgt, dass $\hat{a}_\omega$ eine lineare Abbildung in $\Omega$ ist. \\
+\\
+Zeigen wir nun $\Omega\subset L^2(\mathbb{R}, \mathbb{C},\lambda)$.\\
+Falls $f$ in $\Omega$ liegt ist auch das Betragsquadrat $|f|^2$ in $\Omega$, somit reicht es zu zeigen, dass die Funktionen in $\Omega$ integrierbar sind.\\
+Die Funktionen sind genau dann integrierbar, wenn f\"ur alle $n\in\mathbb{N}$ gilt, dass
+\begin{equation*}
+	x\mapsto x^ne^{-x^2/2}
+\end{equation*}
+integrierbar ist. Dies kann durch partielle Integration und einen Grenz\"ubergang gezeigt werden.\\
+\\
+Um zu zeigen, dass der Raum $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C},\lambda)$ liegt, gen\"ugt es sich davon zu \"uberzeugen, dass beliebige stetige Funktionen mit kompaktem Tr\"ager mit beliebig approximier bar sind mit Elementen aus $\Omega$.\\
+Sei $g\in C_c(\mathbb{R}, \mathbb{C})$ eine komplexe stetige Funktion mit kompaktem Tr\"ager, und $\text{supp}(g)$ der kompakte Tr\"ager. Sei $u\in \Omega$, dann k\"onnen wir ein kompaktes Intervall $[-R,R]$ w\"ahlen sodass 
+
+
+Der Beweis f\"ur den laut 6.32 adjungierten Operator geht analog.
 \end{proof}
 \noindent
 Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator}.\\
