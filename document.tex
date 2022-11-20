@@ -1118,17 +1118,37 @@ Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den M
 \\
 Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator weiter.
 \begin{proposition}
-	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen
+	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen mit Null. 
 	\begin{equation}
-		\sigma(\hat{N}_\omega)=\mathbb{N}
+		\sigma(\hat{N}_\omega)=\mathbb{N}\cup\{0\}
 	\end{equation}
+Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\omega)$ und die Eigenr\"aume sind eindimensional.\\
+\\
 	Des weiteren gilt die Identit\"at
 	\begin{equation}
 		\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	content...
+	Nachdem der Teilchenzahloperator $\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega\geq 0$ gilt, ist auch $\sigma(\hat{N}_\omega)\geq 0$.\\
+	\\
+	Nach Satz (6.3) ist $0$ ein Eigenwert mit $\psi_0=e^{\omega x^2 / 2}$, da f\"ur beliebiges $\phi\in \Omega$ gilt
+	\begin{equation*}
+		\langle \phi, \hat{N}_\omega\psi_0\rangle_{L^2}=\langle \phi, \hat{a}^\dagger_\omega\hat{a}_\omega\psi_0\rangle_{L^2}=\langle \hat{a}_\omega\phi, \hat{a}_\omega\psi_0\rangle_{L^2}=0
+	\end{equation*}
+und somit $\hat{N}_\omega\psi_0=0$.\\
+\\
+Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Eigenvektor, dann gilt:
+\begin{equation*}
+	\hat{N}_\omega\hat{a}_\omega\psi=\hat{a}_\omega\hat{N}_\omega\psi-\hat{a}_\omega\psi=(\lambda -1)\hat{a}_\omega\psi
+\end{equation*}
+\begin{equation*}
+	\hat{N}_\omega\hat{a}_\omega^\dagger\psi=\hat{a}_\omega^\dagger\hat{N}_\omega\psi+\hat{a}_\omega^\dagger\psi=(\lambda +1)\hat{a}_\omega^\dagger\psi
+\end{equation*}
+Es bildet also $\hat{a}_\omega^\dagger$ Eigenvektoren zu $\lambda$ auf Eigenvektoren zu $(\lambda + 1)$ ab und $\hat{a}_\omega$ Eigenvektoren zu $\lambda $ auf Eigenvektoren zu $\lambda -1$ ab.\\
+\\
+Somit haben wir mit $\psi_0$ und mit $\psi_k= \hat{a}_\omega^k\psi_0$ wobei $k\in\mathbb{N}$, zu jedem Element von $\mathbb{N}\cup\{0\}$ einen Eigenvektor konstruiert.\\
+\\
 \end{proof}
 
 
