@@ -1052,19 +1052,39 @@ Vernichtungsoperators fest.
 	\end{align*}
 Es folgt, dass $\hat{a}_\omega$ eine lineare Abbildung in $\Omega$ ist. \\
 \\
-Zeigen wir nun $\Omega\subset L^2(\mathbb{R}, \mathbb{C},\lambda)$.\\
-Falls $f$ in $\Omega$ liegt ist auch das Betragsquadrat $|f|^2$ in $\Omega$, somit reicht es zu zeigen, dass die Funktionen in $\Omega$ integrierbar sind.\\
-Die Funktionen sind genau dann integrierbar, wenn f\"ur alle $n\in\mathbb{N}$ gilt, dass
-\begin{equation*}
-	x\mapsto x^ne^{-x^2/2}
-\end{equation*}
-integrierbar ist. Dies kann durch partielle Integration und einen Grenz\"ubergang gezeigt werden.\\
+Der Beweis f\"ur den laut 6.32 adjungierten Operator geht analog.\\
 \\
-Um zu zeigen, dass der Raum $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C},\lambda)$ liegt, gen\"ugt es sich davon zu \"uberzeugen, dass beliebige stetige Funktionen mit kompaktem Tr\"ager mit beliebig approximier bar sind mit Elementen aus $\Omega$.\\
-Sei $g\in C_c(\mathbb{R}, \mathbb{C})$ eine komplexe stetige Funktion mit kompaktem Tr\"ager, und $\text{supp}(g)$ der kompakte Tr\"ager. Sei $u\in \Omega$, dann k\"onnen wir ein kompaktes Intervall $[-R,R]$ w\"ahlen sodass 
-
-
-Der Beweis f\"ur den laut 6.32 adjungierten Operator geht analog.
+Ein Beweis, dass $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C},\lambda)$ liegt findet sich in (Teschl, Mathematical Methods in Quantum Mechanics, Lemma 8.3)\\
+\\
+Der Kern des Operators $\hat{a}_\omega$ erf\"ullt folgende Differentialgleichung.
+\begin{equation*}
+	f^\prime=-q\omega f
+\end{equation*}
+Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung gibt. Diese L\"osung ist gegeben durch
+\begin{equation*}
+	f_c(q) = c * e^{-\omega x^2 / 2}
+\end{equation*}
+Zeigen wir nun, da\ss{} (6.32) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
+Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) der Definition der Adjungierten entspricht:
+\begin{align*}
+	\langle \phi, \hat{a}_\omega\psi\rangle_{L^2} &= 
+	\int_\mathbb{R} \overline{\phi}(q)( \sqrt{\frac{\omega}{2}}(q\psi +  \frac{1}{\omega}\frac{d\psi}{dq}(q)))d\lambda(q)\\&=
+	\int_\mathbb{R} \overline{( \sqrt{\frac{\omega}{2}}(q\psi -  \frac{1}{\omega}\frac{d\psi}{dq}(q)))}\phi(q) d\lambda(q)\\&=\langle \hat{a}^\dagger_\omega\phi, \psi\rangle_{L^2}
+\end{align*}
+Abschlie\ss{}end
+\begin{align*}
+	\hat{a}_\omega\hat{a}_\omega^\dagger &= 
+	\frac{\omega}{2}(q + \frac{1}{\omega}\frac{d}{dq})(q - \frac{1}{\omega}\frac{d}{dq})=
+	\frac{\omega}{2}(q^2 - q\frac{1}{\omega}\frac{d}{dq} + \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
+\end{align*}
+\begin{align*}
+	\hat{a}_\omega^\dagger\hat{a}_\omega &= 
+	\frac{\omega}{2}(q - \frac{1}{\omega}\frac{d}{dq})(q + \frac{1}{\omega}\frac{d}{dq})=
+	\frac{\omega}{2}(q^2 + q\frac{1}{\omega}\frac{d}{dq} - \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
+\end{align*}
+\begin{align*}
+	[\hat{a}_\omega,\hat{a}_\omega^\dagger] =\frac{d}{dq}q-q\frac{d}{dq} = 1
+\end{align*}
 \end{proof}
 \noindent
 Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator}.\\
@@ -1081,7 +1101,15 @@ untersuchen
 	\end{align}
 \end{lemma}
 \begin{proof}
-	content...
+	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz 6.3 lineare Abbildungen in $\Omega$ sind, ist $\hat{N}_\omega$ ein dicht definierter linearer Operator.\\
+	\\
+	Kommen wir nun zur Vertauschungsrelation (6.35)
+	\begin{align*}
+		\hat{N}_\omega\hat{a}_\omega = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega = (\hat{a}_\omega\hat{a}^\dagger_\omega - 1 )\hat{a}_\omega=\hat{a}_\omega\hat{a}^\dagger_\omega\hat{a}_\omega - \hat{a}_\omega = \hat{a}_\omega\hat{N}_\omega - \hat{a}_\omega
+	\end{align*}
+	\begin{align*}
+	\hat{N}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega(\hat{a}_\omega^\dagger\hat{a}_\omega+1)=\hat{a}^\dagger_\omega\hat{a}_\omega^\dagger\hat{a}_\omega+\hat{a}^\dagger_\omega=\hat{a}^\dagger_\omega\hat{N}_\omega+\hat{a}^\dagger_\omega
+\end{align*}
 \end{proof}
 \noindent
 Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.
