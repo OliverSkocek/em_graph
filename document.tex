@@ -1107,7 +1107,7 @@ untersuchen
 \begin{proof}
 	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz 6.3 lineare Abbildungen in $\Omega$ sind, ist $\hat{N}_\omega$ ein dicht definierter linearer Operator.\\
 	\\
-	Kommen wir nun zur Vertauschungsrelation (6.35)
+	Kommen wir nun zu den Vertauschungsrelationen (6.36) und (6.37)
 	\begin{align*}
 		\hat{N}_\omega\hat{a}_\omega = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega = (\hat{a}_\omega\hat{a}^\dagger_\omega - 1 )\hat{a}_\omega=\hat{a}_\omega\hat{a}^\dagger_\omega\hat{a}_\omega - \hat{a}_\omega = \hat{a}_\omega\hat{N}_\omega - \hat{a}_\omega
 	\end{align*}
@@ -1140,7 +1140,7 @@ Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\ome
 	\begin{equation*}
 		\langle \phi, \hat{N}_\omega\psi_0\rangle_{L^2}=\langle \phi, \hat{a}^\dagger_\omega\hat{a}_\omega\psi_0\rangle_{L^2}=\langle \hat{a}_\omega\phi, \hat{a}_\omega\psi_0\rangle_{L^2}=0
 	\end{equation*}
-und somit der Kenr von $\hat{N}_\omega$ mit dem von $\hat{a}_\omega$ \"ubereinstimmt.\\
+und somit der Kern von $\hat{N}_\omega$ mit dem von $\hat{a}_\omega$ \"ubereinstimmt.\\
 \\
 Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Eigenvektor, dann gilt:
 \begin{equation*}
@@ -1155,13 +1155,15 @@ Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{
 \\
 Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}\cup\{0\}$ eindimensional sind.
 F\"ur den Eigenwert Null wurde bereits gezeigt, dass der zugeh\"orende Eigenraum eindimensional ist. Wir m\"ussen daher zeigen, dass beim \"Ubergang von $n\rightarrow n+1$ keine \"Anderung der Dimensionalit\"at des Eigenraums stattfinden kann.\\
+\\
 Betrachten wir hierzu $n+1$ und nehmen an es gibt  zuge\"orende linear unabh\"angige Eigenvektoren $\psi_a$ und $\psi_b$.\\
-Nachdem $\hat{a}_\omega\psi_a$ und $\hat{a}_\omega\psi_b$ Eigenvektoren zu $n$ sind m\"ussen diese linear abh\"angig sein daher gibt es $u1\neq0$ und $u_2\neq 0$ sodass:
+\\
+Nachdem $\hat{a}_\omega\psi_a$ und $\hat{a}_\omega\psi_b$ Eigenvektoren zu $n$ sind m\"ussen diese linear abh\"angig sein daher gibt es $u_1\neq0$ und $u_2\neq 0$ sodass:
 \begin{equation*}
 	u_1\hat{a}_\omega\psi_a+u_2\hat{a}_\omega\psi_b=0
 \end{equation*}
 Damit ist aber $u_1\psi_a+u_2\psi_b$ im Kern von $\hat{a}_\omega$ und damit im Kern von $\hat{N}_\omega$.
-Das einzige Element des Eigenraums zu $n+1$, die das erf\"ullt ist der Nullvektor.\\
+Das einzige Element des Eigenraums zu $n+1$, das dies erf\"ullt ist der Nullvektor.\\
 \\
 Als n\"achstes zeigen wir, das es keine anderen Eigenwerte gibt.\\
 Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwenden von $\hat{a}_\omega$ auf den zugeh\"origen Eigenvektor erhalten wir einen Eigenvektor zu einem negative Eigenwert, was $\sigma(\hat{N}_\omega)$ widerspricht.\\
@@ -1412,40 +1414,6 @@ Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\
 &-\frac{1}{2}\pi^\prime\overline{\Phi}^\prime  -\frac{1}{2}\overline{\pi}^\prime\Phi^\prime +\frac{1}{2}\Phi^\prime\overline{\pi}^\prime + \frac{1}{2}\overline{\Phi}^\prime\pi^\prime + \frac{\partial H}{\partial t}=\frac{\partial H}{\partial t}
 	\end{align*}
 \end{proof}
-\noindent
-Als n\"achstes widmen wir uns kurz einer Transformation, welche die Ladung $q$ und den Strom $j$ invertiert. 
-\begin{proposition}
-	Sei $G$, $m>0$, $r>0$ und $a$ wie in Definition 7.3. Wenn $\Phi$ eine L\"osung der Klein-Gordongleichung
-	\begin{equation}
-		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi+ m^2 \Phi = 0
-	\end{equation}
- ist, dann ist $\overline{\Phi}$ eine L\"osung der Klein-Gordongleichung
- 	\begin{equation}
- 	\frac{\partial^2}{\partial t^2}\overline{\Phi} - \Delta^{-a}_r\overline{\Phi}+ m^2 \overline{\Phi} = 0
- 	\end{equation}
- und f\"ur die Ladung (7.12) und den Strom (7.13) gilt:
- \begin{align}
- 	q_\Phi &= - q_{\overline{\Phi}}\\
- 	j_\Phi^a &= - j_{\overline{\Phi}}^{-a}
- \end{align}
-\end{proposition}
-\begin{proof}
-	Um zu sehen, dass $\overline{\Phi}$ (7.21) erf\"ullt, wende komplexe Konjugation auf 7.20 an.\\
-	\\
-	(7.22) und (7.23) k\"onnen durch ein paar einfache Umformungen gezeigt werden.
-	\begin{equation*}
-		q_{\overline{\Phi}}\ = \Im(\overline{\overline{\Phi}}\overline{\Phi}^\prime)
-		 = \Im(\overline{\overline{\Phi}\Phi^\prime}) = -\Im(\overline{\Phi}\Phi^\prime)
-		 = -q_\Phi
-	\end{equation*}
-	\begin{align*}
-j_{\overline{\Phi}}^{-a} &= -\text{div}^{-1}\Im(\overline{\overline{\Phi}}\Delta^{-a}_r(\overline{\Phi}))
-= -\text{div}^{-1}\Im(\overline{\overline{\Phi}\Delta^a_r(\Phi)})\\
-&= \text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))= -j_{\Phi}^a
-	\end{align*}
-\end{proof}
-
-
 
 \chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
