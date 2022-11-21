@@ -1065,7 +1065,7 @@ Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"u
 	f_c(q) = c * e^{-\omega x^2 / 2}
 \end{equation*}
 Zeigen wir nun, da\ss{} (6.32) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
-Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) der Definition der Adjungierten entspricht:
+Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) auf $\Omega$ der Definition der Adjungierten entspricht:
 \begin{align*}
 	\langle \phi, \hat{a}_\omega\psi\rangle_{L^2} &= 
 	\int_\mathbb{R} \overline{\phi}(q)( \sqrt{\frac{\omega}{2}}(q\psi +  \frac{1}{\omega}\frac{d\psi}{dq}(q)))d\lambda(q)\\&=
@@ -1077,11 +1077,11 @@ Abschlie\ss{}end
 	\frac{\omega}{2}(q + \frac{1}{\omega}\frac{d}{dq})(q - \frac{1}{\omega}\frac{d}{dq})=
 	\frac{\omega}{2}(q^2 - q\frac{1}{\omega}\frac{d}{dq} + \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
 \end{align*}
-\begin{align*}
+\begin{align}
 	\hat{a}_\omega^\dagger\hat{a}_\omega &= 
 	\frac{\omega}{2}(q - \frac{1}{\omega}\frac{d}{dq})(q + \frac{1}{\omega}\frac{d}{dq})=
 	\frac{\omega}{2}(q^2 + q\frac{1}{\omega}\frac{d}{dq} - \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
-\end{align*}
+\end{align}
 \begin{align*}
 	[\hat{a}_\omega,\hat{a}_\omega^\dagger] =\frac{d}{dq}q-q\frac{d}{dq} = 1
 \end{align*}
@@ -1099,6 +1099,10 @@ untersuchen
 		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
 		& [\hat{N}_\omega, \hat{a}^\dagger_\omega] = \hat{a}^\dagger_\omega
 	\end{align}
+	Des weiteren gilt die Identit\"at
+\begin{equation}
+	\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
+\end{equation}
 \end{lemma}
 \begin{proof}
 	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz 6.3 lineare Abbildungen in $\Omega$ sind, ist $\hat{N}_\omega$ ein dicht definierter linearer Operator.\\
@@ -1109,6 +1113,11 @@ untersuchen
 	\end{align*}
 	\begin{align*}
 	\hat{N}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega(\hat{a}_\omega^\dagger\hat{a}_\omega+1)=\hat{a}^\dagger_\omega\hat{a}_\omega^\dagger\hat{a}_\omega+\hat{a}^\dagger_\omega=\hat{a}^\dagger_\omega\hat{N}_\omega+\hat{a}^\dagger_\omega
+\end{align*}
+Abschlie\ss{}end gilt nach (6.34)
+\begin{align*}
+	\hat{N}_\omega &=
+	\frac{\omega}{2}(-\frac{1}{\omega^2}\frac{d^2}{dq^2}+q^2 - \frac{1}{\omega}[\frac{d}{dq},q])\\&=\frac{1}{2\omega}(-\frac{d^2}{dq^2}+\omega^2q^2 - \omega [\frac{d}{dq},q])= \frac{1}{\omega}(\hat{h}_\omega - \frac{\omega}{2} )
 \end{align*}
 \end{proof}
 \noindent
@@ -1122,21 +1131,16 @@ Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator 
 	\begin{equation}
 		\sigma(\hat{N}_\omega)=\mathbb{N}\cup\{0\}
 	\end{equation}
-Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\omega)$ und die Eigenr\"aume sind eindimensional.\\
-\\
-	Des weiteren gilt die Identit\"at
-	\begin{equation}
-		\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
-	\end{equation}
+Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\omega)$ und die Eigenr\"aume sind eindimensional.
 \end{proposition}
 \begin{proof}
-	Nachdem der Teilchenzahloperator $\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega\geq 0$ gilt, ist auch $\sigma(\hat{N}_\omega)\geq 0$.\\
+	Nachdem f\"ur den Teilchenzahloperator $\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega\geq 0$ gilt, ist auch $\sigma(\hat{N}_\omega)\geq 0$.\\
 	\\
-	Nach Satz (6.3) ist $0$ ein Eigenwert mit $\psi_0=e^{\omega x^2 / 2}$, da f\"ur beliebiges $\phi\in \Omega$ gilt
+	Nach Satz (6.3) ist $0$ ein Eigenwert mit $\psi_0=e^{-\omega x^2 / 2}$, da f\"ur beliebiges $\phi\in \Omega$ gilt
 	\begin{equation*}
 		\langle \phi, \hat{N}_\omega\psi_0\rangle_{L^2}=\langle \phi, \hat{a}^\dagger_\omega\hat{a}_\omega\psi_0\rangle_{L^2}=\langle \hat{a}_\omega\phi, \hat{a}_\omega\psi_0\rangle_{L^2}=0
 	\end{equation*}
-und somit $\hat{N}_\omega\psi_0=0$.\\
+und somit der Kenr von $\hat{N}_\omega$ mit dem von $\hat{a}_\omega$ \"ubereinstimmt.\\
 \\
 Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Eigenvektor, dann gilt:
 \begin{equation*}
@@ -1147,9 +1151,23 @@ Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Ei
 \end{equation*}
 Es bildet also $\hat{a}_\omega^\dagger$ Eigenvektoren zu $\lambda$ auf Eigenvektoren zu $(\lambda + 1)$ ab und $\hat{a}_\omega$ Eigenvektoren zu $\lambda $ auf Eigenvektoren zu $\lambda -1$ ab.\\
 \\
-Somit haben wir mit $\psi_0$ und mit $\psi_k= \hat{a}_\omega^k\psi_0$ wobei $k\in\mathbb{N}$, zu jedem Element von $\mathbb{N}\cup\{0\}$ einen Eigenvektor konstruiert.\\
+Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{a}_\omega^k\psi_0$, zu jedem Element von $\mathbb{N}\cup\{0\}$ einen Eigenvektor konstruiert.\\
 \\
-\end{proof}
+Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}\cup\{0\}$ eindimensional sind.
+F\"ur den Eigenwert Null wurde bereits gezeigt, dass der zugeh\"orende Eigenraum eindimensional ist. Wir m\"ussen daher zeigen, dass beim \"Ubergang von $n\rightarrow n+1$ keine \"Anderung der Dimensionalit\"at des Eigenraums stattfinden kann.\\
+Betrachten wir hierzu $n+1$ und nehmen an es gibt  zuge\"orende linear unabh\"angige Eigenvektoren $\psi_a$ und $\psi_b$.\\
+Nachdem $\hat{a}_\omega\psi_a$ und $\hat{a}_\omega\psi_b$ Eigenvektoren zu $n$ sind m\"ussen diese linear abh\"angig sein daher gibt es $u1\neq0$ und $u_2\neq 0$ sodass:
+\begin{equation*}
+	u_1\hat{a}_\omega\psi_a+u_2\hat{a}_\omega\psi_b=0
+\end{equation*}
+Damit ist aber $u_1\psi_a+u_2\psi_b$ im Kern von $\hat{a}_\omega$ und damit im Kern von $\hat{N}_\omega$.
+Das einzige Element des Eigenraums zu $n+1$, die das erf\"ullt ist der Nullvektor.\\
+\\
+Als n\"achstes zeigen wir, das es keine anderen Eigenwerte gibt.\\
+Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwenden von $\hat{a}_\omega$ auf den zugeh\"origen Eigenvektor erhalten wir einen Eigenvektor zu einem negative Eigenwert, was $\sigma(\hat{N}_\omega)$ widerspricht.\\
+\\
+Wir haben bislang gezeigt dass $\sigma_p(\hat{N}_\omega)=
+\mathbb{N}\cup\{0\}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass ganz $\Omega$ aufspannt.\end{proof}
 
 
 \chapter{Die Klein-Gordongleichung}
