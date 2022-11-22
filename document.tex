@@ -1011,9 +1011,7 @@ Alternativ h\"atten wir vor der Quantisierung den ladungsfreien Fall
  \begin{equation}
 	\text{div}(r * a) = 0
 \end{equation}
-Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"atte zu einer Hamiltonfunktion gef\"uhrt die durch Quantisierung zur gesuchten Schr\"odingergleichung f\"uhrt.\\
-\\
-Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. 
+Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"atte zu einer Hamiltonfunktion gef\"uhrt die durch Quantisierung zur gesuchten Schr\"odingergleichung f\"uhrt.
 \paragraph{Photonen - die Teilcheninterpretation}
 Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 6.6 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Konkret gibt es zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 6.6) einen Operator
 \begin{equation*}
@@ -1087,7 +1085,7 @@ Abschlie\ss{}end
 \end{align*}
 \end{proof}
 \noindent
-Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator}.\\
+Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator} zur Mode $\omega$.\\
 Wir werden als n\"achstes den \textbf{Teilchenzahloperator}
 \begin{equation}
 	\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega
@@ -1123,6 +1121,7 @@ Abschlie\ss{}end gilt nach (6.34)
 \noindent
 Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.
 Den Kern des Vernichtungsoperators nennen wir den Vakuumzustand des freien elektromagnetischen Feldes.\\
+\\
 Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.\\
 \\
 Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator weiter.
@@ -1156,7 +1155,7 @@ Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{
 Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}\cup\{0\}$ eindimensional sind.
 F\"ur den Eigenwert Null wurde bereits gezeigt, dass der zugeh\"orende Eigenraum eindimensional ist. Wir m\"ussen daher zeigen, dass beim \"Ubergang von $n\rightarrow n+1$ keine \"Anderung der Dimensionalit\"at des Eigenraums stattfinden kann.\\
 \\
-Betrachten wir hierzu $n+1$ und nehmen an es gibt  zuge\"orende linear unabh\"angige Eigenvektoren $\psi_a$ und $\psi_b$.\\
+Betrachten wir hierzu $n+1$ und nehmen an es gibt  zugeh\"orende linear unabh\"angige Eigenvektoren $\psi_a$ und $\psi_b$.\\
 \\
 Nachdem $\hat{a}_\omega\psi_a$ und $\hat{a}_\omega\psi_b$ Eigenvektoren zu $n$ sind m\"ussen diese linear abh\"angig sein daher gibt es $u_1\neq0$ und $u_2\neq 0$ sodass:
 \begin{equation*}
@@ -1170,7 +1169,8 @@ Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwe
 \\
 Wir haben bislang gezeigt dass $\sigma_p(\hat{N}_\omega)=
 \mathbb{N}\cup\{0\}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass ganz $\Omega$ aufspannt.\end{proof}
-
+\noindent
+Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken zu tun.
 
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
