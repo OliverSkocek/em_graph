@@ -1441,7 +1441,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-\sum_{k\in V}2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
+		\hat{H}=-2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}
 	Der Wirtinger-Operator $\partial$ wird definiert durch:
 	\begin{equation}
@@ -1461,15 +1461,26 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \end{definition}
 \noindent
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $a$ und $r>0$ Kantenfunktionen, dann existiert eine unit\"are Abbildung $\hat{V}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|V|-1}>0$ sodass f\"ur den Hamiltonoperator des Klein-Gordonfeldes $\hat{H}$ (7.22) gilt:
+	Sei $G$ ein planarer Graph, $a$ und $r>0$ Kantenfunktionen, dann existiert eine unit\"are Abbildung $\hat{V}$ auf $\mathfrak{H}$, $\omega_0=0$ und $(\omega_j)_{j=1}^{|V|-1}>0$ sodass f\"ur den Hamiltonoperator des Klein-Gordonfeldes $\hat{H}$ (7.22) gilt:
 	\begin{equation}
-		\hat{V}^\dagger\hat{H}\hat{V}  = \sum_{j=1}^{|V|}\hat{h}_j
+		\hat{V}^\dagger\hat{H}\hat{V}  = \sum_{j=0}^{|V|-1}\hat{h}_j
 	\end{equation}
 	Wobei die $\hat{h}_j$ gegeben sind durch:
 	\begin{equation}
 		\hat{h}_j= -2\overline{\partial}_j\partial_j + \frac{1}{2}(m + \omega_j)^2 \overline{x_j}x_j
 	\end{equation}	
 \end{theorem}
+\begin{proof}
+	Der Beweis funktioniert analog wie Theorem 6.6. Wir verwenden 
+	\begin{equation*}
+		Q= \Delta^{a}_r+ m^2
+	\end{equation*}
+$Q$ ist eine positiv definiter komplexer linearer Operator und kann nach dem Spektralsatz geschrieben werden als
+	\begin{equation*}
+	Q = U^\dagger R U
+\end{equation*}
+wobei $U$ eine unit\"are Matrix und $R$ eine nichtnegative Diagonalmatrix ist. TODO
+\end{proof}
 \paragraph{Teilchen Antiteilchen und Ladungsopertoren} Analog zur Schr\"odingergleichung des elektromagnetischen Feldes, zerf\"allt der Hamiltonoperator nach Theorem 8.3 in Summanden $\hat{h}_j$ f\"ur jede Mode des Eichlaplaceoperators. Die Operatoren  $\hat{h}_j$ haben die Form eines komplexen harmonischen Operators oder equivalent eines zweidimensionalen reelen harmonischen Oszillators.
 \begin{equation}
 	\hat{h}_j= -2\overline{\partial}_j\partial_j + \frac{1}{2}\omega_j^2 \overline{x_j}x_j
@@ -1513,7 +1524,7 @@ Definieren wir den Ladungsoperator $\hat{q}$ basierend auf (7.12) formen wir zun
 \end{align*} 
 Der Ladungsdichteoperator wird nun definiert als 
 \begin{equation}
-	\hat{q}=i*(b\frac{\partial}{\partial a}- a\frac{\partial}{\partial b})
+	\hat{q}=i(b\frac{\partial}{\partial a}- a\frac{\partial}{\partial b})
 \end{equation}
 Ein paar Umformungen erlauben es uns den Ladungsoperator \"uber die Teilchenanzahloperatoren auszudr\"ucken.
 \begin{equation*}
