@@ -750,11 +750,11 @@ Die resultierende Lagrangefunktion ist gegeben durch
 \noindent
 Das \"ubrige Vektorpotential (hier q) ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (5.2) zu einem konstanten $\xi$ korrespondieren.\\
 \\
-Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.4) bez\"uglich der Variablen $v$.
+Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.5) bez\"uglich der Variablen $v$.
 \begin{equation}
 	H(\pi, q) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{F}} - \langle q, j\rangle_{\mathfrak{K}}
 \end{equation}
-Wenn wir mit (4.7) der Energieerhaltung, Satz (4.1), vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso so beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren. Solange $j$ zeitunabh\"anging ist, und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.\\
+Wenn wir mit (4.7) der Energieerhaltung, Satz (4.1), vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren. Solange $j$ zeitunabh\"anging ist, und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.\\
 \\
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
@@ -801,7 +801,7 @@ Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, d
 	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
 \end{align}
 \noindent
-Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert.
+Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert. Der Definitionsbereich $D(\hat{\pi}(k))$ und $D(\hat{q}(k))$ f\"ur $k\in E$ wird zu einem sp\"ateren Zeitpunkt festgelegt und bleibt bis dahin eine unbekannte dichte Teilmenge von $\mathfrak{H}(G)$.
 \\
 \\
 Eine kurze Betrachtung der Hamiltonfunktion (6.4) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
@@ -956,9 +956,7 @@ Insbesondere gilt daher:
 
 \end{proof}
 \noindent
-Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), zerlegen l\"asst in eine endliche Summe von selbst-adjungierten Operatoren mit bekannten Spektra.\\
-\\
-Daraus folgt direkt die Existenz und Eindeutigkeit von L\"osungen mit beliebigen Anfangsbedingungen.
+Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
 \\
 \\
 Die Transformation $U$ zerlegt den Raum der Kantenfunktionen in einen $|V| - 1$-dimensionalen Teilraum $A$ auf dem das Potential $V$ der Schr\"odingergleichung konstant ist und in sein orthogonales $|F| - 1$-dimensionales Komplement $B$. Als Konsequenz haben wir gesehen ist die Dynamik in Richtung des Raumes $A$ frei und in Richtung des Raums $B$ die eines mehrdimensionalen harmonischen Oszillators.\\
@@ -1171,7 +1169,12 @@ Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwe
 Wir haben bislang gezeigt dass $\sigma_p(\hat{N}_\omega)=
 \mathbb{N}\cup\{0\}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass ganz $\Omega$ aufspannt.\end{proof}
 \noindent
-Es wurde somit gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken zu tun.
+Nach Theorem 6.6 haben wir damit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes reines Punktspektrum hat.\\
+\\
+Es folgt direkt die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen.
+\\
+\\
+Es wurde gezeigt, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken zu tun.
 
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
