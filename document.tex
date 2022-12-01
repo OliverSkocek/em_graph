@@ -1059,7 +1059,7 @@ Der Kern des Operators $\hat{a}_\omega$ erf\"ullt folgende Differentialgleichung
 \end{equation*}
 Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung gibt. Diese L\"osung ist gegeben durch
 \begin{equation*}
-	f_c(q) = c * e^{-\omega x^2 / 2}
+	f_c(q) = c * e^{-\omega q^2 / 2}
 \end{equation*}
 Zeigen wir nun, da\ss{} (6.32) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
 Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) auf $\Omega$ der Definition der Adjungierten entspricht:
@@ -1127,7 +1127,7 @@ Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator 
 \begin{proposition}
 	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen mit Null. 
 	\begin{equation}
-		\sigma(\hat{N}_\omega)=\mathbb{N}\cup\{0\}
+		\sigma(\hat{N}_\omega)=\mathbb{N}\footnote{$0\in\mathbb{N}$.}
 	\end{equation}
 Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\omega)$ und die Eigenr\"aume sind eindimensional.
 \end{proposition}
@@ -1149,9 +1149,9 @@ Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Ei
 \end{equation*}
 Es bildet also $\hat{a}_\omega^\dagger$ Eigenvektoren zu $\lambda$ auf Eigenvektoren zu $(\lambda + 1)$ ab und $\hat{a}_\omega$ Eigenvektoren zu $\lambda $ auf Eigenvektoren zu $\lambda -1$ ab.\\
 \\
-Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{a}_\omega^k\psi_0$, zu jedem Element von $\mathbb{N}\cup\{0\}$ einen Eigenvektor konstruiert.\\
+Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{a}_\omega^k\psi_0$, zu jedem Element von $\mathbb{N}$ einen Eigenvektor konstruiert.\\
 \\
-Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}\cup\{0\}$ eindimensional sind.
+Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}$ eindimensional sind.
 F\"ur den Eigenwert Null wurde bereits gezeigt, dass der zugeh\"orende Eigenraum eindimensional ist. Wir m\"ussen daher zeigen, dass beim \"Ubergang von $n\rightarrow n+1$ keine \"Anderung der Dimensionalit\"at des Eigenraums stattfinden kann.\\
 \\
 Betrachten wir hierzu $n+1$ und nehmen an es gibt  zugeh\"orende linear unabh\"angige Eigenvektoren $\psi_a$ und $\psi_b$.\\
@@ -1167,7 +1167,27 @@ Als n\"achstes zeigen wir, das es keine anderen Eigenwerte gibt.\\
 Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwenden von $\hat{a}_\omega$ auf den zugeh\"origen Eigenvektor erhalten wir einen Eigenvektor zu einem negative Eigenwert, was $\sigma(\hat{N}_\omega)$ widerspricht.\\
 \\
 Wir haben bislang gezeigt dass $\sigma_p(\hat{N}_\omega)=
-\mathbb{N}\cup\{0\}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass ganz $\Omega$ aufspannt.\end{proof}
+\mathbb{N}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass den dichten Teilraum $\Omega_\omega=\{q\mapsto p(q)e^{-\omega x^2 / 2}: \text{p ist ein komplexes Polynom auf $\mathbb{R}$}\}$ aufspannt.
+\\
+\\
+Sei hierzu $m>n$, dann sind die Eigenvektoren paarweise orthogonal: 
+\begin{align*}
+	\langle \psi_n,\psi_m\rangle_{L^2}&=
+	\langle \hat{a}_\omega^{\dagger n}\psi_0,\hat{a}_\omega^{\dagger m}\psi_0\rangle_{L^2}=
+	\langle \hat{a}_\omega^{\dagger (n-1)}\psi_0,\hat{a}_\omega\hat{a}_\omega^{\dagger m}\psi_0\rangle_{L^2}\\&=
+	\langle \hat{a}_\omega^{\dagger (n-1)}\psi_0,(\hat{a}_\omega^\dagger \hat{a}_\omega +1)\hat{a}_\omega^{\dagger (m-1)}\psi_0\rangle_{L^2}\\&= m
+	\langle \hat{a}_\omega^{\dagger (n-1)}\psi_0,\hat{a}_\omega^{\dagger (m-1)}\psi_0\rangle_{L^2}\\&=\dots\\&= m!
+	\langle \hat{a}_\omega^{\dagger (n-m)}\psi_0,\psi_0\rangle_{L^2}\\&= m!
+	\langle \hat{a}_\omega^{\dagger (n-m-1)}\psi_0,\hat{a}_\omega\psi_0\rangle_{L^2}=0
+\end{align*}
+Die Wirkung des Erzeugungsoperators auf ein Element\\ $\psi=(q\mapsto p(q)e^{-\omega q^2/2})\in\Omega_\omega$ ist
+\begin{equation*}
+\hat{a}_\omega^\dagger\psi  = \sqrt{\frac{\omega}{2}}(q - \frac{1}{\omega}\frac{d}{dq})\psi = \sqrt{\frac{\omega}{2}}(2qp(q)-\frac{1}{\omega}p^\prime(q) )e^{-\omega q^2/2}
+\end{equation*}
+Falls $\{(q\mapsto q^ke^{-\omega q^2/2}): k\leq n\}\subset \text{span}(\{\hat{a}_\omega^{\dagger k}\psi_0: k\leq n\})$ f\"ur ein $n\in\mathbb{N}$ gilt, dann gilt dies somit auch f\"ur $n+1$. Es gilt offensichtlich f\"ur $n=0$.\\
+\\
+
+\end{proof}
 \noindent
 Nach Theorem 6.6 haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
 \begin{equation}
