@@ -683,10 +683,131 @@ Die Konstante $c$ kann man weil sie im Kern des Gradienten liegt in $\xi$ einzie
 	\xi(t) = \chi(r^{-1}a(t)) -c*t
 \end{equation*}
 \noindent
-Die andere Inklusion $(\subset)$ wird gezeigt indem man den Ausdruck in der Mengendefinition (5.4) in $T$ eingesetzt wird.
+Die andere Inklusion $(\subset)$ wird gezeigt indem der Ausdruck in der Mengendefinition (5.4) in $T$ eingesetzt wird.
 \end{proof}
 \noindent
-Hiermit wurden die wichtigsten Aspekte der Potentialdarstellung vorgestellt. Dies ist eine Grundvoraussetzung f\"ur die Quantisierung der Maxwellgleichungen.
+Hiermit wurden die wichtigsten Aspekte der Potentialdarstellung vorgestellt. Dies ist eine Grundvoraussetzung f\"ur die Quantisierung der Maxwellgleichungen.\\
+\\
+Zum Abschlu\ss{} dieses Kapitels konstruieren wir eine L\"osung der Maxwellgleichungen in Potentialdarstellung (5.2) im stromlosen Fall $j\equiv 0$.\\
+\\
+Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch wir ohne Beschr\"ankung der Allgemeinheit $\phi$ aus (5.2) eliminieren k\"onnen.
+\begin{lemma}
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{R}^n$ ($n\geq 1 $), $u_0, v_0 \in V$ und $u\in C^2(\mathbb{R}, V)$, dann ist die L\"osung des Anfangswertproblems
+	\begin{align}
+		u^{\prime \prime} + L&u = 0\\
+		u(0) &= u_0\\
+		u^\prime(0)&=v_0
+	\end{align}
+	gegeben durch
+	\begin{equation}
+		u(t) = U^\dagger (\cos(Rt) + 1_{\{0\}}(R))Uu_0 +U^\dagger (\sin(Rt) + 1_{\{0\}}(R)t)Uv_0
+	\end{equation}
+	Wobei $U$ eine orthogonale, R eine Diagonalmatrix in $V$ ist und $L=U^\dagger R^2 U$ gilt.
+\end{lemma}
+\begin{proof}
+	Nach dem Spektralsatz endlichdimensionaler reeler Vektorr\"aume gibt es eine Zerlegung der positiv semidefiniten Matrix $L$ der Form.
+	\begin{equation*}
+		L=U^\dagger R^2 U
+	\end{equation*}
+	Wobei $R\geq 0$ und $U$ eine orthogonale Matrix ist.
+	\\
+	\\
+	Als n\"achstes formen wir (5.2) um
+	\begin{align*}
+		U(u^{\prime \prime} + Lu )&= 0\\
+		(Uu)^{\prime \prime} + ULu &= 0\\
+		(Uu)^{\prime \prime} + ULU^\dagger Uu &= 0
+	\end{align*}
+ und setzen $v=Uu$
+ \begin{equation}
+	v^{\prime \prime} + R^2v=0
+ \end{equation}
+Die allgemeine L\"osung von (5.9) erhalten wir wenn f\"ur jede Komponente $n>1$
+\begin{equation*}
+	v_n(t) = 
+	\begin{cases} 
+		v_n(0)\cos(R_nt) + v_n^\prime(0)\sin(R_nt) & R_n > 0 \\
+		v_n(0) + v_n^\prime(0)t & R_n=0 
+	\end{cases}	
+\end{equation*} 
+ f\"ur $t\in\mathbb{R}$. In Matrixform umgeschrieben erhalten wir (5.8).
+\end{proof}
+\begin{proposition}
+Sei $G$ ein planarer Graph mit Orientierung, $r>0$, $\epsilon>0$, $a_0$, $e_0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion auf $G$, dann gibt es eine Kurve $a\in C^2(\mathbb{R},\mathfrak{K})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt
+\begin{equation}
+	a^{\prime\prime}(t)-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon = 0
+\end{equation}
+und die Anfangsbedingung
+\begin{align}
+	a(0)&= a_0\\
+	a^\prime(0) &= e_0
+\end{align}
+erf\"ullt ist.
+\end{proposition}
+\begin{proof}
+Es verbleibt zu zeigen, dass die lineare Abbildung $L$ definiert f\"ur $u\in \mathfrak{K}$ durch 
+\begin{equation*}
+	L(u) = -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon
+\end{equation*}
+\begin{align*}
+	\langle u, L(u)\rangle_{\mathfrak{K}} = 
+\end{align*}
+\end{proof}
+
+\iffalse
+Schlie\ss{}en wir dieses Kapitel ab indem wir f\"ur den stromlosen Fall $j\equiv0$ eine L\"osung zu (5.2) konstruieren .
+Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch sich (5.2) auf
+\begin{equation}
+	a^{\prime\prime}-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon=0
+\end{equation}
+reduziert. 
+Wir definieren die positiv semidefinite Matrix\\ $Q=-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon$ und formulieren (5.5) kompakter als
+\begin{equation}
+	a^{\prime\prime}+Qa(t)=0
+\end{equation}
+Hierbei ist $Q$ ein positiv semidefiniter Operator.
+Als n\"achstes transformieren wir die lineare Differentialgleichung zweiter Ordnung in eine equivalent erster Ordnung.
+\begin{equation}
+		\begin{pmatrix}
+		a  \\ u 
+	\end{pmatrix}^\prime=
+	\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		Q & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+	a  \\ u 
+	\end{pmatrix}
+\end{equation}
+Die allgemeine L\"osung dieser Gleichung zu Anfangsbedingungen $a(0)=a_0\in\mathfrak{K}$ und $u(0)=a^\prime(0)=u_0\in\mathfrak{K}$ lautet f\"ur jedes $t\in\mathbb{R}$
+\begin{equation}
+\begin{pmatrix}
+	a  \\ u 
+\end{pmatrix}(t)=
+e^{	\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		Q & 0
+\end{pmatrix}t}
+	\begin{pmatrix}
+	a_0  \\ u_0 
+\end{pmatrix}
+\end{equation}
+Untersuchen wir die Eigenschaften des Matrixexponentials $e^{	\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		Q & 0
+	\end{pmatrix}t}$ indem wir das Spektrum der Matrix $M=\begin{pmatrix}
+0 & \mathbb{I} \\ 
+Q & 0
+\end{pmatrix}$ betrachten.
+\\
+\\
+Sei $\omega\in\sigma(Q)$ ein Eigenwert von $Q$ mit Eigenvektor $v_\omega$. Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\omega}=\begin{pmatrix}
+	v_\omega \\ \pm\sqrt{\omega}v_\omega
+\end{pmatrix}$ von $M$ konstruieren. Im Fall $\omega=0$ k\"onnen wir f\"ur jeden zugeh\"origen Eigenvektor $v$ nur einen einzigen Eigenvektoren $u=\begin{pmatrix}
+v \\ 0
+\end{pmatrix}$ von $M$ konstruieren.
+\fi
+
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
 Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
 Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
@@ -910,7 +1031,7 @@ Insbesondere gilt daher:
 		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}
 	\end{align}
 	$Q$ ist positiv semidefinit und symmetrisch. Die Dimension des Kerns von $Q$ ist nach der Helmoltz Zerlegung (3.3) gleich $|V| - 1$. Das orthogonale Komplement desselben Kerns ist entsprechend $|f| - 1$ dimensional.\footnote{Der eulersche Polyedersatz ist eine Folgerung der Helmoltz Zerlegung.}
-	Nach dem Spektralsatz linearer Operatoren auf endlich dimensionalen komplexen Vektorr\"aumen l\"asst sich $Q$ schreiben als:
+	Nach dem Spektralsatz linearer Operatoren auf endlich dimensionalen reelen Vektorr\"aumen l\"asst sich $Q$ schreiben als:
 	\begin{equation*}
 		Q = U^\dagger R U
 	\end{equation*}
@@ -1194,7 +1315,7 @@ Nach Theorem 6.6 haben wir hiermit gezeigt, dass der Hamiltonoperator des freien
 und somit nach dem Satz von Stone haben wir die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen gezeigt.
 \\
 \\
-Wir sehen, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken zu tun.
+Wir sehen, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken gemeinsam.
 
 \chapter{Die Klein-Gordongleichung}
 Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
