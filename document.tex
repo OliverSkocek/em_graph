@@ -747,10 +747,13 @@ erf\"ullt ist.
 \begin{proof}
 Es verbleibt zu zeigen, dass die lineare Abbildung $L$ definiert f\"ur $u\in \mathfrak{K}$ durch 
 \begin{equation*}
-	L(u) = -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon
+	L(u) = -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon
 \end{equation*}
 \begin{align*}
 	\langle u, L(u)\rangle_{\mathfrak{K}} = 
+	&\langle u, -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon\rangle_{\mathfrak{K}} =\\ 
+	&\langle r^{-1}u/ \epsilon, -\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) \rangle_{\mathfrak{K}}=\\
+	&\langle \text{div}_D(r^{-1}u/ \epsilon), \text{div}_D(r^{-1}u) / \mu\rangle_{\mathfrak{F}}
 \end{align*}
 \end{proof}
 
