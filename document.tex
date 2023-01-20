@@ -733,7 +733,7 @@ Die allgemeine L\"osung von (5.9) erhalten wir wenn f\"ur jede Komponente $n>1$
  f\"ur $t\in\mathbb{R}$. In Matrixform umgeschrieben erhalten wir (5.8).
 \end{proof}
 \begin{proposition}
-Sei $G$ ein planarer Graph mit Orientierung, $r>0$, $\epsilon>0$, $a_0$, $e_0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion auf $G$, dann gibt es eine Kurve $a\in C^2(\mathbb{R},\mathfrak{K})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt
+Sei $G$ ein planarer Graph mit Orientierung, $r>0$, $a_0$, $e_0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion auf $G$ und $\epsilon>0$, dann gibt es eine Kurve $a\in C^2(\mathbb{R},\mathfrak{K})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt
 \begin{equation}
 	a^{\prime\prime}(t)-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon = 0
 \end{equation}
@@ -749,11 +749,12 @@ Es verbleibt zu zeigen, dass die lineare Abbildung $L$ definiert f\"ur $u\in \ma
 \begin{equation*}
 	L(u) = -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon
 \end{equation*}
+positiv semidefinit ist:
 \begin{align*}
 	\langle u, L(u)\rangle_{\mathfrak{K}} = 
 	&\langle u, -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon\rangle_{\mathfrak{K}} =\\ 
-	&\langle r^{-1}u/ \epsilon, -\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) \rangle_{\mathfrak{K}}=\\
-	&\langle \text{div}_D(r^{-1}u/ \epsilon), \text{div}_D(r^{-1}u) / \mu\rangle_{\mathfrak{F}}
+	&\langle r^{-1}u, -\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) \rangle_{\mathfrak{K}}/ \epsilon=\\
+	&\langle \text{div}_D(r^{-1}u), \text{div}_D(r^{-1}u) / \mu\rangle_{\mathfrak{F}}/ \epsilon\geq 0
 \end{align*}
 \end{proof}
 
@@ -763,20 +764,24 @@ Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$,
 \begin{equation}
 	a^{\prime\prime}-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon=0
 \end{equation}
-reduziert. 
+reduziert.
+
 Wir definieren die positiv semidefinite Matrix\\ $Q=-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon$ und formulieren (5.5) kompakter als
 \begin{equation}
 	a^{\prime\prime}+Qa(t)=0
 \end{equation}
 Hierbei ist $Q$ ein positiv semidefiniter Operator.
 Als n\"achstes transformieren wir die lineare Differentialgleichung zweiter Ordnung in eine equivalent erster Ordnung.
+\fi
+\noindent
+Falls $\epsilon>0$ nicht konstant ist, k\"onnen wir auch eine L\"osung konstruieren. Hierzu transformieren wir zun\"achst (5.5) in eine Differentialgleichung erster Ordnung.
 \begin{equation}
 		\begin{pmatrix}
 		a  \\ u 
 	\end{pmatrix}^\prime=
 	\begin{pmatrix}
 		0 & \mathbb{I} \\ 
-		Q & 0
+		L & 0
 	\end{pmatrix}
 	\begin{pmatrix}
 	a  \\ u 
@@ -789,28 +794,29 @@ Die allgemeine L\"osung dieser Gleichung zu Anfangsbedingungen $a(0)=a_0\in\math
 \end{pmatrix}(t)=
 e^{	\begin{pmatrix}
 		0 & \mathbb{I} \\ 
-		Q & 0
+		L & 0
 \end{pmatrix}t}
 	\begin{pmatrix}
 	a_0  \\ u_0 
 \end{pmatrix}
 \end{equation}
-Untersuchen wir die Eigenschaften des Matrixexponentials $e^{	\begin{pmatrix}
-		0 & \mathbb{I} \\ 
-		Q & 0
-	\end{pmatrix}t}$ indem wir das Spektrum der Matrix $M=\begin{pmatrix}
-0 & \mathbb{I} \\ 
-Q & 0
-\end{pmatrix}$ betrachten.
+Das Matrixexponential kann als Potenzreihe oder mit Hilfe der Jordanschen Normalform der Matrix $M=\begin{pmatrix}
+	0 & \mathbb{I} \\ 
+	L & 0
+\end{pmatrix}$ konstruiert werden.
 \\
 \\
-Sei $\omega\in\sigma(Q)$ ein Eigenwert von $Q$ mit Eigenvektor $v_\omega$. Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\omega}=\begin{pmatrix}
+Sei $\omega\in\sigma(L)$ ein Eigenwert von $L$ mit Eigenvektor $v_\omega$. 
+\\
+\\
+Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\sqrt{\omega}}=\begin{pmatrix}
 	v_\omega \\ \pm\sqrt{\omega}v_\omega
-\end{pmatrix}$ von $M$ konstruieren. Im Fall $\omega=0$ k\"onnen wir f\"ur jeden zugeh\"origen Eigenvektor $v$ nur einen einzigen Eigenvektoren $u=\begin{pmatrix}
+\end{pmatrix}$ zu den Eigenwerten $\pm\sqrt{\omega}$   von $M$ konstruieren. 
+\\
+\\
+Falls $\omega=0$ k\"onnen wir f\"ur jeden zugeh\"origen Eigenvektor $v$ nur einen einzigen Eigenvektor $u=\begin{pmatrix}
 v \\ 0
 \end{pmatrix}$ von $M$ konstruieren.
-\fi
-
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
 Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
 Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
@@ -1562,6 +1568,90 @@ Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\
 &-\frac{1}{2}\pi^\prime\overline{\Phi}^\prime  -\frac{1}{2}\overline{\pi}^\prime\Phi^\prime +\frac{1}{2}\Phi^\prime\overline{\pi}^\prime + \frac{1}{2}\overline{\Phi}^\prime\pi^\prime + \frac{\partial H}{\partial t}=\frac{\partial H}{\partial t}
 	\end{align*}
 \end{proof}
+\noindent
+Abschlie\ss{}end soll noch bemerkt, dass sich die Klein-Gordongleichung in einer Schr\"odingerform schreiben l\"asst. 
+\begin{lemma}
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{R}^n$ ($n\geq 1 $), $m>0$ und $u\in C^2(\mathbb{R}, V)$ eine L\"osung der Gleichung
+\begin{equation}
+	u^{\prime \prime} + Lu + m^2u= 0
+\end{equation}
+dann gibt es einen selbstadjungierten linearen Operator $H$ in $V$ sodass 
+\begin{equation}
+	\psi = \begin{pmatrix}
+		u \\ (L^\frac{1}{2} + i \frac{\partial}{\partial t})u/m
+	\end{pmatrix}\in V\times V
+\end{equation}
+eine L\"osung der Gleichung
+\begin{equation}
+	i\frac{\partial\psi}{\partial t} = H\psi
+\end{equation}
+und umgekehrt ist die erste Komponente einer L\"osung von (7.26) auch eine L\"osung von (7.24).
+\end{lemma}
+\begin{proof}
+	Sei $u\in C^2(\mathbb{R}, V)$, dann starten wir mit (7.24)
+	\begin{align*}
+		u^{\prime \prime} + Lu + m^2u=
+		(L^\frac{1}{2} - i\frac{\partial}{\partial t})(L^\frac{1}{2} + i\frac{\partial}{\partial t})u + m^2 u=0\\
+		((L^\frac{1}{2} - i\frac{\partial}{\partial t})/m)((L^\frac{1}{2} + i\frac{\partial}{\partial t})/m)u + u=0
+	\end{align*}
+	Wir definieren nun $\phi = (L^\frac{1}{2} + i \frac{\partial}{\partial t})u/m$ und erhalten
+	\begin{equation*}
+		((L^\frac{1}{2} - i\frac{\partial}{\partial t})/m)\phi + u=0
+	\end{equation*}
+	Dies f\"uhrt zum Gleichungssystem
+	\begin{align*}
+		i \frac{\partial u}{\partial t} &= -L^\frac{1}{2}u + m*\phi\\
+		i\frac{\partial\phi}{\partial t}&=L^\frac{1}{2}\phi + m*u
+	\end{align*}
+	 Wir definieren weiters
+	 \begin{equation*}
+	 	H=\begin{pmatrix}
+	 		-L^\frac{1}{2} & m \\ 
+	 		m & L^\frac{1}{2}
+	 	\end{pmatrix}, \psi =\begin{pmatrix}
+	 	u \\ \phi
+ 	\end{pmatrix}
+	 \end{equation*}
+	 und erhalten (7.26).
+	 \begin{equation*}
+	 	i\frac{\partial\psi}{\partial t} = H\psi
+	 \end{equation*}
+\end{proof}
+\begin{proposition}
+	Sei $G$, $m>0$, $r>0$ wie in Definition 7.3 und $a$, $a_0$ und $e_0$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung des Anfangswertproblems.
+	\begin{align}
+		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi&+ m^2 \Phi = 0\\
+		a(0)&=a_0\\
+		a^\prime(0)&=e_0
+	\end{align}
+\end{proposition}
+\begin{proof}
+	Der lineare Operator $L = - \Delta^{a}_r+ m^2$ ist nach seiner Konstruktion ein positiv definiter linearer Operator.\\
+	\\
+	Daher k\"onnen wir Hilfsatz 7.7 anwenden und finden eine L\"osung 
+	\begin{equation*}
+		\psi(t) = e^{i Ht}\psi_0
+	\end{equation*} 
+	des \"aquivalenten Anfangswertproblems 
+	\begin{align*}
+	i\frac{\partial\psi}{\partial t} &= H\psi\\
+	\psi(0)&=\psi_0
+	\end{align*}
+	mit 
+	\begin{equation*}
+		\psi_0 =\begin{pmatrix}
+			a_0 \\ (L^\frac{1}{2}a_0 + i e_0)/m
+			  \end{pmatrix}
+	\end{equation*}
+\end{proof}
+\noindent
+Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null. Da er selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
+Dies bedeutet, dass wir eine Wahrscheinlichkeitsdichte $\rho=\overline{\psi}\psi$ definieren k\"onnen, die nichtnegativ ist und deren Summe $\sum_{v\in V}\rho(v)$ \"uber die Zeit erhalten bleibt, daher es gibt eine zugeh\"orige Kontinuit\"atsgleichung. \\
+\\
+Die Voraussetzung $m>0$ ist hier tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
+\\
+\\
+Es gibt keine Ein-Photon Schr\"odingergleichung!
 
 \chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
