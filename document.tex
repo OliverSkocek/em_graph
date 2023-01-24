@@ -564,7 +564,6 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	Dies zeigt, dass die Gesamtladung erhalten bleibt.
 \end{proposition}
 \begin{proof}
-	
 	Dividiere (4.3) in Definition 4.1 durch $\epsilon$ und dann wende $\text{div}(r * \epsilon * .)$ auf (4.3) an:
 	$$\text{div}(r * \epsilon * (-\epsilon^{-1} * r^{-1} * \text{grad}_D(b(t) / \mu))) = \text{div}(r * \epsilon * (e^\prime + j/\epsilon))$$
 	$$0 = \text{div}(r * \epsilon * e)^\prime + \text{div}(r * j))$$
@@ -798,16 +797,23 @@ e^{	\begin{pmatrix}
 \end{pmatrix}t}
 	\begin{pmatrix}
 	a_0  \\ u_0 
+\end{pmatrix}=
+\sum_{n=0}^\infty \frac{\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		L & 0
+	\end{pmatrix}^nt^n}{n!}\begin{pmatrix}
+a_0  \\ u_0 
 \end{pmatrix}
 \end{equation}
-Das Matrixexponential kann als Potenzreihe oder mit Hilfe der Jordanschen Normalform der Matrix $M=\begin{pmatrix}
+Das Matrixexponential kann als Potenzreihe oder mit Hilfe der reelen Jordanschen Normalform der Matrix $M=\begin{pmatrix}
 	0 & \mathbb{I} \\ 
 	L & 0
-\end{pmatrix}$ konstruiert werden.
+\end{pmatrix}$ wie im Hilfssatz 5.3 konstruiert werden.
+\iffalse
 \\
 \\
+\textbf{Zur Konstruktion der Jordanschen Normalform:}\\
 Sei $\omega\in\sigma(L)$ ein Eigenwert von $L$ mit Eigenvektor $v_\omega$. 
-\\
 \\
 Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\sqrt{\omega}}=\begin{pmatrix}
 	v_\omega \\ \pm\sqrt{\omega}v_\omega
@@ -816,7 +822,18 @@ Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\sqrt{\omega}}
 \\
 Falls $\omega=0$ k\"onnen wir f\"ur jeden zugeh\"origen Eigenvektor $v$ nur einen einzigen Eigenvektor $u=\begin{pmatrix}
 v \\ 0
-\end{pmatrix}$ von $M$ konstruieren.
+\end{pmatrix}$ von $M$ konstruieren. Entsprechend wird  zu jedem Eigenvektor $v$ auch ein Hauptvektor $u_h=\begin{pmatrix}
+u_h^1  \\ u_h^2 
+\end{pmatrix}$ konstruiert, sodass
+\begin{equation*}
+	M^2u_h = \begin{pmatrix}
+		L & 0 \\ 
+		0 & L
+	\end{pmatrix}\begin{pmatrix}
+	u_h^1  \\ u_h^2 
+\end{pmatrix}
+\end{equation*}
+\fi
 \chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
 Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
 Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
@@ -1579,13 +1596,13 @@ dann gibt es einen selbstadjungierten linearen Operator $H$ in $V$ sodass
 \begin{equation}
 	\psi = \begin{pmatrix}
 		u \\ (L^\frac{1}{2} + i \frac{\partial}{\partial t})u/m
-	\end{pmatrix}\in V\times V
+	\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)
 \end{equation}
 eine L\"osung der Gleichung
 \begin{equation}
 	i\frac{\partial\psi}{\partial t} = H\psi
 \end{equation}
-und umgekehrt ist die erste Komponente einer L\"osung von (7.26) auch eine L\"osung von (7.24).
+ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)$ von (7.26) auch eine L\"osung von (7.24).
 \end{lemma}
 \begin{proof}
 	Sei $u\in C^2(\mathbb{R}, V)$, dann starten wir mit (7.24)
@@ -1616,6 +1633,7 @@ und umgekehrt ist die erste Komponente einer L\"osung von (7.26) auch eine L\"os
 	 \begin{equation*}
 	 	i\frac{\partial\psi}{\partial t} = H\psi
 	 \end{equation*}
+ 	$H$ ist selbstadjungiert, da $m$ reel ist und $L$ positiv semidefinit ist.\\
 \end{proof}
 \begin{proposition}
 	Sei $G$, $m>0$, $r>0$ wie in Definition 7.3 und $a$, $a_0$ und $e_0$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung des Anfangswertproblems.
