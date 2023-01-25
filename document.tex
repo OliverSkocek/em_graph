@@ -1653,38 +1653,24 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 	content...
 \end{theorem}
 \begin{proposition}
-	Sei $G$, $m>0$, $r>0$ und $\Phi$ wie in Definition 7.3 und $a$, $\Phi_0$ und $v_0$ Kantenfunktionen, dann gibt es eine lineare Abbildung $L:\mathbb{C}^2\rightarrow\mathbb{C}^2$
-	
-	
-	
-	
-	
-	
-	dann gibt es eine eindeutige L\"osung des Anfangswertproblems.
+	Sei $G$, $m>0$, $r>0$ und $\Phi$ wie in Definition 7.3 und $a$, $\Phi_0$ und $v_0$ Kantenfunktionen, dann gibt es eine Schrödingerform des Anfangswertproblems.
 	\begin{align}
 		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi&+ m^2 \Phi = 0\\
 		\Phi(0)&=\Phi_0\\
 		\Phi^\prime(0)&=v_0
 	\end{align}
-\end{proposition}
-\begin{proof}
-	Der lineare Operator $L = - \Delta^{a}_r+ m^2$ ist nach seiner Konstruktion ein positiv definiter linearer Operator.\\
-	\\
-	Daher k\"onnen wir Hilfsatz 7.7 anwenden und finden eine L\"osung 
+	und eine zugeh\"orende Normerhaltende Zeitentwicklung
 	\begin{equation*}
 		\psi(t) = e^{i Ht}\psi_0
 	\end{equation*} 
-	des \"aquivalenten Anfangswertproblems 
-	\begin{align*}
-	i\frac{\partial\psi}{\partial t} &= H\psi\\
-	\psi(0)&=\psi_0
-	\end{align*}
-	mit 
+\end{proposition}
+\begin{proof}
+	Der lineare Operator $L = - \Delta^{a}_r$ ist nach seiner Konstruktion ein positiv semidefiniter linearer Operator.\\
+	\\
+	Daher k\"onnen wir Hilfsatz 7.7 anwenden und finden eine \"aquivalente Schr\"odinger-form und zugeh\"orende L\"osung 
 	\begin{equation*}
-		\psi_0 =\begin{pmatrix}
-			a_0 \\ (L^\frac{1}{2}a_0 + i e_0)/m
-			  \end{pmatrix}
-	\end{equation*}
+		\psi(t) = e^{i Ht}\psi_0
+	\end{equation*} 
 \end{proof}
 \noindent
 Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null. Da er selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
