@@ -1588,7 +1588,7 @@ Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\
 \noindent
 Abschlie\ss{}end soll noch bemerkt, dass sich die Klein-Gordongleichung in einer Schr\"odingerform schreiben l\"asst. 
 \begin{lemma}
-	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{R}^n$ ($n\geq 1 $), $m>0$ und $u\in C^2(\mathbb{R}, V)$ eine L\"osung der Gleichung
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1 $), $m>0$ und $u\in C^2(\mathbb{R}, V)$ eine L\"osung der Gleichung
 \begin{equation}
 	u^{\prime \prime} + Lu + m^2u= 0
 \end{equation}
@@ -1598,7 +1598,7 @@ dann gibt es einen selbstadjungierten linearen Operator $H$ in $V$ sodass
 		u \\ (L^\frac{1}{2} + i \frac{\partial}{\partial t})u/m
 	\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)
 \end{equation}
-eine L\"osung der Gleichung
+eine L\"osung der Schrödingergleichung
 \begin{equation}
 	i\frac{\partial\psi}{\partial t} = H\psi
 \end{equation}
@@ -1616,10 +1616,10 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 		((L^\frac{1}{2} - i\frac{\partial}{\partial t})/m)\phi + u=0
 	\end{equation*}
 	Dies f\"uhrt zum Gleichungssystem
-	\begin{align*}
+	\begin{align}
 		i \frac{\partial u}{\partial t} &= -L^\frac{1}{2}u + m*\phi\\
 		i\frac{\partial\phi}{\partial t}&=L^\frac{1}{2}\phi + m*u
-	\end{align*}
+	\end{align}
 	 Wir definieren weiters
 	 \begin{equation*}
 	 	H=\begin{pmatrix}
@@ -1630,17 +1630,41 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
  	\end{pmatrix}
 	 \end{equation*}
 	 und erhalten (7.26).
-	 \begin{equation*}
+	 \begin{equation}
 	 	i\frac{\partial\psi}{\partial t} = H\psi
-	 \end{equation*}
+	 \end{equation}
  	$H$ ist selbstadjungiert, da $m$ reel ist und $L$ positiv semidefinit ist.\\
+ 	\\
+ 	Sei umgekehrt $\psi =\begin{pmatrix} u \\ \phi\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)$ eine L\"osung von (7.29). Wenden wir zun\"achst  $(L^\frac{1}{2}-i \frac{\partial}{\partial t})/m$ auf (7.27) an
+ 	\begin{equation*}
+ 		(L^\frac{1}{2}-i \frac{\partial}{\partial t})/m(i \frac{\partial u}{\partial t} + L^\frac{1}{2}u) = (L^\frac{1}{2}-i \frac{\partial}{\partial t})\phi
+ 	\end{equation*}
+ 	Anschlie\ss{}end verwenden wir (7.28) 
+ 	\begin{equation*}
+ 		L^\frac{1}{2}\phi - i\frac{\partial\phi}{\partial t} =-m*u
+ 	\end{equation*}
+ 	und erhalten das gesuchte Resultat.
+ 	\begin{align*}
+ 		(Lu+\frac{\partial^2u}{\partial t^2})/m &=-m*u\\
+ 		u^{\prime\prime} + Lu+m^2 u&= 0
+ 	\end{align*}
 \end{proof}
+\begin{theorem}
+	content...
+\end{theorem}
 \begin{proposition}
-	Sei $G$, $m>0$, $r>0$ wie in Definition 7.3 und $a$, $a_0$ und $e_0$ Kantenfunktionen, dann gibt es eine eindeutige L\"osung des Anfangswertproblems.
+	Sei $G$, $m>0$, $r>0$ und $\Phi$ wie in Definition 7.3 und $a$, $\Phi_0$ und $v_0$ Kantenfunktionen, dann gibt es eine lineare Abbildung $L:\mathbb{C}^2\rightarrow\mathbb{C}^2$
+	
+	
+	
+	
+	
+	
+	dann gibt es eine eindeutige L\"osung des Anfangswertproblems.
 	\begin{align}
 		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi&+ m^2 \Phi = 0\\
-		a(0)&=a_0\\
-		a^\prime(0)&=e_0
+		\Phi(0)&=\Phi_0\\
+		\Phi^\prime(0)&=v_0
 	\end{align}
 \end{proposition}
 \begin{proof}
