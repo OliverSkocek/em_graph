@@ -1649,9 +1649,7 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
  		u^{\prime\prime} + Lu+m^2 u&= 0
  	\end{align*}
 \end{proof}
-\begin{theorem}
-	content...
-\end{theorem}
+
 \begin{proposition}
 	Sei $G$, $m>0$, $r>0$ und $\Phi$ wie in Definition 7.3 und $a$, $\Phi_0$ und $v_0$ Kantenfunktionen, dann gibt es eine Schrödingerform des Anfangswertproblems.
 	\begin{align}
@@ -1661,7 +1659,7 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 	\end{align}
 	und eine zugeh\"orende Normerhaltende Zeitentwicklung
 	\begin{equation*}
-		\psi(t) = e^{i Ht}\psi_0
+		\psi(t) = e^{-i Ht}\psi_0
 	\end{equation*} 
 \end{proposition}
 \begin{proof}
@@ -1669,11 +1667,46 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 	\\
 	Daher k\"onnen wir Hilfsatz 7.7 anwenden und finden eine \"aquivalente Schr\"odinger-form und zugeh\"orende L\"osung 
 	\begin{equation*}
-		\psi(t) = e^{i Ht}\psi_0
+		\psi(t) = e^{-i Ht}\psi_0
 	\end{equation*} 
 \end{proof}
-\noindent
-Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null. Da er selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
+Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null.
+\begin{proposition}
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1$), und $m>0$, dann ist das Spektrum des selbstadjungierten lineare Operators
+	\begin{equation}
+		H=\begin{pmatrix}
+			-L^\frac{1}{2} & m \\ 
+			m & L^\frac{1}{2}
+		\end{pmatrix}
+	\end{equation} 
+	gegeben durch 
+		\begin{equation}
+		\sigma(H)= \{\pm\sqrt{\omega+m^2}:\omega^2\in \sigma(L)\}
+	\end{equation} 
+\end{proposition}
+\begin{proof}
+	Sei $u$ sodass $Au = \omega^2 u$, $a\in\mathbb{C}$ dann konstruieren wir die Eigenvektoren
+	\begin{equation*}
+		v=\begin{pmatrix}
+			u \\ a*u
+		\end{pmatrix}
+	\end{equation*}
+	Wenden wir als n\"achstes die Matrix $H$ auf $v$ and und erhalten
+	\begin{align*}
+		content...
+	\end{align*}
+\end{proof}
+\begin{proposition}
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1 $) mit nicht trivialem Kern, dann gibt es keine lineare Abbildung $J$ in $V\times V$ sodass
+	\begin{equation}
+		J^{-1}\begin{pmatrix}
+			0 & \mathbb{I} \\ 
+			L & 0
+		\end{pmatrix}J
+	\end{equation}
+	ein selbstadjungierter Operator ist.
+\end{proposition}
+ Da er selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
 Dies bedeutet, dass wir eine Wahrscheinlichkeitsdichte $\rho=\overline{\psi}\psi$ definieren k\"onnen, die nichtnegativ ist und deren Summe $\sum_{v\in V}\rho(v)$ \"uber die Zeit erhalten bleibt, daher es gibt eine zugeh\"orige Kontinuit\"atsgleichung. \\
 \\
 Die Voraussetzung $m>0$ ist hier tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
