@@ -1670,7 +1670,11 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 		\psi(t) = e^{-i Ht}\psi_0
 	\end{equation*} 
 \end{proof}
-Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null.
+\noindent
+Da $H$ selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
+Dies bedeutet, dass wir eine Wahrscheinlichkeitsdichte $\rho=\overline{\psi}\psi$ definieren k\"onnen, die nichtnegativ ist und deren Summe $\sum_{v\in V}\rho(v)$ unter der Zeitentwicklung erhalten bleibt. Es gibt daher eine zugeh\"orige Kontinuit\"atsgleichung. \\
+\\
+Als n\"achstes zeigen wir, dass der Operator $H$ indefinit ist und seine Eigenwerte symmetrisch um Null sind.
 \begin{proposition}
 	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1$), und $m>0$, dann ist das Spektrum des selbstadjungierten lineare Operators
 	\begin{equation}
@@ -1681,39 +1685,86 @@ Der Operator $H$ ist indefinit und seine Eigenwerte sind symmetrisch um Null.
 	\end{equation} 
 	gegeben durch 
 		\begin{equation}
-		\sigma(H)= \{\pm\sqrt{\omega+m^2}:\omega^2\in \sigma(L)\}
+		\sigma(H)= \{\pm\sqrt{\omega+m^2}:\omega\in \sigma(L)\}
 	\end{equation} 
 \end{proposition}
 \begin{proof}
-	Sei $u$ sodass $Au = \omega^2 u$, $a\in\mathbb{C}$ dann konstruieren wir die Eigenvektoren
+	Sei $u\in V$ und $\omega\in \mathbb{R}$ sodass $Lu = \omega^2 u$. Des weiteren seien $a_\pm\in\mathbb{C}$ freie Parameter, die wir im Laufe der Konstruktion der Eigenvektoren 
 	\begin{equation*}
-		v=\begin{pmatrix}
-			u \\ a*u
+		v_\pm=\begin{pmatrix}
+			u \\ a_\pm*u
 		\end{pmatrix}
 	\end{equation*}
-	Wenden wir als n\"achstes die Matrix $H$ auf $v$ and und erhalten
+festlegen werden.\\
+	Wenden wir die Matrix $H$ auf $v_\pm$ an und fordern, dass es sich beim Resultat um einen Eigenvektor handelt, was zu folgendem Gleichungssystem f\"uhrt
 	\begin{align*}
-		content...
+		-\omega + a_\pm*m &= \pm\sqrt{\omega^2 + m^2}\\
+		m + a_\pm*\omega &= a_\pm\pm\sqrt{\omega^2 + m^2}
 	\end{align*}
+	Es gibt eine eindeutige L\"osung
+	\begin{equation*}
+		a_\pm = \frac{m}{\pm\sqrt{\omega^2 + m^2}-\omega}
+	\end{equation*} 
+	Durch diese Konstruktion erhalten wir zu jedem Eigenvektor von $L$ zwei Eigenvektoren $v_\pm$ von $H$. Es gilt
+	\begin{equation*}
+		\langle v_-, v_+\rangle=0 
+	\end{equation*}
+	Im allgemeiner Fall gilt f\"ur zwei Eigenvektoren $u_1$, $u_2$ von $L$, falls sie orthogonal sind, dass
+	die vier daraus nach obiger Konstruktion erzeugten Eigenvektoren von $H$ paarweise orthogonal sind. Dies gilt insbesondere auch falls $u_1$ und $u_2$ zum selben Eigenwert geh\"oren.\\
+	\\
+	Da $L$ selbstadjungiert ist, erhalten wir eine vollst\"andige Orthogonalbasis $(u_i)_{i=1}^n$ und durch obige Konstruktion erhalten wir ein Orthogonalsystem $(v_{i\pm})_{i=1}^n$ aus $2*n$ Vektoren und damit eine Orthogonalbasis zu $V\times V$.
 \end{proof}
+\noindent
+Untersuchen wir als n\"achstes die Voraussetzung $m>0$ im Hilfssatz 7.7 wenn $L$ einen nicht trivialen Kern hat.
+Betrachte hierzu die Differentialgleichung mit $m=0$
+\begin{equation}
+	u^{\prime \prime} + Lu =0
+\end{equation}
+und transformiere sie in die analoge Differentialgleichung erster Ordnung
+\begin{equation}
+	\begin{pmatrix}
+		u  \\ \phi 
+	\end{pmatrix}^\prime=
+	\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		L & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		u  \\ \phi 
+	\end{pmatrix}
+\end{equation}
+Wir werden zeigen, dass es keine lineare Koordinatentransformation gibt, sodass es eine positive hermitsche Form gibt, die unter der Zeitentwicklung unver\"andert bleibt.
 \begin{proposition}
-	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1 $) mit nicht trivialem Kern, dann gibt es keine lineare Abbildung $J$ in $V\times V$ sodass
+	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$($n\geq 1$) mit nicht trivialem Kern, dann gibt es keine lineare Abbildung $J$ in $V\times V$ sodass
 	\begin{equation}
-		J^{-1}\begin{pmatrix}
+		A=J^{-1}\begin{pmatrix}
 			0 & \mathbb{I} \\ 
 			L & 0
-		\end{pmatrix}J
+		\end{pmatrix}J=J^{-1}BJ
 	\end{equation}
-	ein selbstadjungierter Operator ist.
+	ein selbstadjungierter Operator bez\"uglich einer positiven hermitschen Form $Q$ ist.
 \end{proposition}
- Da er selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
-Dies bedeutet, dass wir eine Wahrscheinlichkeitsdichte $\rho=\overline{\psi}\psi$ definieren k\"onnen, die nichtnegativ ist und deren Summe $\sum_{v\in V}\rho(v)$ \"uber die Zeit erhalten bleibt, daher es gibt eine zugeh\"orige Kontinuit\"atsgleichung. \\
+\begin{proof}
+	Sei $Q$ eine positive hermitsche Form, dann gilt f\"ur $\phi$, $\psi\in V\times V$
+	\begin{align*}
+	\langle\phi, A\psi\rangle_Q &= \langle\phi, QA\psi\rangle = \langle A^\dagger Q\phi, \psi\rangle\\&=\langle QQ^{-1}A^\dagger Q\phi, \psi\rangle=\langle Q^{-1}A^\dagger Q\phi, Q\psi\rangle	\end{align*}
+Es folgt, dass $A$ bez\"uglich $Q$ genau dann selbstadjungiert ist wenn
+\begin{equation*}
+	Q^{-1}A^\dagger Q = A
+\end{equation*}
+Wir setzen (7.37) in diesen Ausdruck ein und formen um
+\begin{align*}
+	QJ^{-1}BJ&=J^\dagger B^\dagger J^{\dagger-1}Q\\
+	Q^{\frac{1}{2}}J^{-1}BJQ^{-\frac{1}{2}}&=Q^{-\frac{1}{2}}J^\dagger B^\dagger J^{\dagger-1}Q^{\frac{1}{2}}\\
+	(JQ^{-\frac{1}{2}})^{-1}B(JQ^{-\frac{1}{2}})&=
+	(JQ^{-\frac{1}{2}})^\dagger B^\dagger(JQ^{-\frac{1}{2}})^{\dagger-1}
+\end{align*}
+\end{proof}
+\noindent
+Die Voraussetzung $m>0$ im Hilfssatz 7.7 ist tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
-Die Voraussetzung $m>0$ ist hier tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
-\\
-Es gibt keine Ein-Photon Schr\"odingergleichung!
-
+Es gibt keine Ein-Photon Schr\"odingergleichung!\\
 \chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
