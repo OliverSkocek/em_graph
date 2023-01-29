@@ -1759,12 +1759,50 @@ Wir setzen (7.37) in diesen Ausdruck ein und formen um
 	(JQ^{-\frac{1}{2}})^{-1}B(JQ^{-\frac{1}{2}})&=
 	(JQ^{-\frac{1}{2}})^\dagger B^\dagger(JQ^{-\frac{1}{2}})^{\dagger-1}
 \end{align*}
+Hiermit haben wir gezeigt, dass es ausreicht die Aussage f\"ur $Q=\mathbb{I}$ zu beweisen.\\
+\\
+Als n\"achstes zeigen wir, dass f\"ur jeden Eigenwert $\lambda$ von $B$ gilt, dass $\lambda^2$ Eigenwert von $L$ ist. Wir verwenden hierf\"ur das charakteristische Polynom.
+\begin{align*}
+	p_{B}(\omega)p_{B}(-\omega)&= \det(B-\omega)\det(B+\omega)=\det(B^2-\omega^2)\\
+	&=\det(\begin{pmatrix}
+		0 & \mathbb{I} \\ 
+		L & 0
+	\end{pmatrix}^2-\omega^2)=\det(\begin{pmatrix}
+	L & 0 \\ 
+	0 & L
+\end{pmatrix}-\omega^2)\\
+&= \det(L-\omega^2)^2=p_{L}(\omega^2)^2
+\end{align*}
+Betrachten wir die Faktorisierung $p_{B}(\omega)=a\prod_{i=1}^{2n}(\omega-x_i)$ und $p_{L}(\omega)=b\prod_{i=1}^n(\omega-y_i)$, wobei $(x_i)_{i=1}^{2n}$ und $(y_i)_{i=1}^n$ die Eigenwerte von $B$ respektive $L$ sind entsprechend ihrer algebraischen Vielfachheit sind.\\
+\\
+Durch Vergleich der linearen Faktoren
+\begin{align*}
+	p_{B}(\omega)p_{B}(-\omega)&=p_{L}(\omega^2)^2\\
+	a^2\prod_{i=1}^{2n}(\omega-x_i)^2 &= b^2\prod_{i=1}^n(\omega^2-y_i)^2\\
+	a^2\prod_{i=1}^{2n}(\omega-x_i)^2 &= b^2\prod_{i=1}^n((\omega-\sqrt{y_i})(\omega+\sqrt{y_i}))^2
+\end{align*}
+k\"onnen wir alle Eigenwerte von $B$ mit samt ihrer Vielfachheit mit Eigenwerten von $L$ identifizieren. Insbesondere ist die algebraische Vielfachheit des Eigenwerts Null von $B$ das Doppelte der algebraischen Vielfachheit des Eigenwerts Null von $L$.\\
+\\
+Es gilt aber f\"ur die geometrische Vielfachheit
+\begin{equation*}
+	\dim(\text{kern}(B))=\dim(\text{kern}(L))
+\end{equation*}
+Um dies zu sehen sei $v=\begin{pmatrix}
+	v_1  \\ v_2
+\end{pmatrix}\in\text{kern}(L)$ und durch Anwendung von $B$ sehen wir
+\begin{align*}
+	v_2 &= 0\\
+	Lv_1&= 0
+\end{align*}
+und k\"onnen den Kern von $B$ mit dem Kern von $L$ identifizieren.\\
+\\
+Die geometrische Vielfachheit ist damit echt kleiner als die algebraische Vielfachheit und somit gibt es keine \"Ahnlichkeitstransformation die $B$ in eine selbstadjungierte Matrix transformiert.
 \end{proof}
 \noindent
-Die Voraussetzung $m>0$ im Hilfssatz 7.7 ist tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
+Die Voraussetzung $m>0$ im Hilfssatz 7.7 ist also tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
 \\
-Es gibt keine Ein-Photon Schr\"odingergleichung!\\
+Es gibt daher keine Ein-Photon Schr\"odingergleichung!\\
 \chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
