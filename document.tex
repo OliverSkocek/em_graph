@@ -1716,7 +1716,7 @@ festlegen werden.\\
 \end{proof}
 \noindent
 Untersuchen wir als n\"achstes die Voraussetzung $m>0$ im Hilfssatz 7.7 wenn $L$ einen nicht trivialen Kern hat.
-Betrachte hierzu die Differentialgleichung mit $m=0$
+Betrachte hierzu die Differentialgleichung (7.24) mit $m=0$
 \begin{equation}
 	u^{\prime \prime} + Lu =0
 \end{equation}
@@ -1799,10 +1799,13 @@ und k\"onnen den Kern von $B$ mit dem Kern von $L$ identifizieren.\\
 Die geometrische Vielfachheit ist damit echt kleiner als die algebraische Vielfachheit und somit gibt es keine \"Ahnlichkeitstransformation die $B$ in eine selbstadjungierte Matrix transformiert.
 \end{proof}
 \noindent
-Die Voraussetzung $m>0$ im Hilfssatz 7.7 ist also tats\"achlich notwendig, da im Fall $m=0$ und nichttrivialen Kern von $L$ die Konstruktion einer solchen Wahrscheinlichkeit und damit Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
+Falls die Voraussetzung $m>0$ im Hilfssatz 7.7 also nicht erf\"ullt ist und $L$ einen nicht trivialen Kern hat, gibt es keine M\"oglichkeit eine Wahrscheinlichkeitsdichte zu definieren, die unter der Klein-Gordon Zeitentwicklung erhalten bleibt. Es gibt auch keine lokal erhaltene Wahrscheinlichkeitsdichte, da eine Kontinuit\"atsgleichung wegen des de'Rham Komplex bereits globale Erhaltung impliziert.
+\iffalse
+Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es keine M\"oglichkeit , dass die Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
 \\
-Es gibt daher keine Ein-Photon Schr\"odingergleichung!\\
+Es gibt daher keine Ein-Photon Schr\"odingergleichung!
+\fi
 \chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
@@ -1853,11 +1856,11 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 	\end{equation}	
 \end{theorem}
 \begin{proof}
-	Der Beweis funktioniert analog wie Theorem 6.6. Wir verwenden 
+	Der Beweis funktioniert analog wie Theorem 6.6. Wir verwenden den positiv definiten komplexen linearen Operator
 	\begin{equation*}
 		Q= \Delta^{a}_r+ m^2
 	\end{equation*}
-$Q$ ist eine positiv definiter komplexer linearer Operator und kann nach dem Spektralsatz geschrieben werden als
+,der sich nach dem Spektralsatz schreiben l\"asst als
 	\begin{equation*}
 	Q = U^\dagger R U
 \end{equation*}
