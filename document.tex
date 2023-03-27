@@ -1555,7 +1555,7 @@ Genauso wie in der Maxwelltheorie gibt es eine Energiefunktion, die das Systems 
 	\end{align}
 	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.}
 	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+m^2\langle \Phi,\Phi\rangle_{\mathfrak{E},\mathbb{C}})
+	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle \Phi ,(\Delta^{a}_r+ m^2)\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}	
 	 $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
 	\begin{align}
@@ -1828,7 +1828,7 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann ist der Hamiltonoperator des Klein-Gordon Feldes gegeben durch:
 	\begin{equation}
-		\hat{H}=-2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle r^{-1}\text{grad}^{\frac{a}{r}}(\Phi), r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{K},\mathbb{C}}+ m^2\langle\Phi, \Phi\rangle_{\mathfrak{E},\mathbb{C}})
+		\hat{H}=-2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}} + \frac{1}{2}(\langle \Phi, (\Delta^{a}_r+ m^2)\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 	\end{equation}
 	Der Wirtinger-Operator $\partial$ wird definiert durch:
 	\begin{equation}
@@ -1857,16 +1857,33 @@ Eine kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns 
 		\hat{h}_j= -2\overline{\partial}_j\partial_j + \frac{1}{2}(m + \omega_j)^2 \overline{x_j}x_j
 	\end{equation}	
 \end{theorem}
-\begin{proof}
-	Der Beweis funktioniert analog wie Theorem 6.6. Wir verwenden den positiv definiten komplexen linearen Operator
+\begin{proof} 
+	Der Hamiltonoperator l\"asst sich zerlegen als:
+\begin{equation*}
+	\hat{H} = \hat{T} + \hat{V}
+\end{equation*}
+wobei
+\begin{align*}
+	&\hat{T} =-2\langle\partial,\partial\rangle_{\mathfrak{E},\mathbb{C}}= -\frac{1}{2}\sum_{k\in E}(\frac{\partial^2}{\partial a_k^2}+\frac{\partial^2}{\partial b_k^2})\\
+	&\hat{V} = \frac{1}{2}(\langle \Phi, (\Delta^{a}_r+ m^2)\Phi\rangle_{\mathfrak{E},\mathbb{C}})
+\end{align*}
+	Wir verwenden den positiv definiten komplexen linearen Operator
 	\begin{equation*}
 		Q= \Delta^{a}_r+ m^2
 	\end{equation*}
-,der sich nach dem Spektralsatz schreiben l\"asst als
+Dieser l\"asst sich nach dem Spektralsatz schreiben als
 	\begin{equation*}
 	Q = U^\dagger R U
 \end{equation*}
-wobei $U$ eine unit\"are Matrix und $R$ eine nichtnegative Diagonalmatrix ist. TODO
+wobei $U$ eine unit\"are Matrix und $R$ eine nichtnegative Diagonalmatrix ist.\\
+\\
+Wie in Theorem 6.6 definieren wir: 
+	\begin{equation*}
+	\hat{V}(\phi)(q)=\phi(U(q))
+\end{equation*}
+Wir d\"urfen den Operator $\hat{T}$ als reelen Laplaceoperator interpretieren, der somit invariant unter orthogonaler Transformation ist. Weiters k\"onnen wir $U$ als orthogonale Transformation auf dem reelen Vektorraum $\mathfrak{E}\times\mathfrak{E}$ interpretieren. Es folgt das $\hat{T}$ invariant unter $U$ ist.\\
+\\
+Der Rest des Beweises ist analog zum Beweis von Theorem 6.6. Der einzige Unterschied ist, dass der Raum $A$ hier leer ist und der Raum $B$ der ganze Raum $\mathfrak{E}$ ist.
 \end{proof}
 \paragraph{Teilchen Antiteilchen und Ladungsopertoren} Analog zur Schr\"odingergleichung des elektromagnetischen Feldes, zerf\"allt der Hamiltonoperator nach Theorem 8.3 in Summanden $\hat{h}_j$ f\"ur jede Mode des Eichlaplaceoperators. Die Operatoren  $\hat{h}_j$ haben die Form eines komplexen harmonischen Operators oder equivalent eines zweidimensionalen reelen harmonischen Oszillators.
 \begin{equation}
