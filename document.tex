@@ -1059,9 +1059,9 @@ Insbesondere gilt daher:
 	$Q$ ist positiv semidefinit und symmetrisch. Die Dimension des Kerns von $Q$ ist nach der Helmoltz Zerlegung (3.3) gleich $|V| - 1$. Das orthogonale Komplement desselben Kerns ist entsprechend $|f| - 1$ dimensional.\footnote{Der eulersche Polyedersatz ist eine Folgerung der Helmoltz Zerlegung.}
 	Nach dem Spektralsatz linearer Operatoren auf endlich dimensionalen reelen Vektorr\"aumen l\"asst sich $Q$ schreiben als:
 	\begin{equation*}
-		Q = U^\dagger R U
+		Q = U^T R U
 	\end{equation*}
-	Wobei die Matrix $U$ orthogonal und $R$ eine nichtnegative Diagonalmatrix mit genau $|f| - 1$ positive Eintr\"agen ist. \\
+	Wobei die reele Matrix $U$ orthogonal und $R$ eine nichtnegative Diagonalmatrix mit genau $|f| - 1$ positive Eintr\"agen ist. \\
 	\\
 	Ein wenig umformen von (6.20) liefert dann
 	\begin{align*}
@@ -1077,27 +1077,29 @@ Insbesondere gilt daher:
 	\begin{equation*}
 		\hat{U}(\phi)(q)=\phi(U(q))
 	\end{equation*}
-	Mit Hilfe des Transformationssatzes f\"ur Integrale kann gezeigt werden, dass der Operator $\hat{U}$ unit\"ar ist, da $U$ auf $\mathfrak{K}$ unit\"ar ist.\\
-	\\
+	Mit Hilfe des Transformationssatzes f\"ur Integrale kann gezeigt werden, dass der Operator $\hat{U}$ unit\"ar ist, da $U$ auf $\mathfrak{K}$ unit\"ar ist. Insbesondere ist die adjungierte von $\hat{U}$ somit gegeben durch.	
+	\begin{equation*}
+		\hat{U}^\dagger(\phi)(q)=\phi(U^T(q))
+	\end{equation*}
 	Der Nabla-Operator vertauscht mit diesem unit\"aren Operator folgendermaßen:\\
-	Sei $\phi$ hierzu in $\mathfrak{H}$ und $x\in \mathfrak{K}$
+	Sei $\phi$ hierzu in $\mathfrak{H}$, $x\in \mathfrak{K}$ Koordinaten und $x^{'} = U(x)$ die transformierten Koordinaten.  Wir unterscheiden $\nabla$, der Nabla-Operator in $x$-Koordinaten und $\nabla^{'}$ den Nabla-Operator in $x^{'}$-Koordinaten. 
 	\begin{align}
-		\nabla \hat{U}\phi(x)=U^T * (\nabla \phi) (U(x)) = U^T * \hat{U}(\nabla \phi) (x)
+		\nabla (\hat{U}\phi)(x) &= U^T * (\nabla^{'} \phi) (U(x)) = U^T * \hat{U}(\nabla^{'} \phi) (x)\\&= \hat{U}(U^T * \nabla^{'} \phi) (x)
 	\end{align}
-	Der Operator $\hat{T}$ ist der Laplaceoperator und invariant unter orthogonaler Transformation.
+	Der Operator $\hat{T}$ ist der Laplaceoperator und invariant unter orthogonaler Transformation. Wir erhalten somit durch Transformation unter $\hat{U}$ den Laplaceoperator in gestrichenen Koordinaten $\Delta^{'}$
 	\begin{align*}
-		\hat{U}^\dagger\hat{T}\hat{U} &= -\frac{1}{2}\hat{U}^\dagger\nabla^T * \nabla \hat{U}\\
+		\hat{U}^\dagger\hat{T}\hat{U} &= -\frac{1}{2}\hat{U}^\dagger\Delta\hat{U}\\ &=-\frac{1}{2}\hat{U}^\dagger\nabla^T * \nabla \hat{U}\\
 		&=-\frac{1}{2}\hat{U}^\dagger\nabla^T\hat{U} * \hat{U}^\dagger\nabla \hat{U}\\
-		&=-\frac{1}{2}(U^T*\nabla)^T*(U^T*\nabla)\\
-		&=-\frac{1}{2}(\nabla)^T*(\nabla)
+		&=-\frac{1}{2}(U^T*\nabla^{'})^T*(U^T*\nabla^{'})\\
+		&=-\frac{1}{2}\nabla^{'T}*\nabla^{'} = -\frac{1}{2}\Delta^{'}
 	\end{align*}
-	Man unterscheide hierbei das endlichdimensionale Produkt $*$ und dem Produkt zwischen Operatoren auf dem unendlichdimensionalen Hilbertraum $\mathfrak{H}$, sowie die entsprechende Transponierte $^T$ und Adjungierte $^\dagger$.\\  
+	Man unterscheidet hierbei das endlichdimensionale Produkt $*$ und dem Produkt zwischen Operatoren auf dem unendlichdimensionalen Hilbertraum $\mathfrak{H}$, sowie die entsprechende Transponierte $^T$ und Adjungierte $^\dagger$.\\  
 	\\ 
 	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (6.21) durch einige wenige Umformungen gezeigt werden.
 	\begin{align*}
-		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \\
+		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \hat{U}^\dagger(\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
 		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
-		&\frac{1}{2}\langle  UU^\dagger(q), R  UU^\dagger(q)\rangle_{\mathfrak{K}}\phi(U^\dagger U(q))\\
+		&\frac{1}{2}\langle  UU^T(q), R  UU^T(q)\rangle_{\mathfrak{K}}\phi(U U^T(q))\\
 		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(q)
 	\end{align*}
 
