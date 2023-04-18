@@ -1473,8 +1473,9 @@ Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensg
 	\end{equation}
 	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
 	\begin{align}
-		&q = \Im(\overline{\Phi}\Phi^\prime)\\
-		&j = -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))
+		q &= \Im(\overline{\Phi}\Phi^\prime)\\
+		j &= -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))\\
+		  &= \Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)})\nonumber
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1492,10 +1493,33 @@ Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Dive
 \end{equation*}
 Der Ausdruck im Imagin\"arteilfunktional ist der Erwartungswert des selbstadjungierten Eich-Laplace Operators und daher reel.\\
 \\
-Damit haben wir gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann, was uns zum gesuchten Resultat f\"uhrt.
+Damit haben gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann.
+Dies schlie\ss{}t den Fall in dem  $\Delta^a_r$ einfach ein selbstadjungierter Operator ist ab.\\
+\\
+In unserem speziellen Fall k\"onnen wir die Form in der $\Delta^a_r$ gegeben ist nutzen um eine L\"osung zu konstruieren.
+\\
+Sei $x\in V$, dann definieren wir zun\"achst $\psi\in\mathfrak{E}$ durch 
 \begin{equation*}
-	q^\prime =\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))
+	\psi(y) = \phi(x)\delta_{x,y}
 \end{equation*}
+Wir starten mit dem Ausdruck f\"ur die Divergenz des Stromes $\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x))$ und formen um
+\begin{align*}
+	&\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x)) = \Im(\langle \psi, \Delta^a_r(\Phi)\rangle_{\mathfrak{E}})=
+	\Im(\langle \text{grad}^{\frac{a}{r}}\psi, \frac{1}{r^2}\text{grad}^{\frac{a}{r}}\Phi\rangle_{\mathfrak{K}})\\
+	&=\Im(\sum_{\substack{e\in E\\p(e)=x}} (\overline{\phi(p(e))} \frac{1}{r(e)^2}(\Phi(p(e))-e^{\frac{a}{r}(e)}\Phi(q(e)))) \\ &+ 
+	\sum_{\substack{e\in E\\q(e)=x}} (-\overline{\phi(q(e))}e^{\frac{-a}{r}} \frac{1}{r(e)^2}(\Phi(p(e))-e^{\frac{a}{r}(e)}\Phi(q(e)))))\\
+	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{\frac{a}{r}(e)}  +
+	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\phi(q(e))}\Phi(p(e))e^{\frac{-a}{r}(e)} )\\
+	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{\frac{a}{r}(e)}  -
+	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)} )\\
+	&=-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)}))(x)
+\end{align*}
+Dies f\"uhrt uns zum gesuchten Resultat.
+\begin{align*}
+	q^\prime &=\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))\\
+	&=
+	-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)}))
+\end{align*}
 \end{proof}
 \noindent
 Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.\\
