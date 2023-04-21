@@ -1475,7 +1475,7 @@ Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensg
 	\begin{align}
 		q &= \Im(\overline{\Phi}\Phi^\prime)\\
 		j &= -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))\\
-		  &= \Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)})\nonumber
+		  &= \Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)})\nonumber
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1502,23 +1502,23 @@ Sei $x\in V$, dann definieren wir zun\"achst $\psi\in\mathfrak{E}$ durch
 \begin{equation*}
 	\psi(y) = \phi(x)\delta_{x,y}
 \end{equation*}
-Wir starten mit dem Ausdruck f\"ur die Divergenz des Stromes $\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x))$ und formen um
+Wir starten mit dem Ausdruck $\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x))$ f\"ur die Divergenz des Stromes und formen um
 \begin{align*}
 	&\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x)) = \Im(\langle \psi, \Delta^a_r(\Phi)\rangle_{\mathfrak{E}})=
 	\Im(\langle \text{grad}^{\frac{a}{r}}\psi, \frac{1}{r^2}\text{grad}^{\frac{a}{r}}\Phi\rangle_{\mathfrak{K}})\\
-	&=\Im(\sum_{\substack{e\in E\\p(e)=x}} (\overline{\phi(p(e))} \frac{1}{r(e)^2}(\Phi(p(e))-e^{\frac{a}{r}(e)}\Phi(q(e)))) \\ &+ 
-	\sum_{\substack{e\in E\\q(e)=x}} (-\overline{\phi(q(e))}e^{\frac{-a}{r}} \frac{1}{r(e)^2}(\Phi(p(e))-e^{\frac{a}{r}(e)}\Phi(q(e)))))\\
-	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{\frac{a}{r}(e)}  +
+	&=\Im(\sum_{\substack{e\in E\\p(e)=x}} (\overline{\phi(p(e))} \frac{1}{r(e)^2}(\Phi(p(e))-e^{i\frac{a}{r}(e)}\Phi(q(e)))) \\ &+ 
+	\sum_{\substack{e\in E\\q(e)=x}} (-\overline{\phi(q(e))}e^{\frac{-a}{r}} \frac{1}{r(e)^2}(\Phi(p(e))-e^{i\frac{a}{r}(e)}\Phi(q(e)))))\\
+	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{i\frac{a}{r}(e)}  +
 	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\phi(q(e))}\Phi(p(e))e^{\frac{-a}{r}(e)} )\\
-	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{\frac{a}{r}(e)}  -
-	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)} )\\
-	&=-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)}))(x)
+	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{i\frac{a}{r}(e)}  -
+	\sum_{\substack{ \\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)} )\\
+	&=-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)}))(x)
 \end{align*}
 Dies f\"uhrt uns zum gesuchten Resultat.
 \begin{align*}
 	q^\prime &=\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))\\
 	&=
-	-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{\frac{a}{r}(e)}))
+	-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)}))
 \end{align*}
 \end{proof}
 \noindent
@@ -1817,7 +1817,7 @@ Es gilt aber f\"ur die geometrische Vielfachheit
 \end{equation*}
 Um dies zu sehen sei $v=\begin{pmatrix}
 	v_1  \\ v_2
-\end{pmatrix}\in\text{kern}(L)$ und durch Anwendung von $B$ sehen wir
+\end{pmatrix}\in\text{kern}(B)$ und durch Anwendung von $B$ sehen wir
 \begin{align*}
 	v_2 &= 0\\
 	Lv_1&= 0
@@ -1957,6 +1957,8 @@ Der Ladungsdichteoperator wird nun definiert als
 	\hat{q}=i(b\frac{\partial}{\partial a}- a\frac{\partial}{\partial b})
 \end{equation}
 Ein paar Umformungen erlauben es uns den Ladungsoperator \"uber die Teilchenanzahloperatoren auszudr\"ucken.
+
+TODO falsches Koordinatensystem
 \begin{equation*}
 	\hat{q} = \hat{N}_+ -\hat{N}_- 
 \end{equation*}
