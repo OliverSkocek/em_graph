@@ -844,7 +844,7 @@ Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrange
 \begin{theorem}
 Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $q\in C^1(\mathbb{R}, \mathfrak{E})$, $j\in C^1(\mathbb{R}, \mathfrak{K})$, sei weiters $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.2), genau dann wenn alle Richtungs-ableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
-	S(f_1, f_2) = \int_{r}^{s}W(f_1, f_2, f_1^\prime, f_2^\prime)dt
+	S(f_1, f_2) = \int_{r}^{s}L(f_1, f_2, f_1^\prime, f_2^\prime)dt
 \end{equation}
 \noindent
 Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
@@ -938,7 +938,7 @@ Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heis
 \end{equation}
 gefordert.\\
 \\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, die (6.9) erf\"ullt ist gegeben durch:
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, die (6.10) erf\"ullt ist gegeben durch:
 \begin{align}
 	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto -i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
 	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
@@ -964,7 +964,7 @@ f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"
 Widmen wir uns nun dem Korrespondenzprinzip zwischen der klassischen und quantenmechanischen Theorie.
 Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
 \begin{theorem}[Ehrenfest Theorem]
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.13) auf $G$, dann gilt:
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
 	\begin{align}
 		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
 		&\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
@@ -976,7 +976,7 @@ Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik
 	\end{align}
 \end{theorem}
 \begin{proof}
-Wir starten mit der linken Seite von (6.14), wenden die Produktregel der Differentiation an und formen um:
+Wir starten mit der linken Seite von (6.15), wenden die Produktregel der Differentiation an und formen um:
 \begin{align*}
 	&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime = -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime=\\
 	&-(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}})=\\
@@ -986,7 +986,7 @@ Wir starten mit der linken Seite von (6.14), wenden die Produktregel der Differe
 	&-r^{-1} \text{grad}_D(\langle\psi,\text{div}_D(r^{-1}\hat{q})\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
 	&-r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}
 \end{align*}
-Nun zeigen wir (6.15) indem wir ausgehend von (6.17) die Formel
+Nun zeigen wir (6.15) indem wir ausgehend von (6.18) die Formel
 	\begin{align}
 \langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = \text{div}_D(r^{-1}\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime)
 \end{align}
@@ -1001,11 +1001,13 @@ Am Ende haben wir hier die kanonischen Vertauschungsrelationen und die Rechenreg
 Wir setzen den erhaltenen Ausdruck nun in (6.18) ein und erhalten das gesuchte Resultat.
 \end{proof}
 \noindent
-Wir sehen also, dass die Schr\"odingergleichung (6.13) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
+Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
+\\
+\\
 \iffalse
 Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit $\hat{j}=0$ untersucht werden.
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.13) auf $G$, dann kommutiert das folgende Diagramm f\"ur jedes $\xi\in\mathfrak{E}$ und $x\in\mathfrak{K}$:\\
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann kommutiert das folgende Diagramm f\"ur jedes $\xi\in\mathfrak{E}$ und $x\in\mathfrak{K}$:\\
 	\begin{tikzcd}
 		\psi(x,t) \arrow{d}{+\Delta t}\arrow{r}{+r\text{grad}(\xi)} & \psi(x+r\text{grad}(\xi),t) \arrow{d}{+\Delta t}\\
 		\psi(x,t+\Delta t) \arrow{r}{+r\text{grad}(\xi)}& \psi(x+r\text{grad}(\xi),t+\Delta t) \\
@@ -1016,9 +1018,9 @@ Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit
 \noindent
 TODO\\
 \fi
-Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (6.13) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
+Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (6.14) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (6.12) mit $\hat{j}\equiv 0 $ gilt:
+	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (6.13) mit $\hat{j}\equiv 0 $ gilt:
 	\begin{equation}
 	\hat{U}^\dagger\hat{H}\hat{U}  = \sum_{j=1}^{|E|}\hat{h}_j
 	\end{equation}
@@ -1059,7 +1061,7 @@ Insbesondere gilt daher:
 	\end{equation*}
 	Wobei die reele Matrix $U$ orthogonal und $R$ eine nichtnegative Diagonalmatrix mit genau $|f| - 1$ positive Eintr\"agen ist. \\
 	\\
-	Ein wenig umformen von (6.19) liefert dann
+	Ein wenig umformen von (6.21) liefert dann
 	\begin{align*}
 		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}=\\
 		&\frac{1}{2}\langle q, U^\dagger R U(q)\rangle_{\mathfrak{K}}=\\
@@ -1101,7 +1103,7 @@ Insbesondere gilt daher:
 
 \end{proof}
 \noindent
-Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.12), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
+Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
 \\
 \\
 Die Transformation $U$ zerlegt den Raum der Kantenfunktionen in einen $|V| - 1$-dimensionalen Teilraum $A$ auf dem das Potential $V$ der Schr\"odingergleichung konstant ist und in sein orthogonales $|F| - 1$-dimensionales Komplement $B$. Als Konsequenz haben wir gesehen ist die Dynamik in Richtung des Raumes $A$ frei und in Richtung des Raums $B$ die eines mehrdimensionalen harmonischen Oszillators.\\
@@ -1208,8 +1210,8 @@ Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"u
 \begin{equation*}
 	f_c(q) = c * e^{-\omega q^2 / 2}
 \end{equation*}
-Zeigen wir nun, da\ss{} (6.31) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
-Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.31) auf $\Omega$ der Definition der Adjungierten entspricht:
+Zeigen wir nun, da\ss{} (6.32) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
+Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) auf $\Omega$ der Definition der Adjungierten entspricht:
 \begin{align*}
 	\langle \phi, \hat{a}_\omega\psi\rangle_{L^2} &= 
 	\int_\mathbb{R} \overline{\phi}(q)( \sqrt{\frac{\omega}{2}}(q\psi +  \frac{1}{\omega}\frac{d\psi}{dq}(q)))d\lambda(q)\\&=
@@ -1251,14 +1253,14 @@ untersuchen
 \begin{proof}
 	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz 6.3 lineare Abbildungen in $\Omega$ sind, ist $\hat{N}_\omega$ ein dicht definierter linearer Operator.\\
 	\\
-	Kommen wir nun zu den Vertauschungsrelationen (6.35) und (6.36)
+	Kommen wir nun zu den Vertauschungsrelationen (6.36) und (6.37)
 	\begin{align*}
 		\hat{N}_\omega\hat{a}_\omega = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega = (\hat{a}_\omega\hat{a}^\dagger_\omega - 1 )\hat{a}_\omega=\hat{a}_\omega\hat{a}^\dagger_\omega\hat{a}_\omega - \hat{a}_\omega = \hat{a}_\omega\hat{N}_\omega - \hat{a}_\omega
 	\end{align*}
 	\begin{align*}
 	\hat{N}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega(\hat{a}_\omega^\dagger\hat{a}_\omega+1)=\hat{a}^\dagger_\omega\hat{a}_\omega^\dagger\hat{a}_\omega+\hat{a}^\dagger_\omega=\hat{a}^\dagger_\omega\hat{N}_\omega+\hat{a}^\dagger_\omega
 \end{align*}
-Abschlie\ss{}end gilt nach (6.33)
+Abschlie\ss{}end gilt nach (6.34)
 \begin{align*}
 	\hat{N}_\omega &=
 	\frac{\omega}{2}(-\frac{1}{\omega^2}\frac{d^2}{dq^2}+q^2 - \frac{1}{\omega}[\frac{d}{dq},q])\\&=\frac{1}{2\omega}(-\frac{d^2}{dq^2}+\omega^2q^2 - \omega [\frac{d}{dq},q])= \frac{1}{\omega}(\hat{h}_\omega - \frac{\omega}{2} )
