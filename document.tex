@@ -1473,7 +1473,7 @@ Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensg
 	\begin{align}
 		q &= \Im(\overline{\Phi}\Phi^\prime)\\
 		j &= -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))\\
-		  &= \Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)})\nonumber
+		  &= -\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)})\nonumber
 	\end{align}
 \end{proposition}
 \begin{proof}
@@ -1510,13 +1510,13 @@ Wir starten mit dem Ausdruck $\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x))$ f\"ur
 	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(q(e))}\Phi(p(e))e^{\frac{-a}{r}(e)} )\\
 	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{i\frac{a}{r}(e)}  -
 	\sum_{\substack{ \\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)} )\\
-	&=-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))(x)
+	&=\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))(x)
 \end{align*}
 Dies f\"uhrt uns zum gesuchten Resultat.
 \begin{align*}
 	q^\prime &=\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))\\
 	&=
-	-\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))
+	-\text{div}(-\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))
 \end{align*}
 \end{proof}
 \noindent
@@ -1946,11 +1946,11 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $\psi\in\mathfrak{H}(G)$ dann gilt f\"ur den Ladungsfeldoperator $\hat{q}$ die Kontinuit\"atsgleichung
 	\begin{equation}
-		\overset{\prime}{\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}} = -\text{div}(\Im(\langle \psi,(\frac{1}{r(e)^2} \overline{\hat{\Phi}(p(e))}\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H}))
+		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime = \text{div}(\langle \psi,\Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	Wir starten auf der linken Seite von (8.9) und zeigen zuerst das Ehrenfest Theorem f\"ur die Klein-Gordon Schr\"odingergleichung. Sei hierzu $x$ ein Knoten des Graphen.
+	Wir starten auf der linken Seite von (8.9) und zeigen zuerst das Ehrenfest Theorem f\"ur die Klein-Gordon Schr\"odingergleichung. Sei hierzu $x$ ein Knoten des Graphen und $\psi$ eine stetig differenzierbare Funktion aus $\mathfrak(H)$.
 	\begin{align*}
 		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime &= \langle \psi^\prime, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, \hat{q}(x)\psi^\prime\rangle_\mathfrak{H}\\
 		&= \langle -i\hat{H}\psi, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, -i\hat{q}(x)\hat{H}\rangle_\mathfrak{H}\\
@@ -1974,21 +1974,55 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 	\begin{align*}
 		[\langle \hat{\Phi}, \Delta^{a}_r\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)]&=
 		[\langle \frac{1}{r}\text{grad}^{\frac{a}{r}}\hat{\Phi}, \frac{1}{r}\text{grad}^{\frac{a}{r}}\hat{\Phi}\rangle_{\mathfrak{K},\mathbb{C}},\hat{q}(x)]\\&=
-		[\langle \frac{1}{r^2} \hat{\Phi}_{R}(p), \hat{\Phi}_{R}(p)\rangle_{\mathfrak{K},\mathbb{C}} \\&- 2\Re(\langle \frac{1}{r^2}\hat{\Phi}_R(q)e^{i\frac{a}{r}},\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) \\&+ \langle \frac{1}{r^2} \hat{\Phi}_{I}(q), \hat{\Phi}_{I}(q) \rangle_{\mathfrak{K},\mathbb{C}},\hat{q}(x)]
+		[\langle \frac{1}{r^2} \hat{\Phi}(p), \hat{\Phi}(p)\rangle_{\mathfrak{K},\mathbb{C}} \\&- 2\Re(\langle \frac{1}{r^2}\hat{\Phi}(q)e^{i\frac{a}{r}},\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) \\&+ \langle \frac{1}{r^2} \hat{\Phi}(q), \hat{\Phi}(q) \rangle_{\mathfrak{K},\mathbb{C}},\hat{q}(x)]
 	\end{align*}
 	Zu jedem Glied im ersten Term gibt es ein korrespondierendes Glied im dritten Term, und umgekehrt, sodass wir mit dem selben Argument wie gerade bevor zeigen k\"onnen, dass der Kommutator der Summe aus erstem und dritten Term identisch Null ist.\\
 	\\
 	Es verbleibt also den zweiten Kommutator zu betrachten.
 	\begin{align*}
-		[\Re(\langle \frac{1}{r^2}\hat{\Phi}_R(q)e^{i\frac{a}{r}},&\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) ,\hat{q}(x)]\\&=
-		\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}_R(q(e))e^{-i\frac{a}{r}(e)},\hat{\Phi}(x)) ,\hat{q}(x)]\\&+
-			\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}_R(x)e^{-i\frac{a}{r}(e)},\hat{\Phi}(p(e))) ,\hat{q}(x)]	\end{align*}
-	Als n\"achstes betrachten wir die Identit\"aten:
+		[\Re(\langle \frac{1}{r^2}\hat{\Phi}(q)e^{i\frac{a}{r}},&\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) ,\hat{q}(x)]\\&=
+		\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&+
+			\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))) ,\hat{q}(x)]	
+		\end{align*}
+	Wir betrachten zuerst die Identit\"aten:
 	\begin{align*}
-		\Re(\langle \frac{1}{r^2}\hat{\Phi}_R(q)e^{i\frac{a}{r}},\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}})&=\\
-		\Im(\langle \frac{1}{r^2}\hat{\Phi}_R(q)e^{i\frac{a}{r}},\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}})=
+		\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))\\
+		&=\hat{\Phi}_R(q(e))(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
+		&+\hat{\Phi}_I(q(e))(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))
 	\end{align*}
-	
+	\begin{align*}
+		\Im(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))\\
+		&=\hat{\Phi}_R(q(e))(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
+		&-\hat{\Phi}_I(q(e))(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))
+	\end{align*}
+	und starten mit der linken Summe $p(e)=x$:
+	\begin{align*}
+		[\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)), \hat{q}(x)]\\
+		&=\hat{\Phi}_R(q(e))([\hat{\Phi}_R(x), \hat{q}(x)]\cos(a(e)) + [\hat{\Phi}_I(x), \hat{q}(x)]\sin(a(e)))\\
+		&+\hat{\Phi}_I(q(e))([\hat{\Phi}_I(x), \hat{q}(x)]\cos(a(e)) - [\hat{\Phi}_R(x), \hat{q}(x)]\sin(a(e)))\\
+		&=\hat{\Phi}_R(q(e))(-i\hat{\Phi}_I(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
+		&+\hat{\Phi}_I(q(e))(i\hat{\Phi}_R(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
+		&=-i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+	\end{align*}
+	als n\"achstes kommen wir zur rechten Summe $q(e)=x$:
+		\begin{align*}
+		[\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))), \hat{q}(p(e))]\\
+		&=[\hat{\Phi}_R(x), \hat{q}(x)](\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
+		&+[\hat{\Phi}_I(x), \hat{q}(x)](\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
+		&=-i\hat{\Phi}_I(x)(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
+		&+i\hat{\Phi}_R(x)(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
+		&=i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+	\end{align*}
+	Wir fassen zusammen:
+	\begin{align*}
+		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime &=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&=i\langle \psi, [-\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&-
+		\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))) ,\hat{q}(x)]	,\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&
+		=i\langle \psi, \sum_{e\in E, p(e)=x}(i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))\\&-
+		\sum_{e\in E, q(e)=x}(i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))	\psi\rangle_\mathfrak{H} \\&
+		=\langle \psi, \sum_{e\in E, q(e)=x}\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+		\\&-\sum_{e\in E, p(e)=x}\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))\psi\rangle_\mathfrak{H}\\
+		&=\text{div}(\langle \psi,\Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
+	\end{align*}
 \end{proof}
 \noindent
 \paragraph{Teilchen und Antiteilchen}
