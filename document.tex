@@ -2011,7 +2011,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		&+[\hat{\Phi}_I(x), \hat{q}(x)](\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
 		&=-i\hat{\Phi}_I(x)(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
 		&+i\hat{\Phi}_R(x)(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
-		&=i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+		&=i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))
 	\end{align*}
 	Wir fassen zusammen:
 	\begin{align*}
@@ -2085,7 +2085,24 @@ Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_\omega$ ve
 \begin{proof}
 	
 \end{proof}
+\begin{definition}
+	Sei $G$ ein planarer Graph, $x\in V$ und $\psi\in\mathfrak{E}$, dann nennen wir
+	\begin{equation}
+		U_C(\psi)(x) =\psi(\overline{x})
+	\end{equation}
+	den \textbf{Ladungskonjugationoperator.}
+\end{definition}
 
+\begin{remark}
+	Der Ladungskonjugationsoperator ist unit\"r und selbstadjungiert.
+\end{remark}
+\begin{proposition}
+	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen, $\omega\in\sigma(\Delta_r^a)$ und $U_C$ der Ladungskonjugationsoperator, dann transformieren die Operatoren $A_\omega$, $B_\omega$ und $N_{\omega\pm}$ folgenderma\ss{}en
+	\begin{align}
+	U_CA_\omega U_C &= B_\omega\\
+	U_C N_{\omega \pm} U_C &= N_{\omega \mp}
+\end{align}
+\end{proposition}
 \chapter{Zweite Quantisierung der Klein-Gordongleichung}
 Im Kapitel \textbf{Die Klein-Gordongleichung} haben wir gesehen, dass wir im Fall $m>0$ die klassische Klein-Gordontheorie als Schr\"odingergleichung auf einem Hilbertraum darstellen k\"onnen.\\
 Wir werden diese Darstellung als die Einteilchenzust\"ande einer quantisierten Klein-Gordontheorie interpretieren.
