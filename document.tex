@@ -336,7 +336,7 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 	\textbf{Zweite zu beweisende Aussage:} Das Bild von $\text{grad}$ ist genau der Kern von $\text{div}_D$.\\
 	\\
 	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ ein Pfad der die Ecken des Zyklus gegen den Uhrzeigersinn durchl\"auft und $f\in\mathfrak{E}$, dann gilt:
-	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma(i) * \overbrace{\sigma(i) * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))}^{\text{grad}}$$
+	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma_i * \overbrace{\sigma_i * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))}^{\text{grad}}$$
 	Da ja $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
 	\\
 	Es fehlt noch zu zeigen, dass jedes Element im Kern von $\text{div}_D$ auch im Bild von $\text{grad}$ ist.\\
