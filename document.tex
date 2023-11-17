@@ -2118,7 +2118,53 @@ Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 
 
 \begin{align*}
 	H(\Phi, \pi_\Phi, a, \pi_a) = \frac{1}{2}(&\langle \pi_\Phi, \pi_\Phi\rangle_{\mathfrak{E},\mathbb{C}}+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &\langle \frac{\pi_a}{\epsilon}, \pi_a\rangle_{\mathfrak{K}} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
-\end{align*}	
+\end{align*}
+Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtransformation (7.7). \\
+\\
+An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Problem zu.
+\begin{definition}
+	Sei $G$ ein planarer Graph, $r,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$
+	\begin{align}
+		\begin{split}
+		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{2\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
+		\end{split}	
+	\end{align}
+	den \textbf{Hamiltonoperator der Quantenelektrodynamik}.
+\end{definition}
+\noindent
+Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonoperator $\hat{H}_{qed}$ \"uberhaupt richtig definieren zu k\"onnen werden wir im Rest dieses Kapitels einen passenden Hilbertraum konstruieren. Bis dahin denken wir $\mathfrak{H}_{qed}\subset F(\mathbb{C}^V\times\mathbb{R}^E,\mathbb{C})$. Wir werden aber die komplexen Komponenten bei Bedarf als zweidimensional karthesisch reel $(\Phi_R,\Phi_I)$ oder in Polarkoordinaten $(\rho,\phi)$ schreiben.\\
+\\
+Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik eine Familie unit\"arer Abbildungen.
+\begin{definition}
+	Sei $G$ ein planarer Graph, $r\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ definiert durch
+	\begin{align}
+		\hat{U}_\xi(\psi)(\Phi, a) =  \psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
+	\end{align}
+    oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
+    \begin{align}
+    	\hat{U}_\xi(\psi)(\rho, \phi, a) =  \psi(\rho, \phi + \xi, a + r \text{grad}\xi)
+    \end{align}
+	die \textbf{Eichgruppe}.
+\end{definition}
+\noindent
+Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit"ar auf $\mathfrak{H}_{qed}$ sind, und die Eichgruppe stark stetig ist.
+\begin{proposition}
+	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ formal
+	\begin{equation}
+		[\hat{H}_{qed}, \hat{U}_\xi]=0
+	\end{equation}
+	und der formale Erzeuger der Eichgruppe kann identifiziert werden als
+	\begin{equation}
+		\hat{h} = \hat{q} - \text{div}(r*\epsilon*\hat{e})
+	\end{equation}
+	wobei $\hat{q}$ in (8.7) definiert wurde und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist.
+\end{proposition}
+\begin{proof}
+\end{proof}
+\noindent
+Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses ja zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
+\\
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Die G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt dann zu der Forderung,, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}\psi = 0$
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
