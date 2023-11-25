@@ -2170,7 +2170,14 @@ Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen
 \begin{equation}
 	\hat{U}_\xi = e^{i\sum_{x\in V}\xi(x)*\hat{h}(x)} = \prod_{x\in V}e^{i\xi(x)*\hat{h}(x)}
 \end{equation}
-Es folgt daher f\"ur ein stetig differenzierbares $\psi$, dass gilt $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt. 
+Es folgt daher f\"ur ein stetig differenzierbares $\psi$ ist $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt.
+\begin{lemma}
+	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ falls es ein $f\in C^1(\mathfrak{E}(G)\times\text{kern}(\text{div}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}(G)$ und $a\in\mathfrak{K}(G)$ gilt
+	\begin{equation}
+		\psi(\Phi, a) = f(\Phi e^{-i\text{grad}^\sharp r ^{-1}P_{Bild(\text{grad})}a}, (1-P_{\text{Bild}(\text{grad})}a))
+	\end{equation}
+	Wobei $\text{grad}^\sharp$ die Pseudoinverse von $\text{grad}$ ist.
+\end{lemma}
 
 
 
