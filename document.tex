@@ -2147,7 +2147,7 @@ Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik
 	die \textbf{Eichgruppe}.
 \end{definition}
 \noindent
-Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit"ar auf $\mathfrak{H}_{qed}$ sind, und die Eichgruppe stark stetig ist.
+Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und die Eichgruppe stark stetig ist.
 \begin{proposition}
 	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ formal
 	\begin{equation}
@@ -2164,7 +2164,37 @@ Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass
 \noindent
 Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses ja zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
 \\
-Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Die G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt dann zu der Forderung,, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}\psi = 0$
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Die G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}\psi = 0$\\
+\\
+Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen $\psi$ f\"ur die im Kern von $\hat{h}$ liegen. Hierzu betrachten wir die Beziehung zwischen $\hat{h}$ und der Eichgruppe.
+\begin{equation}
+	\hat{U}_\xi = e^{i\sum_{x\in V}\xi(x)*\hat{h}(x)} = \prod_{x\in V}e^{i\xi(x)*\hat{h}(x)}
+\end{equation}
+Es folgt daher f\"ur ein stetig differenzierbares $\psi$, dass gilt $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig am Schluss war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im letzten Kapitel entwickelt wurden. \\
 \\
