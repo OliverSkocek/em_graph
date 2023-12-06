@@ -511,9 +511,10 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \end{corollary}
 \begin{proof}
 	Eine Anwendung des de'Rham Komplexes und etwas elementare lineare Algebra liefert:
-	$$\mathfrak{K}(G) = \text{kern}(\text{div}_D)\bigoplus\text{kern}(\text{div}_D)^\perp = \text{im}(\text{grad})\bigoplus\text{kern}(\text{div}_D)^\perp$$	
-	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{im}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{im}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und  $\text{kern}(\text{div}_D)^\perp$ ist.
+	$$\mathfrak{K}(G) = \text{kern}(\text{div}_D)\bigoplus\text{kern}(\text{div}_D)^\perp = \text{Bild}(\text{grad})\bigoplus\text{kern}(\text{div}_D)^\perp$$	
+	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{Bild}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{Bild}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und  $\text{kern}(\text{div}_D)^\perp$ ist.
 \end{proof}
+
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
 \begin{definition}
@@ -654,7 +655,7 @@ Sei $(\phi, a)\in \text{kern}(T)$, dann gilt f\"ur alle $t\in\mathbb{R}$
 \begin{equation*}
 	0 = \text{div}_D(r^{-1}a(t))
 \end{equation*} 
-Wir wissen wegen dem de'Rham Komplex Theorem, und weil $r>0$ ist, dass es eine  $\chi:\text{im}(\text{grad})\mapsto \mathbb{R}^\perp$ gibt, sodass gilt:
+Wir wissen wegen dem de'Rham Komplex Theorem, und weil $r>0$ ist, dass es eine  $\chi:\text{Bild}(\text{grad})\mapsto \mathbb{R}^\perp$ gibt, sodass gilt:
 \begin{equation*}
 	x = \text{grad}(\chi(x)) \text{ f\"ur  alle }x\in\mathfrak{K}(G)
 \end{equation*}
@@ -1131,9 +1132,9 @@ Der harmonische Oszillator hat $|F| - 1$ reine Frequenzen/Moden in denen er schw
 Ein klassisches Resultat aus der linearen Algebra liefert dann:
 \begin{align*}
 	 (\text{kern} (\text{div}_D\frac{1}{r}))^\perp 
-	 =(\text{kern}(\frac{1}{r}\text{grad}_D)^T)^\perp =\text{im}\frac{1}{r}\text{grad}_D
+	 =(\text{kern}(\frac{1}{r}\text{grad}_D)^T)^\perp =\text{Bild}(\frac{1}{r}\text{grad}_D)
 \end{align*}
-Damit wurde gezeigt, dass $B=\text{im}\frac{1}{r}\text{grad}_D$ und $A=\text{kern}(\text{div}(r*.)$\\
+Damit wurde gezeigt, dass $B=\text{Bild}(\frac{1}{r}\text{grad}_D)$ und $A=\text{kern}(\text{div}(r*.)$\\
 \\
 Der elektrische Feldoperator $\hat{e}$ transformiert wegen (6.11) und (6.22) analog zum Vektorpotential Operator $\hat{a}$:
 \begin{align}
@@ -2126,7 +2127,7 @@ An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Proble
 	Sei $G$ ein planarer Graph, $r,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$
 	\begin{align}
 		\begin{split}
-		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{2\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
+		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
 		\end{split}	
 	\end{align}
 	den \textbf{Hamiltonoperator der Quantenelektrodynamik}.
@@ -2136,30 +2137,75 @@ Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonope
 \\
 Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik eine Familie unit\"arer Abbildungen.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ definiert durch
+	Sei $G$ ein planarer Graph, $r\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ definiert durch
 	\begin{align}
 		\hat{U}_\xi(\psi)(\Phi, a) =  \psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
 	\end{align}
     oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
     \begin{align}
-    	\hat{U}_\xi(\psi)(\rho, \phi, a) =  \psi(\rho, \phi + \xi, a + r \text{grad}\xi)
+    	\hat{U}_\xi(\psi)(\rho, \phi, a)=  \psi(\rho, \phi + \xi, a + r \text{grad}\xi)
     \end{align}
 	die \textbf{Eichgruppe}.
 \end{definition}
 \noindent
-Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und die Eichgruppe stark stetig ist.
+Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und wir werden fordern, dass die Eichgruppe stark stetig ist in den Parametern.
 \begin{proposition}
-	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ formal
+	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 	\begin{equation}
-		[\hat{H}_{qed}, \hat{U}_\xi]=0
+		[\hat{H}_{qed}, \hat{U}_\xi]\psi=0
 	\end{equation}
-	und der formale Erzeuger der Eichgruppe kann identifiziert werden als
+	Die Eichgruppe ist eine Gruppenhomomorphismus von $\mathfrak{E}$ bez\"uglich $+$ in die linearen Abbildungen auf $C^1(\mathfrak{E}_\mathbb{C}\times\mathfrak{K},\mathbb{C})$ bez\"uglich Kompostition
+	und der infinitesimale Erzeuger der Eichgruppe kann identifiziert werden als
 	\begin{equation}
-		\hat{h} = \hat{q} - \text{div}(r*\epsilon*\hat{e})
+		\hat{h} =  \text{div}(r*\epsilon*\hat{e})-\hat{q}
 	\end{equation}
-	wobei $\hat{q}$ in (8.7) definiert wurde und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist.
+	wobei $\hat{q}(x)=\hat{\Phi}_I\hat{\pi}_R-\hat{\Phi}_R\hat{\pi}_I$ angelehnt an Definition 8.4 und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist.
 \end{proposition}
 \begin{proof}
+Starten wir mit dem Kommutator:\\
+Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}\times\mathfrak{K},\mathbb{C})$, $\Phi\in \mathfrak{E}_\mathbb{C}$, $a\in \mathfrak{K}$ und $\xi\in \mathfrak{E}$
+\begin{align*}
+	\hat{H}_{qed}&\hat{U}_\xi\psi(\Phi, a)= \hat{H}_{qed}\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)=\\&(\frac{1}{2}(-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}))\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
+\end{align*}
+Wegen der Invarianz des Laplace Operators unter euklidischen Transformationen, Theorem 2.5 (de Rham Komplex) und dem Resultat
+\begin{equation}
+	e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
+\end{equation}
+aus dem Beweis von Satz 7.1 k\"onnen wir weiter umformen.
+\begin{align*}
+	&(\frac{1}{2}(-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle e^{i\xi}\Phi, (\Delta_r^{a+r\text{grad}\xi} + m^2)(e^{i\xi}\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}(a+r\text{grad}\xi)), \text{div}_D(r^{-1}(a+r\text{grad}\xi))/\mu\rangle_{\mathfrak{F}}))\\&\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)\\
+	&=\hat{U}_\xi\hat{H}_{qed}\psi(\Phi, a)
+\end{align*}
+Damit kommen wir zu den restlichen Aussagen:\\
+Nach Defintion ist die Eichgruppe ein wie oben beschriebener Morphismus. Als Konsequenz k\"onnen wir $\hat{U}_\xi$ als Produkt nach den Koordinaten von $\xi$ schreiben.\\
+Sei hierzu die $\{e_x\}_{x\in V}\subset\mathfrak{E}(G)$ sodass $e_x(y)=\{\begin{array}{ll} 1, & y=x \\
+	0, & y\neq x\end{array}$
+\begin{equation*}
+	\hat{U}_\xi\psi(\Phi, a) = \prod_{x\in V}\hat{U}_{\xi(x)e_x}
+\end{equation*}
+F\"ur jedes $x\in V$ ist $\hat{U}_{\xi(x)e_x}$ eine einparametrige Gruppe und wir k\"onnen den infinitesimalen Erzeuger berechnen. Hierzu wechseln wir in Polarkoordinaten $\Phi=\rho e^{i\phi}$ und erhalten (10.3). 
+\begin{align*}
+	\hat{h}(x)\psi(\rho, \phi, a) &=-i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_{\epsilon e_x}(\psi)-\psi}{\epsilon}(\rho, \phi, a) \\
+	&=-i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x*\epsilon, a + r \text{grad}(e_x*\epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
+	&=-i\frac{\partial}{\partial\phi(x)}-\text{div}(-ir\frac{\partial}{\partial a})(x)
+\end{align*}
+Die Ableitung nach $\phi$ l\"asst sich in karthesischen Koordinaten schreiben als:
+\begin{equation*}
+	\frac{\partial}{\partial\phi(x)}=\Phi_{R}(x)\frac{\partial}{\partial \Phi_I(x)}-\Phi_{I}(x)\frac{\partial}{\partial \Phi_R(x)}
+\end{equation*}
+somit gilt nach (8.7):
+\begin{equation*}
+	\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}
+\end{equation*}
+und nach (6.17)  gilt:
+\begin{equation*}
+	\text{div}(-i\frac{\partial}{\partial a}) = -\text{div}\epsilon \hat{e}
+\end{equation*}
+womit wir zusammenfassend gezeigt haben:
+\begin{equation*}
+\hat{h}(x) = \text{div}(r\epsilon \hat{e})(x)-\hat{q}(x)
+\end{equation*}
+
 \end{proof}
 \noindent
 Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses ja zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
@@ -2170,17 +2216,48 @@ Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen
 \begin{equation}
 	\hat{U}_\xi = e^{i\sum_{x\in V}\xi(x)*\hat{h}(x)} = \prod_{x\in V}e^{i\xi(x)*\hat{h}(x)}
 \end{equation}
-Es folgt daher f\"ur ein stetig differenzierbares $\psi$ ist $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt.
+Es folgt daher f\"ur ein stetig differenzierbares $\psi$ ist $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt. Daher muss ein $\psi\in \mathfrak{H}_{qed}$ entlang Kurven der Form
+\begin{equation}
+	\{(\Phi e^{i\xi}, a + r \text{grad}\xi): \xi\in\mathfrak{E}(G)\}
+\end{equation} 
+im Konfigurationsraum $\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)$ konstant sein.\\
+Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathfrak{H}_{qed}$ eine von Null verschiedene $L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ enth\"alt.
+\begin{corollary}
+	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, sodass $\hat{h}(x)\psi=0\forall x\in V$ ist dann gilt $\psi = 0$.
+\end{corollary}
+\begin{proof}
+\end{proof}
+\noindent
+Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{lemma}
-	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ falls es ein $f\in C^1(\mathfrak{E}(G)\times\text{kern}(\text{div}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}(G)$ und $a\in\mathfrak{K}(G)$ gilt
+	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
-		\psi(\Phi, a) = f(\Phi e^{-i\text{grad}^\sharp r ^{-1}P_{Bild(\text{grad})}a}, (1-P_{\text{Bild}(\text{grad})}a))
+		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
 	\end{equation}
-	Wobei $\text{grad}^\sharp$ die Pseudoinverse von $\text{grad}$ ist.
+	Wobei $Q$ eine Rechtsinverse von $r\text{grad}$ ist und $QP_{\text{Bild}(r\text{grad})}=Q$ gilt\footnote{Das entspricht der Pseudoinversen.}.
 \end{lemma}
+\begin{proof}
+\end{proof}
+\noindent
+\begin{theorem}
+	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathfrak{E}_\mathbb{C}(G)\times\text{Bild}(r\text{grad})$.
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+\noindent
+Dies gibt uns einen guten Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf eine beschränkte Teilmenge einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt und periodische Randbedingungen zu fordern.\\
+\\
+Im Rahmen dieser Konstruktion werden auch konstante $\xi$ mitber\"ucksichtigt und wir k\"onnen anschlie\ss{}end bereits den Hauptsatz dieses Kapitels beweisen.
+\begin{definition}
+	c
+	$$$$
+	$$$$
+	$$$$
+	$$$$
+\end{definition}
 
-
-
+Theorem Hilbertraum
 
 
 
