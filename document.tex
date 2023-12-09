@@ -2159,7 +2159,7 @@ Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass
 	\begin{equation}
 		\hat{h} =  \text{div}(r*\epsilon*\hat{e})-\hat{q}
 	\end{equation}
-	wobei $\hat{q}(x)=\hat{\Phi}_I\hat{\pi}_R-\hat{\Phi}_R\hat{\pi}_I$ angelehnt an Definition 8.4 und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist.
+	wobei $\hat{q}(x)=\hat{\Phi}_I\hat{\pi}_R-\hat{\Phi}_R\hat{\pi}_I$ angelehnt an Definition 8.4 und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist. 
 \end{proposition}
 \begin{proof}
 Starten wir mit dem Kommutator:\\
@@ -2187,7 +2187,7 @@ F\"ur jedes $x\in V$ ist $\hat{U}_{\xi(x)e_x}$ eine einparametrige Gruppe und wi
 \begin{align*}
 	\hat{h}(x)\psi(\rho, \phi, a) &=-i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_{\epsilon e_x}(\psi)-\psi}{\epsilon}(\rho, \phi, a) \\
 	&=-i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x*\epsilon, a + r \text{grad}(e_x*\epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
-	&=-i\frac{\partial}{\partial\phi(x)}-\text{div}(-ir\frac{\partial}{\partial a})(x)
+	&=(-i\frac{\partial}{\partial\phi(x)}-\text{div}(-ir\frac{\partial}{\partial a})(x))\psi(\rho, \phi, a)
 \end{align*}
 Die Ableitung nach $\phi$ l\"asst sich in karthesischen Koordinaten schreiben als:
 \begin{equation*}
@@ -2208,9 +2208,11 @@ womit wir zusammenfassend gezeigt haben:
 
 \end{proof}
 \noindent
-Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses ja zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
+Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
 \\
-Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Die G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}\psi = 0$\\
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"tsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut \begin{equation}
+(\text{div}(r\epsilon \hat{e}))^\prime + \hat{j}_{\text{em}}=0
+\end{equation} identifizieren.  Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Der Wunsch nach der G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt uns dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}(x)\psi = 0\forall x\in V$\\
 \\
 Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen $\psi$ f\"ur die im Kern von $\hat{h}$ liegen. Hierzu betrachten wir die Beziehung zwischen $\hat{h}$ und der Eichgruppe.
 \begin{equation}
@@ -2226,6 +2228,7 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, sodass $\hat{h}(x)\psi=0\forall x\in V$ ist dann gilt $\psi = 0$.
 \end{corollary}
 \begin{proof}
+	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebsgue Ma\ss{} $\mu(U)>0$. Nach (10.8) muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 \end{proof}
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
