@@ -2228,25 +2228,32 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, sodass $\hat{h}(x)\psi=0\forall x\in V$ ist dann gilt $\psi = 0$.
 \end{corollary}
 \begin{proof}
-	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebsgue Ma\ss{} $\mu(U)>0$. Nach (10.8) muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
+	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebsgue Ma\ss{} $\mu(U)>0$. Nach (10.9) muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 \end{proof}
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
-\begin{lemma}
+\begin{proposition}
 	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
 	\end{equation}
-	Wobei $Q$ eine Rechtsinverse von $r\text{grad}$ ist und $QP_{\text{Bild}(r\text{grad})}=Q$ gilt\footnote{Das entspricht der Pseudoinversen.}.
-\end{lemma}
+	Wobei f\"ur $Q$ gelten soll, dass $Qr\text{grad}=P_{\text{Bild}(r\text{div})}$ und $r\text{grad}Q=P_{\text{Bild}(r\text{grad})}$ ist\footnote{Das entspricht der Pseudoinversen.}.
+\end{proposition}
 \begin{proof}
 \end{proof}
 \noindent
-\begin{theorem}
+\begin{proposition}
 	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathfrak{E}_\mathbb{C}(G)\times\text{Bild}(r\text{grad})$.
-\end{theorem}
-\begin{proof}
-	
+\end{proposition}
+\begin{proof} Betrachte die Menge
+	\begin{equation}
+		\mathfrak{T} = r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\})
+	\end{equation}
+und schreibe:
+\begin{align*}
+\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} + 2\pi\mathfrak{E}(G)_\mathbb{Z})\\
+&=\mathfrak{T} + 2\pi*r\text{grad}(\mathfrak{E}(G)_\mathbb{Z})
+\end{align*}
 \end{proof}
 \noindent
 Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf eine beschränkte Teilmenge einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt und periodische Randbedingungen zu fordern.
