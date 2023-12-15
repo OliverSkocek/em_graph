@@ -2124,7 +2124,7 @@ Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtrans
 \\
 An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Problem zu.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$
+	Sei $G$ ein planarer Graph, $r>0,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$
 	\begin{align}
 		\begin{split}
 		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
@@ -2137,7 +2137,7 @@ Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonope
 \\
 Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik eine Familie unit\"arer Abbildungen.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ definiert durch
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ definiert durch
 	\begin{align}
 		\hat{U}_\xi(\psi)(\Phi, a) =  \psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
 	\end{align}
@@ -2150,7 +2150,7 @@ Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik
 \noindent
 Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und wir werden fordern, dass die Eichgruppe stark stetig ist in den Parametern.
 \begin{proposition}
-	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
+	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r>0,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 	\begin{equation}
 		[\hat{H}_{qed}, \hat{U}_\xi]\psi=0
 	\end{equation}
@@ -2178,8 +2178,9 @@ aus dem Beweis von Satz 7.1 k\"onnen wir weiter umformen.
 \end{align*}
 Damit kommen wir zu den restlichen Aussagen:\\
 Nach Defintion ist die Eichgruppe ein wie oben beschriebener Morphismus. Als Konsequenz k\"onnen wir $\hat{U}_\xi$ als Produkt nach den Koordinaten von $\xi$ schreiben.\\
-Sei hierzu die $\{e_x\}_{x\in V}\subset\mathfrak{E}(G)$ sodass $e_x(y)=\{\begin{array}{ll} 1, & y=x \\
-	0, & y\neq x\end{array}$
+Sei hierzu die $\{e_x\}_{x\in V}\subset\mathfrak{E}(G)$ sodass $e_x(y)=\begin{cases} 1, & y=x \\
+								0, & y\neq x
+				\end{cases}$
 \begin{equation*}
 	\hat{U}_\xi\psi(\Phi, a) = \prod_{x\in V}\hat{U}_{\xi(x)e_x}
 \end{equation*}
@@ -2233,30 +2234,49 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{proposition}
-	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
+	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
 	\end{equation}
-	Wobei f\"ur $Q$ gelten soll, dass $Qr\text{grad}=P_{\text{Bild}(r\text{div})}$ und $r\text{grad}Q=P_{\text{Bild}(r\text{grad})}$ ist\footnote{Das entspricht der Pseudoinversen.}.
+	Wobei $Q$ die Pseudoinverse von $r\text{grad}$ ist.
 \end{proposition}
 \begin{proof}
 \end{proof}
 \noindent
-\begin{proposition}
-	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathfrak{E}_\mathbb{C}(G)\times\text{Bild}(r\text{grad})$.
-\end{proposition}
-\begin{proof} Betrachte die Menge
+\begin{corollary}
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\text{Bild}(r\text{grad})$ mit kompakter Periode.
+\end{corollary}
+\begin{proof} Laut Voraussetzung k\"onnen wir $\psi$ nach Satz 10.2 als (10.10) darstellen.
+Betrachte die kompakte Menge
 	\begin{equation}
 		\mathfrak{T} = r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\})
 	\end{equation}
-und schreibe:
+Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak{E}(G)$ als
+\begin{equation}
+	f_x(y)=\begin{cases} 
+		-1 & y=x, x\neq z \\
+		1 & y=z \\
+		0 & \text{sonst. } 
+	\end{cases}
+\end{equation}
+Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(\text{div r})$ ist und \\damit $\{r\text{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(r\text{grad})$ ist.\\
+Als n\"achstes betrachten wir die Menge
 \begin{align*}
-\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} + 2\pi\mathfrak{E}(G)_\mathbb{Z})\\
-&=\mathfrak{T} + 2\pi*r\text{grad}(\mathfrak{E}(G)_\mathbb{Z})
+\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{V-\{z\}}n_i*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
+&=\mathfrak{T} + 2\pi\{\sum_{V-\{z\}}n_i*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
+Sei $Q$ die Pseudoinverse von $r\text{grad}$ und $a_1\in\text{Bild}(r\text{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
+\begin{equation}
+	a_1 = a_0 + 2\pi \sum_{V-\{z\}}n_i*r\text{grad}(f_x)
+\end{equation}
+damit gilt
+\begin{align*}
+	e^{-iQ(a_1)}=e^{-i(Q(a_0) + 2\pi \sum_{V-\{z\}}n_if_x)}=e^{-i(Q(a_0)}
+\end{align*}
+
 \end{proof}
 \noindent
-Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf eine beschränkte Teilmenge einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt und periodische Randbedingungen zu fordern.
+Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt und periodische Randbedingungen zu fordern.
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
