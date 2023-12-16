@@ -2276,7 +2276,15 @@ damit gilt
 
 \end{proof}
 \noindent
-Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt und periodische Randbedingungen zu fordern.
+Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt.
+\begin{definition}
+		
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$, dann definieren wir den Hilbertraum der Quantenelektrodynamik \"uber
+	\begin{equation}
+		\psi\in\mathfrak{H}_{qed}\equiv\exists \tilde{\psi}\in L^2(\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}(G),\mathbb{C}):\hat{U}_\xi(\tilde{\psi})=\tilde{\psi}\forall \xi\in\mathfrak{E}, \psi = \tilde{\psi}|_{\mathfrak{E}(G)_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})}
+	\end{equation}
+\end{definition}
+\noindent
 
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
