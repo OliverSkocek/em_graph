@@ -112,7 +112,11 @@ Oliver \textsc{Sko\v{c}ek} \\[4cm]
 Die Absicht dieser Arbeit ist es ausgehend von der Theorie elektrischer Netzwerke eine Theorie elektromagnetischer Ph\"anomene in der Ebene zu entwickeln. Dabei soll kein Kontinuums\"ubergang gemacht werden sondern allein mit planaren Graphen gearbeitet werden. Zu diesem Zwecke werden einige grundlegende Begriffe der Graphentheorie eingef\"uhrt. Darauf aufbauened werden dann im zweiten Kapitel Funktionnenr\"aume auf diesen Graphen definiert und analog zur mehrdimensionalen Analysis wird eine Theorie mit Analogien zum gewohnten Gradienten, der Divergenz und dem Rotor vorgestellt. Abgeschlossen wird diese Theorie durch ein zum de Rham Komplex analoges Theorem. \\Im dritten Kapitel wird dann ein verallgemeinertes Poissonproblem vorgestellt, dass direkt verwendet werden kann um Widerstandsnetzwerke zu l\"osen. Dies zeigt, dass viele Analogien zwischen dem Problem der Widerstandsnetzwerke und dem Poissonproblem der Elektrostatik existieren.\\
 Im vierten Kapitel wird dann eine Version der Maxwell-Gleichungen auf planaren Graphen vorgestellt und zwei wichtige Eigenschaften, Energieerhaltung und Ladungserhaltung behandelt.
 Im darauffolgenden Kapitel werden die Maxwellgleichungen in Potentialformulierung vorgestellt und ihre Symmetrie die Eichtransformation vorgestellt.
-Im Kapitel "kanonische Quantisierung" wird dann der Sprung von einer klassischen Theorie in eine Quantentheorie gemacht und die Schr\"odingergleichung elektromagnetischer Felder konstruiert.
+Im Kapitel "kanonische Quantisierung" wird dann der Sprung von einer klassischen Theorie in eine Quantentheorie gemacht und die Schr\"odingergleichung elektromagnetischer Felder konstruiert.\\
+Abgeschlossen wird das Kapitel mit der Einf\"urhung von Erzeugungs und Vernichtungsoperatoren und der Photoneninterpretation der Anregungen des freien Feldes.\\
+Im siebtem Kapitel wird die klassische Klein-Gordon Theorie, also der Theorie um die Klein-Gordon Gleichung mit einem externen elektromagnetischen Feld vorgestellt und anschlie\ss{}end im n\"achsten Kapitel quantisiert, mitsamt Teilcheninterpretation. Diese Teilchen sind wie im Fall des Photons Bosonen und haben nicht allzuviel mit den Elektronen gemeinsam. Jedoch haben sie Masse, was wie gezeigt wird dazu f\"hrt, dass wir einen Ortsoperator konstruieren k\"onnen.\\
+Im neunten Kapitel wird parallel zur kanonischen Quantisierung des Klein-Gordon Feldes die analoge zweite Quantisierung und damit verbundene Rechtfertigung der Teilcheninterpretation\\
+In den letzten Kapiteln konstruieren wir einen Hilbertraum auf dem wir eine Theorie der Quantenelektrodynamik auf planaren Graphen formulieren k\"onnen und diskutieren numerische Simulationen auf einem Spezialfall.
 
 \chapter{Planare Graphen}
 	Ein Graph besteht aus Ecken $V$ und Kanten $E$. Die Ecken und Kanten stehen in Beziehung zueinander. Man sagt eine Kante \emph{verbindet} zwei Ecken. Wir wollen nur solche Graphen betrachten, deren Kanten jeweils zwei unterschiedliche Ecken verbinden.
@@ -2234,7 +2238,7 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{proposition}
-	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
+	Sei $G$ ein planarer Graph und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
 	\end{equation}
@@ -2276,22 +2280,46 @@ damit gilt
 
 \end{proof}
 \noindent
-Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt.
-\begin{definition}
-		
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$, dann definieren wir den Hilbertraum der Quantenelektrodynamik \"uber
+Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, die f\"ur jede periodische Komponente eine volle Periode darstellt.\\
+\\
+Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, geben wir noch einen weiteren notwendigen Darstelllungsatz mit dem wir den verbleibenden Eichgruppen Freiheitsgrad von $\psi$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(r\text{grad})^\perp$.
+\begin{lemma}
+	Sei $G$ ein planarer Graph und $\psi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, $y\in V$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur konstantes $\xi\in \text{kern}(r\text{grad})^\perp$ wenn es ein $f\in F(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
 	\begin{equation}
-		\psi\in\mathfrak{H}_{qed}\equiv\exists \tilde{\psi}\in L^2(\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}(G),\mathbb{C}):\hat{U}_\xi(\tilde{\psi})=\tilde{\psi}\forall \xi\in\mathfrak{E}, \psi = \tilde{\psi}|_{\mathfrak{E}(G)_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})}
+		\psi(\Phi) = f(\Phi e^{-i\arg(\Phi)(y)})
 	\end{equation}
+\end{lemma}
+\begin{proof}
+\end{proof}
+\begin{definition}
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $f\in F(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}\times \text{kern}(\text{div r}), \mathbb{C})$ gibt sodass $\tilde{\psi}$ dargestellt nach (10.14) als
+	\begin{equation}
+		\tilde{\psi}(\Phi,\tilde{a})=f(\Phi e^{-i\arg(\Phi)(y)}, \tilde{a})\text{	}\forall\Phi\in\mathfrak{E}_\mathbb{C}(G),\tilde{a}\in\text{kern}(\text{div r})
+	\end{equation}
+	\"uber (10.10) $\psi$ darstellt als
+	\begin{equation}
+		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))\forall\Phi\in\mathfrak{E}(G)_{\mathbb{C}},\forall a\in\mathfrak{T}+\text{kern}(\text{div r})
+	\end{equation}
+
 \end{definition}
 \noindent
-
+\begin{proposition}
+	Sei $\psi\in\mathfrak{H}_{\text{qed}}$ wie in Definition 10.6, dann gilt 
+	$\hat{h}(x)\psi=0\forall x\in V$.
+\end{proposition}
+\begin{proof}
+\end{proof}
+\noindent
+Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der Quantenelektrodynamik
+\begin{theorem}
+	Sei $\hat{H}_\text{qed}$ wie in Definition 10.1 und $\mathfrak{H}_\text{qed}$ wie in 10.6, dann gibt es ein $D(\hat{H}_\text{qed})$, dicht in $\mathfrak{H}_\text{qed}$, sodass $\hat{H}_\text{qed}:D(\hat{H}_\text{qed})\mapsto\mathfrak{H}_\text{qed}$ ein selbstadjungierter Operator ist.
+\end{theorem}
+\begin{proof}
+\end{proof}
+\noindent
+\chapter{Numerische Simulation der Quantenelektrodynamik auf einem Ikosaeder}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
-Hierzu habe ich im f\"unften Kapitel die Potentialformulierung der Maxwellgleichungen mit ihren Eichsymmetrien eingef\"uhrt um dann im sechsten Kapitel die kanonische Quantisierung des freien elektromagentischen Feldes durch-zuf\"uhren. Abgeschlossen wird das Kapitel mit der Einf\"urhung von Erzeugungs und Vernichtungsoperatoren und der Photoneninterpretation der Anregungen des freien Feldes.\\
-Im siebtem Kapitel wird die klassische Klein-Gordon Theorie, also der Theorie um die Klein-Gordon Gleichung mit einem externen elektromagnetischen Feld vorgestellt und anschlie\ss{}end im n\"achsten Kapitel quantisiert, mitsamt Teilcheninterpretation. Diese Teilchen sind wie im Fall des Photons Bosonen und haben nicht allzuviel mit den Elektronen gemeinsam. Jedoch haben sie Masse, was wie gezeigt wird dazu f\"hrt, dass wir einen Ortsoperator konstruieren k\"onnen.\\
-Im neunten Kapitel wird parallel zur kanonischen Quantisierung des Klein-Gordon Feldes die analoge zweite Quantisierung und damit verbundene Rechtfertigung der Teilcheninterpretation\\
-Im letzten Kapitel konstruieren wir einen Hilbertraum auf dem wir eine Theorie der Quantenelektrodynamik auf planaren Graphen formulieren k\"onnen.\\
 \\
 Es war sehr sch\"on, es hat mich sehr gefreut!
 \end{document}
