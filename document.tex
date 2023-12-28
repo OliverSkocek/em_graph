@@ -2116,7 +2116,7 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  Schlie\ss{}lich werden wir einen Isomorphismus zwischen dem Hilbertraum des kanonisch quantisierten Klein-Gordon Feldes und dem Fockraum konstruieren der eine Identifikation der Anregungen der quantenmechanischen harmonischen Oszillatoren mit Mehrteilchenzust\"anden dieser zweiten Quantisierung zul\"asst.\\
  Die durch den Isomorphismus induzierte Dynamik auf einem $n$-Teilchenzustand wird genau mit der Dynamik, die man f\"ur $n$ freie klassische Klein-Gordonteilchen erwarten w\"urde \"ubereinstimmen.\\
  Kurz gesagt wir werden die Interpretation der Anregungen des Klein-Gordon Feldes als Teilchen voll rechtfertigen.
-\chapter{Quantenelektrodynamik des planaren Graphen}
+\chapter{Skalare Quantenelektrodynamik des planaren Graphen}
 Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Felder der Quellen, also Ladung und Strom, quantenmechanisch beschreibt.\\
 \\ 
 Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.20 die ersten beiden Terme von 6.6 hinzu.
@@ -2134,7 +2134,7 @@ An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Proble
 		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
 		\end{split}	
 	\end{align}
-	den \textbf{Hamiltonoperator der Quantenelektrodynamik}.
+	den \textbf{Hamiltonoperator der skalaren Quantenelektrodynamik}.
 \end{definition}
 \noindent
 Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonoperator $\hat{H}_{qed}$ \"uberhaupt richtig definieren zu k\"onnen werden wir im Rest dieses Kapitels einen passenden Hilbertraum konstruieren. Bis dahin denken wir $\mathfrak{H}_{qed}\subset F(\mathbb{C}^V\times\mathbb{R}^E,\mathbb{C})$. Wir werden aber die komplexen Komponenten bei Bedarf als zweidimensional karthesisch reel $(\Phi_R,\Phi_I)$ oder in Polarkoordinaten $(\rho,\phi)$ schreiben.\\
@@ -2240,11 +2240,22 @@ Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen s
 \begin{proposition}
 	Sei $G$ ein planarer Graph und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
-		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
+		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})})a)
 	\end{equation}
 	Wobei $Q$ die Pseudoinverse von $r\text{grad}$ ist.
 \end{proposition}
 \begin{proof}
+Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ als die Einschr\"ankung von $\psi$ auf $\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r})$.\\
+Unter Ausnutzung der Eichinvarianz von $\psi$ gilt dann:
+\begin{align*}
+	\psi(\Phi, a) &= \psi(\Phi e^{-iQa}, a-r\text{grad}Qa)=\psi(\Phi e^{-iQa}, (1-P_{\text{Bild}(r\text{grad})})a)\\&=f(\Phi e^{-iQa}, (1-P_{\text{Bild}(r\text{grad})})a)
+\end{align*}
+Bedenke die Bildmenge von $Q$ ist jene Teilmenge von $\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$.\\
+\\
+Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt nach (10.10)
+\begin{align*}
+	\psi(\Phi e^{i\xi}, a + r\text{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\text{grad}\xi)}, (1-P_{\text{Bild}(r\text{grad})})a)\\&=f(\Phi e^{-iQ(a )}, (1-P_{\text{Bild}(r\text{grad})})a)=\psi(\Phi, a)
+\end{align*}
 \end{proof}
 \noindent
 \begin{corollary}
@@ -2266,8 +2277,8 @@ Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak
 Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(\text{div r})$ ist und \\damit $\{r\text{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(r\text{grad})$ ist.\\
 Als n\"achstes betrachten wir die Menge
 \begin{align*}
-\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{V-\{z\}}n_i*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
-&=\mathfrak{T} + 2\pi\{\sum_{V-\{z\}}n_i*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
+\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{i\in(V-\{z\})}n_i*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
+&=\mathfrak{T} + 2\pi\{\sum_{i\in(V-\{z\})}n_i*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
 Sei $Q$ die Pseudoinverse von $r\text{grad}$ und $a_1\in\text{Bild}(r\text{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
 \begin{equation}
@@ -2310,14 +2321,14 @@ Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, geben wir noch einen w
 \begin{proof}
 \end{proof}
 \noindent
-Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der Quantenelektrodynamik
+Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
 	Sei $\hat{H}_\text{qed}$ wie in Definition 10.1 und $\mathfrak{H}_\text{qed}$ wie in 10.6, dann gibt es ein $D(\hat{H}_\text{qed})$, dicht in $\mathfrak{H}_\text{qed}$, sodass $\hat{H}_\text{qed}:D(\hat{H}_\text{qed})\mapsto\mathfrak{H}_\text{qed}$ ein selbstadjungierter Operator ist.
 \end{theorem}
 \begin{proof}
 \end{proof}
 \noindent
-\chapter{Numerische Simulation der Quantenelektrodynamik auf einem Ikosaeder}
+\chapter{Numerische Simulation der skalare Quantenelektrodynamik auf einem Ikosaeder}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
 \\
