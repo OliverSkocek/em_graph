@@ -2228,7 +2228,7 @@ Es folgt daher f\"ur ein stetig differenzierbares $\psi$ ist $\hat{h}\psi=0$ gen
 	\{(\Phi e^{i\xi}, a + r \text{grad}\xi): \xi\in\mathfrak{E}(G)\}
 \end{equation} 
 im Konfigurationsraum $\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)$ konstant sein.\\
-Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathfrak{H}_{qed}$ eine von Null verschiedene $L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ enth\"alt.
+Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathfrak{H}_{qed}$ eine von Null verschiedenes Element $f\in L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ enth\"alt.
 \begin{corollary}
 	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, sodass $\hat{h}(x)\psi=0\forall x\in V$ ist dann gilt $\psi = 0$.
 \end{corollary}
@@ -2314,10 +2314,10 @@ Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir noch eine
 Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $\tilde{\psi}\in F(\mathfrak{E}_{\mathbb{C}}\times \text{kern}(\text{div r}), \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
-	\begin{equation*}
-		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))\forall\Phi\in\mathfrak{E}(G)_{\mathbb{C}},\forall a\in\mathfrak{T}+\text{kern}(\text{div r})
-	\end{equation*}
-
+	\begin{equation}
+		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
+	\end{equation}
+	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{T}+\text{kern}(\text{div r})$.
 \end{definition}
 \noindent
 \begin{proposition}
@@ -2334,7 +2334,7 @@ Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"
 \begin{proof}
 \end{proof}
 \noindent
-\chapter{Numerische Simulation der skalare Quantenelektrodynamik auf einem Ikosaeder}
+\chapter{Numerische Simulation der skalaren Quantenelektrodynamik auf einem Ikosaeder}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
 \\
