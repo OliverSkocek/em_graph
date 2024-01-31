@@ -2215,7 +2215,8 @@ womit wir zusammenfassend gezeigt haben:
 \noindent
 Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
 \\
-Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"tsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut \begin{equation}
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"tsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
+\begin{equation}
 (\text{div}(r\epsilon \hat{e}))^\prime + \hat{j}_{\text{em}}=0
 \end{equation} identifizieren.  Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Der Wunsch nach der G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt uns dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}(x)\psi = 0\forall x\in V$\\
 \\
@@ -2238,24 +2239,29 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{proposition}
-	Sei $G$ ein planarer Graph und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
+	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$ und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$ gilt
 	\begin{equation}
-		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})})a)
+		\psi(\Phi, a) = f(\Phi e^{-iQ(a)}, u(a))
 	\end{equation}
-	Wobei $Q$ die Pseudoinverse von $r\text{grad}$ ist.
+	Wobei $Q$ die Pseudoinverse von $r\text{grad}$ und $u:\mathfrak{K}(G)\rightarrow \mathbb{C}^{|A|-1}$ ist, sodass $uu^T=1_{\mathbb{C}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$.
 \end{proposition}
 \begin{proof}
-Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r}), \mathbb{C})$ als die Einschr\"ankung von $\psi$ auf $\mathfrak{E}_\mathbb{C}(G)\times\text{kern}(\text{div r})$.\\
+Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ durch 
+\begin{equation*}
+	f(.,.) = \psi(.,u^T(.))
+\end{equation*}
 Unter Ausnutzung der Eichinvarianz von $\psi$ gilt dann:
 \begin{align*}
-	\psi(\Phi, a) &= \psi(\Phi e^{-iQa}, a-r\text{grad}Qa)=\psi(\Phi e^{-iQa}, (1-P_{\text{Bild}(r\text{grad})})a)\\&=f(\Phi e^{-iQa}, (1-P_{\text{Bild}(r\text{grad})})a)
+	\psi(\Phi, a) &= \psi(\Phi e^{-iQa}, a-r\text{grad}Qa)=\psi(\Phi e^{-iQa}, P_{\text{kern}(\text{div r})}a)\\&=\psi(\Phi e^{-iQa}, u^Tu(a))
+	=f(\Phi e^{-iQa}, u(a))
 \end{align*}
 Bedenke die Bildmenge von $Q$ ist jene Teilmenge von $\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$.\\
 \\
 Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt nach (10.10)
 \begin{align*}
-	\psi(\Phi e^{i\xi}, a + r\text{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\text{grad}\xi)}, (1-P_{\text{Bild}(r\text{grad})})a)\\&=f(\Phi e^{-iQ(a )}, (1-P_{\text{Bild}(r\text{grad})})a)=\psi(\Phi, a)
+	\psi(\Phi e^{i\xi}, a + r\text{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\text{grad}\xi)}, u(a + r\text{grad}\xi))\\&=f(\Phi e^{-iQ(a )}, u(a))=\psi(\Phi, a)
 \end{align*}
+Dies gilt, weil ja nach Voraussetzung $\text{kern}(u)=\text{Bild}(r\text{grad})$ ist.
 \end{proof}
 \noindent
 \begin{corollary}
@@ -2313,9 +2319,9 @@ Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir noch eine
 \noindent
 Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. 
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $\tilde{\psi}\in F(\mathfrak{E}_{\mathbb{C}}\times \text{kern}(\text{div r}), \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $\tilde{\psi}\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
 	\begin{equation}
-		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, (1-P_{\text{Bild}(r\text{grad})}a))
+		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a)))
 	\end{equation}
 	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{T}+\text{kern}(\text{div r})$.
 \end{definition}
