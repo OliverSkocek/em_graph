@@ -244,7 +244,7 @@ Betrachte den dualen Graph des planaren Graphen aus Abbildung 1.5. Beachte die d
 \noindent
 Die blauen Ecken symbolisieren die Ecken des Ausgangsgraphen, während die roten Ecken die Ecken des dualen Graphen darstellen. Die Platzierung von $A_\infty$ ist beliebig gew\"ahlt. Offensichtlich bestimmt diese Wahl, welcher der Ecken des Ausgangsgraphen die umgebende Fl\"ache des dualen Graphen darstellt.
 \begin{remark}
-	Der duale Graph $G^D$ ist immer auch fast ein planarer Graph, denn jede Ecke von $G$ kann mit einem Zyklus in $G^D$ identifiziert werden, somit bleibt aber offen welche dieser Zyklen, die umgebende Fl\"ache ist. Dies ist insbesondere von Bedeutung wenn man den dualen Graphen des dualen Graphen, den so genannten \textbf{bidualen Graphen} bildet. Um eine eindeutige Zuordnung zu erzwingen muss immer einer der Ecken ausgezeichnet werden oder man verzichtet auf die planare Darstellung und arbeitet mit Polyedern. 
+	Der duale Graph $G^D$ ist immer auch fast ein planarer Graph, denn jede Ecke von $G$ kann mit einem Zyklus in $G^D$ identifiziert werden, somit bleibt aber offen welche dieser Zyklen, die umgebende Fl\"ache ist. Dies ist insbesondere von Bedeutung wenn man den dualen Graphen des dualen Graphen, den so genannten \textbf{bidualen Graphen} bildet. Um eine eindeutige Zuordnung zu erzwingen muss immer einer der Ecken ausgezeichnet werden oder man verzichtet auf die planare Darstellung und arbeitet mit konvexen Polyedern. 
 \end{remark}
 \noindent
 Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten keine ausgzeichnete Beziehung mit der einen oder der anderen durch sie verbundenen Ecke haben. Graphen, deren Kanten eine solche Orientierung aufweisen, nennt man "gerichtete Graphen" und eine Adjazenzmatrix ist ein praktisches Weg um solche Strukturen zu beschreiben. Im Gegensatz zur Adjazenzmatrix eines ungerichteten Graphen wird im gerichteten Fall, einfach die Forderung nach Symmetrie der Matrix weggelassen.
@@ -2308,7 +2308,7 @@ Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir noch eine
 
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planarer Graph, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ wenn es ein $f\in F(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
+	Sei $G$ ein planarer Graph, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in F(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi) = f(\Phi e^{-i\arg(\Phi)(y)})
 	\end{equation}
@@ -2317,13 +2317,32 @@ Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir noch eine
 	Analog zum Beweis von Satz 10.2.
 \end{proof}
 \noindent
-Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. 
+Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. Diese Funktionen lassen sich auch \"uber ein anderes Kriterium identifizieren.
+\begin{lemma}
+	Sei $G$ ein planarer Graph, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn
+	\begin{equation}
+		\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})^\perp$, daher $\xi$ ist eine Konstante. Analog zu Satz 10.1 berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. Sei hierzu $\psi\in \mathfrak{H}_{\text{sym}}$.
+	\begin{align*}
+		\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_\epsilon\psi(\rho, \phi, a)-\psi(\rho, \phi, a)}{\epsilon} &= \lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi +\epsilon, a)-\psi(\rho, \phi, a)}{\epsilon}\\
+		&=\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi(\rho, \phi, a)
+	\end{align*}
+	Nachdem die linke Seite von (10.16) der Erzeuger von $\hat{U}_\xi$ ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
+\end{proof}
+\noindent
+Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrodynamik definieren.
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $\tilde{\psi}\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a)))
 	\end{equation}
-	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{T}+\text{kern}(\text{div r})$.
+	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{T}+\text{kern}(\text{div r})$ oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
+	\begin{equation}
+	\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
+\end{equation}
 \end{definition}
 \noindent
 \begin{proposition}
@@ -2331,6 +2350,27 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\
 	$\hat{h}(x)\psi=0\forall x\in V$.
 \end{proposition}
 \begin{proof}
+	Sei $\psi\in \mathfrak{H}_{\text{qed}}$, $x\in V$ und berechnen die Ableitung nach $\phi$ und $a$. Um die partiellen Ableitungen von $\psi$ und $\tilde{\psi}$ zu unterscheiden, schreiben wir die Variablen als $\tilde{\psi}(\tilde{\rho},\tilde{\phi},\tilde{a})$
+	\begin{align*}
+		\frac{\partial}{\partial \phi(x)}\psi(\rho,\phi,a)&=\frac{\partial}{\partial \tilde{\phi}(x)}\tilde{\psi}(\rho, \phi-Q(a), u(a))\\
+	\frac{\partial}{\partial a}\psi(\rho,\phi,a)&=-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}(\rho, \phi-Q(a),  u(a))\\
+	&+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}(\rho, \phi-Q(a), u(a))
+	\end{align*}
+Es gilt somit nach Satz 10.4
+\begin{align*}
+	\hat{h}(x)\psi(\rho,\phi,a) &= i(\text{div}(r\frac{\partial}{\partial a})(x)-\frac{\partial}{\partial\phi(x)})\psi(\rho,\phi,a)
+	\\&=i(\text{div}(r(-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}))(x)-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
+	&=i(P_{\text{Bild}(\text{div r})}\frac{\partial}{\partial \tilde{\phi}})(x)\tilde{\psi}-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
+	&=-i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)
+\end{align*}
+Nach Hilfsatz 10.7 gilt nach Vorraussetzung auch
+	\begin{equation*}
+	\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
+	\end{equation*}
+Weiters liegt ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ wenn $\sum_{x\in V}u(x)=0$ ist. Es folgt daher
+\begin{equation*}
+	-i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)=0
+\end{equation*}
 \end{proof}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
@@ -2340,7 +2380,7 @@ Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"
 \begin{proof}
 \end{proof}
 \noindent
-\chapter{Numerische Simulation der skalaren Quantenelektrodynamik auf einem Ikosaeder}
+\chapter{Numerische Simulation der skalaren Quantenelektrodynamik auf einem Tetraeder}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
 \\
