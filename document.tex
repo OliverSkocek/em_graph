@@ -2283,16 +2283,16 @@ Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak
 Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(\text{div r})$ ist und \\damit $\{r\text{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(r\text{grad})$ ist.\\
 Als n\"achstes betrachten wir die Menge
 \begin{align*}
-\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{i\in(V-\{z\})}n_i*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
-&=\mathfrak{T} + 2\pi\{\sum_{i\in(V-\{z\})}n_i*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
+\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
+&=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
 Sei $Q$ die Pseudoinverse von $r\text{grad}$ und $a_1\in\text{Bild}(r\text{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
 \begin{equation}
-	a_1 = a_0 + 2\pi \sum_{V-\{z\}}n_i*r\text{grad}(f_x)
+	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x*r\text{grad}(f_x)
 \end{equation}
 damit gilt
 \begin{align*}
-	e^{-iQ(a_1)}=e^{-i(Q(a_0) + 2\pi \sum_{V-\{z\}}n_if_x)}=e^{-i(Q(a_0)}
+	e^{-iQ(a_1)}=e^{-i(Q(a_0) + 2\pi \sum_{x\in(V-\{z\})}n_xf_x)}=e^{-i(Q(a_0)}
 \end{align*}
 
 \end{proof}
