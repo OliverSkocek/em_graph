@@ -2335,7 +2335,7 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\
 \noindent
 Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrodynamik definieren.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in\mathfrak{H}_{qed}$ genau dann wenn es ein $\tilde{\psi}\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a)))
 	\end{equation}
@@ -2343,7 +2343,14 @@ Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrod
 	\begin{equation}
 	\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
 \end{equation}
+Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der topologische Abschluss des Prehilbertraums $\mathfrak{H}_{qed}^{pre}$ bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$
+\begin{equation*}
+	\mathfrak{H}_{qed} = \overline{\mathfrak{H}_{qed}^{pre}}
+\end{equation*}
 \end{definition}
+\begin{remark}
+	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))$ der Funktion $\psi$ ist durch periodische Fortsetzung umkehrbar nach Folgerung 10.4. Entsprechend k\"onnen wir alle bisher behandelten Operatoren \"uber diese Fortsetzung wie gehabt auf $\mathfrak{H}_{\text{qed}}$ definieren.
+\end{remark}
 \noindent
 \begin{proposition}
 	Sei $\psi\in\mathfrak{H}_{\text{qed}}$ wie in Definition 10.6, dann gilt 
