@@ -77,12 +77,12 @@
 { \Huge \bfseries Eine Spielmodell des Elektromagnetismus auf planaren Graphen} \\[0.2cm]
 \rule{\linewidth}{0.5mm} \\[3.5cm]
 \begin{minipage}[t]{0.4\textwidth}
-\begin{flushleft} \large
-\emph{Author:}\\
-Oliver \textsc{Sko\v{c}ek} \\[4cm]
-\small
-
-\end{flushleft}
+%\begin{flushleft} \large
+%\emph{Author:}\\
+%Oliver \textsc{Sko\v{c}ek} \\[4cm]
+%\small
+%
+%\end{flushleft}
 
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
@@ -933,23 +933,23 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 \paragraph{Interpretation}
 \begin{itemize}
 \item Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. 
-\item Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
+\item Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender selbstadjungierter Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
 \item Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist ein zuf\"alliges Element des Spektrums von $\Omega$ und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
 \end{itemize}
 \noindent
-Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die kanonische Vertauschungsrelation:
+Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die so genannte \textbf{kanonische Vertauschungsrelation}:
 \begin{equation}
 	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
 \end{equation}
-gefordert.\\
+gefordert. Es gibt eine mathematisch st\"arkere Forderung nach Hermann Weyl, welche es erlaubt sogar die Eindeutigkeit bis auf unit\"are Transformation dieser Operatoren zu zeigen, jedoch ist dies hier nicht notwendig.\\
 \\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}(k)$ und $\hat{\pi}(k)$, die (6.10) erf\"ullt ist gegeben durch:
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}_k$ und $\hat{\pi}_k$, die (6.10) erf\"ullt ist gegeben durch:
 \begin{align}
-	\hat{\pi}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto -i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
-	\hat{q}(k):(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
+	\hat{\pi}_k:(q\mapsto\psi(q)) \mapsto (q\mapsto -i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
+	\hat{q}_k:(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
 \end{align}
 \noindent
-Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert. Der Definitionsbereich $D(\hat{\pi}(k))$ und $D(\hat{q}(k))$ f\"ur $k\in E$ wird zu einem sp\"ateren Zeitpunkt festgelegt und bleibt bis dahin eine unbekannte dichte Teilmenge von $\mathfrak{H}(G)$.
+Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert. Der Definitionsbereich $D(\hat{\pi}_k)$ und $D(\hat{q}_k)$ f\"ur $k\in E$ wird zu einem sp\"ateren Zeitpunkt festgelegt und bleibt bis dahin eine unbekannte dichte Teilmenge von $\mathfrak{H}(G)$.
 \\
 \\
 Eine kurze Betrachtung der Hamiltonfunktion (6.5) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
@@ -2117,7 +2117,7 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  Die durch den Isomorphismus induzierte Dynamik auf einem $n$-Teilchenzustand wird genau mit der Dynamik, die man f\"ur $n$ freie klassische Klein-Gordonteilchen erwarten w\"urde \"ubereinstimmen.\\
  Kurz gesagt wir werden die Interpretation der Anregungen des Klein-Gordon Feldes als Teilchen voll rechtfertigen.
 \chapter{Skalare Quantenelektrodynamik des planaren Graphen}
-Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Felder der Quellen, also Ladung und Strom, quantenmechanisch beschreibt.\\
+Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Dynamik der Felder der Quellen, also Ladung und Strom, quantenmechanisch.\\
 \\ 
 Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.20 die ersten beiden Terme von 6.6 hinzu.
 
@@ -2126,9 +2126,9 @@ Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 
 \end{align*}
 Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtransformation (7.7). \\
 \\
-An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Problem zu.
+An diesem Punkt gehen wir von der klassischen Betrachtung zur quantenmechanischen \"uber indem wir den zuge\"origen Hamiltonoperator anschreiben.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$
+	Sei $G$ ein planarer Graph, $r>0,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$ definiert durch
 	\begin{align}
 		\begin{split}
 		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
@@ -2137,9 +2137,9 @@ An diesem Punkt wenden wir uns dem korrespondierenden quantenmechanischen Proble
 	den \textbf{Hamiltonoperator der skalaren Quantenelektrodynamik}.
 \end{definition}
 \noindent
-Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonoperator $\hat{H}_{qed}$ \"uberhaupt richtig definieren zu k\"onnen werden wir im Rest dieses Kapitels einen passenden Hilbertraum konstruieren. Bis dahin denken wir $\mathfrak{H}_{qed}\subset F(\mathbb{C}^V\times\mathbb{R}^E,\mathbb{C})$. Wir werden aber die komplexen Komponenten bei Bedarf als zweidimensional karthesisch reel $(\Phi_R,\Phi_I)$ oder in Polarkoordinaten $(\rho,\phi)$ schreiben.\\
+Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonoperator $\hat{H}_{qed}$ \"uberhaupt richtig definieren zu k\"onnen werden wir im Rest dieses Kapitels einen passenden Hilbertraum konstruieren. Bis dahin denken wir uns ganz allgemein $\mathfrak{H}_{qed}\subset F(\mathbb{C}^V\times\mathbb{R}^E,\mathbb{C})$. Wir werden aber die komplexen Komponenten bei Bedarf als zweidimensional karthesisch reel $(\Phi_R,\Phi_I)$ oder in Polarkoordinaten $(\rho,\phi)$ schreiben.\\
 \\
-Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik eine Familie unit\"arer Abbildungen.
+Die klassische erweiterte Eichtransformation (7.7) bildet eine Gruppe und in der Quantenmechanik ist ihre Entsprechung durch eine Darstellung dieser Gruppe im Raum der unit\"aren Abbildungen auf $\mathfrak{H}_\text{qed}$ gegeben.
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ definiert durch
 	\begin{align}
@@ -2149,10 +2149,10 @@ Der klassischen erweiterten Eichtransformation entspricht in der Quantenmechanik
     \begin{align}
     	\hat{U}_\xi(\psi)(\rho, \phi, a)=  \psi(\rho, \phi + \xi, a + r \text{grad}\xi)
     \end{align}
-	die \textbf{Eichgruppe}.
+	die \textbf{kanonische Darstellung der erweiterte Eichtransformation} oder kurz einfach \textbf{Eichgruppe}.
 \end{definition}
 \noindent
-Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und wir werden fordern, dass die Eichgruppe stark stetig ist in den Parametern.
+Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und wir werden sp\"ater sehen, dass die Eichgruppe stark stetig ist in den Parametern.
 \begin{proposition}
 	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r>0,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 	\begin{equation}
@@ -2215,7 +2215,7 @@ womit wir zusammenfassend gezeigt haben:
 \noindent
 Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
 \\
-Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"tsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"atsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
 \begin{equation}
 (\text{div}(r\epsilon \hat{e}))^\prime + \hat{j}_{\text{em}}=0
 \end{equation} identifizieren.  Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Der Wunsch nach der G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt uns dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}(x)\psi = 0\forall x\in V$\\
@@ -2378,6 +2378,14 @@ Weiters liegt ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{gr
 \begin{equation*}
 	-i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)=0
 \end{equation*}
+\end{proof}
+\noindent
+Kommen wir nun zur\"uck zu den Eigenschaften der Eichgruppe.
+\begin{proposition}
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$, $\xi\in \mathfrak{E}$, $\psi\in\mathfrak{H}_{qed}$,  und $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ wie in Definition 10.2, dann ist $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ eine stark stetige Darstellung der Gruppe der erweiterten Eichtransformationen im Raum der unit\"aren Operatoren auf $\mathfrak{H}_\text{qed}$.
+\end{proposition}
+\begin{proof}
+Es verbleibt nach Satz (10.1) zu zeigen, dass f\"ur beliebiges $\xi\in\mathfrak{E}$ $\hat{U}_\xi$ unit\"ar ist und die Darstellung stark stetig ist. In Polarkoordinaten handelt es sich bei der Eichgruppe einfach um einen Translationsoperator. Es ist damit leicht zu zeigen, dass die Eigenschaft erf\"ullt ist.
 \end{proof}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
