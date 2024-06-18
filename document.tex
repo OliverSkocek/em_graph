@@ -2299,31 +2299,30 @@ damit gilt
 \noindent
 Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, das f\"ur jede periodische Komponente eine volle Periode darstellt.\\
 \\
-Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir noch einen weiteren Begriff ein und geben einen damit assoziierten Darstelllungsatz mit dem wir den verbleibenden Eichgruppen Freiheitsgrad von $\psi$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(r\text{grad})^\perp$.
+Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, folgt noch eine Bemerkung dar\"uber was passieren w\"urde wenn wir den verbleibenden Eichgruppen Freiheitsgrad von $\psi$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(r\text{grad})$ beziehungsweise konstantem $\xi$.
 \begin{definition}
 	Sei $G$ ein planarer Graph, dann definieren wir
 	\begin{equation}
-		\mathfrak{H}_{\text{sym}}=\{\psi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})| \hat{U}_\xi\psi=\psi \forall \xi\in \text{kern}(r\text{grad})^\perp\}
+		\mathfrak{H}_{\text{sym}}=\{\psi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})| \hat{U}_\xi\psi=\psi \forall \xi\in \text{kern}(r\text{grad})\}
 	\end{equation}
-
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planarer Graph, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in F(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
+	Sei $G$ ein planarer Graph und $y\in E$ beliebig, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in L^2(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi) = f(\Phi e^{-i\arg(\Phi)(y)})
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	Analog zum Beweis von Satz 10.2.
+
 \end{proof}
 \noindent
-Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in F(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. Diese Funktionen lassen sich auch \"uber ein anderes Kriterium identifizieren.
-\begin{lemma}
+Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. Diese Funktionen lassen sich auch \"uber ein anderes Kriterium identifizieren.
+\begin{remark}
 	Sei $G$ ein planarer Graph, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn
 	\begin{equation}
 		\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
 	\end{equation}
-\end{lemma}
+\end{remark}
 \begin{proof}
 	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})^\perp$, daher $\xi$ ist eine Konstante. Analog zu Satz 10.1 berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. Sei hierzu $\psi\in \mathfrak{H}_{\text{sym}}$.
 	\begin{align*}
@@ -2333,9 +2332,11 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\phi\
 	Nachdem die linke Seite von (10.16) der Erzeuger von $\hat{U}_\xi$ ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
 \end{proof}
 \noindent
+Daher handelt es sich bei $\mathfrak{H}_{\text{sym}}$ um den Teilraum der Wellenfunktionen, die Zust\"ande mit Gesamtladung 0 darstellen. Wir wollen diese Einschr\"ankung nicht vornehmen.\\
+\\
 Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrodynamik definieren.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in\mathfrak{E}_{\mathbb{C}}$ Element von $\mathfrak{H}_{\text{sym}}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
+	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ gibt sodass  $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a)))
 	\end{equation}
