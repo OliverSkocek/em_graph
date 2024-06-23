@@ -2239,17 +2239,17 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$, $r>0\in \mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\text{grad}$, $u:\mathfrak{K}(G)\rightarrow \mathbb{C}^{|A|-1}$, sodass $uu^T=1_{\mathbb{C}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$ und  $v:\mathfrak{K}(G)\rightarrow \mathbb{C}^{|A|-1}$, sodass $vv^T=1_{\mathbb{C}^{|V|-1}}$ und $v^Tv=P_{\text{kern}(\text{div}_D\text{ r})}$\footnote{Die Spalten von $u$ und $v$ sind einfach orthogonale Basen der entsprechenden Teilr\"aumen.} dann definieren wir eine Abbildung $\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\rightarrow  \mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}\times\mathbb{C}^{|V|-1}$ durch
+	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$, $r>0\in \mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\text{grad}$, $u:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|A|-1}$, sodass $uu^T=1_{\mathbb{R}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$ und  $v:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|V|-1}$, sodass $vv^T=1_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\text{kern}(\text{div}_D\text{ r})}$\footnote{Die Spalten von $u$ und $v$ sind einfach orthogonale Basen der entsprechenden Teilr\"aumen.} dann definieren wir eine Abbildung $\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\rightarrow  \mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}$ durch
 	\begin{equation}
 		\gamma(\Phi, a) = (\Phi e^{-iQ(a)}, u(a), v(a))
 	\end{equation}
 f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$.\\
 \\
-Die Abbildung $\gamma$ induziert eine Abbildung $\Gamma:F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}\times\mathbb{C}^{|V|-1}, \mathbb{C})\rightarrow F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ definiert durch.
+Die Abbildung $\gamma$ induziert eine Abbildung $\Gamma:F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})\rightarrow F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ definiert durch.
 \begin{equation}
 	\Gamma(f)=f\circ\gamma
 \end{equation}
-f\"ur alle Funktionen $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}\times\mathbb{C}^{|V|-1}, \mathbb{C})$.
+f\"ur alle Funktionen $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$.
 \end{definition}
 \begin{lemma}
 	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda^\prime$.
@@ -2258,10 +2258,10 @@ f\"ur alle Funktionen $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}
 
 \end{proof}
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4 und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}\times\mathbb{C}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{C}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
+	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4 und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
 \end{proposition}
 \begin{proof}
-Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{C}^{|A|-1}, \mathbb{C})$ durch 
+Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ durch 
 \begin{equation*}
 	f(.,.) = \psi(.,u^T(.))
 \end{equation*}
@@ -2344,7 +2344,7 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\psi\
 		\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_\epsilon\psi(\rho, \phi, a)-\psi(\rho, \phi, a)}{\epsilon} &= \lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi +\epsilon, a)-\psi(\rho, \phi, a)}{\epsilon}\\
 		&=\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi(\rho, \phi, a)
 	\end{align*}
-	Nachdem die linke Seite von (10.16) der Erzeuger von $\hat{U}_\xi$ ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
+	Nachdem die linke Seite von (10.17) der Erzeuger von $\hat{U}_\xi$ ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
 \end{proof}
 \noindent
 Im Beweis von Satz 10.1 haben wir gesehen, dass $\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}$ und somit handelt es sich bei $\mathfrak{H}_{\text{sym}}$ um den Teilraum der Zust\"ande mit Gesamtladung 0.\\
@@ -2365,11 +2365,11 @@ Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der 
 \end{equation*}
 \end{definition}
 \begin{remark}
-	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))$ der Funktion $\psi$ ist durch periodische Fortsetzung umkehrbar nach Folgerung 10.4. Entsprechend k\"onnen wir alle bisher behandelten Operatoren \"uber diese Fortsetzung wie gehabt auf $\mathfrak{H}_{\text{qed}}$ definieren.
+	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))$ der Funktion $\psi$ ist durch periodische Fortsetzung umkehrbar nach Folgerung 10.6. Entsprechend k\"onnen wir alle bisher behandelten Operatoren \"uber diese Fortsetzung wie gehabt auf $\mathfrak{H}_{\text{qed}}$ definieren.
 \end{remark}
 \noindent
 \begin{proposition}
-	Sei $\psi\in\mathfrak{H}_{\text{qed}}$ wie in Definition 10.6, dann gilt 
+	Sei $\psi\in\mathfrak{H}_{\text{qed}}$ wie in Definition 10.9, dann gilt 
 	$\hat{h}(x)\psi=0\forall x\in V$.
 \end{proposition}
 \begin{proof}
@@ -2379,13 +2379,13 @@ Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der 
 	\frac{\partial}{\partial a}\psi(\rho,\phi,a)&=-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}(\rho, \phi-Q(a),  u(a))\\
 	&+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}(\rho, \phi-Q(a), u(a))
 	\end{align*}
-Es gilt somit nach Satz 10.4
+Es gilt somit nach (10.5)
 \begin{align*}
 	\hat{h}(x)\psi(\rho,\phi,a) &= i(\text{div}(r\frac{\partial}{\partial a})(x)-\frac{\partial}{\partial\phi(x)})\psi(\rho,\phi,a)
 	\\&=i(\text{div}(r(-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}))(x)-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
 	&=i(P_{\text{Bild}(\text{div r})}\frac{\partial}{\partial \tilde{\phi}})(x)\tilde{\psi}-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
 \end{align*}
-Nach Hilfsatz 10.7 gilt nach Vorraussetzung auch
+Nach Satz 10.3 gilt nach Vorraussetzung auch
 \begin{equation*}
 \sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
 \end{equation*}
