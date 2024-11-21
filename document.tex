@@ -42,6 +42,7 @@
 
 
 \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{conjecture}{Vermutung}[chapter]
 \newtheorem{proposition}{Satz}[chapter]
 \newtheorem{lemma}[theorem]{Hilfssatz}
 \newtheorem{definition}[theorem]{Definition}
@@ -2239,7 +2240,7 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$, $r>0\in \mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\text{grad}$, $u:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|A|-1}$, sodass $uu^T=1_{\mathbb{R}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$ und  $v:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|V|-1}$, sodass $vv^T=1_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\text{kern}(\text{div}_D\text{ r})}$\footnote{Die Spalten von $u$ und $v$ sind einfach orthogonale Basen der entsprechenden Teilr\"aumen.} dann definieren wir eine Abbildung $\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\rightarrow  \mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}$ durch
+	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$, $r>0\in \mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\text{grad}$, $u:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|A|-1}$, sodass $uu^T=1_{\mathbb{R}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$ und  $v:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|V|-1}$, sodass $vv^T=1_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\text{kern}(\text{div}_D\text{ r})}$\footnote{Die Zeilen von $u$ und $v$ sind einfach orthogonale Basen der entsprechenden Teilr\"aumen.} dann definieren wir eine Abbildung $\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\rightarrow  \mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}$ durch
 	\begin{equation}
 		\gamma(\Phi, a) = (\Phi e^{-iQ(a)}, u(a), v(a))
 	\end{equation}
@@ -2251,11 +2252,36 @@ Die Abbildung $\gamma$ induziert eine Abbildung $\Gamma:F(\mathfrak{E}_\mathbb{C
 \end{equation}
 f\"ur alle Funktionen $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$.
 \end{definition}
-\begin{lemma}
-	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda^\prime$.
-\end{lemma}
+\begin{remark}
+	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda$.
+\end{remark}
 \begin{proof}
-
+	Die Abbildung $\gamma$ ist offensichtlich stetig differenzierbar, es verbleibt somit zu zeigen, dass dies auch f\"ur die Inverse $\gamma^{-1}$ gilt und dass die Determinante der Ableitung $\det{D\gamma}$ den Betrag Eins hat.\\
+	\\
+	Sei $x\in \mathbb{R}^{|A|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$, dann definieren wir
+	\begin{align*}
+		\gamma^{-1}(\Phi, x, y) &= (\Phi e^{iQ(u^T(x)+v^T(y))},u^T(x)+v^T(y))\\
+		&= (\Phi e^{iQ(v^T(y))},u^T(x)+v^T(y))
+	\end{align*}
+	Es gilt dann f\"ur $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$:
+	\begin{align*}
+		\gamma^{-1}\circ\gamma(\Phi, a) &= \gamma^{-1}(\Phi e^{-iQ(a)}, u(a), v(a))\\
+		&= (\Phi e^{-iQ(a)}e^{iQ(v^Tv(a))}, u^Tu(a) + v^Tv(a))\\
+		&= (\Phi , a)\\
+	\end{align*}
+	Umgekehrt gilt f\"ur $x\in \mathbb{R}^{|A|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$:
+	\begin{align*}
+		\gamma\circ\gamma^{-1}(\Phi, x, y)&= \gamma(\Phi e^{iQ(v^T(y))},u^T(x)+v^T(y))\\
+		&= (\Phi e^{iQ(v^T(y))}e^{-iQ(v^T(y))},uu^T(x),vv^T(y))\\
+		&= (\Phi,x,y)\\
+	\end{align*}
+Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$
+\begin{align*}
+	\int \Gamma(f) d\lambda &= \int\int f(\Phi e^{-iQ(a)}, u(a), v(a))d\lambda(\Phi)d\lambda(a)\\
+	&= \int\int f(\Phi, u(a), v(a))d\lambda(\Phi)d\lambda(a)\\
+	&= \int\int\int f(\Phi, x, y)d\lambda(\Phi)d\lambda(x)d\lambda(y)=\int f d\lambda\\
+\end{align*}
+Wir erweiterten zuerst mit dem Satz von Fubini auf ein Mehrfachintegral, nutzen dann den Fakt, dass bei konstantem $a$ die Abbildung $\Phi \mapsto \Phi e^{-iQ(a)}$ eine unit\"are Abbidlung ist. Am Ende stellen wir fest, dass $a\mapsto (u(a), v(a))$ ebenfalls eine unit\"are Abbbildung ist, da $u$ und $v$ Basen zu zueinander orthogonalen Teilr\"aumen sind welche zusammen den ganzen Raum $\mathfrak{K}(G)$ aufspannen.
 \end{proof}
 \begin{proposition}
 	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4 und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
@@ -2359,16 +2385,23 @@ Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrod
 	\begin{equation}
 	\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
 \end{equation}
-Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der topologische Abschluss des Prehilbertraums $\mathfrak{H}_{qed}^{pre}$ bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$
+Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der topologische Abschluss  
 \begin{equation*}
 	\mathfrak{H}_{qed} = \overline{\mathfrak{H}_{qed}^{pre}}
 \end{equation*}
-
+bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ induziert durch das Skalarprodukt
+\begin{equation}
+	\langle \phi, \psi\rangle_{\text{qed}} := \frac{1}{\lambda(\tau)}\int_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))}\overline{\phi}\psi d\lambda
+\end{equation}
 \end{definition}
 \begin{remark}
 	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))$ der Funktion $\psi$ ist durch periodische Fortsetzung umkehrbar nach Folgerung 10.6. Entsprechend k\"onnen wir alle bisher behandelten Operatoren \"uber diese Fortsetzung wie gehabt auf $\mathfrak{H}_{\text{qed}}$ definieren.\\
 	\\
-	Nach Hilfssatz 10.5 
+	Mit Hilfe von Bemerkung 10.5 l\"asst sich das Integral (10.20) als Integral auf dem niedrigdimensionaleren Raum $\mathfrak{E}_\mathbb{C}\times\mathbb{R}^{|A|-1}$ darstellen. Seien $\phi$ und $\psi$ aus $\mathfrak{H}_{\text{qed}}$ und $\tilde{\phi}$ sowie $\tilde{\psi}$ wie in Definition 10.9 dann gilt 
+	\begin{align*}
+		\int_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))}\overline{\phi}\psi d\lambda&= \int_{\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}}\overline{\phi}\psi 1_{\mathfrak{T}} d\lambda \\ &= |\mathfrak{T}|\int_{\mathfrak{E}_{\mathbb{C}}\times \mathbb{R}^{|A| - 1}} \overline{\tilde{\phi}}\tilde{\psi} d\lambda(\phi)d\lambda(x)
+	\end{align*}
+	weil $\tilde{\phi}$ und $\tilde{\psi}$ entlang $y$ konstant sind und $\Gamma$ das Integral nicht ver\"andert.
 \end{remark}
 \noindent
 \begin{proposition}
