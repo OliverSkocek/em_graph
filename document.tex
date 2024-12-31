@@ -25,7 +25,6 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
-
 %%%%%%%%%%% REST %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \DeclareMathOperator{\dom}{dom}
@@ -359,7 +358,7 @@ Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
 \paragraph{Das verallgemeinerte Poisson Problem}
-Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann wird eine Eckfunktion $u$ gesucht sodass gilt:
+Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann nennt man eine Eckfunktion $u$ eine L\"osung des verallgemeinerten Poisson Problems falls gilt:
 
 \begin{align}
 	-div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
@@ -379,14 +378,14 @@ Die Bedingung 3.2 ist motiviert durch Randwertprobleme aus der Theorie der parti
 	\end{center}
 \end{figure}
 \noindent
-\paragraph{Die Formulierung in der Elektrostatik} Sei $\Omega$ eine offene Teilmenge des $\mathbb{R}^3$ mit glatten Rand $\partial\Omega$ und $\rho$ die elektrische Ladungsdichte in $\Omega$. Gesucht ist das Potential $\phi:\Omega\rightarrow\mathbb{R}$ sodass:
+\paragraph{Die Formulierung in der Elektrostatik} Sei $\Omega$ eine offene Teilmenge des $\mathbb{R}^3$ mit glatten Rand $\partial\Omega$ und $\rho$ die elektrische Ladungsdichte in $\Omega$. Gesucht ist das Potential $\phi:\Omega\rightarrow\mathbb{R}$ f\"ur das gilt:
 \begin{align}
 \Delta \phi(x) = \rho(x)\text{  falls } x\in \Omega\\
 \phi(x) = 0\text{  falls } x\in \partial\Omega
 \end{align}
-Physikalisch wird $\Omega$ ein Hohlraum in einem guten elektrischen Leiter, wie etwa einem Metall, sein,  da ein Solcher das Potential am Rand des Hohlraumes auf einen konstanten Wert zwingt.\\
+Physikalisch k\"onnte $\Omega$ etwa ein Hohlraum in einem guten elektrischen Leiter, wie etwa einem Metall, sein,  da ein Solcher das Potential am Rand des Hohlraumes auf einen konstanten Wert zwingt.\\
 \\
-Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theorie nur in Grenzf\"allen anwendbar. Dieser Spezialfall tritt ein falls $\rho$ und $\Omega$ o.B.d.A entlang der z-Achse konstant sind, daher das Problem effektiv zwei Dimensional wird. F\"ur genau diesen Fall wird eine Theorie der zweidimensionalen Maxwell-Gleichungen im n\"achsten Kapitel entwickelt. 
+Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theorie nur in Grenzf\"allen anwendbar. Ein solcher Grenzfall tritt ein falls $\rho$ und $\Omega$ entlang der z-Achse konstant sind, daher das Problem effektiv zwei Dimensional wird. F\"ur genau diesen Fall wird eine Theorie der zweidimensionalen Maxwell-Gleichungen im n\"achsten Kapitel entwickelt. 
 \begin{proposition}
 	Sei $G$ ein  Graph, $r$ eine positive Kantenfunktion und $\Delta_r$ der $r$-gewichtete Laplace Operator, dann gilt:
 	\begin{itemize}
@@ -412,7 +411,7 @@ Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theor
 	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{kern}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
 \end{proof}
 \noindent
-In der kontinuierlichen Theorie des Poissonproblems sind Sobolevr\"aume und die Poincare Ungleichung von zentraler Bedeutung. Ein Analogon gibt es nat\"urlich auch in der diskreten oder graphischen Theorie.
+In der kontinuierlichen Theorie des Poissonproblems ist die Poincare Ungleichung von zentraler Bedeutung, deren Analogon in unserer graphischen Theorie wir als n\"achstes betrachten.
 \begin{proposition}[Poincare Ungleichung]
 	Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r>0$ eine Kantenfunktion und $u\in\mathfrak{E}$, sodass $u|_\partial=0$ dann gilt:
 	$$\langle u, u\rangle_{\mathfrak{E}}\leq \frac{|V|}{\min_{e\in E}r(e)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
@@ -521,13 +520,14 @@ Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu ei
 \end{proof}
 
 \chapter{Die Maxwell-Gleichungen}
-Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen vier Gleichungen, Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestrom zeitlich entwickeln. Die Diskretisierung jener Differentialgleichungen  f\"uhrt im zweidimensionalen Fall zu einer Variante der Maxwell-Gleichungen f\"ur planare Graphen. 
+Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen den vier Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestroms zeitlich entwickeln. Wir werden in diesem Kapitel ein Analogon der Maxwell Gleichungen auf planaren Graphen formulieren und damit eine wichtige Grundlage f\"ur die nachfolgenden Kapitel schaffen. Hierzu orientieren wir uns zwar an einer Diskretisierung der Maxwellgleichungen, jedoch wurden einige Vereinfachungen getroffen, weil wir eine Formulierung f"ur planare Graphen und nicht f"ur deren konkrete Einbettungen in die Ebene angestrebt haben.
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$ eine Kurve, $\mu>0$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$, eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
 		\text{div}(r * \epsilon * e(t)) = q(t)\\
 		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
-		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * e^\prime(t) + j(t)
+		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * e^\prime(t) + j(t)\\
+		\sum_{f\in F}b(t)(f)=0
 	\end{align} 
 	und die Anfangsbedingungen
 \begin{align}
@@ -542,10 +542,12 @@ erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
 	\\
 	(4.2) nennt man das Faradaysche Gesetz und es beschreibt die zeitliche \"Anderung des magnetischen Feldes $b$ in Abh\"angigkeit des elektrischen Feldes. Die Kantenfunktion $r$ ist die L\"ange der Kante. $\epsilon$ und $\mu$ sind der elektrische und der magnetische Leitwert, respektive. Diese beiden Funktionen geben an wie gut die Kanten das Feld durchlassen.\\
 	\\
-	(4.3) nennt man das Amperesche Gesetz und beschreibt analog zum Faradayschen Gesetz wie die zeitliche \"Anderung des elektrischen Feldes vom magnetischen Feld, aber auch vom elektrischen Strom $j$ abh\"angig ist. Wenn wir das Ohmsche Gesetz $j(t) = \sigma e(t)$ annehmen, verh\"alt sich der elektrische Strom hier wie ein Reibungsterm. Wir werden sehen, dass dies tats\"achlich f\"ur Energieverlust ins W\"armebad verantwortlich ist.
+	(4.3) nennt man das Amperesche Gesetz und beschreibt analog zum Faradayschen Gesetz wie die zeitliche \"Anderung des elektrischen Feldes vom magnetischen Feld, aber auch vom elektrischen Strom $j$ abh\"angig ist. Wenn wir das Ohmsche Gesetz $j(t) = \sigma e(t)$ annehmen, verh\"alt sich der elektrische Strom hier wie ein Reibungsterm.\\
+	\\
+	(4.4) nennt man das magnetische Gau\ss{}sche Gesetz und behauptet, dass es keine magnetische Ladung gibt. Wenn wir (4.2) betrachten sehen wir sofort, dass (4.4) automatisch erf\"ullt ist sobald $\sum_{f\in F}b_0(f)=0$ oder equvalent $b_0\in \text{Bild}(\text{div}_D)$
 \end{remark}
 \noindent
-Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische Ladung und Energie. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit innernander umgewandlet werden.
+Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungss\"atze der elektrischen Engergie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit ineinander umgewandlet werden.
 \begin{proposition}\textbf{Energieerhaltung}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
 	\begin{equation}
@@ -578,13 +580,8 @@ Aus den Maxwell-Gleichungen ergeben sich die Erhaltungsgr\"o\ss{}en elektrische 
 	$$\sum_{v\in V}q^\prime=0$$
 \end{proof}
 \noindent
-Die Maxwell-Gleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit f\"ur jeden Zeitpunkt. Dies l\"asst sich in jedem guten Buch \"uber gew\"ohnliche Differentialgleichungen nachlesen.
-\begin{theorem}
-	Die Maxwellgleichungen sind eindeutig l\"osbar, solange die Anfangsbedingung (4.1) erf\"ullt ist.
-\end{theorem}
-\begin{proof}
-\end{proof}
-\chapter{Potentialformulierung der Maxwellgleichungen}
+Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit einer L\"osung f\"ur jeden Zeitpunkt. Bevor wir jedoch die Maxwellgleichungen l\"osen, sollen Diese noch in eine bek\"omlichere Form gebracht werden.
+\section{Potentialformulierung der Maxwellgleichungen}
 Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen auf planaren Graphen \"uber Potentiale ausdr\"ucken. 
 \begin{definition}
 Sei $G$ ein planarer Graph mit Orientierung und $r>0$ eine Kantenfunktion auf $G$, dann definieren wir eine Transformation $T$,
@@ -612,25 +609,23 @@ die Kurven $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\math
  f\"ur alle $t\in\mathbb{R}$. Die Kurven $\phi$ und $a$ nennt man Potentiale, ersteres ist das Skalarpotential und letzteres das Vektorpotential.
 \end{definition}
 \noindent
-Es ist hierbei zu bedenken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind. Dies scheint auf den ersten Blick eine Einschr\"ankung zu sein, aber eine kurze Betrachtung der Maxwellgleichungen zeigt uns, dass der konstante Anteil des Magnetfeldes keine Auswirkung auf das elektrische Feld hat, solange $\mu$ konstant ist. Viel wichtiger noch findet die einzige \"Anderung des Magnetfeldes, die unter G\"ultigkeit der Maxwellgleichungen passieren darf im orthogonalen Komplement der konstanten Fl\"achenfunktionen statt.\\
-Wir fordern nun zus\"atzlich zu den Maxwellgleichungen, dass das Magnetfeld $b$
-f\"ur jeden Zeitpunkt $t\in\mathbb{R}$ orthogonal zu den konstanten Fl\"achenfunktionen ist: 
-$$b(t)\in \mathbb{R}^\perp$$
-Wenn wir planare Graphen als Polyeder auffassen, ist dies einfach das im dreidimensionalen g\"ultige Gau\ss{}sche Gesetz f\"ur Magnetfelder.\\
+Es ist hierbei anzumerken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind.
+Dies ist equivalent zur Forderung (4.4) dem magnetischen Gau\ss{}schen Gesetz und wir haben somit bereits eine der Maxwellgleichungen durch die Potentialformulierung eliminieren k\"onnen.\\
 \\
-Die Wahl der Potential Definition kam nicht von ungef\"ahr, sondern aus der Theorie im Kontinuum. 
-Die Definition des Magnetfeldes in (5.1) abgeleitet ergibt durch Einsetzen der Definition des elektrischen Feldes sofort das Faradaysche Gesetz. 
-Nachdem das Gaußsche Gesetz als Definition der elektrischen Ladung gesehen werden kann, reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
+Die Wahl der Definition der Potentiale kam nicht von ungef\"ahr, sondern aus der Maxwell Theorie im Kontinuum. 
+Die Definition des Magnetfeldes in (4.9) abgeleitet ergibt durch Einsetzen der Definition des elektrischen Feldes sofort das Faradaysche Gesetz. 
+Das Gau\ss{}sche Gesetz stellt zusammen mit dem Ampereschen Gesetz eine Verbindung zu mit dem elektromagnetischen Feld gekoppelten dynamischen Gr\"o\ss{}en $q$ und $j$ her. Diese Gr\"o\ss{}en m\"ussen nach den Maxwellgleichungen die Kontinuit\"atsgleichung erf\"ullen, doch ihre Dynamik wird au\ss{}erhalb der Maxwellschen Gleichungen formuliert und deshalb wollen wir dieses Gesetz erstmals ausklammern und erstmal den Fall wo $j$ einfach eine gegebene Funktion in der Zeit ist und das Gau\ss{}sche Gesetz die Definition der Ladung $q$ ist.
+Dementsprechend reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
 \begin{equation}
 r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prime} + r\text{grad}(\phi^\prime)) - j(t)
 \end{equation}
 Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at.\\
 \\
-Es ist leicht zu sehen, dass die Operation aus Definition 5.1, die Potentiale in Felder umwandelt nicht injektiv ist.\\
+Es ist leicht zu sehen, dass die Operation aus Definition 4.3, die Potentiale in Felder umwandelt nicht injektiv ist.\\
 \\
 Die Charakterisierung des Kerns dieser linearen Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
 \begin{definition}
-	Seien $\phi$ und $a$ Potentiale wie in Definition 5.1, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
+	Seien $\phi$ und $a$ Potentiale wie in Definition 4.3, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
 \begin{equation}
 \gamma_\xi(\left(
 \begin{array}{c}\phi\\
@@ -646,7 +641,7 @@ a + r\text{grad}(\xi)
 \noindent
 Die Potentiale werden immer genau bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.
 \begin{proposition}
-	Sei $T$ die lineare Operation aus Definition 5.1, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
+	Sei $T$ die lineare Operation aus Definition 4.3, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
 	\begin{equation}
 	\text{kern}(T)=\{\left(
 	\begin{array}{c}-\xi^\prime\\
@@ -688,14 +683,14 @@ Die Konstante $c$ kann man weil sie im Kern des Gradienten liegt in $\xi$ einzie
 	\xi(t) = \chi(r^{-1}a(t)) -c*t
 \end{equation*}
 \noindent
-Die andere Inklusion $(\supset)$ wird gezeigt indem der Ausdruck in der Mengendefinition (5.4) in $T$ eingesetzt wird.
+Die andere Inklusion $(\supset)$ wird gezeigt indem der Ausdruck in der Mengendefinition (4.12) in $T$ eingesetzt wird.
 \end{proof}
 \noindent
 Hiermit wurden die wichtigsten Aspekte der Potentialdarstellung vorgestellt. Dies ist eine Grundvoraussetzung f\"ur die Quantisierung der Maxwellgleichungen.\\
 \\
-Zum Abschlu\ss{} dieses Kapitels konstruieren wir eine L\"osung der Maxwellgleichungen in Potentialdarstellung (5.2) im stromlosen Fall $j\equiv 0$.\\
+Zum Abschlu\ss{} dieses Kapitels konstruieren wir eine L\"osung der Maxwellgleichungen in Potentialdarstellung (4.10) im stromlosen Fall $j\equiv 0$.\\
 \\
-Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch wir ohne Beschr\"ankung der Allgemeinheit $\phi$ aus (5.2) eliminieren k\"onnen.
+Wegen der Eichinvarianz von (4.10) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch wir ohne Beschr\"ankung der Allgemeinheit $\phi$ aus (4.10) eliminieren k\"onnen.
 \begin{lemma}
 	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{R}^n$ ($n\geq 1 $), $u_0, v_0 \in V$ und $u\in C^2(\mathbb{R}, V)$, dann ist die L\"osung des Anfangswertproblems
 	\begin{align}
@@ -714,10 +709,10 @@ Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$,
 	\begin{equation*}
 		L=U^\dagger R^2 U
 	\end{equation*}
-	Wobei $R\geq 0$ und $U$ eine orthogonale Matrix ist.
+	Wobei $R\geq 0$ eine Diagonalmatrix und $U$ eine orthogonale Matrix ist.
 	\\
 	\\
-	Als n\"achstes formen wir (5.2) um
+	Als n\"achstes formen wir (4.13) um
 	\begin{align*}
 		U(u^{\prime \prime} + Lu )&= 0\\
 		(Uu)^{\prime \prime} + ULu &= 0\\
@@ -727,7 +722,7 @@ Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$,
  \begin{equation}
 	v^{\prime \prime} + R^2v=0
  \end{equation}
-Die allgemeine L\"osung von (5.9) erhalten wir wenn f\"ur jede Komponente $n>1$
+Die allgemeine L\"osung von (4.17) erhalten wir wenn f\"ur jede Komponente $n>1$
 \begin{equation*}
 	v_n(t) = 
 	\begin{cases} 
@@ -735,7 +730,7 @@ Die allgemeine L\"osung von (5.9) erhalten wir wenn f\"ur jede Komponente $n>1$
 		v_n(0) + v_n^\prime(0)t & R_n=0 
 	\end{cases}	
 \end{equation*} 
- f\"ur $t\in\mathbb{R}$. In Matrixform umgeschrieben erhalten wir (5.8).
+ f\"ur $t\in\mathbb{R}$ wobei $R_n$ f\"ur $n\geq 1$ das entsprechende Diagonalelement von $R$ ist. Durch umschreiben in Matrixform und R\"ucktransformation durch $U$ erhalten wir unser Resultat (4.16).
 \end{proof}
 \begin{proposition}
 Sei $G$ ein planarer Graph mit Orientierung, $r>0$, $a_0$, $e_0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion auf $G$ und $\epsilon>0$, dann gibt es eine Kurve $a\in C^2(\mathbb{R},\mathfrak{K})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt
@@ -764,14 +759,14 @@ positiv semidefinit ist:
 \end{proof}
 
 \iffalse
-Schlie\ss{}en wir dieses Kapitel ab indem wir f\"ur den stromlosen Fall $j\equiv0$ eine L\"osung zu (5.2) konstruieren .
-Wegen der Eichinvarianz von (5.2) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch sich (5.2) auf
+Schlie\ss{}en wir dieses Kapitel ab indem wir f\"ur den stromlosen Fall $j\equiv0$ eine L\"osung zu (4.10) konstruieren .
+Wegen der Eichinvarianz von (4.10) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch sich (4.10) auf
 \begin{equation}
 	a^{\prime\prime}-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon=0
 \end{equation}
 reduziert.
 
-Wir definieren die positiv semidefinite Matrix\\ $Q=-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon$ und formulieren (5.5) kompakter als
+Wir definieren die positiv semidefinite Matrix\\ $Q=-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon$ und formulieren (4.18) kompakter als
 \begin{equation}
 	a^{\prime\prime}+Qa(t)=0
 \end{equation}
@@ -779,7 +774,7 @@ Hierbei ist $Q$ ein positiv semidefiniter Operator.
 Als n\"achstes transformieren wir die lineare Differentialgleichung zweiter Ordnung in eine equivalent erster Ordnung.
 \fi
 \noindent
-Falls $\epsilon>0$ nicht konstant ist, k\"onnen wir auch eine L\"osung konstruieren. Hierzu transformieren wir zun\"achst (5.5) in eine Differentialgleichung erster Ordnung.
+Falls $\epsilon>0$ keine Konstante ist sondern eine Kantenfunktion, k\"onnen wir auch eine L\"osung konstruieren. Hierzu transformieren wir zun\"achst (4.18) in eine Differentialgleichung erster Ordnung.
 \begin{equation}
 		\begin{pmatrix}
 		a  \\ u 
@@ -814,7 +809,7 @@ a_0  \\ u_0
 Das Matrixexponential kann als Potenzreihe oder mit Hilfe der reelen Jordanschen Normalform der Matrix $M=\begin{pmatrix}
 	0 & \mathbb{I} \\ 
 	L & 0
-\end{pmatrix}$ wie im Hilfssatz 5.3 konstruiert werden.
+\end{pmatrix}$ wie im Hilfssatz 4.5 konstruiert werden.
 \iffalse
 \\
 \\
@@ -840,7 +835,7 @@ u_h^1  \\ u_h^2
 \end{pmatrix}
 \end{equation*}
 \fi
-\chapter{Kanonische Quantisierung des elektromagnetischen Feldes}
+\section{Kanonische Quantisierung des elektromagnetischen Feldes}
 Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
 Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
 \\
@@ -848,7 +843,7 @@ Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theori
 \\
 Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
 \begin{theorem}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $q\in C^1(\mathbb{R}, \mathfrak{E})$, $j\in C^1(\mathbb{R}, \mathfrak{K})$, sei weiters $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.2), genau dann wenn alle Richtungs-ableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $q\in C^1(\mathbb{R}, \mathfrak{E})$, $j\in C^1(\mathbb{R}, \mathfrak{K})$, sei weiters $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.10), genau dann wenn alle Richtungs-ableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
 \begin{equation}
 	S(f_1, f_2) = \int_{r}^{s}L(f_1, f_2, f_1^\prime, f_2^\prime)dt
 \end{equation}
@@ -856,14 +851,14 @@ Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $q\in C^1(\m
 Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
 Sie ist dabei gegeben durch:
 \begin{align*}
-	L(q_1, q_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(q_1)), v_2 + r\text{grad}(q_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}q_2), \text{div}_D(r^{-1}q_2)/\mu\rangle_\mathfrak{F}) + \langle q_2, j\rangle_\mathfrak{K} - \langle q_1, q\rangle_\mathfrak{E}
+	L(g_1, g_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(g_1)), v_2 + r\text{grad}(g_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}g_2), \text{div}_D(r^{-1}g_2)/\mu\rangle_\mathfrak{F}) + \langle g_2, j\rangle_\mathfrak{K} - \langle g_1, q\rangle_\mathfrak{E}
 \end{align*}
 \end{theorem}
 \begin{proof}
 Siehe beliebiges Fachbuch zur theoretischen Physik.
 \end{proof}
 \noindent
-Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umgewandelt.
+Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umwandeln.
 \begin{definition}
 	Sei $f:X\mapsto\mathbb{R}$ eine konvexe Funktion auf einem Skalarproduktraum $X$, dann ist die \textbf{Legendretransformation} $f^*$ definiert durch:
 	\begin{equation}
@@ -894,23 +889,23 @@ Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vekt
 \\
 Die resultierende Lagrangefunktion ist gegeben durch 
 \begin{equation}
-	L(q, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_\mathfrak{F}) + \langle q, j\rangle_\mathfrak{K}
+	L(a, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_\mathfrak{F}) + \langle a, j\rangle_\mathfrak{K}
 \end{equation}
 \noindent
-Das \"ubrige Vektorpotential (hier q) ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (5.2) zu einem konstanten $\xi$ korrespondieren.\\
+Das \"ubrige Vektorpotential $a$ ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (4.10) zu einem konstanten $\xi$ korrespondieren.\\
 \\
-Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (6.4) bez\"uglich der Variablen $v$.
+Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (4.26) bez\"uglich der Variablen $v$.
 \begin{equation}
-	H(\pi, q) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{F}} - \langle q, j\rangle_{\mathfrak{K}}
+	H(\pi, a) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}} - \langle a, j\rangle_{\mathfrak{K}}
 \end{equation}
-Wenn wir mit (4.7) der Energieerhaltung, Satz (4.1), vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren. Solange $j$ zeitunabh\"anging ist, und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.\\
+Wenn wir mit (4.8) bei Satz 4.1, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.\\
 \\
 Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
 \begin{proposition}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (5.2), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
+Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.10), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
 \begin{align}
-	q^\prime = \frac{\partial H}{\partial \pi}\\
-	\pi^\prime = - \frac{\partial H}{\partial q}
+	a^\prime = \frac{\partial H}{\partial \pi}\\
+	\pi^\prime = - \frac{\partial H}{\partial a}
 \end{align}
 \end{proposition}
 \begin{proof}
@@ -940,24 +935,25 @@ An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenb
 \noindent
 Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die so genannte \textbf{kanonische Vertauschungsrelation}:
 \begin{equation}
-	[\hat{q}(e), \hat{\pi}(e')] = i\delta_{e, e'}
+	[\hat{a}(e), \hat{\pi}(e')] = i\delta_{e, e'}
 \end{equation}
 gefordert. Es gibt eine mathematisch st\"arkere Forderung nach Hermann Weyl, welche es erlaubt sogar die Eindeutigkeit bis auf unit\"are Transformation dieser Operatoren zu zeigen, jedoch ist dies hier nicht notwendig.\\
 \\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{q}_k$ und $\hat{\pi}_k$, die (6.10) erf\"ullt ist gegeben durch:
+Eine m\"ogliche Darstellung dieser Operatoren $\hat{a}_k$ und $\hat{\pi}_k$, die (4.32) erf\"ullt ist gegeben durch:
 \begin{align}
-	\hat{\pi}_k:(q\mapsto\psi(q)) \mapsto (q\mapsto -i\frac{\partial\psi}{\partial q_k}(q))\text{  f\"ur }k\in E\\
-	\hat{q}_k:(q\mapsto\psi(q)) \mapsto (q\mapsto q_k\psi(q))\text{  f\"ur }k\in E
+	\hat{\pi}_k:(a\mapsto\psi(a)) \mapsto (a\mapsto -i\frac{\partial\psi}{\partial a_k}(a))\text{  f\"ur }k\in E\\
+	\hat{a}_k:(a\mapsto\psi(a)) \mapsto (a\mapsto a_k\psi(a))\text{  f\"ur }k\in E
 \end{align}
 \noindent
-Hierbei ist $q_k$ der Wert der Kantenfunktion $q$ an der Stelle $k\in E$ und $\frac{\partial}{\partial q_k}$ ist die Ableitung nach demselben Wert. Der Definitionsbereich $D(\hat{\pi}_k)$ und $D(\hat{q}_k)$ f\"ur $k\in E$ wird zu einem sp\"ateren Zeitpunkt festgelegt und bleibt bis dahin eine unbekannte dichte Teilmenge von $\mathfrak{H}(G)$.
+Hierbei ist $a_k$ der Wert der Kantenfunktion $a$ an der Stelle $k\in E$ und $\frac{\partial}{\partial a_k}$ ist die Ableitung nach demselben Wert. 
+Die Definitionsbereiche $D(\hat{\pi}_k)$ und $D(\hat{a}_k)$ f\"ur $k\in E$ sind im ersten Fall der Sobolevraum $\text{H}^1(\mathfrak{K}(G),\mathbb{C};\lambda)$ und im zweiten Fall sein Bild unter Fouriertransformation.
 \\
 \\
-Eine kurze Betrachtung der Hamiltonfunktion (6.5) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
+Eine kurze Betrachtung der Hamiltonfunktion (4.27) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
 \begin{definition}
 	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der Hamiltonoperator $\hat{H}:D(\hat{H})\rightarrow \mathfrak{H}(G)$ des elektromagnetischen Feldes gegeben durch:\footnote{$D(\hat{H})$ ist eine dichte Teilmenge von $\mathfrak{H}(G)$ die zu einem sp\"ateren Zeitpunkt festgelegt wird.}
 	\begin{equation}
-	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial q_k^2} + \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)/\mu\rangle_{\mathfrak{F}} - \langle q, \hat{j}\rangle_{\mathfrak{K}}
+	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial a_k^2} + \frac{1}{2}\langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}} - \langle a, \hat{j}\rangle_{\mathfrak{K}}
 	\end{equation}
 	Sei $\psi_0\in D(\hat{H})$ und $\psi\in C^1(\mathbb{R}, D(\hat{H}))$, sodass:
 \begin{equation}
@@ -970,7 +966,7 @@ f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"
 Widmen wir uns nun dem Korrespondenzprinzip zwischen der klassischen und quantenmechanischen Theorie.
 Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
 \begin{theorem}[Ehrenfest Theorem]
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann gilt:
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (4.36) auf $G$, dann gilt:
 	\begin{align}
 		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
 		&\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
@@ -978,42 +974,42 @@ Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik
 	wobei der elektrische und magnetische Feldoperator gegeben sind durch:
 	\begin{align}
 		&\hat{e} = \frac{-\hat{\pi}}{\epsilon}\\
-		&\hat{b} = \text{div}_D(r^{-1}\hat{q})
+		&\hat{b} = \text{div}_D(r^{-1}\hat{a})
 	\end{align}
 \end{theorem}
-\begin{proof}
-Wir starten mit der linken Seite von (6.15), wenden die Produktregel der Differentiation an und formen um:
+\begin{proof}(Skizze)
+Wir starten mit der linken Seite von (4.37), wenden die Produktregel der Differentiation an und formen um:
 \begin{align*}
 	&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime = -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime=\\
 	&-(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}})=\\
 	&\langle i\hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}i\hat{H}\psi\rangle_{\mathfrak{H}})=\\
 	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
 	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{H}\hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
-	&-r^{-1} \text{grad}_D(\langle\psi,\text{div}_D(r^{-1}\hat{q})\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
+	&-r^{-1} \text{grad}_D(\langle\psi,\text{div}_D(r^{-1}\hat{a})\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
 	&-r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}
 \end{align*}
-Nun zeigen wir (6.15) indem wir ausgehend von (6.18) die Formel
+Nun zeigen wir (4.38) indem wir ausgehend von (4.40) die Formel
 	\begin{align}
-\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = \text{div}_D(r^{-1}\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime)
+\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = \text{div}_D(r^{-1}\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime)
 \end{align}
-ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck $\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um
+ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck $\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um
 	\begin{align*}
-	&\langle \psi, \hat{q}\psi\rangle_{\mathfrak{H}}^\prime= (\langle \psi^\prime, \hat{q}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{q}\psi^\prime\rangle_{\mathfrak{H}})=\\
-	&i(\langle \psi, \hat{H}\hat{q}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{q}\hat{H}\psi\rangle_{\mathfrak{H}})=\\
-	&i\langle \psi, [\hat{H},\hat{q}]\psi\rangle_{\mathfrak{H}}=i\langle \psi, [\frac{1}{2\epsilon}\hat{\pi}^2,\hat{q}]\psi\rangle_{\mathfrak{H}}\\
+	&\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime= (\langle \psi^\prime, \hat{a}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{a}\psi^\prime\rangle_{\mathfrak{H}})=\\
+	&i(\langle \psi, \hat{H}\hat{a}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{a}\hat{H}\psi\rangle_{\mathfrak{H}})=\\
+	&i\langle \psi, [\hat{H},\hat{a}]\psi\rangle_{\mathfrak{H}}=i\langle \psi, [\frac{1}{2\epsilon}\hat{\pi}^2,\hat{a}]\psi\rangle_{\mathfrak{H}}\\
 	&\langle \psi, \frac{\hat{\pi}}{\epsilon}\psi\rangle_{\mathfrak{H}}=-\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}
 \end{align*}		
 Am Ende haben wir hier die kanonischen Vertauschungsrelationen und die Rechenregeln des Kommutators verwendet.
-Wir setzen den erhaltenen Ausdruck nun in (6.18) ein und erhalten das gesuchte Resultat.
+Wir setzen den erhaltenen Ausdruck nun in (4.40) ein und erhalten das gesuchte Resultat.
 \end{proof}
 \noindent
-Wir sehen also, dass die Schr\"odingergleichung (6.14) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
+Wir sehen also, dass die Schr\"odingergleichung (4,36) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
 \\
 \\
 \iffalse
 Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit $\hat{j}=0$ untersucht werden.
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (6.14) auf $G$, dann kommutiert das folgende Diagramm f\"ur jedes $\xi\in\mathfrak{E}$ und $x\in\mathfrak{K}$:\\
+	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (4.36) auf $G$, dann kommutiert das folgende Diagramm f\"ur jedes $\xi\in\mathfrak{E}$ und $x\in\mathfrak{K}$:\\
 	\begin{tikzcd}
 		\psi(x,t) \arrow{d}{+\Delta t}\arrow{r}{+r\text{grad}(\xi)} & \psi(x+r\text{grad}(\xi),t) \arrow{d}{+\Delta t}\\
 		\psi(x,t+\Delta t) \arrow{r}{+r\text{grad}(\xi)}& \psi(x+r\text{grad}(\xi),t+\Delta t) \\
@@ -1024,9 +1020,9 @@ Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit
 \noindent
 TODO\\
 \fi
-Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (6.14) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
+Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (4,36) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
 \begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (6.13) mit $\hat{j}\equiv 0 $ gilt:
+	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (4.35) mit $\hat{j}\equiv 0 $ gilt:
 	\begin{equation}
 	\hat{U}^\dagger\hat{H}\hat{U}  = \sum_{j=1}^{|E|}\hat{h}_j
 	\end{equation}
@@ -1067,7 +1063,7 @@ Insbesondere gilt daher:
 	\end{equation*}
 	Wobei die reele Matrix $U$ orthogonal und $R$ eine nichtnegative Diagonalmatrix mit genau $|f| - 1$ positive Eintr\"agen ist. \\
 	\\
-	Ein wenig umformen von (6.21) liefert dann
+	Ein wenig umformen von (4.43) liefert dann
 	\begin{align*}
 		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}=\\
 		&\frac{1}{2}\langle q, U^\dagger R U(q)\rangle_{\mathfrak{K}}=\\
@@ -1099,7 +1095,7 @@ Insbesondere gilt daher:
 	\end{align*}
 	Man unterscheidet hierbei das endlichdimensionale Produkt $*$ und dem Produkt zwischen Operatoren auf dem unendlichdimensionalen Hilbertraum $\mathfrak{H}$, sowie die entsprechende Transponierte $^T$ und Adjungierte $^\dagger$.\\  
 	\\ 
-	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (6.20) durch einige wenige Umformungen gezeigt werden.
+	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (4.42) durch einige wenige Umformungen gezeigt werden.
 	\begin{align*}
 		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \hat{U}^\dagger(\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
 		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
@@ -1109,14 +1105,14 @@ Insbesondere gilt daher:
 
 \end{proof}
 \noindent
-Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (6.13), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
+Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (4.35), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
 \\
 \\
 Die Transformation $U$ zerlegt den Raum der Kantenfunktionen in einen $|V| - 1$-dimensionalen Teilraum $A$ auf dem das Potential $V$ der Schr\"odingergleichung konstant ist und in sein orthogonales $|F| - 1$-dimensionales Komplement $B$. Als Konsequenz haben wir gesehen ist die Dynamik in Richtung des Raumes $A$ frei und in Richtung des Raums $B$ die eines mehrdimensionalen harmonischen Oszillators.\\
 \\
 Der harmonische Oszillator hat $|F| - 1$ reine Frequenzen/Moden in denen er schwingen kann. Jede einzelne dieser Moden kann Energie nur in ganzzahligen Vielfachen seiner Frequenz aufnehmen. Diese Moden korrespondieren zu denen sich im Raum fortpflanzenden elektromagnetischen Wellen. Der Raum $B$ ist n\"amlich genau der Raum der Wirbelfelder wie wir gleich sehen werden.
 \begin{corollary}
-	Sei $G$, $\epsilon$, $r$, $\mu$ und $\hat{U}$ wie in Theorem 6.6 und zus\"atzlich sei der Raum frei von elektrischer Ladung
+	Sei $G$, $\epsilon$, $r$, $\mu$ und $\hat{U}$ wie in Theorem 4.11 und zus\"atzlich sei der Raum frei von elektrischer Ladung
 	\begin{equation}
 		\text{div}(r * \epsilon * \hat{e}) = 0
 	\end{equation}
@@ -1141,7 +1137,7 @@ Ein klassisches Resultat aus der linearen Algebra liefert dann:
 \end{align*}
 Damit wurde gezeigt, dass $B=\text{Bild}(\frac{1}{r}\text{grad}_D)$ und $A=\text{kern}(\text{div}(r*.)$\\
 \\
-Der elektrische Feldoperator $\hat{e}$ transformiert wegen (6.11) und (6.22) analog zum Vektorpotential Operator $\hat{a}$:
+Der elektrische Feldoperator $\hat{e}$ transformiert wegen (4.33) und (4.44) analog zum Vektorpotential Operator $\hat{a}$:
 \begin{align}
 	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U * \hat{a}\\
 	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U * \hat{e}
@@ -1152,7 +1148,7 @@ Die ersten $|V| - 1$ Spalten von $U^T$ sind Vektoren aus $A$ und die \"ubrigen S
 Als Konsequenz m\"ussen f\"ur alle stetig differenzierbaren $\phi\in\mathfrak{H}$ die Richtungsableitungen in Richtungen aus dem Raum $B$ gleich Null sein und damit entlang dieser konstant.\\
 F\"ur allgemeine $\phi\in\mathfrak{H}$ folgt das Resultat aus einem Dichtheitsargument.\\
 \\
-Der Rest folgt aus Theorem 6.6.
+Der Rest folgt aus Theorem 4.11.
 \end{proof}
 \noindent
 Alternativ h\"atten wir vor der Quantisierung den ladungsfreien Fall
@@ -1166,10 +1162,10 @@ Alternativ h\"atten wir vor der Quantisierung den ladungsfreien Fall
 Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"atte zu einer Hamiltonfunktion gef\"uhrt die durch Quantisierung zur gesuchten Schr\"odingergleichung f\"uhrt.\\
 \\
 Es sei abschlie\ss{}end noch erw\"ahnt, dass die Komponenten des $A$ Raums, also die Projektionen von $a$ und seine kanonischen Impulse $e$ im Sinn der Quantentheorie interessante Eigenschaft aufweisen. Die Komponenten $a$ sind keine Messgr\"oss{}en, sondern reine Eichvariablen, w\"ahrend $e$ messbar ist. Das Feld $e$ l\"asst sich daher beliebig genau bestimmen, ohne dabei Information \"uber eine andere Messgr\"o\ss{}e zu verlieren.
-\paragraph{Photonen - die Teilcheninterpretation}
-Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 6.6 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Konkret gibt es zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 6.6) einen Operator
+\subsection{Photonen - die Teilcheninterpretation}
+Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 4.11 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Konkret gibt es zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 4.11) einen Operator
 \begin{equation*}
-	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{q}^2)
+	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{a}^2)
 \end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
 Jeder dieser Operatoren hat die Form eines Hamiltonoperators zu einem eindimensionaler harmonischen Oszillators. Bisher waren wir in Bezug auf die Theorie linearer Operatoren sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
 \begin{definition}
@@ -1179,7 +1175,7 @@ Jeder dieser Operatoren hat die Form eines Hamiltonoperators zu einem eindimensi
 	\end{equation}
 ein linearer Operator definiert durch 
 \begin{equation}
-	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{q} + i \frac{\hat{\pi}}{\omega}) = \sqrt{\frac{\omega}{2}}(q +  \frac{1}{\omega}\frac{d}{dq})
+	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{a} + i \frac{\hat{\pi}}{\omega}) = \sqrt{\frac{\omega}{2}}(a +  \frac{1}{\omega}\frac{d}{dq})
 \end{equation}
 dann nennen wir $\hat{a}_\omega$ den \textbf{Vernichtungsoperator} der Mode $\omega$.
 \end{definition}
@@ -1187,7 +1183,7 @@ dann nennen wir $\hat{a}_\omega$ den \textbf{Vernichtungsoperator} der Mode $\om
 Halten wir zun\"achst einige wichtige Eigenschaften des 
 Vernichtungsoperators fest.
 \begin{proposition}
-	Der Operator $\hat{a}_\omega$ aus Definition 6.8 ist ein dicht definierter linearer Operator auf $L^2(\mathbb{R}, \mathbb{C},\lambda)$, und der Kern des Operators ist eindimensional.\\
+	Der Operator $\hat{a}_\omega$ aus Definition 4.13 ist ein dicht definierter linearer Operator auf $L^2(\mathbb{R}, \mathbb{C},\lambda)$, und der Kern des Operators ist eindimensional.\\
 	Des weiteren ist die Adjungierte des Operators gegeben durch 
 	\begin{equation}
 		\hat{a}_\omega^\dagger = \sqrt{\frac{\omega}{2}}(q - \frac{1}{\omega}\frac{d}{dq})
@@ -1204,7 +1200,7 @@ Vernichtungsoperators fest.
 	\end{align*}
 Es folgt, dass $\hat{a}_\omega$ eine lineare Abbildung in $\Omega$ ist. \\
 \\
-Der Beweis f\"ur den laut 6.32 adjungierten Operator geht analog.\\
+Der Beweis f\"ur den laut 4.54 adjungierten Operator geht analog.\\
 \\
 Ein Beweis, dass $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C},\lambda)$ liegt findet sich in (Teschl, Mathematical Methods in Quantum Mechanics, Lemma 8.3)\\
 \\
@@ -1216,8 +1212,8 @@ Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"u
 \begin{equation*}
 	f_c(q) = c * e^{-\omega q^2 / 2}
 \end{equation*}
-Zeigen wir nun, da\ss{} (6.32) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
-Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (6.32) auf $\Omega$ der Definition der Adjungierten entspricht:
+Zeigen wir nun, da\ss{} (4.54) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
+Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (4.54) auf $\Omega$ der Definition der Adjungierten entspricht:
 \begin{align*}
 	\langle \phi, \hat{a}_\omega\psi\rangle_{L^2} &= 
 	\int_\mathbb{R} \overline{\phi}(q)( \sqrt{\frac{\omega}{2}}(q\psi +  \frac{1}{\omega}\frac{d\psi}{dq}(q)))d\lambda(q)\\&=
@@ -1838,7 +1834,7 @@ Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es 
 \\
 Es gibt daher keine Ein-Photon Schr\"odingergleichung!
 \fi
-\chapter{Kanonische Quantisierung des Klein-Gordon Feldes}
+\section{Kanonische Quantisierung des Klein-Gordon Feldes}
 Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
 \begin{definition}
@@ -2031,7 +2027,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 	\end{align*}
 \end{proof}
 \noindent
-\paragraph{Teilchen und Antiteilchen}
+\subsection{Teilchen und Antiteilchen}
 Analog zur Schr\"odingergleichung des elektromagnetischen Feldes, zerf\"allt der Hamiltonoperator nach Theorem 8.3 in Summanden der Form
 	\begin{equation}
 	\hat{h}_\omega= \frac{1}{2}(-\frac{\partial^2}{\partial a_\omega^2}-\frac{\partial^2}{\partial b_\omega^2} + (m + \omega)^2 \overline{x_\omega}x_\omega)
@@ -2109,7 +2105,7 @@ Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_\omega$ ve
 	U_C N_{\omega \pm} U_C &= N_{\omega \mp}
 \end{align}
 \end{proposition}
-\chapter{Zweite Quantisierung der Klein-Gordongleichung}
+\section{Zweite Quantisierung der Klein-Gordongleichung}
 Im Kapitel \textbf{Die Klein-Gordongleichung} haben wir gesehen, dass wir im Fall $m>0$ die klassische Klein-Gordontheorie als Schr\"odingergleichung auf einem Hilbertraum darstellen k\"onnen.\\
 Wir werden diese Darstellung als die Einteilchenzust\"ande einer quantisierten Klein-Gordontheorie interpretieren.
 Aus diesem Raum werden wir durch Bildung von Tensorprodukten Mehrteilchenzust\"ande bilden. Die Gesamtheit aller Ein und Mehrteilchenzust\"ande nennen wir dann den Fockraum.\\
