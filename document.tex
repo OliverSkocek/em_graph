@@ -4,9 +4,11 @@
 %\usepackage[german]{babel}
 \usepackage{amsmath}
 \usepackage{amsthm}
+\usepackage{comment}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{amsfonts}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \usepackage{hyperref}
 \usepackage{lmodern}
 %\usepackage{makeidx}
@@ -26,6 +28,17 @@
 \newcommand{\C}{\mathbb{C}}
 
 %%%%%%%%%%% REST %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+\SetKwProg{Fn}{Funktion}{:}{}
+\SetKwInOut{Input}{Eingabe}
+\SetKwInOut{Output}{Ausgabe}
+\SetKw{ForEach}{Für jedes}
+\SetKw{Do}{mache}
+\SetKw{If}{Falls}
+
+
 
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
@@ -157,6 +170,7 @@ In den letzten Kapiteln konstruieren wir einen Hilbertraum auf dem wir eine Theo
 		0 & 0 & 1 & 1 & 0\\
 	\end{tabular} 
 \end{center}
+Es ist leicht zu sehen, dass zu jeder Adjazenzmatrix die zugeh\"orige Inzidenzmatrix konstruiert werden kann, und umgekehrt
 \end{remark}
 \noindent
 Manchmal ist es notwendig \"uber Teile von Graphen zu sprechen. Hierzu dient das Konzept des Teilgraphen. Ein Teilgraph eines Graphen $G$ ist ein Graph, den man durch entfernen von Ecken und Kanten aus $G$ erh\"alt. Bedenke dabei, dass mit jeder Ecke auch alle diese Ecke verbindenten Kanten entfernt werden m\"ussen.
@@ -185,12 +199,18 @@ Das Resultat ergibt dann f\"ur kannten 4, 7 und 8 folgende Inzidenz mit den Ecke
 Eine spezielle Art von Teilgraph erh\"alt man, wenn man eine Teilmenge $U$ der Ecken fixiert und alle Kanten aus dem Graphen entfernt, die eine nicht in der Teilmenge $U$ enthaltene Ecke verbinden. Man nennt so einen Graph den durch die Menge $U$ \textbf{induzierten Teilgraph}. Der Teilgraph in Abbildung 2.2 ist ein solches Beispiel. Es ist der durch $U =\{3, 4, 5\}$ induzierte Teilgraph des Beispielgraphen.
 \begin{definition}
 	Sei $G$ ein Graph und $n$ eine nat\"urliche Zahl, dann nennt man eine Folge von Ecken $(x_0, x_1,\dots,x_n)$ f\"ur die gilt, dass auf einander folgende Ecken immer durch eine Kante verbunden sind, einen \textbf{Pfad} auf $G$. Falls $x_0 = x_n$ gilt, nennt man dies einenen \textbf{geschlossenen Pfad}. Falls zus\"atzlich bis auf $x_0$ und $x_n$ keine Ecke mehrfach vorkommt, nennt man den Pfad \textbf{einfach geschlossen}.\\
-	Man nennt $G$ \textbf{zusammenh\"angend}, falls man von jeder Ecke von $G$ jede andere Ecke \"uber einen Pfad erreichen kann. Sei weiters $k\in\mathbb{N}$, dann sagt man ein Graph ist \textbf{$k$-fach zusammen\-h\"angend}, falls man $k - 1$ beliebige Kanten entfernen k\"onnte und der resultierende Graph immer noch zusammenh\"angend w\"are.
+	Man nennt $G$ \textbf{zusammenh\"angend}, falls man von jeder Ecke von $G$ jede andere Ecke \"uber einen Pfad erreichen kann. Sei weiters $k\in\mathbb{N}$, dann sagt man ein Graph ist \textbf{$k$-fach zusammen\-h\"angend}, falls man $k - 1$ beliebige  entfernen k\"onnte und der resultierende Graph immer noch zusammenh\"angend w\"are.
 \end{definition}
 \noindent
-Alle Graphen werden von hier an als zusammenh\"angend angenommen. Allgemein l\"asst sich jeder Graph als Ansammlung von zusammenh\"angenden Teilgraphen darstellen, wodurch diese Annahme im Sinne einer Vereinfachung gerechtfertigt wird.
+Alle Graphen werden von hier an als zusammenh\"angend angenommen. Allgemein l\"asst sich jeder Graph als Ansammlung von zusammenh\"angenden Teilgraphen darstellen, wodurch diese Annahme im Sinne einer Reduktion gerechtfertigt wird.
 \begin{definition}
-	Ein Graph hat eine \textbf{planare Darstellung} wenn man den Graph auf einem Blatt Papier zeichnen kann, indem man f\"ur jede Ecke einen Punkt zeichnet und f\"ur jede Kante einen Strich zwischen den Eck-Punkten, die sie verbinden soll, ohne das sich dabei zwei Striche kreuzen.
+	Ein Graph hat eine \textbf{planare Darstellung} wenn man ihn auf einem Blatt Papier zeichnen kann sodass folgende Kriterien erf\"ullt sind:
+	\begin{itemize}
+		\item Die Ecken des Graphen werden als von einander getrennte Punkte gezeichnet.
+		\item Jede Kante wird als Linie zwischen den Punkten gezeichnet, deren Ecken sie verbinden soll.
+		\item Linien d\"urfen sich dabei nicht kreuzen.
+		\item Linien müssen von Punkten, die keine Endpunkte sind, getrennt bleiben.
+	\end{itemize}
 \end{definition}
 \noindent
 	Der Graph aus Abbildung 2.1 hat eine planare Darstellung. Um dies zu sehen muss man nur die Position von Ecke Nummer 2 ver\"andern.
@@ -209,12 +229,13 @@ Alle Graphen werden von hier an als zusammenh\"angend angenommen. Allgemein l\"a
 	\end{center}
 \end{figure}
 \noindent
-Es ist also zus\"atzliche Information notwendig um eine planare Darstellung eindeutig festzulegen. Diese zus\"atzliche Information kann \"uber die Fl\"achen aus denen sich die planare Darstellung zusammensetzt gegeben werden.\\
+Es ist also zus\"atzliche Information notwendig um eine planare Darstellung eindeutig festzulegen. Diese zus\"atzliche Information kann \"uber die Fl\"achen aus denen sich die planare Darstellung zusammensetzt gegeben werden.
+
 \begin{definition}
-	Sei $G$ ein Graph, dann nennt man $G$ einen \textbf{Zyklus} oder \textbf{zyklisch}, falls jede Ecke von $G$ mit genau zwei Kanten verbunden ist.
+	Sei $G$ ein zusammenh\"angender Graph, dann nennt man $G$ einen \textbf{Kreis}, oder kreisartig, falls jede Ecke von $G$ mit genau zwei Kanten verbunden ist.
 \end{definition}
 \noindent
-Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Eine \textbf{Fl\"ache} ist hier ein Zyklus, der keine Ecke einschlie\ss{}t.
+Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Die Kreise $A_1,\dots, A_4$ sind hier die Flächen. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{Abbildungen/graph_1_planar_flach.pdf}
@@ -222,19 +243,39 @@ Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Eine \textbf
 	\end{center}
 \end{figure}
 \noindent
+Wir wollen von Anfang an gewisse pathologische Beispiele von planaren Graphen ausklammern, daher fordern wir eine gewisse Regularität für die planaren Graphen unter Betrachtung.
+\begin{definition}
+	Sei $g=(V,E)$ ein Graph und $f=\{A_1, A_2, \dots, A_n, A_\infty\}$ eine Menge von kreisartigen induzierten Teilgraphen von $g$, den \textbf{Flächen}, dann nennen wir das Tupel $G=(g,f)$ einen \textbf{regulären planaren Graphen} falls:
+	\begin{itemize}
+	\item jede Ecke von $g$ in mindestens einer der Flächen vorkommt,
+	\item jede Kante von $g$ in genau zwei der Flächen vorkommt,
+	\item wobei falls zwei Flächen eine Ecke $x\in V$ gemeinsam haben, sie auch eine Kante $e\in E$ gemeinsam haben, die $x$ verbindet,
+	\item falls $A_1, A_2\in f$ maximal eine Kante sowohl in $A_1$ als auch in $A_2$ vorkommt.
+\end{itemize}
+Wir nennen $A_1, A_2, \dots, A_n$ die \textbf{Innenflächen} und $A_\infty$ die \textbf{Außenfläche}. Sei weiters $e$ eine Kante von $G$, dann sagt man $e$ liegt am \textbf{Rand} des Graphen wenn $e$ eine Kante der Außenfläche $A_\infty$ ist. Den Teilgraph $A_\infty$ nennt man auch \textbf{Rand des Graphen}.
+\end{definition}
+
+\noindent
+Die obige Definition ist angelehnt an die Konstruktion einer planaren Darstellung bei der die Innenflächen nacheinander an die Kanten in die existierende Zeichnung eingefügt werden.
 \begin{remark}
-	Sei $G$ ein Graph und $\{A_1, A_2, \dots, A_n\}$ eine Menge von zyklischen induzierten Teilgraphen, sodass jede Kante von $G$ in maximal zwei der Zyklen vorkommt und jede Ecke von $G$ in mindestens einem der Zyklen vorkommt, dann gibt es eine eindeutige planare Darstellung des Graphen $G$, dessen Fl\"achen genau die $\{A_1, A_2, \dots, A_n\}$ sind.  
+	Jeder reguläre planare Graph hat eine planare Darstellung. 
 \end{remark}
+\noindent
+\begin{comment}
+\begin{proposition}
+	Sei $G$ ein regulärer planarer Graph, dann ist der Rand ident mit $A_\infty$.
+\end{proposition}
+\begin{proof}
+	Sei $x\in A_\infty$, dann gibt es eine Kante $e$ die $x$ verbindet und genau ein $n\geq 1$ sodass $e\in A_n$. Entweder liegt die zweite Kante $e'$, die $x$ in $A_n$ verbindet in $A_\infty$ oder es gibt ein weiteres $m\neq n$ sodass $e'$ eine Kante von $A_m$ ist. Dieses Argument l\"asst sich maximal so oft wiederholen wie Kanten übrig sind in $G$, die $x$ verbinden, da jede weitere Kante laut Annahme unbedingt verschieden sein muss von der vorgehenden. Falls das Argument dann bis zur letzen Kante fortgesetzt werden musste, muss diese Kante am Rand liegen.
+\end{proof}
+\noindent
+\end{comment}
+Die in der Definition regulärer planarer Graphen beschriebene Struktur legt ein mit planaren Graphen eng verkn\"upftes Konzept nahe. Jede Kante des Graphen ist entweder ein Bindeglied zwischen zwei Fl\"achen oder es liegt am Rand des Graphen. Die am Rand liegenden Kanten k\"onnen wiederum als Bindeglieder mit der Außenfläche $A_{\infty}$ angesehen werden. Diese zusätzliche Graphenstruktur ist bekannt als dualer Graph.
 \begin{definition}
-	Ein planarer Graph $G=(g, f)$ ist ein Graph $g$ und eine Menge $f$ von Zyklen aus $g$ wie in Bemerkung 1.6. beschrieben. Sei weiters $e$ eine Kante von $g$, dann sagt man $e$ liegt am \textbf{Rand} des Graphen wenn $e$ genau einmal in einer Fl\"ache vorkommt. Der Teilgraph, der genau die am Rand liegenden Kanten enth\"alt nennt man den \textbf{Rand des Graphen}.
+	Es sei $G=((V,E), f)$ ein regulärer planarer Graph, dann kann man einen neuen Graphen, den \textbf{dualen Graph} $G^D = (f, E)$, konstruieren, sodass für eine gegebene Kante $e\in E$ und Ecke des dualen Graphen $A\in f$ ist die Inzidenzmatrix Eins falls $e$ die Fl\"ache $v$ begrenzt und sonst Null.
 \end{definition}
 \noindent
-Die in Bemerkung 1.6. beschriebene Struktur legt ein mit planaren Graphen eng verkn\"upftes Konzept nahe. Jede Kante des Graphen ist entweder ein Bindeglied zwischen zwei Fl\"achen oder es liegt am Rand des Graphen. Die am Rand liegenden Kanten k\"onnen wiederum als Bindeglied mit der den Graphen umgebenden Fl\"ache, genannt $A_{\infty}$, angesehen werden und somit haben wir das Konzept des dualen Graphen entdeckt.
-\begin{definition}
-	Es sei $G$ ein planarer Graph, dann kann man einen neuen Graphen, den \textbf{dualen Graph} $G^D$, konstruieren, dessen Kanten mit denen von $G$ \"ubereinstimmen, aber dessen Ecken die Fl\"achen von $G$ zusammen mit der umgebenden Fl\"ache sind, also $V=\{A_1, A_2, \dots, A_n, A_\infty \}$. F\"ur eine gegebene Kante $e$ und Ecke des dualen Graphen $v\in V$ ist die Inzidenzmatrix Eins falls $e$ die Fl\"ache $v$ begrenzt und sonst Null.
-\end{definition}
-\noindent
-Betrachte den dualen Graph des planaren Graphen aus Abbildung 1.5. Beachte die doppelte Kante zwischen Ecke $A_4$ und Ecke $A_\infty$. 
+Betrachte den dualen Graph des planaren Graphen aus Abbildung 1.5. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_dual.pdf}
@@ -242,10 +283,23 @@ Betrachte den dualen Graph des planaren Graphen aus Abbildung 1.5. Beachte die d
 	\end{center}
 \end{figure}
 \noindent
-Die blauen Ecken symbolisieren die Ecken des Ausgangsgraphen, während die roten Ecken die Ecken des dualen Graphen darstellen. Die Platzierung von $A_\infty$ ist beliebig gew\"ahlt. Offensichtlich bestimmt diese Wahl, welcher der Ecken des Ausgangsgraphen die umgebende Fl\"ache des dualen Graphen darstellt.
-\begin{remark}
-	Der duale Graph $G^D$ ist immer auch fast ein planarer Graph, denn jede Ecke von $G$ kann mit einem Zyklus in $G^D$ identifiziert werden, somit bleibt aber offen welche dieser Zyklen, die umgebende Fl\"ache ist. Dies ist insbesondere von Bedeutung wenn man den dualen Graphen des dualen Graphen, den so genannten \textbf{bidualen Graphen} bildet. Um eine eindeutige Zuordnung zu erzwingen muss immer einer der Ecken ausgezeichnet werden oder man verzichtet auf die planare Darstellung und arbeitet mit konvexen Polyedern. 
-\end{remark}
+Die blauen Ecken symbolisieren die Ecken des Ausgangsgraphen, während die roten Ecken die Ecken des dualen Graphen darstellen. Die Platzierung von $A_\infty$ ist beliebig gew\"ahlt. Offensichtlich bestimmt diese Wahl, welcher der Ecken des Ausgangsgraphen die umgebende Fl\"ache des dualen Graphen darstellt.\\
+\\
+Unser Beispielgraph hat eine planare Darstellung, jedoch ist er kein regulärer planarer Graph, nachdem sein Dualgraph kein echter Graph in unserem Sinn ist sondern zwischen $A_4$ und $A_\infty$ zwei Kanten hat. Wir führen daher den Beispielgraph 2 ein, der ein regulärer planarer Graph ist, aber kein konvexer Polyeder.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.4]{Abbildungen/graph_2_planar_flach.pdf}
+		\caption{Beispielgraph 2.}
+	\end{center}
+\end{figure}
+\noindent
+Dies ist ein regulärer planarer Graph und sein Dualgraph ist ident mit dem Ausgangsgraph.
+\begin{proposition}
+	Sei $G$ ein regulärer planarer Graph, dann ist der duale Graph $G^D$ ein regulärer planarer Graph und der duale Graph des  dualen Graphen, der \textbf{biduale Graph}  $(G^D)^D$ ist gleich dem Graph $G$.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
 \noindent
 Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten keine ausgzeichnete Beziehung mit der einen oder der anderen durch sie verbundenen Ecke haben. Graphen, deren Kanten eine solche Orientierung aufweisen, nennt man "gerichtete Graphen" und eine Adjazenzmatrix ist ein praktisches Weg um solche Strukturen zu beschreiben. Im Gegensatz zur Adjazenzmatrix eines ungerichteten Graphen wird im gerichteten Fall, einfach die Forderung nach Symmetrie der Matrix weggelassen.
 \begin{definition}
