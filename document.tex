@@ -503,40 +503,41 @@ Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Ope
 	\]
 	als die \emph{Pfadsumme}.
 \end{definition}
+\begin{lemma}[Stokes]
+	Sei $G = (g, F)$ ein gerichtetes planares Netz und $\gamma$ ein geschlossener Pfad, der den Rand von $G$ gegen den Uhrzeigersinn durchläuft, sowie $f \in \mathfrak{K}(G)$. 
+	Dann gilt:
+	\begin{equation}
+		S_G(\gamma)(f) \;=\; \sum_{A \in F(G)} \mathrm{div}_D(f)(A).
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Für jede Fläche $A \in F(G)$ entspricht die Pfadsumme des gegen den Uhrzeigersinn orientierten Randes von $A$ genau dem Wert $\mathrm{div}_D(f)(A)$ nach Definition.\\
+	\\
+	Wir betrachten eine Fläche $A \in F(G)$, die eine gemeinsame Kante $e \in E$ mit dem Rand von $G$ besitzt.
+	Erweitern wir den Pfad $\gamma$, indem wir zwischen $p(e)$ und $q(e)$ die übrigen Ecken von $A$ einfügen, sodass der resultierende Pfad $\gamma'$ weiterhin gegen den Uhrzeigersinn durchlaufen wird.
+	Dann gilt die Zerlegungsformel
+	\[
+	S_G(\gamma)(f) \;=\; S_G(\gamma')(f) \;+\; \mathrm{div}_D(f)(A).
+	\]
+	Da $G$ nur endlich viele Flächen enthält, wiederholen wir diesen Vorgang endlich oft, bis keine Fläche mehr übrig bleibt und erhalten so das gesuchte Resultat.
+\end{proof}
 \begin{proposition}
-	Sei $G$ ein gerichtetes planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{div}_D(f)=0$. 
+	Sei $G=(g,F)$ ein gerichtetes planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{div}_D(f)=0$. 
 	Dann gilt: Jeder geschlossene Pfad in $G$ hat Pfadsumme Null.
 \end{proposition}
 \begin{proof}
-Sei $A \in F(G)$ eine Fläche. Dann entspricht die Pfadsumme des gegen den 
-Uhrzeigersinn durchlaufenen Randes von $A$ genau dem Wert 
-$\mathrm{div}_D(f)(A)$ nach Definition\\
-\\
-Es genügt, einfach geschlossene Pfade zu betrachten, da jeder kompliziertere 
-geschlossene Pfad eine Zusammensetzung solcher ist. 
-Sei also $\gamma$ ein einfach geschlossener Pfad in $G$, der im Uhrzeigersinn durchlaufen wird. 
-Dieser Pfad zerlegt $G$ in zwei Teilnetze, deren Schnitt genau $\gamma$ ist. 
-Da $G$ planar ist, nennen wir den Teil, der nicht den äußeren Rand des Gesamtnetzes enthält, den \emph{inneren Graph} $H$.  
-\\
-\\
-Wir betrachten nun eine Fläche $A \in F(H)$, die eine gemeinsame Kante 
-$e \in E$ mit dem Rand von $H$ besitzt. 
-Erweitern wir $\gamma$, indem wir anstelle der Randkante $e$ den ganzen 
-Randumlauf von $A$ in den Pfad einfügen (im Uhrzeigersinn), so erhalten wir 
-einen neuen Randumlauf $\gamma'$, der ebenfalls das Innere von $H$ enthält. 
-Dann gilt die Zerlegungsformel
-\[
-S_H(\gamma)(f) \;=\; S_H(\gamma')(f) \;+\; \mathrm{div}_D(f)(A).
-\]
-Da $\mathrm{div}_D(f)=0$ gilt, verschwindet der Beitrag $\mathrm{div}_D(f)(A)$. 
-Wir können daher $A$ eliminieren, ohne den Wert der Pfadsumme zu ändern. 
-Da $H$ nur endlich viele Flächen enthält, wiederholen wir diesen Vorgang 
-endlich viele Male, bis keine Fläche mehr übrig bleibt. 
-\\
-\\
-Am Ende dieser Elimination bleibt $S_H(\gamma)(f)=0$. 
-Damit verschwindet die Pfadsumme für jeden einfach geschlossenen Pfad, 
-und somit auch für beliebige geschlossene Pfade.
+	Es genügt, einfach geschlossene Pfade zu betrachten, da jeder komplexere geschlossene Pfad sich als Zusammensetzung solcher schreiben lässt.
+	Sei also $\gamma$ ein einfach geschlossener Pfad in $G$, der gegen den Uhrzeigersinn durchlaufen wird.\\
+	\\
+	Dieser Pfad zerlegt $G$ in zwei Teilnetze, deren Schnitt genau $\gamma$ ist.
+	Da $G$ planar ist, bezeichnen wir den Teil, der nicht den äußeren Rand des Gesamtnetzes enthält, als \emph{inneren Graph} $H$.\\
+	\\
+	Das Teilnetz $H$ ist planar, sein Rand ist durch den Pfad $\gamma$ gegeben.
+	Daher können wir den Stokes-Hilfssatz anwenden und erhalten:
+	\begin{equation}
+		S_H(\gamma)(f) \;=\; \sum_{A \in F(H)} \mathrm{div}_D(f)(A) = 0.
+	\end{equation}
+	Somit verschwindet die Pfadsumme für jeden einfach geschlossenen Pfad und folglich auch für beliebige geschlossene Pfade.
 \end{proof}
 \noindent
 \begin{remark}
@@ -577,32 +578,52 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	\end{equation}
 	Hierbei steht $\mathbb{R}$ jeweils für den eindimensionalen Raum der konstanten Funktionen des entsprechenden Typs.
 \end{theorem}
-
-\begin{proof}[Beweis de Rham Komplex]
-	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
+\begin{proof}[Beweis]
+	Es genügt, die Exaktheit der Sequenz \eqref{eq:derham1} zu zeigen, 
+	da \eqref{eq:derham2} durch Anwendung desselben Arguments auf den Dualgraphen folgt.\\
 	\\
-	\textbf{Erste zu beweisende Aussage:} Der Kern von $\text{grad}$ ist genau der Raum der konstanten Eckfunktionen.\\
+	\medskip\noindent
+	\textbf{1. Schritt:} $\ker(\mathrm{grad})$ besteht aus konstanten Funktionen.  
+	Angenommen $f\in\mathfrak{E}(G)$ mit $\mathrm{grad}(f)=0$. 
+	Dann gilt $f(p(e))=f(q(e))$ für alle Kanten $e\in E$. 
+	Da $G$ zusammenhängend ist, folgt, dass $f$ konstant ist.  \\
 	\\
-	Da $G$ zusammenh\"angend ist und da $\text{grad}$ an einer Kante nur Null sein kann wenn beide Ecken, welche die Kante verbindet, den selben Wert haben, ist $\text{grad}(f)$ genau dann Null wenn $f$ konstant ist.\\
+	\medskip\noindent
+	\textbf{2. Schritt:} $\mathrm{im}(\mathrm{grad}) = \ker(\mathrm{div}_D)$.  
+	Zunächst: Für jedes $u \in \mathfrak{E}(G)$ gilt $\mathrm{div}_D(\mathrm{grad}(u))=0$.  
+	Denn entlang jedes Umlaufs hebt sich die Pfadsumme auf, da jeder Wert von $u$ 
+	genau einmal mit positivem und einmal mit negativem Vorzeichen auftritt.  
+	Umgekehrt: Sei $f \in \ker(\mathrm{div}_D)$. 
+	Dann zeigen die Resultate aus Satz 2.2, dass die Pfadsummen zwischen zwei Ecken nur vom Start- und Endpunkt abhängen, nicht von der Wahl des Pfades. 
+	Definiere nun $F\in \mathfrak{E}(G)$ durch 
+	\[
+	F(x) = \text{Pfadsumme von einer fixen Ecke $x_0$ nach $x$},
+	\]
+	die wohldefiniert ist. Dann gilt $\mathrm{grad}(F)=f$.  \\
 	\\
-	\textbf{Zweite zu beweisende Aussage:} Das Bild von $\text{grad}$ ist genau der Kern von $\text{div}_D$.\\
+	\medskip\noindent
+	\textbf{3. Schritt:} $\mathrm{im}(\mathrm{div}_D)$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
+	Dies folgt unmittelbar aus dem adjungierten Zusammenhang $\mathrm{div} = -\mathrm{grad}^\top$: 
+	das Bild von $\mathrm{div}_D$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
+	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle =0\}$.\\
 	\\
-	Sei $a$ ein Zyklus von $G$, und $(x_i)_{i=1}^k$ ein Pfad der die Ecken des Zyklus gegen den Uhrzeigersinn durchl\"auft und $f\in\mathfrak{E}$, dann gilt:
-	$$div_D(\text{grad}(f)) = \sum_{i=1}^{k-1} \sigma_i * \overbrace{\sigma_i * (f(x_{(i+1) \text{ mod } k})-f(x_{i  \text{ mod } k}))}^{\text{grad}}$$
-	Da ja $k \text{ mod }k=0$ gilt, kommt in der Summe jeder Wert von $f$ genau einmal mit positiven und einmal mit negativen Vorzeichen vor. Daher die Summe ist gleich Null.\\
-	\\
-	Es fehlt noch zu zeigen, dass jedes Element im Kern von $\text{div}_D$ auch im Bild von $\text{grad}$ ist.\\
-	\\
-	Sei $f$ eine Kantenfunktion, sodass gilt $\text{div}_D(f)=0$, dann gilt wegen dem Satz 2.2, dass f\"ur beliebige Ecken $a, b\in V$ gilt, dass die Pfadsummen f\"ur alle Pfade, die in $a$ starten und in $b$ enden, gleich sind.\\
-	\\
-	W\"ahlen wir nun eine beliebige Ecke $x_0$, weil $G$ zusammenh\"angend ist, k\"onnen wir von $x_0$ zu jeder Ecke in $G$ einen Pfad bilden um $F\in\mathfrak(E)(G)$ zu definieren, sodass f\"ur jede Ecke $x$ $F(x)$ gleich der Pfadsumme eines Pfades von $x_0$ nach $x$ hat. Dies ist ja eindeutig. Es gilt nun $\text{grad}(F) = f$.
-	\\
-	\\
-	\textbf{Die letzte zu beweisende Aussage:} Das Bild von $\text{div}_D$ ist genau das orthogonale Komplement der konstanten Fl\"achenfunktionen.\\
-	\\
-	Wegen des Satzes 2.1 und der ersten Aussage in diesem Beweis folgt die Aussage.
+	\medskip
+	Damit ist die Exaktheit der Sequenz \eqref{eq:derham1} gezeigt,
+	und damit auch des gesamten diskreten de Rham-Komplexes.
 \end{proof}
-\noindent
+
+\begin{remark}
+	Die beiden Sequenzen \eqref{eq:derham1} und \eqref{eq:derham2} 
+	sind das diskrete Analogon zu den exakten Sequenzen
+	\[
+	\mathbb{R}\to C^\infty(M)\xrightarrow{d}\Omega^1(M)\xrightarrow{d}\Omega^2(M)\to 0
+	\]
+	für eine Fläche $M$.  
+	Im Diskreten nehmen die Räume $\mathfrak{E}(G)$, $\mathfrak{K}(G)$ und $\mathfrak{F}(G)$ 
+	die Rolle der 0‑, 1‑ und 2‑Formen ein, und die Operatoren 
+	$\mathrm{grad}$, $\mathrm{div}$, $\mathrm{grad}_D$ und $\mathrm{div}_D$ 
+	entsprechen den äußeren Ableitungen im klassischen de Rham-Komplex.
+\end{remark}
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
 \paragraph{Das verallgemeinerte Poisson Problem}
