@@ -79,6 +79,8 @@
 \renewcommand{\chaptername}{Kapitel}
 \renewcommand{\contentsname}{Inhaltsverzeichnis}
 \renewcommand{\proofname}{Beweis}
+
+\DeclareUnicodeCharacter{202F}{\,}
 \begin{document}
 
 
@@ -87,7 +89,7 @@
 \vspace*{5cm}
 \begin{center}
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \Huge \bfseries Eine Spielmodell des Elektromagnetismus auf planaren Graphen} \\[0.2cm]
+{ \Huge \bfseries Von elektrischen Netzwerken zur diskreten Quantenelektrodynamik} \\[0.2cm]
 \rule{\linewidth}{0.5mm} \\[3.5cm]
 \begin{minipage}[t]{0.4\textwidth}
 %\begin{flushleft} \large
@@ -96,6 +98,7 @@
 %\small
 %
 %\end{flushleft}
+
 
 \end{minipage}
 \begin{minipage}[t]{0.4\textwidth}
@@ -122,26 +125,43 @@
 
 
 \chapter*{Einf\"uhrung}
-Die Absicht dieser Arbeit ist es ausgehend von der Theorie elektrischer Netzwerke eine Theorie elektromagnetischer Ph\"anomene in der Ebene zu entwickeln. Dabei soll kein Kontinuums\"ubergang gemacht werden sondern allein mit planaren Graphen gearbeitet werden. Zu diesem Zwecke werden einige grundlegende Begriffe der Graphentheorie eingef\"uhrt. Darauf aufbauened werden dann im zweiten Kapitel Funktionnenr\"aume auf diesen Graphen definiert und analog zur mehrdimensionalen Analysis wird eine Theorie mit Analogien zum gewohnten Gradienten, der Divergenz und dem Rotor vorgestellt. Abgeschlossen wird diese Theorie durch ein zum de Rham Komplex analoges Theorem. \\Im dritten Kapitel wird dann ein verallgemeinertes Poissonproblem vorgestellt, dass direkt verwendet werden kann um Widerstandsnetzwerke zu l\"osen. Dies zeigt, dass viele Analogien zwischen dem Problem der Widerstandsnetzwerke und dem Poissonproblem der Elektrostatik existieren.\\
-Im vierten Kapitel wird dann eine Version der Maxwell-Gleichungen auf planaren Graphen vorgestellt und zwei wichtige Eigenschaften, Energieerhaltung und Ladungserhaltung behandelt.
-Im darauffolgenden Kapitel werden die Maxwellgleichungen in Potentialformulierung vorgestellt und ihre Symmetrie die Eichtransformation vorgestellt.
-Im Kapitel "kanonische Quantisierung" wird dann der Sprung von einer klassischen Theorie in eine Quantentheorie gemacht und die Schr\"odingergleichung elektromagnetischer Felder konstruiert.\\
-Abgeschlossen wird das Kapitel mit der Einf\"urhung von Erzeugungs und Vernichtungsoperatoren und der Photoneninterpretation der Anregungen des freien Feldes.\\
-Im siebtem Kapitel wird die klassische Klein-Gordon Theorie, also der Theorie um die Klein-Gordon Gleichung mit einem externen elektromagnetischen Feld vorgestellt und anschlie\ss{}end im n\"achsten Kapitel quantisiert, mitsamt Teilcheninterpretation. Diese Teilchen sind wie im Fall des Photons Bosonen und haben nicht allzuviel mit den Elektronen gemeinsam. Jedoch haben sie Masse, was wie gezeigt wird dazu f\"hrt, dass wir einen Ortsoperator konstruieren k\"onnen.\\
-Im neunten Kapitel wird parallel zur kanonischen Quantisierung des Klein-Gordon Feldes die analoge zweite Quantisierung und damit verbundene Rechtfertigung der Teilcheninterpretation\\
-In den letzten Kapiteln konstruieren wir einen Hilbertraum auf dem wir eine Theorie der Quantenelektrodynamik auf planaren Graphen formulieren k\"onnen und diskutieren numerische Simulationen auf einem Spezialfall.
+Zu Beginn (Kapitel 1) werden zentrale Begriffe aus der Graphentheorie und aus der diskreten Geometrie eingeführt – insbesondere die Definitionen von planaren Graphen, Netzen, Teilgraphen sowie der dualen Graphstruktur. Diese baulichen Grundlagen ermöglichen, in Kapitel 2 Funktionenräume auf Graphen zu definieren ($\mathfrak{E},\mathfrak{K},\mathfrak{F}$) und die diskreten Äquivalente des Gradienten, der Divergenz und des Rotors zu konstruieren. Die algebraische Struktur dieser Operatoren wird in einem diskreten de Rham-Komplex geklärt.\\
+\\
+Kapitel 3 behandelt das verallgemeinerte Poissonproblem auf Graphen, wobei der mit gewichteten Laplaceoperatoren ausgestattete Netzwerkansatz die Brücke zwischen der klassischen Theorie der Widerstandsnetzwerke und der Elektrostatik schlägt.\\
+\\
+In Kapitel 4 und 5 werden die diskreten Maxwell-Gleichungen auf Netzen eingeführt, Energie- und Ladungserhaltungssätze hergeleitet sowie die Potentialformulierung und die zugrundeliegenden Eichtransformationen erarbeitet.\\
+\\
+Kapitel 6 ist der kanonischen Quantisierung gewidmet: Die Operatorstruktur der quantisierten elektromagnetischen Felder wird aufgebaut, die \\Schrödinger-Gleichung und der Fockraum konstruiert. Erzeugungs- und Vernichtungsoperatoren sowie die Photoneninterpretation der Feldquanten werden herausgearbeitet.\\
+\\
+Kapitel 7 und 8 führen eine diskrete Klein-Gordon-Theorie ein, quantisieren sie und entwickeln explizit die Teilchen- bzw. Antiteilcheninterpretation des Feldes als massive Bosonen in Wechselwirkung mit dem elektromagnetischen Feld. Die Möglichkeit der Ortsoperator-Konstruktion wird diskutiert und die charakteristischen Unterschiede zu den Photonen werden herausgestellt.\\
+\\
+Kapitel 9 entwickelt analog die zweite Quantisierung und rechtfertigt die Fockraumstruktur für das Klein-Gordon-Feld auch auf Netzen.\\
+\\
+Im abschließenden Kapitel 10 werden das elektromagnetische Feld und das komplexe Materiefeld zur skalaren Quantenelektrodynamik auf Netzen zusammengeführt. Der entsprechende Hilbertraum wird konstruiert, die Eichstruktur detailliert analysiert und die Selbstadjungiertheit des Hamiltonoperators sichergestellt. Abschließend werden numerische Simulationen und algorithmische Aspekte für diskrete Modelle diskutiert.
 
-\chapter{Planare Graphen}
-	Ein Graph besteht aus Ecken $V$ und Kanten $E$. Die Ecken und Kanten stehen in Beziehung zueinander. Man sagt eine Kante \emph{verbindet} zwei Ecken. Wir wollen nur solche Graphen betrachten, deren Kanten jeweils zwei unterschiedliche Ecken verbinden.
+\chapter{Graphen und Netze}
+	In diesem Kapitel werden die grundlegenden Begriffe einer diskreten Theorie von Flächen eingeführt, die für die Ziele dieser Arbeit benötigt werden. Unter Flächen verstehen wir zweidimensionale Mannigfaltigkeiten. Allerdings werden wir im Folgenden nicht mit kontinuierlichen Strukturen arbeiten, sondern uns auf eine diskrete Näherung beschränken, die wir Netze nennen. Ein Netz kann als ein Graph mit zusätzlicher Struktur aufgefasst werden, der es erlaubt, viele Eigenschaften kontinuierlicher Flächen in diskreter Form zu erfassen.
+	
+	Wir beginnen daher mit dem Begriff des Graphen.
+\begin{definition}[Graph]
+Ein Graph $G = (V, E)$ besteht aus einer Menge von Ecken $V$ und einer Menge von Kanten $E \subseteq V \times V$.
+Jede Kante verbindet genau zwei verschiedene Ecken.\\
+Zwei Graphen $G_1=(V_1,E_1)$ und $G_2=(V_2,E_2)$ sind gleich, falls es eine Bijektion $$\phi : V1 \rightarrow V2$$ gibt mit $$E2 = \{(\phi(x),\phi(y)): (x,y)\in E1\}$$
+\end{definition}	
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1.pdf}
-		\caption{Beispiel Graph.}
+		\caption{Beispiel eines Graphen.}
 	\end{center}
 \end{figure}
 \noindent
-	Die Beziehung zwischen Ecken und Kanten kann durch eine Matrix dargestellt werden. Der vertikale Index der Matrix steht f\"ur die Kanten und der horizontale Index steht f\"ur die Ecken. Die Matrix ist Eins falls die Kante die Ecke mit einer anderen Ecke verbindet und sonst Null. Diese Matrix nennt man die \textbf{Inzidenzmatrix} des Graphen.\\
-	Als Beispiel betrachte die Inzidenzmatrix des Graphen in Abbildung 2.1.
+Die Beziehungen zwischen Ecken und Kanten lassen sich auch durch Matrizen darstellen.
+\\
+\\
+\textbf{Die Inzidenzmatrix}\\
+Die Inzidenzmatrix eines Graphen ist eine Matrix, deren Zeilen den Kanten und deren Spalten den Ecken entsprechen. Ein Eintrag ist $1$, falls die betreffende Kante die entsprechende Ecke verbindet, und $0$ sonst.\\
+\\
+	Als Beispiel betrachte die Inzidenzmatrix des Graphen in Abbildung 1.1.
 	\begin{center}
 		\begin{tabular}{c c c c c}
 			1 & 1 & 0 & 0 & 0\\
@@ -154,13 +174,18 @@ In den letzten Kapiteln konstruieren wir einen Hilbertraum auf dem wir eine Theo
 			0 & 0 & 0 & 1 & 1\\
 		\end{tabular} 
 	\end{center}
-	Im Grunde interessieren wir uns nicht f\"ur die spezielle Realisierung von Ecken und Kanten, sondern f\"ur die Verbindungsstruktur, die genau durch die Inzidenzmatrix festgelegt wird. Dies legt folgende Definition nahe.
-\begin{definition}
-	Ein \textbf{Graph} ist eine Matrix (Inzidenzmatrix) deren Zeilensumme zwei ist. Zwei Graphen mit Inzidenzmatrizen $X$ und $Y$ sind gleich falls man $X$ aus $Y$ durch Vertauschung von Zeilen und Spalten erhalten kann.
+Für unsere Zwecke ist nicht die konkrete geometrische Anordnung der Ecken und Kanten entscheidend, sondern lediglich ihre Verbindungsstruktur, die sich vollständig durch die Inzidenzmatrix beschreiben lässt. Dies motiviert die folgende Definition.
+\begin{definition}[Graph über Inzidenzmatrizen]
+Ein Graph ist eine $n \times k$-Matrix (Inzidenzmatrix )$I$, deren jede Zeile genau zwei Einträge gleich $1$ enthält (Zeilensumme = 2).\\
+\\
+Zwei Graphen mit Inzidenzmatrizen $X$ und $Y$ sind gleich falls man $X$ aus $Y$ durch Vertauschung von Zeilen und Spalten erhalten kann.\\
+\\
+Dabei gilt:
+ $$V=\{i: 1\leq i\leq k\}\text{, }E=\{(i,j):I_{m,i}=1,I_{m,j}=1,1\leq i,j\leq k,1\leq m\leq n\}.$$
 \end{definition}
-\begin{remark}
-	Alternativ kann ein Graph auch durch eine Adjazenzmatrix definiert werden. Eine solche Matrix ist quadratisch und beide Indizes stehen f\"ur die Ecken des Graphen. Die Adjazenzmatrix gibt an wie viele Kanten ein gegebenes Paar von Ecken verbindet.
-    Als Beispiel die Adjazenzmatrix unseres Beispielgraphen.
+\begin{remark}[Adjazenzmatrix]
+	Alternativ kann ein Graph durch eine \textbf{Adjazenzmatrix} beschrieben werden. Diese ist quadratisch, und die Einträge geben die Anzahl der Kanten zwischen zwei Ecken an.
+    Für unseren Beispielgraphen ergibt sich:
 	\begin{center}
 	\begin{tabular}{c c c c c}
 		0 & 1 & 1 & 1 & 0\\
@@ -170,15 +195,14 @@ In den letzten Kapiteln konstruieren wir einen Hilbertraum auf dem wir eine Theo
 		0 & 0 & 1 & 1 & 0\\
 	\end{tabular} 
 \end{center}
-Es ist leicht zu sehen, dass zu jeder Adjazenzmatrix die zugeh\"orige Inzidenzmatrix konstruiert werden kann, und umgekehrt
+Es ist leicht zu sehen, dass man aus jeder Inzidenzmatrix die zugehörige Adjazenzmatrix und umgekehrt konstruieren kann.
 \end{remark}
 \noindent
-Manchmal ist es notwendig \"uber Teile von Graphen zu sprechen. Hierzu dient das Konzept des Teilgraphen. Ein Teilgraph eines Graphen $G$ ist ein Graph, den man durch entfernen von Ecken und Kanten aus $G$ erh\"alt. Bedenke dabei, dass mit jeder Ecke auch alle diese Ecke verbindenten Kanten entfernt werden m\"ussen.
-\begin{definition}
-	Sei $G$ ein Graph mit Inzidenzmatrix $X$ und $H$ ein Graph mit Inzidenzmatrix $Y$, dann ist $G$ ein \textbf{Teilgraph} von $H$, falls man die Matrix $X$ durch entfernen von Zeilen oder Spalten aus der Matrix $Y$ erhalten kann.
+\textbf{Teilgraphen}\\
+Oft ist es notwendig \"uber Teile von Graphen zu sprechen. 
+\begin{definition}[Teilgraph]
+	Sei $G$ ein Graph mit Inzidenzmatrix $X$ und $H$ ein Graph mit Inzidenzmatrix $Y$. Dann ist $G$ ein \textbf{Teilgraph} von $H$, falls $X$ durch Entfernen von Zeilen und Spalten aus $Y$ entsteht.
 \end{definition}
-\noindent
-Betrachten wir hierzu einen Teilgraph des Beispielgraphen.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_teil.pdf}
@@ -186,9 +210,7 @@ Betrachten wir hierzu einen Teilgraph des Beispielgraphen.
 	\end{center}
 \end{figure}
 \noindent
-Die zugeh\"orige Inzidenzmatrix erhalten wir indem wir die ersten beiden Spalten entfernen und anschlie{\ss}end alle Zeilen, deren Summe ungleich zwei ist. 
-\noindent
-Das Resultat ergibt dann f\"ur kannten 4, 7 und 8 folgende Inzidenz mit den Ecken 3, 4 und 5.
+Die zugehörige Inzidenzmatrix entsteht, indem man die ersten beiden Spalten entfernt und anschließend alle Zeilen eliminiert, deren Summe ungleich zwei ist. Das Resultat für die Kanten ${4,7,8}$ und die Ecken ${3,4,5}$ lautet:
 	\begin{center}
 	\begin{tabular}{c c c}
 		1 & 1 & 0\\
@@ -196,194 +218,366 @@ Das Resultat ergibt dann f\"ur kannten 4, 7 und 8 folgende Inzidenz mit den Ecke
 		0 & 1 & 1\\
 	\end{tabular} 
 \end{center}
-Eine spezielle Art von Teilgraph erh\"alt man, wenn man eine Teilmenge $U$ der Ecken fixiert und alle Kanten aus dem Graphen entfernt, die eine nicht in der Teilmenge $U$ enthaltene Ecke verbinden. Man nennt so einen Graph den durch die Menge $U$ \textbf{induzierten Teilgraph}. Der Teilgraph in Abbildung 2.2 ist ein solches Beispiel. Es ist der durch $U =\{3, 4, 5\}$ induzierte Teilgraph des Beispielgraphen.
-\begin{definition}
-	Sei $G$ ein Graph und $n$ eine nat\"urliche Zahl, dann nennt man eine Folge von Ecken $(x_0, x_1,\dots,x_n)$ f\"ur die gilt, dass auf einander folgende Ecken immer durch eine Kante verbunden sind, einen \textbf{Pfad} auf $G$. Falls $x_0 = x_n$ gilt, nennt man dies einenen \textbf{geschlossenen Pfad}. Falls zus\"atzlich bis auf $x_0$ und $x_n$ keine Ecke mehrfach vorkommt, nennt man den Pfad \textbf{einfach geschlossen}.\\
-	Man nennt $G$ \textbf{zusammenh\"angend}, falls man von jeder Ecke von $G$ jede andere Ecke \"uber einen Pfad erreichen kann. Sei weiters $k\in\mathbb{N}$, dann sagt man ein Graph ist \textbf{$k$-fach zusammen\-h\"angend}, falls man $k - 1$ beliebige  entfernen k\"onnte und der resultierende Graph immer noch zusammenh\"angend w\"are.
+\begin{definition}[Induzierter Teilgraph]
+Sei $U \subseteq V$ eine Teilmenge der Ecken eines Graphen $G=(V,E)$. Der durch $U$ \textbf{induzierte Teilgraph} von $G$ ist der Graph, der aus den Ecken $U$ und genau den Kanten besteht, welche ausschließlich Ecken aus $U$ verbinden.
 \end{definition}
-\noindent
-Alle Graphen werden von hier an als zusammenh\"angend angenommen. Allgemein l\"asst sich jeder Graph als Ansammlung von zusammenh\"angenden Teilgraphen darstellen, wodurch diese Annahme im Sinne einer Reduktion gerechtfertigt wird.
-\begin{definition}
-	Ein Graph hat eine \textbf{planare Darstellung} wenn man ihn auf einem Blatt Papier zeichnen kann sodass folgende Kriterien erf\"ullt sind:
+Das Beispiel in Abbildung 1.2 ist der von $U={3,4,5}$ induzierte Teilgraph.\\
+\begin{definition}[Pfad und Zusammenhang]
+	Ein \textbf{Pfad} in einem Graphen $G$ ist eine endliche Folge von Ecken $(x_0,x_1,\dots, x_n)$ mit der Eigenschaft, dass jeweils $(x_i,x_{i+1}) \in E$ gilt.
 	\begin{itemize}
-		\item Die Ecken des Graphen werden als von einander getrennte Punkte gezeichnet.
-		\item Jede Kante wird als Linie zwischen den Punkten gezeichnet, deren Ecken sie verbinden soll.
-		\item Linien d\"urfen sich dabei nicht kreuzen.
-		\item Linien müssen von Punkten, die keine Endpunkte sind, getrennt bleiben.
+		\item Gilt zusätzlich $x_0 = x_n$, so spricht man von einem \textbf{geschlossenen Pfad}.
+		\item Ist der Pfad geschlossen und treten außer $x_0 = x_n$ keine Ecken mehrfach auf, so heißt er \textbf{einfach geschlossen}.
 	\end{itemize}
+Ein Graph $G$ heißt \textbf{zusammenhängend}, wenn es zu je zwei Ecken $u,v \in V$ einen Pfad von $u$ nach $v$ gibt.\\
+\\
+ Sei  $k\in\mathbb{N}$. Ein Graph heißt \textbf{$k$-fach zusammen\-h\"angend}, wenn  man $k - 1$ beliebige Ecken entfernen kann und der verbleibende Graph immer noch zusammenh\"angend ist.
 \end{definition}
 \noindent
-	Der Graph aus Abbildung 2.1 hat eine planare Darstellung. Um dies zu sehen muss man nur die Position von Ecke Nummer 2 ver\"andern.
+Von nun an betrachten wir ausschließlich zusammenhängende Graphen. Dies ist keine Einschränkung, da sich jeder (endliche) Graph in disjunkte zusammenhängende Komponenten zerlegen lässt; man kann sich daher in der Untersuchung stets auf eine einzelne Komponente beschränken.
+\begin{definition}[Planarer Graph]
+Ein Graph $G$ heißt \textbf{planar}, wenn es eine Einbettung von $G$ in die Ebene gibt, d.h. eine Darstellung, bei der
+	\begin{enumerate}
+		\item die Ecken durch paarweise verschiedene Punkte dargestellt werden,
+		\item die Kanten durch nicht schneidende Linienzüge zwischen den entsprechenden Punkten dargestellt werden,
+		\item keine Kante durch eine Ecke verläuft, die nicht ihr Endpunkt ist.
+	\end{enumerate}
+\end{definition}
+\noindent
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_planar.pdf}
-		\caption{Beispiel Graph (planar).}
+		\caption{Planare Darstellung des Beispielgraphen aus Abbildung 1.1 nach Verschieben der Ecke 2.}
 	\end{center}
 \end{figure}
 \noindent
-	Im Allgemeinen gibt es mehrere Wege wie ein bestimmter Graph gezeichnet werden kann. Es gibt sogar f\"ur ein und denselben Graphen oft mehrere planare Darstellungen.
+Im Allgemeinen gibt es mehrere Möglichkeiten, einen Graphen planar darzustellen. Ein und derselbe Graph kann also verschiedene planare Darstellungen besitzen.
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_planar2.pdf}
-		\caption{Beispiel Graph (planar) alternativ.}
+		\caption{Alternative planare Darstellung desselben Graphen.}
 	\end{center}
 \end{figure}
 \noindent
-Es ist also zus\"atzliche Information notwendig um eine planare Darstellung eindeutig festzulegen. Diese zus\"atzliche Information kann \"uber die Fl\"achen aus denen sich die planare Darstellung zusammensetzt gegeben werden.
+Um eine planare Darstellung eindeutig festzulegen, benötigt man zusätzliche Information, die man in Form der entstehenden Flächen beschreiben kann.
 
-\begin{definition}
-	Sei $G$ ein zusammenh\"angender Graph, dann nennt man $G$ einen \textbf{Kreis}, oder kreisartig, falls jede Ecke von $G$ mit genau zwei Kanten verbunden ist.
+\begin{definition}[Kreisgraph]
+	Ein zusammenhängender Graph $G$ heißt Kreis (oder kreisartig), wenn jede Ecke mit genau zwei Kanten verbunden ist.
 \end{definition}
 \noindent
 Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Die Kreise $A_1,\dots, A_4$ sind hier die Flächen. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.3]{Abbildungen/graph_1_planar_flach.pdf}
-		\caption{Beispiel Graph (planar) mit Fl\"achen.}
+		\caption{Planare Darstellung des Beispielgraphen mit Flächen $A_1,\dots,A_4$.}
 	\end{center}
 \end{figure}
 \noindent
-Wir wollen von Anfang an gewisse pathologische Beispiele von planaren Graphen ausklammern, daher fordern wir eine gewisse Regularität für die planaren Graphen unter Betrachtung.
-\begin{definition}
-	Sei $g=(V,E)$ ein Graph und $f=\{A_1, A_2, \dots, A_n, A_\infty\}$ eine Menge von kreisartigen induzierten Teilgraphen von $g$, den \textbf{Flächen}, dann nennen wir das Tupel $G=(g,f)$ einen \textbf{regulären planaren Graphen} falls:
-	\begin{itemize}
-	\item jede Ecke von $g$ in mindestens einer der Flächen vorkommt,
-	\item jede Kante von $g$ in genau zwei der Flächen vorkommt,
-	\item wobei falls zwei Flächen eine Ecke $x\in V$ gemeinsam haben, sie auch eine Kante $e\in E$ gemeinsam haben, die $x$ verbindet,
-	\item falls $A_1, A_2\in f$ maximal eine Kante sowohl in $A_1$ als auch in $A_2$ vorkommt.
-\end{itemize}
-Wir nennen $A_1, A_2, \dots, A_n$ die \textbf{Innenflächen} und $A_\infty$ die \textbf{Außenfläche}. Sei weiters $e$ eine Kante von $G$, dann sagt man $e$ liegt am \textbf{Rand} des Graphen wenn $e$ eine Kante der Außenfläche $A_\infty$ ist. Den Teilgraph $A_\infty$ nennt man auch \textbf{Rand des Graphen}.
+Wir wollen uns im Folgenden mit Graphen beschäftigen, die geschlossene Flächen beschreiben. Zu diesem Zweck führen wir das mit planaren Graphen eng verwandte Konzept des Netzes ein.
+\begin{definition}[Netz]
+	Sei $g=(V,E)$ ein Graph und $f=\{A_1, A_2, \dots, A_n\}$ eine Menge von kreisartigen induzierten Teilgraphen von $g$, die man \textbf{Flächen} bezeichnet werden.\\
+	Dann heißt $G=(g,f)$ ein \textbf{Netz}, wenn gilt:
+	\begin{enumerate}
+	\item jede Ecke $v\in V$ liegt in mindestens einer Fläche,
+	\item jede Kante $e\in E$ liegt in genau zwei Flächen,
+	\item Für je zwei Flächen  $A_i, A_j\in f$ liegt höchstens eine Kante gleichzeitig in beiden.
+\end{enumerate}
 \end{definition}
-
 \noindent
-Die obige Definition ist angelehnt an die Konstruktion einer planaren Darstellung bei der die Innenflächen nacheinander an die Kanten in die existierende Zeichnung eingefügt werden.
 \begin{remark}
-	Jeder reguläre planare Graph hat eine planare Darstellung. 
+	Ein Netz $G=((V, E),f)$ ist genau dann planar, wenn es eine Anordnung ${A_1,\dots,A_n}$ der Flächen gibt, so dass der induzierte Teilgraph des Durchschnitts des durch $\bigcup_{i=1}^{k-1}V(A_i)$ induzierte Teilgraphen mit $A_k$ für alle $n\geq k > 1$ zusammenhängend ist.\\
 \end{remark}
 \noindent
-\begin{comment}
-\begin{proposition}
-	Sei $G$ ein regulärer planarer Graph, dann ist der Rand ident mit $A_\infty$.
-\end{proposition}
-\begin{proof}
-	Sei $x\in A_\infty$, dann gibt es eine Kante $e$ die $x$ verbindet und genau ein $n\geq 1$ sodass $e\in A_n$. Entweder liegt die zweite Kante $e'$, die $x$ in $A_n$ verbindet in $A_\infty$ oder es gibt ein weiteres $m\neq n$ sodass $e'$ eine Kante von $A_m$ ist. Dieses Argument l\"asst sich maximal so oft wiederholen wie Kanten übrig sind in $G$, die $x$ verbinden, da jede weitere Kante laut Annahme unbedingt verschieden sein muss von der vorgehenden. Falls das Argument dann bis zur letzen Kante fortgesetzt werden musste, muss diese Kante am Rand liegen.
-\end{proof}
+Dies bedeutet anschaulich: man kann $G$ zeichnen, indem man zunächst $A_1$ einbettet und dann sukzessive $A_2,A_3,\dots$ hinzufügt, ohne dabei eine neue eingeschlossene Fläche zu erzeugen, die nicht selbst zu $f$ gehört. Dies schließt Konfigurationen wie solche auf einem Torus aus.
+\begin{definition}[Planares Netz, Außenfläche]
+Sei $G=(g,f)$ ein Netz und $g$ planar. Dann heißt $G$ ein \textbf{planares Netz}.
+Ist $f={A_1,\dots,A_n}$ eine Flächenmenge wie in der Bemerkung, so heißen $A_1,\dots,A_{n-1}$ die Innenflächen, und die verbleibende Fläche $A_n$, auch $A_\infty$ genannt, die Außenfläche.
+Eine Kante $e$ heißt Randkante, wenn sie zu $A_\infty$ gehört. Der induzierte Teilgraph $A_\infty$ wird der Rand des Netzes genannt. 
+\end{definition}
 \noindent
-\end{comment}
-Die in der Definition regulärer planarer Graphen beschriebene Struktur legt ein mit planaren Graphen eng verkn\"upftes Konzept nahe. Jede Kante des Graphen ist entweder ein Bindeglied zwischen zwei Fl\"achen oder es liegt am Rand des Graphen. Die am Rand liegenden Kanten k\"onnen wiederum als Bindeglieder mit der Außenfläche $A_{\infty}$ angesehen werden. Diese zusätzliche Graphenstruktur ist bekannt als dualer Graph.
-\begin{definition}
-	Es sei $G=((V,E), f)$ ein regulärer planarer Graph, dann kann man einen neuen Graphen, den \textbf{dualen Graph} $G^D = (f, E)$, konstruieren, sodass für eine gegebene Kante $e\in E$ und Ecke des dualen Graphen $A\in f$ ist die Inzidenzmatrix Eins falls $e$ die Fl\"ache $v$ begrenzt und sonst Null.
+Die in der Definition eines Netzes enthaltene Struktur legt ein weiteres Konzept nahe: Jede Kante des Netzes verbindet genau zwei Flächen. Dadurch ergibt sich der duale Graph.
+\begin{definition}[Dualer Graph]
+	Sei $G=(g,f)$ ein Netz. Der \textbf{duale Graph} $G^D$ ist der Graph mit
+	\begin{itemize}
+		\item Ecken $f$ (den Flächen von $G$),
+		\item Kanten: Zwei Flächen $A_i,A_j$ sind durch eine Kante verbunden, wenn sie im Netz $G$ eine gemeinsame Kante haben.
+	\end{itemize}
 \end{definition}
 \noindent
 Betrachte den dualen Graph des planaren Graphen aus Abbildung 1.5. 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_dual.pdf}
-		\caption{Dualer Graph des Beispielgraphen.}
+		\caption{Dualer Graph des Beispielgraphen (rote Knoten: Flächen, blaue Knoten: Ecken des Ausgangsgraphen).}
 	\end{center}
 \end{figure}
 \noindent
-Die blauen Ecken symbolisieren die Ecken des Ausgangsgraphen, während die roten Ecken die Ecken des dualen Graphen darstellen. Die Platzierung von $A_\infty$ ist beliebig gew\"ahlt. Offensichtlich bestimmt diese Wahl, welcher der Ecken des Ausgangsgraphen die umgebende Fl\"ache des dualen Graphen darstellt.\\
+Die Platzierung der Außenfläche $A_\infty$ im Dualgraphen ist beliebig. Diese Wahl bestimmt, welche Ecke des Ausgangsgraphen die Umrandung von $A_\infty$ darstellt.\\
 \\
-Unser Beispielgraph hat eine planare Darstellung, jedoch ist er kein regulärer planarer Graph, nachdem sein Dualgraph kein echter Graph in unserem Sinn ist sondern zwischen $A_4$ und $A_\infty$ zwei Kanten hat. Wir führen daher den Beispielgraph 2 ein, der ein regulärer planarer Graph ist, aber kein konvexer Polyeder.
+Im Beispielgraph aus Abbildung 1.1 besitzt die planare Darstellung zwar Flächen, doch der duale Graph enthält zwischen $A_4$ und $A_\infty$ zweimal eine Kante. Somit ist der Dual kein einfacher Graph im hier betrachteten Sinn, und der Ausgangsgraph bildet kein Netz im strengen Sinne.\\
+\\
+Wir betrachten deshalb den Beispielgraph 2:
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_2_planar_flach.pdf}
-		\caption{Beispielgraph 2.}
+		\caption{Beispielgraph 2: planares Netz (kein konvexer Polyeder).}
 	\end{center}
 \end{figure}
 \noindent
-Dies ist ein regulärer planarer Graph und sein Dualgraph ist ident mit dem Ausgangsgraph.
+Dies ist ein planares Netz, und sein Dualgraph ist gleich zum Ausgangsgraphen selbst.
 \begin{proposition}
-	Sei $G$ ein regulärer planarer Graph, dann ist der duale Graph $G^D$ ein regulärer planarer Graph und der duale Graph des  dualen Graphen, der \textbf{biduale Graph}  $(G^D)^D$ ist gleich dem Graph $G$.
+Ist $G$ ein (planares) Netz, so ist auch der duale Graph $G^D$ ein Netz.
+Zudem gilt: Der duale Graph des dualen Graphen ist gleich $G$, d.h.
+$$
+(G^D)^D = G
+$$
 \end{proposition}
 \begin{proof}
-
+	Zunächst zeigen wir, dass der duale Graph $G^D$ selbst ein Netz ist.
+	
+	\smallskip
+	\emph{1. $G^D$ ist ein Graph.}  
+	Nach Definition 1.8 (Punkt 2 und 3) hat jede Kante von $G$ genau zwei benachbarte Flächen. Damit ist $g^D=(f,E)$ mit $f$ als Menge der Flächen von $G$ und $E$ als Menge der gemeinsamen Kanten dieser Flächen wohldefiniert und erfüllt die Voraussetzungen eines Graphen.
+	
+	\smallskip
+	\emph{2. Konstruktion der Flächen von $G^D$.}  
+	Sei $x \in V(G)$ eine Ecke des Ausgangsgraphen. Die Menge 
+	$$
+	\{A \in f : x \in A\}
+	$$ 
+	der Flächen von $G$, die $x$ enthalten, bildet im Dualgraph einen kreisartigen induzierten Teilgraphen. Diesen nennen wir $\mathbb{F}(x)$.  
+	Jedem $x \in V(G)$ können wir also eindeutig einen Kreisgraphen $\mathbb{F}(x)$ in $G^D$ zuordnen. Wir setzen daher
+	$$
+	f(G^D) := \{\mathbb{F}(x) : x \in V(G)\}.
+	$$
+	
+	\smallskip
+	\emph{3. Überprüfung der Bedingungen aus Definition 1.9.}  
+	\begin{enumerate}
+		\item Jede Ecke $A \in V(G^D)$ ist eine Fläche von $G$. Da jede Fläche in $G$ zumindest eine Ecke des Graphen $G$ enthält, liegt $A$ in mindestens einer Fläche $\mathbb{F}(x) \in f(G^D)$.
+		\item Jede Kante $e \in E(G^D)$ entspricht einer gemeinsamen Kante zweier Flächen $A_i,A_j \in f$ im Ausgangsgraphen $G$. Diese Kante verbindet damit genau zwei Flächen in $G^D$, also ist die Bedingung erfüllt.
+		\item Zwei Flächen $\mathbb{F}(x), \mathbb{F}(y) \in f(G^D)$ teilen genau dann eine Kante, wenn $x$ und $y$ im Ausgangsgraphen durch eine Kante verbunden sind. Da es im ursprünglichen Graphen zwischen zwei Ecken höchstens eine Kante gibt, gilt dieselbe Einschränkung für $G^D$.
+	\end{enumerate}
+	
+	Damit sind alle Bedingungen für $G^D$ als Netz erfüllt.
+	
+	\smallskip
+	\emph{4. Rückkehr zum Ausgangsgraphen.}  
+	Schließlich folgt, dass die Ecken von $G$ über die Abbildung $x \mapsto \mathbb{F}(x)$ eindeutig mit den Flächen von $(G^D)^D$ übereinstimmen. Da die Kantenstruktur in beiden Richtungen erhalten bleibt, gilt
+	$$
+	(G^D)^D = G.
+	$$
 \end{proof}
 \noindent
-Bislang wurden nur "ungerichtete Graphen" behandelt, also solche deren Kanten keine ausgzeichnete Beziehung mit der einen oder der anderen durch sie verbundenen Ecke haben. Graphen, deren Kanten eine solche Orientierung aufweisen, nennt man "gerichtete Graphen" und eine Adjazenzmatrix ist ein praktisches Weg um solche Strukturen zu beschreiben. Im Gegensatz zur Adjazenzmatrix eines ungerichteten Graphen wird im gerichteten Fall, einfach die Forderung nach Symmetrie der Matrix weggelassen.
-\begin{definition}
-	Jeder planare Graph kann mit einer \textbf{Orientierung} \\ausgestattet werden, dies ist eine Funktion, die jeder Kante eine der Ecken zuordnet, die durch sie verbunden wird. Man stelle sich vor jede Kante ist ein Pfeil und die Orientierung gibt an auf welche Ecke sie zeigt. Man unterscheidet entsprechend eine \textbf{Spitzefunktion} $x\mapsto p(x)$, welche die Ecke zuordnet, die an der Pfeilspitze liegt und die \textbf{Schaftfunktion} $x\mapsto q(x)$, welche die andere Ecke zuordnet.
+Bislang wurden nur ungerichtete Graphen betrachtet, d.h. Kanten verbanden jeweils zwei Ecken ohne bevorzugte Richtung.\\
+Erlaubt man Kanten eine ausgezeichnete Richtung, so spricht man von einem gerichteten Graphen.\\
+\\
+Eine bequeme Darstellungsweise bietet die Adjazenzmatrix:
+\begin{itemize}
+	\item Im ungerichteten Fall ist sie symmetrisch,
+	\item im gerichteten Fall entfällt diese Symmetriebedingung.
+\end{itemize}
+\begin{definition}[Orientierung von Kanten]
+	Jeder Graph $G=(V,E)$ kann mit einer Orientierung ausgestattet werden. Eine \textbf{Orientierung} ist eine Abbildung, die jeder Kante eine ihrer beiden Endpunkte zuordnet.\\
+	Anschaulich stellt man sich jede Kante als Pfeil vor, der auf eine ihrer beiden Ecken zeigt.
+	\begin{itemize}
+		\item Die dadurch definierte Funktion $p:E \to V$ heißt \textbf{Spitzenfunktion} und ordnet jeder Kante ihre Endecke zu.
+		\item Die komplementäre Funktion $q:E \to V$ heißt \textbf{Schaftfunktion} und ordnet ihr die Anfangsecke zu.
+	\end{itemize}
+Ein Graph mit Orientierung heißt \textbf{gerichteter Graph} und ein Netz $G=(g,f)$ ist ein \textbf{gerichtetes Netz}, falls $g$ ein gerichteter Graph ist.\\
+\\
 \end{definition}
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_orient.pdf}
-		\caption{Graph mit Orientierung.}
+		\caption{Graph mit Orientierung: jede Kante erhält eine Richtung (Pfeilspitze).}
 	\end{center}
 \end{figure}
 \noindent
- Zu einem gegebenen Graph gibt es $2^{|E|}$ M\"oglichkeiten, wobei $E$ die Kanten\-menge ist, einen gegebenen Graph mit einer Orientierung auszustatten und ihn hierdurch zu einem gerichteten Graphen zu erheben.
- \begin{remark}
- 	Jede Orientierung auf einem planaren Graph $G$, bestimmt eindeutig eine zu ihr \textbf{duale Orientierung} auf dem dualen Graph. Sei hierzu $A$ eine Fl\"ache des planaren Graphen $G$, also ein induzierter Teilgraph, der ein Zyklus ist, und $e$ eine Kante des Graphen, die auch in $A$ liegt, dann setzen wir die Spitzenfunktion $p_D$ der dualen Orientierung $p_D(e) = A$, falls $e$ im planaren Graph $G$ im Uhrzeigersinn bez\"uglich zu $A$ orientiert ist.
+\begin{remark}[Anzahl der Orientierungen]
+	Ein Graph mit $|E|$ Kanten besitzt genau $2^{|E|}$ verschiedene Orientierungen, da jede Kante unabhängig in eine von zwei Richtungen orientiert werden kann.
+\end{remark}
+\begin{remark}[Orientierung von Flächen]
+	Jede Fläche (d.h. jeder Kreisgraph) kann in zwei Richtungen durchlaufen werden: 
+	\emph{im Uhrzeigersinn} oder \emph{gegen den Uhrzeigersinn}.\\
+	\\
+	Ist den Kanten eines Kreises eine Orientierung gegeben, so heißt die Fläche \emph{im Uhrzeigersinn orientiert}, 
+	wenn beim Umlaufen der Fläche im Uhrzeigersinn die Pfeilrichtungen jeweils mitlaufen, d.h. die Spitzenfunktion jeder Kante auf die nächste Ecke des Umlaufs zeigt. \\
+	\\
+	In einem Netz genügt es, eine einzelne Fläche im Uhrzeigersinn zu orientieren:  
+	die Orientierung der Kanten erzwingt dann konsistent die Orientierung aller benachbarten Flächen, 
+	da angrenzende Flächen an gemeinsamen Kanten stets entgegengesetzte Kantenrichtungen besitzen müssen, um jeweils im gewählten Umlaufsinn orientiert zu sein.
+\end{remark}
+
+ \begin{remark}[Duale Orientierung]
+ 	Jede Orientierung auf einem Netz $G$ induziert eindeutig eine \emph{duale Orientierung} auf dem Dualgraphen $G^D$.´\\
+ 	\\
+ 	Sei $e \in E$ eine Kante von $G$, und seien $A_i, A_j$ die beiden Flächen, die durch $e$ begrenzt werden. Ist $e$ im Uhrzeigersinn orientiert bezüglich $A_i$, so setzen wir die Spitzenfunktion des Duals $p_D(e)=A_i$, 
+ 	andernfalls $p_D(e)=A_j$.
  \end{remark}
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.4]{Abbildungen/graph_1_dual_orient.pdf}
-		\caption{Orientierung und duale Orientierung.}
+		\caption{Orientierung in einem planaren Netz (blau) und die daraus abgeleitete duale Orientierung (rot).}
 	\end{center}
 \end{figure}
-\noindent
 
-\chapter{Funktionenr\"aume und Operatoren}
-Im letzten Kapitel wurden Graphen mit zus\"atzlicher Struktur beschrieben, nämlich planare Graphen und das Konzept des dualen Graphen. In diesem Kapitel sollen die drei Arten von Funktionen auf planaren Graphen und Operatoren, die diese Funktionen aufeinander abbilden vorgestellt werden.
+
+\chapter{Funktionenräume und Operatoren}
+
+Im letzten Kapitel wurden Graphen mit zusätzlicher Struktur eingeführt, nämlich \emph{Netze} und das Konzept des \emph{dualen Graphen}. 
+In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operatoren, die zwischen den verschiedenen Funktionenräumen wirken. 
+
 \begin{definition}
-	Sei $G$ ein planarer Graph und $G^D$ sein dualer Graph, des weiteren sei $V$ die Menge der Ecken, $E$ die Menge der Kanten und $A$ die Menge der Fl\"achen (inklusive umgebende Fl\"ache), dann unterscheiden wir drei verschiedene (endlichdimensionale) Funktionenr\"aume auf dieser Struktur, den Raum der Kantenfunktionen $\mathfrak{K}=\{f|f: E\rightarrow\mathbb{R}\}$, den Raum der Eckfunktionen $\mathfrak{E}=\{f|f: V\rightarrow\mathbb{R}\}$ und den Raum der Fl\"achenfunktionen $\mathfrak{F}=\{f|f: A\rightarrow\mathbb{R}\}$. Die analogen komplexen Funktionenr\"aume werden abgek\"urzt als $\mathfrak{F}_\mathbb{C}$,$\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.
+	Sei $G=(V,E,F)$ ein Netz, wobei $V$ die Menge der Ecken, $E$ die Menge der Kanten und $F$ die Menge der Flächen sei. 
+	Dann definieren wir drei reelle, endlichdimensionale Funktionenräume:
+	\[
+	\mathfrak{E}(G) = \{f \mid f: V \to \mathbb{R}\}, \qquad
+	\mathfrak{K}(G) = \{f \mid f: E \to \mathbb{R}\}, \qquad
+	\mathfrak{F}(G) = \{f \mid f: F \to \mathbb{R}\}.
+	\]
+	Die analogen komplexwertigen Räume werden durch $\mathfrak{E}_\mathbb{C}(G)$, 
+	$\mathfrak{K}_\mathbb{C}(G)$ und $\mathfrak{F}_\mathbb{C}(G)$ bezeichnet.
 \end{definition}
+\begin{remark}
+	\emph{Bemerkung:} Die Räume der Eck- und Kantenfunktionen lassen sich bereits auf allgemeinen Graphen definieren. 
+	Der Flächenfunktionsraum $\mathfrak{F}(G)$ setzt jedoch die Netzstruktur voraus.
+\end{remark}
 \noindent
 Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen. 
-\begin{definition}
-	Sei $G$ ein Graph, $f\in\mathfrak{E}(G)$ eine Eckfunktion auf $G$, seien weiters $p$ und $q$ die Spitzefunktion und Schaftfunktion einer Orientierung auf $G$, dann nennt man $grad(f)\in\mathfrak{K}(G)$ definiert durch 
-	$$grad(f)(e) = f(p(e)) - f(q(e))$$ 
-	f\"ur eine beliebige Kante $e$ den Gradienten von $f$.
+\begin{definition}[Gradient]
+	Sei $G=(V,E)$ ein Graph mit einer Orientierung. 
+	Seien $p,q:E\to V$ die \emph{Spitzen-} bzw. \emph{Schaftfunktion}, die jeder Kante ihre End- bzw. Anfangsecke zuordnen. 
+	Für $f \in \mathfrak{E}(G)$ definieren wir den \emph{Gradienten}
+	\[
+	\mathrm{grad}(f)\in \mathfrak{K}(G), \qquad 
+	\mathrm{grad}(f)(e) = f(p(e)) - f(q(e)).
+	\]
 \end{definition}
-\begin{definition}
-	Sei $G$ ein Graph, $f\in\mathfrak{K}(G)$ eine Kantenfunktion auf $G$, seien weiters $p$ und $q$ die Spitzefunktion und Schaftfunktion einer Orientierung auf $G$, dann nennt man $div(f)\in\mathfrak{E}(G)$, definiert durch: 
-	$$div(f)(x) = \sum_{\acute{e}\in E, q(\acute{e})=x}f(\acute{e}) -\sum_{e\in E, p(e)=x}f(e)$$
-	f\"ur eine beliebige Ecke $x$ die Divergenz von $f$.
+\begin{definition}[Divergenz]
+	Sei $G=(V,E)$ ein orientierter Graph, $v\in \mathfrak{K}(G)$. 
+	Dann ist die \emph{Divergenz} definiert als Funktion $\mathrm{div}(v)\in \mathfrak{E}(G)$:
+	\[
+	\mathrm{div}(v)(x) = 
+	\sum_{\substack{e\in E \\ q(e)=x}}v(e) \;-\!
+	\sum_{\substack{e\in E \\ p(e)=x}}v(e).
+	\]
+	Sie misst den Nettofluss von $x$ weg.
 \end{definition}
 \noindent
-	Der Gradient hebt eine Eckfunktion auf die Kanten, und die Divergenz eine Kantenfunktion auf die Ecken. Der Graph $G$ und der duale Graph $G_D$ haben dieselben  Kantenfunktionen, daher bildet dieser Raum eine Verbindung zwischen Gradient und Divergenz des Graphen und des dualen Graphen. Der Gradient und die Divergenz des dualen Graphen werden durch $grad_D$ respektive $div_D$ symbolisiert. Falls eine Kantenfunktion als Fluss interpretiert wird, entspricht die Divergenz der Kantenfunktion dem Nettofluss von den Ecken weg.
+Der Gradient hebt Funktionen von den Ecken auf die Kanten, während die Divergenz Kantenfunktionen auf Eckfunktionen abbildet.  
+Da $G$ und sein Dual $G^D$ dieselbe Kantenmenge besitzen, bilden die Kantenfunktionen die Brücke zwischen den Operatoren auf $G$ und jenen auf $G^D$.  
+Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Operatoren auf dem Dualgraphen. 
 \begin{proposition}
-		Sei $G$ ein planarer Graph mit Orientierung, dann sind der Gradient und die Divergenz lineare Operatoren und es gilt:
-		$$div = -grad^T$$
-		wobei sich die Adjunktion auf das Standardskalarprodukt bezieht.
+	Sei $G$ ein gerichteter Graph. Der Gradient und die Divergenz sind lineare Operatoren und es gilt
+	\[
+	\mathrm{div} = - \mathrm{grad}^\top
+	\]
+	bezüglich des Standardskalarprodukts.
 \end{proposition}
 \begin{proof}
-Sei $u\in\mathfrak{E}(G)$ und $v\in \mathfrak{K}$, dann schreiben wir das Skalarprodukt:
-$$\langle v, \text{grad}(u)\rangle_\mathfrak{K} = \sum_{x\in E} v(x) * (u(p(x) - u(q(x)))) = $$
-$$\sum_{x\in E} v(x) * u(p(x)) - \sum_{x\in V} v(x) * u(q(x))=$$
-$$\sum_{e\in V} u(e) * \sum_{j\in E, p(j)=e}v(j) - \sum_{e\in V} u(e) * \sum_{j\in E, q(j)=e}v(j) =$$
-$$-\langle \text{div}(v), u\rangle_\mathfrak{E}$$
+	Seien $u \in \mathfrak{E}(G)$ und $v \in \mathfrak{K}(G)$. Dann gilt:
+	\begin{align*}
+		\langle v, \mathrm{grad}(u)\rangle_{\mathfrak{K}}
+		&= \sum_{e\in E} v(e)\,\bigl(u(p(e)) - u(q(e))\bigr) \\
+		&= \sum_{e\in E} v(e) u(p(e)) - \sum_{e\in E} v(e) u(q(e))\\
+		&= \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ p(e)=x}}v(e) - \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ p(e)=x}}v(e)\\
+		&= \sum_{x\in V} u(x) \left( \sum_{\substack{e\in E \\ p(e)=x}} v(e) - \sum_{\substack{e\in E \\ p(e)=x}} v(e)\right) \\
+		&= - \langle \mathrm{div}(v), u\rangle_{\mathfrak{E}}.
+	\end{align*}
+	Damit folgt die Aussage.
 \end{proof}
-\begin{definition}
-	Sei $G$ ein planarer Graph mit Orientierung und $f\in\mathfrak{K}(G)$, $(x_i)_{i=1}^n$ ein Pfad auf $G$, $(e_i)_{i=1}^{n-1}$ die Folge der Kanten, die f\"ur jedes $1\leq i \leq n-1$ $x_i$ und $x_{i+1}$ verbinden und es sei $\sigma_i$ f\"ur jedes $1\leq i \leq n-1$ gleich $-1$ falls $p(e_i)=x_i$ ist und sonst $+1$, dann nennt man die Summe
-	$$ \sum_{i=1}^{n-1} \sigma_i f(e_i)$$
-	die \textbf{Pfadsumme.}
+\begin{definition}[Pfadsumme]
+	Sei $G=(V,E)$ ein gerichteter Graph, $f \in \mathfrak{K}(G)$, und sei
+	$\gamma=(x_1,\dots, x_n)$ ein Pfad in $G$. 
+	Für die dazugehörigen Kanten $(e_1,\dots, e_{n-1})$ definieren wir Vorzeichen
+	\[
+	\sigma_i = \begin{cases}
+		-1, & p(e_i)=x_i,\\
+		+1, & q(e_i)=x_i,
+	\end{cases}
+	\]
+	und setzen
+	\[
+	S_G(\gamma)(f)=\sum_{i=1}^{n-1}\sigma_i f(e_i)
+	\]
+	als die \emph{Pfadsumme}.
 \end{definition}
 \begin{proposition}
-	Sei $G$ ein planarer Graph mit Orientierung, $f\in\mathfrak{K}(G)$ sodass $\text{div}_D(f)=0$, dann gilt dass f\"ur jeden geschlossenen Pfad in $G$ die Pfadsumme gleich Null ist.
+	Sei $G$ ein gerichtetes planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{div}_D(f)=0$. 
+	Dann gilt: Jeder geschlossene Pfad in $G$ hat Pfadsumme Null.
 \end{proposition}
 \begin{proof}
-Zu allererst reicht es einfach geschlossene Pfade zu betrachten. Diese Einschränkung ist zul\"assig weil sich f\"ur alle anderen geschlossenen Pfade die Pfadsumme sich als Summe solcher einfach geschlossenen Pfade schreiben l\"asst.\\
+Sei $A \in F(G)$ eine Fläche. Dann entspricht die Pfadsumme des gegen den 
+Uhrzeigersinn durchlaufenen Randes von $A$ genau dem Wert 
+$\mathrm{div}_D(f)(A)$ nach Definition\\
 \\
-Jeder einfach geschlossene Pfad zerteilt den Graph in zwei Teilgraphen, sodass die Vereinigung der Teilgraphen ganz $G$ ist und der Durchschnitt nur den geschlossenen Pfad enth\"alt. Jener Teilgraph, der keinen Teil des Randes von $G$ enth\"alt ist der innere Graph.\\
+Es genügt, einfach geschlossene Pfade zu betrachten, da jeder kompliziertere 
+geschlossene Pfad eine Zusammensetzung solcher ist. 
+Sei also $\gamma$ ein einfach geschlossener Pfad in $G$, der im Uhrzeigersinn durchlaufen wird. 
+Dieser Pfad zerlegt $G$ in zwei Teilnetze, deren Schnitt genau $\gamma$ ist. 
+Da $G$ planar ist, nennen wir den Teil, der nicht den äußeren Rand des Gesamtnetzes enthält, den \emph{inneren Graph} $H$.  
 \\
-Sei $f\in\mathfrak{K}(G)$, dann gilt f\"ur jeden Zyklus in $G$, dass falls er als Pfad gegen den Uhrzeigersinn orientiert geschrieben wird, die Pfadsumme gleich dem Wert von $\text{div}_D$ ist.\\
 \\
-Sein nun $(x_i)_{i=1}$ ein einfach geschlossener Pfad, dann k\"onnen wird die Pfad- summe als Summe \"uber alle Zyklen des zugeh\"origen inneren Graphen schreiben, da die Pfade \"uber die Zyklen immer als gegen den Uhrzeigersinn orientiert angenommen werden, heben sich alle Kantenwerte auf, die nicht zum Pfad $(x_i)_{i=1}$ geh\"oren.
-Da $\text{div}_D(f)=0$ ist, ist somit auch die Pfadsumme gleich Null.
+Wir betrachten nun eine Fläche $A \in F(H)$, die eine gemeinsame Kante 
+$e \in E$ mit dem Rand von $H$ besitzt. 
+Erweitern wir $\gamma$, indem wir anstelle der Randkante $e$ den ganzen 
+Randumlauf von $A$ in den Pfad einfügen (im Uhrzeigersinn), so erhalten wir 
+einen neuen Randumlauf $\gamma'$, der ebenfalls das Innere von $H$ enthält. 
+Dann gilt die Zerlegungsformel
+\[
+S_H(\gamma)(f) \;=\; S_H(\gamma')(f) \;+\; \mathrm{div}_D(f)(A).
+\]
+Da $\mathrm{div}_D(f)=0$ gilt, verschwindet der Beitrag $\mathrm{div}_D(f)(A)$. 
+Wir können daher $A$ eliminieren, ohne den Wert der Pfadsumme zu ändern. 
+Da $H$ nur endlich viele Flächen enthält, wiederholen wir diesen Vorgang 
+endlich viele Male, bis keine Fläche mehr übrig bleibt. 
+\\
+\\
+Am Ende dieser Elimination bleibt $S_H(\gamma)(f)=0$. 
+Damit verschwindet die Pfadsumme für jeden einfach geschlossenen Pfad, 
+und somit auch für beliebige geschlossene Pfade.
 \end{proof}
 \noindent
-	Es besteht eine Analogie der hier definierten Operatoren zu den Differential\-operatoren der Vektoranalysis. Interessanterweise entspricht die duale Divergenz der Rotation. Die Analogie untermauernd kann man folgendes Theorem formulieren.
-\begin{theorem}[Der de Rham Komplex]
-	Die Operatoren $grad$, $div$, $grad_D$ und $div_D$ erf\"ullen folgende exakte Sequenzen, daher das Bild der Abbildungen entspricht dem Kern der nachfolgenden Abbildung. Beachte, dass $\mathbb{R}$ in den Formeln f\"ur die dem entsprechenden Raum zugeh\"origen konstanten Funktionen steht.
-\begin{equation}
-	\mathbb{R}\longrightarrow\mathfrak{E}(G) \overset{grad}{\longrightarrow}\mathfrak{K}(G) \overset{div_D}{\longrightarrow}\mathfrak{F}(G)/\mathbb{R}\longrightarrow 0
-\end{equation}
-\begin{equation}
-	\mathbb{R}\longrightarrow\mathfrak{F}(G) \overset{grad_D}{\longrightarrow}\mathfrak{K}(G) \overset{div}{\longrightarrow}\mathfrak{E}(G)/\mathbb{R}\longrightarrow 0
-\end{equation}
+\begin{remark}
+	Entscheidend im obigen Argument ist die \emph{Planarität} des Netzes. 
+	Nur im planaren Fall lässt sich jeder einfach geschlossene Pfad als Rand 
+	eines wohldefinierten inneren Teilnetzes auffassen, das aus endlich vielen 
+	Flächen besteht. Dadurch können diese Flächen sukzessive entfernt werden, 
+	wodurch sich die Pfadsumme Schritt für Schritt auf Null reduziert. \\
+	\\
+	Genau diese Möglichkeit, eingeschlossene Flächen nacheinander 
+	"abzutragen", ist die zentrale Idee im Beweis. \\
+	\\
+	In nicht-planaren Situationen (etwa bei Netzen auf einem Torus) ist eine solche 
+	Flächen-Elimination im Allgemeinen nicht möglich: Dort existieren geschlossene 
+	Pfade, die zwar zusammenziehbar erscheinen, aber kein durch Flächen aufgespanntes 
+	Inneres besitzen. In solchen Fällen kann die Pfadsumme auch bei 
+	$\mathrm{div}_D(f)=0$ von Null verschieden sein.
+\end{remark}
+\noindent
+Die hier eingeführten Operatoren $\mathrm{grad}$, $\mathrm{div}$, 
+$\mathrm{grad}_D$ und $\mathrm{div}_D$ besitzen direkte Analoga zu den klassischen Differentialoperatoren der Vektoranalysis. 
+Insbesondere spielt die duale Divergenz die Rolle der Rotation. 
+Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
+\begin{theorem}[Diskreter de Rham-Komplex]
+	Sei $G$ ein gerichtetes Netz. 
+	Dann erfüllen die Operatoren die folgenden exakten Sequenzen:
+	\begin{equation} \label{eq:derham1}
+		\mathbb{R}\longrightarrow \mathfrak{E}(G) 
+		\overset{\mathrm{grad}}{\longrightarrow} \mathfrak{K}(G) 
+		\overset{\mathrm{div}_D}{\longrightarrow} \mathfrak{F}(G)/\mathbb{R} 
+		\longrightarrow 0,
+	\end{equation}
+	\begin{equation} \label{eq:derham2}
+		\mathbb{R}\longrightarrow \mathfrak{F}(G) 
+		\overset{\mathrm{grad}_D}{\longrightarrow} \mathfrak{K}(G) 
+		\overset{\mathrm{div}}{\longrightarrow} \mathfrak{E}(G)/\mathbb{R} 
+		\longrightarrow 0.
+	\end{equation}
+	Hierbei steht $\mathbb{R}$ jeweils für den eindimensionalen Raum der konstanten Funktionen des entsprechenden Typs.
 \end{theorem}
+
 \begin{proof}[Beweis de Rham Komplex]
 	Es gen\"ugt Gleichung 2.1 in Theorem 2.4 zu beweisen, da 2.2 durch Anwendung von 2.1 auf den dualen Graphen folgt.\\
 	\\
