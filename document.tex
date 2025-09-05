@@ -284,6 +284,9 @@ Wir wollen uns im Folgenden mit Graphen beschäftigen, die geschlossene Flächen
 \end{definition}
 \noindent
 \begin{remark}
+	Jedes Netz ist per Definition automatisch \\zusammenhängend. \\
+	\\
+	Außerdem gilt: 
 	Ein Netz $G=((V, E),f)$ ist genau dann planar, wenn es eine Anordnung ${A_1,\dots,A_n}$ der Flächen gibt, so dass der induzierte Teilgraph des Durchschnitts des durch $\bigcup_{i=1}^{k-1}V(A_i)$ induzierte Teilgraphen mit $A_k$ für alle $n\geq k > 1$ zusammenhängend ist.\\
 \end{remark}
 \noindent
@@ -624,169 +627,344 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	$\mathrm{grad}$, $\mathrm{div}$, $\mathrm{grad}_D$ und $\mathrm{div}_D$ 
 	entsprechen den äußeren Ableitungen im klassischen de Rham-Komplex.
 \end{remark}
-\chapter{Das Poisson Problem}
-Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das (verallgemeinerte) Poissonproblem. Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf der bisher behandelten Graphentheorie formuliert und gel\"ost.
-\paragraph{Das verallgemeinerte Poisson Problem}
-Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r$ eine positive Kantenfunktion und $f$ und $g$ Eckfunktionen, dann nennt man eine Eckfunktion $u$ eine L\"osung des verallgemeinerten Poisson Problems falls gilt:
-
-\begin{align}
-	-div(r * grad(u))(x) = f(x)\text{  falls } x\notin \partial\\
-	u(x) = g(x)\text{  falls } x\in \partial
-\end{align}
-Die Bedingung 3.2 ist motiviert durch Randwertprobleme aus der Theorie der partiellen Differential\-gleichungen.
-\begin{definition}
-	Sei $G$ ein planarer Graph mit Orientierung, $r$ eine positive Kantenfunktion, dann nennt man $\Delta_r$, definiert durch 
-	$$\Delta_r(u) = -div(r * grad(u))\text{ falls }u\in\mathfrak{E}(G)$$
-	den \textbf{$r$-gewichteten Laplace} Operator
-\end{definition}
-\paragraph{Die Formulierung f\"ur elektrische Netzwerke}Gegeben ein Netzwerk(Graph) bestehend aus Spannungsquellen, Stromquellen und linearen Komponenten (elektrische Widerst\"ande), finde  die elektrische Spannung zwischen beliebigen zwei Punkten im Netzwerk, und f\"ur jeden Leiter im Netzwerk, den durch\-flie\ss{}enden elektrischen Strom.
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{Abbildungen/stromkreis_1.pdf}
-		\caption{Beispiel Stromkreis.}
-	\end{center}
-\end{figure}
 \noindent
-\paragraph{Die Formulierung in der Elektrostatik} Sei $\Omega$ eine offene Teilmenge des $\mathbb{R}^3$ mit glatten Rand $\partial\Omega$ und $\rho$ die elektrische Ladungsdichte in $\Omega$. Gesucht ist das Potential $\phi:\Omega\rightarrow\mathbb{R}$ f\"ur das gilt:
-\begin{align}
-\Delta \phi(x) = \rho(x)\text{  falls } x\in \Omega\\
-\phi(x) = 0\text{  falls } x\in \partial\Omega
-\end{align}
-Physikalisch k\"onnte $\Omega$ etwa ein Hohlraum in einem guten elektrischen Leiter, wie etwa einem Metall, sein,  da ein Solcher das Potential am Rand des Hohlraumes auf einen konstanten Wert zwingt.\\
-\\
-Die Elektrostatik lebt im $\mathbb{R}^3$, daher ist die bisher entwickelte Theorie nur in Grenzf\"allen anwendbar. Ein solcher Grenzfall tritt ein falls $\rho$ und $\Omega$ entlang der z-Achse konstant sind, daher das Problem effektiv zwei Dimensional wird. F\"ur genau diesen Fall wird eine Theorie der zweidimensionalen Maxwell-Gleichungen im n\"achsten Kapitel entwickelt. 
-\begin{proposition}
-	Sei $G$ ein  Graph, $r$ eine positive Kantenfunktion und $\Delta_r$ der $r$-gewichtete Laplace Operator, dann gilt:
-	\begin{itemize}
-		\item Die Form der Matrix $\Delta_r$ is unabh\"angig von der gew\"ahlten Orientierung auf $G$. 
-		\item $\Delta_r$ ist symmetrisch.\\
-		\item $\Delta_r$ ist positiv semidefinit.\\
-		\item Der Kern von $\Delta_r$ ist der Raum der konstanten Eckfunktionen.
-	\end{itemize}
-\end{proposition}
-\begin{proof}
-	Seien $p_0$ und $p_1$ Orientierungen auf $G$ und $grad_0$ und $grad_1$ die zugeh\"oringen Gradienten, dann gilt:
-	$$grad_0 = D * grad_1$$
-	wobei $D$ eine Diagonalmatrix ist, deren Eintr\"age $\pm 1 $ sind. Wegen Satz 2.1 folgt die erste Aussage.\\
-	\\
-	Die zweite Aussage folgt direkt aus der Definition von $\Delta_r$ und Satz 2.1. Seien hierzu $u$ und $v\in\mathfrak{E}$, dann gilt:
-	$$\langle u, \Delta_r(v)\rangle_\mathfrak{E} = \langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}$$
-	Analog zeigt man die dritte Aussage, indem man $u=v$ setzt.
-	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(u)\rangle_\mathfrak{K}\geq 0$$
-	Die letzte Aussage: $u\in\text{kern}(\Delta_r)$ gilt genau dann wenn f\"ur jedes $v\in\mathfrak{E}$
-	$$\langle v, \Delta_r(u)\rangle_\mathfrak{E}=0$$
-	also genau dann wenn
-	$$\langle \sqrt{r}*\text{grad}(u), \sqrt{r}*\text{grad}(v)\rangle_\mathfrak{K}=0$$
-	Da $r>0$ gilt, ist dies equivalent zu der Aussage $u\in\text{kern}(\text{grad})$. Der Gradient ist genau dann Null wenn $u$ konstant ist, da unser Graph zusammenh\"angend ist.
-\end{proof}
-\noindent
-In der kontinuierlichen Theorie des Poissonproblems ist die Poincare Ungleichung von zentraler Bedeutung, deren Analogon in unserer graphischen Theorie wir als n\"achstes betrachten.
-\begin{proposition}[Poincare Ungleichung]
-	Sei $G$ ein Graph, $\partial$ eine Teilmenge der Ecken, $r>0$ eine Kantenfunktion und $u\in\mathfrak{E}$, sodass $u|_\partial=0$ dann gilt:
-	$$\langle u, u\rangle_{\mathfrak{E}}\leq \frac{|V|}{\min_{e\in E}r(e)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
-\end{proposition}
-\begin{proof}
-	Sei $x\in\partial^c$ and $(x_i)_{i=1}^n$ ein Pfad von $\partial$ nach $x$, dann gilt f\"ur die Pfadsumme:
-	$$u(x)^2 = (\sum_{i=1}^{n-1} \sigma_i *\text{grad}(u)(e_i))^2 \leq $$
-	$$(\max_{e\in E}\frac{\sum_{s=1}^{n-1}\sqrt{r}(e_s)}{\sqrt{r(e)}})^2*(\sum_{i=1}^{n-1} \sigma_i *\frac{\sqrt{r(e_i)}}{\sum_{s=1}^{n-1}\sqrt{r}(e_s)}\text{grad}(u)(e_i))^2$$
-	Wende die Jensen Ungleichung an und fasse zusammen:
-	$$u(x)^2\leq (\max_{e\in E}\frac{\sum_{s=1}^{n-1}\sqrt{r}(e_s)}{\sqrt{r(e)}})^2*\sum_{i=1}^{n-1}(\frac{\sqrt{r(e_i)}}{\sum_{s=1}^{n-1}\sqrt{r}(e_s)}\text{grad}(u)(e_i))^2=$$
-	$$(\max_{e\in E}\frac{1}{r(e)})*\sum_{i=1}^{n-1} (\sqrt{r}\text{grad}(u)(e_i))^2\leq(\max_{e\in E}\frac{1}{r(e)})*\sum_{k\in E} (\sqrt{r(k)}\text{grad}(u)(k))^2=$$
-	$$(\max_{e\in E}\frac{1}{r(e)})*\langle \sqrt{r}\text{grad}(u), \sqrt{r}\text{grad}(u)\rangle_{\mathfrak{K}}=(\max_{e\in E}\frac{1}{r(e)})*\langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
-	Summieren wir nun \"uber $V$:
-	$$\langle u, u\rangle_{\mathfrak{E}}\leq \frac{|V|}{\min_{e\in E}r(e)} \langle u, \Delta_r(u)\rangle_{\mathfrak{E}}$$
-\end{proof}
-\noindent
-Es wurde nun genug Vorarbeit geleistet um das zentrale Existenz Theorem dieses Kapitels zu beweisen.
-\begin{theorem}
-	Sei $G$ ein Graph, $r$ eine Kantenfunktion, $\partial$ eine Teilmenge der Ecken und $f$ sowie $g$ Eckfunktionen, dann ist das Poissonproblem eindeutig l\"osbar falls $\partial$ nicht leer ist. Wenn $\partial$ jedoch leer ist gibt es nur eine L\"osung wenn $f$ im orthogonalen Komplement der konstanten Funktionen liegt.
-\end{theorem}
-\begin{proof}
-	Falls $\partial$ leer ist, folgt da der Kern von $\Delta_r$ durch die konstanten Funktionen gebildet wird und weil die Abbildung symmetrisch ist, dass der Bildraum das orthogonale Komplement der konstanten Funktionen ist.\\
-	\\
-	Falls aber $\partial$ nicht leer ist, aber $\partial\neq V$ ist, sollen gilt:\\
-	Sei $A$ die Untermatrix die man durch streichen der zu $\partial$ geh\"orenden Zeilen und Spalten erh\"alt.\\
-	\\
-	Zwei alternative Wege die Trivialit\"at des Kernes von $A$ zu zeigen:\\
-	\\
-	\textbf{1. Alternative:} Die Poincare Ungleichung zeigt bereits, dass der Kern trivial sein muss.\\
-	\\
-	\textbf{2. Alternative:}  Sei $x$ ein Element von $\text{kern}(A)$, daher $A(x)=0$. Wir k\"onnen ein Element $\hat{x}$ von $\mathfrak{E}$ konstruieren, sodass $\hat{x}$ an den Ecken die zu $\partial$ geh\"oren Null gesetzt wird und sonst den Wert annimmt den $x$ an der entsprechenden Ecke hat. Es gilt dann:
-	$$\Delta_r(\hat{x})|_{E-\partial} = 0$$
-	und somit
-	$$\langle \sqrt{r}*\text{grad}(\hat{x}),  \sqrt{r}*\text{grad}(\hat{x})\rangle_{\mathfrak{K}} = \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}} = 0$$
-	Damit muss aber $\hat{x}$ zum Kern von $\Delta_r$ geh\"oren, also eine konstante Funktion sein. Die einzige M\"oglichkeit wie $\hat{x}$ eine konstante Funktion ist, ist wenn es identisch Null ist. Es wurde somit gezeigt, dass der Kern von $A$ trivial ist und somit $A$ invertierbar ist.\\
-	\\
-	Das Setzen der Randbedingung entspricht aber genau dem Streichen dieser Zeilen sowie Spalten und der Konstruktion einer zugeh\"origen im Allgemeinen von Null verschiedenen Inhomogenit\"at.\\
-	\\
-	Der Fall $\partial=V$ ist trivialerweise erf\"ullt.
-\end{proof}
-\noindent
-Wandeln wir zur Untermauerung der theoretischen Arbeit an einem Beispiel den elektrischen Stromkreis in Abbildung 3.1 in einen Graphen in dem bisher entwickelten Formalismus um.
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{Abbildungen/elektro.pdf}
-		\caption{Beispiel Stromkreis (Graph).}
-	\end{center}
-\end{figure}
-\noindent
-An den elektrischen Widerst\"anden jeder Kante k\"onnen wir in Abbildung 3.2 die Korrespondenz zu Abbildung 3.1 erkennen. Die Kehrwerte der Widerst\"ande entsprechen der Kantenfunktion $r$ und $\partial=\{2, 3\}$, $g(2)=5$, $g(3)=0$ und $f\equiv 0$. Das $V$ steht f\"ur die Spannungsquelle beziehungsweise die Randbedingung.\\
-\begin{center}
-$
-\Delta_r  = \text{grad}^T * r * \text{grad} = 
-\begin{pmatrix}
-1 & -1 & 0 & 0\\
-1 & 0 & -1 & 0\\
-1 & 0 & 0 & -1\\
-0 & -1 & 1 & 0\\
-0 & 0 & 1 & -1\\
-0 & -1 & 0& 1\\
-\end{pmatrix}^T
-\begin{pmatrix}
-\frac{1}{500}& 0 &0& 0& 0&0\\
-0& \frac{1}{1000} & 0 & 0 &0&0\\
-0 & 0 & \frac{1}{2000} & 0 &0&0\\
-0 & 0 & 0 & V & 0&0\\
-0 & 0 & 0 & 0 & \frac{1}{4700}&0\\
-0 & 0 & 0& 0 & 0 &\frac{1}{400}\\
-\end{pmatrix}
-\begin{pmatrix}
-1 & -1 & 0 & 0\\
-1 & 0 & -1 & 0\\
-1 & 0 & 0 & -1\\
-0 & -1 & 1 & 0\\
-0 & 0 & 1 & -1\\
-0 & -1 & 0& 1\\
-\end{pmatrix}=
-\begin{pmatrix}
-	\frac{1}{500} + \frac{1}{1000} + \frac{1}{2000}& -\frac{1}{500}  & -\frac{1}{1000} & -\frac{1}{2000}\\
-	-\frac{1}{500}  & \frac{1}{500} + V + \frac{1}{400} & -V & -\frac{1}{400}\\
-	-\frac{1}{1000} & -V& \frac{1}{1000} + V + \frac{1}{4700} & -\frac{1}{4700} \\
-	-\frac{1}{2000} & -\frac{1}{400}&-\frac{1}{4700}  & \frac{1}{400} + \frac{1}{4700} + \frac{1}{2000}
-\end{pmatrix}
-$
-\end{center}
-Anschlie\ss{}end wendet man die Randbedingung an, daher man setzt die zweite Komponente des gesuchten Vektors $5$ und die Dritte Komponente $0$, dies entspricht dem streichen der mit $V$ markierten Ecken und bilden der passenden Inhomogenit\"at.
-\begin{center}
-	$
-	\begin{pmatrix}[cc|c]
-	\frac{1}{500} + \frac{1}{1000} + \frac{1}{2000} & -\frac{1}{2000} & \frac{5}{500}\\
-	-\frac{1}{2000}& \frac{1}{400} + \frac{1}{4700} + \frac{1}{2000} & \frac{5}{400}
-	\end{pmatrix}
-	$
-\end{center}
-Dies entspricht genau der Matrixgleichung, die man mit den gebr\"auchlichen Methoden in der Physik zu diesem Problem erh\"alt.\\
-\\
-Die L\"osung des Poissonproblems erm\"oglicht es uns ein weiteres Analogon zu einem Theorem der klassischen Vektoranalysis zu formulieren.
-\begin{corollary}[Helmoltz Zerlegung]
-	Sei $G$ ein planarer Graph mit Orientierung dann gilt:
-	$$\mathfrak{K}(G) = im(\text{grad}) \bigoplus im(\text{grad}_D)$$
+Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem diskreten de Rham-Komplex.
+\begin{corollary}[Helmholtz-Zerlegung]
+	Sei \(G\) ein planares Netz mit Orientierung. Dann gilt:
+	\[
+	\mathfrak{K}(G) = \mathrm{im}(\mathrm{grad}) \oplus \mathrm{im}(\mathrm{grad}_D).
+	\]
 \end{corollary}
 \begin{proof}
-	Eine Anwendung des de'Rham Komplexes und etwas elementare lineare Algebra liefert:
-	$$\mathfrak{K}(G) = \text{kern}(\text{div}_D)\bigoplus\text{kern}(\text{div}_D)^\perp = \text{Bild}(\text{grad})\bigoplus\text{kern}(\text{div}_D)^\perp$$	
-	Die Abbildung $\text{div}_D$ ist ein Isomorphismus zwischen $\text{kern}(\text{div}_D)^\perp$ und $\text{Bild}(\text{div}_D)$. Wir wissen auch bereits wegen des Theorems 3.2 dass der Laplace Operator des dualen Graphen $\Delta_D = \text{div}_D\circ\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und $\text{Bild}(\text{div}_D)$. In Kombination zeigt dies, dass $\text{grad}_D$ ein Isomorphismus zwischen $\mathfrak{F}(G)$ und  $\text{kern}(\text{div}_D)^\perp$ ist.
+	Wegen dem diskreten de Rham-Komplex gilt:
+	\[
+	\ker(\mathrm{div}_D) = \mathrm{im}(\mathrm{grad}).
+	\]
+	Mit der Hilbertraum-Zerlegung
+	\[
+	\mathfrak{K}(G) = \ker(\mathrm{div}_D) \oplus \ker(\mathrm{div}_D)^\perp,
+	\]
+	und der linearen Algebra-Identität
+	\[
+	\ker(A)^\perp = \mathrm{im}(A^\top)
+	\]
+	folgt unmittelbar die Helmholtz-Zerlegung:
+	\[
+	\mathfrak{K}(G) = \mathrm{im}(\mathrm{grad}) \oplus \mathrm{im}(\mathrm{grad}_D).
+	\]
 \end{proof}
+\chapter{Das Poisson Problem}
+Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das \emph{(verallgemeinerte) Poisson-Problem}. 
+Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf den bisher entwickelten graphentheoretischen Methoden formuliert und gelöst.
+
+\paragraph{Das verallgemeinerte Poisson-Problem}
+Sei $G=(V,E)$ ein Graph, $\partial \subseteq V$ eine Teilmenge der Ecken, 
+$r:E \to (0,\infty)$ eine positive Kantenfunktion 
+sowie $f,g\in \mathfrak{E}(G)$ Eckfunktionen. 
+Eine Funktion $u\in \mathfrak{E}(G)$ heißt \textbf{Lösung des verallgemeinerten Poisson-Problems}, falls gilt:
+\begin{equation}
+	-\mathrm{div}\!\bigl(r \cdot \mathrm{grad}(u)\bigr)(x) = f(x), \quad x \in V\setminus\partial,
+\end{equation}
+\begin{equation}
+	u(x) = g(x), \quad x \in \partial.
+\end{equation}
+
+Die obige Bedingung ist motiviert durch klassische Randwertprobleme 
+aus der Theorie der partiellen Differentialgleichungen. 
+Um diesen Zusammenhang im diskreten Rahmen präzise auszudrücken, 
+führen wir nun einen gewichteten Laplace-Operator auf Graphen ein.
+\begin{definition}[$r$-gewichteter Laplace-Operator]
+	Sei $G=(V,E)$ ein orientierter Graph und 
+	$r:E \to (0,\infty)$ eine positive Kantenfunktion. 
+	Dann definiert man den \textbf{$r$-gewichteten Laplace-Operator}
+	\[
+	\Delta_r : \mathfrak{E}(G) \longrightarrow \mathfrak{E}(G), 
+	\quad 
+	\Delta_r(u) := -\,\mathrm{div}\!\bigl(r \cdot \mathrm{grad}(u)\bigr).
+	\]
+\end{definition}
+\paragraph{Die Formulierung für elektrische Netzwerke}
+Ein elektrisches Netzwerk lässt sich als Graph $G=(V,E)$ modellieren. 
+Die Ecken $V$ entsprechen den Knoten (Verteilerpunkten) und die Kanten $E$ 
+den Leitern des Netzwerks. Jeder Leiter besitze einen elektrischen Widerstand 
+$R(e)>0$, dessen Kehrwert $r(e)=1/R(e)$ als Leitwert der Kante aufgefasst wird. \\ 
+\\
+Das \emph{Poisson-Problem} auf $G$ beschreibt dann die Bestimmung
+\begin{itemize}
+	\item der elektrischen Spannung $u(v)$ an jedem Knoten $v\in V$, 
+	\item sowie der durch jede Kante $e\in E$ fließenden Stromstärke $I(e)$.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Abbildungen/stromkreis_1.pdf}
+	\caption{Beispiel eines elektrischen Netzwerks.}
+\end{figure}
+\paragraph{Die Formulierung in der Elektrostatik}
+Sei $\Omega \subseteq \mathbb{R}^3$ eine offene Menge mit glattem Rand $\partial\Omega$, 
+und sei $\rho:\Omega \to \mathbb{R}$ eine elektrische Ladungsdichte. 
+Gesucht ist ein Potential $\phi:\Omega \to \mathbb{R}$, das die Poisson-Gleichung erfüllt:
+\begin{equation}
+	\Delta \phi(x) = \rho(x), \quad x \in \Omega,
+\end{equation}
+\begin{equation}
+	\phi(x) = 0, \quad x \in \partial\Omega.
+\end{equation}
+\noindent
+Physikalisch lässt sich dies wie folgt interpretieren: 
+Liegt $\Omega$ als Hohlraum im Inneren eines guten elektrischen Leiters (z.\,B. in einem Metall), 
+dann erzwingt die Leitfähigkeit, dass das Potential am Rand konstant ist. \\
+\\
+Die klassische Elektrostatik wird im drei\-dimensionalen Raum $\mathbb{R}^3$ formuliert. 
+Die hier entwickelte diskrete Theorie ist daher streng genommen nur in Grenzfällen anwendbar. 
+Ein solcher Sonderfall tritt auf, wenn $\rho$ und $\Omega$ entlang der $z$-Achse konstant sind 
+und das Problem sich effektiv auf zwei Dimensionen reduziert. 
+Genau für diesen Fall – eine zweidimensionale Formulierung der Maxwell-Gleichungen – 
+wird im folgenden Kapitel eine Theorie entwickelt. 
+\begin{proposition}[Eigenschaften des gewichteten Laplace-Operators]
+	Sei $G=(V,E)$ ein zusammenhängender Graph, $r:E\to (0,\infty)$ eine positive Kantenfunktion 
+	und $\Delta_r$ der $r$-gewichtete Laplace-Operator. Dann gilt:
+	\begin{enumerate}
+		\item Die Form der Matrix $\Delta_r$ ist unabhängig von der gewählten Orientierung auf $G$.
+		\item $\Delta_r$ ist symmetrisch.
+		\item $\Delta_r$ ist positiv semidefinit.
+		\item Der Kern von $\Delta_r$ ist der Raum der konstanten Eckfunktionen.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Seien $p_0$ und $p_1$ zwei Orientierungen auf $G$, 
+	und $\mathrm{grad}_0$, $\mathrm{grad}_1$ die jeweiligen Gradienten. 
+	Dann gilt
+	\[
+	\mathrm{grad}_0 = D \cdot \mathrm{grad}_1,
+	\]
+	wobei $D$ eine Diagonalmatrix mit Einträgen $\pm 1$ ist. 
+	Nach Satz~2.1 folgt somit die Orientierungunabhängigkeit.\\
+	\\
+	Für die Symmetrie sei $u,v \in \mathfrak{E}(G)$. Dann gilt:
+	\[
+	\langle u, \Delta_r(v)\rangle_{\mathfrak{E}}
+	= \langle \sqrt{r}\cdot \mathrm{grad}(u),\, \sqrt{r}\cdot \mathrm{grad}(v)\rangle_{\mathfrak{K}}.
+	\]
+	Dies zeigt die Selbstadjungiertheit und damit die Symmetrie von $\Delta_r$. \\
+	\\
+	Setzt man $u=v$, so erhält man
+	\[
+	\langle u, \Delta_r(u)\rangle_{\mathfrak{E}}
+	= \langle \sqrt{r}\cdot \mathrm{grad}(u),\, \sqrt{r}\cdot \mathrm{grad}(u)\rangle_{\mathfrak{K}}
+	\;\geq\;0,
+	\]
+	woraus die positive Semidefinitheit folgt.\\
+	\\
+	Schließlich: $u \in \ker(\Delta_r)$ genau dann, wenn für alle $v \in \mathfrak{E}(G)$
+	\[
+	\langle v, \Delta_r(u)\rangle_{\mathfrak{E}} = 0,
+	\]
+	also
+	\[
+	\langle \sqrt{r}\cdot \mathrm{grad}(u), \, \sqrt{r}\cdot \mathrm{grad}(v)\rangle_{\mathfrak{K}} = 0.
+	\]
+	Dies impliziert $\mathrm{grad}(u)=0$, weil $r>0$. Da der Graph $G$ zusammenhängend ist, folgt, 
+	dass $u$ konstant sein muss. Somit ist der Kern von $\Delta_r$ genau der Raum der konstanten Eckfunktionen.
+\end{proof}
+\noindent
+In der kontinuierlichen Theorie des Poisson-Problems spielt die 
+\emph{Poincaré-Ungleichung} eine zentrale Rolle. 
+Im Folgenden formulieren wir ein diskretes Analogon 
+innerhalb der hier entwickelten Graphentheorie:
+\begin{proposition}[Diskrete Poincaré-Ungleichung]
+	Sei $G=(V,E)$ ein Graph, $\partial \subseteq V$ eine nichtleere Teilmenge 
+	der Ecken, $r:E\to (0,\infty)$ eine Kantenfunktion und $u \in \mathfrak{E}(G)$ 
+	eine Eckfunktion mit $u|_\partial = 0$. Dann gilt:
+	\[
+	\langle u, u \rangle_{\mathfrak{E}} 
+	\;\leq\; \frac{|V|}{\min_{e\in E} r(e)} \;
+	\langle u, \Delta_r(u) \rangle_{\mathfrak{E}} .
+	\]
+\end{proposition}
+\begin{proof}
+	Sei $x \in V \setminus \partial$ und $(x_1, \dots, x_n)$ ein Pfad, ohne Schleifen, 
+	von einer Ecke in $\partial$ nach $x$ mit Kanten $(e_1,\dots,e_{n-1})$. 
+	Dann gilt für die Pfadsumme:
+	\[
+	u(x) \;=\; \sum_{i=1}^{n-1} \sigma_i \, \mathrm{grad}(u)(e_i),
+	\]
+	wobei die Vorzeichen $\sigma_i \in \{\pm 1\}$ durch die Orientierung bestimmt sind. \\
+	\\
+	Quadrieren liefert
+	\[
+	u(x)^2 = \Bigl(\sum_{i=1}^{n-1} \sigma_i \, \mathrm{grad}(u)(e_i)\Bigr)^2.
+	\]
+	Multiplizieren und Dividieren mit den Wurzeln der Kantengewichte ergibt
+	\begin{align*}
+		\Bigl(\sum_{i=1}^{n-1} \sigma_i \,\mathrm{grad}(u)(e_i)\Bigr)^2 
+		&\leq 
+		\Bigl(\max_{e\in E}\tfrac{\sum_{s=1}^{n-1}\sqrt{r(e_s)}}{\sqrt{r(e)}}\Bigr)^2 \\
+		&\quad \cdot \Biggl(\sum_{i=1}^{n-1} 
+		\sigma_i \,\frac{\sqrt{r(e_i)}}{\sum_{s=1}^{n-1}\sqrt{r(e_s)}}
+		\,\mathrm{grad}(u)(e_i)\Biggr)^2.
+	\end{align*}
+	Die Anwendung der Jensen-Ungleichung liefert schließlich
+	\[
+	u(x)^2 \;\leq\; 
+	\Bigl(\max_{e\in E} \tfrac{1}{r(e)}\Bigr) 
+	\cdot \sum_{i=1}^{n-1} \bigl(\sqrt{r(e_i)} \, \mathrm{grad}(u)(e_i)\bigr)^2
+	\;\leq\;
+	\Bigl(\max_{e\in E} \tfrac{1}{r(e)}\Bigr) 
+	\sum_{k\in E} \bigl(\sqrt{r(k)}\,\mathrm{grad}(u)(k)\bigr)^2.
+	\]
+	Summiert man nun über alle $x \in V$, so folgt
+	\[
+	\langle u, u \rangle_{\mathfrak{E}}
+	\;\leq\; \frac{|V|}{\min_{e\in E} r(e)} \,
+	\langle \sqrt{r}\,\mathrm{grad}(u), \sqrt{r}\,\mathrm{grad}(u)\rangle_{\mathfrak{K}}
+	= \frac{|V|}{\min_{e\in E} r(e)} \,
+	\langle u, \Delta_r(u) \rangle_{\mathfrak{E}}.
+	\]
+\end{proof}
+\noindent
+Wir haben nun genügend Vorarbeit geleistet, 
+um das zentrale Existenz- und Eindeutigkeitsergebnis 
+für das Poisson-Problem im diskreten Rahmen zu formulieren:
+\begin{theorem}[Existenz und Eindeutigkeit der Lösung]
+	Sei $G=(V,E)$ ein zusammenhängender Graph, $r:E\to(0,\infty)$ eine Kantenfunktion, 
+	$\partial \subseteq V$ eine Teilmenge der Ecken sowie 
+	$f,g \in \mathfrak{E}(G)$ Eckfunktionen. 
+	Dann gilt:
+	\begin{enumerate}
+		\item Ist $\partial \neq \emptyset$, so besitzt das Poisson-Problem 
+		eine eindeutig bestimmte Lösung $u \in \mathfrak{E}(G)$. 
+		\item Ist $\partial = \emptyset$, so existiert eine Lösung genau dann, 
+		wenn $f$ orthogonal zu allen konstanten Funktionen ist. 
+		In diesem Fall ist die Lösung nur bis auf eine additive Konstante bestimmt.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	\emph{Fall 1: $\partial = \emptyset$.}  
+	In diesem Fall genügt es, den Lösungsraum von $\Delta_r u = f$ zu analysieren. 
+	Da der Kern von $\Delta_r$ (vgl. Satz 3.1) durch die konstanten Funktionen beschrieben wird 
+	und $\Delta_r$ symmetrisch ist, ist der Bildraum genau das orthogonale Komplement 
+	der konstanten Funktionen. 
+	Somit existiert eine Lösung genau dann, wenn $f \perp \mathbf{1}$ gilt. 
+	Ist dies erfüllt, so ist die Lösung nur bis auf eine additive Konstante eindeutig.\\
+	\\
+	\medskip
+	\emph{Fall 2: $\partial \neq \emptyset$ und $\partial \neq V$.}  
+	Sei $A$ die Untermatrix von $\Delta_r$, die durch Streichen der Zeilen und Spalten 
+	zu den Knoten in $\partial$ entsteht. 
+	Wir zeigen, dass $\ker(A)=\{0\}$.  \\
+	\\
+	\quad\; 1. Möglichkeit:  
+	Die Poincaré-Ungleichung (Satz 3.2) garantiert unmittelbar, 
+	dass der Kern trivial ist.  \\
+	\\
+	\quad\; 2. Möglichkeit:  
+	Sei $x \in \ker(A)$. 
+	Definiere eine Erweiterung $\hat{x}\in \mathfrak{E}(G)$, 
+	indem $\hat{x}(v)=0$ für $v\in\partial$ und $\hat{x}(v)=x(v)$ sonst. 
+	Dann gilt 
+	\[
+	\Delta_r(\hat{x})|_{V\setminus \partial} = 0,
+	\]
+	und somit
+	\[
+	\langle \sqrt{r}\,\mathrm{grad}(\hat{x}), \sqrt{r}\,\mathrm{grad}(\hat{x})\rangle_{\mathfrak{K}}
+	= \langle \hat{x}, \Delta_r(\hat{x})\rangle_{\mathfrak{E}}
+	= 0.
+	\]
+	Also ist $\hat{x}$ im Kern von $\Delta_r$. 
+	Da dieser ausschließlich aus konstanten Funktionen besteht, 
+	muss $\hat{x}$ konstant und wegen $\hat{x}|_\partial = 0$ sogar $\hat{x}\equiv 0$ sein. 
+	Dies impliziert $x=0$, also $\ker(A)=\{0\}$.  
+	Deshalb ist $A$ invertierbar und das Problem eindeutig lösbar.\\
+	\\
+	\medskip
+	\emph{Fall 3: $\partial=V$.}  
+	Dann sind alle Werte von $u$ durch die Randbedingung $u=g$ vorgegeben, 
+	und das Problem ist trivial lösbar.
+\end{proof}
+\noindent
+Zur Veranschaulichung des zuvor bewiesenen Theorems 
+wandeln wir nun den elektrischen Stromkreis aus Abbildung~3.1 
+in ein Graphmodell gemäß unserem Formalismus um:
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Abbildungen/elektro.pdf}
+	\caption{Beispiel: elektrischer Stromkreis als Graph.}
+\end{figure}
+\noindent
+Die Widerstände jeder Kante definieren die Kantenfunktion $R:E\to (0,\infty)$, 
+deren Kehrwerte $r(e)=1/R(e)$ die Leitwerte darstellen. 
+Wir wählen die Randknoten $\partial=\{2,3\}$ mit $g(2)=5$, $g(3)=0$ 
+und Inhomogenität $f\equiv 0$. 
+Das Symbol $V$ steht für die Spannungsquelle bzw. die vorgegebene Randbedingung.
+\\
+\\
+Die Laplace-Matrix wird als
+\[
+\Delta_r = \mathrm{grad}^\top \, \mathrm{diag}(r) \, \mathrm{grad}
+\]
+berechnet. In unserem Beispiel ergibt dies:
+\[
+\Delta_r = 
+\begin{pmatrix}
+	1 & -1 & 0 & 0\\
+	1 & 0 & -1 & 0\\
+	1 & 0 & 0 & -1\\
+	0 & -1 & 1 & 0\\
+	0 & 0 & 1 & -1\\
+	0 & -1 & 0 & 1
+\end{pmatrix}^{\!\top}
+\begin{pmatrix}
+	\frac{1}{500} & 0 & 0 & 0 & 0 & 0\\
+	0 & \frac{1}{1000} & 0 & 0 & 0 & 0\\
+	0 & 0 & \frac{1}{2000} & 0 & 0 & 0\\
+	0 & 0 & 0 & V & 0 & 0\\
+	0 & 0 & 0 & 0 & \frac{1}{4700} & 0\\
+	0 & 0 & 0 & 0 & 0 & \frac{1}{400}
+\end{pmatrix}
+\begin{pmatrix}
+	1 & -1 & 0 & 0\\
+	1 & 0 & -1 & 0\\
+	1 & 0 & 0 & -1\\
+	0 & -1 & 1 & 0\\
+	0 & 0 & 1 & -1\\
+	0 & -1 & 0 & 1
+\end{pmatrix}.
+\]
+Dies vereinfacht sich zu
+\[
+\Delta_r =
+\begin{pmatrix}
+	\frac{1}{500}+\frac{1}{1000}+\frac{1}{2000} & -\tfrac{1}{500} & -\tfrac{1}{1000} & -\tfrac{1}{2000}\\[6pt]
+	-\tfrac{1}{500} & \frac{1}{500}+V+\tfrac{1}{400} & -V & -\tfrac{1}{400}\\[6pt]
+	-\tfrac{1}{1000} & -V & \frac{1}{1000}+V+\tfrac{1}{4700} & -\tfrac{1}{4700}\\[6pt]
+	-\tfrac{1}{2000} & -\tfrac{1}{400} & -\tfrac{1}{4700} & \tfrac{1}{400}+\tfrac{1}{4700}+\tfrac{1}{2000}
+\end{pmatrix}.
+\]
+Um die Randbedingungen zu berücksichtigen, 
+setzen wir $u(2)=5$ und $u(3)=0$. 
+Dies entspricht dem Streichen der zweiten und dritten Zeilen und Spalten 
+sowie der Bildung einer zugehörigen Inhomogenität. 
+Die reduzierte Gleichung für die verbleibenden Unbekannten lautet also
+\[
+\begin{pmatrix}
+	\frac{1}{500}+\frac{1}{1000}+\frac{1}{2000} & -\tfrac{1}{2000}\\[6pt]
+	-\tfrac{1}{2000} & \tfrac{1}{400}+\tfrac{1}{4700}+\tfrac{1}{2000}
+\end{pmatrix}
+\begin{pmatrix}
+	u(1)\\
+	u(4)
+\end{pmatrix}
+=
+\begin{pmatrix}
+	\tfrac{5}{500}\\[4pt]
+	\tfrac{5}{400}
+\end{pmatrix}.
+\]
+Dies ist exakt die Matrixgleichung, die man auch 
+mit den üblichen Methoden der Netzwerktheorie in der Physik erhält.
+
 
 \chapter{Die Maxwell-Gleichungen}
 Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen den vier Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestroms zeitlich entwickeln. Wir werden in diesem Kapitel ein Analogon der Maxwell Gleichungen auf planaren Graphen formulieren und damit eine wichtige Grundlage f\"ur die nachfolgenden Kapitel schaffen. Hierzu orientieren wir uns zwar an einer Diskretisierung der Maxwellgleichungen, jedoch wurden einige Vereinfachungen getroffen, weil wir eine Formulierung f"ur planare Graphen und nicht f"ur deren konkrete Einbettungen in die Ebene angestrebt haben.
