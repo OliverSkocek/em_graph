@@ -967,189 +967,268 @@ mit den üblichen Methoden der Netzwerktheorie in der Physik erhält.
 
 
 \chapter{Die Maxwell-Gleichungen}
-Die Elektrodynamik beschreibt elektromagnetische Ph\"anomene als durch Felder vermittelte Wechselwirkung von Materie. Diese Felder gehorchen den vier Maxwell-Gleichungen, die im neunzehnten Jahrhundert durch den Schotten James Clerk Maxwell formuliert wurden. Diese partiellen Differentialgleichungen beschreiben wie sich elektromagnetische Felder in Abh\"angigkeit eines Materiestroms zeitlich entwickeln. Wir werden in diesem Kapitel ein Analogon der Maxwell Gleichungen auf planaren Graphen formulieren und damit eine wichtige Grundlage f\"ur die nachfolgenden Kapitel schaffen. Hierzu orientieren wir uns zwar an einer Diskretisierung der Maxwellgleichungen, jedoch wurden einige Vereinfachungen getroffen, weil wir eine Formulierung f"ur planare Graphen und nicht f"ur deren konkrete Einbettungen in die Ebene angestrebt haben.
-\begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$ eine Kurve, $\mu>0$ und $b_0$ Fl\"achenfunktionen und $q_0$ eine Eckfunktion, dann nennt man eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{K})$, eine Kurve $b\in C^1(\mathbb{R}, \mathfrak{F})$  und eine Kurve $e\in C^1(\mathbb{R}, \mathfrak{E})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt:
+Die Elektrodynamik beschreibt elektromagnetische Phänomene als durch Felder vermittelte Wechselwirkung von Materie. 
+Diese Felder gehorchen den Maxwell-Gleichungen, die im 19.~Jahrhundert von James Clerk Maxwell formuliert wurden. 
+Es handelt sich dabei um partielle Differentialgleichungen, welche die zeitliche Entwicklung elektromagnetischer Felder in Abhängigkeit von Strömen und Ladungen beschreiben. \\
+\\
+In diesem Kapitel formulieren wir ein diskretes Analogon der Maxwell-Gleichungen auf Netzen, 
+genauer auf planaren Netzen. Diese Formulierung dient als Grundlage für die folgenden Kapitel.  
+Wir orientieren uns dabei an einer Diskretisierung der klassischen Maxwell-Gleichungen, 
+nehmen jedoch einige Vereinfachungen vor: es wird nicht die konkrete geometrische Einbettung 
+eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur.
+\begin{definition}[Diskrete Maxwell-Gleichungen]
+	Sei $G=(g,F)$ ein planares Netz.  
+	Wir wählen feste Parameter $r>0$, $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
+	\[
+	e_0 \in \mathfrak{K}(G), 
+	\quad b_0 \in \mathfrak{F}(G), 
+	\quad q_0 \in \mathfrak{E}(G).
+	\]
+	Weiter sei $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ eine zeitabhängige Stromfunktion.\\  
+	\\
+	Dann heißt ein Tripel
+	\[
+	e \in C^1(\mathbb{R},\mathfrak{K}(G)), 
+	\quad b \in C^1(\mathbb{R},\mathfrak{F}(G)), 
+	\quad q \in C^1(\mathbb{R},\mathfrak{E}(G))
+	\]
+	eine \textbf{Lösung der Maxwell-Gleichungen}, falls für alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
-		\text{div}(r * \epsilon * e(t)) = q(t)\\
-		\text{div}_D(r^{-1} * e(t)) = -b^\prime(t)\\
-		-r^{-1} * \text{grad}_D(b(t) / \mu) = \epsilon * e^\prime(t) + j(t)\\
-		\sum_{f\in F}b(t)(f)=0
-	\end{align} 
-	und die Anfangsbedingungen
-\begin{align}
-	e(0) = e_0\\
-	b(0) = b_0\\
-	q(0) = q_0
-\end{align}
-erf\"ullt sind, eine L\"osung der Maxwell-Gleichungen.
+		\mathrm{div}(r\epsilon e(t)) &= q(t), \label{eq:disk-gauss}\\
+		\mathrm{div}_D(r^{-1} e(t)) &= -\, b'(t), \label{eq:disk-faraday}\\
+		-\,r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) &= \epsilon e'(t) + j(t), \label{eq:disk-ampere}\\
+		\sum_{f\in F} b(t)(f) &= 0. \label{eq:disk-magnetgauss}
+	\end{align}
+	sowie die Anfangsbedingungen
+	\begin{align}
+		e(0) &= e_0, &
+		b(0) &= b_0, &
+		q(0) &= q_0.
+	\end{align}
 \end{definition}
-\begin{remark}
-	(4.1) nennt man das Gau\ss{}sche Gesetz und beschreibt wie das elektrische Feld $e$ mit seinen Quellen den elektrischen Ladungen zusammenh\"angt. Betrachtet man es von der Perspektive eines Flu\ss{}es ist die elektrische Ladung der Nettoflu\ss{} aus der Ecke.\\
-	\\
-	(4.2) nennt man das Faradaysche Gesetz und es beschreibt die zeitliche \"Anderung des magnetischen Feldes $b$ in Abh\"angigkeit des elektrischen Feldes. Die Kantenfunktion $r$ ist die L\"ange der Kante. $\epsilon$ und $\mu$ sind der elektrische und der magnetische Leitwert, respektive. Diese beiden Funktionen geben an wie gut die Kanten das Feld durchlassen.\\
-	\\
-	(4.3) nennt man das Amperesche Gesetz und beschreibt analog zum Faradayschen Gesetz wie die zeitliche \"Anderung des elektrischen Feldes vom magnetischen Feld, aber auch vom elektrischen Strom $j$ abh\"angig ist. Wenn wir das Ohmsche Gesetz $j(t) = \sigma e(t)$ annehmen, verh\"alt sich der elektrische Strom hier wie ein Reibungsterm.\\
-	\\
-	(4.4) nennt man das magnetische Gau\ss{}sche Gesetz und behauptet, dass es keine magnetische Ladung gibt. Wenn wir (4.2) betrachten sehen wir sofort, dass (4.4) automatisch erf\"ullt ist sobald $\sum_{f\in F}b_0(f)=0$ oder equvalent $b_0\in \text{Bild}(\text{div}_D)$
+\begin{remark} Die Maxwellgleichunge lassen sich wie folgt zusammenfassen
+	\begin{itemize}
+		\item \textbf{Gaußsches Gesetz} \eqref{eq:disk-gauss}: Das elektrische Feld \( e \) steht in Zusammenhang mit den elektrischen Ladungen \( q \). Aus der Sicht der Flussbilanz stellt \( q \) den Nettofluss von Feldlinien aus einer Ecke dar.
+		
+		\item \textbf{Faradaysches Gesetz} \eqref{eq:disk-faraday}: Es beschreibt die zeitliche Änderung des magnetischen Feldes \( b \) in Abhängigkeit vom elektrischen Feld \( e \). Die Kantenfunktion \( r \) kann hierbei als eine Art "Länge" der Kante interpretiert werden. Die Parameter \( \epsilon \) und \( \mu \) sind der elektrische beziehungsweise der magnetische Leitwert und geben an, wie gut das Netz das Feld leitet.
+		
+		\item \textbf{Ampèresches Gesetz} \eqref{eq:disk-ampere}: Dieses Gesetz erklärt, wie sich das elektrische Feld im Zeitverlauf ändert, beeinflusst durch das magnetische Feld und den elektrischen Strom \( j \). Unter Annahme des Ohmschen Gesetzes \( j = \sigma e \) wirkt der Strom als Dämpfungsterm.
+		
+		\item \textbf{Magnetisches Gaußsches Gesetz} \eqref{eq:disk-magnetgauss}: Es besagt, dass es keine magnetischen Monopole gibt. Dieses Gesetz folgt direkt aus Faradays Gesetz, sobald die Anfangsbedingung \( b_0 \) die Bedingung \( \sum_{f \in F} b_0(f) = 0 \) bzw. äquivalent \( b_0 \in \mathrm{im}(\mathrm{div}_D) \) erfüllt.
+	\end{itemize}
 \end{remark}
 \noindent
-Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungss\"atze der elektrischen Engergie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die \"uber die Zeit ineinander umgewandlet werden.
-\begin{proposition}\textbf{Energieerhaltung}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann nennt man 
-	\begin{equation}
-	E = \frac{1}{2}(\sum_{a\in f} b(a)^2 /\mu(a) + \sum_{k\in E} \epsilon(k) * e(k)^2)
-	\end{equation}
-	die \textbf{Energie} und solange der elektrische Strom $j\equiv 0$ gilt, bleibt die Energie unver\"andert. 
+Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der elektrischen Energie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die über die Zeit ineinander umgewandelt werden.
+\begin{proposition}[Energieerhaltung]
+	Sei $G=(g,F)$ ein planares Netz mit den Parametern $r>0$, $\epsilon>0$, $\mu>0$  
+	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
+	Die Energie des Systems sei definiert als
+	\[
+	E(t) = \frac{1}{2} \left(\sum_{f \in F} \frac{b(f,t)^2}{\mu(f)} + \sum_{k \in E} \epsilon(k) e(k,t)^2 \right).
+	\]
+	Dann ist $E(t)$ zeitlich konstant, also gilt
+	\[
+	\frac{d}{dt} E(t) = 0.
+	\]
 \end{proposition}
 \begin{proof}
-	Sei $e$ und $b$ wie in der Voraussetzung des Satzes dann gilt f\"ur die Ableitung der magnetischen Energie:
-	$$(\sum_{a\in f} b(a)^2 /\mu(a))^\prime = \sum_{a\in f} 2 * b(a) * b(a)^\prime /\mu(a) = -\sum_{a\in f} 2 * b(a) * \text{div}_D(r^{-1} * e)(a) /\mu(a)=$$
-	$$-2 * \langle b /\mu, \text{div}_D(r^{-1} * e\rangle_{\mathfrak{F}}$$
-	und f\"ur die Ableitung der elektrischen Energie:
-	$$(\sum_{k\in E} \epsilon(k) * e(k)^2)^\prime = \sum_{k\in E} 2 * \epsilon(k) * e(k) * e(k)^\prime = $$
-	$$-\sum_{k\in E} 2 * e(k) * (r^{-1} * \text{grad}_D(b /\mu) + j) (k)=-2 * \langle e, (r^{-1} * \text{grad}_D(b /\mu) + j) \rangle_{\mathfrak{K}}=$$
-	$$2 * (\langle \text{div}_D(r^{-1} * e), b /\mu\rangle_{\mathfrak{F}} - \langle e, j\rangle_{\mathfrak{K}})$$
-	Fassen wir zusammen:
-	$$E^\prime = -\langle e, j\rangle_{\mathfrak{K}}$$
+	Wir berechnen die Ableitung der Magnetfeldenergie:
+	\[
+	\frac{d}{dt} \sum_{f \in F} \frac{b(f)^2}{\mu(f)} = 2 \sum_{f \in F} \frac{b(f) b'(f)}{\mu(f)} 
+	= 2 \left\langle b/\mu, b' \right\rangle_{\mathfrak{F}}.
+	\]
+	Unter Verwendung von Gleichung \eqref{eq:disk-faraday} gilt
+	\[
+	b' = -\mathrm{div}_D(r^{-1} e),
+	\]
+	woraus
+	\[
+	\frac{d}{dt} \sum_{f \in F} \frac{b(f)^2}{\mu(f)} = - 2 \langle b/\mu, \mathrm{div}_D(r^{-1} e) \rangle_{\mathfrak{F}}.
+	\]
+	Analog berechnen wir die zeitliche Ableitung der elektrischen Energie:
+	\[
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2 = 2 \sum_{k \in E} \epsilon(k) e(k) e'(k) = 2 \langle \epsilon e, e' \rangle_{\mathfrak{K}}.
+	\]
+	Mit Gleichung \eqref{eq:disk-ampere} erhalten wir
+	\[
+	e' = - r^{-1} \mathrm{grad}_D \left(\frac{b}{\mu}\right) / \epsilon + j,
+	\]
+	daher
+	\[
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2 = - 2 \langle e, r^{-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}} - 2\langle e, j\rangle_{\mathfrak{K}}.
+	\]
+	Durch Adjunktion und Satz 2.1 gilt
+	\[
+	\langle b/\mu, \mathrm{div}_D(r^{-1} e) \rangle_{\mathfrak{F}} = -\langle e, r^{-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}},
+	\]
+	wodurch sich die Ableitungen der Feldenergien gegenseitig aufheben und einzig der Beitrag des Stroms 
+	 \(j\) verbleibt
+	\[
+	\frac{d}{dt} E(t) = \langle e, j\rangle_{\mathfrak{K}}.
+	\]
+	Insbesondere bedeutet dies im stromlosen Fall \(j=0\), dass die Energie erhalten bleibt:
+		\[
+	\frac{d}{dt} E(t) = 0
+	\]
 \end{proof}
-\begin{proposition}\textbf{Kontinuit\"atsgesetz}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\mu>0$ und $b_0$ Fl\"achenfunktionen, $q_0$ eine Eckfunktion und  $e:\mathbb{R}\rightarrow\mathfrak{K}(G)$ das elektrische Feld und $b:\mathbb{R}\rightarrow\mathfrak{F}(G)$ das magnetische Feld L\"osungen der Maxwell-Gleichungen, dann gilt das Kontinuit\"atsgesetz:
-	$$q^\prime = - \text{div}(r*j)$$
-	Dies zeigt, dass die Gesamtladung erhalten bleibt.
+\begin{proposition}[Kontinuitätsgesetz]
+	Sei \(G=(g,F)\) ein planares Netz mit Kantenfunktion \(r>0\), elektrischer Permittivität \(\epsilon>0\) 
+	und magnetischer Permeabilität \(\mu>0\).  
+	Seien 
+	\[
+	e : \mathbb{R} \to \mathfrak{K}(G), 
+	\quad b : \mathbb{R} \to \mathfrak{F}(G), 
+	\quad q : \mathbb{R} \to \mathfrak{E}(G)
+	\]
+	Lösungen der diskreten Maxwell-Gleichungen mit Stromfunktion \(j : \mathbb{R} \to \mathfrak{K}(G)\).  
+	Dann gilt das \textbf{Kontinuitätsgesetz}
+	\[
+	q'(t) \;=\; -\,\mathrm{div}(r \, j(t)),
+	\]
+	welches die lokale Erhaltung der elektrischen Ladung ausdrückt. Daraus folgt insbesondere die Erhaltung der Gesamtladung:
+	\[
+	\sum_{v\in V} q'(t)(v) \;=\; 0.
+	\]
 \end{proposition}
 \begin{proof}
-	Dividiere (4.3) in Definition 4.1 durch $\epsilon$ und dann wende $\text{div}(r * \epsilon * .)$ auf (4.3) an:
-	$$\text{div}(r * \epsilon * (-\epsilon^{-1} * r^{-1} * \text{grad}_D(b(t) / \mu))) = \text{div}(r * \epsilon * (e^\prime + j/\epsilon))$$
-	$$0 = \text{div}(r * \epsilon * e)^\prime + \text{div}(r * j))$$
-	$$0 = q^\prime + \text{div}(r * j)$$
-	Summieren wir nun die obige Gleichung \"uber alle Ecken, dann heben sich die Beitr\"age der Kanten in $\text{div}(r*j)$ gegenseitig auf, da jede Kante einmal in dem $\text{div}$-Term der Ecke von der er wegzeigt und einmal im Term der Ecke auf die er zeigt vorkommt. Folglich gilt:
-	$$\sum_{v\in V}q^\prime=0$$
+	Wir beginnen mit dem Ampèreschen Gesetz \eqref{eq:disk-ampere}:
+	\[
+	-\, r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\; \epsilon e'(t) + j(t).
+	\]
+	Teilen durch \(\epsilon\) ergibt
+	\[
+	-\, \epsilon^{-1}r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\;  e'(t) + \epsilon^{-1}j(t).
+	\]
+	Wenden wir nun den Operator \(\mathrm{div}(r\epsilon\,\cdot)\) an:
+	\[
+	-\mathrm{div}(\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right)) 
+	= \,\mathrm{div}(r\epsilon e'(t)) + \mathrm{div}(r j(t)).
+	\]
+	Der erste Term verschwindet aufgrund des de Rham Komplexes \(\mathrm{div}\circ \mathrm{grad}_D = 0\).  
+	Somit bleibt
+	\[
+	0=\mathrm{div}(r\epsilon e'(t)) +\,\mathrm{div}(r j(t)).
+	\]
+	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\mathrm{div}(r\epsilon e(t))=q(t)\), folgt
+	\[
+	q'(t) = -\,\mathrm{div}(r j(t)).
+	\]
+	Schließlich ergibt die Summation über alle Ecken
+	\[
+	\sum_{v\in V} q'(t)(v) = - \sum_{v\in V}\mathrm{div}(r j(t))(v) = 0,
+	\]
+	da jede Kante in den Divergenztermen mit entgegengesetztem Vorzeichen erscheint. Damit ist die Erhaltung der Gesamtladung gezeigt.
 \end{proof}
 \noindent
 Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit einer L\"osung f\"ur jeden Zeitpunkt. Bevor wir jedoch die Maxwellgleichungen l\"osen, sollen Diese noch in eine bek\"omlichere Form gebracht werden.
-\section{Potentialformulierung der Maxwellgleichungen}
-Analog zum kontinuierlichen Fall lassen sich die Maxwellgleichungen auf planaren Graphen \"uber Potentiale ausdr\"ucken. 
+\section{Potentialformulierung der Maxwell-Gleichungen}
+
+Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planaren Netzen über Potentiale ausdrücken.  
 \begin{definition}
-Sei $G$ ein planarer Graph mit Orientierung und $r>0$ eine Kantenfunktion auf $G$, dann definieren wir eine Transformation $T$,
-die Kurven $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, durch
-	\begin{align}
-		\left(
-		\begin{array}{c}
-		b(t)\\
-		e(t)
-		\end{array}
-		\right)=
-		T(\left(
-		\begin{array}{c}
-		\phi(t)\\
-		a(t)
-		\end{array}
-		\right))=
-		\left(
-		\begin{array}{c}
-		\text{div}_D(r^{-1}a(t))\\
-		-a^\prime(t) - r\text{grad}(\phi(t))
-		\end{array}
-		\right)
-	\end{align}
- f\"ur alle $t\in\mathbb{R}$. Die Kurven $\phi$ und $a$ nennt man Potentiale, ersteres ist das Skalarpotential und letzteres das Vektorpotential.
-\end{definition}
-\noindent
-Es ist hierbei anzumerken, dass $\text{div}_D$ nicht surjektiv ist, sondern nur Fl\"achen-funktionen darstellen kann, die orthogonal zu den konstanten Funktionen sind.
-Dies ist equivalent zur Forderung (4.4) dem magnetischen Gau\ss{}schen Gesetz und wir haben somit bereits eine der Maxwellgleichungen durch die Potentialformulierung eliminieren k\"onnen.\\
-\\
-Die Wahl der Definition der Potentiale kam nicht von ungef\"ahr, sondern aus der Maxwell Theorie im Kontinuum. 
-Die Definition des Magnetfeldes in (4.9) abgeleitet ergibt durch Einsetzen der Definition des elektrischen Feldes sofort das Faradaysche Gesetz. 
-Das Gau\ss{}sche Gesetz stellt zusammen mit dem Ampereschen Gesetz eine Verbindung zu mit dem elektromagnetischen Feld gekoppelten dynamischen Gr\"o\ss{}en $q$ und $j$ her. Diese Gr\"o\ss{}en m\"ussen nach den Maxwellgleichungen die Kontinuit\"atsgleichung erf\"ullen, doch ihre Dynamik wird au\ss{}erhalb der Maxwellschen Gleichungen formuliert und deshalb wollen wir dieses Gesetz erstmals ausklammern und erstmal den Fall wo $j$ einfach eine gegebene Funktion in der Zeit ist und das Gau\ss{}sche Gesetz die Definition der Ladung $q$ ist.
-Dementsprechend reduzieren sich die Maxwellgleichungen in Potentialformulierung auf das Amperesche Gesetz: 
-\begin{equation}
-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) = \epsilon * (a^{\prime\prime} + r\text{grad}(\phi^\prime)) - j(t)
-\end{equation}
-Der Vorteil der Potentialdarstellung liegt zum Einen in der Vereinfachung des Gleichungssystems und zum Anderen in der gr\"o\ss{}eren Flexibilit\"at.\\
-\\
-Es ist leicht zu sehen, dass die Operation aus Definition 4.3, die Potentiale in Felder umwandelt nicht injektiv ist.\\
-\\
-Die Charakterisierung des Kerns dieser linearen Operation f\"uhrt uns nun zu den so genannten Eichtransformationen.
-\begin{definition}
-	Seien $\phi$ und $a$ Potentiale wie in Definition 4.3, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
-\begin{equation}
-\gamma_\xi(\left(
-\begin{array}{c}\phi\\
-a
-\end{array}\right))=
-\left(
-\begin{array}{c}\phi - \xi^\prime\\
-a + r\text{grad}(\xi) 
-\end{array}\right)
-\end{equation}
-	die zu $\xi$ geh\"orende \textbf{Eichtransformation}.
-\end{definition}
-\noindent
-Die Potentiale werden immer genau bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.
-\begin{proposition}
-	Sei $T$ die lineare Operation aus Definition 4.3, die Potentiale $(\phi, a)\in C^1(\mathbb{R},\mathfrak{E})\times C^1(\mathbb{R},\mathfrak{K})$ in Felder $(e, b)\in C^1(\mathbb{R},\mathfrak{K})\times C^1(\mathbb{R},\mathfrak{F})$ \"uberf\"uhrt, dann gilt:
+	Sei \(G\) ein planares Netz mit Orientierung und \(r > 0\) eine Kantenfunktion auf \(G\).  
+	Dann definieren wir eine lineare Transformation 
+	\[
+	T : C^1(\mathbb{R}, \mathfrak{E}) \times C^1(\mathbb{R}, \mathfrak{K}) \to C^1(\mathbb{R}, \mathfrak{K}) \times C^1(\mathbb{R}, \mathfrak{F})
+	\]
+	durch
 	\begin{equation}
-	\text{kern}(T)=\{\left(
-	\begin{array}{c}-\xi^\prime\\
-	r\text{grad}(\xi)
-	\end{array}\right)| \xi\in C^1(\mathbb{R},\mathfrak{E})\}
+		T \begin{pmatrix} \phi(t) \\ a(t) \end{pmatrix}
+		= \begin{pmatrix}
+			\mathrm{div}_D \bigl(r^{-1} a(t)\bigr) \\
+			- a'(t) - r\, \mathrm{grad}(\phi(t))
+		\end{pmatrix}
 	\end{equation}
-\end{proposition}
-\begin{proof}
-Wir starten mit der Inklusion $(\subset)$\\
-Sei $(\phi, a)\in \text{kern}(T)$, dann gilt f\"ur alle $t\in\mathbb{R}$
-\begin{equation*}
-	0 = \text{div}_D(r^{-1}a(t))
-\end{equation*} 
-Wir wissen wegen dem de'Rham Komplex Theorem, und weil $r>0$ ist, dass es eine  $\chi:\text{Bild}(\text{grad})\mapsto \mathbb{R}^\perp$ gibt, sodass gilt:
-\begin{equation*}
-	x = \text{grad}(\chi(x)) \text{ f\"ur  alle }x\in\mathfrak{K}(G)
-\end{equation*}
-Daher k\"onnen wir f\"ur alle $t\in\mathbb{R}$ definieren 
-\begin{equation*}
-\xi(t) = \chi(r^{-1}a(t))
-\end{equation*} sodass gilt
-\begin{equation*}
-	a=r\text{grad}(\xi)
-\end{equation*} und $\xi\in C^1(\mathbb{R},\mathfrak{E})$.\\
-Wir setzen den so gewonnenen Ausdruck f\"ur $a$ nun ein in
-\begin{equation*}
-	0=-a^\prime(t) - r\text{grad}(\phi(t))
-\end{equation*} 
-und erhalten f\"ur alle $t\in\mathbb{R}$
-\begin{equation*}
-0=\text{grad}(\xi^\prime(t)+\phi(t))
-\end{equation*} 
-Somit gilt die Gleichheit modulo einer Konstante $c$
-\begin{equation*}
-\phi(t)=-\xi^\prime(t) +c
-\end{equation*}
-Die Konstante $c$ kann man weil sie im Kern des Gradienten liegt in $\xi$ einziehen.
-\begin{equation*}
-	\xi(t) = \chi(r^{-1}a(t)) -c*t
-\end{equation*}
+	für alle \(t \in \mathbb{R}\). Die Funktionen \(\phi\) und \(a\) heißen \textbf{Skalarpotential} bzw. \textbf{Vektorpotential}, die über \(T\) in die Felder \(b\) und \(e\) überführt werden.
+\end{definition}
 \noindent
-Die andere Inklusion $(\supset)$ wird gezeigt indem der Ausdruck in der Mengendefinition (4.12) in $T$ eingesetzt wird.
+Es sei angemerkt, dass \(\mathrm{div}_D\) nicht surjektiv ist, sondern nur Flächenfunktionen abbildet, die orthogonal zu den konstanten Funktionen sind. Diese Eigenschaft entspricht dem magnetischen Gaußschen Gesetz und erlaubt es uns, eine der Maxwellgleichungen bereits durch Wahl der Potentiale zu erfüllen.  \\
+\\
+Die Definition von \(b\) aus (4.9) führt durch Einsetzen in die Definition von \(e\) unmittelbar zum Faradayschen Gesetz. Damit sind zwei der vier Maxwellgleichungen automatisch erfüllt.  
+\\
+\\
+Das Gaußsche Gesetz in Kombination mit dem Ampèreschen Gesetz koppelt das elektrodynamische Feld an die Größen \(q\) (Ladung) und \(j\) (Strom). Diese erfüllen nach den Maxwellgleichungen das Kontinuitätsgesetz, deren Dynamik jedoch außerhalb des Systems liegt. Im Folgenden betrachten wir daher den Vereinfachungsfall, in dem \(j\) als vorgegebene zeitabhängige Funktion gegeben ist und \(q\) sich über das Gaußsche Gesetz definiert.  \\
+\\
+Daraus reduziert sich die Potentialformulierung der Maxwellgleichungen auf die Gleichung  
+\begin{equation} \label{eq:potential_ampere}
+	r^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \mathrm{div}_D \left( r^{-1} a(t) \right) \right)
+	= \epsilon \left( a''(t) + r\, \mathrm{grad}(\phi'(t)) \right) - j(t).
+\end{equation}
+Der Vorteil dieser Darstellung liegt in der Vereinfachung des Systems sowie in der größeren Flexibilität. \\ 
+\\
+Es ist leicht zu erkennen, dass die Abbildung \(T\) nicht injektiv ist. Die Charakterisierung des Kerns von \(T\) führt uns zu den sogenannten Eichtransformationen: 
+\begin{definition}
+	Seien \(\phi, a\) Potentiale wie oben und \(\xi \in C^1(\mathbb{R}, \mathfrak{E})\).  
+	Die \textbf{Eichtransformation} \(\gamma_\xi\) ist definiert durch
+	\begin{equation}
+		\gamma_\xi \begin{pmatrix} \phi \\ a \end{pmatrix}
+		= \begin{pmatrix} \phi - \xi' \\ a + r\, \mathrm{grad}(\xi) \end{pmatrix}.
+	\end{equation}
+\end{definition}
+\noindent
+Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.  
+\begin{proposition}
+	Sei \(T\) wie in Definition 4.3. Dann gilt
+	\[
+	\mathrm{kern}(T) = \left\{ \begin{pmatrix} -\xi' \\ r\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
+	\]
+\end{proposition}
+\noindent
+\begin{proof}
+	Sei \((\phi, a) \in \mathrm{kern}(T)\). Dann gilt für alle \(t\):
+	\[
+	0 = \mathrm{div}_D \bigl(r^{-1} a(t)\bigr).
+	\]
+	Aus dem diskreten de Rham-Komplex wissen wir, dass
+	\[
+	\ker(\mathrm{div}_D) = \mathrm{im}(\mathrm{grad}),
+	\]
+	wobei alle Konstantenfunktionen im Kern von \(\mathrm{grad}\) liegen.
+	Da \(r > 0\) ist, folgt daraus direkt, dass für jedes \(t\) gilt:
+	\[
+	r^{-1} a(t) \in \mathrm{im}(\mathrm{grad}),
+	\]
+	das heißt es existiert \(\xi(t) \in \mathfrak{E}\), so dass
+	\[
+	r^{-1} a(t) = \mathrm{grad}(\xi(t)) \quad \Rightarrow \quad a(t) = r\, \mathrm{grad}(\xi(t)).
+	\]
+	Nun setze diesen Ausdruck in die zweite Komponente von \(T(\phi,a) = 0\) ein:
+	\[
+	0 = -a'(t) - r\, \mathrm{grad}(\phi(t)) = - r\, \mathrm{grad}(\xi'(t)) - r\, \mathrm{grad}(\phi(t)) = - r\, \mathrm{grad}(\xi'(t) + \phi(t)).
+	\]
+	Da \(r\) invertierbar ist und der Kern von \(\mathrm{grad}\) genau die konstanten Funktionen enthält, folgt:
+	\[
+	\phi(t) = - \xi'(t) + c,
+	\]
+	wobei \(c\) eine (zeitabhängige) Konstante ist, die wir in \(\xi\) absorbieren können:
+	\[
+	\tilde{\xi}(t) = \xi(t) - \int_{0}^{t}c(s)ds
+	\]
+	Die Gegenrichtung \(\supseteq\) folgt unmittelbar durch Einsetzen der Darstellung \(\bigl(-\xi'(t), r\, \mathrm{grad}(\xi(t))\bigr)\) in \(T\), da dann
+	\[
+	T\begin{pmatrix} -\xi'(t) \\ r\, \mathrm{grad}(\xi(t)) \end{pmatrix} = 0.
+	\]
+	Damit ist der Kern von \(T\) vollständig charakterisiert.
 \end{proof}
 \noindent
-Hiermit wurden die wichtigsten Aspekte der Potentialdarstellung vorgestellt. Dies ist eine Grundvoraussetzung f\"ur die Quantisierung der Maxwellgleichungen.\\
+Hiermit wurden die wesentlichen Aspekte der Potentialdarstellung vorgestellt. Diese Darstellung bildet eine Grundvoraussetzung für die Quantisierung der Maxwell-Gleichungen.\\
 \\
-Zum Abschlu\ss{} dieses Kapitels konstruieren wir eine L\"osung der Maxwellgleichungen in Potentialdarstellung (4.10) im stromlosen Fall $j\equiv 0$.\\
+Zum Abschluss dieses Kapitels konstruieren wir eine Lösung der Maxwell-Gleichungen in Potentialdarstellung (Gleichung 4.7) im stromlosen Fall \(j \equiv 0\).\\
 \\
-Wegen der Eichinvarianz von (4.10) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch wir ohne Beschr\"ankung der Allgemeinheit $\phi$ aus (4.10) eliminieren k\"onnen.
+Aufgrund der Eichinvarianz von (4.7) existiert stets eine Lösung mit \(\phi \equiv 0\). Somit können wir ohne Einschränkung der Allgemeinheit das Skalarpotential \(\phi\) aus (4.7) eliminieren.
+
 \begin{lemma}
-	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{R}^n$ ($n\geq 1 $), $u_0, v_0 \in V$ und $u\in C^2(\mathbb{R}, V)$, dann ist die L\"osung des Anfangswertproblems
+	Sei \(L: V \to V\) eine positiv semidefinite lineare Abbildung in einem endlichdimensionalen reellen Vektorraum \(V = \mathbb{R}^n\), mit \(n \geq 1\). Weiter seien \(u_0, v_0 \in V\) Anfangsdaten und \(u \in C^2(\mathbb{R}, V)\) eine gesuchte Funktion.  
+	Dann ist die Lösung des Anfangswertproblems
 	\begin{align}
-		u^{\prime \prime} + L&u = 0\\
-		u(0) &= u_0\\
-		u^\prime(0)&=v_0
+		u''(t) + L u(t) &= 0, \\
+		u(0) &= u_0, \\
+		u'(0) &= v_0,
 	\end{align}
 	gegeben durch
 	\begin{equation}
-		u(t) = U^\dagger (\cos(Rt) + 1_{\{0\}}(R))Uu_0 +U^\dagger (\sin(Rt) + 1_{\{0\}}(R)t)Uv_0
+		u(t) = U^\dagger \bigl( (\cos(R t) + 1_{\{0\}}(R)) U u_0 + (\sin(R t) + 1_{\{0\}}(R) t) U v_0 \bigr),
 	\end{equation}
-	Wobei $U$ eine orthogonale, R eine Diagonalmatrix in $V$ ist und $L=U^\dagger R^2 U$ gilt.
+	wobei \(U\) orthogonal, \(R\) eine Diagonalmatrix mit nichtnegativen Einträgen ist und \(L = U^\dagger R^2 U\) gilt.
 \end{lemma}
 \begin{proof}
 	Nach dem Spektralsatz endlichdimensionaler reeler Vektorr\"aume gibt es eine Zerlegung der positiv semidefiniten Matrix $L$ der Form.
