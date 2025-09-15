@@ -1124,7 +1124,7 @@ Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleic
 \section{Potentialformulierung der Maxwell-Gleichungen}
 
 Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planaren Netzen über Potentiale ausdrücken.  
-\begin{definition}
+\begin{definition} \label{def:potential_def}
 	Sei \(G\) ein planares Netz mit Orientierung und \(r > 0\) eine Kantenfunktion auf \(G\).  
 	Dann definieren wir eine lineare Transformation 
 	\[
@@ -1136,7 +1136,7 @@ Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planare
 		= \begin{pmatrix}
 			\mathrm{div}_D \bigl(r^{-1} a(t)\bigr) \\
 			- a'(t) - r\, \mathrm{grad}(\phi(t))
-		\end{pmatrix}
+		\end{pmatrix}= \begin{pmatrix} e(t) \\ b(t) \end{pmatrix}
 	\end{equation}
 	für alle \(t \in \mathbb{R}\). Die Funktionen \(\phi\) und \(a\) heißen \textbf{Skalarpotential} bzw. \textbf{Vektorpotential}, die über \(T\) in die Felder \(b\) und \(e\) überführt werden.
 \end{definition}
@@ -1156,7 +1156,7 @@ Daraus reduziert sich die Potentialformulierung der Maxwellgleichungen auf die G
 Der Vorteil dieser Darstellung liegt in der Vereinfachung des Systems sowie in der größeren Flexibilität. \\ 
 \\
 Es ist leicht zu erkennen, dass die Abbildung \(T\) nicht injektiv ist. Die Charakterisierung des Kerns von \(T\) führt uns zu den sogenannten Eichtransformationen: 
-\begin{definition}
+\begin{definition}\label{def:eich}
 	Seien \(\phi, a\) Potentiale wie oben und \(\xi \in C^1(\mathbb{R}, \mathfrak{E})\).  
 	Die \textbf{Eichtransformation} \(\gamma_\xi\) ist definiert durch
 	\begin{equation}
@@ -1212,252 +1212,244 @@ Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch 
 \noindent
 Hiermit wurden die wesentlichen Aspekte der Potentialdarstellung vorgestellt. Diese Darstellung bildet eine Grundvoraussetzung für die Quantisierung der Maxwell-Gleichungen.\\
 \\
-Zum Abschluss dieses Kapitels konstruieren wir eine Lösung der Maxwell-Gleichungen in Potentialdarstellung (Gleichung 4.7) im stromlosen Fall \(j \equiv 0\).\\
+Als Nächstes konstruieren wir eine Lösung der Maxwell-Gleichungen in Potentialdarstellung (Gleichung \eqref{eq:potential_ampere}) im stromlosen Fall \( j \equiv 0 \).\\
 \\
-Aufgrund der Eichinvarianz von (4.7) existiert stets eine Lösung mit \(\phi \equiv 0\). Somit können wir ohne Einschränkung der Allgemeinheit das Skalarpotential \(\phi\) aus (4.7) eliminieren.
+Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine Lösung mit \(\phi \equiv 0\). Somit können wir ohne Einschränkung der Allgemeinheit das Skalarpotential \(\phi\) aus (4.7) eliminieren.
 
-\begin{lemma}
-	Sei \(L: V \to V\) eine positiv semidefinite lineare Abbildung in einem endlichdimensionalen reellen Vektorraum \(V = \mathbb{R}^n\), mit \(n \geq 1\). Weiter seien \(u_0, v_0 \in V\) Anfangsdaten und \(u \in C^2(\mathbb{R}, V)\) eine gesuchte Funktion.  
+\begin{lemma}\label{lem:loesung_anfangswert}
+	Sei \( L : V \to V \) eine positiv semidefinite lineare Abbildung in einem endlichdimensionalen reellen Vektorraum \( V = \mathbb{R}^n \) mit \( n \geq 1 \). Weiter seien \( u_0, v_0 \in V \) Anfangsdaten und \( u \in C^2(\mathbb{R}, V) \) eine gesuchte Funktion.  
 	Dann ist die Lösung des Anfangswertproblems
 	\begin{align}
-		u''(t) + L u(t) &= 0, \\
-		u(0) &= u_0, \\
-		u'(0) &= v_0,
+		u''(t) + L u(t) &= 0, \label{eq:diffgleichung}\\
+		u(0) &= u_0, \label{eq:anfangswert1}\\
+		u'(0) &= v_0, \label{eq:anfangswert2}
 	\end{align}
 	gegeben durch
 	\begin{equation}
-		u(t) = U^\dagger \bigl( (\cos(R t) + 1_{\{0\}}(R)) U u_0 + (\sin(R t) + 1_{\{0\}}(R) t) U v_0 \bigr),
+		u(t) = U^\dagger \bigl( (\cos(R t) + 1_{\{0\}}(R))\, U u_0 + (\sin(R t) + 1_{\{0\}}(R) t) \, U v_0 \bigr),\label{eq:loesung1}
 	\end{equation}
-	wobei \(U\) orthogonal, \(R\) eine Diagonalmatrix mit nichtnegativen Einträgen ist und \(L = U^\dagger R^2 U\) gilt.
+	wobei \(U\) orthogonal, \(R\) eine Diagonalmatrix mit nichtnegativen Einträgen ist und \( L = U^\dagger R^2 U \) gilt.
 \end{lemma}
 \begin{proof}
-	Nach dem Spektralsatz endlichdimensionaler reeler Vektorr\"aume gibt es eine Zerlegung der positiv semidefiniten Matrix $L$ der Form.
-	\begin{equation*}
-		L=U^\dagger R^2 U
-	\end{equation*}
-	Wobei $R\geq 0$ eine Diagonalmatrix und $U$ eine orthogonale Matrix ist.
+	Nach dem Spektralsatz endlichdimensionaler reeller Vektorräume existiert eine Zerlegung der positiv semidefiniten Matrix \(L\) der Form
+	\[
+	L = U^\dagger R^2 U,
+	\]
+	wobei \( R \geq 0 \) eine Diagonalmatrix und \( U \) eine orthogonale Matrix ist.\\
 	\\
-	\\
-	Als n\"achstes formen wir (4.13) um
+	Als Nächstes formen wir \eqref{eq:diffgleichung} um:
 	\begin{align*}
-		U(u^{\prime \prime} + Lu )&= 0\\
-		(Uu)^{\prime \prime} + ULu &= 0\\
-		(Uu)^{\prime \prime} + ULU^\dagger Uu &= 0
+		U (u'' + L u) &= 0 \\
+		(U u)'' + U L u &= 0 \\
+		(U u)'' + U L U^\dagger \cdot U u &= 0,
 	\end{align*}
- und setzen $v=Uu$
- \begin{equation}
-	v^{\prime \prime} + R^2v=0
- \end{equation}
-Die allgemeine L\"osung von (4.17) erhalten wir wenn f\"ur jede Komponente $n>1$
-\begin{equation*}
+	wobei wir \( v := U u \) setzen und somit
+	\begin{equation}
+		v'' + R^2 v = 0.\label{eq:diffeqv}
+	\end{equation}
+	Die allgemeine Lösung von \eqref{eq:diffeqv} erhält man komponentenweise für alle \(n \geq 1\):
+	\[
 	v_n(t) = 
-	\begin{cases} 
-		v_n(0)\cos(R_nt) + v_n^\prime(0)\sin(R_nt) & R_n > 0 \\
-		v_n(0) + v_n^\prime(0)t & R_n=0 
-	\end{cases}	
-\end{equation*} 
- f\"ur $t\in\mathbb{R}$ wobei $R_n$ f\"ur $n\geq 1$ das entsprechende Diagonalelement von $R$ ist. Durch umschreiben in Matrixform und R\"ucktransformation durch $U$ erhalten wir unser Resultat (4.16).
+	\begin{cases}
+		v_n(0) \cos(R_n t) + v_n'(0) \sin(R_n t), & R_n > 0, \\
+		v_n(0) + v_n'(0) t, & R_n = 0,
+	\end{cases}
+	\]
+	wobei \(R_n\) das entsprechende Diagonalelement von \(R\) ist. Durch Umschreiben in Matrixform und Rücktransformation mit \( U^\dagger \) erhält man das Resultat \eqref{eq:loesung1}.
 \end{proof}
 \begin{proposition}
-Sei $G$ ein planarer Graph mit Orientierung, $r>0$, $a_0$, $e_0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion auf $G$ und $\epsilon>0$, dann gibt es eine Kurve $a\in C^2(\mathbb{R},\mathfrak{K})$, sodass f\"ur alle $t\in\mathbb{R}$ gilt
-\begin{equation}
-	a^{\prime\prime}(t)-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon = 0
-\end{equation}
-und die Anfangsbedingung
-\begin{align}
-	a(0)&= a_0\\
-	a^\prime(0) &= e_0
-\end{align}
-erf\"ullt ist.
+	Sei \( G \) ein planares Netz mit Orientierung, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
+	\begin{equation}
+		a''(t) - r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D \bigl( r^{-1} a(t) \bigr)}{\mu} \right) / \epsilon = 0\label{eq:prop_eq123}
+	\end{equation}
+	und die Anfangsbedingungen
+	\begin{align}
+		a(0) &= a_0, \\
+		a'(0) &= e_0
+	\end{align}
+	erfüllt sind.
 \end{proposition}
 \begin{proof}
-Es verbleibt zu zeigen, dass die lineare Abbildung $L$ definiert f\"ur $u\in \mathfrak{K}$ durch 
-\begin{equation*}
-	L(u) = -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon
-\end{equation*}
-positiv semidefinit ist:
-\begin{align*}
-	\langle u, L(u)\rangle_{\mathfrak{K}} = 
-	&\langle u, -r^{-1}\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) / \epsilon\rangle_{\mathfrak{K}} =\\ 
-	&\langle r^{-1}u, -\text{grad}_D(\text{div}_D(r^{-1}u) / \mu) \rangle_{\mathfrak{K}}/ \epsilon=\\
-	&\langle \text{div}_D(r^{-1}u), \text{div}_D(r^{-1}u) / \mu\rangle_{\mathfrak{F}}/ \epsilon\geq 0
-\end{align*}
+	Es bleibt zu zeigen, dass die lineare Abbildung \( L : \mathfrak{K} \to \mathfrak{K} \), definiert durch
+	\[
+	L(u) := - r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) / \epsilon,
+	\]
+	positiv semidefinit ist:
+	\begin{align*}
+		\langle u, L(u) \rangle_{\mathfrak{K}} 
+		&= \left\langle u, -r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) / \epsilon \right\rangle_{\mathfrak{K}} \\
+		&= \left\langle r^{-1} u, - \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) \right\rangle_{\mathfrak{K}} / \epsilon \\
+		&= \left\langle \mathrm{div}_D (r^{-1} u), \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right\rangle_{\mathfrak{F}} / \epsilon \geq 0.
+	\end{align*}
 \end{proof}
-
-\iffalse
-Schlie\ss{}en wir dieses Kapitel ab indem wir f\"ur den stromlosen Fall $j\equiv0$ eine L\"osung zu (4.10) konstruieren .
-Wegen der Eichinvarianz von (4.10) gibt es immer eine L\"osung mit $\phi\equiv0$, wodurch sich (4.10) auf
-\begin{equation}
-	a^{\prime\prime}-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon=0
-\end{equation}
-reduziert.
-
-Wir definieren die positiv semidefinite Matrix\\ $Q=-r^{-1}\text{grad}_D(\text{div}_D(r^{-1}a(t)) / \mu) / \epsilon$ und formulieren (4.18) kompakter als
-\begin{equation}
-	a^{\prime\prime}+Qa(t)=0
-\end{equation}
-Hierbei ist $Q$ ein positiv semidefiniter Operator.
-Als n\"achstes transformieren wir die lineare Differentialgleichung zweiter Ordnung in eine equivalent erster Ordnung.
-\fi
 \noindent
-Falls $\epsilon>0$ keine Konstante ist sondern eine Kantenfunktion, k\"onnen wir auch eine L\"osung konstruieren. Hierzu transformieren wir zun\"achst (4.18) in eine Differentialgleichung erster Ordnung.
+Wenn \(\epsilon > 0\) keine Konstante, sondern eine Kantenfunktion ist, kann ebenfalls eine Lösung konstruiert werden. Hierzu transformieren wir (\eqref{eq:prop_eq123} in eine Differentialgleichung erster Ordnung:
 \begin{equation}
+	\frac{d}{dt}
+	\begin{pmatrix}
+		a(t) \\
+		u(t)
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		0 & \mathbb{I} \\
+		L & 0
+	\end{pmatrix}
+	\begin{pmatrix}
+		a(t) \\
+		u(t)
+	\end{pmatrix}
+\end{equation}
+mit Anfangsbedingungen \( a(0) = a_0 \in \mathfrak{K} \) und \( u(0) = a'(0) = u_0 \in \mathfrak{K} \). Die allgemeine Lösung dieser Gleichung für \( t \in \mathbb{R} \) lautet:
+\begin{equation}
+	\begin{pmatrix}
+		a(t) \\
+		u(t)
+	\end{pmatrix}
+	=
+	e^{ 
 		\begin{pmatrix}
-		a  \\ u 
-	\end{pmatrix}^\prime=
+			0 & \mathbb{I} \\
+			L & 0
+		\end{pmatrix} t 
+	}
 	\begin{pmatrix}
-		0 & \mathbb{I} \\ 
-		L & 0
+		a_0 \\
+		u_0
 	\end{pmatrix}
+	= \sum_{n=0}^\infty \frac{t^n}{n!}
 	\begin{pmatrix}
-	a  \\ u 
-	\end{pmatrix}
-\end{equation}
-Die allgemeine L\"osung dieser Gleichung zu Anfangsbedingungen $a(0)=a_0\in\mathfrak{K}$ und $u(0)=a^\prime(0)=u_0\in\mathfrak{K}$ lautet f\"ur jedes $t\in\mathbb{R}$
-\begin{equation}
-\begin{pmatrix}
-	a  \\ u 
-\end{pmatrix}(t)=
-e^{	\begin{pmatrix}
-		0 & \mathbb{I} \\ 
+		0 & \mathbb{I} \\
 		L & 0
-\end{pmatrix}t}
+	\end{pmatrix}^n
 	\begin{pmatrix}
-	a_0  \\ u_0 
-\end{pmatrix}=
-\sum_{n=0}^\infty \frac{\begin{pmatrix}
-		0 & \mathbb{I} \\ 
-		L & 0
-	\end{pmatrix}^nt^n}{n!}\begin{pmatrix}
-a_0  \\ u_0 
-\end{pmatrix}
+		a_0 \\
+		u_0
+	\end{pmatrix}.
 \end{equation}
-Das Matrixexponential kann als Potenzreihe oder mit Hilfe der reelen Jordanschen Normalform der Matrix $M=\begin{pmatrix}
-	0 & \mathbb{I} \\ 
+Das Matrixexponential kann als Potenzreihe oder mit Hilfe der reellen Jordanschen Normalform der Matrix 
+\[
+M := \begin{pmatrix}
+	0 & \mathbb{I} \\
 	L & 0
-\end{pmatrix}$ wie im Hilfssatz 4.5 konstruiert werden.
-\iffalse
-\\
-\\
-\textbf{Zur Konstruktion der Jordanschen Normalform:}\\
-Sei $\omega\in\sigma(L)$ ein Eigenwert von $L$ mit Eigenvektor $v_\omega$. 
-\\
-Falls $\omega\neq 0$, dann k\"onnen wir zwei Eigenvektoren $u_{\pm\sqrt{\omega}}=\begin{pmatrix}
-	v_\omega \\ \pm\sqrt{\omega}v_\omega
-\end{pmatrix}$ zu den Eigenwerten $\pm\sqrt{\omega}$   von $M$ konstruieren. 
-\\
-\\
-Falls $\omega=0$ k\"onnen wir f\"ur jeden zugeh\"origen Eigenvektor $v$ nur einen einzigen Eigenvektor $u=\begin{pmatrix}
-v \\ 0
-\end{pmatrix}$ von $M$ konstruieren. Entsprechend wird  zu jedem Eigenvektor $v$ auch ein Hauptvektor $u_h=\begin{pmatrix}
-u_h^1  \\ u_h^2 
-\end{pmatrix}$ konstruiert, sodass
-\begin{equation*}
-	M^2u_h = \begin{pmatrix}
-		L & 0 \\ 
-		0 & L
-	\end{pmatrix}\begin{pmatrix}
-	u_h^1  \\ u_h^2 
 \end{pmatrix}
-\end{equation*}
-\fi
-\section{Kanonische Quantisierung des elektromagnetischen Feldes}
-Anfang des zwanzigsten Jahrhunderts wurde zur Erkl\"arung einer Reihe von Ph\"anomenen, die innerhalb der damals etablierten/klassischen physikalischen Theorien nicht erkl\"arbar waren, die Quantentheorie entwickelt.
-Die Objekte der klassischen Theorien sind Kurven, Kr\"afte und Felder und in der Quantenmechanik sind es Zustandsvektoren, Operatoren und Distributionen. Die messbaren Gr\"o\ss{}en bleiben dieselben, allerdings werden die mathematischen Objekte, die ihr Verhalten beschreiben etwas komplizierter.\\
+\] 
+wie im \eqref{lem:loesung_anfangswert} konstruiert werden.
 \\
-Wir wollen nun den klassischen Weg der Quantisierung einer physikalischen Theorie am Beispiel der Maxwellgleichungen auf planaren Graphen erkunden.\\
 \\
-Der Ausgangspunkt dieser so genannten kanonischen Quantisierung ist die Lagrangefunktion der Theorie.
-\begin{theorem}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $q\in C^1(\mathbb{R}, \mathfrak{E})$, $j\in C^1(\mathbb{R}, \mathfrak{K})$, sei weiters $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.10), genau dann wenn alle Richtungs-ableitungen des Wirkungsfunktionals verschwinden auf dem Raum der $f_1\in C^1(\mathbb{R}, \mathfrak{E})$ und $f_2\in C^1(\mathbb{R}, \mathfrak{K})$ f\"ur die gilt, dass $f_1$ und $\phi$ sowie $f_2$ und $a$ zu den Zeitpunkten $r$ und $s$ \"ubereinstimmen
-\begin{equation}
-	S(f_1, f_2) = \int_{r}^{s}L(f_1, f_2, f_1^\prime, f_2^\prime)dt
-\end{equation}
-\noindent
-Die Funktion unter dem Integral nennt man die \textbf{Lagrangefunktion} der Maxwellgleichung.
-Sie ist dabei gegeben durch:
-\begin{align*}
-	L(g_1, g_2, v_1, v_2) =&\frac{1}{2}(\langle \epsilon(v_2 + r\text{grad}(g_1)), v_2 + r\text{grad}(g_1)\rangle_\mathfrak{K} -\\& \langle\text{div}_D(r^{-1}g_2), \text{div}_D(r^{-1}g_2)/\mu\rangle_\mathfrak{F}) + \langle g_2, j\rangle_\mathfrak{K} - \langle g_1, q\rangle_\mathfrak{E}
-\end{align*}
+Zum Abschluss geben wir eine weitere alternative Darstellung der Maxwell\-Gleichungen, 
+nämlich die \textbf{Hamiltonsche Formulierung der Maxwell\-Theorie}. 
+Diese orientiert sich an der Gesamtenergie aus dem Energieerhaltungssatz~4.1. 
+Allerdings ergibt sich in der Potentialdarstellung der Maxwell\-Gleichungen 
+(Gleichung~\eqref{eq:potential_ampere}) zunächst ein Problem: 
+das Skalarpotential \(\phi\) tritt nur linear über seine zeitliche Ableitung auf. \\
+\\
+Die Lösung besteht darin, das Skalarpotential durch eine geeignete Eichtransformation 
+vollständig zu eliminieren. Dies ist möglich, da es stets eine Transformation gibt, 
+die jedes Paar \((\phi, a)\) von Potentialen in eines mit \(\phi \equiv 0\) überführt. 
+Um jedoch zu verhindern, dass das Skalarpotential erneut eingeführt werden kann, 
+muss die Eichfreiheit zusätzlich eingeschränkt werden.  
+Diese Einschränkung nennt man \emph{Eichfixierung}. 
+Im vorliegenden Fall spricht man von der \textbf{Hamiltoneichung}.  \\
+\\
+Das verbleibende Vektorpotential \(a\) ist in dieser Fixierung 
+immer noch nicht eindeutig bestimmt. 
+Genau die Eichtransformationen, die nach Definition~\ref{def:eich} 
+zu einem konstanten \(\xi\) gehören, erhalten diese Eichung. 
+\begin{theorem} \label{thm:hamiltongl}
+	Sei \( G \) ein planares Netz, 
+	\( r>0 \), \(\epsilon>0\) positive Kantenfunktionen, 
+	\( a,\pi,j \in C^{1}(\mathbb{R}, \mathfrak{K}) \) zeitabhängige Funktionen 
+	und \(\mu > 0 \) eine Flächenfunktion.  
+	Dann heißt 
+	\begin{equation}\label{eq:Hamilton}
+		H(\pi, a) \;=\; 
+		\frac{1}{2}\,\langle \tfrac{\pi}{\epsilon}, \pi \rangle_{\mathfrak{K}}
+		\;+\; \frac{1}{2}\,\left\langle \mathrm{div}_D(r^{-1}a), 
+		\frac{\mathrm{div}_D(r^{-1}a)}{\mu} \right\rangle_{\mathfrak{F}}
+		\;-\; \langle a, j \rangle_{\mathfrak{K}}
+	\end{equation}
+	die \textbf{Hamiltonfunktion der Maxwell\-Gleichungen}. \\
+	\\
+	Dann gilt: 
+	das Vektorpotential \(a\) ist eine Lösung von \eqref{eq:potential_ampere}, 
+	wobei \(\pi = - \epsilon e\) der \textbf{kanonisch konjugierte Impuls} ist 
+	(\(e\) das elektrische Feld nach Definition~\ref{def:potential_def}), 
+	genau dann, wenn
+	\begin{align}
+		a'(t) &= \;\;\;\;\frac{\partial H}{\partial \pi}, \\[4pt]
+		\pi'(t) &= -\,\frac{\partial H}{\partial a}.
+	\end{align}
 \end{theorem}
 \begin{proof}
-Siehe beliebiges Fachbuch zur theoretischen Physik.
-\end{proof}
-\noindent
-Im n\"achsten Schritt wollen wir diese Lagrangefunktion \"uber eine Legendre Transformation in die zugeh\"orende \textbf{Hamiltonfunktion} umwandeln.
-\begin{definition}
-	Sei $f:X\mapsto\mathbb{R}$ eine konvexe Funktion auf einem Skalarproduktraum $X$, dann ist die \textbf{Legendretransformation} $f^*$ definiert durch:
-	\begin{equation}
-		f^*(y) = \sup_{x\in X}(\langle x, y\rangle-f(x))
-	\end{equation}
-\end{definition}
-\noindent
-Jedoch wollen wir zun\"achst ein n\"utzliches Resultat zeigen mit dessen Hilfe wir eine wohldefinierte Legendretransformation samt Formel erhalten.
-\begin{proposition}
-	Sei $f:X\mapsto\mathbb{R}$ eine strikt konvexe stetig differenzierbare Funktion auf einem Skalarproduktraum $X$, sodass die Abbildung $x\mapsto Df(x)$ invertierbar ist, dann ist die Legendretransformation gegeben durch:
-	\begin{equation}
-		f^*(y) = \langle (Df)^{-1}(y), y\rangle-f((Df)^{-1}(y))
-	\end{equation}
-\end{proposition}
-\begin{proof}
-Die Funktion $g_y(x)=\langle x, y\rangle-f(x)$ ist streng konkav und hat daher ein eindeutiges Maximum $x_0\in X$.
-\begin{equation*}
-	Dg_y(x_0) = y - Df(x_0)=0\Rightarrow x_0 = (Df)^{-1}(y)
-\end{equation*}
-Eingesetzt in $g_y$ erhalten wir dann
-\begin{equation*}
-	f^*(y)=g_y(x_0) = \langle (Df)^{-1}(y), y\rangle-f((Df)^{-1}(y))
-\end{equation*}
-\end{proof}
-\noindent
-Um diese Darstellung ausnutzen zu k\"onnen m\"ussen wir die Lagrangefunktion strikt konvex machen, indem wenn wir das Skalarpotential $\phi$ aus der Lagrangefunktion entfernen.\\
-Dies ist m\"oglich, da es zu jeder Paarung eines Skalarpotentials und eines Vektorpotentials eine Eichtransformation gibt, die diese in ein Paar umwandelt, dessen Skalarpotential gleich Null ist.\\
-\\
-Die resultierende Lagrangefunktion ist gegeben durch 
-\begin{equation}
-	L(a, v) =\frac{1}{2}(\langle \epsilon v, v\rangle_\mathfrak{K} - \langle\text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_\mathfrak{F}) + \langle a, j\rangle_\mathfrak{K}
-\end{equation}
-\noindent
-Das \"ubrige Vektorpotential $a$ ist immer noch nicht eindeutig bestimmt, und die Eichtransformationen die diese Form der Eichung erhalten sind genau jene, die laut Definition (4.10) zu einem konstanten $\xi$ korrespondieren.\\
-\\
-Die Hamiltonfunktion erhalten wir durch eine Anwendung der Legendretransformation auf die Lagrangefunktion (4.26) bez\"uglich der Variablen $v$.
-\begin{equation}
-	H(\pi, a) = \frac{1}{2}\langle \frac{\pi}{\epsilon}, \pi\rangle_{\mathfrak{K}} + \frac{1}{2}\langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}} - \langle a, j\rangle_{\mathfrak{K}}
-\end{equation}
-Wenn wir mit (4.8) bei Satz 4.1, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.\\
-\\
-Mit Hilfe der Euler-Lagrange-Gleichung k\"onnen wir nun die \textbf{Hamiltonschen Bewegungsgleichungen} herleiten.
-\begin{proposition}
-Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$,  Kantenfunktionen, $j\in C^1(\mathbb{R}, \mathfrak{K})$, $\mu>0$ eine Fl\"achenfunktion dann sind $a$ und $\phi$ L\"osungen der Maxwellgleichung in Potentialform (4.10), genau dann wenn die Hamiltonschen Bewegunggleichungen erf\"ullt sind:
-\begin{align}
-	a^\prime = \frac{\partial H}{\partial \pi}\\
-	\pi^\prime = - \frac{\partial H}{\partial a}
-\end{align}
-\end{proposition}
-\begin{proof}
-	Siehe beliebiges Fachbuch zur theoretischen Physik.
-\end{proof}
-\noindent
-An diesem Punkt entfernen wir uns von der klassischen Theorie und folgen Heisenberg in die Quantenmechanik. Die Kurven $\pi$ und $q$ aus $C^1(\mathbb{R}, \mathfrak{K})$ sind von nun an Kurven $\hat{\pi}$ und $\hat{q}$ in einem Raum von Operatoren auf einem Hilbertraum.\footnote{Operator auf einem Hilbertraum bedeutet ein dicht definierter linearer Operator.}
-\begin{definition}
-	Sei $G$ ein planarer Graph und $r>0$ eine Kantenfunktion, dann ist der Hilbertraum unserer Theorie gegeben durch
-	\begin{equation}
-		\mathfrak{H} = L^2(\mathfrak{K}(G),\mathbb{C};\lambda)
-	\end{equation}
-	Der Raum der komplexen Funktionen auf $\mathfrak{K}(G)$ deren Quadrate ein endliches Integral bez\"uglich dem Ma\ss{} $\lambda$\footnote{$\lambda$ wird zu einem sp\"ateren Zeitpunkt festgelegt.} hat.\\
+	Ein Einsetzen von \eqref{eq:Hamilton} in die Hamilton\-Gleichungen liefert:\\
 	\\
-	Das Skalarprodukt von $\xi,\phi\in\mathfrak{H}$ ist dabei definiert durch:
-	\begin{equation}
-		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_\mathfrak{K} \overline{\phi}(x)\xi(x)d\lambda(x)
+	Zunächst aus
+	\[
+	a'(t) = \frac{\partial H}{\partial \pi}
+	\]
+	resultiert unmittelbar
+	\begin{equation}\label{eq:eidenpi}
+		a'(t) \;=\; \frac{\pi}{\epsilon},
 	\end{equation}
+	was gerade die Identität des kanonischen Impulses \(\pi = \epsilon\,a'\) ist.  
+	Da nach Definition \(e = -a'\) gilt, folgt daraus die gewohnte Beziehung\\
+	\(\pi = -\,\epsilon e\).
+	\\
+	Analog ergibt das Einsetzen in
+	\[
+	\pi'(t) = -\,\frac{\partial H}{\partial a},
+	\]
+	die Gleichung
+	\begin{equation}
+		\pi'(t) \;=\; r^{-1}\,\mathrm{grad}_D 
+		\left( \frac{1}{\mu}\,\mathrm{div}_D\!\left(r^{-1} a(t)\right)\right) \;+\; j.
+	\end{equation}
+	Kombiniert man diese Beziehung mit \eqref{eq:eidenpi}, so erhält man
+	\begin{equation}
+		r^{-1}\,\mathrm{grad}_D 
+		\left( \frac{1}{\mu}\,\mathrm{div}_D\!\left(r^{-1} a(t)\right)\right) 
+		\;=\; \epsilon\,a''(t) \;-\; j,
+	\end{equation}
+	was exakt der Potentialgleichung \eqref{eq:potential_ampere} entspricht.
+\end{proof}
+\noindent
+Wenn wir \eqref{eq:Hamilton} mit dem Energieerhaltungssatz 4.1, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.
+\section{Kanonische Quantisierung des elektromagnetischen Feldes}
+Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die mit den damals etablierten klassischen Theorien nicht erklärbar waren, die Quantentheorie entwickelt.\\
+\\
+Die Objekte der klassischen Theorien sind Kurven, Kräfte und Felder, während es in der Quantenmechanik Zustandsvektoren, Operatoren und Distributionen sind. Die messbaren Größen bleiben dieselben, allerdings werden die mathematischen Objekte zu ihrer Beschreibung komplexer.\\
+\\
+Wir wenden nun die Methode der \emph{kanonischen Quantisierung} auf die Maxwell-Gleichungen auf planaren Netzen an. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
+\\
+Wir verlassen damit die klassische Theorie und folgen Heisenberg in die Quantenmechanik. 
+Die zuvor eingeführten Kurven \( \pi, a \in C^1(\mathbb{R},\mathfrak{K}) \) werden zu Operatorwerten 
+\(\hat{\pi}\) und \(\hat{a}\) auf einem Hilbertraum.\footnote{Ein Operator auf einem Hilbertraum bedeutet stets ein dicht definierter linearer Operator.}
+\begin{definition}
+	Sei \( G \) ein planares Netz und \(r>0\) eine Kantenfunktion. 
+	Der Hilbertraum unserer Theorie sei definiert durch
+	\[
+	\mathfrak{H} = L^2(\mathfrak{K}(G), \mathbb{C}; \lambda),
+	\]
+	den Raum der quadratintegrierbaren komplexen Funktionen auf \(\mathfrak{K}(G)\) 
+	bezüglich dem Lebesguemaß $\lambda$.
+	Das Skalarprodukt ist gegeben durch
+	\[
+	\langle \phi, \xi \rangle_{\mathfrak{H}} = \int_{\mathfrak{K}(G)} 
+	\overline{\phi(x)}\, \xi(x)\, d\lambda(x).
+	\]
 \end{definition}
 \noindent
 \paragraph{Interpretation}
 \begin{itemize}
-\item Jedes Element $\psi\in\mathfrak{H}$ stellt einen m\"oglichen Zustand des quantisierten elektromagnetischen Feldes dar. 
-\item Jeder Messgr\"o\ss{}e $\Omega$ des klassischen elektromagnetischen Feldes entspricht ein korrespondierender selbstadjungierter Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
-\item Der Ausgang einer Messung der Gr\"o\ss{}e $\Omega$ ist ein zuf\"alliges Element des Spektrums von $\Omega$ und der Mittelwert der Messungen ist gleich $\frac{\langle \psi, \hat{\Omega}\psi\rangle_{\mathfrak{H}}}{\langle \psi, \psi\rangle_{\mathfrak{H}}}$.
+	\item Jedes Element $\psi\in\mathfrak{H}$ beschreibt einen möglichen Zustand des quantisierten elektromagnetischen Feldes. 
+	\item Jeder klassischen Größe $\Omega$ entspricht ein selbstadjungierter Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
+	\item Messergebnisse sind zufällige Spektralwerte von $\hat{\Omega}$, und der Erwartungswert ergibt sich durch
+	\[
+	\frac{\langle \psi, \hat{\Omega}\psi \rangle_{\mathfrak{H}}}{\langle \psi, \psi \rangle_{\mathfrak{H}}}.
+	\]
 \end{itemize}
+
 \noindent
 Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die so genannte \textbf{kanonische Vertauschungsrelation}:
 \begin{equation}
