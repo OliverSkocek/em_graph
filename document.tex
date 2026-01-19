@@ -43,7 +43,7 @@
 \DeclareMathOperator{\dom}{dom}
 \DeclareMathOperator{\ran}{ran}
 \newcommand{\re}{\mathrm{Re}}
-\newcommand{\im}{\mathrm{Im}}
+
 
 \newcommand{\ul}{\underline}
 \newcommand{\I}{\mathrm{i}}
@@ -592,7 +592,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	Da $G$ zusammenhängend ist, folgt, dass $f$ konstant ist.  \\
 	\\
 	\medskip\noindent
-	\textbf{2. Schritt:} $\mathrm{im}(\mathrm{grad}) = \ker(\mathrm{div}_D)$.  
+	\textbf{2. Schritt:} $ \operatorname{Bild}(\mathrm{grad}) = \ker(\mathrm{div}_D)$.  
 	Zunächst: Für jedes $u \in \mathfrak{E}(G)$ gilt $\mathrm{div}_D(\mathrm{grad}(u))=0$.  
 	Denn entlang jedes Umlaufs hebt sich die Pfadsumme auf, da jeder Wert von $u$ 
 	genau einmal mit positivem und einmal mit negativem Vorzeichen auftritt.  
@@ -605,7 +605,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	die wohldefiniert ist. Dann gilt $\mathrm{grad}(F)=f$.  \\
 	\\
 	\medskip\noindent
-	\textbf{3. Schritt:} $\mathrm{im}(\mathrm{div}_D)$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
+	\textbf{3. Schritt:} $ \operatorname{Bild}(\mathrm{div}_D)$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
 	Dies folgt unmittelbar aus dem adjungierten Zusammenhang $\mathrm{div} = -\mathrm{grad}^\top$: 
 	das Bild von $\mathrm{div}_D$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
 	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle =0\}$.\\
@@ -629,16 +629,16 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 \end{remark}
 \noindent
 Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem diskreten de Rham-Komplex.
-\begin{corollary}[Helmholtz-Zerlegung]
+\begin{corollary}[Helmholtz-Zerlegung]\label{eq:helmoltz}
 	Sei \(G\) ein planares Netz mit Orientierung. Dann gilt:
 	\[
-	\mathfrak{K}(G) = \mathrm{im}(\mathrm{grad}) \oplus \mathrm{im}(\mathrm{grad}_D).
+	\mathfrak{K}(G) =  \operatorname{Bild}(\mathrm{grad}) \oplus  \operatorname{Bild}(\mathrm{grad}_D).
 	\]
 \end{corollary}
 \begin{proof}
 	Wegen dem diskreten de Rham-Komplex gilt:
 	\[
-	\ker(\mathrm{div}_D) = \mathrm{im}(\mathrm{grad}).
+	\ker(\mathrm{div}_D) =  \operatorname{Bild}(\mathrm{grad}).
 	\]
 	Mit der Hilbertraum-Zerlegung
 	\[
@@ -646,11 +646,11 @@ Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem disk
 	\]
 	und der linearen Algebra-Identität
 	\[
-	\ker(A)^\perp = \mathrm{im}(A^\top)
+	\ker(A)^\perp =  \operatorname{Bild}(A^\top)
 	\]
 	folgt unmittelbar die Helmholtz-Zerlegung:
 	\[
-	\mathfrak{K}(G) = \mathrm{im}(\mathrm{grad}) \oplus \mathrm{im}(\mathrm{grad}_D).
+	\mathfrak{K}(G) =  \operatorname{Bild}(\mathrm{grad}) \oplus  \operatorname{Bild}(\mathrm{grad}_D).
 	\]
 \end{proof}
 \chapter{Das Poisson Problem}
@@ -964,9 +964,10 @@ Die reduzierte Gleichung für die verbleibenden Unbekannten lautet also
 \]
 Dies ist exakt die Matrixgleichung, die man auch 
 mit den üblichen Methoden der Netzwerktheorie in der Physik erhält.
-
+Ab diesem Punkt sei, sofern nicht anders angegeben, jedes planares Netz stillschweigend als orientiertes planares Netz verstanden.
 
 \chapter{Die Maxwell-Gleichungen}
+\section{Grundlagen}
 Die Elektrodynamik beschreibt elektromagnetische Phänomene als durch Felder vermittelte Wechselwirkung von Materie. 
 Diese Felder gehorchen den Maxwell-Gleichungen, die im 19.~Jahrhundert von James Clerk Maxwell formuliert wurden. 
 Es handelt sich dabei um partielle Differentialgleichungen, welche die zeitliche Entwicklung elektromagnetischer Felder in Abhängigkeit von Strömen und Ladungen beschreiben. \\
@@ -1014,12 +1015,12 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 		
 		\item \textbf{Ampèresches Gesetz} \eqref{eq:disk-ampere}: Dieses Gesetz erklärt, wie sich das elektrische Feld im Zeitverlauf ändert, beeinflusst durch das magnetische Feld und den elektrischen Strom \( j \). Unter Annahme des Ohmschen Gesetzes \( j = \sigma e \) wirkt der Strom als Dämpfungsterm.
 		
-		\item \textbf{Magnetisches Gaußsches Gesetz} \eqref{eq:disk-magnetgauss}: Es besagt, dass es keine magnetischen Monopole gibt. Dieses Gesetz folgt direkt aus Faradays Gesetz, sobald die Anfangsbedingung \( b_0 \) die Bedingung \( \sum_{f \in F} b_0(f) = 0 \) bzw. äquivalent \( b_0 \in \mathrm{im}(\mathrm{div}_D) \) erfüllt.
+		\item \textbf{Magnetisches Gaußsches Gesetz} \eqref{eq:disk-magnetgauss}: Es besagt, dass es keine magnetischen Monopole gibt. Dieses Gesetz folgt direkt aus Faradays Gesetz, sobald die Anfangsbedingung \( b_0 \) die Bedingung \( \sum_{f \in F} b_0(f) = 0 \) bzw. äquivalent \( b_0 \in  \operatorname{Bild}(\mathrm{div}_D) \) erfüllt.
 	\end{itemize}
 \end{remark}
 \noindent
 Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der elektrischen Energie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die über die Zeit ineinander umgewandelt werden.
-\begin{proposition}[Energieerhaltung]
+\begin{proposition}[Energieerhaltung]\label{thm:Energieerhaltung}
 	Sei $G=(g,F)$ ein planares Netz mit den Parametern $r>0$, $\epsilon>0$, $\mu>0$  
 	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
 	Die Energie des Systems sei definiert als
@@ -1125,7 +1126,7 @@ Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleic
 
 Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planaren Netzen über Potentiale ausdrücken.  
 \begin{definition} \label{def:potential_def}
-	Sei \(G\) ein planares Netz mit Orientierung und \(r > 0\) eine Kantenfunktion auf \(G\).  
+	Sei \(G\) ein planares Netz und \(r > 0\) eine Kantenfunktion auf \(G\).  
 	Dann definieren wir eine lineare Transformation 
 	\[
 	T : C^1(\mathbb{R}, \mathfrak{E}) \times C^1(\mathbb{R}, \mathfrak{K}) \to C^1(\mathbb{R}, \mathfrak{K}) \times C^1(\mathbb{R}, \mathfrak{F})
@@ -1136,14 +1137,14 @@ Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planare
 		= \begin{pmatrix}
 			\mathrm{div}_D \bigl(r^{-1} a(t)\bigr) \\
 			- a'(t) - r\, \mathrm{grad}(\phi(t))
-		\end{pmatrix}= \begin{pmatrix} e(t) \\ b(t) \end{pmatrix}
+		\end{pmatrix}= \begin{pmatrix} e(t) \\ b(t) \end{pmatrix}\label{eq:eich_trafo}
 	\end{equation}
 	für alle \(t \in \mathbb{R}\). Die Funktionen \(\phi\) und \(a\) heißen \textbf{Skalarpotential} bzw. \textbf{Vektorpotential}, die über \(T\) in die Felder \(b\) und \(e\) überführt werden.
 \end{definition}
 \noindent
 Es sei angemerkt, dass \(\mathrm{div}_D\) nicht surjektiv ist, sondern nur Flächenfunktionen abbildet, die orthogonal zu den konstanten Funktionen sind. Diese Eigenschaft entspricht dem magnetischen Gaußschen Gesetz und erlaubt es uns, eine der Maxwellgleichungen bereits durch Wahl der Potentiale zu erfüllen.  \\
 \\
-Die Definition von \(b\) aus (4.9) führt durch Einsetzen in die Definition von \(e\) unmittelbar zum Faradayschen Gesetz. Damit sind zwei der vier Maxwellgleichungen automatisch erfüllt.  
+Die Definition von \(b\) aus \eqref{eq:eich_trafo} führt durch Einsetzen in die Definition von \(e\) unmittelbar zum Faradayschen Gesetz. Damit sind zwei der vier Maxwellgleichungen automatisch erfüllt.  
 \\
 \\
 Das Gaußsche Gesetz in Kombination mit dem Ampèreschen Gesetz koppelt das elektrodynamische Feld an die Größen \(q\) (Ladung) und \(j\) (Strom). Diese erfüllen nach den Maxwellgleichungen das Kontinuitätsgesetz, deren Dynamik jedoch außerhalb des Systems liegt. Im Folgenden betrachten wir daher den Vereinfachungsfall, in dem \(j\) als vorgegebene zeitabhängige Funktion gegeben ist und \(q\) sich über das Gaußsche Gesetz definiert.  \\
@@ -1167,7 +1168,7 @@ Es ist leicht zu erkennen, dass die Abbildung \(T\) nicht injektiv ist. Die Char
 \noindent
 Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch die Felder bestimmt.  
 \begin{proposition}
-	Sei \(T\) wie in Definition 4.3. Dann gilt
+	Sei \(T\) wie in Definition~\ref{def:potential_def}. Dann gilt
 	\[
 	\mathrm{kern}(T) = \left\{ \begin{pmatrix} -\xi' \\ r\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
 	\]
@@ -1180,12 +1181,12 @@ Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch 
 	\]
 	Aus dem diskreten de Rham-Komplex wissen wir, dass
 	\[
-	\ker(\mathrm{div}_D) = \mathrm{im}(\mathrm{grad}),
+	\ker(\mathrm{div}_D) =  \operatorname{Bild}(\mathrm{grad}),
 	\]
 	wobei alle Konstantenfunktionen im Kern von \(\mathrm{grad}\) liegen.
 	Da \(r > 0\) ist, folgt daraus direkt, dass für jedes \(t\) gilt:
 	\[
-	r^{-1} a(t) \in \mathrm{im}(\mathrm{grad}),
+	r^{-1} a(t) \in  \operatorname{Bild}(\mathrm{grad}),
 	\]
 	das heißt es existiert \(\xi(t) \in \mathfrak{E}\), so dass
 	\[
@@ -1214,7 +1215,7 @@ Hiermit wurden die wesentlichen Aspekte der Potentialdarstellung vorgestellt. Di
 \\
 Als Nächstes konstruieren wir eine Lösung der Maxwell-Gleichungen in Potentialdarstellung (Gleichung \eqref{eq:potential_ampere}) im stromlosen Fall \( j \equiv 0 \).\\
 \\
-Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine Lösung mit \(\phi \equiv 0\). Somit können wir ohne Einschränkung der Allgemeinheit das Skalarpotential \(\phi\) aus (4.7) eliminieren.
+Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine Lösung mit \(\phi \equiv 0\). Somit können wir ohne Einschränkung der Allgemeinheit das Skalarpotential \(\phi\) aus \eqref{eq:potential_ampere}  eliminieren.
 
 \begin{lemma}\label{lem:loesung_anfangswert}
 	Sei \( L : V \to V \) eine positiv semidefinite lineare Abbildung in einem endlichdimensionalen reellen Vektorraum \( V = \mathbb{R}^n \) mit \( n \geq 1 \). Weiter seien \( u_0, v_0 \in V \) Anfangsdaten und \( u \in C^2(\mathbb{R}, V) \) eine gesuchte Funktion.  
@@ -1258,7 +1259,7 @@ Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine 
 	wobei \(R_n\) das entsprechende Diagonalelement von \(R\) ist. Durch Umschreiben in Matrixform und Rücktransformation mit \( U^\dagger \) erhält man das Resultat \eqref{eq:loesung1}.
 \end{proof}
 \begin{proposition}
-	Sei \( G \) ein planares Netz mit Orientierung, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
+	Sei \( G \) ein planares Netz, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
 	\begin{equation}
 		a''(t) - r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D \bigl( r^{-1} a(t) \bigr)}{\mu} \right) / \epsilon = 0\label{eq:prop_eq123}
 	\end{equation}
@@ -1355,7 +1356,17 @@ Im vorliegenden Fall spricht man von der \textbf{Hamiltoneichung}.  \\
 Das verbleibende Vektorpotential \(a\) ist in dieser Fixierung 
 immer noch nicht eindeutig bestimmt. 
 Genau die Eichtransformationen, die nach Definition~\ref{def:eich} 
-zu einem konstanten \(\xi\) gehören, erhalten diese Eichung. 
+zu einem in der Zeit konstanten \(\xi\) gehören, entsprechen dieser Eichung. 
+\begin{definition}[Hamilton Eichung]
+	Sei \( a\) das Vektorpotential, \(\xi \in \mathfrak{E}\) und \(r>0\) wie in Definition~\ref{def:potential_def}.  
+	Die \textbf{Hamilton Eichtransformation} \(\gamma_\xi\) ist definiert durch
+	\begin{equation}
+		\gamma_\xi (a)
+		=  a + r\, \mathrm{grad}(\xi) 
+	\end{equation}
+\end{definition}
+\noindent
+Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir mit dem Begriff Eichtransformation stets die Hamilton- Eichtransformation.
 \begin{theorem} \label{thm:hamiltongl}
 	Sei \( G \) ein planares Netz, 
 	\( r>0 \), \(\epsilon>0\) positive Kantenfunktionen, 
@@ -1414,114 +1425,197 @@ zu einem konstanten \(\xi\) gehören, erhalten diese Eichung.
 	was exakt der Potentialgleichung \eqref{eq:potential_ampere} entspricht.
 \end{proof}
 \noindent
-Wenn wir \eqref{eq:Hamilton} mit dem Energieerhaltungssatz 4.1, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz 4.1 zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.
-\section{Kanonische Quantisierung des elektromagnetischen Feldes}
-Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die mit den damals etablierten klassischen Theorien nicht erklärbar waren, die Quantentheorie entwickelt.\\
+Wenn wir \eqref{eq:Hamilton} mit dem Energieerhaltungssatz~\ref{thm:Energieerhaltung}, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz~\ref{thm:Energieerhaltung} zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.
+\newpage
+\section{Quantisierung des elektromagnetischen Feldes}
+Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die mit den damals etablierten Theorien nicht erklärbar waren, die Quantentheorie entwickelt.\\
 \\
-Die Objekte der klassischen Theorien sind Kurven, Kräfte und Felder, während es in der Quantenmechanik Zustandsvektoren, Operatoren und Distributionen sind. Die messbaren Größen bleiben dieselben, allerdings werden die mathematischen Objekte zu ihrer Beschreibung komplexer.\\
+Die klassischen Theorien beschreiben Kurven, Kräfte und Felder,
+während in der Quantenmechanik Zustandsvektoren, Operatoren und Distributionen die entsprechenden Rollen übernehmen. Die messbaren Größen bleiben identisch, nur die mathematischen Strukturen zu ihrer Beschreibung werden komplexer.\\
 \\
-Wir wenden nun die Methode der \emph{kanonischen Quantisierung} auf die Maxwell-Gleichungen auf planaren Netzen an. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
+In diesem Abschnitt formulieren wir eine Quantentheorie der Maxwell-Gleichungen auf planaren Netzen. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
 \\
-Wir verlassen damit die klassische Theorie und folgen Heisenberg in die Quantenmechanik. 
-Die zuvor eingeführten Kurven \( \pi, a \in C^1(\mathbb{R},\mathfrak{K}) \) werden zu Operatorwerten 
-\(\hat{\pi}\) und \(\hat{a}\) auf einem Hilbertraum.\footnote{Ein Operator auf einem Hilbertraum bedeutet stets ein dicht definierter linearer Operator.}
+Der Zustand eines quantenmechanischen Systems ist, wie bekannt, ein Strahl in einem komplexen Hilbertraum \(\mathfrak{H}\) typischerweise repräsentiert durch einen Vektor \(\psi\in \mathfrak{H}\) mit Norm \(||\psi|| = \sqrt{\langle \psi, \psi\rangle}=1\).
 \begin{definition}
-	Sei \( G \) ein planares Netz und \(r>0\) eine Kantenfunktion. 
-	Der Hilbertraum unserer Theorie sei definiert durch
+	Sei \(G\) ein planares Netz und \(r>0\) eine Kantenfunktion. 
+	Der \textbf{Hilbertraum der quantisierten Maxwell-Theorie} ist definiert als Raum der quadratintegrierbaren, komplexwertigen Funktionen auf \(\mathfrak{K}(G)\):
 	\[
 	\mathfrak{H} = L^2(\mathfrak{K}(G), \mathbb{C}; \lambda),
 	\]
-	den Raum der quadratintegrierbaren komplexen Funktionen auf \(\mathfrak{K}(G)\) 
-	bezüglich dem Lebesguemaß $\lambda$.
+	bezüglich des Lebesgue-Maßes \(\lambda\).
 	Das Skalarprodukt ist gegeben durch
 	\[
-	\langle \phi, \xi \rangle_{\mathfrak{H}} = \int_{\mathfrak{K}(G)} 
-	\overline{\phi(x)}\, \xi(x)\, d\lambda(x).
+	\langle \phi, \psi \rangle_{\mathfrak{H}} = \int_{\mathfrak{K}(G)} \overline{\phi(x)}\, \psi(x)\, d\lambda(x).
 	\]
 \end{definition}
 \noindent
+Als Nächstes soll die Schrödingergleichung für das elektromagnetische Feld formuliert werden. 
+Eine Betrachtung der Hamiltonfunktion \eqref{eq:Hamilton} zeigt, dass das Problem 
+äquivalent zur Bewegung von \( |E| \) Punktmassen mit Massen \(\epsilon(k)\) 
+für jedes \( k \in E \) in einem geeigneten Potential ist.
+\begin{definition}
+	Sei \(G\) ein planares Netz. Gegeben seien positive Kantenfunktionen 
+	\(r, \epsilon: E \to \mathbb{R}_{>0}\), eine positive Flächenfunktion 
+	\(\mu: F \to \mathbb{R}_{>0}\) sowie eine stetige Kurve selbstadjungierter Operatoren 
+	\(\hat{j}: \mathbb{R} \to \mathcal{L}(\mathfrak{H}(G))\), welche die externe Stromdichte beschreibt.
+	\\
+	\\
+	Sei weiter der \textbf{Hermite-Polynomraum} definiert als
+	\begin{equation}
+		\mathfrak{D} = \operatorname{span}\bigl\{(a\mapsto a^\alpha e^{-\frac{\|a\|^2}{2}}): \alpha\in\mathbb{N}^E\bigr\}
+		\subseteq \mathfrak{H}(G), \label{def:hermite}
+	\end{equation}
+	\\
+	\\
+	Der \textbf{(zeitabhängige) Hamiltonoperator} \(\hat{H}(t): \mathfrak{D} \to \mathfrak{H}(G)\) 
+	des elektromagnetischen Feldes ist definiert durch
+	\footnote{Der Definitionsbereich \(D(\hat{H}) = \mathfrak{D}\) ist eine dichte Teilmenge von 
+		\(\mathfrak{H}(G)\), invariant unter den Operatoren \(\partial_{a_k}^2\) und Multiplikation mit 
+		polynomiellen Kantenfunktionen.}
+	\begin{equation}
+		\hat{H}(t) = -\sum_{k\in E}\frac{1}{2\,\epsilon(k)}\,\frac{\partial^2}{\partial a_k^2}
+		+ \frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a),
+		\frac{\mathrm{div}_D(r^{-1}a)}{\mu}\Bigr\rangle_{\mathfrak{F}}
+		- \langle a, \hat{j}(t)\rangle_{\mathfrak{K}}, \label{eq:hamilton}
+	\end{equation}
+	wobei \(a = (a_k)_{k \in E}\) die Kantenvariablen (das Vektorpotential) bezeichnet.
+	\\
+	\\
+	Für \(\psi_0 \in \mathfrak{D}\) heißt eine stetig differenzierbare Abbildung 
+	\(\psi: \mathbb{R} \to \mathfrak{D}\) eine Lösung der zeitabhängigen Schrödingergleichung, 
+	wenn sie die Gleichung
+	\begin{equation}
+		i\,\frac{\mathrm{d}}{\mathrm{d}t}\psi(t) = \hat{H}(t)\psi(t), \label{eq:schroedinger}
+	\end{equation}
+	für alle \(t \in \mathbb{R}\) erfüllt und die Anfangsbedingung \(\psi(0)=\psi_0\) gilt.
+\end{definition}
+\noindent
+Meßgrößen werden in der Quantenmechanik durch selbstadjungierte Operatoren dargestellt. 
+Feldgrößen wie die elektrische Feldstärke \(e\), das magnetische Feld \(b\), 
+das Vektorpotential \(a\) oder der zugehörige konjugierte Impuls \(\pi\) 
+werden entsprechend durch operatorwertige Eck-, Kanten- und Flächenfunktionen beschrieben.  
+Diese Operatoren sind in der Regel nur auf einem Teilraum eines (unendlichdimensionalen) komplexen Hilbertraums definiert und unbeschränkt, 
+also nicht stetig.
+\begin{definition}
+	Sei \(G\) ein planares Netz und \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
+	sowie \(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion.  
+	\\
+	\\
+	Für jedes \(k \in E\) bezeichnen wir mit
+	\begin{align}
+		\hat{a}_k &: (a \mapsto \psi(a)) \longmapsto 
+		\big(a \mapsto a_k\,\psi(a)\big), \label{def:ak} \\[4pt]
+		\hat{\pi}_k &: (a \mapsto \psi(a)) \longmapsto 
+		\big(a \mapsto -\,i\,\frac{\partial\psi}{\partial a_k}(a)\big) \label{def:pi}
+	\end{align}
+	den Vektorpotentialoperator $\hat{a} = (\hat{a}_k)_{k\in E}$ und den konjugierten Impulsoperator 
+	$\hat{\pi} = (\hat{\pi}_k)_{k\in E}$.  
+	\\
+	\\
+	Die elektrischen und magnetischen Feldoperatoren sind dann gegeben durch
+	\begin{align}
+		\hat{e}_k &= -\frac{\hat{\pi}_k}{\epsilon(k)}, \label{def:ek} \\[2pt]
+		\hat{b} &= \mathrm{div}_D(r^{-1}\hat{a}). \label{def:b}
+	\end{align}
+\end{definition}
+\noindent
+Hierbei bezeichnet \(a_k\) den Wert der Kantenfunktion \(a\) an der Kante \(k \in E\), 
+und \(\frac{\partial}{\partial a_k}\) die Ableitung nach demselben Argument.  
+Die Definitionsbereiche sind für jedes \(k \in E\) gegeben durch
+\begin{equation}
+	D(\hat{\pi}_k) = H^1(\mathfrak{K}(G), \mathbb{C}; \lambda), \qquad
+	D(\hat{a}_k) = \bigl\{\phi\in\mathfrak{H}:\, a_k\phi \in \mathfrak{H}\bigr\}.
+\end{equation}
+\noindent
+Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte 
+\textbf{kanonische Vertauschungsrelation}:
+\begin{equation}
+	[\hat{a}(e), \hat{\pi}(e')] = i\,\delta_{e,e'}.
+\end{equation}
+Dabei werden die Definitionsbereiche der Operatoren zunächst nicht berücksichtigt; 
+insbesondere wurde nicht überprüft, ob die entsprechenden Kompositionen dicht definiert sind.  
+\\
+\\
+Die möglichen Ergebnisse einer Messung einer mit einem selbstadjungierten Operator 
+\(\hat{\Omega}\) verknüpften physikalischen Größe sind die Spektralwerte von \(\hat{\Omega}\).  
+Wäre \(\hat{\Omega}\) ein Operator auf einem endlichdimensionalen Hilbertraum, 
+so entsprächen diese Spektralwerte genau den Eigenwerten, 
+und der Betrag des größten Eigenwerts wäre identisch mit der Operatornorm.  
+In der Quantentheorie muss ein Operator jedoch alle möglichen Werte der Größe, die er beschreibt, 
+als Spektralwerte besitzen.  
+Da insbesondere Größen wie das elektrische Feld unbeschränkt sein können, 
+müssen auch die zugehörigen Operatoren unbeschränkt sein.  
+Dies bedingt, dass der zugrunde liegende Hilbertraum notwendig unendlichdimensional ist 
+und viele der in der Theorie auftretenden Operatoren unstetig sind.  
+
 \paragraph{Interpretation}
 \begin{itemize}
-	\item Jedes Element $\psi\in\mathfrak{H}$ beschreibt einen möglichen Zustand des quantisierten elektromagnetischen Feldes. 
-	\item Jeder klassischen Größe $\Omega$ entspricht ein selbstadjungierter Operator $\hat{\Omega}$ auf $\mathfrak{H}$. 
-	\item Messergebnisse sind zufällige Spektralwerte von $\hat{\Omega}$, und der Erwartungswert ergibt sich durch
+	\item Jedes Element \(\psi \in \mathfrak{H}\) beschreibt einen möglichen Zustand des quantisierten elektromagnetischen Feldes. 
+	\item Jeder klassischen Observablen \(\Omega\) ist ein selbstadjungierter Operator \(\hat{\Omega}\) auf \(\mathfrak{H}\) zugeordnet. 
+	\item Messergebnisse entsprechen zufälligen Spektralwerten von \(\hat{\Omega}\); 
+	der Erwartungswert eines solchen Messvorgangs ist gegeben durch
 	\[
 	\frac{\langle \psi, \hat{\Omega}\psi \rangle_{\mathfrak{H}}}{\langle \psi, \psi \rangle_{\mathfrak{H}}}.
 	\]
 \end{itemize}
+\noindent
+Widmen wir uns dem Korrespondenzprinzip zwischen klassischer und quantenmechanischer Theorie. 
+Wir zeigen, dass die Erwartungswerte der Feldoperatoren \eqref{def:ek}--\eqref{def:b} 
+die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
 
-\noindent
-Widmen wir uns nun der Konstruktion der korrespondierenden Operatoren. Nach Heisenberg wird f\"ur jedes Kantenpaar $e,e'\in E$ die so genannte \textbf{kanonische Vertauschungsrelation}:
-\begin{equation}
-	[\hat{a}(e), \hat{\pi}(e')] = i\delta_{e, e'}
-\end{equation}
-gefordert. Es gibt eine mathematisch st\"arkere Forderung nach Hermann Weyl, welche es erlaubt sogar die Eindeutigkeit bis auf unit\"are Transformation dieser Operatoren zu zeigen, jedoch ist dies hier nicht notwendig.\\
-\\
-Eine m\"ogliche Darstellung dieser Operatoren $\hat{a}_k$ und $\hat{\pi}_k$, die (4.32) erf\"ullt ist gegeben durch:
-\begin{align}
-	\hat{\pi}_k:(a\mapsto\psi(a)) \mapsto (a\mapsto -i\frac{\partial\psi}{\partial a_k}(a))\text{  f\"ur }k\in E\\
-	\hat{a}_k:(a\mapsto\psi(a)) \mapsto (a\mapsto a_k\psi(a))\text{  f\"ur }k\in E
-\end{align}
-\noindent
-Hierbei ist $a_k$ der Wert der Kantenfunktion $a$ an der Stelle $k\in E$ und $\frac{\partial}{\partial a_k}$ ist die Ableitung nach demselben Wert. 
-Die Definitionsbereiche $D(\hat{\pi}_k)$ und $D(\hat{a}_k)$ f\"ur $k\in E$ sind im ersten Fall der Sobolevraum $\text{H}^1(\mathfrak{K}(G),\mathbb{C};\lambda)$ und im zweiten Fall sein Bild unter Fouriertransformation.
-\\
-\\
-Eine kurze Betrachtung der Hamiltonfunktion (4.27) zeigt die \"Aquivalenz dieses Problems zu der Bewegung von $|E|$ Punktma\ss{}en mit Massen $\epsilon(k)$ f\"ur jedes $k\in E$ in einem Potential. 
-\begin{definition}
-	Sei $G$ ein planarer Graph, $r>0$, $\epsilon>0$, $e_0$ Kantenfunktionen, $\hat{j}$ eine Kurve selbstadjungierter Operatoren auf $\mathfrak{H}(G)$, $\mu>0$ und $b_0$ Fl\"achenfunktionen, dann ist der Hamiltonoperator $\hat{H}:D(\hat{H})\rightarrow \mathfrak{H}(G)$ des elektromagnetischen Feldes gegeben durch:\footnote{$D(\hat{H})$ ist eine dichte Teilmenge von $\mathfrak{H}(G)$ die zu einem sp\"ateren Zeitpunkt festgelegt wird.}
-	\begin{equation}
-	\hat{H}=-\sum_{k\in E}\frac{1}{2\epsilon(k)}\frac{\partial^2}{\partial a_k^2} + \frac{1}{2}\langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}} - \langle a, \hat{j}\rangle_{\mathfrak{K}}
-	\end{equation}
-	Sei $\psi_0\in D(\hat{H})$ und $\psi\in C^1(\mathbb{R}, D(\hat{H}))$, sodass:
-\begin{equation}
-\hat{H}\psi(t) = i\psi^\prime(t)
-\end{equation}
-f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"ullt ist, dann nennt man $\psi$ eine L\"osung der
-\textbf{Schr\"odingergleichung} des elektromagnetischen Feldes.
-\end{definition}
-\noindent
-Widmen wir uns nun dem Korrespondenzprinzip zwischen der klassischen und quantenmechanischen Theorie.
-Wir werden zeigen, dass die durch die Schr\"odingergleichung vermittelte Dynamik im Mittel mit jener der Maxwellgleichungen \"ubereinstimmt. 
-\begin{theorem}[Ehrenfest Theorem]
-	Sei $G$ ein planarer Graph, $\epsilon>0$ und $r>0$ Kantenfunktionen, $\mu>0$ eine Fl\"achenfunktion und $\psi: \mathbb{R}\mapsto \mathfrak{H}$ eine L\"osung der Schr\"odingergleichung (4.36) auf $G$, dann gilt:
+\begin{theorem}[Ehrenfest-Theorem]
+	Sei \(G\) ein planares Netz, \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
+	\(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
+	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{eq:schroedinger}.  
+	\\
+	\\
+	Dann gelten die Erwartungswertegleichungen:
 	\begin{align}
-		&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime =  -r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
-		&\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = -\text{div}_D(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}})
+		\epsilon \langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime
+		&= -r^{-1} \mathrm{grad}_D\!\left(\frac{\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}}{\mu}\right) 
+		- \langle \psi, \hat{j}\psi\rangle_{\mathfrak{H}}, \label{eq:ehrenfest1} \\
+		\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime 
+		&= -\mathrm{div}_D\!\left(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}}\right). \label{eq:ehrenfest2}
 	\end{align}
-	wobei der elektrische und magnetische Feldoperator gegeben sind durch:
-	\begin{align}
-		&\hat{e} = \frac{-\hat{\pi}}{\epsilon}\\
-		&\hat{b} = \text{div}_D(r^{-1}\hat{a})
-	\end{align}
+	wobei die Feldoperatoren durch \eqref{def:ek}--\eqref{def:b} gegeben sind.
 \end{theorem}
-\begin{proof}(Skizze)
-Wir starten mit der linken Seite von (4.37), wenden die Produktregel der Differentiation an und formen um:
-\begin{align*}
-	&\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime = -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime=\\
-	&-(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}})=\\
-	&\langle i\hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{\pi}i\hat{H}\psi\rangle_{\mathfrak{H}})=\\
-	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
-	&i(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{H}\hat{\pi}\psi\rangle_{\mathfrak{H}})=\\
-	&-r^{-1} \text{grad}_D(\langle\psi,\text{div}_D(r^{-1}\hat{a})\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}\\
-	&-r^{-1} \text{grad}_D(\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}/\mu) -  \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}}
-\end{align*}
-Nun zeigen wir (4.38) indem wir ausgehend von (4.40) die Formel
-	\begin{align}
-\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime = \text{div}_D(r^{-1}\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime)
-\end{align}
-ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck $\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um
+\begin{proof}[Beweisskizze]
+	Wir starten mit der linken Seite von \eqref{eq:ehrenfest1}, wenden die Produktregel der Differentiation an und formen um:
 	\begin{align*}
-	&\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime= (\langle \psi^\prime, \hat{a}\psi\rangle_{\mathfrak{H}}+\langle \psi, \hat{a}\psi^\prime\rangle_{\mathfrak{H}})=\\
-	&i(\langle \psi, \hat{H}\hat{a}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{a}\hat{H}\psi\rangle_{\mathfrak{H}})=\\
-	&i\langle \psi, [\hat{H},\hat{a}]\psi\rangle_{\mathfrak{H}}=i\langle \psi, [\frac{1}{2\epsilon}\hat{\pi}^2,\hat{a}]\psi\rangle_{\mathfrak{H}}\\
-	&\langle \psi, \frac{\hat{\pi}}{\epsilon}\psi\rangle_{\mathfrak{H}}=-\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}
-\end{align*}		
-Am Ende haben wir hier die kanonischen Vertauschungsrelationen und die Rechenregeln des Kommutators verwendet.
-Wir setzen den erhaltenen Ausdruck nun in (4.40) ein und erhalten das gesuchte Resultat.
+		\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime 
+		&= -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime \\
+		&= -(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}}) \\
+		&= \langle i\hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{\pi}i\hat{H}\psi\rangle_{\mathfrak{H}} \\
+		&= i\bigl(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}\bigr) \\
+		&= i\bigl(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{H}\hat{\pi}\psi\rangle_{\mathfrak{H}}\bigr) \\
+		&= -r^{-1} \mathrm{grad}_D\!\Bigl(\frac{\langle\psi,\mathrm{div}_D(r^{-1}\hat{a})\psi\rangle_{\mathfrak{H}}}{\mu}\Bigr) 
+		- \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}} \\
+		&= -r^{-1} \mathrm{grad}_D\!\Bigl(\frac{\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}}{\mu}\Bigr) 
+		- \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}} \eqref{def:b}.
+	\end{align*}
+	Nun zeigen wir \eqref{eq:ehrenfest2} indem wir ausgehend von der Definition \eqref{def:b} die Formel
+	\begin{align}
+		\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime 
+		&= \mathrm{div}_D\bigl(r^{-1}\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime\bigr) \label{eq:bprime}
+	\end{align}
+	ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck 
+	$\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um:
+	\begin{align*}
+		\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime 
+		&= \bigl(\langle \psi^\prime, \hat{a}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{a}\psi^\prime\rangle_{\mathfrak{H}}\bigr) \\
+		&= i\bigl(\langle \psi, \hat{H}\hat{a}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{a}\hat{H}\psi\rangle_{\mathfrak{H}}\bigr) \\
+		&= i\langle \psi, [\hat{H},\hat{a}]\psi\rangle_{\mathfrak{H}} \\
+		&= i\left\langle \psi, \Bigl[\frac{1}{2\epsilon}\hat{\pi}^2,\hat{a}\Bigr]\psi\right\rangle_{\mathfrak{H}}\\
+		&= \left\langle \psi, \frac{\hat{\pi}}{\epsilon}\psi\right\rangle_{\mathfrak{H}} \\
+		&= -\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}} \eqref{def:ek}.
+	\end{align*}		
+	Am Ende haben wir die kanonischen Vertauschungsrelationen 
+	und die Rechenregeln des Kommutators verwendet. 
+	Wir setzen den erhaltenen Ausdruck nun in \eqref{eq:bprime} ein und erhalten das gesuchte Resultat \eqref{eq:ehrenfest2}.
 \end{proof}
 \noindent
-Wir sehen also, dass die Schr\"odingergleichung (4,36) tats\"achlich eine Quantisierung der Maxwellgleichungen (4.1) darstellt.
+Die Gleichungen \eqref{eq:ehrenfest1}--\eqref{eq:ehrenfest2} stellen somit eine 
+Quantisierung der diskreten Maxwell-Gleichungen \eqref{eq:disk-gauss} dar.
 \\
 \\
 \iffalse
@@ -1538,175 +1632,220 @@ Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit
 \noindent
 TODO\\
 \fi
-Bislang haben wir noch keine Bestätigung, dass die Schr\"odingergleichung (4,36) l\"osbar ist oder der Hamiltonoperator $\hat{H}$ selbstadjungiert im Sinne der Theorie unbeschr\"ankter linearer Operatoren ist. Dies wollen wir f\"ur den Fall $\epsilon\equiv 1$ und $\mu\equiv 1$ nachholen.
-\begin{theorem}
-	Sei $G$ ein planarer Graph, $\epsilon\equiv 1$ und $r>0$ Kantenfunktionen, $\mu\equiv 1$ eine Fl\"achenfunktion, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$ und $(\omega_j)_{j=1}^{|f|-1}>0$ sodass f\"ur den Hamiltonoperator $\hat{H}$ (4.35) mit $\hat{j}\equiv 0 $ gilt:
+Bislang fehlt noch die Bestätigung, dass die Schrödingergleichung \eqref{eq:schroedinger} 
+Lösungen besitzt und der Hamiltonoperator $\hat{H}$ selbstadjungiert ist 
+im Sinne der Theorie unbeschränkter linearer Operatoren. 
+Dies wollen wir für den vereinfachten Fall $\epsilon \equiv 1$, $\mu \equiv 1$ 
+und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
+\begin{theorem}\label{thm:hamilton_sum}
+	Sei \(G\) ein planares Netz, \(\epsilon \equiv 1\), \(\mu \equiv 1\) und \(r: E \to \mathbb{R}_{>0}\) 
+	eine positive Kantenfunktion. Dann existiert eine unitäre Abbildung 
+	\(\hat{U}: \mathfrak{H}(G) \to \mathfrak{H}(G)\) und Frequenzen 
+	\((\omega_j)_{j=1}^{|F|-1} \subset \mathbb{R}_{>0}\), sodass für den Hamiltonoperator 
+	\(\hat{H}\) aus \eqref{eq:hamilton} mit \(\hat{j} \equiv 0\) gilt:
 	\begin{equation}
-	\hat{U}^\dagger\hat{H}\hat{U}  = \sum_{j=1}^{|E|}\hat{h}_j
+		\hat{U}^\dagger \hat{H} \hat{U} = \sum_{j=1}^{|E|} \hat{h}_j. \label{eq:diagonal}
 	\end{equation}
-Wobei die $\hat{h}_j$ gegeben sind durch:
-\[\hat{h}_j= \begin{cases} 
--\frac{1}{2}\frac{\partial^2}{\partial x_j^2} & j\leq |V| - 1 \\
--\frac{1}{2}\frac{\partial^2}{\partial x_j^2} + \frac{1}{2}\omega_j^2 x_j^2 & \text{sonst.} 
-\end{cases}
-\]
-Insbesondere gilt daher:
-\begin{equation*}
-	\forall k,n \in \mathbb{N}:[\hat{h}_k, \hat{h}_n]=0 
-\end{equation*}
+	Dabei sind die einmodigen Hamiltonoperatoren durch
+	\begin{equation}
+		\hat{h}_j = 
+		\begin{cases} 
+			-\frac{1}{2} \frac{\partial^2}{\partial a_j^2} & \text{falls } j \leq |V|-1, \\
+			-\frac{1}{2} \frac{\partial^2}{\partial a_j^2} + \frac{1}{2} \omega_j^2 a_j^2 & \text{sonst,}
+		\end{cases} \label{eq:hj}
+	\end{equation}
+	definiert. Insbesondere kommutieren alle Moden:
+	\begin{equation*}
+		[\hat{h}_k, \hat{h}_n] = 0 \quad \forall\, k,n \in \mathbb{N}.
+	\end{equation*}
 \end{theorem}
 \begin{proof}
-	Der Hamiltonoperator l\"asst sich folgenderma\ss{}en zerlegen:
+	Der Hamiltonoperator lässt sich zerlegen in:
 	\begin{equation*}
-		\hat{H} = \hat{T} + \hat{V}
+		\hat{H} = \hat{T} + \hat{V},
 	\end{equation*}
-	wobei
-	\begin{align*}
-		&\hat{T} = -\frac{1}{2}\sum_{k\in E}\frac{\partial^2}{\partial q_k^2}\\
-	    &\hat{V} = \frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{K}}
-	\end{align*}
-	Wir formen nun $\hat{V}$ um
-	\begin{align*}
-		&\frac{1}{2}\langle \text{div}_D(r^{-1}q), \text{div}_D(r^{-1}q)\rangle_{\mathfrak{F}}=\\
-		&\frac{1}{2}\langle q, (-r^{-1}\text{grad}_D\text{div}_D)(r^{-1}q)\rangle_{\mathfrak{K}}=
-	\end{align*}
-	und f\"uhren einen linearen Operator $Q=-r^{-1}\text{grad}_D\text{div}_Dr^{-1}$ ein
-	\begin{align}
-		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}
-	\end{align}
-	$Q$ ist positiv semidefinit und symmetrisch. Die Dimension des Kerns von $Q$ ist nach der Helmoltz Zerlegung (3.3) gleich $|V| - 1$. Das orthogonale Komplement desselben Kerns ist entsprechend $|f| - 1$ dimensional.\footnote{Der eulersche Polyedersatz ist eine Folgerung der Helmoltz Zerlegung.}
-	Nach dem Spektralsatz linearer Operatoren auf endlich dimensionalen reelen Vektorr\"aumen l\"asst sich $Q$ schreiben als:
+	wobei der kinetische Teil
 	\begin{equation*}
-		Q = U^T R U
+		\hat{T} = -\frac{1}{2}\sum_{k\in E} \frac{\partial^2}{\partial a_k^2}
 	\end{equation*}
-	Wobei die reele Matrix $U$ orthogonal und $R$ eine nichtnegative Diagonalmatrix mit genau $|f| - 1$ positive Eintr\"agen ist. \\
+	und der Potentialteil durch
+	\begin{equation*}
+		\hat{V} = \frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)\Bigr\rangle_{\mathfrak{F}}
+	\end{equation*}
+	gegeben ist \eqref{eq:hamilton}. Beachte, dass \(\mathfrak{D}\) invariant unter \(\hat{T}\) und \(\hat{V}\) ist.
 	\\
-	Ein wenig umformen von (4.43) liefert dann
+	\\
+	Wir formen $\hat{V}$ um:
 	\begin{align*}
-		&\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}=\\
-		&\frac{1}{2}\langle q, U^\dagger R U(q)\rangle_{\mathfrak{K}}=\\
-		&\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}
+		\frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)\Bigr\rangle_{\mathfrak{F}}
+		&= \frac{1}{2}\Bigl\langle a, (-r^{-1}\mathrm{grad}_D\mathrm{div}_D r^{-1})a\Bigr\rangle_{\mathfrak{K}} \\
+		&= \frac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}},
 	\end{align*}
-	Wir k\"onnen $U$ und $r$ so w\"ahlen, dass die ersten $|V|-1$ Eintr\"age Null sind und definieren 
+	wobei $Q = -r^{-1}\mathrm{grad}_D\mathrm{div}_D r^{-1}: \mathfrak{K} \to \mathfrak{K}$. 
+	\\
+	\\
+	$Q$ ist positiv semidefinit und symmetrisch. Nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} hat $\ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ die Dimension $|V|-1$. Das orthogonale Komplement 
+	ist dementsprechend $|F|-1$-dimensional.\footnote{Der eulersche Polyedersatz 
+		$|E| - |V| - |F| = 2$ folgt hieraus für zusammenhängende Netze.}
+	\\
+	\\
+	Nach dem Spektralsatz für kompakte, selbstadjungierte Operatoren auf endlichdimensionalen 
+	Räumen existiert eine orthogonale Matrix $U \in \mathbb{R}^{|E| \times |E|}$ und eine 
+	Diagonalmatrix $R = \operatorname{diag}(0,\dots,0,\omega_1^2,\dots,\omega_{|F|-1}^2)$ mit:
 	\begin{equation*}
-		\omega_j^2 = R_{|V|-1 + j} \text{ f\"ur }1\leq j \leq |f| - 1
+		Q = U^T R U. \label{eq:spektralQ}
 	\end{equation*}
-	Wir konstruieren nun den unit\"aren Operator $\hat{U}$. Sei $\phi\in\mathfrak{H}$ und $q\in\mathfrak{K}$
-	\begin{equation*}
-		\hat{U}(\phi)(q)=\phi(U(q))
-	\end{equation*}
-	Mit Hilfe des Transformationssatzes f\"ur Integrale kann gezeigt werden, dass der Operator $\hat{U}$ unit\"ar ist, da $U$ auf $\mathfrak{K}$ unit\"ar ist. Insbesondere ist die adjungierte von $\hat{U}$ somit gegeben durch.	
-	\begin{equation*}
-		\hat{U}^\dagger(\phi)(q)=\phi(U^T(q))
-	\end{equation*}
-	Der Nabla-Operator vertauscht mit diesem unit\"aren Operator folgendermaßen:\\
-	Sei $\phi$ hierzu in $\mathfrak{H}$, $x\in \mathfrak{K}$ Koordinaten und $x^{'} = U(x)$ die transformierten Koordinaten.  Wir unterscheiden $\nabla$, der Nabla-Operator in $x$-Koordinaten und $\nabla^{'}$ den Nabla-Operator in $x^{'}$-Koordinaten. 
-	\begin{align}
-		\nabla (\hat{U}\phi)(x) &= U^T * (\nabla^{'} \phi) (U(x)) = U^T * \hat{U}(\nabla^{'} \phi) (x)\\&= \hat{U}(U^T * \nabla^{'} \phi) (x)
-	\end{align}
-	Der Operator $\hat{T}$ ist der Laplaceoperator und invariant unter orthogonaler Transformation. Wir erhalten somit durch Transformation unter $\hat{U}$ den Laplaceoperator in gestrichenen Koordinaten $\Delta^{'}$
+	Einsetzen in $\hat{V}$ ergibt:
 	\begin{align*}
-		\hat{U}^\dagger\hat{T}\hat{U} &= -\frac{1}{2}\hat{U}^\dagger\Delta\hat{U}\\ &=-\frac{1}{2}\hat{U}^\dagger\nabla^T * \nabla \hat{U}\\
-		&=-\frac{1}{2}\hat{U}^\dagger\nabla^T\hat{U} * \hat{U}^\dagger\nabla \hat{U}\\
-		&=-\frac{1}{2}(U^T*\nabla^{'})^T*(U^T*\nabla^{'})\\
-		&=-\frac{1}{2}\nabla^{'T}*\nabla^{'} = -\frac{1}{2}\Delta^{'}
+		\frac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}}
+		&= \frac{1}{2}\Bigl\langle a, U^T R U(a)\Bigr\rangle_{\mathfrak{K}} \\
+		&= \frac{1}{2}\Bigl\langle U(a), R U(a)\Bigr\rangle_{\mathfrak{K}}.
 	\end{align*}
-	Man unterscheidet hierbei das endlichdimensionale Produkt $*$ und dem Produkt zwischen Operatoren auf dem unendlichdimensionalen Hilbertraum $\mathfrak{H}$, sowie die entsprechende Transponierte $^T$ und Adjungierte $^\dagger$.\\  
-	\\ 
-	F\"ur den Operator $\hat{V}$ kann die gesuchte Transformationseigenschaft (4.42) durch einige wenige Umformungen gezeigt werden.
+	Wir definieren die Frequenzen durch $\omega_j^2 = R_{|V|-1+j}$ für $1 \leq j \leq |F|-1$ 
+	\eqref{eq:hj} und konstruieren den unitären Operator $\hat{U}: \mathfrak{H} \to \mathfrak{H}$ durch
+	\begin{equation*}
+		\bigl(\hat{U}\phi\bigr)(a) = \phi\bigl(U(a)\bigr), \quad \phi \in \mathfrak{H}, \; a \in \mathfrak{K}.
+	\end{equation*}
+	Da $U$ orthogonal ist, folgt durch den Transformationssatz für Integrale die Unitarität und die Adjungierte ist gegeben durch:
+	\begin{equation*}
+		\hat{U}^\dagger\phi(a) = \phi\bigl(U^T(a)\bigr).
+	\end{equation*}
+	Für den kinetischen Energie Operator gilt durch Kettenregel:
 	\begin{align*}
-		&(\hat{U}^\dagger\hat{V}\hat{U})(\phi)(q)= \hat{U}^\dagger(\frac{1}{2}\langle q, Q(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
-		&\hat{U}^\dagger(\frac{1}{2}\langle U(q), R U(q)\rangle_{\mathfrak{K}}\phi)(U(q))=\\
-		&\frac{1}{2}\langle  UU^T(q), R  UU^T(q)\rangle_{\mathfrak{K}}\phi(U U^T(q))\\
-		&\frac{1}{2}\langle q, R q\rangle_{\mathfrak{K}}\phi(q)
+		\sum_{k=1}^N\frac{\partial^2}{\partial a_k^{2}}\phi(U(a))=\sum_{k=1}^N\frac{\partial}{\partial a_k}\frac{\partial}{\partial a_k}\phi(U(a))&=
+		\sum_{k=1}^N\frac{\partial}{\partial a_k}(\sum_{j=1}^NU_{j,k}\frac{\partial}{\partial a^{'}_j}\phi)(U(a))\\
+		&=
+		\sum_{k=1}^N(\sum_{i=1}^N\sum_{j=1}^NU_{i,k}U_{j,k}\frac{\partial^2}{\partial a^{'}_j\partial a^{'}_i}\phi)(U(a))\\
+		&=
+		(\sum_{i=1}^N\sum_{j=1}^N\delta_{i,j}\frac{\partial^2}{\partial a^{'}_j\partial a^{'}_i})\phi(U(a))\\
+		&=
+		(\sum_{i=1}^N\frac{\partial^2}{\partial a_i^{'2}}\phi)(U(a))\\
 	\end{align*}
-
+und somit
+	\begin{align*}
+		\hat{U}^\dagger \Delta \hat{U}= \Delta',
+	\end{align*}
+	wobei $\Delta'$ der Laplace Operator in den transformierten Koordinaten $a' = U(a)$ ist.
+	\\
+	\\
+	Für den Potentialteil erhalten wir analog:
+	\begin{align*}
+		\hat{U}^\dagger \hat{V} \hat{U}\phi(a^{'})
+		&= \hat{U}^\dagger \Bigl( \tfrac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}} \Bigr) \phi(U(a))\\
+		&= \tfrac{1}{2}\Bigl\langle U^T(a^{'}), Q U^T(a^{'})\Bigr\rangle_{\mathfrak{K}}\phi(a^{'})\\
+		&= \tfrac{1}{2}\Bigl\langle a^{'}, U Q U^T a^{'}\Bigr\rangle_{\mathfrak{K}}\phi(a^{'})\\
+		&= \tfrac{1}{2}\Bigl\langle a^{'}, R a^{'}\Bigr\rangle_{\mathfrak{K}} \phi(a^{'})\\
+		&= \sum_{j=|V|}^{|E|} \tfrac{1}{2} \omega_{j-|V|+1}^2 {a}_j^{'2}\phi(a^{'}).
+	\end{align*}
+	Zusammen ergibt sich somit \eqref{eq:diagonal}.
 \end{proof}
 \noindent
-Wir haben nun gezeigt, dass sich der freie Hamiltonoperator (4.35), zerlegen l\"asst in eine endliche Summe von linearen Operatoren. Als n\"achstes werden wir die Eigenschaften dieser Operatoren und insbesondere ihre Spektraleigenschaften erarbeiten.
-\\
-\\
-Die Transformation $U$ zerlegt den Raum der Kantenfunktionen in einen $|V| - 1$-dimensionalen Teilraum $A$ auf dem das Potential $V$ der Schr\"odingergleichung konstant ist und in sein orthogonales $|F| - 1$-dimensionales Komplement $B$. Als Konsequenz haben wir gesehen ist die Dynamik in Richtung des Raumes $A$ frei und in Richtung des Raums $B$ die eines mehrdimensionalen harmonischen Oszillators.\\
-\\
-Der harmonische Oszillator hat $|F| - 1$ reine Frequenzen/Moden in denen er schwingen kann. Jede einzelne dieser Moden kann Energie nur in ganzzahligen Vielfachen seiner Frequenz aufnehmen. Diese Moden korrespondieren zu denen sich im Raum fortpflanzenden elektromagnetischen Wellen. Der Raum $B$ ist n\"amlich genau der Raum der Wirbelfelder wie wir gleich sehen werden.
-\begin{corollary}
-	Sei $G$, $\epsilon$, $r$, $\mu$ und $\hat{U}$ wie in Theorem 4.11 und zus\"atzlich sei der Raum frei von elektrischer Ladung
-	\begin{equation}
-		\text{div}(r * \epsilon * \hat{e}) = 0
-	\end{equation}
-	dann ist die L\"osung der Schr\"odingergleichung $\psi$ entlang jeder Richtung des gerade definierten Raums $A$  fast \"uberall konstant.
-	\begin{equation}
-		\forall x\in \mathfrak{K}:\forall y\in A: \psi(x+y)=\psi(x)
-	\end{equation}
-	Die so eingeschr\"ankte Schr\"odingergleichung hat ein reines Punktspektrum.
-\end{corollary} 
-\begin{proof}
-	Sei $e$ eine Kantenfunktion sodass 
-	\begin{equation*}
-		\text{div}(r * \epsilon * e) = 0
-	\end{equation*} dies gilt nach dem de Rham Theorem genau dann wenn es ein $\phi\in\mathfrak{F}$ gibt sodass 
+Wir haben gezeigt, dass sich der Hamiltonoperator \eqref{eq:diagonal} durch die unitäre 
+Transformation $\hat{U}$ in eine Summe unabhängiger harmonischer Oszillatoren zerlegen lässt:
 \begin{equation*}
-	e = \frac{1}{r}\text{grad}_D\phi
+	\hat{U}^\dagger \hat{H} \hat{U} = -\frac{1}{2}\Delta' + \sum_{j=1}^{|F|-1} \frac{1}{2}\omega_j^2 a_{j+|V|-1}'^2.
 \end{equation*}
-Ein klassisches Resultat aus der linearen Algebra liefert dann:
-\begin{align*}
-	 (\text{kern} (\text{div}_D\frac{1}{r}))^\perp 
-	 =(\text{kern}(\frac{1}{r}\text{grad}_D)^T)^\perp =\text{Bild}(\frac{1}{r}\text{grad}_D)
-\end{align*}
-Damit wurde gezeigt, dass $B=\text{Bild}(\frac{1}{r}\text{grad}_D)$ und $A=\text{kern}(\text{div}(r*.)$\\
+Als nächstes werden wir die Spektraleigenschaften dieser Oszillatoren und ihre 
+physikalische Interpretation als elektromagnetische Wellen erarbeiten.  
 \\
-Der elektrische Feldoperator $\hat{e}$ transformiert wegen (4.33) und (4.44) analog zum Vektorpotential Operator $\hat{a}$:
+\\
+Der elektrische Feldoperator $\hat{e}$ transformiert unter $\hat{U}$ analog zum Vektorpotential Operator $\hat{a}$:
 \begin{align}
 	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U * \hat{a}\\
 	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U * \hat{e}
 \end{align}
-Als n\"achstes betrachten wir das Produkt $w = \text{div} * r * U^T$.
-Die ersten $|V| - 1$ Spalten von $U^T$ sind Vektoren aus $A$ und die \"ubrigen Spaltenvektoren sind aus $B$. Daher ist der Kern der Abbildung $w$ der Raum aller Vektoren aus $\mathbb{R}^{|E|}$ deren letzte $|f| - 1$ Komponenten Null sind.\\
+Die orthogonale Matrix $U$ zerlegt den Konfigurationsraum $\mathfrak{K}(G)$ der Helmoltzzerlegung entsprechend in einen 
+$(|V|-1)$-dimensionalen Teilraum $A = \ker Q=\ker = \operatorname{Bild}(r\mathrm{grad})$ (Eichfreiheitsgrade) und sein orthogonales 
+Komplement $B = A^\perp$ der Dimension $(|F|-1)$. Auf $A$ verschwindet das Potential 
+$\hat{V}|_A = 0$, während auf $B$ die Dynamik die eines harmonischen Oszillators mit 
+Frequenzen $\{\omega_j\}_{j=1}^{|F|-1}$ ist.  
 \\
-Als Konsequenz m\"ussen f\"ur alle stetig differenzierbaren $\phi\in\mathfrak{H}$ die Richtungsableitungen in Richtungen aus dem Raum $B$ gleich Null sein und damit entlang dieser konstant.\\
-F\"ur allgemeine $\phi\in\mathfrak{H}$ folgt das Resultat aus einem Dichtheitsargument.\\
 \\
-Der Rest folgt aus Theorem 4.11.
-\end{proof}
-\noindent
-Alternativ h\"atten wir vor der Quantisierung den ladungsfreien Fall
- \begin{equation}
- 	\text{div}(r * \epsilon * e) = 0
- \end{equation}
- annehmen k\"onnen, der automatisch gegeben w\"are durch die zus\"atzliche Forderung folgender Eichung:
- \begin{equation}
-	\text{div}(r * a) = 0
-\end{equation}
-Die Transformation $U$ und die Elimination der ersten $|V| - 1$ Koordinaten h\"atte zu einer Hamiltonfunktion gef\"uhrt die durch Quantisierung zur gesuchten Schr\"odingergleichung f\"uhrt.\\
+Jeder der $(|F|-1)$ Oszillatoren besitzt ein diskretes Spektrum $E_n = \hbar\omega_j(n + 1/2)$, 
+$n \in \mathbb{N}_0$. Diese Normalmoden korrespondieren exakt mit den im Netz fortpflanzenden 
+elektromagnetischen Wirbelfeldern, da $B$ nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} 
+präzise der Raum der divergenzfreien Felder ist.
 \\
-Es sei abschlie\ss{}end noch erw\"ahnt, dass die Komponenten des $A$ Raums, also die Projektionen von $a$ und seine kanonischen Impulse $e$ im Sinn der Quantentheorie interessante Eigenschaft aufweisen. Die Komponenten $a$ sind keine Messgr\"oss{}en, sondern reine Eichvariablen, w\"ahrend $e$ messbar ist. Das Feld $e$ l\"asst sich daher beliebig genau bestimmen, ohne dabei Information \"uber eine andere Messgr\"o\ss{}e zu verlieren.
-\subsection{Photonen - die Teilcheninterpretation}
-Wir folgen in diesem Abschnitt Dirac um das Problem des quantenmechanischen harmonischen Oszillators zu l\"osen. Nach Theorem 4.11 k\"onnen wir den Hamiltonoperator des freien elektromagnetischen Feldes auf das Problem des harmonischen Oszillators reduzieren. Konkret gibt es zu jedem Eigenwert $\omega_j$ von $Q$ (siehe Beweis Theorem 4.11) einen Operator
-\begin{equation*}
-	\hat{h}_j = \frac{1}{2}(\hat{\pi}_j^2 + \omega_j^2 \hat{a}^2)
-\end{equation*}\footnote{Anstelle von $j$ schreiben wir von hier an $\omega$.}
-Jeder dieser Operatoren hat die Form eines Hamiltonoperators zu einem eindimensionaler harmonischen Oszillators. Bisher waren wir in Bezug auf die Theorie linearer Operatoren sehr vage, aber dies wollen wir in diesem Unterabschnitt korrigieren.
-\begin{definition}
-	Sei $\Omega=\{q\mapsto p(q)e^{-x^2 / 2}: \text{p ist ein komplexes Polynom auf $\mathbb{R}$}\}$ ein Teilraum des $L^2(\mathbb{R}, \mathbb{C},\lambda)$, wobei $\lambda$ das Lebesgue Ma\ss{} ist, und 
-	\begin{equation}
-		\hat{a}_\omega: \Omega \mapsto \Omega
-	\end{equation}
-ein linearer Operator definiert durch 
+\\
+Die Komponenten des Raumes $A$, also die entsprechenden Projektionen von $\hat{a}$ 
+und der konjugierten Impulse $\hat{\pi}$ und damit auch des elektrischen Feldoperators 
+$\hat{e}$, weisen im Sinne der Quantentheorie eine besondere Struktur auf. 
+Die $A$-Komponenten der Operatoren $\hat{a}$ sind keine Messgrößen, sondern reine 
+Eichvariablen, während $\hat{e}$ eine beobachtbare Größe ist. Das Feld $\hat{e}$ 
+müsste sich daher prinzipiell beliebig genau bestimmen lassen, ohne dabei Information 
+über eine andere Messgröße zu verlieren.
+\\
+\\
+Entsprechend gilt, dass es analog zur Quantenmechanik, wo es keinen Zustandsvektor 
+mit exakt bestimmtem Impuls gibt in unserer Quantenfeldtheorie keinen Zustandsvektor
+gibt, der einem exakt ladungsfreien Raum im Sinne von
 \begin{equation}
-	\hat{a}_\omega = \sqrt{\frac{\omega}{2}}(\hat{a} + i \frac{\hat{\pi}}{\omega}) = \sqrt{\frac{\omega}{2}}(a +  \frac{1}{\omega}\frac{d}{dq})
+	\mathrm{div}\bigl(r\,\epsilon\,\hat{e}\bigr)\psi = 0
 \end{equation}
-dann nennen wir $\hat{a}_\omega$ den \textbf{Vernichtungsoperator} der Mode $\omega$.
+entspricht. Die zugehörigen Zustände wären uneigentliche Elemente des Hilbertraums 
+$\mathfrak{H}$. Da wir jedoch Zustände mit ladungsfreiem Raum beschreiben 
+wollen und Bewegungen eines Wellenpakets entlang von Raumrichtungen aus dem $A$-Raum 
+zwar Energie tragen, aber nicht direkt messbar sind, führen wir zu diesem Zweck 
+einen reduzierten Hilbertraum ein. 
+\begin{definition}
+	Sei \(G\) ein planares Netz und \(r>0\) eine Kantenfunktion. 
+	Der \textbf{Hilbertraum der ladungsfreien Maxwell-Theorie} ist
+	\[
+	\mathfrak{H}_{\mathrm{frei}} = L^2(\mathbb{R}^{|F|-1}, \mathbb{C}; \lambda),
+	\]
+	wobei $\mathbb{R}^{|F|-1}$ mit $B = \operatorname{Bild}\bigl(\tfrac{1}{r}\,\mathrm{grad}_D\bigr)$ über die orthonormale Basis \(\{b_k\}_{k=1}^{|F|-1}\):
+	\[
+	b_k = U^T e_{k + |V|-1}, \quad \{e_k\}_{k=1}^{|E|}\text{ Standardbasis von }\mathfrak{K}.
+	\]
+	identifiziert wird.\\
+	\\
+	Das Skalarprodukt ist wie gewohnt
+	\[
+	\langle \phi, \psi \rangle_{\mathfrak{H}_{\mathrm{frei}}} 
+	= \int_{\mathbb{R}^{|F|-1}} \overline{\phi(a)}\, \psi(a)\, d\lambda.
+	\]
+	Der \textbf{freie Hermite-Polynomraum} ist
+	\begin{equation}
+		\mathfrak{D}_{\mathrm{frei}} 
+		= \operatorname{span}\bigl\{\,a \mapsto a^\alpha 
+		e^{-\frac{\|a\|^2}{2}} : \alpha\in\mathbb{N}^{|F|-1}\bigr\}
+		\subseteq \mathfrak{H}_{\mathrm{frei}}, \label{def:hermite_frei}
+	\end{equation}
+	\\
+	\\
+	Der \textbf{freie Hamiltonoperator} ist die Summe der eindimensionalen harmonischen Oszillatoren aus \ref{eq:hj}
+	\begin{equation}
+		\hat{H}_{\mathrm{frei}} = \sum_{j=1}^{|F|-1} \hat{h}_j, \quad
+		\hat{h}_j = \frac{1}{2}\bigl(\hat{\pi}_j^2 + \omega_j^2 \hat{a}_j^2\bigr), \label{eq:free_hamilton}
+	\end{equation}
+	mit $\hat{\pi}_j = -i\partial_{a_j}$.
+\end{definition}
+\noindent
+Im Folgenden lösen wir nach Dirac'scher Tradition den quantenmechanischen harmonischen 
+Oszillator. Nach Theorem~\ref{thm:hamilton_sum} reduziert sich der Hamiltonoperator 
+des freien elektromagnetischen Feldes auf unabhängige harmonische Oszillatoren. Konkret existiert 
+für jeden Eigenwert $\omega_j$ der Matrix $Q$. Von nun an schreiben wir 
+vereinfacht $\omega$ statt $\omega_j$.  
+\begin{definition}[Vernichtungsoperator]\label{def:Vernichtung}
+	Sei $\Omega = \operatorname{span}\bigl\{\,a \mapsto a^n 
+	e^{-\frac{a^2}{2}} : n\in\mathbb{N}_0\bigr\} \subseteq L^2(\mathbb{R}, \mathbb{C}; \lambda)$
+	der Hermite-Polynomraum auf $\mathbb{R}$. Der \textbf{Vernichtungsoperator} der Frequenz 
+	$\omega > 0$ ist der lineare Operator $\hat{a}_\omega: \Omega \to \Omega$ definiert durch
+	\begin{equation}
+		\hat{a}_\omega = \sqrt{\frac{\omega}{2}}\Bigl(\hat{a} + \frac{i}{\omega}\hat{\pi}\Bigr)
+		= \sqrt{\frac{\omega}{2}}\left(a + \frac{1}{\omega}\frac{d}{dq}\right). \label{eq:annihilation}
+	\end{equation}
 \end{definition}
 \noindent
 Halten wir zun\"achst einige wichtige Eigenschaften des 
 Vernichtungsoperators fest.
-\begin{proposition}
-	Der Operator $\hat{a}_\omega$ aus Definition 4.13 ist ein dicht definierter linearer Operator auf $L^2(\mathbb{R}, \mathbb{C},\lambda)$, und der Kern des Operators ist eindimensional.\\
-	Des weiteren ist die Adjungierte des Operators gegeben durch 
+\begin{proposition}\label{thm:vernicht_erzeug}
+	Der Operator $\hat{a}_\omega$ aus Definition~\ref{def:Vernichtung} ist ein dicht definierter linearer Operator auf $L^2(\mathbb{R}, \mathbb{C},\lambda)$, und der Kern des Operators ist eindimensional.\\
+	Die Adjungierte des Operators ist der \textbf{Erzeugungsoperator}
 	\begin{equation}
-		\hat{a}_\omega^\dagger = \sqrt{\frac{\omega}{2}}(q - \frac{1}{\omega}\frac{d}{dq})
+		\hat{a}_\omega^\dagger = \sqrt{\frac{\omega}{2}}(a - \frac{1}{\omega}\frac{d}{da})\label{eq:erzeuger}
 	\end{equation}
-	und ebenfalls ein dicht definierter linearer Operator und es gilt:
+	und ist ebenfalls auf $\Omega$ definiert und es gilt:
 	\begin{equation}
 		[\hat{a}_\omega, \hat{a}_\omega^\dagger] = 1
 	\end{equation}
@@ -1714,80 +1853,78 @@ Vernichtungsoperators fest.
 \begin{proof}
 	Sei $f\in\Omega$, dann gibt es ein komplexes Polynom $p$ auf $\mathbb{R}$, sodass gilt
 	\begin{align*}
-		\hat{a}_\omega (q\mapsto p(q)e^{-q^2/2}) &= q \mapsto \sqrt{\frac{\omega}{2}}(q p(q)e^{-q^2/2} +  \frac{1}{\omega}(\frac{dp}{dq}e^{-q^2/2} - q p(q)e^{-q^2/2}))\\&=(q \mapsto (\sqrt{\frac{\omega}{2}}(q p(q) +  \frac{1}{\omega}(\frac{dp}{dq} - q p(q))))e^{-q^2/2})\in \Omega
+		\hat{a}_\omega (a\mapsto p(a)e^{-a^2/2}) &= a \mapsto \sqrt{\frac{\omega}{2}}(a p(a)e^{-a^2/2} +  \frac{1}{\omega}(\frac{dp}{da}e^{-a^2/2} - a p(a)e^{-a^2/2}))\\&=(a \mapsto (\sqrt{\frac{\omega}{2}}(a p(a) +  \frac{1}{\omega}(\frac{dp}{da} - a p(a))))e^{-a^2/2})\in \Omega
 	\end{align*}
 Es folgt, dass $\hat{a}_\omega$ eine lineare Abbildung in $\Omega$ ist. \\
 \\
-Der Beweis f\"ur den laut 4.54 adjungierten Operator geht analog.\\
+Der Beweis f\"ur den laut \ref{eq:erzeuger} adjungierten Operator geht analog.\\
 \\
 Ein Beweis, dass $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C},\lambda)$ liegt findet sich in (Teschl, Mathematical Methods in Quantum Mechanics, Lemma 8.3)\\
 \\
 Der Kern des Operators $\hat{a}_\omega$ erf\"ullt folgende Differentialgleichung.
 \begin{equation*}
-	f^\prime=-q\omega f
+	f^\prime=-\omega a f
 \end{equation*}
-Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung gibt. Diese L\"osung ist gegeben durch
+Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung. Diese L\"osung ist gegeben durch
 \begin{equation*}
-	f_c(q) = c * e^{-\omega q^2 / 2}
+	f_c(a) = c * e^{-\omega a^2 / 2}
 \end{equation*}
-Zeigen wir nun, da\ss{} (4.54) tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
-Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass (4.54) auf $\Omega$ der Definition der Adjungierten entspricht:
+Zeigen wir nun, da\ss{} \eqref{eq:erzeuger} tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
+Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass \eqref{eq:erzeuger} auf $\Omega$ der Definition der Adjungierten entspricht:
 \begin{align*}
 	\langle \phi, \hat{a}_\omega\psi\rangle_{L^2} &= 
-	\int_\mathbb{R} \overline{\phi}(q)( \sqrt{\frac{\omega}{2}}(q\psi +  \frac{1}{\omega}\frac{d\psi}{dq}(q)))d\lambda(q)\\&=
-	\int_\mathbb{R} \overline{( \sqrt{\frac{\omega}{2}}(q\psi -  \frac{1}{\omega}\frac{d\psi}{dq}(q)))}\phi(q) d\lambda(q)\\&=\langle \hat{a}^\dagger_\omega\phi, \psi\rangle_{L^2}
+	\int_\mathbb{R} \overline{\phi}(a)( \sqrt{\frac{\omega}{2}}(a\psi +  \frac{1}{\omega}\frac{d\psi}{da}(a)))d\lambda(a)\\&=
+	\int_\mathbb{R} \overline{( \sqrt{\frac{\omega}{2}}(a\phi -  \frac{1}{\omega}\frac{d\phi}{da}(a)))}\psi(a) d\lambda(a)\\&=\langle \hat{a}^\dagger_\omega\phi, \psi\rangle_{L^2}
 \end{align*}
-Abschlie\ss{}end
+Abschlie\ss{}end berechnen wir den Kommutator
 \begin{align*}
 	\hat{a}_\omega\hat{a}_\omega^\dagger &= 
-	\frac{\omega}{2}(q + \frac{1}{\omega}\frac{d}{dq})(q - \frac{1}{\omega}\frac{d}{dq})=
-	\frac{\omega}{2}(q^2 - q\frac{1}{\omega}\frac{d}{dq} + \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
+	\frac{\omega}{2}(a + \frac{1}{\omega}\frac{d}{da})(a - \frac{1}{\omega}\frac{d}{da})=
+	\frac{\omega}{2}(a^2 - a\frac{1}{\omega}\frac{d}{da} + \frac{1}{\omega}\frac{d}{da}a -\frac{1}{\omega^2}\frac{d^2}{da^2})
 \end{align*}
 \begin{align}
 	\hat{a}_\omega^\dagger\hat{a}_\omega &= 
-	\frac{\omega}{2}(q - \frac{1}{\omega}\frac{d}{dq})(q + \frac{1}{\omega}\frac{d}{dq})=
-	\frac{\omega}{2}(q^2 + q\frac{1}{\omega}\frac{d}{dq} - \frac{1}{\omega}\frac{d}{dq}q -\frac{1}{\omega^2}\frac{d^2}{dq^2})
+	\frac{\omega}{2}(a - \frac{1}{\omega}\frac{d}{da})(a + \frac{1}{\omega}\frac{d}{da})=
+	\frac{\omega}{2}(a^2 + a\frac{1}{\omega}\frac{d}{da} - \frac{1}{\omega}\frac{d}{da}a -\frac{1}{\omega^2}\frac{d^2}{da^2})\label{eq:ref12}
 \end{align}
 \begin{align*}
-	[\hat{a}_\omega,\hat{a}_\omega^\dagger] =\frac{d}{dq}q-q\frac{d}{dq} = 1
+	[\hat{a}_\omega,\hat{a}_\omega^\dagger] =\frac{d}{da}a-a\frac{d}{da} = 1
 \end{align*}
 \end{proof}
 \noindent
-Den adjungierten Operator $\hat{a}_\omega^\dagger$ nennen wir den \textbf{Erzeugungsoperator} zur Mode $\omega$.\\
-Wir werden als n\"achstes den \textbf{Teilchenzahloperator}
+Wir untersuchen als Nächstes den \textbf{Teilchenzahloperator}
 \begin{equation}
-	\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega
+	\hat{N}_\omega = \hat{a}_\omega^\dagger\hat{a}_\omega. \label{eq:number}
 \end{equation}
-untersuchen
 \begin{lemma}
-	Der Teilchenzahloperator ist ein dicht definierer linearer Operator und erf\"ullt folgende Vertauschungsrelationen
+	Der Teilchenzahloperator ist ein dicht definierer linearer Operator und erf\"ullt die Vertauschungsrelationen
 	\begin{align}
-		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\\
-		& [\hat{N}_\omega, \hat{a}^\dagger_\omega] = \hat{a}^\dagger_\omega
+		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\label{eq:komm1}\\
+		& [\hat{N}_\omega, \hat{a}^\dagger_\omega] = \hat{a}^\dagger_\omega\label{eq:komm2}
 	\end{align}
-	Des weiteren gilt die Identit\"at
+	Es gilt die Identit\"at:
 \begin{equation}
 	\hat{h}_\omega = \omega (\hat{N}_\omega + \frac{1}{2})
 \end{equation}
 \end{lemma}
 \begin{proof}
-	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz 6.3 lineare Abbildungen in $\Omega$ sind, ist $\hat{N}_\omega$ ein dicht definierter linearer Operator.\\
+	Da $\hat{a}_\omega$ und $\hat{a}^\dagger_\omega$ nach Satz~\ref{thm:vernicht_erzeug} lineare Abbildungen auf $\Omega$ sind, ist $\hat{N}_\omega$ wohldefiniert und da $\Omega$ dicht in $L^2(\mathbb{R}, \mathbb{C}; \lambda)$ liegt auch dicht definiert.\\
 	\\
-	Kommen wir nun zu den Vertauschungsrelationen (6.36) und (6.37)
+	Kommen wir nun zu den Vertauschungsrelationen \eqref{eq:komm1} und \eqref{eq:komm2}
 	\begin{align*}
 		\hat{N}_\omega\hat{a}_\omega = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega = (\hat{a}_\omega\hat{a}^\dagger_\omega - 1 )\hat{a}_\omega=\hat{a}_\omega\hat{a}^\dagger_\omega\hat{a}_\omega - \hat{a}_\omega = \hat{a}_\omega\hat{N}_\omega - \hat{a}_\omega
 	\end{align*}
 	\begin{align*}
 	\hat{N}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega\hat{a}_\omega\hat{a}_\omega^\dagger = \hat{a}^\dagger_\omega(\hat{a}_\omega^\dagger\hat{a}_\omega+1)=\hat{a}^\dagger_\omega\hat{a}_\omega^\dagger\hat{a}_\omega+\hat{a}^\dagger_\omega=\hat{a}^\dagger_\omega\hat{N}_\omega+\hat{a}^\dagger_\omega
 \end{align*}
-Abschlie\ss{}end gilt nach (6.34)
+Abschlie\ss{}end gilt nach \eqref{eq:ref12}
 \begin{align*}
 	\hat{N}_\omega &=
 	\frac{\omega}{2}(-\frac{1}{\omega^2}\frac{d^2}{dq^2}+q^2 - \frac{1}{\omega}[\frac{d}{dq},q])\\&=\frac{1}{2\omega}(-\frac{d^2}{dq^2}+\omega^2q^2 - \omega [\frac{d}{dq},q])= \frac{1}{\omega}(\hat{h}_\omega - \frac{\omega}{2} )
 \end{align*}
 \end{proof}
 \noindent
-Wir interpretieren nun den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen beziehungsweise vernichten entsprechend diese Teilchen.
+Wir interpretieren den Teilchenzahloperator $\hat{N}_\omega$ als die Anzahl der Teilchen oder Photonen der Mode $\omega$ des elektromagnetischen Feldes. Erzeugungs- und Vernichtungsoperatoren erzeugen respektive vernichten formal diese Teilchen.
 Den Kern des Vernichtungsoperators nennen wir den Vakuumzustand des freien elektromagnetischen Feldes.\\
 \\
 Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den Moden des Feldes geh\"orenden Eigenfunktionen beziehungsweise Energieniveaus.\\
@@ -1803,7 +1940,7 @@ Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\ome
 \begin{proof}
 	Nachdem f\"ur den Teilchenzahloperator $\hat{N}_\omega =\hat{a}^\dagger_\omega\hat{a}_\omega\geq 0$ gilt, ist auch $\sigma(\hat{N}_\omega)\geq 0$.\\
 	\\
-	Nach Satz 6.3 ist $0$ ein Eigenwert mit $\psi_0=e^{-\omega x^2 / 2}$, da f\"ur beliebiges $\phi\in \Omega$ gilt
+	Nach Satz~\ref{thm:vernicht_erzeug} ist $0$ ein Eigenwert mit $\psi_0=e^{-\omega x^2 / 2}$, da f\"ur beliebiges $\phi\in \Omega$ gilt
 	\begin{equation*}
 		\langle \phi, \hat{N}_\omega\psi_0\rangle_{L^2}=\langle \phi, \hat{a}^\dagger_\omega\hat{a}_\omega\psi_0\rangle_{L^2}=\langle \hat{a}_\omega\phi, \hat{a}_\omega\psi_0\rangle_{L^2}=0
 	\end{equation*}
@@ -1818,7 +1955,7 @@ Sei $\lambda$ ein Eigenwert von $\hat{N}_\omega$ und $\psi$ der zugeh\"orende Ei
 \end{equation*}
 Es bildet also $\hat{a}_\omega^\dagger$ Eigenvektoren zu $\lambda$ auf Eigenvektoren zu $(\lambda + 1)$ ab und $\hat{a}_\omega$ Eigenvektoren zu $\lambda $ auf Eigenvektoren zu $\lambda -1$ ab.\\
 \\
-Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{a}_\omega^k\psi_0$, zu jedem Element von $\mathbb{N}$ einen Eigenvektor konstruiert.\\
+Somit haben wir mit $\psi_0$ und f\"ur jedes $k\in\mathbb{N}$ mit $\psi_k= \hat{a}_\omega^{\dagger k}\psi_0$ einen Eigenvektor konstruiert.\\
 \\
 Zeigen wir als n\"achstes, dass die Eigenr\"aume zu jedem Eigenwert aus $\mathbb{N}$ eindimensional sind.
 F\"ur den Eigenwert Null wurde bereits gezeigt, dass der zugeh\"orende Eigenraum eindimensional ist. Wir m\"ussen daher zeigen, dass beim \"Ubergang von $n\rightarrow n+1$ keine \"Anderung der Dimensionalit\"at des Eigenraums stattfinden kann.\\
@@ -1856,259 +1993,548 @@ Die Wirkung des Erzeugungsoperators auf ein Element\\ $\psi=(q\mapsto p(q)e^{-\o
 Falls $\{(q\mapsto q^ke^{-\omega q^2/2}): k\leq n\}\subset \text{span}(\{\hat{a}_\omega^{\dagger k}\psi_0: k\leq n\})$ f\"ur ein $n\in\mathbb{N}$ gilt, dann gilt dies somit auch f\"ur $n+1$.\\Es gilt offensichtlich f\"ur $n=0$ und somit f\"ur ganz $\mathbb{N}$.
 \end{proof}
 \noindent
-Nach Theorem 6.6 haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
+Nach Theorem~\ref{thm:hamilton_sum} haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
 \begin{equation}
-	\sigma(\hat{H}) = \{\omega(n+\frac{1}{2}): \omega^2\in\sigma(-r^{-1}\text{grad}_D\text{div}_Dr^{-1}), n\in\mathbb{N},\omega\neq 0\}
+	\sigma(\hat{H}_{\mathrm{frei}}) = \{\omega(n+\frac{1}{2}): \omega^2\in\sigma(-r^{-1}\text{grad}_D\text{div}_Dr^{-1}), n\in\mathbb{N},\omega\neq 0\}
 \end{equation}
-und somit nach dem Satz von Stone haben wir die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen gezeigt.
+und somit haben wir die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen gezeigt.
 \\
 \\
-Wir sehen, dass das freie elektromagnetische Feld seine Energie nur in ganzzahligen Vielfachen der Frequenz aufnehmen und abgeben kann. Diese Anregungen der Mode des Feldes interpretieren wir als Teilchen. Teilchen ist hier allerdings nur in einem sehr engen Sinn zu verstehen. Es sind nicht punktf\"ormige Dinge die sich von $a$ nach $b$ bewegen, haben keinen definierbaren Ort, sondern lediglich die Diskretit\"at haben sie mit den Teilchen wie wir sie uns denken gemeinsam.
+Wir erkennen, dass das freie elektromagnetische Feld seine Energie nur in 
+ganzzahligen Vielfachen einer bestimmten Frequenz aufnehmen oder abgeben kann. 
+Diese diskreten Anregungen einer Feldmode deuten wir als Teilchen. 
+Der Begriff ``Teilchen'' ist hier jedoch nur in einem engen Sinn zu verstehen: 
+Es handelt sich nicht um punktförmige Objekte, die sich von $a$ nach $b$ 
+bewegen und einen wohldefinierten Ort besitzen, sondern lediglich um Zustände, 
+die die gleiche Diskretheit aufweisen, wie wir sie von Teilchen im klassischen Sinn kennen.
 
-\chapter{Die Klein-Gordongleichung}
-Es verbleibt die Beschreibung des Stromes und der Ladung, eben der Quellen des elektromagnetischen Feldes. In der klassischen Theorie folgt f\"ur die beiden Gr\"o\ss{}en eine Kontinuit\"atsgleichung direkt aus den Maxwellgleichungen. Es verbleibt Gleichungen anzugeben, welche die Dynamik des Stromes und der Ladung selbst in Abh\"angingkeit des elektromagnetischen Feldes beschreiben. Der einfachste Weg dies zu bewerkstelligen w\"are mit Hilfe des Ohm'schen Gesetzes $j=\sigma e$.\\
+\chapter{Die Klein-Gordon-Gleichung}
+\section{Grundlagen}
+Es verbleibt die Beschreibung von Strom und Ladung, den Quellen des elektromagnetischen Feldes. \\
 \\
-Wir werden hierzu aber eine diskrete Version der Klein-Gordongleichung verwenden um Nahe an die Quantenelektrodynamik zu kommen.
+In der klassischen Theorie folgt für beide Größen eine Kontinuitätsgleichung direkt aus den Maxwell-Gleichungen. \\
 \\
+Es verbleibt jedoch noch Gleichungen zu formulieren, welche die Dynamik von Strom und Ladung selbst in Abhängigkeit vom elektromagnetischen Feldes beschreiben. \\
 \\
-Zun\"achst definieren wir zu diesem Zweck den so genannten Eichgradienten. 
+Der einfachste Ansatz wäre das Ohmsche Gesetz $j=\sigma e$. \\
+\\
+Wir verwenden jedoch eine diskrete Version der Klein-Gordon-Gleichung, um näher an die Quantenelektrodynamik zu kommen. \\
+\\
+Zur Formulierung führen wir zunächst den Eichgradienten ein.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $a$ eine Kantenfunktion und $\Phi$ eine komplexe Eckfunktion, dann ist der \textbf{Eichgradient} f\"ur jede Kante $\tilde{e}\in E$ definiert durch:
+	Sei $G$ ein \textbf{planares Netz}, $a\in\mathfrak{K}(G)$ eine Kantenfunktion und $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ eine komplexe Eckfunktion.\\
+	\\
+	Der \textbf{Eichgradient} ist für jede Kante $e\in E$ definiert durch:
 	\begin{equation}
-		\text{grad}^a(\Phi)(\tilde{e}) = \Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{ia(\tilde{e})}
+		\mathrm{grad}^a(\Phi)(e) := \Phi(p(e)) - \Phi(q(e))e^{ia(e)}.
 	\end{equation}
-	Sei weiters $r>0$ eine Kantenfunktion und $v\in V$ eine Ecke, dann nennen wir 
-		\begin{equation}
-		\Delta^a_r(\Phi)(v) = (\text{grad}^{{\frac{a}{r}}\dagger}*r^{-2}*\text{grad}^{\frac{a}{r}})(\Phi)(v)
-	\end{equation} 
-	den \textbf{Eich-Laplace Operator}. Man beachte das sich die Adjunktion $\dagger$ auf das komplexe Skalarprodukt bezieht.
-\end{definition}
-\begin{lemma}
-	Sei $G$ ein planarer Graph, $a$ eine reele Kantenfunktion und $\xi$ eine reele Eckfunktion.  F\"ur jede komplexe Eckfunktion $\Phi$ gilt dann f\"ur jede Kante $\tilde{e}$.
+	\\
+	Sei weiter $r:E\to\mathbb{R}_{>0}$ eine positive Kantenfunktion. \\
+	\\
+	Dann heißt
 	\begin{equation}
-		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e})=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
+		\Delta^a_r(\Phi)(v) := \bigl(\mathrm{grad}^{\frac{a}{r}\dagger} (r^{-2} \mathrm{grad}^{\frac{a}{r}}(\Phi))\bigr)(v)
+	\end{equation}
+	der \textbf{$a$-gewichtete Eich-Laplace-Operator} an der Ecke $v\in V$.
+\end{definition}
+\noindent
+\begin{lemma}\label{lem:eichgradient}
+	Sei $G$ ein \textbf{planares Netz}, $a \in \mathfrak{K}(G)$ eine reelle Kantenfunktion und $\xi \in \mathfrak{E}(G)$ eine reelle Eckfunktion. \\
+	\\
+	Dann gilt für jede komplexe Eckfunktion $\Phi \in \mathfrak{E}_\mathbb{C}(G)$ und jede Kante $e \in E$:
+	\begin{equation}
+		\mathrm{grad}^{\,a + \mathrm{grad}(\xi)}\bigl(e^{i\xi}\Phi\bigr)(e)
+		= e^{i\xi(p(e))}\, \mathrm{grad}^{\,a}(\Phi)(e).
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	Sei $\tilde{e}\in E$
+	Sei $e \in E$. \\
+	\\
+	Dann gilt:
 	\begin{align*}
-		\text{grad}^{a+\text{grad}(\xi)}(e^{i\xi}\Phi)(\tilde{e}) &= e^{i\xi(p(\tilde{e}))}\Phi(p(\tilde{e})) - e^{i\xi(q(\tilde{e}))}\Phi(q(\tilde{e}))e^{i(a+\text{grad}(\xi))(\tilde{e})}\\
-		&= e^{i\xi(p(\tilde{e}))}(\Phi(p(\tilde{e})) - \Phi(q(\tilde{e}))e^{i a(\tilde{e})})\\
-		&=e^{i\xi(p(\tilde{e}))}\text{grad}^a(\Phi)(\tilde{e})
+		\mathrm{grad}^{\,a + \mathrm{grad}(\xi)}\!\bigl(e^{i\xi}\Phi\bigr)(e)
+		&= e^{i\xi(p(e))}\Phi(p(e))
+		- e^{i\xi(q(e))}\Phi(q(e))\, e^{i(a + \mathrm{grad}(\xi))(e)} \\[4pt]
+		&= e^{i\xi(p(e))}\!\left(\Phi(p(e)) - \Phi(q(e))\, e^{i a(e)}\right) \\[4pt]
+		&= e^{i\xi(p(e))}\, \mathrm{grad}^{\,a}(\Phi)(e).
 	\end{align*}
 \end{proof}
-\begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen, dann nennt man $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der \textbf{Klein-Gordongleichung} falls f\"ur alle $t\in\mathbb{R}$ gilt
-	\begin{equation}
-		(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta_r^a\Phi+ m^2 \Phi = 0
+\begin{definition}[Klein-Gordon-Gleichung]\label{def:klein_gordon}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
+	$\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
+	sowie $\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten. \\
+	\\
+	Dann heißt $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine 
+	\textbf{Lösung der Klein-Gordon-Gleichung}, wenn für alle $t \in \mathbb{R}$ gilt:
+	\begin{equation}\label{eq:klein_gordon}
+		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
+		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
+		+ \Delta_r^{\,a(t)} \Phi(t) + m^2 \Phi(t) = 0.
 	\end{equation}
-	und die Anfangsbedingung:
+	\\
+	Die Anfangsbedingungen lauten:
 	\begin{align}
-		\Phi(0)&=\Phi_0\\
-		\Phi^\prime(0)&=v_0
+		\Phi(0) &= \Phi_0, \label{eq:kg_init1}\\
+		\Phi'(0) &= v_0. \label{eq:kg_init2}
 	\end{align}
-	erf\"ullt ist.
 \end{definition}
 \noindent
-Offensichtlich ist $\Phi$ keine Messgr\"o\ss{}e, und wir werden in K\"urze sehen wie sich die Stromdichte und Ladung der Materie aus $\Phi$ ableiten.\\ 
+Das Feld $\Phi$ ist keine Messgröße und wir werden in Kürze sehen, 
+wie sich die Stromdichte und die Ladung der Materie aus $\Phi$ ableiten lassen. \\
 \\
-Die Klein-Gordongleichung ist so konstruiert, dass eine L\"osung einer Gleichung durch Multiplikation mit einer lokalen Phase wieder eine L\"osung einer Klein-Gordongleichung ist. Diese Transformation lehnt sich an die Eichtransformation der Maxwelltheorie an und erweitert Diese. Die erweiterte Eichtransformation dient zur Kopplung des Klein-Gordon Feldes mit den Feldern der Maxwelltheorie. 
-\begin{definition}
-	Seien $\phi$, $r$ und $a$ wie in Definition 7.2, und $\xi\in C^1(\mathbb{R}, \mathfrak{E})$, dann nennt man die Transformation $T$ definiert durch
-	\begin{equation}
-		\gamma_\xi(\left(
-		\begin{array}{c}\phi\\
-			a\\
+Die Klein-Gordon-Gleichung ist so konstruiert, 
+dass jede Lösung durch Multiplikation mit einer lokalen Phase 
+\emph{erneut} eine Lösung einer Klein-Gordon-Gleichung bleibt. \\
+\\
+Diese Transformation beinhaltet die Eichtransformation der Maxwell-Theorie,
+geht jedoch über diese hinaus. 
+Die erweiterte Eichtransformation ermöglicht die Kopplung des Klein-Gordon-Feldes 
+an die Felder der Maxwell-Theorie. 
+\begin{definition}[Erweiterte Eichtransformation]\label{def:erw_eich}
+	Seien $\phi$, $r$ und $a$ wie in Definition~\ref{def:klein_gordon} 
+	gegeben, und sei $\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))$. \\
+	\\
+	Dann heißt die Abbildung 
+	\begin{equation}\label{eq:erw_eich}
+		\gamma_\xi
+		\!\left(
+		\begin{array}{c}
+			\phi \\[4pt]
+			a \\[4pt]
 			\Phi
-		\end{array}\right))=
+		\end{array}
+		\right)
+		=
 		\left(
-		\begin{array}{c}\phi - \xi^\prime\\
-			a + r\text{grad}(\xi) \\
-			\Phi e^{i\xi}
-		\end{array}\right)
-	\end{equation} 
-	die zu $\xi$ geh\"orende \textbf{erweiterte Eichtransformation}.
+		\begin{array}{c}
+			\phi - \xi' \\[4pt]
+			a + r\,\mathrm{grad}(\xi) \\[4pt]
+			e^{i\xi}\Phi
+		\end{array}
+		\right)
+	\end{equation}
+	die zu $\xi$ gehörende \textbf{erweiterte Eichtransformation}.
 \end{definition}
-\noindent
-\begin{proposition}
-Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\phi\in C^1(\mathbb{R}, \mathfrak{E})$, $\xi\in C^1(\mathbb{R}, \mathfrak{E})$ und $\Phi$ eine L\"osung der zugeh\"origen Klein-Gordongleichung
-	\begin{equation}
-	(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi - \Delta^a_r\Phi+ m^2 \Phi = 0
-\end{equation}
-dann ist auch 
-	\begin{equation}
-	\left(
-	\begin{array}{c}
-		\tilde{\phi}\\
-		\tilde{a}\\
-		\tilde{\Phi}
-	\end{array}\right)=
-	\gamma_\xi(\left(
-\begin{array}{c}\phi\\
-	a\\
-	\Phi
-\end{array}\right))
-\end{equation} 
-L\"osung der Klein-Gordongleichung
-	\begin{equation}
-	(\frac{\partial}{\partial t} - i\tilde{\phi})(\frac{\partial}{\partial t} + i\tilde{\phi})\tilde{\Phi} - \Delta^{\tilde{a}}_r\tilde{\Phi}+ m^2 \tilde{\Phi} = 0
+\begin{proposition}\label{prop:eichinvarianz_kg}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
+	$\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
+	$\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
+	und sei $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine Lösung der Klein-Gordon-Gleichung~\eqref{eq:klein_gordon}: 
+	\begin{equation}\label{eq:eichinv_ursprung} 
+		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
+		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
+		+ \Delta_r^{\,a(t)}\Phi(t) + m^2\Phi(t) = 0.
+	\end{equation}
+	\\
+	Dann ist auch das durch die erweiterte Eichtransformation~\eqref{eq:erw_eich}
+	\begin{equation}\label{eq:eich_transformierte}
+		\left(
+		\begin{array}{c}
+			\tilde{\phi} \\[4pt]
+			\tilde{a} \\[4pt]
+			\tilde{\Phi}
+		\end{array}\right)
+		=
+		\gamma_\xi
+		\!\left(
+		\begin{array}{c}
+			\phi \\[4pt]
+			a \\[4pt]
+			\Phi
+		\end{array}
+		\right)
+	\end{equation}
+	definierte Tripel ebenfalls eine Lösung der Klein-Gordon-Gleichung:
+	\begin{equation}\label{eq:eichinv_transformierte}
+		\left(\frac{\partial}{\partial t} - i\tilde{\phi}(t)\right)
+		\left(\frac{\partial}{\partial t} + i\tilde{\phi}(t)\right)
+		\tilde{\Phi}(t)
+		+ \Delta_r^{\,\tilde{a}(t)}\tilde{\Phi}(t)
+		+ m^2\tilde{\Phi}(t) = 0.
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	Sei $u$ eine komplexe Eckfunktion, dann gilt:
+	Sei $u \in \mathfrak{E}_\mathbb{C}(G)$ eine komplexe Eckfunktion. Dann gilt:
 	\begin{align*}
-		\langle u, e^{i\xi}\Delta_r^a(\Phi)\rangle = &\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}\\
-		&\langle r^{-1}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}
+		\langle u, e^{i\xi}\, \Delta_r^{\,a}(\Phi) \rangle_{\mathfrak{E}}
+		&= \langle r^{-1}\,\mathrm{grad}^{\,\frac{a}{r}}(e^{-i\xi}u),\, 
+		r^{-1}\,\mathrm{grad}^{\,\frac{a}{r}}(\Phi) \rangle_{\mathfrak{K}}.
 	\end{align*}
-	Anschlie\ss{}end erweitern wir den Skalarproduktausdruck mit $e^{i\xi(p(\tilde{e}))}$ und wenden anschlie\ss{}end Hilfssatz 7.2 an
+	\\
+	Wir erweitern nun den Ausdruck im Skalarprodukt mit $e^{i\xi(p(e))}$ und wenden Hilfssatz~\ref{lem:eichgradient} an: 
 	\begin{align*}
-		&\langle r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}e^{-i\xi}u, r^{-1}e^{i\xi(p(\tilde{e}))}\text{grad}^{\frac{a}{r}}(\Phi)\rangle_{\mathfrak{E}}=\\
-		&\langle r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}u, r^{-1}\text{grad}^{\frac{a + r\text{grad}\xi}{r}}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}}=
-		\langle u, \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}}
+		&\langle r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,\frac{a}{r}}(e^{-i\xi}u),\, 
+		r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,\frac{a}{r}}(\Phi) \rangle_{\mathfrak{K}}\\[4pt]
+		&= \langle r^{-1}\,\mathrm{grad}^{\,\frac{a + r\,\mathrm{grad}(\xi)}{r}}u,\, 
+		r^{-1}\,\mathrm{grad}^{\,\frac{a + r\,\mathrm{grad}(\xi)}{r}}(e^{i\xi}\Phi) \rangle_{\mathfrak{K}} \\[4pt]
+		&= \langle u,\, \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}}.
 	\end{align*}
-	Wir haben somit gezeigt:
+	\\
+	Damit folgt:
 	\begin{equation*}
-		\langle u, e^{i\xi}\Delta_r^a(\Phi) - \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)\rangle_{\mathfrak{E}} = 0
+		\langle u,\, e^{i\xi}\,\Delta_r^{\,a}(\Phi)
+		- \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}} = 0.
 	\end{equation*}
-	Nachdem $u$ beliebig war, gilt somit:
-	\begin{equation*}
-		e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
-	\end{equation*}
-	Es ist eine einfache \"Ubung zu zeigen, dass 
-	\begin{equation*}
-		(\frac{\partial}{\partial t} - i(\phi-\xi^\prime))(\frac{\partial}{\partial t} + i(\phi-\xi^\prime))\tilde{\Phi} = e^{i\xi}(\frac{\partial}{\partial t} - i\phi)(\frac{\partial}{\partial t} + i\phi)\Phi
-	\end{equation*}
-	Damit haben wir gezeigt, dass wir Gleichung 7.10 durch Umformung aus Gleichung 7.8 erhalten.
+	Da $u$ beliebig war, gilt somit
+	\begin{equation}\label{eq:eichinv_delta}
+		e^{i\xi}\,\Delta_r^{\,a}(\Phi)
+		= \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi).
+	\end{equation}
+	\\
+	Außerdem zeigt eine direkte Rechnung, dass
+	\begin{equation}\label{eq:eichinv_time}
+		\left(\frac{\partial}{\partial t}
+		- i\bigl(\phi - \xi'\bigr)\right)
+		\left(\frac{\partial}{\partial t}
+		+ i\bigl(\phi - \xi'\bigr)\right)\tilde{\Phi}
+		= e^{i\xi}
+		\left(\frac{\partial}{\partial t} - i\phi\right)
+		\left(\frac{\partial}{\partial t} + i\phi\right)\Phi,
+	\end{equation}
+	wobei $\tilde{\Phi} = e^{i\xi}\Phi$. \\
+	\\
+	Setzt man \eqref{eq:eichinv_delta} und \eqref{eq:eichinv_time} in die Gleichung~\eqref{eq:eichinv_ursprung} ein, so erhält man unmittelbar die transformierte Gleichung~\eqref{eq:eichinv_transformierte}. Damit ist die Aussage gezeigt.
 \end{proof}
 \noindent
-Wir k\"onnen uns somit, wie bei der Maxwelltheorie ohne Beschr\"ankung der Allgemeinheit, auf den Fall $\phi\equiv 0$ beschr\"anken und werden dies von hier an auch so tun um eine hamiltonsche Formulierung der Theorie zu erhalten.\\
-\\ 
-Betrachten wir nun einige wichtige Eigenschaften dieser Gleichung wie Erhaltensgr\"o\ss{}en und Interpretation der L\"osungen.
-\begin{proposition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$ und $\Phi$ eine L\"osung der Klein-Gordongleichung zur Anfangsbedingung $\phi_0\in\mathfrak{E}$, dann gilt die Kontinuit\"atsgleichung:
-	\begin{equation}
-		q^\prime + \text{div}(j) = 0 
+Wir können uns somit, wie bereits in der Maxwell-Theorie getan,
+ohne Beschränkung der Allgemeinheit auf den Fall $\phi \equiv 0$ beschränken 
+und werden dies von nun an auch so tun, um eine hamiltonsche Formulierung der Theorie zu erhalten. \\
+\\
+Betrachten wir nun einige grundlegende Eigenschaften der Gleichung, 
+insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösungen. 
+\begin{proposition}[Kontinuitätsgleichung]\label{prop:kontinuitaet}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
+	und sei $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
+	eine Lösung der Klein-Gordon-Gleichung~\eqref{eq:klein_gordon} 
+	mit Anfangsbedingung $\Phi(0) = \Phi_0 \in \mathfrak{E}_\mathbb{C}(G)$. \\
+	\\
+	Dann erfüllen die Größen 
+	\emph{Ladungsdichte} $q \in C^1(\mathbb{R}, \mathfrak{E}(G))$ 
+	und \emph{Stromdichte} $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ die Kontinuitätsgleichung
+	\begin{equation}\label{eq:kg_kontinuitaet}
+		q'(t) + \mathrm{div}(j(t)) = 0.
 	\end{equation}
-	f\"ur die Ladung $q\in C^1(\mathbb{R},\mathfrak{E})$ und die Stromst\"arke $j\in C^1(\mathbb{R},\mathfrak{K})$
+	\\
+	Hierbei sind $q$ und $j$ durch
 	\begin{align}
-		q &= \Im(\overline{\Phi}\Phi^\prime)\\
-		j &= -\text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))\\
-		  &= -\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\phi(q(e))e^{i\frac{a}{r}(e)})\nonumber
+		q(t) &= \Im\!\bigl(\overline{\Phi(t)}\,\Phi'(t)\bigr), \label{eq:kg_qdef}\\[4pt]
+		j(e,t) &= \text{div}^{-1} \Im(\overline{\Phi(t)}\Delta^a_r(\Phi(t)))(e)\label{eq:kg_jedge}\\
+		&= \Im\!\left(
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e),t)}\,
+		\Phi(q(e),t)\,
+		e^{\,i\,a(e)/r(e)}
+		\right) \nonumber
 	\end{align}
+	definiert.
 \end{proposition}
+\noindent
+
 \begin{proof}
-Starten wir bei der linken Seite von (7.11)
-\begin{align*}
-	&q^\prime = (\Im(\overline{\Phi}*\Phi^\prime))^\prime=(\frac{\overline{\Phi}*\Phi^\prime - \Phi*\overline{\Phi}^\prime}{2i})^\prime=\\
-	&\frac{1}{2i}((\overline{\Phi^\prime}*\Phi^\prime + \overline{\Phi}*\Phi^{\prime\prime})-(\Phi^\prime*\overline{\Phi}^\prime+\Phi*\overline{\Phi}^{\prime\prime}))=\\
-	&\frac{1}{2i}(\overline{\Phi}*\Phi^{\prime\prime}-\Phi*\overline{\Phi}^{\prime\prime})=
-	\frac{1}{2i}(\overline{\Phi}*(\Delta^a_r\Phi - m \Phi)-\Phi*\overline{(\Delta^a_r\Phi - m \Phi)})=\\
-	&\frac{1}{2i}(\overline{\Phi}*\Delta^a_r\Phi-\Phi*\overline{\Delta^a_r\Phi})=\Im(\overline{\Phi}*\Delta^a_r(\Phi))
-\end{align*}
-Der letzte Term muss sich im Bild der Divergenz befinden um die Inverse der Divergenz darauf anzuwenden. Dies ist nach dem de'Rham Komplex Theorem genau dann der Fall wenn die Summe der Eckfunktion \"uber alle Ecken gleich Null ist.\footnote{Hier ist $\langle, \rangle$ immer als das komplexe Skalarprodukt zu verstehen.}
-\begin{equation*}
-	\sum_{v\in V}\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\Im(\sum_{v\in V}\overline{\Phi}*\Delta^a_r(\Phi))=\Im(\langle\Phi, \Delta^a_r(\Phi)\rangle_{\mathfrak{E}})
-\end{equation*}
-Der Ausdruck im Imagin\"arteilfunktional ist der Erwartungswert des selbstadjungierten Eich-Laplace Operators und daher reel.\\
-\\
-Damit haben gezeigt, dass sich der Imagin\"arteil im Bild der Divergenz befindet und somit mit $\text{div}\text{div}^{-1}$ erweitert werden kann.
-Dies schlie\ss{}t den Fall in dem  $\Delta^a_r$ einfach ein selbstadjungierter Operator ist ab.\\
-\\
-In unserem speziellen Fall k\"onnen wir die Form in der $\Delta^a_r$ gegeben ist nutzen um eine L\"osung zu konstruieren.
-\\
-Sei $x\in V$, dann definieren wir zun\"achst $\psi\in\mathfrak{E}$ durch 
-\begin{equation*}
-	\psi(y) = \Phi(x)\delta_{x,y}
-\end{equation*}
-Wir starten mit dem Ausdruck $\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x))$ f\"ur die Divergenz des Stromes und formen um
-\begin{align*}
-	&\Im(\overline{\Phi}(x)*\Delta^a_r(\Phi)(x)) = \Im(\langle \psi, \Delta^a_r(\Phi)\rangle_{\mathfrak{E}})=
-	\Im(\langle \text{grad}^{\frac{a}{r}}\psi, \frac{1}{r^2}\text{grad}^{\frac{a}{r}}\Phi\rangle_{\mathfrak{K}})\\
-	&=\Im(\sum_{\substack{e\in E\\p(e)=x}} (\overline{\Phi(p(e))} \frac{1}{r(e)^2}(\Phi(p(e))-e^{i\frac{a}{r}(e)}\Phi(q(e)))) \\ &+ 
-	\sum_{\substack{e\in E\\q(e)=x}} (-\overline{\Phi(q(e))}e^{\frac{-a}{r}} \frac{1}{r(e)^2}(\Phi(p(e))-e^{i\frac{a}{r}(e)}\Phi(q(e)))))\\
-	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{i\frac{a}{r}(e)}  +
-	\sum_{\substack{e\in E\\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(q(e))}\Phi(p(e))e^{\frac{-a}{r}(e)} )\\
-	&=-\Im(\sum_{\substack{e\in E\\p(e)=x}}\frac{1}{r(e)^2} \overline{\phi(p(e))}\Phi(q(e)) e^{i\frac{a}{r}(e)}  -
-	\sum_{\substack{ \\q(e)=x}}\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)} )\\
-	&=\text{div}(\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))(x)
-\end{align*}
-Dies f\"uhrt uns zum gesuchten Resultat.
-\begin{align*}
-	q^\prime &=\Im(\overline{\Phi}*\Delta^a_r(\Phi))=\text{div}(\text{div}^{-1}(\Im(\overline{\Phi}*\Delta^a_r(\Phi))))\\
-	&=
-	-\text{div}(-\Im(\frac{1}{r(e)^2} \overline{\Phi(p(e))}\Phi(q(e))e^{i\frac{a}{r}(e)}))
-\end{align*}
+	Wir beginnen mit der linken Seite der Kontinuitätsgleichung~\eqref{eq:kg_kontinuitaet}. \\
+	\\
+	Mit der Definition~\eqref{eq:kg_qdef} gilt
+	\begin{align*}
+		q'(t)
+		&= \bigl(\Im(\overline{\Phi}\,\Phi')\bigr)' 
+		= \!\left(
+		\frac{\overline{\Phi}\,\Phi' - \Phi\,\overline{\Phi}'}{2i}
+		\right)' \\[4pt]
+		&= \frac{1}{2i}
+		\bigl(
+		\overline{\Phi'}\,\Phi' + \overline{\Phi}\,\Phi'' 
+		- \Phi'\,\overline{\Phi'} - \Phi\,\overline{\Phi''}
+		\bigr)
+		= \frac{1}{2i}
+		\bigl(
+		\overline{\Phi}\,\Phi'' - \Phi\,\overline{\Phi''}
+		\bigr).
+	\end{align*}
+	\\
+	Mit der Klein-Gordon-Gleichung
+	\[
+	\Phi'' = -\Delta_r^{\,a}(\Phi) - m^2\Phi
+	\]
+	erhält man
+	\begin{align*}
+		q'
+		&= \frac{1}{2i}
+		\bigl(\Phi\,\overline{\Delta_r^{\,a}(\Phi)}
+		- \overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr)
+		= -\Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr).\label{eq:ausdruck1}
+	\end{align*}
+	\noindent
+	Die Ableitung \(q'\) liegt im Bild der Divergenz. Nach dem de'Rham Komplex Theorem liegt eine Eckfunktion genau dann im Bild der Divergenz falls die Summe über alle Ecken gleich Null ist. Dies ist leicht zu zeigen
+	\[
+	\sum_{v \in V} \Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr)
+	= \Im\!\bigl(\langle \Phi, \Delta_r^{\,a}(\Phi) \rangle_{\mathfrak{E}}\bigr) = 0,
+	\]	
+	denn \(\Delta_r^{\,a}\) ist selbstadjungiert und der Erwartungswert daher reell.  \\
+	\\
+	Es folgt, dass eine Kantenfunktion \(j \in \mathfrak{K}(G)\) existiert mit
+	\[
+	q'(t) = -\,\mathrm{div}(j(t)).
+	\]
+	Wir bestimmen diese explizit. Sei \(x \in V\) und definiere \(\psi \in \mathfrak{E}(G)\) durch
+	\[
+	\psi(y) = \Phi(x)\,\delta_{x,y}.
+	\]
+	Dann gilt für die Divergenz des Stromes:
+	\begin{align*}
+		-\Im\!\bigl(\overline{\Phi(x)}\,\Delta_r^{\,a} \Phi(x)\bigr)
+		&= -\Im\!\bigl(\langle \psi,\, \Delta_r^{\,a}(\Phi)\rangle_{\mathfrak{E}}\bigr)
+		= -\Im\!\bigl(\langle \mathrm{grad}^{\,a/r}(\psi),\, 
+		\tfrac{1}{r^2}\mathrm{grad}^{\,a/r}(\Phi) \rangle_{\mathfrak{K}}\bigr) \\[4pt]
+		&=\Im\!\left(
+		\sum_{\substack{e\in E \\ p(e)=x}}
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{i a(e)/r(e)} \right. \\[2pt]
+		&\hspace{3.5cm}\left.
+		- \sum_{\substack{e\in E \\ q(e)=x}}
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{i a(e)/r(e)}
+		\right) \\[4pt]
+		&= -\mathrm{div}\!\left(
+		\Im\!\left(
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{i a(e)/r(e)}
+		\right)
+		\right)(x).
+	\end{align*}
+	\\
+	Damit ergibt sich der gesuchte Ausdruck
+	\[
+	q'(t) = -\,\mathrm{div}(j(t)), \qquad
+	j(e,t) = \Im\!\left(
+	\frac{1}{r(e)^2}\,
+	\overline{\Phi(p(e),t)}\,
+	\Phi(q(e),t)\,
+	e^{i a(e)/r(e)}
+	\right),
+	\]
+	und somit die Kontinuitätsgleichung~\eqref{eq:kg_kontinuitaet}.
 \end{proof}
 \noindent
-Die Ladung $q$ und der Strom $j$ sind die Me\ss{}gr\"o\ss{}en der Klein-Gordon Theorie, w\"ahrend $\Phi$ analog zu den Potentialen der Maxwelltheorie nicht messbar ist.\\
+Die Ladungsdichte $q$ und der Strom $j$ sind die \textbf{Messgrößen} 
+der Klein-Gordon-Theorie, während $\Phi$, analog zu den Potentialen der 
+Maxwell-Theorie, keine direkte beobachtbare Größe ist. \\
 \\
-Vergewissern wir uns zun\"achst, dass die Ladung definiert in 7.12 und der Strom definiert in 7.13 tats\"achlich unver\"andert unter erweiterter Eichtransformation\footnote{Da wir annehmen $\phi\equiv 0$ gilt $\xi$ ist konstant.} bleiben.
-\begin{corollary}
-	Sei $G$, $m>0$, $r>0$, $\Phi$ und $a$ wie in Satz 7.2. Sei weiters $\xi\in \mathfrak{E}$, dann bleibt die Ladung $q$ und der Strom $j$, definiert in 7.12 und 7.13, nach Anwendung der Transformation $\gamma_\xi$ unver\"andert:
+Wir vergewissern uns zunächst, dass die in~\eqref{eq:kg_qdef} 
+und~\eqref{eq:kg_jedge} definierten Größen $q$ und $j$ 
+tatsächlich unverändert unter der erweiterten Eichtransformation 
+(Definition~\ref{def:erw_eich}) bleiben.\footnote{Da wir hier 
+	$\phi \equiv 0$ annehmen, ist $\xi$ zeitlich konstant.} 
+\begin{corollary}\label{cor:eichinvarianz_qj}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
+	und $\xi \in \mathfrak{E}(G)$. \\
+	\\
+	Dann bleiben die in~\eqref{eq:kg_qdef} und~\eqref{eq:kg_jedge} 
+	definierten Größen
+	\[
+	q = \Im(\overline{\Phi}\,\Phi'), 
+	\qquad
+	j(e) = \Im\!\left(
+	\frac{1}{r(e)^2}\,
+	\overline{\Phi(p(e))}\,
+	\Phi(q(e))\,
+	e^{i a(e)/r(e)}
+	\right)
+	\]
+	nach Anwendung der Transformation $\gamma_\xi$ 
+	aus Definition~\ref{def:erw_eich} unverändert, d.\,h.
+	\[
+	\tilde{q} = q, 
+	\qquad
+	\tilde{j} = j.
+	\]
 \end{corollary}
+\noindent
 \begin{proof}
-	$q$ bleibt offensichtlich unver\"andert nachdem $\xi$ zeitunabh\"angig ist.\\
+	Da $\xi$ zeitlich konstant ist, gilt für die transformierte Funktion 
+	\(\tilde{\Phi} = e^{i\xi}\Phi\): 
+	\[
+	\tilde{\Phi}' = e^{i\xi}\Phi',
+	\]
+	woraus unmittelbar folgt, dass
+	\[
+	\tilde{q} 
+	= \Im(\overline{\tilde{\Phi}}\,\tilde{\Phi}')
+	= \Im\!\left(\overline{e^{i\xi}\Phi}\, e^{i\xi}\Phi'\right)
+	= \Im(\overline{\Phi}\,\Phi')
+	= q.
+	\]
 	\\
-	Um zu zeigen, dass $j$ unver\"andert bleibt reicht es zu zeigen, dass $$\Im(\overline{\Phi}\Delta^a_r(\Phi))$$ unver\"andert bleibt.\\
+	Um zu zeigen, dass auch $j$ unverändert bleibt, genügt es zu prüfen, 
+	dass der Ausdruck 
+	\(\Im(\overline{\Phi}\,\Delta_r^{\,a}(\Phi))\) invariant ist. \\
 	\\
-	Im Beweis von Satz 7.1 haben wir gezeigt, dass 
-	\begin{equation*}
-		e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
-	\end{equation*}
-	woraus das Resultat folgt.
+	Im Beweis von Satz~\ref{prop:eichinvarianz_kg} 
+	(unter Verwendung von Hilfssatz~\ref{lem:eichgradient}) wurde gezeigt, dass
+	\[
+	e^{i\xi}\,\Delta_r^{\,a}(\Phi)
+	= \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi).
+	\]
+	Nimmt man hier von den Imaginärteil nach Multiplikation mit 
+	\(\overline{e^{i\xi}\Phi}\), erhält man
+	\[
+	\Im\!\bigl(\overline{e^{i\xi}\Phi}\,
+	\Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi)\bigr)
+	= \Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr).
+	\]
+	Damit folgt, dass $\tilde{j} = j$ gilt und somit beide Größen 
+	Eichinvarianz besitzen.
 \end{proof}
 \noindent
-Um das Thema Ladung und Strom abzuschlie\ss{}en widmen wir uns kurz einer Transformation, der so genannten Ladungskonjugation, welche die Ladung $q$ und den Strom $j$ invertiert. 
-\begin{proposition}
-	Sei $G$, $m>0$, $r>0$ und $a$ wie in Definition 7.3. Wenn $\Phi$ eine L\"osung der Klein-Gordongleichung
-	\begin{equation}
-		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi+ m^2 \Phi = 0
+Um das Thema Ladung und Strom abzuschließen, 
+betrachten wir nun eine spezielle Transformation, die sogenannte 
+\textbf{Ladungskonjugation}, 
+welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
+\begin{proposition}[Ladungskonjugation]\label{prop:ladungskonjugation}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion 
+	und $a \in C^1(\mathbb{R}, \mathfrak{K}(G))$ wie in Definition~\ref{def:klein_gordon}. \\
+	\\
+	Ist $\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine Lösung der 
+	Klein-Gordon-Gleichung
+	\begin{equation}\label{eq:kg_phi} 
+		\frac{\partial^2}{\partial t^2}\Phi
+		+ \Delta_r^{\,a}\Phi
+		+ m^2 \Phi = 0,
 	\end{equation}
-	ist, dann ist $\overline{\Phi}$ eine L\"osung der Klein-Gordongleichung
-	\begin{equation}
-		\frac{\partial^2}{\partial t^2}\overline{\Phi} - \Delta^{-a}_r\overline{\Phi}+ m^2 \overline{\Phi} = 0
+	so ist auch die komplex konjugierte Funktion $\overline{\Phi}$ eine Lösung der 
+	\emph{komplex‑konjugierten Klein-Gordon-Gleichung}
+	\begin{equation}\label{eq:kg_phikonj}
+		\frac{\partial^2}{\partial t^2}\overline{\Phi}
+		+ \Delta_r^{\,-a}\overline{\Phi}
+		+ m^2 \overline{\Phi} = 0.
 	\end{equation}
-	und f\"ur die Ladung (7.12) und den Strom (7.13) gilt:
+	\\
+	Für die in~\eqref{eq:kg_qdef} und~\eqref{eq:kg_jedge} definierten Größen gilt:
 	\begin{align}
-		q_\Phi &= - q_{\overline{\Phi}}\\
-		j_\Phi^a &= - j_{\overline{\Phi}}^{-a}
+		q_{\Phi} &= -\,q_{\overline{\Phi}}, \label{eq:ladung_invertiert}\\[4pt]
+		j_{\Phi}^{\,a} &= -\,j_{\overline{\Phi}}^{\,-a}. \label{eq:strom_invertiert}
 	\end{align}
 \end{proposition}
 \begin{proof}
-	Um zu sehen, dass $\overline{\Phi}$ (7.15) erf\"ullt, wende komplexe Konjugation auf 7.14 an.\\
+	Um zu zeigen, dass $\overline{\Phi}$ 
+	\eqref{eq:kg_phikonj} erfüllt, wenden wir die komplexe Konjugation 
+	auf die Gleichung~\eqref{eq:kg_phi} an. \\
 	\\
-	(7.16) und (7.17) k\"onnen durch ein paar einfache Umformungen gezeigt werden.
+	Da die partiellen Ableitungen linear und reell sind, gilt
+	\[
+	\overline{\Phi''} 
+	= \overline{\Phi}''.
+	\]
+	Zudem folgt aus der Definition des Eich‑Laplace‑Operators
+	\[
+	\overline{\Delta_r^{\,a}(\Phi)} 
+	= \Delta_r^{\,-a}(\overline{\Phi}),
+	\]
+	da die Komplexkonjugation das Vorzeichen der Phasen $e^{ia(e)}$ umkehrt. 
+	Eingesetzt in~\eqref{eq:kg_phi} ergibt sich sofort Gleichung~\eqref{eq:kg_phikonj}. \\
+	\\
+	Für die Inversion von Ladung und Strom genügen einfache Umformungen. 
+	Für die in~\eqref{eq:kg_qdef} definierte Ladung gilt:
 	\begin{equation*}
-		q_{\overline{\Phi}}\ = \Im(\overline{\overline{\Phi}}\overline{\Phi}^\prime)
-		= \Im(\overline{\overline{\Phi}\Phi^\prime}) = -\Im(\overline{\Phi}\Phi^\prime)
-		= -q_\Phi
+		q_{\overline{\Phi}}
+		=  \Im(\overline{\overline{\Phi}}\,\overline{\Phi}')
+		=  \Im\!\bigl(\overline{\overline{\Phi}\,\Phi'}\bigr)
+		=  -\,\Im(\overline{\Phi}\,\Phi')
+		= -\,q_{\Phi}.
 	\end{equation*}
+	\\
+	Für den Strom~\eqref{eq:kg_jedge} beachten wir, 
+	dass Konjugation und Phaseninversion \(a \mapsto -a\) bewirkt:
 	\begin{align*}
-		j_{\overline{\Phi}}^{-a} &= -\text{div}^{-1}\Im(\overline{\overline{\Phi}}\Delta^{-a}_r(\overline{\Phi}))
-		= -\text{div}^{-1}\Im(\overline{\overline{\Phi}\Delta^a_r(\Phi)})\\
-		&= \text{div}^{-1}\Im(\overline{\Phi}\Delta^a_r(\Phi))= -j_{\Phi}^a
+		j_{\overline{\Phi}}^{-a}(e) 
+		&= +\,\Im\!\left(
+		\frac{1}{r(e)^2}\,
+		\overline{\overline{\Phi(p(e))}}\,
+		\overline{\Phi(q(e))}\,
+		e^{-i a(e)/r(e)}
+		\right) \\[4pt]
+		&= -\,\Im\!\left(
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{i a(e)/r(e)} 
+		\right)
+		= -\,j_{\Phi}^{\,a}(e).
 	\end{align*}
+	Damit gilt 
+	$q_{\overline{\Phi}} = -q_{\Phi}$ 
+	und 
+	$j_{\overline{\Phi}}^{-a} = -j_{\Phi}^{\,a}$,
+	womit die Behauptung gezeigt ist.
 \end{proof}
 \noindent
-Genauso wie in der Maxwelltheorie gibt es eine Energiefunktion, die das Systems beschreibt. Es gilt hierbei der Energieerhaltungssatz falls $a$ zeitunabh\"angig ist.
-\begin{proposition}
-	Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\pi$, $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$. Weiters schreiben wir Realteil und Imagin\"arteil als:
+Das Klein-Gordon-Feld besitzt analog zur Maxwell-Theory
+eine zugehörige \textbf{Energiefunktion}, welche das System vollständig beschreibt. 
+Es gilt ein Energieerhaltungssatz, sofern das Eichpotential $a$ zeitunabhängig ist.
+\begin{proposition}[Hamiltonsche Formulierung und Energieerhaltung]\label{prop:kg_hamilton}
+	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in \mathfrak{K}(G)$, sowie $\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten. \\
+	\\
+	Seien ferner $\Phi, \pi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ komplexwertige Eckenfunktionen, 
+	wobei wir Real‑ und Imaginärteil durch
 	\begin{align}
-		\Phi &= \Phi_R + i\Phi_I\\
-	     \pi &= \pi_R + i\pi_I
+		\Phi &= \Phi_R + i\,\Phi_I, \label{eq:kg_split_phi}\\[4pt]
+		\pi  &= \pi_R + i\,\pi_I \label{eq:kg_split_pi}
 	\end{align}
-	Die Hamiltonfunktion der Klein-Gordontheorie definieren wird dann als:\footnote{Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen Vektorr\"aume $\mathfrak{E}_\mathbb{C}$ und $\mathfrak{K}_\mathbb{C}$.}
-	\begin{equation}
-	H(\Phi, \pi) = \frac{1}{2}(\langle \pi, \pi\rangle_{\mathfrak{E},\mathbb{C}}+\langle \Phi ,(\Delta^{a}_r+ m^2)\Phi\rangle_{\mathfrak{E},\mathbb{C}})
-	\end{equation}	
-	 $\Phi$ ist genau dann eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$ wenn die Hamiltonschen Bewegungsgleichungen
+	bezeichnen. \\
+	\\
+	Die \textbf{Hamilton-Funktion} der Klein-Gordon-Theorie ist definiert als\footnote{%
+		Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen 
+		Vektorräume $\mathfrak{E}_\mathbb{C}(G)$ und $\mathfrak{K}_\mathbb{C}(G)$.}
+	\begin{equation}\label{eq:kg_hamilton} 
+		H(\Phi, \pi) 
+		= \frac{1}{2}\Bigl(
+		\langle \pi, \pi \rangle_{\mathfrak{E},\mathbb{C}}
+		+ \langle \Phi, (\Delta_r^{\,a} + m^2)\Phi \rangle_{\mathfrak{E},\mathbb{C}}
+		\Bigr).
+	\end{equation}
+	\\
+	Dann ist $\Phi$ genau dann eine Lösung der Klein-Gordon-Gleichung 
+	mit Impulsvariable $\pi = \Phi'$,
+	wenn die \textbf{Hamiltonschen Bewegungsgleichungen}
 	\begin{align}
-		\frac{1}{2}\Phi^\prime &= \frac{\partial H}{\partial \overline{\pi}}\\
-		\frac{1}{2}\pi^\prime &= - \frac{\partial H}{\partial \overline{\Phi}}
-	\end{align} erf\"ullt sind.\footnote{Ableitungen sind hier im Sinne des Wirtinger Kalk\"uls zu verstehen.}
+		\frac{1}{2}\,\Phi' &= 
+		\frac{\partial H}{\partial \overline{\pi}}, \label{eq:kg_ham_eq1}\\[4pt]
+		\frac{1}{2}\,\pi' &= 
+		-\,\frac{\partial H}{\partial \overline{\Phi}} \label{eq:kg_ham_eq2}
+	\end{align}
+	erfüllt sind.\footnote{%
+		Die Ableitungen sind im Sinne des Wirtinger-Kalküls zu verstehen, 
+		d.\,h. $\partial H / \partial \overline{z}$ behandelt $z$ und $\overline{z}$ 
+		als unabhängige Variablen.}
 \end{proposition}
 \begin{proof}
-TODO
+	Einsetzen von \eqref{eq:kg_hamilton} in \eqref{eq:kg_ham_eq1} ergibt durch Wirtinger-Differentation:
+	\begin{equation}
+		\frac{\partial H}{\partial \overline{\pi}} = \frac{1}{2} \pi \quad \implies \quad \Phi' = \pi.
+	\end{equation}
+	Einsetzen in \eqref{eq:kg_ham_eq2} liefert:
+	\begin{align}
+		\frac{1}{2} \pi' &= -\frac{\partial H}{\partial \overline{\Phi}} \\
+		&= -\frac{1}{2} (\Delta_r^a + m^2) \Phi \notag \\
+		\implies \quad \Phi'' &= -(\Delta_r^a + m^2) \Phi.
+	\end{align}
+	Damit erfüllen die Hamiltonschen Gleichungen exakt die Klein-Gordon-Gleichung \eqref{eq:klein_gordon} mit Anfangsdaten $\Phi(0) = \Phi_0$, $\Phi'(0) = v_0$. 
 \end{proof}
 \iffalse
 TODO Existenz Lösungen: m+\omega, teilchen abhängig von feld, 
@@ -2118,40 +2544,95 @@ TODO gauge transformation -> unitary operator
 TODO charge and current in classical electrodynamics (following QED Hamiltonian)
 TODO Noether current
 \fi
-\begin{corollary}
-Sei $G$ ein planarer Graph $m>0$ eine reele Zahl, $r>0$ eine Kantenfunktion, $a\in C^1(\mathbb{R}, \mathfrak{K})$, $\Phi_0$ sowie $v_0$ komplexe Eckfunktionen und $\Phi\in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C})$ eine L\"osung der Klein-Gordongleichung sowie $\pi=\Phi^\prime$, dann gilt
-\begin{equation}
-	\frac{dH(\Phi(t), \pi(t),t)}{dt} = \frac{\partial H}{\partial t}(\Phi(t), \pi(t),t)
-\end{equation}
+\begin{corollary}[Energieerhaltung]\label{cor:kg_energieerhaltung}
+	Sei $G$ ein \textbf{planares Netz}, 
+	$m > 0$ eine reelle Zahl, 
+	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
+	$\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten 
+	und $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
+	eine Lösung der Klein-Gordon-Gleichung. \\
+	\\
+	Setze $\pi = \Phi'$. Dann gilt für die Hamilton-Funktion 
+	$H(\Phi, \pi)$ aus~\eqref{eq:kg_hamilton}:
+	\begin{equation}\label{eq:kg_energieableitung}
+		\frac{\mathrm{d}}{\mathrm{d}t} H(\Phi(t), \pi(t), t) 
+		= \frac{\partial H}{\partial t}(\Phi(t), \pi(t), t).
+	\end{equation}
+	Insbesondere folgt daraus:
+	\[
+	\frac{\mathrm{d}}{\mathrm{d}t} H(\Phi(t), \pi(t)) = 0,
+	\]
+	falls das Potential $a(t)$ keine explizite Zeitabhängigkeit besitzt.
 \end{corollary}
 \begin{proof}
-	Sei $t\in\mathbb{R}$, dann gilt
+	Sei $t \in \mathbb{R}$. Dann gilt nach der Kettenregel:
 	\begin{align*}
-\frac{dH(\Phi(t), \pi(t),t)}{dt}=&\frac{\partial H}{\partial \overline{\Phi}}\overline{\Phi}^\prime + \frac{\partial H}{\partial \Phi}\Phi^\prime +\frac{\partial H}{\partial \overline{\pi}}\overline{\pi}^\prime + \frac{\partial H}{\partial \pi}\pi^\prime + \frac{\partial H}{\partial t}=\\
-&-\frac{1}{2}\pi^\prime\overline{\Phi}^\prime  -\frac{1}{2}\overline{\pi}^\prime\Phi^\prime +\frac{1}{2}\Phi^\prime\overline{\pi}^\prime + \frac{1}{2}\overline{\Phi}^\prime\pi^\prime + \frac{\partial H}{\partial t}=\frac{\partial H}{\partial t}
+		\frac{\mathrm{d}}{\mathrm{d}t} H(\Phi(t), \pi(t), t)
+		&= 
+		\frac{\partial H}{\partial \Phi}\,\Phi'
+		+ \frac{\partial H}{\partial \overline{\Phi}}\,\overline{\Phi}'
+		+ \frac{\partial H}{\partial \pi}\,\pi'
+		+ \frac{\partial H}{\partial \overline{\pi}}\,\overline{\pi}'
+		+ \frac{\partial H}{\partial t}.
 	\end{align*}
+	\\
+	Verwenden wir nun die Hamiltonschen Bewegungsgleichungen
+	\[
+	\frac{1}{2}\,\Phi' = \frac{\partial H}{\partial \overline{\pi}},
+	\qquad
+	\frac{1}{2}\,\pi' = -\,\frac{\partial H}{\partial \overline{\Phi}},
+	\]
+	so folgt
+	\begin{align*}
+		\frac{\mathrm{d}}{\mathrm{d}t} H(\Phi(t), \pi(t), t)
+		&= 
+		-\,\frac{1}{2}\,\pi'\,\overline{\Phi}'
+		-\,\frac{1}{2}\,\overline{\pi}'\,\Phi'
+		+ \frac{1}{2}\,\Phi'\,\overline{\pi}'
+		+ \frac{1}{2}\,\overline{\Phi}'\,\pi'
+		+ \frac{\partial H}{\partial t}.
+	\end{align*}
+	\\
+	Die Kreuzterme heben sich gegenseitig auf, sodass schließlich
+	\[
+	\frac{\mathrm{d}}{\mathrm{d}t} H(\Phi(t), \pi(t), t)
+	= \frac{\partial H}{\partial t}(\Phi(t), \pi(t), t)
+	\]
+	gilt, was die Behauptung zeigt.
 \end{proof}
 \noindent
-Abschlie\ss{}end soll noch bemerkt, dass sich die Klein-Gordongleichung in einer Schr\"odingerform schreiben l\"asst. 
-\begin{lemma}
-	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1 $), $m>0$ und $u\in C^2(\mathbb{R}, V)$ eine L\"osung der Gleichung
-\begin{equation}
-	u^{\prime \prime} + Lu + m^2u= 0
-\end{equation}
-dann gibt es einen selbstadjungierten linearen Operator $H$ in $V$ sodass 
-\begin{equation}
-	\psi = \begin{pmatrix}
-		u \\ (L^\frac{1}{2} + i \frac{\partial}{\partial t})u/m
-	\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)
-\end{equation}
-eine L\"osung der Schrödingergleichung
-\begin{equation}
-	i\frac{\partial\psi}{\partial t} = H\psi
-\end{equation}
-ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)$ von (7.26) auch eine L\"osung von (7.24).
+Abschließend bemerken wir, dass sich die Klein-Gordon-Gleichung 
+in eine Schrödinger-Form umschreiben lässt. 
+\begin{lemma}[Schrödinger-Form der Klein-Gordon-Gleichung]\label{lem:schroedingerform}
+	Sei $L$ eine positiv semidefinite lineare Abbildung auf $V = \mathbb{C}^n$ 
+	($n \geq 1$), $m > 0$ und $u \in C^2(\mathbb{R}, V)$ eine Lösung der Gleichung
+	\begin{equation}\label{eq:kg_abstrakt}
+		u'' + L u + m^2 u = 0.
+	\end{equation}
+	\\
+	Dann existiert ein selbstadjungierter linearer Operator $H$ auf $V \oplus V$, 
+	sodass
+	\begin{equation}\label{eq:psi_def}
+		\psi = \begin{pmatrix}
+			u \\[4pt]
+			\frac{1}{m}\bigl(L^{1/2} + i \partial_t\bigr) u
+		\end{pmatrix}
+		\in C^2(\mathbb{R}, V) \times C^1(\mathbb{R}, V)
+	\end{equation}
+	eine Lösung der Schrödinger-Gleichung
+	\begin{equation}\label{eq:schroedinger}
+		i \partial_t \psi = H \psi
+	\end{equation}
+	ist. \\
+	\\
+	Umgekehrt ist die erste Komponente einer Lösung 
+	$\psi \in C^2(\mathbb{R}, V) \times C^1(\mathbb{R}, V)$ 
+	der Gleichung~\eqref{eq:schroedinger} ebenfalls eine Lösung 
+	der Gleichung~\eqref{eq:kg_abstrakt}.
 \end{lemma}
 \begin{proof}
-	Sei $u\in C^2(\mathbb{R}, V)$, dann starten wir mit (7.24)
+	Sei $u\in C^2(\mathbb{R}, V)$ Lösung von \eqref{eq:kg_abstrakt}, dann starten wir mit 
 	\begin{align*}
 		u^{\prime \prime} + Lu + m^2u=
 		(L^\frac{1}{2} - i\frac{\partial}{\partial t})(L^\frac{1}{2} + i\frac{\partial}{\partial t})u + m^2 u=0\\
@@ -2163,8 +2644,8 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 	\end{equation*}
 	Dies f\"uhrt zum Gleichungssystem
 	\begin{align}
-		i \frac{\partial u}{\partial t} &= -L^\frac{1}{2}u + m*\phi\\
-		i\frac{\partial\phi}{\partial t}&=L^\frac{1}{2}\phi + m*u
+		i \frac{\partial u}{\partial t} &= -L^\frac{1}{2}u + m\phi\label{eq:schroedinger_u}\\
+		i\frac{\partial\phi}{\partial t}&=L^\frac{1}{2}\phi + mu\label{eq:schroedinger_phi}
 	\end{align}
 	 Wir definieren weiters
 	 \begin{equation*}
@@ -2175,52 +2656,67 @@ ist und umgekehrt ist die erste Komponente einer L\"osung $\psi\in C^2(\mathbb{R
 	 	u \\ \phi
  	\end{pmatrix}
 	 \end{equation*}
-	 und erhalten (7.26).
+	 und erhalten \eqref{eq:schroedinger}.
 	 \begin{equation}
 	 	i\frac{\partial\psi}{\partial t} = H\psi
 	 \end{equation}
  	$H$ ist selbstadjungiert, da $m$ reel ist und $L$ positiv semidefinit ist.\\
  	\\
- 	Sei umgekehrt $\psi =\begin{pmatrix} u \\ \phi\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)$ eine L\"osung von (7.29). Wenden wir zun\"achst  $(L^\frac{1}{2}-i \frac{\partial}{\partial t})/m$ auf (7.27) an
+ 	Sei umgekehrt $\psi =\begin{pmatrix} u \\ \phi\end{pmatrix}\in C^2(\mathbb{R},V)\times C^1(\mathbb{R},V)$ eine L\"osung von \eqref{eq:schroedinger}. Wenden wir zun\"achst  $(L^\frac{1}{2}-i \frac{\partial}{\partial t})/m$ auf \eqref{eq:schroedinger_u} an
  	\begin{equation*}
  		(L^\frac{1}{2}-i \frac{\partial}{\partial t})/m(i \frac{\partial u}{\partial t} + L^\frac{1}{2}u) = (L^\frac{1}{2}-i \frac{\partial}{\partial t})\phi
  	\end{equation*}
- 	Anschlie\ss{}end verwenden wir (7.28) 
+ 	Anschlie\ss{}end verwenden wir \eqref{eq:schroedinger_phi} 
  	\begin{equation*}
- 		L^\frac{1}{2}\phi - i\frac{\partial\phi}{\partial t} =-m*u
+ 		L^\frac{1}{2}\phi - i\frac{\partial\phi}{\partial t} =-mu
  	\end{equation*}
- 	und erhalten das gesuchte Resultat.
+ 	und erhalten das gesuchte Resultat. 
  	\begin{align*}
- 		(Lu+\frac{\partial^2u}{\partial t^2})/m &=-m*u\\
+ 		(Lu+\frac{\partial^2u}{\partial t^2})/m &=-mu\\
  		u^{\prime\prime} + Lu+m^2 u&= 0
  	\end{align*}
 \end{proof}
-
 \begin{proposition}
-	Sei $G$, $m>0$, $r>0$ und $\Phi$ wie in Definition 7.3 und $a$, $\Phi_0$ und $v_0$ Kantenfunktionen, dann gibt es eine Schrödingerform des Anfangswertproblems.
+	Sei $G$ ein planeres Netz, $m>0$, $r:E\to\mathbb{R}_{>0}$, $a\in\mathfrak{K}(G)$, 
+	$\Phi_0,v_0\in\mathfrak{E}_\mathbb{C}(G)$. \\
+	\\
+	Dann existiert selbstadjungierter $H$ auf $\mathfrak{E}_\mathbb{C}(G)\oplus\mathfrak{E}_\mathbb{C}(G)$, sodass 
+	die Klein-Gordon-Gleichung mit Anfangsbedingungen
 	\begin{align}
-		\frac{\partial^2}{\partial t^2}\Phi - \Delta^{a}_r\Phi&+ m^2 \Phi = 0\\
-		\Phi(0)&=\Phi_0\\
-		\Phi^\prime(0)&=v_0
+		\partial_t^2\Phi + \Delta_r^a\Phi + m^2 \Phi &= 0,\\
+		\Phi(0) &= \Phi_0, \quad \Phi'(0) = v_0,
 	\end{align}
-	und eine zugeh\"orende Normerhaltende Zeitentwicklung
+	äquivalent ist zu
 	\begin{equation*}
-		\psi(t) = e^{-i Ht}\psi_0
-	\end{equation*} 
+		i\partial_t\psi(t) = H\psi(t), \quad \psi(0) = \psi_0,
+	\end{equation*}
+	wobei $\psi_0$ aus $\Phi_0,v_0$ via \eqref{eq:psi_def} konstruiert wird.
+	\\
+	Die Lösung ist normerhaltend: $\|\psi(t)\| = \|\psi_0\|$.
 \end{proposition}
 \begin{proof}
-	Der lineare Operator $L = - \Delta^{a}_r$ ist nach seiner Konstruktion ein positiv semidefiniter linearer Operator.\\
+	Der lineare Operator $L = \Delta_r^a:\mathfrak{E}_\mathbb{C}(G)\to\mathfrak{E}_\mathbb{C}(G)$ 
+	ist positiv semidefinit.\\
 	\\
-	Daher k\"onnen wir Hilfsatz 7.7 anwenden und finden eine \"aquivalente Schr\"odinger-form und zugeh\"orende L\"osung 
+	Daher können wir Hilfsatz~\ref{lem:schroedingerform} anwenden und finden eine äquivalente Schrödinger-Form 
+	mit Lösung 
 	\begin{equation*}
-		\psi(t) = e^{-i Ht}\psi_0
+		\psi(t) = e^{-i H t}\psi_0,
 	\end{equation*} 
+	wobei $\psi_0$ aus den Anfangsdaten $\Phi_0,v_0$ via \eqref{eq:psi_def} konstruiert wird.
 \end{proof}
 \noindent
-Da $H$ selbstadjungiert ist bleibt die Norm von $\psi$ unter der Klein-Gordon Zeitentwicklung erhalten.\\
-Dies bedeutet, dass wir eine Wahrscheinlichkeitsdichte $\rho=\overline{\psi}\psi$ definieren k\"onnen, die nichtnegativ ist und deren Summe $\sum_{v\in V}\rho(v)$ unter der Zeitentwicklung erhalten bleibt. Es gibt daher eine zugeh\"orige Kontinuit\"atsgleichung. \\
+Da $H$ selbstadjungiert ist die Zeitentwicklung normerhaltend: $\|\psi(t)\| = \|\psi(0)\|$. 
 \\
-Als n\"achstes zeigen wir, dass der Operator $H$ indefinit ist und seine Eigenwerte symmetrisch um Null sind.
+\\
+Dies induziert eine nichtnegative Wahrscheinlichkeitsdichte 
+$$
+\rho = \overline{\psi}\psi, \quad \sum_{v\in V} \rho(v) = \text{konstant},
+$$
+mit zugehöriger Kontinuitätsgleichung.
+\\
+\\
+Der Operator $H$ ist jedoch indefinit mit spektraler Symmetrie um $0$.
 \begin{proposition}
 	Sei $L$ eine positiv semidefinite lineare Abbildung in $V=\mathbb{C}^n$ ($n\geq 1$), und $m>0$, dann ist das Spektrum des selbstadjungierten lineare Operators
 	\begin{equation}
@@ -2234,6 +2730,33 @@ Als n\"achstes zeigen wir, dass der Operator $H$ indefinit ist und seine Eigenwe
 		\sigma(H)= \{\pm\sqrt{\omega+m^2}:\omega\in \sigma(L)\}
 	\end{equation} 
 \end{proposition}
+\begin{proof}
+	Sei $u\in V$ und $\omega\in \mathbb{R}_{\geq 0}$ sodass $Lu = \omega^2 u$. Des weiteren seien $a_\pm\in\mathbb{C}$ freie Parameter, die wir im Laufe der Konstruktion der Eigenvektoren 
+	\begin{equation*}
+		v_\pm=\begin{pmatrix}
+			u \\ a_\pm u
+		\end{pmatrix}
+	\end{equation*}
+	festlegen werden.\\
+	\\
+	Wenden wir die Matrix $H$ auf $v_\pm$ an und fordern, dass es sich beim Resultat um einen Eigenvektor handelt, was zu folgendem Gleichungssystem führt
+	\begin{align*}
+		-\omega + a_\pm m &= \pm\sqrt{\omega^2 + m^2}\\
+		m + a_\pm\omega &= a_\pm\pm\sqrt{\omega^2 + m^2}
+	\end{align*}
+	Es gibt eine eindeutige Lösung
+	\begin{equation*}
+		a_\pm = \frac{m}{\pm\sqrt{\omega^2 + m^2}-\omega}
+	\end{equation*} 
+	Durch diese Konstruktion erhalten wir zu jedem Eigenvektor von $L$ zwei Eigenvektoren $v_\pm$ von $H$. Es gilt
+	\begin{equation*}
+		\langle v_-, v_+\rangle=0 
+	\end{equation*}
+	Im allgemeinen Fall gilt für zwei Eigenvektoren $u_1$, $u_2$ von $L$, falls sie orthogonal sind, dass die vier daraus nach obiger Konstruktion erzeugten Eigenvektoren von $H$ paarweise orthogonal sind. Dies gilt insbesondere auch falls $u_1$ und $u_2$ zum selben Eigenwert gehören.\\
+	\\
+	Da $L$ selbstadjungiert ist, erhalten wir eine vollständige Orthogonalbasis $(u_i)_{i=1}^n$ und durch obige Konstruktion erhalten wir ein Orthogonalsystem $(v_{i\pm})_{i=1}^n$ aus $2n$ Vektoren und damit eine Orthogonalbasis zu $V\times V$.
+\end{proof}
+
 \begin{proof}
 	Sei $u\in V$ und $\omega\in \mathbb{R}$ sodass $Lu = \omega^2 u$. Des weiteren seien $a_\pm\in\mathbb{C}$ freie Parameter, die wir im Laufe der Konstruktion der Eigenvektoren 
 	\begin{equation*}
@@ -2261,8 +2784,8 @@ festlegen werden.\\
 	Da $L$ selbstadjungiert ist, erhalten wir eine vollst\"andige Orthogonalbasis $(u_i)_{i=1}^n$ und durch obige Konstruktion erhalten wir ein Orthogonalsystem $(v_{i\pm})_{i=1}^n$ aus $2*n$ Vektoren und damit eine Orthogonalbasis zu $V\times V$.
 \end{proof}
 \noindent
-Untersuchen wir als n\"achstes die Voraussetzung $m>0$ im Hilfssatz 7.7 wenn $L$ einen nicht trivialen Kern hat.
-Betrachte hierzu die Differentialgleichung (7.24) mit $m=0$
+Untersuchen wir als n\"achstes die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} wenn $L$ einen nicht trivialen Kern hat.
+Betrachte hierzu die Differentialgleichung \eqref{eq:kg_abstrakt} mit $m=0$
 \begin{equation}
 	u^{\prime \prime} + Lu =0
 \end{equation}
@@ -2286,7 +2809,7 @@ Wir werden zeigen, dass es keine lineare Koordinatentransformation gibt, sodass 
 		A=J^{-1}\begin{pmatrix}
 			0 & \mathbb{I} \\ 
 			L & 0
-		\end{pmatrix}J=J^{-1}BJ
+		\end{pmatrix}J=J^{-1}BJ\label{eq:jaco}
 	\end{equation}
 	ein selbstadjungierter Operator bez\"uglich einer positiven hermitschen Form $Q$ ist.
 \end{proposition}
@@ -2298,7 +2821,7 @@ Es folgt, dass $A$ bez\"uglich $Q$ genau dann selbstadjungiert ist wenn
 \begin{equation*}
 	Q^{-1}A^\dagger Q = A
 \end{equation*}
-Wir setzen (7.37) in diesen Ausdruck ein und formen um
+Wir setzen \eqref{eq:jaco} in diesen Ausdruck ein und formen um
 \begin{align*}
 	QJ^{-1}BJ&=J^\dagger B^\dagger J^{\dagger-1}Q\\
 	Q^{\frac{1}{2}}J^{-1}BJQ^{-\frac{1}{2}}&=Q^{-\frac{1}{2}}J^\dagger B^\dagger J^{\dagger-1}Q^{\frac{1}{2}}\\
@@ -2345,15 +2868,18 @@ und k\"onnen den Kern von $B$ mit dem Kern von $L$ identifizieren.\\
 Die geometrische Vielfachheit ist damit echt kleiner als die algebraische Vielfachheit und somit gibt es keine \"Ahnlichkeitstransformation die $B$ in eine selbstadjungierte Matrix transformiert.
 \end{proof}
 \noindent
-Falls die Voraussetzung $m>0$ im Hilfssatz 7.7 also nicht erf\"ullt ist und $L$ einen nicht trivialen Kern hat, gibt es keine M\"oglichkeit eine Wahrscheinlichkeitsdichte zu definieren, die unter der Klein-Gordon Zeitentwicklung erhalten bleibt. Es gibt auch keine lokal erhaltene Wahrscheinlichkeitsdichte, da eine Kontinuit\"atsgleichung wegen des de'Rham Komplex bereits globale Erhaltung impliziert.
+Falls die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} nicht erfüllt ist und $L$ 
+einen nicht-trivialen Kern besitzt, existiert keine unter der Klein-Gordon- Zeitentwicklung 
+erhaltene Wahrscheinlichkeitsdichte. 
 \iffalse
 Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es keine M\"oglichkeit , dass die Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
 \\
 Es gibt daher keine Ein-Photon Schr\"odingergleichung!
 \fi
+\newpage
 \section{Kanonische Quantisierung des Klein-Gordon Feldes}
-Wir kommen nun zur Quantisierung der Klein-Gordontheorie.
+Wir kommen nun zur Quantisierung der Klein-Gordontheorie. 
 Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
 \begin{definition}
 	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
@@ -2440,7 +2966,7 @@ Wir d\"urfen den Operator $\hat{T}$ als reelen Laplaceoperator interpretieren, d
 Der Rest des Beweises ist analog zum Beweis von Theorem 6.6. Der einzige Unterschied ist, dass der Raum $A$ hier leer ist und der Raum $B$ der ganze Raum $\mathfrak{E}$ ist.
 \end{proof}
 \noindent
-Die wichtigste lokal erhaltene Gr\"o\ss{}e der Klein-Gordontheorie neben der Gesamtenergie $H$ ist die Ladung $q=\Im(\overline{\Phi}\Phi^\prime)$
+Die wichtigste lokal erhaltene Gr\"o\ss{}e der Klein-Gordontheorie neben der Gesamtenergie $H$ ist die Ladung $q= \Im(\overline{\Phi}\Phi^\prime)$
 Durch den Zusammenhang $\pi = \Phi^\prime$ und eine kurze Umformung
 \begin{align*}
 	q=&\frac{\overline{\Phi}\pi - \Phi\overline{\pi}}{2*i}=
@@ -2466,7 +2992,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 \begin{theorem}
 	Sei $G$ ein planarer Graph, $\psi\in\mathfrak{H}(G)$ dann gilt f\"ur den Ladungsfeldoperator $\hat{q}$ die Kontinuit\"atsgleichung
 	\begin{equation}
-		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime = \text{div}(\langle \psi,\Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
+		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime = \text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
 	\end{equation}
 \end{theorem}
 \begin{proof}
@@ -2511,7 +3037,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		&+\hat{\Phi}_I(q(e))(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))
 	\end{align*}
 	\begin{align*}
-		\Im(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))\\
+		 \Im(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))\\
 		&=\hat{\Phi}_R(q(e))(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
 		&-\hat{\Phi}_I(q(e))(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))
 	\end{align*}
@@ -2522,7 +3048,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		&+\hat{\Phi}_I(q(e))([\hat{\Phi}_I(x), \hat{q}(x)]\cos(a(e)) - [\hat{\Phi}_R(x), \hat{q}(x)]\sin(a(e)))\\
 		&=\hat{\Phi}_R(q(e))(-i\hat{\Phi}_I(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
 		&+\hat{\Phi}_I(q(e))(i\hat{\Phi}_R(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
-		&=-i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+		&=-i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
 	\end{align*}
 	als n\"achstes kommen wir zur rechten Summe $q(e)=x$:
 		\begin{align*}
@@ -2531,17 +3057,17 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		&+[\hat{\Phi}_I(x), \hat{q}(x)](\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
 		&=-i\hat{\Phi}_I(x)(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
 		&+i\hat{\Phi}_R(x)(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
-		&=i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))
+		&=i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))
 	\end{align*}
 	Wir fassen zusammen:
 	\begin{align*}
 		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime &=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&=i\langle \psi, [-\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&-
 		\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))) ,\hat{q}(x)]	,\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&
-		=i\langle \psi, \sum_{e\in E, p(e)=x}(i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))\\&-
-		\sum_{e\in E, q(e)=x}(i\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))	\psi\rangle_\mathfrak{H} \\&
-		=\langle \psi, \sum_{e\in E, q(e)=x}\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
-		\\&-\sum_{e\in E, p(e)=x}\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))\psi\rangle_\mathfrak{H}\\
-		&=\text{div}(\langle \psi,\Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
+		=i\langle \psi, \sum_{e\in E, p(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))\\&-
+		\sum_{e\in E, q(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))	\psi\rangle_\mathfrak{H} \\&
+		=\langle \psi, \sum_{e\in E, q(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+		\\&-\sum_{e\in E, p(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))\psi\rangle_\mathfrak{H}\\
+		&=\text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
 	\end{align*}
 \end{proof}
 \noindent
@@ -2623,7 +3149,7 @@ Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_\omega$ ve
 	U_C N_{\omega \pm} U_C &= N_{\omega \mp}
 \end{align}
 \end{proposition}
-\section{Zweite Quantisierung der Klein-Gordongleichung}
+\chapter{Zweite Quantisierung}
 Im Kapitel \textbf{Die Klein-Gordongleichung} haben wir gesehen, dass wir im Fall $m>0$ die klassische Klein-Gordontheorie als Schr\"odingergleichung auf einem Hilbertraum darstellen k\"onnen.\\
 Wir werden diese Darstellung als die Einteilchenzust\"ande einer quantisierten Klein-Gordontheorie interpretieren.
 Aus diesem Raum werden wir durch Bildung von Tensorprodukten Mehrteilchenzust\"ande bilden. Die Gesamtheit aller Ein und Mehrteilchenzust\"ande nennen wir dann den Fockraum.\\
