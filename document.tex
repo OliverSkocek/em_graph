@@ -1427,7 +1427,7 @@ Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir 
 \noindent
 Wenn wir \eqref{eq:Hamilton} mit dem Energieerhaltungssatz~\ref{thm:Energieerhaltung}, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz~\ref{thm:Energieerhaltung} zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.
 \newpage
-\section{Quantisierung des elektromagnetischen Feldes}
+\section{Quantentheorie des elektromagnetischen Feldes}
 Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die mit den damals etablierten Theorien nicht erklärbar waren, die Quantentheorie entwickelt.\\
 \\
 Die klassischen Theorien beschreiben Kurven, Kräfte und Felder,
@@ -1460,7 +1460,7 @@ für jedes \( k \in E \) in einem geeigneten Potential ist.
 	\(\hat{j}: \mathbb{R} \to \mathcal{L}(\mathfrak{H}(G))\), welche die externe Stromdichte beschreibt.
 	\\
 	\\
-	Sei weiter der \textbf{Hermite-Polynomraum} definiert als
+	Sei weiter der \textbf{Hermite-Polynomraum der Maxwell theorie} definiert als
 	\begin{equation}
 		\mathfrak{D} = \operatorname{span}\bigl\{(a\mapsto a^\alpha e^{-\frac{\|a\|^2}{2}}): \alpha\in\mathbb{N}^E\bigr\}
 		\subseteq \mathfrak{H}(G), \label{def:hermite}
@@ -1503,21 +1503,24 @@ also nicht stetig.
 	\\
 	Für jedes \(k \in E\) bezeichnen wir mit
 	\begin{align}
-		\hat{a}_k &: (a \mapsto \psi(a)) \longmapsto 
+		\hat{a}_k &: \psi \longmapsto 
 		\big(a \mapsto a_k\,\psi(a)\big), \label{def:ak} \\[4pt]
-		\hat{\pi}_k &: (a \mapsto \psi(a)) \longmapsto 
+		\hat{\pi}_k &: \psi \longmapsto 
 		\big(a \mapsto -\,i\,\frac{\partial\psi}{\partial a_k}(a)\big) \label{def:pi}
 	\end{align}
 	den Vektorpotentialoperator $\hat{a} = (\hat{a}_k)_{k\in E}$ und den konjugierten Impulsoperator 
 	$\hat{\pi} = (\hat{\pi}_k)_{k\in E}$.  
 	\\
 	\\
-	Die elektrischen und magnetischen Feldoperatoren sind dann gegeben durch
+	Die \textbf{elektrischen und magnetischen Feldoperatoren} sind dann gegeben durch
 	\begin{align}
 		\hat{e}_k &= -\frac{\hat{\pi}_k}{\epsilon(k)}, \label{def:ek} \\[2pt]
 		\hat{b} &= \mathrm{div}_D(r^{-1}\hat{a}). \label{def:b}
 	\end{align}
 \end{definition}
+\begin{remark}
+	Der Hermite- Polynomraum \(\mathfrak{D}\) ist dicht in \(\mathfrak{H}\) und invariant unter \(\hat{a}, \hat{e}\) und \(\hat{H}\).
+\end{remark}
 \noindent
 Hierbei bezeichnet \(a_k\) den Wert der Kantenfunktion \(a\) an der Kante \(k \in E\), 
 und \(\frac{\partial}{\partial a_k}\) die Ableitung nach demselben Argument.  
@@ -1528,7 +1531,7 @@ Die Definitionsbereiche sind für jedes \(k \in E\) gegeben durch
 \end{equation}
 \noindent
 Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte 
-\textbf{kanonische Vertauschungsrelation}:
+\textbf{Vertauschungsrelation}:
 \begin{equation}
 	[\hat{a}(e), \hat{\pi}(e')] = i\,\delta_{e,e'}.
 \end{equation}
@@ -1686,7 +1689,7 @@ und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
 	\\
 	$Q$ ist positiv semidefinit und symmetrisch. Nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} hat $\ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ die Dimension $|V|-1$. Das orthogonale Komplement 
 	ist dementsprechend $|F|-1$-dimensional.\footnote{Der eulersche Polyedersatz 
-		$|E| - |V| - |F| = 2$ folgt hieraus für zusammenhängende Netze.}
+		$|V| + |F| - |E| = 2$ folgt hieraus für zusammenhängende Netze.}
 	\\
 	\\
 	Nach dem Spektralsatz für kompakte, selbstadjungierte Operatoren auf endlichdimensionalen 
@@ -2038,6 +2041,14 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	der \textbf{$a$-gewichtete Eich-Laplace-Operator} an der Ecke $v\in V$.
 \end{definition}
 \noindent
+\begin{remark}\label{rem:Eichgradient-Kern}
+	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$ und $a\in\mathfrak{K}(G)$ Kantenfunktionen. 
+	Dann hat der Eichgradient $\mathrm{grad}^{\frac{a}{r}}$ genau dann einen nichttrivialen Kern, 
+	wenn 
+	\begin{equation}\label{eq:Eichgradient-Kernbedingung}
+		\frac{a}{r} \in \operatorname{Bild}(\mathrm{grad}).
+	\end{equation}
+\end{remark}
 \begin{lemma}\label{lem:eichgradient}
 	Sei $G$ ein \textbf{planares Netz}, $a \in \mathfrak{K}(G)$ eine reelle Kantenfunktion und $\xi \in \mathfrak{E}(G)$ eine reelle Eckfunktion. \\
 	\\
@@ -2706,7 +2717,7 @@ in eine Schrödinger-Form umschreiben lässt.
 	wobei $\psi_0$ aus den Anfangsdaten $\Phi_0,v_0$ via \eqref{eq:psi_def} konstruiert wird.
 \end{proof}
 \noindent
-Da $H$ selbstadjungiert ist die Zeitentwicklung normerhaltend: $\|\psi(t)\| = \|\psi(0)\|$. 
+Wegen der Selbstadjungiertheit von $H$ ist die Zeitentwicklung normerhaltend: $\|\psi(t)\| = \|\psi(0)\|$. 
 \\
 \\
 Dies induziert eine nichtnegative Wahrscheinlichkeitsdichte 
@@ -2755,33 +2766,6 @@ Der Operator $H$ ist jedoch indefinit mit spektraler Symmetrie um $0$.
 	Im allgemeinen Fall gilt für zwei Eigenvektoren $u_1$, $u_2$ von $L$, falls sie orthogonal sind, dass die vier daraus nach obiger Konstruktion erzeugten Eigenvektoren von $H$ paarweise orthogonal sind. Dies gilt insbesondere auch falls $u_1$ und $u_2$ zum selben Eigenwert gehören.\\
 	\\
 	Da $L$ selbstadjungiert ist, erhalten wir eine vollständige Orthogonalbasis $(u_i)_{i=1}^n$ und durch obige Konstruktion erhalten wir ein Orthogonalsystem $(v_{i\pm})_{i=1}^n$ aus $2n$ Vektoren und damit eine Orthogonalbasis zu $V\times V$.
-\end{proof}
-
-\begin{proof}
-	Sei $u\in V$ und $\omega\in \mathbb{R}$ sodass $Lu = \omega^2 u$. Des weiteren seien $a_\pm\in\mathbb{C}$ freie Parameter, die wir im Laufe der Konstruktion der Eigenvektoren 
-	\begin{equation*}
-		v_\pm=\begin{pmatrix}
-			u \\ a_\pm*u
-		\end{pmatrix}
-	\end{equation*}
-festlegen werden.\\
-	Wenden wir die Matrix $H$ auf $v_\pm$ an und fordern, dass es sich beim Resultat um einen Eigenvektor handelt, was zu folgendem Gleichungssystem f\"uhrt
-	\begin{align*}
-		-\omega + a_\pm*m &= \pm\sqrt{\omega^2 + m^2}\\
-		m + a_\pm*\omega &= a_\pm\pm\sqrt{\omega^2 + m^2}
-	\end{align*}
-	Es gibt eine eindeutige L\"osung
-	\begin{equation*}
-		a_\pm = \frac{m}{\pm\sqrt{\omega^2 + m^2}-\omega}
-	\end{equation*} 
-	Durch diese Konstruktion erhalten wir zu jedem Eigenvektor von $L$ zwei Eigenvektoren $v_\pm$ von $H$. Es gilt
-	\begin{equation*}
-		\langle v_-, v_+\rangle=0 
-	\end{equation*}
-	Im allgemeiner Fall gilt f\"ur zwei Eigenvektoren $u_1$, $u_2$ von $L$, falls sie orthogonal sind, dass
-	die vier daraus nach obiger Konstruktion erzeugten Eigenvektoren von $H$ paarweise orthogonal sind. Dies gilt insbesondere auch falls $u_1$ und $u_2$ zum selben Eigenwert geh\"oren.\\
-	\\
-	Da $L$ selbstadjungiert ist, erhalten wir eine vollst\"andige Orthogonalbasis $(u_i)_{i=1}^n$ und durch obige Konstruktion erhalten wir ein Orthogonalsystem $(v_{i\pm})_{i=1}^n$ aus $2*n$ Vektoren und damit eine Orthogonalbasis zu $V\times V$.
 \end{proof}
 \noindent
 Untersuchen wir als n\"achstes die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} wenn $L$ einen nicht trivialen Kern hat.
@@ -2870,7 +2854,10 @@ Die geometrische Vielfachheit ist damit echt kleiner als die algebraische Vielfa
 \noindent
 Falls die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} nicht erfüllt ist und $L$ 
 einen nicht-trivialen Kern besitzt, existiert keine unter der Klein-Gordon- Zeitentwicklung 
-erhaltene Wahrscheinlichkeitsdichte. 
+erhaltene Wahrscheinlichkeitsdichte. Dies ist im Fall der Klein-Gordon-Gleichung genau dann der Fall wenn (siehe \ref{rem:Eichgradient-Kern})
+\begin{equation}
+	\frac{a}{r} \in \operatorname{Bild}(\mathrm{grad})
+\end{equation}
 \iffalse
 Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es keine M\"oglichkeit , dass die Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
@@ -2878,64 +2865,115 @@ Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es 
 Es gibt daher keine Ein-Photon Schr\"odingergleichung!
 \fi
 \newpage
-\section{Kanonische Quantisierung des Klein-Gordon Feldes}
-Wir kommen nun zur Quantisierung der Klein-Gordontheorie. 
-Zun\"achst definieren wir, wie bereits bei den Maxwellgleichungen, einen Hilbertraum.
-\begin{definition}
-	Sei $G$ ein planarer Graph, dann ist der Hilbertraum unserer Theorie gegeben durch
-	\begin{equation}
-		\mathfrak{H}(G) = L^2(\mathfrak{E}_\mathbb{C}(G),\mathbb{C})
-	\end{equation}
-	Der Raum der komplexen Funktionen auf $\mathfrak{E}_\mathbb{C}(G)$ deren Quadrate ein endliches Integral aufweisen.\\
-	\\
-	Das Skalarprodukt auf $\mathfrak{H}$ f\"ur $\phi,\xi\in \mathfrak{H}$ ist hier definiert durch:
-	\begin{equation}
-		\langle \phi, \xi\rangle_{\mathfrak{H}} = \int_{\mathfrak{E}_\mathbb{C}(G)} \overline{\phi}(x)\xi(x)d\lambda(x)
-	\end{equation}
-\end{definition}
-\noindent
-Als n\"achstes definieren nun die Feldoperatoren und kurze Betrachtung der Hamiltonfunktion der Klein-Gordontheorie liefert uns dann wie beim elektromagnetischen Feld die zugeh\"orige Schr\"odingergleichung.
 
-\begin{definition}
-	Sei $G$ ein planarer Graph, $m>0$ eine reele Zahl und $r>0$ sowie $a$ Kantenfunktionen, dann definieren wir den Klein-Gordon-Feldoperator $\hat{\Phi}$ und dazu kunjugierten Impuls $\hat{\pi}_\Phi$. 
-	\begin{align*}
-		\hat{\Phi}(j) &= \hat{\Phi}_R(j) + i\hat{\Phi}_I(j)\\
-		\hat{\pi}_\Phi(j) &= \hat{\pi}_{\Phi_R}(j) + i\hat{\pi}_{\Phi_I}(j)
-	\end{align*}
-	f\"ur alle $1\leq j\leq |V|$. Die selbstadjungierten Operatoren auf der rechten Seite sind dabei definiert durch
-	\begin{align*}
-		\hat{\Phi}_R(j):(\Phi\mapsto\psi(\Phi)) \mapsto (\Phi\mapsto \Phi_{Rj}\psi(\Phi))\text{  f\"ur }j\in V\\
-		\hat{\Phi}_I(j):(\Phi\mapsto\psi(\Phi)) \mapsto (\Phi\mapsto \Phi_{Ij}\psi(\Phi))\text{  f\"ur }j\in V
-	\end{align*}
-	\begin{align*}
-		\hat{\pi}_{\Phi_R}(j):(\Phi\mapsto\psi(\Phi)) \mapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{Rj}}(q))\text{  f\"ur }j\in V\\
-		\hat{\pi}_{\Phi_I}(j):(\Phi\mapsto\psi(\Phi)) \mapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{Ij}}(q))\text{  f\"ur }j\in V\\
-	\end{align*}
-	\noindent
-	wobei $\Phi_R$ und $\Phi_I$ der Realteil und Imagin\"arteil der Variablen $\Phi$ in der obrigen Definition ist.\\
+\section{Quantentheorie des Klein-Gordon-Feldes}
+Die Quantisierung der Klein-Gordon-Theorie erfolgt analog zur Maxwell-Theorie. 
+Zunächst definieren wir den zugehörigen Hilbertraum. 
+\begin{definition}[Hilbertraum der Klein-Gordon-Theorie]\label{def:KG-Hilbertraum}
+	Sei $G$ ein \textbf{planares Netz}. Der \textbf{Hilbertraum der quantisierten Klein-Gordon-Theorie} ist der Raum quadratintegrierbarer komplexwertiger Funktionen auf $\mathfrak{E}_\mathbb{C}(G)$:
+	\[
+	\mathfrak{H}_{KG}(G) = L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C}; \lambda),
+	\]
+	wobei $\lambda$ das Lebesgue-Maß auf $\mathfrak{E}_\mathbb{C}(G)$ bezeichnet. 
 	\\
-	Der Hamiltonoperator des Klein-Gordon Feldes ist gegeben durch:
-	\begin{equation}
-		\hat{H}=\frac{1}{2}(\sum_{x\in V}(\hat{\pi}_{\Phi_R}^2 + \hat{\pi}_{\Phi_I}^2) + \langle \hat{\Phi}, (\Delta^{a}_r+ m^2)\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}})
+	\\
+	Das Skalarprodukt ist gegeben durch
+	\begin{equation}\label{eq:KG-Hilbertraum-Skalarprodukt}
+		\langle \phi, \xi \rangle_{\mathfrak{H}} = \int_{\mathfrak{E}_\mathbb{C}(G)} \overline{\phi(x)}\, \xi(x)\, d\lambda(x)
 	\end{equation}
-	Sei $\psi_0\in\mathfrak{H}$ und $\psi\in C^1(\mathbb{R},\mathfrak{H})$, sodass:
-	\begin{equation}
-		\hat{H}\psi(t) = i\psi^\prime(t)
-	\end{equation}
-	f\"ur alle $t\in\mathbb{R}$ gilt und die Anfangsbedingung $\psi(0)=\psi_0$ erf\"ullt ist, dann nennt man $\psi$ eine L\"osung der
-	\textbf{Schr\"odingergleichung} des Klein-Gordonfeldes.
+	für alle $\phi, \xi \in \mathfrak{H}_{KG}(G)$.
 \end{definition}
 \noindent
-\begin{theorem}
-	Sei $G$ ein planarer Graph, $a$ und $r>0$ Kantenfunktionen, dann existiert eine unit\"are Abbildung $\hat{U}$ auf $\mathfrak{H}$, $\omega_0=0$ und $(\omega_j)_{j=1}^{|V|-1}>0$ sodass f\"ur den Hamiltonoperator des Klein-Gordonfeldes $\hat{H}$ (7.22) gilt:
+Als Nächstes definieren wir die Feldoperatoren der Klein-Gordon-Theorie. Eine Betrachtung der Hamilton-Funktion der Klein-Gordon-Theorie liefert dann, analog zum elektromagnetischen Feld, die zugehörige Schrödinger-Gleichung.
+\begin{definition}[Feldoperatoren und Hamiltonoperator des Klein-Gordon-Feldes]\label{def:KG-Feldoperatoren}
+	Sei $G$ ein \textbf{planares Netz}, $m>0$ eine reelle Zahl, 
+	sowie $r:E\to\mathbb{R}_{>0}$ und $a\in\mathfrak{K}(G)$ Kantenfunktionen.  
+	\\
+	\\
+	Der \textbf{Hermite-Polynomraum des Klein-Gordon-Feldes} ist definiert als
 	\begin{equation}
-		\hat{U}^\dagger\hat{H}\hat{U}  = \sum_{j=0}^{|V|-1}\hat{h}_j
+		\mathfrak{D}_{\mathrm{KG}} = \operatorname{span}\Bigl\{ 
+		\Phi \mapsto \Phi_R^\alpha \Phi_I^\beta 
+		e^{-\frac{\|\Phi_R\|^2 + \|\Phi_I\|^2}{2}} 
+		\ :\ 
+		\alpha,\beta \in \mathbb{N}^V \Bigr\} 
+		\subseteq \mathfrak{H}_{\mathrm{KG}}(G), \label{eq:KG-Hermite-Raum}
 	\end{equation}
-	Wobei die $\hat{h}_j$ gegeben sind durch:
+	wobei $\Phi = \Phi_R + i \Phi_I$ mit $\Phi_R, \Phi_I \in \mathfrak{E}(G)$ 
+	und $\alpha = (\alpha_j)_{j\in V}$, $\beta = (\beta_j)_{j\in V}$ 
+	multiindizierte Exponenten sind.\\
+	\\
+	Für jede Ecke $j\in V$ sind der Realteil 
+	$\hat{\Phi}_R(j):\mathfrak{D}_{\mathrm{KG}} \to \mathfrak{D}_{\mathrm{KG}}$ 
+	und Imaginärteil $\hat{\Phi}_I(j):\mathfrak{D}_{\mathrm{KG}} \to \mathfrak{D}_{\mathrm{KG}}$ 
+	des \textbf{Klein-Gordon-Feldoperators} 
+	$\hat{\Phi}(j) = \hat{\Phi}_R(j) + i\,\hat{\Phi}_I(j)$ definiert durch
+	\begin{align}
+		\hat{\Phi}_R(j):\psi \longmapsto (\Phi\mapsto \Phi_{R}(j)\psi(\Phi))\label{eq:KG-PhiR-op}\\
+		\hat{\Phi}_I(j):\psi \longmapsto (\Phi\mapsto \Phi_{I}(j)\psi(\Phi))\label{eq:KG-PhiI-op}
+	\end{align}
+	für alle $\psi \in \mathfrak{D}_{\mathrm{KG}}$.\\
+	\\
+	Analog sind die \textbf{kanonisch konjugierten Impulsoperatoren} 
+	$\hat{\pi}_\Phi(j) = \hat{\pi}_{\Phi_R}(j) + i\,\hat{\pi}_{\Phi_I}(j)$ 
+	definiert durch
+	\begin{align}
+		\hat{\pi}_{\Phi_R}(j):\psi \longmapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{R}(j)}(q))\label{eq:KG-piR-op}\\
+		\hat{\pi}_{\Phi_I}(j):\psi \longmapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{I}(j)}(q))\label{eq:KG-piI-op}
+	\end{align}
+	für alle $\psi \in \mathfrak{D}_{\mathrm{KG}}$ und $j\in V$.\\
+	\\
+	Die Operatoren $\hat{\Phi}_R(j),\hat{\Phi}_I(j)$ sind Multiplikationsoperatoren, 
+	während $\hat{\pi}_{\Phi_R}(j),\hat{\pi}_{\Phi_I}(j)$ als partielle Ableitungen 
+	nach den Feldkomponenten wirken.\\
+	\\
+	Der \textbf{Hamiltonoperator des Klein-Gordon-Feldes} \(\hat{H}_{\mathrm{KG}}:\mathfrak{D}_{\mathrm{KG}}\mapsto\mathfrak{D}_{\mathrm{KG}}\) definiert durch
 	\begin{equation}
-		\hat{h}_j= \frac{1}{2}(-\frac{\partial^2}{\partial a_j^2}-\frac{\partial^2}{\partial b_j^2} + (m + \omega_j)^2 \overline{x_j}x_j)
-	\end{equation}	
-	und $x_n = a_n + i b_n$ f\"ur $1\leq n\leq |V|$ gilt.
+		\hat{H}_{\mathrm{KG}} 
+		= \frac{1}{2}\left(
+		\sum_{x\in V}\bigl(\hat{\pi}_{\Phi_R}(x)^2 + \hat{\pi}_{\Phi_I}(x)^2\bigr)
+		+ \big\langle \hat{\Phi},\ (\Delta_r^{\,a} + m^2)\hat{\Phi}\big\rangle_{\mathfrak{E},\mathbb{C}}
+		\right).
+		\label{eq:KG-Hamilton}
+	\end{equation}
+	Hierbei wird das Skalarprodukt $\langle\cdot,\cdot\rangle_{\mathfrak{E},\mathbb{C}}$ komponentenweise auf 
+	$\mathfrak{E}_\mathbb{C}(G)$ verstanden, d.\,h.
+	\[
+	\big\langle \hat{\Phi},\ (\Delta_r^{\,a} + m^2)\hat{\Phi}\big\rangle_{\mathfrak{E},\mathbb{C}}
+	= \sum_{x\in V} 
+	\overline{\hat{\Phi}(x)}\,\bigl((\Delta_r^{\,a} + m^2)\hat{\Phi}\bigr)(x).
+	\]
+	Sei $\psi_0 \in \mathfrak{H}(G)$ gegeben. 
+	Eine Abbildung $\psi \in C^1(\mathbb{R},\mathfrak{H}(G))$ heißt 
+	\textbf{Lösung der Schrödinger-Gleichung des Klein-Gordon-Feldes}, 
+	wenn sie die Gleichung
+	\begin{equation}
+		i\,\frac{\mathrm{d}}{\mathrm{d}t}\,\psi(t) = \hat{H}_{\mathrm{KG}}\,\psi(t),
+		\qquad t\in\mathbb{R},
+		\label{eq:KG-Schroedinger}
+	\end{equation}
+	mit der Anfangsbedingung
+	\begin{equation}
+		\psi(0) = \psi_0
+		\label{eq:KG-Schroedinger-IC}
+	\end{equation}
+	erfüllt.
+\end{definition}
+\begin{theorem}\label{thm:KG-Hamilton-Spektral} 
+	Sei $G$ ein planares Netz, $a\in\mathfrak{K}(G)$ und $r:E\to\mathbb{R}_{>0}$ Kantenfunktionen. 
+	Dann existiert eine unitäre Abbildung $\hat{U}:\mathfrak{H}_{\mathrm{KG}}(G)\to\mathfrak{H}_{\mathrm{KG}}(G)$, 
+	nichtnegative Frequenzen 
+	$(\omega_j)_{j=0}^{|V|-1} \subset \mathbb{R}_{>0}$, sodass für den Hamiltonoperator 
+	$\hat{H}_{\mathrm{KG}}$ des Klein-Gordon-Feldes aus Gleichung~\eqref{eq:KG-Hamilton} gilt:
+	\begin{equation}\label{eq:KG-Hamilton-diagonal}
+		\hat{U}^\dagger \hat{H}_{\mathrm{KG}} \hat{U} = \sum_{j=0}^{|V|-1} \hat{h}_j.
+	\end{equation}
+	Dabei sind die eindimensionalen Modenoperatoren $\hat{h}_j$ gegeben durch
+	\begin{equation}\label{eq:KG-hj-Wirtinger}
+	\hat{h}_j =  
+	-2\frac{\partial^2}{\partial z_j \partial \overline{z}_j} 
+	+ \frac{1}{2}(m^2 + \omega_j^2) z_j\overline{z_j}	
+\end{equation}
 \end{theorem}
 \begin{proof} 
 	Der Hamiltonoperator l\"asst sich zerlegen als:
@@ -2944,70 +2982,105 @@ Als n\"achstes definieren nun die Feldoperatoren und kurze Betrachtung der Hamil
 \end{equation*}
 wobei
 \begin{align*}
-	&\hat{T} = -\frac{1}{2}\sum_{x\in V}(\frac{\partial^2}{\partial \Phi_{R}(x)^2}+\frac{\partial^2}{\partial \Phi_{I}(x)^2})\\
+	&\hat{T} = -\frac{1}{2}\sum_{x\in V}(\frac{\partial^2}{\partial \Phi_{R}(x)^2}+\frac{\partial^2}{\partial \Phi_{I}(x)^2})= -2\sum_{x\in V}\frac{\partial^2}{\partial \overline{\Phi}(x)\partial \Phi(x)}\\
 	&\hat{V} = \frac{1}{2}(\langle \Phi, (\Delta^{a}_r+ m^2)\Phi\rangle_{\mathfrak{E},\mathbb{C}})
 \end{align*}
-	Wir verwenden den positiv definiten komplexen linearen Operator
+Der zugehörige Eich-Laplace Operator ist positiv definit und l\"asst sich nach dem Spektralsatz schreiben als
 	\begin{equation*}
-		Q= \Delta^{a}_r+ m^2
-	\end{equation*}
-Dieser l\"asst sich nach dem Spektralsatz schreiben als
-	\begin{equation*}
-	Q = U^\dagger R U
+	\Delta^{a}_r = U^\dagger R U
 \end{equation*}
 wobei $U$ eine unit\"are Matrix und $R$ eine nichtnegative Diagonalmatrix ist.\\
 \\
-Wie in Theorem 6.6 definieren wir: 
-	\begin{equation*}
-	\hat{U}(\phi)(q)=\phi(U(q))
+Wie in Theorem~\ref{thm:hamilton_sum} definieren wir: 
+\begin{equation*}
+	\hat{U}(\psi)(q)=\psi(U(q))
 \end{equation*}
-Wir d\"urfen den Operator $\hat{T}$ als reelen Laplaceoperator interpretieren, der somit invariant unter orthogonaler Transformation ist. Weiters k\"onnen wir $U$ als orthogonale Transformation auf dem reelen Vektorraum $\mathfrak{E}\times\mathfrak{E}$ interpretieren. Es folgt das $\hat{T}$ invariant unter $U$ ist.\\
+Nachdem \(U\) unitär ist können wir wieder mit Hilfe des Transformationssatzes für Integrale die Unitarität von $\hat{U}$ zeigen und die adjungierte ist gegeben durch 
+\begin{equation*}
+	\hat{U}^\dagger(\psi)(q)=\psi(U^\dagger(q))
+\end{equation*}
+Der Rest des Beweises läuft analog zum Beweis von Theorem~\ref{thm:hamilton_sum}. Ein Unterschied ist, dass der \(\Delta^{a}_r + m^2\) positiv ist.\\
 \\
-Der Rest des Beweises ist analog zum Beweis von Theorem 6.6. Der einzige Unterschied ist, dass der Raum $A$ hier leer ist und der Raum $B$ der ganze Raum $\mathfrak{E}$ ist.
+Fangen wir an mit der Invarianz des Laplace Operators unter unitärer Transformation:
+	\begin{align*}
+	\sum_{x\in V}\frac{\partial}{\partial \overline{\Phi(x)}}\frac{\partial}{\partial \Phi(x)}\phi(U(\Phi))&=
+	\sum_{x\in V}\frac{\partial}{\partial \overline{\Phi(x)}}(\sum_{y\in V}U_{y,x}\frac{\partial}{\partial \Phi(y)^{'}}\phi)(U(\Phi))\\
+	&=
+	\sum_{x\in V}(\sum_{z\in V}\sum_{y\in V}\overline{U}_{z,x}U_{y,x}\frac{\partial^2}{\partial \overline{\Phi(z)}^{'}\partial \Phi(y)^{'}}\phi)(U(a))\\
+	&=
+	(\sum_{z\in V}\sum_{y\in V}\delta_{y,z}\frac{\partial^2}{\partial \overline{\Phi(z)}^{'}\partial \Phi(y)^{'}})\phi(U(a))\\
+	&=
+	(\sum_{y\in V}\frac{\partial^2}{\partial \overline{\Phi(y)}^{'}\partial \Phi(y)^{'}}\phi)(U(a))\\
+\end{align*}
+Hier haben wir die Kettenregel des Wirtinger Kalküls verwendet.\\
+\\
+Der Beweis für potentielle Energie $\hat{V}$ ist komplett analog zu dem Beweis von Theorem~\ref{thm:hamilton_sum}.
 \end{proof}
 \noindent
-Die wichtigste lokal erhaltene Gr\"o\ss{}e der Klein-Gordontheorie neben der Gesamtenergie $H$ ist die Ladung $q= \Im(\overline{\Phi}\Phi^\prime)$
-Durch den Zusammenhang $\pi = \Phi^\prime$ und eine kurze Umformung
-\begin{align*}
-	q=&\frac{\overline{\Phi}\pi - \Phi\overline{\pi}}{2*i}=
-	\frac{(\Phi_R - i*\Phi_I)(\pi_R + i * \pi_I) - (\Phi_R + i*\Phi_I)(\pi_R - i * \pi_I)}{2*i}\\
-	&=\Phi_R\pi_I-\Phi_I\pi_R
-\end{align*} 
-k\"onnen wir $q$ als Funktion der reelen Gr\"o\ss{}en $\Phi_R$, $\Phi_I$, $\pi_R$ und $\pi_I$ darstellen.\\
+Die wichtigste lokal erhaltene Größe der Klein-Gordon-Theorie neben der Gesamtenergie $H$ ist die Ladung $q = \Im(\overline{\Phi}\,\Phi')$. 
 \\
-Wir k\"onnen nun den Ladungsfeldoperator basierend auf der klassischen Theorie erraten.
-\begin{definition}
-	Sei $G$ ein planarer Graph und $\Phi_x = a_x + i b_x$ f\"ur $x\in V$ und $a_x, b_x\in\mathbb{R}$ der Klein-Gordon Feldoperator, dann nennen wir 
-	\begin{equation}
-		\hat{q}(x)=\hat{\Phi}_R\hat{\pi}_I-\hat{\Phi}_I\hat{\pi}_R=i(\hat{\Phi}_{I}(x)\frac{\partial}{\partial \Phi_{R}(x)}- \hat{\Phi}_{R}(x)\frac{\partial}{\partial \Phi_{I}(x)})
+\\
+Durch den Zusammenhang $\pi = \Phi'$ und eine direkte Umformung gilt:
+\begin{align}
+	q &= \frac{\overline{\Phi}\,\pi - \Phi\,\overline{\pi}}{2i} \nonumber\\
+	&= \frac{(\Phi_R - i\,\Phi_I)(\pi_R + i\,\pi_I) - (\Phi_R + i\,\Phi_I)(\pi_R - i\,\pi_I)}{2i} \nonumber\\
+	&= \Phi_R\,\pi_I - \Phi_I\,\pi_R. \label{eq:KG-Ladung-reell}
+\end{align}
+\noindent
+Damit lässt sich $q$ als Funktion der reellen Größen $\Phi_R$, $\Phi_I$, $\pi_R$ und $\pi_I$ darstellen.\\
+\\
+Wir können nun den Ladungsfeldoperator basierend auf der klassischen Theorie angeben.
+\begin{definition}[Ladungsfeldoperator und Gesamtladungsoperator]\label{def:KG-Ladungsoperator}
+	Sei $G$ ein \textbf{planares Netz}. Für $x\in V$ sei $\Phi(x) = \Phi_R(x) + i\,\Phi_I(x)$ 
+	mit $\Phi_R(x),\Phi_I(x)\in\mathbb{R}$ die Zerlegung des Klein-Gordon-Feldoperators. 
+	\\
+	\\
+	Dann heißt
+	\begin{align}\label{eq:KG-Ladungsfeldoperator}
+		\hat{q}(x) &= \hat{\Phi}_R(x)\,\hat{\pi}_I(x) - \hat{\Phi}_I(x)\,\hat{\pi}_R(x)\\
+		&= i\left( \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} - \hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)} \right)\nonumber
+	\end{align}
+	der \textbf{Ladungsfeldoperator} am Knoten $x\in V$.\\
+	\\
+	Die Summe über alle Knoten ergibt den \textbf{Gesamtladungsoperator}:
+	\begin{equation}\label{eq:KG-Gesamtladung}
+		\hat{Q} = \sum_{x\in V} \hat{q}(x).
 	\end{equation}
-	den \textbf{Ladungsfeldoperator} des Klein-Gordon Feldes.\\
-	Die Summer \"uber alle Knoten liefert den \textbf{Gesamtladungsoperator}.
-	\begin{equation}
-		\hat{Q} = \sum_{x\in V} \hat{q}(x)
-	\end{equation} 
 \end{definition}
 \noindent
 Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit\"atsgleichung zu belegen. Sp\"ater werden wir mit Hilfe eines Symmetrie Arguments eine fundierte Herleitung der Form des Ladungsfeldoperators erhalten.
-\begin{theorem}
-	Sei $G$ ein planarer Graph, $\psi\in\mathfrak{H}(G)$ dann gilt f\"ur den Ladungsfeldoperator $\hat{q}$ die Kontinuit\"atsgleichung
-	\begin{equation}
-		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime = \text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
+\begin{theorem}\label{thm:KG-QM-Kontinuitaet}
+	Sei $G$ ein \textbf{planares Netz} und $\psi\in\mathfrak{D}_{\mathrm{KG}}\subset\mathfrak{H}_{\mathrm{KG}}(G)$. 
+	Dann gilt für jeden Knoten $x\in V$ und den Ladungsfeldoperator $\hat{q}(x)$ 
+	die Kontinuitätsgleichung:
+	\begin{equation}\label{eq:KG-QM-Kontinuitaet}
+		\langle \psi(t), \hat{q}(x) \psi(t) \rangle_{\mathfrak{H}}^\prime
+		= -\,\mathrm{div}\Bigl( \langle \psi(t), \hat{j} \psi(t) \rangle_{\mathfrak{H}} \Bigr)(x),
 	\end{equation}
+	wobei der Stromoperator durch
+	\begin{equation}\label{eq:KG-Stromoperator}
+		\hat{j}(e) = \Im\left( \frac{1}{r(e)^2} \overline{\hat{\Phi}(p(e))} \hat{\Phi}(q(e)) e^{i\frac{a(e)}{r(e)}} \right)
+\end{equation}
+definiert ist.
 \end{theorem}
 \begin{proof}
-	Wir starten auf der linken Seite von (8.9) und zeigen zuerst das Ehrenfest Theorem f\"ur die Klein-Gordon Schr\"odingergleichung. Sei hierzu $x$ ein Knoten des Graphen und $\psi$ eine L\"osung der Schr\"odingergleichung (8.4).
+	Wir starten auf der linken Seite von \eqref{eq:bw_01} und gehen vom Ehrenfest Theorem der Klein-Gordon Schrödingergleichung aus.
+	\begin{equation}
+		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H}
+	\end{equation}
+	Wie im Fall der Maxwell Theorie sei hier kurz eine Skizze des Beweises.\footnote{Der volle Beweis ist etwas technischer und kann in "On the Ehrenfest Theorem of quantum mechanics, Gero Friesecke und Mario Koppen, 2009" gefunden werden.}\\
+	Sei $x$ ein Knoten des Graphen und $\psi$ eine L\"osung der Schr\"odingergleichung~\ref{eq:KG-Schroedinger}.
 	\begin{align*}
 		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime &= \langle \psi^\prime, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, \hat{q}(x)\psi^\prime\rangle_\mathfrak{H}\\
-		&= \langle -i\hat{H}\psi, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, -i\hat{q}(x)\hat{H}\rangle_\mathfrak{H}\\
-		&= i(\langle \psi, \hat{H}\hat{q}(x)\psi\rangle_\mathfrak{H} - \langle \psi, \hat{q}(x)\hat{H}\rangle_\mathfrak{H})\\
+		&= \langle -i\hat{H}\psi, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, -i\hat{q}(x)\hat{H}\psi\rangle_\mathfrak{H}\\
+		&= i(\langle \psi, \hat{H}\hat{q}(x)\psi\rangle_\mathfrak{H} - \langle \psi, \hat{q}(x)\hat{H}\psi\rangle_\mathfrak{H})\\
 		&=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} 
 	\end{align*}
 	Als n\"achstes betrachten wir den Kommutator $[\hat{H},\hat{q}(x)]$ aus (8.3) folgt
 	\begin{align*}
 		[\hat{H},\hat{q}(x)]&=\frac{1}{2}(\sum_{y\in V}([\hat{\pi}_{\Phi_R}(y)^2,\hat{q}(x)] + [\hat{\pi}_{\Phi_I}^2(y),\hat{q}(x)]) + [\langle \hat{\Phi}, \Delta^{a}_r\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)]\\&+ m^2[\langle \hat{\Phi},\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)])
 	\end{align*}
-	Wegen der Form von $\hat{q}$ verschwindet der Kommutator mit den Ausdr\"ucken $\hat{\pi}_{\Phi_R}(y) + \hat{\pi}_{\Phi_I}(y)^2$, $\hat{\Phi}_R(y)^2 + \hat{\Phi}_I(y)^2$. Dies l\"asst sich an einem Beispiel illustrieren:
+	Wegen der Form von $\hat{q}$ verschwindet der Kommutator mit den Ausdr\"ucken $\hat{\pi}_{\Phi_R}(y)^2 + \hat{\pi}_{\Phi_I}(y)^2$, $\hat{\Phi}_R(y)^2 + \hat{\Phi}_I(y)^2$. Dies l\"asst sich an einem Beispiel illustrieren:
 	\begin{align*}
 		[\hat{\pi}_{\Phi_R}(y)^2, \hat{q}(x)] &= [\hat{\pi}_{\Phi_R}(y)^2, \hat{\Phi}_R\hat{\pi}_{\Phi_I}]-[\hat{\pi}_{\Phi_R}(y)^2,\hat{\Phi}_I\hat{\pi}_{\Phi_R}]\\
 		&= -2i\hat{\pi}_{\Phi_R}(y)\hat{\pi}_{\Phi_I}(x)\delta_{x,y}
@@ -3047,7 +3120,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		&=\hat{\Phi}_R(q(e))([\hat{\Phi}_R(x), \hat{q}(x)]\cos(a(e)) + [\hat{\Phi}_I(x), \hat{q}(x)]\sin(a(e)))\\
 		&+\hat{\Phi}_I(q(e))([\hat{\Phi}_I(x), \hat{q}(x)]\cos(a(e)) - [\hat{\Phi}_R(x), \hat{q}(x)]\sin(a(e)))\\
 		&=\hat{\Phi}_R(q(e))(-i\hat{\Phi}_I(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
-		&+\hat{\Phi}_I(q(e))(i\hat{\Phi}_R(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
+		&+\hat{\Phi}_I(q(e))(i\hat{\Phi}_R(x)\cos(a(e)) + i\hat{\Phi}_I(x)\sin(a(e)))\\
 		&=-i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
 	\end{align*}
 	als n\"achstes kommen wir zur rechten Summe $q(e)=x$:
@@ -3067,7 +3140,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 		\sum_{e\in E, q(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))	\psi\rangle_\mathfrak{H} \\&
 		=\langle \psi, \sum_{e\in E, q(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
 		\\&-\sum_{e\in E, p(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))\psi\rangle_\mathfrak{H}\\
-		&=\text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H})
+		&=-\text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H}) 
 	\end{align*}
 \end{proof}
 \noindent
