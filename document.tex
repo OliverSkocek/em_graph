@@ -1754,8 +1754,8 @@ physikalische Interpretation als elektromagnetische Wellen erarbeiten.
 \\
 Der elektrische Feldoperator $\hat{e}$ transformiert unter $\hat{U}$ analog zum Vektorpotential Operator $\hat{a}$:
 \begin{align}
-	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U * \hat{a}\\
-	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U * \hat{e}
+	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U\hat{a}\\
+	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U\hat{e}
 \end{align}
 Die orthogonale Matrix $U$ zerlegt den Konfigurationsraum $\mathfrak{K}(G)$ der Helmoltzzerlegung entsprechend in einen 
 $(|V|-1)$-dimensionalen Teilraum $A = \ker Q=\ker = \operatorname{Bild}(r\mathrm{grad})$ (Eichfreiheitsgrade) und sein orthogonales 
@@ -1870,7 +1870,7 @@ Der Kern des Operators $\hat{a}_\omega$ erf\"ullt folgende Differentialgleichung
 \end{equation*}
 Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung. Diese L\"osung ist gegeben durch
 \begin{equation*}
-	f_c(a) = c * e^{-\omega a^2 / 2}
+	f_c(a) = c\textrm{ }e^{-\omega a^2 / 2}
 \end{equation*}
 Zeigen wir nun, da\ss{} \eqref{eq:erzeuger} tats\"achlich der zu $\hat{a}_\omega$ adjungierte Operator ist.
 Sei $\phi, \psi \in \Omega$, dann verwenden wir partielle Integration um zu zeigen, dass \eqref{eq:erzeuger} auf $\Omega$ der Definition der Adjungierten entspricht:
@@ -1899,7 +1899,7 @@ Wir untersuchen als Nächstes den \textbf{Teilchenzahloperator}
 \begin{equation}
 	\hat{N}_\omega = \hat{a}_\omega^\dagger\hat{a}_\omega. \label{eq:number}
 \end{equation}
-\begin{lemma}
+\begin{lemma}\label{thm:Teilcheanzahl}
 	Der Teilchenzahloperator ist ein dicht definierer linearer Operator und erf\"ullt die Vertauschungsrelationen
 	\begin{align}
 		& [\hat{N}_\omega, \hat{a}_\omega] = -\hat{a}_\omega\label{eq:komm1}\\
@@ -3004,13 +3004,13 @@ Der Rest des Beweises läuft analog zum Beweis von Theorem~\ref{thm:hamilton_sum
 Fangen wir an mit der Invarianz des Laplace Operators unter unitärer Transformation:
 	\begin{align*}
 	\sum_{x\in V}\frac{\partial}{\partial \overline{\Phi(x)}}\frac{\partial}{\partial \Phi(x)}\phi(U(\Phi))&=
-	\sum_{x\in V}\frac{\partial}{\partial \overline{\Phi(x)}}(\sum_{y\in V}U_{y,x}\frac{\partial}{\partial \Phi(y)^{'}}\phi)(U(\Phi))\\
+	\sum_{x\in V}\frac{\partial}{\partial \overline{\Phi(x)}}(\sum_{y\in V}U_{y,x}\frac{\partial}{\partial \Phi^{'}(y)}\phi)(U(\Phi))\\
 	&=
-	\sum_{x\in V}(\sum_{z\in V}\sum_{y\in V}\overline{U}_{z,x}U_{y,x}\frac{\partial^2}{\partial \overline{\Phi(z)}^{'}\partial \Phi(y)^{'}}\phi)(U(a))\\
+	\sum_{x\in V}(\sum_{z\in V}\sum_{y\in V}\overline{U}_{z,x}U_{y,x}\frac{\partial^2}{\partial \overline{\Phi^{'}(z)}\partial \Phi^{'}(y)}\phi)(U(a))\\
 	&=
-	(\sum_{z\in V}\sum_{y\in V}\delta_{y,z}\frac{\partial^2}{\partial \overline{\Phi(z)}^{'}\partial \Phi(y)^{'}})\phi(U(a))\\
+	(\sum_{z\in V}\sum_{y\in V}\delta_{y,z}\frac{\partial^2}{\partial \overline{\Phi^{'}(z)}\partial \Phi^{'}(y)})\phi(U(a))\\
 	&=
-	(\sum_{y\in V}\frac{\partial^2}{\partial \overline{\Phi(y)}^{'}\partial \Phi(y)^{'}}\phi)(U(a))\\
+	(\sum_{y\in V}\frac{\partial^2}{\partial \overline{\Phi^{'}(y)}\partial \Phi^{'}(y)}\phi)(U(a))\\
 \end{align*}
 Hier haben wir die Kettenregel des Wirtinger Kalküls verwendet.\\
 \\
@@ -3064,7 +3064,7 @@ Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit
 definiert ist.
 \end{theorem}
 \begin{proof}
-	Wir starten auf der linken Seite von \eqref{eq:bw_01} und gehen vom Ehrenfest Theorem der Klein-Gordon Schrödingergleichung aus.
+	Wir starten auf der linken Seite von \eqref{eq:KG-QM-Kontinuitaet} und gehen vom Ehrenfest Theorem der Klein-Gordon Schrödingergleichung aus.
 	\begin{equation}
 		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H}
 	\end{equation}
@@ -3076,7 +3076,7 @@ definiert ist.
 		&= i(\langle \psi, \hat{H}\hat{q}(x)\psi\rangle_\mathfrak{H} - \langle \psi, \hat{q}(x)\hat{H}\psi\rangle_\mathfrak{H})\\
 		&=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} 
 	\end{align*}
-	Als n\"achstes betrachten wir den Kommutator $[\hat{H},\hat{q}(x)]$ aus (8.3) folgt
+	Als n\"achstes betrachten wir den Kommutator $[\hat{H},\hat{q}(x)]$:
 	\begin{align*}
 		[\hat{H},\hat{q}(x)]&=\frac{1}{2}(\sum_{y\in V}([\hat{\pi}_{\Phi_R}(y)^2,\hat{q}(x)] + [\hat{\pi}_{\Phi_I}^2(y),\hat{q}(x)]) + [\langle \hat{\Phi}, \Delta^{a}_r\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)]\\&+ m^2[\langle \hat{\Phi},\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)])
 	\end{align*}
@@ -3144,65 +3144,100 @@ definiert ist.
 	\end{align*}
 \end{proof}
 \noindent
-\subsection{Teilchen und Antiteilchen}
-Analog zur Schr\"odingergleichung des elektromagnetischen Feldes, zerf\"allt der Hamiltonoperator nach Theorem 8.3 in Summanden der Form
+Im nächsten Schritt wollen wir, wie in der Maxwell Theorie, Erzeugungs und Vernichtungsoperatoren als Leiteroperatoren eines mehrdimensionalen harmonische Oszillators definieren. Wir starten mit den Modenoperatoren\eqref{eq:KG-hj-Wirtinger}.
 	\begin{equation}
-	\hat{h}_\omega= \frac{1}{2}(-\frac{\partial^2}{\partial a_\omega^2}-\frac{\partial^2}{\partial b_\omega^2} + (m + \omega)^2 \overline{x_\omega}x_\omega)
-\end{equation}
+	\hat{h}_j =  
+	-2\frac{\partial^2}{\partial \Phi_j \partial \overline{\Phi}_j} 
+	+ \frac{1}{2}(m^2 + \omega_j^2) \Phi_j\overline{\Phi_j}	
+\end{equation} 
 \noindent
-f\"ur jede Mode $\omega$ des Eichlaplaceoperators. Es handelt sich hierbei um einen eindimensionalen komplexen harmonischen Oszillator beziehungsweise um einen zweidimensionalen reelen harmonischen Oszillator.\\
-\\
-Wir definieren analog zu Satz 6.3 je einen Vernichtungsoperator f\"ur den Realteil $a$ und den Imagin\"arteil $b$ des Summanden $h_\omega$, wobei $\Phi = a +ib$.
+Es handelt sich hierbei um einen eindimensionalen komplexen harmonischen Oszillator beziehungsweise um einen zweidimensionalen reelen harmonischen Oszillator.
+ \begin{equation}
+ 	\hat{h}_j= \frac{1}{2}(-\frac{\partial^2}{\partial \Phi_{Rj}^2}-\frac{\partial^2}{\partial \Phi_{Ij}^2} + (m^2 + \omega_j^2) (\Phi_{Rj}^2 + \Phi_{Ij}^2)
+ \end{equation}
+Wir können analog zu Definition~\ref{def:Vernichtung}je einen Vernichtungsoperator f\"ur den Realteil $\Phi_R$ und den Imagin\"arteil $\Phi_I$ der Summanden $h_\omega$  definieren, wobei $\Phi = \Phi_R +i\Phi_I$.
 \begin{align*}
-	\hat{r}_\omega &= \sqrt{\frac{\omega}{2}}(a -\frac{1}{\omega}\frac{d}{da})\\
-	\hat{s}_\omega &= \sqrt{\frac{\omega}{2}}(b -\frac{1}{\omega}\frac{d}{db})
+	\hat{r}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}(\Phi_{Rj} -\frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Rj}})\\
+	\hat{s}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}(\Phi_{Ij} -\frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Ij}})
 \end{align*}
 \noindent
-Wir k\"onnen den Operator $\hat{h}_\omega$ nach Hilfssatz 6.9 schreiben als
+Der deutliche Unterschied zum elektromagnetischen Feld ist, dass wir hier für jede Mode $\omega$ zwei unterschiedliche Vernichter und Erzeuger haben. Nach Hilfssatz~\ref{thm:Teilcheanzahl} lässt sich $\hat{h}_j$ schreiben als
 \begin{equation*}
-	\hat{h}_\omega = \omega(\hat{r}_\omega^\dagger\hat{r}_\omega + \hat{s}_\omega^\dagger\hat{s}_\omega + 1)
+	\hat{h}_j = \sqrt{m^2 + \omega_j^2}(\hat{r}_j^\dagger\hat{r}_j + \hat{s}_j^\dagger\hat{s}_j + 1)\label{eq:rf-h}
 \end{equation*}
-Das quantisierte Klein-Gordon Feld l\"asst sich also durch zwei Arten von Teilchen darstellen. Eine die von $\hat{r}$ vernichtet wird und eine die durch $\hat{s}$ vernichtet wird.
-Es gibt jedoch eine n\"utzlichere Darstellung in der wir das Feld darstellen k\"onnen. Hierzu definieren wir aus $\hat{r}$ und $\hat{s}$ zwei neue Vernichtungsoperatoren.
+Das quantisierte Klein-Gordon Feld l\"asst sich also durch zwei Arten von Teilchen darstellen. Eine die von $\hat{r}$ vernichtet wird und eine die durch $\hat{s}$ vernichtet wird. Dies sind fast die bekannten Teilchen und Antiteilchen. Es ergeben sich folgende Vertauschungen.
 \begin{align}
-	\hat{A}_\omega &= \frac{1}{2}(\hat{r}_\omega + i\hat{s}_\omega)\\
-	\hat{B}_\omega &= \frac{1}{2}(\hat{r}_\omega - i\hat{s}_\omega)
+	[\hat{r}_i, \hat{s}_j^\dagger] &= 0\label{eq:rf-comm}\\
+	[\hat{r}_i, \hat{s}_j] &= 0\nonumber\\
+	[\hat{r}_i, \hat{r}_j^\dagger] &= \delta_{i,j}1\nonumber\\
+	[\hat{s}_i, \hat{s}_j^\dagger] &= \delta_{i,j}1\nonumber
 \end{align}
-Analog zu $\hat{r}$ $\hat{s}$ erf\"ullen diese Operatoren die Vertauschungsrelationen
+Es gibt jedoch mehrere Möglichkeiten diese Erzeuger und Vernichter Paare zu definieren, sodass sie sowohl \ref{eq:rf-comm} als auch \ref{eq:rf-h} erfüllen.
+\begin{remark}
+	Sei \(a,b,c,d\in\mathbb{C}\), dann erfüllen \(\hat{u} = a\hat{r} + b\hat{s}\) und \(\hat{v} = c\hat{r} + c\hat{s}\) genau dann \ref{eq:rf-comm} und \ref{eq:rf-h}
+	falls
+	\[
+	\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix}
+	\] eine unitäre Matrix ist.
+\end{remark}
+\noindent
+Wir werden als Vernichter und Erzeuger eine Darstellung wählen, die es auch erlaubt den Ladungsoperator über die Teilchenanzahl zu interpretieren.
+\begin{align}
+	\hat{A}_j &= \frac{1}{\sqrt{2}}(\hat{r}_j + i\hat{s}_j) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_{j}}\\
+	\hat{B}_j &= \frac{1}{\sqrt{2}}(\hat{r}_j - i\hat{s}_j) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{j}}
+\end{align}
+Die Adjungierten $\hat{A}_j^\dagger$, $\hat{B}_j^\dagger$ sind die Erzeugungsoperatoren. Analog zum eindimensionalen Fall definieren wir die \textbf{Teilchenzahloperatoren des Klein-Gordon-Feldes}.
 \begin{align*}
-	[\hat{A}_\omega, \hat{B}_\omega^\dagger] &= 0\\
-	[\hat{A}_\omega, \hat{B}_\omega] &= 0\\
-	[\hat{A}_\omega, \hat{A}_\omega^\dagger] &= 1\\
-	[\hat{B}_\omega, \hat{B}_\omega^\dagger] &= 1
+	\hat{N}_{j +} &= \hat{A}_j^\dagger \hat{A}_j\\
+	\hat{N}_{_j -} &= \hat{B}_j^\dagger \hat{B}_j
 \end{align*}
-Die Adjungierten $\hat{A}^\dagger$, $\hat{B}^\dagger$ sind die Erzeugungsoperatoren. Analog zum eindimensionalen Fall definieren wir die Teilchenanzahloperatoren.
-\begin{align*}
-	\hat{N}_{\omega +} &= \hat{A}_\omega^\dagger \hat{A}_\omega\\
-	\hat{N}_{_\omega -} &= \hat{B}_\omega^\dagger \hat{B}_\omega
-\end{align*}
-Der Operator $\hat{A}_\omega^\dagger$ erh\"oht die Teilchenzahl $\hat{N}_{\omega +}$ um Eins, während der Operator $\hat{A}_\omega$ dieselbe um Eins verringert. Dasselbe gilt f\"ur $\hat{B}_\omega$, $\hat{N}_{\omega -}$ und $\hat{B}_\omega^\dagger$.\\
+Der Operator $\hat{A}_j^\dagger$ erh\"oht die Teilchenzahl $\hat{N}_{j +}$ um Eins, während der Operator $\hat{A}_j$ dieselbe um Eins verringert. Dasselbe gilt f\"ur $\hat{B}_j$, $\hat{N}_{j -}$ und $\hat{B}_j^\dagger$.\\
 \\
-Wir nennen $\hat{N}_{\omega +}$ den Teilchenanzahloperator und $\hat{N}_{\omega -}$ den Antiteilchenanzahloperator.\\
+Wir nennen $\hat{N}_{j +}$ den Teilchenzahloperator und $\hat{N}_{j -}$ den Antiteilchenzahloperator.\\
 \\
-Der Grundzustand $\psi_0$ wird sowohl von $\hat{A}_\omega$ als auch von $\hat{B}_\omega$ vernichtet. 
+Der Grundzustand $\psi_{0j}=c\textrm{ }e^{-\sqrt{m^2 + \omega_j^2} |\Phi_j|^2 / 2}$ wird sowohl von $\hat{A}_j$ als auch von $\hat{B}_j$ vernichtet. 
 \begin{equation*}
-	\hat{A}_\omega\psi_0 = \hat{B}_\omega\psi_0 = 0
+	\hat{A}_j\psi_{0j} = \hat{B}_j\psi_{0j} = 0
 \end{equation*}
-Genauso wie im Fall von $\hat{r}$ und $\hat{s}$ l\"asst sich der Operator $\hat{h}_\omega$ darstellen \"uber die aus $\hat{A}$ und $\hat{B}$ abgeleiteten Teilchenzahloperatoren
-\begin{equation*}
-	\hat{h}_\omega = (\hat{N}_{\omega +} +\hat{N}_{\omega -} + 1)\omega
-\end{equation*}
-Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_\omega$ vernichtet werden eine positive Ladung tragen und Teilchen die druch $\hat{B}_\omega$ vernichtet werden eine negative Ladung trangen.
+Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_j$ vernichtet werden eine positive Ladung tragen und Teilchen die druch $\hat{B}_j$ vernichtet werden eine negative Ladung tragen.
 \begin{proposition}
-	Sei $G$ ein planarer Graph und $\hat{N}_{\omega\pm}$ wie oben, dann k\"onnen wir den Gesamtladungsoperator folgenderma\ss{}en schreiben
+	Sei $G$ ein planares Netz und $\hat{N}_{\omega\pm}$ wie oben, dann k\"onnen wir den Gesamtladungsoperator folgenderma\ss{}en schreiben
 	\begin{equation*}
-		\hat{Q} = \sum_\omega(\hat{N}_{\omega +} -\hat{N}_{\omega -
+		\hat{Q} = \sum_{j=1}^{|V|}(\hat{N}_{j +} -\hat{N}_{j -
 		})
 	\end{equation*}
 	Insbesondere ist das Spektrum $\sigma(\hat{Q})=\mathbb{Z}$
 \end{proposition}
 \begin{proof}
-	
+Starten wir mit Definition~\ref{def:KG-Ladungsoperator} des Gesamtladungsoperators und formen um:
+	\begin{align*}
+		\hat{Q} = \sum_{x\in V} \hat{q}(x)&=i\sum_{x\in V} \left( \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} - \hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)} \right)\\
+		&=\sum_{x\in V} \left(\frac{\partial}{\partial\Phi_{x}}\Phi_x-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}} -1\right)\\
+		&=\sum_{x\in V} \left(\Phi_x\frac{\partial}{\partial\Phi_{x}}-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}} \right)
+\end{align*}
+Hierbei haben wir die Kommutatoren: \([\hat{\Phi}_I(x),\frac{\partial}{\partial \Phi_I(x)}], [\hat{\Phi}_R(x),\frac{\partial}{\partial \Phi_R(x)}]\) und\([\hat{\Phi}(x),\frac{\partial}{\partial \Phi(x)}]\) verwendet.\\
+\\
+Sei $\psi\in \mathfrak{D}_{\mathrm{KG}}$ und betrachten wir das Verhalten des Gesamtladungsoperators unter der unitären Abbildung \(\hat{U}\) aus Theorem~\ref{thm:KG-Hamilton-Spektral}.
+\begin{align*}
+	\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V}\left( \Phi_x\frac{\partial}{\partial\Phi_{x}}\psi(U(\Phi))-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}}\psi(U(\Phi))\right)\\
+	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\Phi_x U_{j,x}(\frac{\partial}{\partial\Phi_{j}}\psi)(U(\Phi))-\sum_{j=1}^{|V|}\overline{\Phi}_x\overline{U_{j,x}}(\frac{\partial}{\partial\overline{\Phi_{j}}}\psi)(U(\Phi))\right)\\
+\end{align*}	
+Dann wenden wir \(\hat{U}^\dagger\) an:
+\begin{align*}
+	\hat{U}^\dagger\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} U_{j,x}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)-\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}\overline{U_{j,x}}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi)\right)\\
+	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} \overline{U^\dagger_{x,j}}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)-\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}U^\dagger_{x,j}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi)\right)\\
+	&=\sum_{k=1}^{|V|}\left(\Phi_k\frac{\partial}{\partial\Phi_{k}}\psi(\Phi)-\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{k}}}\psi(\Phi)\right)
+\end{align*}
+Anschließend verwenden wir die Definition der Vernichter und Erzeuger und verwenden die Abkürzung \(w_j= \sqrt{m^2 + \omega_j^2}\): 
+\begin{align*}
+	\sum_{j=1}^{|V|}(\hat{N}_{j +} -\hat{N}_{j -})=\sum_{j=1}^{|V|}&(\hat{A}_j^\dagger \hat{A}_j - \hat{B}_j^\dagger \hat{B}_j)\\
+	=\sum_{j=1}^{|V|}&((\frac{w_j}{4}\Phi_j\overline{\Phi}_j +\frac{1}{2}\Phi_j\frac{\partial}{\partial\Phi_j}-\frac{1}{2}\frac{\partial}{\partial\overline{\Phi}_j}\overline{\Phi}_j-\frac{1}{w_j}\frac{\partial^2}{\partial\Phi_j\partial\overline{\Phi}_j})\\&-(\frac{w_j}{4}\overline{\Phi}_j\Phi_j +\frac{1}{2}\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j}-\frac{1}{2}\frac{\partial}{\partial\Phi_j}\Phi_j-\frac{1}{w_j}\frac{\partial^2}{\partial\overline{\Phi}_j\partial\Phi_j}))\\
+	=\sum_{j=1}^{|V|}&(\Phi_j\frac{\partial}{\partial\Phi_j}-\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j})
+\end{align*}
+Am Ende haben wir den Kommutator \([\hat{\Phi}_j,\frac{\partial}{\partial \Phi_j}]\) verwendet um das Resultat zu erhalten.
 \end{proof}
 \begin{definition}
 	Sei $G$ ein planarer Graph, $x\in \mathfrak{E}(G)$ und $\psi\in\mathfrak{E}$, dann nennen wir
@@ -3216,12 +3251,26 @@ Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_\omega$ ve
 	Der Ladungskonjugationsoperator ist unit\"ar und selbstadjungiert.
 \end{remark}
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $r>0$, $a$ Kantenfunktionen, $\omega\in\sigma(\Delta_r^a)$ und $U_C$ der Ladungskonjugationsoperator, dann transformieren die Operatoren $A_\omega$, $B_\omega$ und $N_{\omega\pm}$ folgenderma\ss{}en
+	Sei $G$ ein planares Netz, $r>0$, $a$ Kantenfunktionen, $1\leq j \leq |V| $ und $U_C$ der Ladungskonjugationsoperator, dann transformieren die Operatoren $A_j$, $B_j$ und $N_{j\pm}$ folgenderma\ss{}en
 	\begin{align}
-	U_CA_\omega U_C &= B_\omega\\
-	U_C N_{\omega \pm} U_C &= N_{\omega \mp}
+	U_CA_j U_C &= B_j\\
+	U_CA^\dagger_j U_C &= B^\dagger_j\\
+	U_CB_j U_C &= A_j\\
+	U_CB^\dagger_j U_C &= A^\dagger_j\\
+	U_C N_{j \pm} U_C &= N_{j \mp}
 \end{align}
 \end{proposition}
+\begin{proof}
+	Es genügt zu zeigen, dass \(U_CA_j U_C=B_j\)\\
+	\\
+	Sei \(\psi \in \mathfrak{D}_{\mathrm{KG}}\), dann gilt:
+	\begin{align}
+		U_CA_j U_C\psi(\Phi)&=U_C(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_{j}})\psi(\overline{\Phi})\\
+		&=U_C(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial{\Phi}_{j}}\psi)(\overline{\Phi})
+		\\
+		&=(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial{\Phi}_{j}}\psi)(\Phi)=B_j\psi(\Phi)
+	\end{align}
+\end{proof}
 \chapter{Zweite Quantisierung}
 Im Kapitel \textbf{Die Klein-Gordongleichung} haben wir gesehen, dass wir im Fall $m>0$ die klassische Klein-Gordontheorie als Schr\"odingergleichung auf einem Hilbertraum darstellen k\"onnen.\\
 Wir werden diese Darstellung als die Einteilchenzust\"ande einer quantisierten Klein-Gordontheorie interpretieren.
