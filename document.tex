@@ -564,7 +564,7 @@ Die hier eingeführten Operatoren $\mathrm{grad}$, $\mathrm{div}$,
 $\mathrm{grad}_D$ und $\mathrm{div}_D$ besitzen direkte Analoga zu den klassischen Differentialoperatoren der Vektoranalysis. 
 Insbesondere spielt die duale Divergenz die Rolle der Rotation. 
 Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
-\begin{theorem}[Diskreter de Rham-Komplex]
+\begin{theorem}[Diskreter de Rham-Komplex]\label{thm:derham}
 	Sei $G$ ein gerichtetes Netz. 
 	Dann erfüllen die Operatoren die folgenden exakten Sequenzen:
 	\begin{equation} \label{eq:derham1}
@@ -1485,7 +1485,7 @@ für jedes \( k \in E \) in einem geeigneten Potential ist.
 	\(\psi: \mathbb{R} \to \mathfrak{D}\) eine Lösung der zeitabhängigen Schrödingergleichung, 
 	wenn sie die Gleichung
 	\begin{equation}
-		i\,\frac{\mathrm{d}}{\mathrm{d}t}\psi(t) = \hat{H}(t)\psi(t), \label{eq:schroedinger}
+		i\,\frac{\mathrm{d}}{\mathrm{d}t}\psi(t) = \hat{H}(t)\psi(t), \label{eq:schroedinger_maxwell}
 	\end{equation}
 	für alle \(t \in \mathbb{R}\) erfüllt und die Anfangsbedingung \(\psi(0)=\psi_0\) gilt.
 \end{definition}
@@ -1569,7 +1569,7 @@ die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
 \begin{theorem}[Ehrenfest-Theorem]
 	Sei \(G\) ein planares Netz, \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
 	\(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
-	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{eq:schroedinger}.  
+	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{eq:schroedinger_maxwell}.  
 	\\
 	\\
 	Dann gelten die Erwartungswertegleichungen:
@@ -1635,7 +1635,7 @@ Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit
 \noindent
 TODO\\
 \fi
-Bislang fehlt noch die Bestätigung, dass die Schrödingergleichung \eqref{eq:schroedinger} 
+Bislang fehlt noch die Bestätigung, dass die Schrödingergleichung \eqref{eq:schroedinger_maxwell} 
 Lösungen besitzt und der Hamiltonoperator $\hat{H}$ selbstadjungiert ist 
 im Sinne der Theorie unbeschränkter linearer Operatoren. 
 Dies wollen wir für den vereinfachten Fall $\epsilon \equiv 1$, $\mu \equiv 1$ 
@@ -1934,7 +1934,7 @@ Die mit dem Feld assoziierten Teilchen sind also nichts anderes als die zu den M
 \\
 Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator weiter.
 \begin{proposition}
-	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen mit Null. 
+	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen mit Null. \label{thm:tz-spec}
 	\begin{equation}
 		\sigma(\hat{N}_\omega)=\mathbb{N}\footnote{$0\in\mathbb{N}$.}
 	\end{equation}
@@ -2234,9 +2234,9 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	\\
 	Hierbei sind $q$ und $j$ durch
 	\begin{align}
-		q(t) &= \Im\!\bigl(\overline{\Phi(t)}\,\Phi'(t)\bigr), \label{eq:kg_qdef}\\[4pt]
-		j(e,t) &= \text{div}^{-1} \Im(\overline{\Phi(t)}\Delta^a_r(\Phi(t)))(e)\label{eq:kg_jedge}\\
-		&= \Im\!\left(
+		q(t) &= \Im\!\bigl(\Phi(t)\,\overline{\Phi'(t)}\bigr), \label{eq:kg_qdef}\\[4pt]
+		j(e,t) &= -\text{div}^{-1} \Im(\overline{\Phi(t)}\Delta^a_r(\Phi(t)))(e)\label{eq:kg_jedge}\\
+		&= -\Im\!\left(
 		\frac{1}{r(e)^2}\,
 		\overline{\Phi(p(e),t)}\,
 		\Phi(q(e),t)\,
@@ -2253,18 +2253,18 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	Mit der Definition~\eqref{eq:kg_qdef} gilt
 	\begin{align*}
 		q'(t)
-		&= \bigl(\Im(\overline{\Phi}\,\Phi')\bigr)' 
+		&= \bigl(\Im\!\bigl(\Phi\,\overline{\Phi'}\bigr))'(t) 
 		= \!\left(
-		\frac{\overline{\Phi}\,\Phi' - \Phi\,\overline{\Phi}'}{2i}
+		\frac{\Phi\,\overline{\Phi}'-\overline{\Phi}\,\Phi'}{2i}(t)
 		\right)' \\[4pt]
 		&= \frac{1}{2i}
 		\bigl(
-		\overline{\Phi'}\,\Phi' + \overline{\Phi}\,\Phi'' 
-		- \Phi'\,\overline{\Phi'} - \Phi\,\overline{\Phi''}
+		\Phi'\,\overline{\Phi}' + \Phi\,\overline{\Phi}'' 
+		- \overline{\Phi}'\,\Phi' - \overline{\Phi}\,\Phi''
 		\bigr)
 		= \frac{1}{2i}
 		\bigl(
-		\overline{\Phi}\,\Phi'' - \Phi\,\overline{\Phi''}
+		\Phi\,\overline{\Phi''} - \overline{\Phi}\,\Phi''
 		\bigr).
 	\end{align*}
 	\\
@@ -2276,9 +2276,8 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	\begin{align*}
 		q'
 		&= \frac{1}{2i}
-		\bigl(\Phi\,\overline{\Delta_r^{\,a}(\Phi)}
-		- \overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr)
-		= -\Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr).\label{eq:ausdruck1}
+		\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)-\Phi\,\overline{\Delta_r^{\,a}(\Phi)}\bigr)
+		= \Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr).\label{eq:ausdruck1}
 	\end{align*}
 	\noindent
 	Die Ableitung \(q'\) liegt im Bild der Divergenz. Nach dem de'Rham Komplex Theorem liegt eine Eckfunktion genau dann im Bild der Divergenz falls die Summe über alle Ecken gleich Null ist. Dies ist leicht zu zeigen
@@ -2298,24 +2297,26 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	\]
 	Dann gilt für die Divergenz des Stromes:
 	\begin{align*}
-		-\Im\!\bigl(\overline{\Phi(x)}\,\Delta_r^{\,a} \Phi(x)\bigr)
-		&= -\Im\!\bigl(\langle \psi,\, \Delta_r^{\,a}(\Phi)\rangle_{\mathfrak{E}}\bigr)
+		\Im\!\bigl(\overline{\Phi(x)}\,\Delta_r^{\,a} \Phi(x)\bigr)
+		&= \Im\!\bigl(\langle \psi,\, \Delta_r^{\,a}(\Phi)\rangle_{\mathfrak{E}}\bigr)
 		= -\Im\!\bigl(\langle \mathrm{grad}^{\,a/r}(\psi),\, 
 		\tfrac{1}{r^2}\mathrm{grad}^{\,a/r}(\Phi) \rangle_{\mathfrak{K}}\bigr) \\[4pt]
 		&=\Im\!\left(
-		\sum_{\substack{e\in E \\ p(e)=x}}
-		\frac{1}{r(e)^2}\,
-		\overline{\Phi(p(e))}\,
-		\Phi(q(e))\,
-		e^{i a(e)/r(e)} \right. \\[2pt]
-		&\hspace{3.5cm}\left.
-		- \sum_{\substack{e\in E \\ q(e)=x}}
+		\sum_{\substack{e\in E \\ q(e)=x}}
 		\frac{1}{r(e)^2}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
 		e^{i a(e)/r(e)}
+		\right. \\[2pt]
+		&\hspace{3.5cm}\left.
+		- 
+		\sum_{\substack{e\in E \\ p(e)=x}}
+		\frac{1}{r(e)^2}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{i a(e)/r(e)} 
 		\right) \\[4pt]
-		&= -\mathrm{div}\!\left(
+		&= \mathrm{div}\!\left(
 		\Im\!\left(
 		\frac{1}{r(e)^2}\,
 		\overline{\Phi(p(e))}\,
@@ -2328,7 +2329,7 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	Damit ergibt sich der gesuchte Ausdruck
 	\[
 	q'(t) = -\,\mathrm{div}(j(t)), \qquad
-	j(e,t) = \Im\!\left(
+	j(e,t) = -\Im\!\left(
 	\frac{1}{r(e)^2}\,
 	\overline{\Phi(p(e),t)}\,
 	\Phi(q(e),t)\,
@@ -2356,9 +2357,9 @@ tatsächlich unverändert unter der erweiterten Eichtransformation
 	Dann bleiben die in~\eqref{eq:kg_qdef} und~\eqref{eq:kg_jedge} 
 	definierten Größen
 	\[
-	q = \Im(\overline{\Phi}\,\Phi'), 
+	q = \Im(\Phi\,\overline{\Phi}'), 
 	\qquad
-	j(e) = \Im\!\left(
+	j(e) = -\Im\!\left(
 	\frac{1}{r(e)^2}\,
 	\overline{\Phi(p(e))}\,
 	\Phi(q(e))\,
@@ -2383,9 +2384,9 @@ tatsächlich unverändert unter der erweiterten Eichtransformation
 	woraus unmittelbar folgt, dass
 	\[
 	\tilde{q} 
-	= \Im(\overline{\tilde{\Phi}}\,\tilde{\Phi}')
-	= \Im\!\left(\overline{e^{i\xi}\Phi}\, e^{i\xi}\Phi'\right)
-	= \Im(\overline{\Phi}\,\Phi')
+	= \Im(\tilde{\Phi}\,\overline{\tilde{\Phi}}')
+	= \Im\!\left(e^{i\xi}\Phi\, \overline{e^{i\xi}\Phi}'\right)
+	= \Im(\Phi\,\overline{\Phi}')
 	= q.
 	\]
 	\\
@@ -2462,9 +2463,9 @@ welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
 	Für die in~\eqref{eq:kg_qdef} definierte Ladung gilt:
 	\begin{equation*}
 		q_{\overline{\Phi}}
-		=  \Im(\overline{\overline{\Phi}}\,\overline{\Phi}')
-		=  \Im\!\bigl(\overline{\overline{\Phi}\,\Phi'}\bigr)
-		=  -\,\Im(\overline{\Phi}\,\Phi')
+		=  \Im(\overline{\Phi}\,\overline{\overline{\Phi}}')
+		=  \Im\!\bigl(\overline{\Phi\,\overline{\Phi}'}\bigr)
+		=  -\,\Im(\Phi\,\overline{\Phi}')
 		= -\,q_{\Phi}.
 	\end{equation*}
 	\\
@@ -2472,13 +2473,13 @@ welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
 	dass Konjugation und Phaseninversion \(a \mapsto -a\) bewirkt:
 	\begin{align*}
 		j_{\overline{\Phi}}^{-a}(e) 
-		&= +\,\Im\!\left(
+		&= -\,\Im\!\left(
 		\frac{1}{r(e)^2}\,
 		\overline{\overline{\Phi(p(e))}}\,
 		\overline{\Phi(q(e))}\,
 		e^{-i a(e)/r(e)}
 		\right) \\[4pt]
-		&= -\,\Im\!\left(
+		&= +\,\Im\!\left(
 		\frac{1}{r(e)^2}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
@@ -3022,9 +3023,9 @@ Die wichtigste lokal erhaltene Größe der Klein-Gordon-Theorie neben der Gesamt
 \\
 Durch den Zusammenhang $\pi = \Phi'$ und eine direkte Umformung gilt:
 \begin{align}
-	q &= \frac{\overline{\Phi}\,\pi - \Phi\,\overline{\pi}}{2i} \nonumber\\
-	&= \frac{(\Phi_R - i\,\Phi_I)(\pi_R + i\,\pi_I) - (\Phi_R + i\,\Phi_I)(\pi_R - i\,\pi_I)}{2i} \nonumber\\
-	&= \Phi_R\,\pi_I - \Phi_I\,\pi_R. \label{eq:KG-Ladung-reell}
+	q &= \frac{\Phi\,\overline{\pi} - \overline{\Phi}\,\pi}{2i} \nonumber\\
+	&= \frac{(\Phi_R + i\,\Phi_I)(\pi_R - i\,\pi_I) - (\Phi_R - i\,\Phi_I)(\pi_R + i\,\pi_I)}{2i} \nonumber\\
+	&= \Phi_I\,\pi_R - \Phi_R\,\pi_I. \label{eq:KG-Ladung-reell}
 \end{align}
 \noindent
 Damit lässt sich $q$ als Funktion der reellen Größen $\Phi_R$, $\Phi_I$, $\pi_R$ und $\pi_I$ darstellen.\\
@@ -3037,8 +3038,8 @@ Wir können nun den Ladungsfeldoperator basierend auf der klassischen Theorie an
 	\\
 	Dann heißt
 	\begin{align}\label{eq:KG-Ladungsfeldoperator}
-		\hat{q}(x) &= \hat{\Phi}_R(x)\,\hat{\pi}_I(x) - \hat{\Phi}_I(x)\,\hat{\pi}_R(x)\\
-		&= i\left( \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} - \hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)} \right)\nonumber
+		\hat{q}(x) &= \hat{\Phi}_I(x)\,\hat{\pi}_R(x) - \hat{\Phi}_R(x)\,\hat{\pi}_I(x)\\
+		&= i\left(\hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)}  - \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} \right)\nonumber
 	\end{align}
 	der \textbf{Ladungsfeldoperator} am Knoten $x\in V$.\\
 	\\
@@ -3050,37 +3051,41 @@ Wir können nun den Ladungsfeldoperator basierend auf der klassischen Theorie an
 \noindent
 Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit\"atsgleichung zu belegen. Sp\"ater werden wir mit Hilfe eines Symmetrie Arguments eine fundierte Herleitung der Form des Ladungsfeldoperators erhalten.
 \begin{theorem}\label{thm:KG-QM-Kontinuitaet}
-	Sei $G$ ein \textbf{planares Netz} und $\psi\in\mathfrak{D}_{\mathrm{KG}}\subset\mathfrak{H}_{\mathrm{KG}}(G)$. 
-	Dann gilt für jeden Knoten $x\in V$ und den Ladungsfeldoperator $\hat{q}(x)$ 
-	die Kontinuitätsgleichung:
+	Sei $G$ ein \textbf{planares Netz}, $\hat{H}_{\mathrm{KG}}$ der Hamiltonoperator aus Definition~\ref{def:KG-Feldoperatoren} und $\psi:\mathbb{R}\to\mathfrak{D}_{\mathrm{KG}}\subset\mathfrak{H}_{\mathrm{KG}}(G)$ eine Lösung der Schrödinger-Gleichung~\eqref{eq:KG-Schroedinger}.
+	\\
+	\\
+	Dann gilt für jeden Knoten $x\in V$ und den Ladungsfeldoperator $\hat{q}(x)$ aus~\eqref{eq:KG-Ladungsfeldoperator} die \textbf{Kontinuitätsgleichung}:
 	\begin{equation}\label{eq:KG-QM-Kontinuitaet}
-		\langle \psi(t), \hat{q}(x) \psi(t) \rangle_{\mathfrak{H}}^\prime
-		= -\,\mathrm{div}\Bigl( \langle \psi(t), \hat{j} \psi(t) \rangle_{\mathfrak{H}} \Bigr)(x),
+		\langle \psi(t), \hat{q}(x) \psi(t) \rangle_{\mathfrak{H}}^\prime = -\mathrm{div}\Bigl( \langle \psi(t), \hat{j} \psi(t) \rangle_{\mathfrak{H}} \Bigr)(x),
 	\end{equation}
-	wobei der Stromoperator durch
+	wobei der \textbf{Stromoperator} durch
 	\begin{equation}\label{eq:KG-Stromoperator}
-		\hat{j}(e) = \Im\left( \frac{1}{r(e)^2} \overline{\hat{\Phi}(p(e))} \hat{\Phi}(q(e)) e^{i\frac{a(e)}{r(e)}} \right)
-\end{equation}
-definiert ist.
+		\hat{j}(e) = -\Im\left( \frac{1}{r(e)^2} \overline{\hat{\Phi}(p(e))} \hat{\Phi}(q(e)) e^{i\frac{a(e)}{r(e)}} \right)
+	\end{equation}
+	definiert ist.
 \end{theorem}
 \begin{proof}
-	Wir starten auf der linken Seite von \eqref{eq:KG-QM-Kontinuitaet} und gehen vom Ehrenfest Theorem der Klein-Gordon Schrödingergleichung aus.
-	\begin{equation}
-		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H}
+	Wir betrachten die linke Seite von Gleichung~\eqref{eq:KG-QM-Kontinuitaet} und nutzen das Ehrenfest-Theorem der Klein-Gordon-Schrödingergleichung. Für $\psi\in\mathfrak{D}_{\mathrm{KG}}$ gilt:
+	\begin{equation}\label{eq:ehrenfest-q}
+		\langle \psi, \hat{q}(x)\psi\rangle_{\mathfrak{H}}^\prime = i\langle \psi, [\hat{H}_{\mathrm{KG}}, \hat{q}(x)]\psi\rangle_{\mathfrak{H}}.
 	\end{equation}
-	Wie im Fall der Maxwell Theorie sei hier kurz eine Skizze des Beweises.\footnote{Der volle Beweis ist etwas technischer und kann in "On the Ehrenfest Theorem of quantum mechanics, Gero Friesecke und Mario Koppen, 2009" gefunden werden.}\\
-	Sei $x$ ein Knoten des Graphen und $\psi$ eine L\"osung der Schr\"odingergleichung~\ref{eq:KG-Schroedinger}.
+	
+	\noindent
+	\textit{Skizze des Ehrenfest-Beweises}\footnote{Der vollständige Beweis ist technischer und findet sich in \textit{``On the Ehrenfest Theorem of quantum mechanics''}, Gero Friesecke und Mario Koppen, 2009.}. Sei $\psi:\mathbb{R}\to\mathfrak{D}_{\mathrm{KG}}$ eine Lösung der Schrödinger-Gleichung~\eqref{eq:KG-Schroedinger}. Dann gilt:
 	\begin{align*}
-		\langle \psi, \hat{q}(x)\psi\rangle_\mathfrak{H}^\prime &= \langle \psi^\prime, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, \hat{q}(x)\psi^\prime\rangle_\mathfrak{H}\\
-		&= \langle -i\hat{H}\psi, \hat{q}(x)\psi\rangle_\mathfrak{H} + \langle \psi, -i\hat{q}(x)\hat{H}\psi\rangle_\mathfrak{H}\\
-		&= i(\langle \psi, \hat{H}\hat{q}(x)\psi\rangle_\mathfrak{H} - \langle \psi, \hat{q}(x)\hat{H}\psi\rangle_\mathfrak{H})\\
-		&=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} 
+		\langle \psi, \hat{q}(x)\psi\rangle_{\mathfrak{H}}^\prime &= \langle \psi^\prime, \hat{q}(x)\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{q}(x)\psi^\prime\rangle_{\mathfrak{H}} \\
+		&= \langle -i\hat{H}_{\mathrm{KG}}\psi, \hat{q}(x)\psi\rangle_{\mathfrak{H}} + \langle \psi, -i\hat{q}(x)\hat{H}_{\mathrm{KG}}\psi\rangle_{\mathfrak{H}} \\
+		&= i\bigl(\langle \psi, \hat{H}_{\mathrm{KG}}\hat{q}(x)\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{q}(x)\hat{H}_{\mathrm{KG}}\psi\rangle_{\mathfrak{H}}\bigr) \\
+		&= i\langle \psi, [\hat{H}_{\mathrm{KG}}, \hat{q}(x)]\psi\rangle_{\mathfrak{H}}.
 	\end{align*}
-	Als n\"achstes betrachten wir den Kommutator $[\hat{H},\hat{q}(x)]$:
+	
+	\noindent
+	Nun analysieren wir den Kommutator mit dem Hamiltonoperator~\eqref{eq:KG-Hamilton}:
 	\begin{align*}
-		[\hat{H},\hat{q}(x)]&=\frac{1}{2}(\sum_{y\in V}([\hat{\pi}_{\Phi_R}(y)^2,\hat{q}(x)] + [\hat{\pi}_{\Phi_I}^2(y),\hat{q}(x)]) + [\langle \hat{\Phi}, \Delta^{a}_r\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)]\\&+ m^2[\langle \hat{\Phi},\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)])
+		[\hat{H}_{\mathrm{KG}}, \hat{q}(x)] &= \frac{1}{2}\sum_{y\in V}\Bigl([\hat{\pi}_{\Phi_R}(y)^2 + \hat{\pi}_{\Phi_I}(y)^2, \hat{q}(x)]\Bigr) \\
+		&\quad + \bigl[\bigl\langle \hat{\Phi}, (\Delta_r^{a} + m^2)\hat{\Phi}\bigr\rangle_{\mathfrak{E},\mathbb{C}}, \hat{q}(x)\bigr].
 	\end{align*}
-	Wegen der Form von $\hat{q}$ verschwindet der Kommutator mit den Ausdr\"ucken $\hat{\pi}_{\Phi_R}(y)^2 + \hat{\pi}_{\Phi_I}(y)^2$, $\hat{\Phi}_R(y)^2 + \hat{\Phi}_I(y)^2$. Dies l\"asst sich an einem Beispiel illustrieren:
+	Jeder Kommutator von $\hat{q}$ mit den Ausdr\"ucken der Form $\hat{\pi}_{\Phi_R}(y)^2 + \hat{\pi}_{\Phi_I}(y)^2$, $\hat{\Phi}_R(y)^2 + \hat{\Phi}_I(y)^2$ verschwindet:
 	\begin{align*}
 		[\hat{\pi}_{\Phi_R}(y)^2, \hat{q}(x)] &= [\hat{\pi}_{\Phi_R}(y)^2, \hat{\Phi}_R\hat{\pi}_{\Phi_I}]-[\hat{\pi}_{\Phi_R}(y)^2,\hat{\Phi}_I\hat{\pi}_{\Phi_R}]\\
 		&= -2i\hat{\pi}_{\Phi_R}(y)\hat{\pi}_{\Phi_I}(x)\delta_{x,y}
@@ -3089,15 +3094,17 @@ definiert ist.
 	[\hat{\pi}_{\Phi_I}(y)^2, \hat{q}(x)] &= [\hat{\pi}_{\Phi_I}(y)^2, \hat{\Phi}_R\hat{\pi}_{\Phi_I}]-[\hat{\pi}_{\Phi_I}(y)^2,\hat{\Phi}_I\hat{\pi}_{\Phi_R}]\\
 	&= 2i\hat{\pi}_{\Phi_R}(x)\hat{\pi}_{\Phi_I}(y)\delta_{x,y}
 \end{align*}
-	Es verbleibt also den dritten Kommutator zu analysieren.
+\noindent
+	Es folgt, dass der Kommutator mit dem kinetischen Anteil verschwindet: 
+\begin{align*}[\hat{T}, \hat{q}(x)] = 0\end{align*}
+    und der \textit{Kommutator mit Potential ($m^2$-Term)} verschwindet analog: \begin{align*}[\langle\hat{\Phi},\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}}, \hat{q}(x)] = 0\end{align*}
+	Es verbleibt also den Kommutator mit dem \textit{Eich-Laplace-Operator} zu analysieren.
 	\begin{align*}
 		[\langle \hat{\Phi}, \Delta^{a}_r\hat{\Phi}\rangle_{\mathfrak{E},\mathbb{C}},\hat{q}(x)]&=
 		[\langle \frac{1}{r}\text{grad}^{\frac{a}{r}}\hat{\Phi}, \frac{1}{r}\text{grad}^{\frac{a}{r}}\hat{\Phi}\rangle_{\mathfrak{K},\mathbb{C}},\hat{q}(x)]\\&=
 		[\langle \frac{1}{r^2} \hat{\Phi}(p), \hat{\Phi}(p)\rangle_{\mathfrak{K},\mathbb{C}} \\&- 2\Re(\langle \frac{1}{r^2}\hat{\Phi}(q)e^{i\frac{a}{r}},\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) \\&+ \langle \frac{1}{r^2} \hat{\Phi}(q), \hat{\Phi}(q) \rangle_{\mathfrak{K},\mathbb{C}},\hat{q}(x)]
 	\end{align*}
-	Zu jedem Glied im ersten Term gibt es ein korrespondierendes Glied im dritten Term, und umgekehrt, sodass wir mit dem selben Argument wie gerade bevor zeigen k\"onnen, dass der Kommutator der Summe aus erstem und dritten Term identisch Null ist.\\
-	\\
-	Es verbleibt also den zweiten Kommutator zu betrachten.
+Die $|\hat{\Phi}(p(e))|^2$- und $|\hat{\Phi}(q(e))|^2$-Terme kommutieren mit $\hat{q}(x)$. Es bleibt:
 	\begin{align*}
 		[\Re(\langle \frac{1}{r^2}\hat{\Phi}(q)e^{i\frac{a}{r}},&\hat{\Phi}(p) \rangle_{\mathfrak{K},\mathbb{C}}) ,\hat{q}(x)]\\&=
 		\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&+
@@ -3119,128 +3126,168 @@ definiert ist.
 		[\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)), \hat{q}(x)]\\
 		&=\hat{\Phi}_R(q(e))([\hat{\Phi}_R(x), \hat{q}(x)]\cos(a(e)) + [\hat{\Phi}_I(x), \hat{q}(x)]\sin(a(e)))\\
 		&+\hat{\Phi}_I(q(e))([\hat{\Phi}_I(x), \hat{q}(x)]\cos(a(e)) - [\hat{\Phi}_R(x), \hat{q}(x)]\sin(a(e)))\\
-		&=\hat{\Phi}_R(q(e))(-i\hat{\Phi}_I(x)\cos(a(e)) + i\hat{\Phi}_R(x)\sin(a(e)))\\
-		&+\hat{\Phi}_I(q(e))(i\hat{\Phi}_R(x)\cos(a(e)) + i\hat{\Phi}_I(x)\sin(a(e)))\\
-		&=-i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
+		&=\hat{\Phi}_R(q(e))(i\hat{\Phi}_I(x)\cos(a(e)) - i\hat{\Phi}_R(x)\sin(a(e)))\\
+		&+\hat{\Phi}_I(q(e))(-i\hat{\Phi}_R(x)\cos(a(e)) - i\hat{\Phi}_I(x)\sin(a(e)))\\
+		&=i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
 	\end{align*}
 	als n\"achstes kommen wir zur rechten Summe $q(e)=x$:
 		\begin{align*}
-		[\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))), \hat{q}(p(e))]\\
+		[\Re(\frac{1}{r(e)^2}&\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))), \hat{q}(x)]\\
 		&=[\hat{\Phi}_R(x), \hat{q}(x)](\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
 		&+[\hat{\Phi}_I(x), \hat{q}(x)](\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
-		&=-i\hat{\Phi}_I(x)(\hat{\Phi}_R(p(e))\cos(a(e)) + \hat{\Phi}_I(p(e))\sin(a(e)))\\
-		&+i\hat{\Phi}_R(x)(\hat{\Phi}_I(p(e))\cos(a(e)) - \hat{\Phi}_R(p(e))\sin(a(e)))\\
-		&=i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))
+		&=+i\hat{\Phi}_I(x)(\hat{\Phi}_R(p(e))\cos(a(e)) - \hat{\Phi}_I(p(e))\sin(a(e)))\\
+		&-i\hat{\Phi}_R(x)(\hat{\Phi}_I(p(e))\cos(a(e)) + \hat{\Phi}_R(p(e))\sin(a(e)))\\
+		&=-i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))
 	\end{align*}
 	Wir fassen zusammen:
 	\begin{align*}
-		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime &=i\langle \psi, [\hat{H},\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&=i\langle \psi, [-\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&-
-		\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))) ,\hat{q}(x)]	,\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&
-		=i\langle \psi, \sum_{e\in E, p(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))\\&-
-		\sum_{e\in E, q(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))	\psi\rangle_\mathfrak{H} \\&
-		=\langle \psi, \sum_{e\in E, q(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))
-		\\&-\sum_{e\in E, p(e)=x} \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x))\psi\rangle_\mathfrak{H}\\
-		&=-\text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H}) 
+		\langle \psi, \hat{q}\psi\rangle_\mathfrak{H}^\prime &=i\langle \psi, [\hat{H}_{\mathrm{KG}},\hat{q}(x)]\psi\rangle_\mathfrak{H} \\&=-i\langle \psi, (\sum_{e\in E, p(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)) ,\hat{q}(x)]\\&+
+		\sum_{e\in E, q(e)=x}[\Re(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))) ,\hat{q}(x)])\psi\rangle_\mathfrak{H} \\&
+		=-i\langle \psi, (\sum_{e\in E, p(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(x)))\\&-
+		\sum_{e\in E, q(e)=x}(i \Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(x)e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))))\psi\rangle_\mathfrak{H} \\&
+		=\langle \psi, (\sum_{e\in E, p(e)=x}(\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e))))\\&-
+		\sum_{e\in E, q(e)=x}(\Im(\frac{1}{r(e)^2}\hat{\overline{\Phi}}(q(e))e^{-i\frac{a}{r}(e)}\hat{\Phi}(p(e)))))\psi\rangle_\mathfrak{H} \\
+		&=\text{div}(\langle \psi, \Im(\frac{1}{r(e)^2} \hat{\overline{\Phi}}(p(e))\hat{\Phi}(q(e))e^{i\frac{a}{r}(e)}) \psi\rangle_\mathfrak{H}) 
 	\end{align*}
 \end{proof}
 \noindent
-Im nächsten Schritt wollen wir, wie in der Maxwell Theorie, Erzeugungs und Vernichtungsoperatoren als Leiteroperatoren eines mehrdimensionalen harmonische Oszillators definieren. Wir starten mit den Modenoperatoren\eqref{eq:KG-hj-Wirtinger}.
-	\begin{equation}
-	\hat{h}_j =  
-	-2\frac{\partial^2}{\partial \Phi_j \partial \overline{\Phi}_j} 
-	+ \frac{1}{2}(m^2 + \omega_j^2) \Phi_j\overline{\Phi_j}	
-\end{equation} 
 \noindent
-Es handelt sich hierbei um einen eindimensionalen komplexen harmonischen Oszillator beziehungsweise um einen zweidimensionalen reelen harmonischen Oszillator.
- \begin{equation}
- 	\hat{h}_j= \frac{1}{2}(-\frac{\partial^2}{\partial \Phi_{Rj}^2}-\frac{\partial^2}{\partial \Phi_{Ij}^2} + (m^2 + \omega_j^2) (\Phi_{Rj}^2 + \Phi_{Ij}^2)
- \end{equation}
-Wir können analog zu Definition~\ref{def:Vernichtung}je einen Vernichtungsoperator f\"ur den Realteil $\Phi_R$ und den Imagin\"arteil $\Phi_I$ der Summanden $h_\omega$  definieren, wobei $\Phi = \Phi_R +i\Phi_I$.
-\begin{align*}
-	\hat{r}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}(\Phi_{Rj} -\frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Rj}})\\
-	\hat{s}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}(\Phi_{Ij} -\frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Ij}})
-\end{align*}
+Im nächsten Schritt definieren wir, analog zur Maxwell-Theorie, Erzeugungs- und Vernichtungsoperatoren als Leiteroperatoren eines mehrdimensionalen harmonischen Oszillators. Ausgangspunkt sind die Modenoperatoren~\eqref{eq:KG-hj-Wirtinger}:
+\begin{equation}\label{eq:KG-hj-wirtinger}
+	\hat{h}_j = -2\frac{\partial^2}{\partial\Phi_j\partial\overline{\Phi}_j} + \frac{1}{2}(m^2 + \omega_j^2)\Phi_j\overline{\Phi}_j.
+\end{equation}
+
 \noindent
-Der deutliche Unterschied zum elektromagnetischen Feld ist, dass wir hier für jede Mode $\omega$ zwei unterschiedliche Vernichter und Erzeuger haben. Nach Hilfssatz~\ref{thm:Teilcheanzahl} lässt sich $\hat{h}_j$ schreiben als
-\begin{equation*}
-	\hat{h}_j = \sqrt{m^2 + \omega_j^2}(\hat{r}_j^\dagger\hat{r}_j + \hat{s}_j^\dagger\hat{s}_j + 1)\label{eq:rf-h}
-\end{equation*}
-Das quantisierte Klein-Gordon Feld l\"asst sich also durch zwei Arten von Teilchen darstellen. Eine die von $\hat{r}$ vernichtet wird und eine die durch $\hat{s}$ vernichtet wird. Dies sind fast die bekannten Teilchen und Antiteilchen. Es ergeben sich folgende Vertauschungen.
+Dies entspricht einem eindimensionalen komplexen bzw. zweidimensionalen reellen harmonischen Oszillator:
+\begin{equation}\label{eq:KG-hj-reell}
+	\hat{h}_j = \frac{1}{2}\left(-\frac{\partial^2}{\partial\Phi_{Rj}^2} - \frac{\partial^2}{\partial\Phi_{Ij}^2} + (m^2 + \omega_j^2)(\Phi_{Rj}^2 + \Phi_{Ij}^2)\right).
+\end{equation}
+
+\noindent
+Analog zu Definition~\ref{def:Vernichtung} führen wir separate Vernichtungsoperatoren für Real- und Imaginärteil ein, wobei $\Phi = \Phi_R + i\Phi_I$:
 \begin{align}
-	[\hat{r}_i, \hat{s}_j^\dagger] &= 0\label{eq:rf-comm}\\
-	[\hat{r}_i, \hat{s}_j] &= 0\nonumber\\
-	[\hat{r}_i, \hat{r}_j^\dagger] &= \delta_{i,j}1\nonumber\\
-	[\hat{s}_i, \hat{s}_j^\dagger] &= \delta_{i,j}1\nonumber
+	\hat{r}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}\left(\Phi_{Rj} - \frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Rj}}\right), \label{eq:KG-rj} \\
+	\hat{s}_j &= \sqrt{\frac{\sqrt{m^2 + \omega_j^2}}{2}}\left(\Phi_{Ij} - \frac{1}{\sqrt{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{Ij}}\right). \label{eq:KG-sj}
 \end{align}
-Es gibt jedoch mehrere Möglichkeiten diese Erzeuger und Vernichter Paare zu definieren, sodass sie sowohl \ref{eq:rf-comm} als auch \ref{eq:rf-h} erfüllen.
-\begin{remark}
-	Sei \(a,b,c,d\in\mathbb{C}\), dann erfüllen \(\hat{u} = a\hat{r} + b\hat{s}\) und \(\hat{v} = c\hat{r} + c\hat{s}\) genau dann \ref{eq:rf-comm} und \ref{eq:rf-h}
-	falls
+
+\noindent
+Der wesentliche Unterschied zur Maxwell-Theorie besteht darin, dass jede Mode $\omega_j$ zwei unabhängige Oszillatoren besitzt. Nach Analogie zu Hilfssatz~\ref{thm:Teilcheanzahl} zerlegt sich der Modenoperator als:
+\begin{equation}\label{eq:KG-hj-teilchen}
+	\hat{h}_j = \sqrt{m^2 + \omega_j^2}\bigl(\hat{r}_j^\dagger\hat{r}_j + \hat{s}_j^\dagger\hat{s}_j + 1\bigr).
+\end{equation}
+
+\noindent
+Das quantisierte Klein-Gordon-Feld beschreibt somit zwei Teilchensorten pro Mode: Eine die von $\hat{r}$ vernichtet wird und eine die durch $\hat{s}$ vernichtet wird. Die Vertauschungsrelationen lauten:
+\begin{align}
+	[\hat{r}_i, \hat{s}_j^\dagger] &= 0, \label{eq:KG-rs-comm1} \\
+	[\hat{r}_i, \hat{s}_j] &= 0, \label{eq:KG-rs-comm2} \\
+	[\hat{r}_i, \hat{r}_j^\dagger] &= \delta_{i,j}, \label{eq:KG-r-comm} \\
+	[\hat{s}_i, \hat{s}_j^\dagger] &= \delta_{i,j}. \label{eq:KG-s-comm}
+\end{align}
+
+\noindent
+Es existieren verschiedene Wahlmöglichkeiten für diese Erzeugungs- bzw. Vernichtungsoperatoren, die sowohl~\eqref{eq:KG-hj-teilchen} als auch die Vertauschungsrelationen~\eqref{eq:KG-rs-comm1}--\eqref{eq:KG-s-comm} erfüllen.
+\begin{remark}\label{rem:KG-unitary-modes}
+	Sei $G$ ein planares Netz. Die Erzeugungs-/Vernichtungsoperatoren $\hat{u} = a\hat{r}_j + b\hat{s}_j$ und $\hat{v} = c\hat{r}_j + d\hat{s}_j$ erfüllen die Vertauschungsrelationen~\eqref{eq:KG-rs-comm1}--\eqref{eq:KG-s-comm} sowie die Zerlegung~\eqref{eq:KG-hj-teilchen} genau dann, wenn die Koeffizientenmatrix
 	\[
 	\begin{pmatrix}
 		a & b \\
 		c & d
 	\end{pmatrix}
-	\] eine unitäre Matrix ist.
+	\]
+	unitär ist, d.h.
+	\[
+	\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix}^\dagger
+	\begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix}
+	=
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{pmatrix}.
+	\]
 \end{remark}
 \noindent
-Wir werden als Vernichter und Erzeuger eine Darstellung wählen, die es auch erlaubt den Ladungsoperator über die Teilchenanzahl zu interpretieren.
+\noindent
+Wir wählen eine Darstellung, die eine Interpretation des Ladungsoperators über Teilchenzahlen ermöglicht:
 \begin{align}
-	\hat{A}_j &= \frac{1}{\sqrt{2}}(\hat{r}_j + i\hat{s}_j) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_{j}}\\
-	\hat{B}_j &= \frac{1}{\sqrt{2}}(\hat{r}_j - i\hat{s}_j) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_{j}}
+	\hat{A}_j &= \frac{1}{\sqrt{2}}\bigl(\hat{r}_j - i\hat{s}_j\bigr) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_j - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\Phi_j}, \label{eq:KG-Aj} \\
+	\hat{B}_j &= \frac{1}{\sqrt{2}}\bigl(\hat{r}_j + i\hat{s}_j\bigr) = \frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_j - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_j}. \label{eq:KG-Bj}
 \end{align}
-Die Adjungierten $\hat{A}_j^\dagger$, $\hat{B}_j^\dagger$ sind die Erzeugungsoperatoren. Analog zum eindimensionalen Fall definieren wir die \textbf{Teilchenzahloperatoren des Klein-Gordon-Feldes}.
-\begin{align*}
-	\hat{N}_{j +} &= \hat{A}_j^\dagger \hat{A}_j\\
-	\hat{N}_{_j -} &= \hat{B}_j^\dagger \hat{B}_j
-\end{align*}
-Der Operator $\hat{A}_j^\dagger$ erh\"oht die Teilchenzahl $\hat{N}_{j +}$ um Eins, während der Operator $\hat{A}_j$ dieselbe um Eins verringert. Dasselbe gilt f\"ur $\hat{B}_j$, $\hat{N}_{j -}$ und $\hat{B}_j^\dagger$.\\
+
+\noindent
+Die Adjungierten $\hat{A}_j^\dagger$, $\hat{B}_j^\dagger$ sind die zugehörigen Erzeugungsoperatoren. Analog zum eindimensionalen Fall (Hilfssatz~\ref{thm:Teilcheanzahl}) definieren wir die \textbf{Teilchenzahloperatoren des Klein-Gordon-Feldes}:
+\begin{align}
+	\hat{N}_{j+} &= \hat{A}_j^\dagger\hat{A}_j, \label{eq:KG-Nplus} \\
+	\hat{N}_{j-} &= \hat{B}_j^\dagger\hat{B}_j. \label{eq:KG-Nminus}
+\end{align}
+
+\noindent
+$\hat{A}_j^\dagger$ erhöht die Teilchenzahl $\hat{N}_{j+}$ um eins, während $\hat{A}_j$ sie um eins verringert. Analog verhält sich $\hat{B}_j$ bezüglich $\hat{N}_{j-}$.
 \\
-Wir nennen $\hat{N}_{j +}$ den Teilchenzahloperator und $\hat{N}_{j -}$ den Antiteilchenzahloperator.\\
 \\
-Der Grundzustand $\psi_{0j}=c\textrm{ }e^{-\sqrt{m^2 + \omega_j^2} |\Phi_j|^2 / 2}$ wird sowohl von $\hat{A}_j$ als auch von $\hat{B}_j$ vernichtet. 
-\begin{equation*}
-	\hat{A}_j\psi_{0j} = \hat{B}_j\psi_{0j} = 0
-\end{equation*}
-Dar\"uberhinaus kann gezeigt werden, dass Teilchen die durch $\hat{A}_j$ vernichtet werden eine positive Ladung tragen und Teilchen die druch $\hat{B}_j$ vernichtet werden eine negative Ladung tragen.
-\begin{proposition}
-	Sei $G$ ein planares Netz und $\hat{N}_{\omega\pm}$ wie oben, dann k\"onnen wir den Gesamtladungsoperator folgenderma\ss{}en schreiben
-	\begin{equation*}
-		\hat{Q} = \sum_{j=1}^{|V|}(\hat{N}_{j +} -\hat{N}_{j -
-		})
-	\end{equation*}
-	Insbesondere ist das Spektrum $\sigma(\hat{Q})=\mathbb{Z}$
+Wir bezeichnen $\hat{N}_{j+}$ als \textbf{Teilchenzahloperator} (positive Ladung) und $\hat{N}_{j-}$ als \textbf{Antiteilchenzahloperator} (negative Ladung).
+\\
+\\
+Der Grundzustand dieser Moden
+\[
+\psi_{0j} = c\,e^{-\sqrt{m^2 + \omega_j^2}\,|\Phi_j|^2/2}
+\]
+wird sowohl von $\hat{A}_j$ als auch von $\hat{B}_j$ vernichtet:
+\begin{equation}\label{eq:KG-vakuum}
+	\hat{A}_j\psi_{0j} = \hat{B}_j\psi_{0j} = 0.
+\end{equation}
+\noindent
+\begin{proposition}\label{prop:KG-Ladungsoperator}
+	Sei $G$ ein planares Netz. Dann lässt sich der Gesamtladungsoperator~\eqref{eq:KG-Gesamtladung} als Differenz der Teilchen- und Antiteilchenzahloperatoren schreiben:
+	\begin{equation}\label{eq:KG-Q-Teilchenzahlen}
+		\hat{Q} = \sum_{j=1}^{|V|}\bigl(\hat{N}_{j+} - \hat{N}_{j-}\bigr),
+	\end{equation}
+	wobei $\hat{N}_{j\pm}$ die Operatoren aus~\eqref{eq:KG-Nplus}--\eqref{eq:KG-Nminus} sind.
+	\\
+	\\
+	Insbesondere ist das Spektrum des Gesamtladungsoperators
+	\[
+	\sigma(\hat{Q}) = \mathbb{Z}.
+	\]
 \end{proposition}
 \begin{proof}
 Starten wir mit Definition~\ref{def:KG-Ladungsoperator} des Gesamtladungsoperators und formen um:
 	\begin{align*}
-		\hat{Q} = \sum_{x\in V} \hat{q}(x)&=i\sum_{x\in V} \left( \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} - \hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)} \right)\\
-		&=\sum_{x\in V} \left(\frac{\partial}{\partial\Phi_{x}}\Phi_x-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}} -1\right)\\
-		&=\sum_{x\in V} \left(\Phi_x\frac{\partial}{\partial\Phi_{x}}-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}} \right)
+		\hat{Q} = \sum_{x\in V} \hat{q}(x)&=i\sum_{x\in V} \left(\hat{\Phi}_R(x)\frac{\partial}{\partial \Phi_I(x)} - \hat{\Phi}_I(x)\frac{\partial}{\partial \Phi_R(x)} \right)\\
+		&=\sum_{x\in V} \left(\overline{\Phi}(x)\frac{\partial}{\partial\overline{\Phi(x)}} - \frac{\partial}{\partial\Phi(x)}\Phi(x) +1\right)\\
+		&=\sum_{x\in V} \left(\overline{\Phi}(x)\frac{\partial}{\partial\overline{\Phi(x)}} - \Phi(x)\frac{\partial}{\partial\Phi(x)} \right)
 \end{align*}
 Hierbei haben wir die Kommutatoren: \([\hat{\Phi}_I(x),\frac{\partial}{\partial \Phi_I(x)}], [\hat{\Phi}_R(x),\frac{\partial}{\partial \Phi_R(x)}]\) und\([\hat{\Phi}(x),\frac{\partial}{\partial \Phi(x)}]\) verwendet.\\
 \\
 Sei $\psi\in \mathfrak{D}_{\mathrm{KG}}$ und betrachten wir das Verhalten des Gesamtladungsoperators unter der unitären Abbildung \(\hat{U}\) aus Theorem~\ref{thm:KG-Hamilton-Spektral}.
 \begin{align*}
-	\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V}\left( \Phi_x\frac{\partial}{\partial\Phi_{x}}\psi(U(\Phi))-\overline{\Phi}_x\frac{\partial}{\partial\overline{\Phi_{x}}}\psi(U(\Phi))\right)\\
-	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\Phi_x U_{j,x}(\frac{\partial}{\partial\Phi_{j}}\psi)(U(\Phi))-\sum_{j=1}^{|V|}\overline{\Phi}_x\overline{U_{j,x}}(\frac{\partial}{\partial\overline{\Phi_{j}}}\psi)(U(\Phi))\right)\\
+	\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V}\left(\overline{\Phi}(x)\frac{\partial}{\partial\overline{\Phi(x)}}\psi(U(\Phi)) - \Phi(x)\frac{\partial}{\partial\Phi(x)}\psi(U(\Phi))\right)\\
+	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\overline{\Phi}(x)\overline{U_{j,x}}(\frac{\partial}{\partial\overline{\Phi_{j}}}\psi)(U(\Phi)) - \sum_{j=1}^{|V|}\Phi(x) U_{j,x}(\frac{\partial}{\partial\Phi_{j}}\psi)(U(\Phi))\right)\\
 \end{align*}	
 Dann wenden wir \(\hat{U}^\dagger\) an:
 \begin{align*}
-	\hat{U}^\dagger\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} U_{j,x}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)-\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}\overline{U_{j,x}}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi)\right)\\
-	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} \overline{U^\dagger_{x,j}}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)-\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}U^\dagger_{x,j}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi)\right)\\
-	&=\sum_{k=1}^{|V|}\left(\Phi_k\frac{\partial}{\partial\Phi_{k}}\psi(\Phi)-\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{k}}}\psi(\Phi)\right)
+	\hat{U}^\dagger\hat{Q}\hat{U}\psi(\Phi) &= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}\overline{U_{j,x}}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi)-\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} U_{j,x}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)\right)\\
+	&= \sum_{x\in V} \left(\sum_{j=1}^{|V|}\sum_{k=1}^{|V|}U_{k,x}U^\dagger_{x,j}\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{j}}}\psi(\Phi) - \sum_{j=1}^{|V|}\sum_{k=1}^{|V|}\overline{U_{k,x}} \overline{U^\dagger_{x,j}}\Phi_k\frac{\partial}{\partial\Phi_{j}}\psi(\Phi)\right)\\
+	&=\sum_{k=1}^{|V|}\left(\overline{\Phi}_k\frac{\partial}{\partial\overline{\Phi_{k}}}\psi(\Phi) - \Phi_k\frac{\partial}{\partial\Phi_{k}}\psi(\Phi)\right)
 \end{align*}
 Anschließend verwenden wir die Definition der Vernichter und Erzeuger und verwenden die Abkürzung \(w_j= \sqrt{m^2 + \omega_j^2}\): 
 \begin{align*}
 	\sum_{j=1}^{|V|}(\hat{N}_{j +} -\hat{N}_{j -})=\sum_{j=1}^{|V|}&(\hat{A}_j^\dagger \hat{A}_j - \hat{B}_j^\dagger \hat{B}_j)\\
-	=\sum_{j=1}^{|V|}&((\frac{w_j}{4}\Phi_j\overline{\Phi}_j +\frac{1}{2}\Phi_j\frac{\partial}{\partial\Phi_j}-\frac{1}{2}\frac{\partial}{\partial\overline{\Phi}_j}\overline{\Phi}_j-\frac{1}{w_j}\frac{\partial^2}{\partial\Phi_j\partial\overline{\Phi}_j})\\&-(\frac{w_j}{4}\overline{\Phi}_j\Phi_j +\frac{1}{2}\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j}-\frac{1}{2}\frac{\partial}{\partial\Phi_j}\Phi_j-\frac{1}{w_j}\frac{\partial^2}{\partial\overline{\Phi}_j\partial\Phi_j}))\\
-	=\sum_{j=1}^{|V|}&(\Phi_j\frac{\partial}{\partial\Phi_j}-\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j})
+	=\sum_{j=1}^{|V|}&((\frac{w_j}{4}\overline{\Phi}_j\Phi_j +\frac{1}{2}\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j}-\frac{1}{2}\frac{\partial}{\partial\Phi_j}\Phi_j-\frac{1}{w_j}\frac{\partial^2}{\partial\overline{\Phi}_j\partial\Phi_j})\\&-(\frac{w_j}{4}\Phi_j\overline{\Phi}_j +\frac{1}{2}\Phi_j\frac{\partial}{\partial\Phi_j}-\frac{1}{2}\frac{\partial}{\partial\overline{\Phi}_j}\overline{\Phi}_j-\frac{1}{w_j}\frac{\partial^2}{\partial\Phi_j\partial\overline{\Phi}_j}))\\
+	=\sum_{j=1}^{|V|}&(\overline{\Phi}_j\frac{\partial}{\partial\overline{\Phi}_j} - \Phi_j\frac{\partial}{\partial\Phi_j})
 \end{align*}
-Am Ende haben wir den Kommutator \([\hat{\Phi}_j,\frac{\partial}{\partial \Phi_j}]\) verwendet um das Resultat zu erhalten.
+Am Ende haben wir den Kommutator \([\hat{\Phi}_j,\frac{\partial}{\partial \Phi_j}]\) verwendet um das Resultat zu erhalten.\\
+\\
+Aus Satz~\ref{thm:tz-spec} können wir abschließend ableiten, dass das Spektrum genau die Menge der ganzen Zahl ist.
 \end{proof}
 \begin{definition}
-	Sei $G$ ein planarer Graph, $x\in \mathfrak{E}(G)$ und $\psi\in\mathfrak{E}$, dann nennen wir
+	Sei $G$ ein planares Netz, $x\in \mathfrak{E}(G)$ und $\psi\in\mathfrak{D}_\mathrm{KG}$, dann nennen wir
 	\begin{equation}
 		U_C(\psi)(x) =\psi(\overline{x})
 	\end{equation}
@@ -3254,23 +3301,21 @@ Am Ende haben wir den Kommutator \([\hat{\Phi}_j,\frac{\partial}{\partial \Phi_j
 	Sei $G$ ein planares Netz, $r>0$, $a$ Kantenfunktionen, $1\leq j \leq |V| $ und $U_C$ der Ladungskonjugationsoperator, dann transformieren die Operatoren $A_j$, $B_j$ und $N_{j\pm}$ folgenderma\ss{}en
 	\begin{align}
 	U_CA_j U_C &= B_j\\
-	U_CA^\dagger_j U_C &= B^\dagger_j\\
-	U_CB_j U_C &= A_j\\
-	U_CB^\dagger_j U_C &= A^\dagger_j\\
 	U_C N_{j \pm} U_C &= N_{j \mp}
 \end{align}
 \end{proposition}
 \begin{proof}
-	Es genügt zu zeigen, dass \(U_CA_j U_C=B_j\)\\
+	Es genügt zu zeigen, dass \(U_CB_j U_C=A_j\)\\
 	\\
 	Sei \(\psi \in \mathfrak{D}_{\mathrm{KG}}\), dann gilt:
-	\begin{align}
-		U_CA_j U_C\psi(\Phi)&=U_C(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_{j}})\psi(\overline{\Phi})\\
+	\begin{align*}
+		U_CB_j U_C\psi(\Phi)&=U_C(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial\overline{\Phi}_{j}})\psi(\overline{\Phi})\\
 		&=U_C(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\Phi_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial{\Phi}_{j}}\psi)(\overline{\Phi})
 		\\
-		&=(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial{\Phi}_{j}}\psi)(\Phi)=B_j\psi(\Phi)
-	\end{align}
+		&=(\frac{\sqrt[4]{m^2 + \omega_j^2}}{2}\overline{\Phi}_{j} - \frac{1}{\sqrt[4]{m^2 + \omega_j^2}}\frac{\partial}{\partial{\Phi}_{j}}\psi)(\Phi)=A_j\psi(\Phi)
+	\end{align*}
 \end{proof}
+\iffalse
 \chapter{Zweite Quantisierung}
 Im Kapitel \textbf{Die Klein-Gordongleichung} haben wir gesehen, dass wir im Fall $m>0$ die klassische Klein-Gordontheorie als Schr\"odingergleichung auf einem Hilbertraum darstellen k\"onnen.\\
 Wir werden diese Darstellung als die Einteilchenzust\"ande einer quantisierten Klein-Gordontheorie interpretieren.
@@ -3279,69 +3324,89 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  Schlie\ss{}lich werden wir einen Isomorphismus zwischen dem Hilbertraum des kanonisch quantisierten Klein-Gordon Feldes und dem Fockraum konstruieren der eine Identifikation der Anregungen der quantenmechanischen harmonischen Oszillatoren mit Mehrteilchenzust\"anden dieser zweiten Quantisierung zul\"asst.\\
  Die durch den Isomorphismus induzierte Dynamik auf einem $n$-Teilchenzustand wird genau mit der Dynamik, die man f\"ur $n$ freie klassische Klein-Gordonteilchen erwarten w\"urde \"ubereinstimmen.\\
  Kurz gesagt wir werden die Interpretation der Anregungen des Klein-Gordon Feldes als Teilchen voll rechtfertigen.
-\chapter{Skalare Quantenelektrodynamik des planaren Graphen}
-Eine Quantenelektrodynamik beschreibt sowohl die Dynamik der elektromagnetischen Felder als auch die Dynamik der Felder der Quellen, also Ladung und Strom, quantenmechanisch.\\
-\\ 
-Um die Klein-Gordontheorie mit der Maxwelltheorie zu verbinden, addieren wir zu 7.20 die ersten beiden Terme von 6.6 hinzu.
-
-\begin{align*}
-	H(\Phi, \pi_\Phi, a, \pi_a) = \frac{1}{2}(&\langle \pi_\Phi, \pi_\Phi\rangle_{\mathfrak{E},\mathbb{C}}+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &\langle \frac{\pi_a}{\epsilon}, \pi_a\rangle_{\mathfrak{K}} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
-\end{align*}
-Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtransformation (7.7). \\
+ \fi
+ \chapter{Skalare Quantenelektrodynamik auf planaren Netzen}\label{chap:QED}
+ Eine Quantenelektrodynamik beschreibt die quantenmechanische Dynamik sowohl elektromagnetischer Felder als auch der zugehörigen Quellenfelder (Ladung und Strom).
 \\
-An diesem Punkt gehen wir von der klassischen Betrachtung zur quantenmechanischen \"uber indem wir den zuge\"origen Hamiltonoperator anschreiben.
-\begin{definition}
-	Sei $G$ ein planarer Graph, $r>0,\epsilon\in\mathfrak{K}$, $\mathfrak{H}_{qed}$ ein passender Hilbertraum, dann nennen wir den Operator $\hat{H}_{qed}:D(\hat{H}_{qed})\subseteq\mathfrak{H}_{qed}\mapsto\mathfrak{H}_{qed}$ definiert durch
+\\
+ Die Kopplung von Klein-Gordon- und Maxwell-Theorie erfolgt durch Addition der Hamiltonfunktionen aus Gleichung~\eqref{eq:KG-Hamilton} und~\eqref{eq:schroedinger_maxwell}:
+ \begin{align}\label{eq:QED-Hamilton-klassisch}
+ 	\begin{split}
+ 		H(\Phi, \pi_\Phi, a, \pi_a) = \frac{1}{2}\Bigl(&\langle \pi_\Phi, \pi_\Phi \rangle_{\mathfrak{E},\mathbb{C}} + \langle \Phi, (\Delta_r^a + m^2)\Phi \rangle_{\mathfrak{E},\mathbb{C}} \\
+ 		&+ \langle \tfrac{\pi_a}{\epsilon}, \pi_a \rangle_{\mathfrak{K}} + \langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \rangle_{\mathfrak{F}}\Bigr).
+ 	\end{split}
+ \end{align}
+ \noindent
+ Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtransformation aus Gleichung~\eqref{eq:erw_eich}.
+\\
+\\
+ Die Quantisierung erfolgt analog zur Quantisierung der Maxwell-Theorie und der Klein-Gordon-Theorie:
+ \begin{definition}[Hamiltonoperator der skalaren QED]\label{def:QED-Hamilton}
+ 	Sei $G$ ein planares Netz, $r:E\to\mathbb{R}_{>0}$, $\epsilon\in\mathfrak{K}(G)$ Kantenfunktionen. Auf einem geeigneten Teilraum \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) eines geeigneten Hilbertraum $\mathfrak{H}_{\mathrm{QED}}(G)$ ist der \textbf{Hamiltonoperator der skalaren Quantenelektrodynamik}
+ 	\begin{align}\label{eq:QED-Hamilton}
+ 		\begin{split}
+ 			\hat{H}_{\mathrm{QED}} = \frac{1}{2}\Biggl(&-\sum_{x\in V}\left(\frac{\partial^2}{\partial\Phi_R(x)^2} + \frac{\partial^2}{\partial\Phi_I(x)^2}\right) + \bigl\langle \hat{\Phi}, (\Delta_r^{\hat{a}} + m^2)\hat{\Phi} \bigr\rangle_{\mathfrak{E},\mathbb{C}} \\
+ 			&- \frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial\hat{a}(e)^2} + \bigl\langle \mathrm{div}_D(r^{-1}\hat{a}), \mathrm{div}_D(r^{-1}\hat{a})/\mu \bigr\rangle_{\mathfrak{F}}\Biggr)
+ 		\end{split}
+ 	\end{align}
+ 	definiert.
+ \end{definition}
+\noindent
+\noindent
+Der Hilbertraum $\mathfrak{H}_{\mathrm{QED}}$ und Definitionsbereich \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) bleiben zunächst offen. Zur korrekten Definition des Hamiltonoperators $\hat{H}_{\mathrm{QED}}$ konstruieren wir im Folgenden einen geeigneten Hilbertraum. Bis dahin betrachten wir den Definitionsbereich allgemein als eine Teilmenge der Menge der Abbildungen von $\mathbb{C}^V \times \mathbb{R}^E$ nach $\mathbb{C}$.
+\[
+\mathfrak{D}(\hat{H}_{\mathrm{QED})} \subset F(\mathbb{C}^V \times \mathbb{R}^E, \mathbb{C}),
+\]
+wobei wir die komplexen Feldkomponenten $\Phi \in \mathbb{C}^V$ je nach Kontext als kartesisch-reelle Paare $(\Phi_R, \Phi_I)$ oder in Polarkoordinaten $(\rho, \phi)$ schreiben.
+\\
+\\
+Die klassische erweiterte Eichtransformation aus Gleichung~\eqref{eq:erw_eich} bildet eine Lie-Gruppe. In der Quantenmechanik entspricht ihr eine unitäre Darstellung dieser Gruppe im Raum der unitären Operatoren auf $\mathfrak{H}_{\mathrm{QED}}$.
+\begin{definition}\label{def:QED-Eichgruppe}
+	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$, $\xi\in\mathfrak{E}(G)$ und $\psi\in\mathfrak{H}_{\mathrm{QED}}$. 
+	Die Familie unitärer Operatoren $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ definiert durch
 	\begin{align}
-		\begin{split}
-		\hat{H}_{qed} = \frac{1}{2}(&-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}) 
-		\end{split}	
+		\hat{U}_\xi(\psi)(\Phi, a) &= \psi(\Phi\,e^{i\xi}, a + r\,\mathrm{grad}\,\xi), \label{eq:QED-Uxi-kartesisch} \\
+		\hat{U}_\xi(\psi)(\rho, \phi, a) &= \psi(\rho, \phi + \xi, a + r\,\mathrm{grad}\,\xi) \label{eq:QED-Uxi-polar}
 	\end{align}
-	den \textbf{Hamiltonoperator der skalaren Quantenelektrodynamik}.
+	für $\Phi = \rho\,e^{i\phi}$ in Polarkoordinaten,
+	wird \textbf{kanonische Darstellung der erweiterten Eichtransformation} oder kurz \textbf{Eichgruppe} genannt.
 \end{definition}
 \noindent
-Der Hilbertraum $\mathfrak{H}_{qed}$ bleibt zun\"achst offen. Um dem Hamiltonoperator $\hat{H}_{qed}$ \"uberhaupt richtig definieren zu k\"onnen werden wir im Rest dieses Kapitels einen passenden Hilbertraum konstruieren. Bis dahin denken wir uns ganz allgemein $\mathfrak{H}_{qed}\subset F(\mathbb{C}^V\times\mathbb{R}^E,\mathbb{C})$. Wir werden aber die komplexen Komponenten bei Bedarf als zweidimensional karthesisch reel $(\Phi_R,\Phi_I)$ oder in Polarkoordinaten $(\rho,\phi)$ schreiben.\\
-\\
-Die klassische erweiterte Eichtransformation (7.7) bildet eine Gruppe und in der Quantenmechanik ist ihre Entsprechung durch eine Darstellung dieser Gruppe im Raum der unit\"aren Abbildungen auf $\mathfrak{H}_\text{qed}$ gegeben.
-\begin{definition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$, $\xi\in \mathfrak{E}$ und $\psi\in\mathfrak{H}_{qed}$,  dann nennen wir die Familie $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ definiert durch
-	\begin{align}
-		\hat{U}_\xi(\psi)(\Phi, a) =  \psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
-	\end{align}
-    oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
-    \begin{align}
-    	\hat{U}_\xi(\psi)(\rho, \phi, a)=  \psi(\rho, \phi + \xi, a + r \text{grad}\xi)
-    \end{align}
-	die \textbf{kanonische Darstellung der erweiterte Eichtransformation} oder kurz einfach \textbf{Eichgruppe}.
-\end{definition}
-\noindent
-Es verbleibt nach der vollen Definition von $\mathfrak{H}_{qed}$ zu zeigen, dass die Mitglieder $\hat{U}_\xi$ der Eichgruppe tats\"achlich unit\"ar auf $\mathfrak{H}_{qed}$ sind, und wir werden sp\"ater sehen, dass die Eichgruppe stark stetig ist in den Parametern.
-\begin{proposition}
-	Sei $\hat{U}_{\{\xi\in \mathfrak{E}\}}$ wie in obiger Definition und $r>0,\epsilon\in\mathfrak{K}$, dann gilt f\"ur alle $\xi\in \mathfrak{E}$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
-	\begin{equation}
-		[\hat{H}_{qed}, \hat{U}_\xi]\psi=0
+Nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED}}$ bleibt zu zeigen, dass die Operatoren $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ der Eichgruppe tatsächlich unitär auf $\mathfrak{H}_{\mathrm{QED}}$ wirken. Später werden wir zudem zeigen, dass die Eichgruppe in den Parametern $\xi$ stark stetig ist.
+\begin{proposition}\label{prop:QED-Eich-Invarianz}
+	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$, $\epsilon\in\mathfrak{K}(G)$ und $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ wie in Definition~\ref{def:QED-Eichgruppe}. Dann gilt für alle $\xi\in\mathfrak{E}(G)$ und alle $\psi\in C^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$:
+	\begin{equation}\label{eq:QED-HU-comm}
+		[\hat{H}_{\mathrm{QED}}, \hat{U}_\xi]\psi = 0.
 	\end{equation}
-	Die Eichgruppe ist eine Gruppenhomomorphismus von $\mathfrak{E}$ bez\"uglich $+$ in die linearen Abbildungen auf $C^1(\mathfrak{E}_\mathbb{C}\times\mathfrak{K},\mathbb{C})$ bez\"uglich Kompostition
-	und der infinitesimale Erzeuger der Eichgruppe kann identifiziert werden als
-	\begin{equation}
-		\hat{h} =  \text{div}(r*\epsilon*\hat{e})-\hat{q}
+	
+	\noindent
+	Die Abbildung $\xi\mapsto\hat{U}_\xi$ ist ein Gruppenhomomorphismus von $(\mathfrak{E}(G),+)$ in die Gruppe der linearen Operatoren auf $F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$ bezüglich Komposition.
+	
+	\noindent
+	Das infinitesimale Erzeugerfeld der Eichgruppe kann punktweise mit dem  Feldoperator
+	\begin{equation}\label{eq:QED-Eichgenerator}
+		\hat{h}(x) = \bigl(\mathrm{div}(r\epsilon\hat{e})\bigr)(x) - \hat{q}(x),
 	\end{equation}
-	wobei $\hat{q}(x)=\hat{\Phi}_I\hat{\pi}_R-\hat{\Phi}_R\hat{\pi}_I$ angelehnt an Definition 8.4 und $\hat{e}$ der elektrische Feldst\"arkeoperator laut (6.17) ist. 
+	identifiziert werden, wobei $\hat{e}$ der elektrische Feldstärkeoperator aus Gleichung~\eqref{def:ek} und
+	\[
+	\hat{q}(x) = \hat{\Phi}_I(x)\hat{\pi}_{\Phi_R}(x) - \hat{\Phi}_R(x)\hat{\pi}_{\Phi_I}(x)
+	\]
+	der Ladungsfeldoperator aus Definition~\ref{def:KG-Ladungsoperator} ist. 
 \end{proposition}
 \begin{proof}
 Starten wir mit dem Kommutator:\\
 Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}\times\mathfrak{K},\mathbb{C})$, $\Phi\in \mathfrak{E}_\mathbb{C}$, $a\in \mathfrak{K}$ und $\xi\in \mathfrak{E}$
 \begin{align*}
-	\hat{H}_{qed}&\hat{U}_\xi\psi(\Phi, a)= \hat{H}_{qed}\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)=\\&(\frac{1}{2}(-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}))\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
+	\hat{H}_{QED}&\hat{U}_\xi\psi(\Phi, a)= \hat{H}_{QED}\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)=\\&(\frac{1}{2}(-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle \Phi, (\Delta_r^a + m^2)(\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}a), \text{div}_D(r^{-1}a)/\mu\rangle_{\mathfrak{F}}))\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)
 \end{align*}
-Wegen der Invarianz des Laplace Operators unter euklidischen Transformationen, Theorem 2.5 (de Rham Komplex) und dem Resultat
+Wegen der Invarianz des Laplace Operators unter euklidischen Transformationen, Theorem~\ref{thm:derham} (de Rham Komplex) und dem Resultat
 \begin{equation}
 	e^{i\xi}\Delta_r^a(\Phi) = \Delta_r^{a + r\text{grad}\xi}(e^{i\xi}\Phi)
 \end{equation}
-aus dem Beweis von Satz 7.1 k\"onnen wir weiter umformen.
+aus \eqref{eq:eichinv_delta} k\"onnen wir weiter umformen.
 \begin{align*}
 	&(\frac{1}{2}(-\sum_{x\in V}(\frac{\partial^2}{\partial\Phi_R(x)^2} +\frac{\partial^2}{\partial\Phi_I(x)^2})+\langle e^{i\xi}\Phi, (\Delta_r^{a+r\text{grad}\xi} + m^2)(e^{i\xi}\Phi)\rangle_{\mathfrak{E},\mathbb{C}}+\\ &-\frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \langle \text{div}_D(r^{-1}(a+r\text{grad}\xi)), \text{div}_D(r^{-1}(a+r\text{grad}\xi))/\mu\rangle_{\mathfrak{F}}))\\&\psi(\Phi e^{i\xi}, a + r \text{grad}\xi)\\
-	&=\hat{U}_\xi\hat{H}_{qed}\psi(\Phi, a)
+	&=\hat{U}_\xi\hat{H}_{QED}\psi(\Phi, a)
 \end{align*}
 Damit kommen wir zu den restlichen Aussagen:\\
 Nach Defintion ist die Eichgruppe ein wie oben beschriebener Morphismus. Als Konsequenz k\"onnen wir $\hat{U}_\xi$ als Produkt nach den Koordinaten von $\xi$ schreiben.\\
@@ -3351,21 +3416,21 @@ Sei hierzu die $\{e_x\}_{x\in V}\subset\mathfrak{E}(G)$ sodass $e_x(y)=\begin{ca
 \begin{equation*}
 	\hat{U}_\xi = \prod_{x\in V}\hat{U}_{\xi(x)e_x}
 \end{equation*}
-F\"ur jedes $x\in V$ ist $\hat{U}_{\xi(x)e_x}$ eine einparametrige Gruppe und wir k\"onnen den infinitesimalen Erzeuger berechnen. Hierzu wechseln wir in Polarkoordinaten $\Phi=\rho e^{i\phi}$ und erhalten (10.3). 
+F\"ur jedes $x\in V$ ist $\hat{U}_{\xi(x)e_x}$ eine einparametrige Gruppe und wir k\"onnen den infinitesimalen Erzeuger berechnen. Hierzu wechseln wir in Polarkoordinaten $\Phi=\rho e^{i\phi}$ und erhalten \eqref{eq:QED-Eichgenerator}. 
 \begin{align*}
 	\hat{h}(x)\psi(\rho, \phi, a) &=-i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_{\epsilon e_x}(\psi)-\psi}{\epsilon}(\rho, \phi, a) \\
-	&=-i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x*\epsilon, a + r \text{grad}(e_x*\epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
+	&=-i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x \epsilon, a + r \text{grad}(e_x \epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
 	&=(-i\frac{\partial}{\partial\phi(x)}-\text{div}(-ir\frac{\partial}{\partial a})(x))\psi(\rho, \phi, a)
 \end{align*}
 Die Ableitung nach $\phi$ l\"asst sich in karthesischen Koordinaten schreiben als:
 \begin{equation*}
 	\frac{\partial}{\partial\phi(x)}=\Phi_{R}(x)\frac{\partial}{\partial \Phi_I(x)}-\Phi_{I}(x)\frac{\partial}{\partial \Phi_R(x)}
 \end{equation*}
-somit gilt nach (8.7):
+somit gilt nach \eqref{eq:KG-Ladungsfeldoperator}:
 \begin{equation*}
 	\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}
 \end{equation*}
-und nach (6.17)  gilt:
+und nach \eqref{def:ek}  gilt:
 \begin{equation*}
 	\text{div}(-ir\frac{\partial}{\partial a}) = -\text{div}(r\epsilon \hat{e})
 \end{equation*}
@@ -3376,28 +3441,30 @@ womit wir zusammenfassend gezeigt haben:
 
 \end{proof}
 \noindent
-Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{qed}$. \\
+Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{QED}$. \\
 \\
-Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen (10.4), dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{qed}\psi$ ist. Zusammen mit der Kontinuit\"atsgleichung der Klein-Gordon Theorie (Theorem 8.5) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
+Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen \eqref{eq:QED-HU-comm}, dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{QED}\psi$ ist. Zusammen mit der Kontinuit\"atsgleichung der Klein-Gordon Theorie (Theorem~\ref{thm:KG-QM-Kontinuitaet}) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
 \begin{equation}
 (\text{div}(r\epsilon \hat{e}))^\prime + \hat{j}_{\text{em}}=0
-\end{equation} identifizieren.  Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Der Wunsch nach der G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt uns dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{qed}$ gilt $\hat{h}(x)\psi = 0\forall x\in V$\\
+\end{equation} identifizieren.  Es folgt jedoch nicht, dass $\hat{h}=0$ ist. Der Wunsch nach der G\"ultigkeit des Gau\ss{}schen Gesetzes f\"uhrt uns dann zu der Forderung, dass f\"ur jedes $\psi\in\mathfrak{H}_{QED}$ gilt $\hat{h}(x)\psi = 0\forall x\in V$\\
 \\
-Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen $\psi$, die im Kern von $\hat{h}$ liegen. Hierzu betrachten wir die Beziehung zwischen $\hat{h}$ und der Eichgruppe.
+Wir konstruieren eine allgemeine Darstellung stetig differenzierbarer Funktionen $\psi$, die im Kern von $\hat{h}$ liegen. Hierzu betrachten wir formal die Beziehung zwischen $\hat{h}$ und der Eichgruppe.
 \begin{equation}
 	\hat{U}_\xi = e^{i\sum_{x\in V}\xi(x)*\hat{h}(x)} = \prod_{x\in V}e^{i\xi(x)*\hat{h}(x)}
 \end{equation}
-Es folgt daher f\"ur ein stetig differenzierbares $\psi$ ist $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi(x)\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt. Daher muss ein stetiges $\psi\in \mathfrak{H}_{qed}$ entlang Kurven der Form
+Hätten wir einen Hilbertraum auf dem wir diese starken Grenzübergänge durchführen könnten, würde für stetig differenzierbares $\psi$ folgen, dass $\hat{h}\psi=0$ genau dann wenn $\hat{U}_\xi\psi = \psi$ f\"ur beliebiges $\xi\in\mathfrak{E}$ gilt. Daher muss ein stetiges $\psi\in \mathfrak{H}_{qed}$ entlang Kurven der Form
 \begin{equation}
-	\{(\Phi e^{i\xi}, a + r \text{grad}\xi): \xi\in\mathfrak{E}(G)\}
+	\{(\Phi e^{i\xi}, a + r \text{grad}\xi): \xi\in\mathfrak{E}(G)\}\label{eq:crazy_curve}
 \end{equation} 
 im Konfigurationsraum $\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)$ konstant sein.\\
-Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathfrak{H}_{qed}$ eine von Null verschiedenes Element $f\in L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ enth\"alt.
-\begin{corollary}
-	Sei $G$ ein planarer Graph und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, sodass $\hat{h}(x)\psi=0\forall x\in V$ ist dann gilt $\psi = 0$.
+\\
+Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathfrak{H}_{QED}$ ein von Null verschiedenes Element $f\in L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ enth\"alt.
+\begin{corollary}\label{cor:ker_h_trivial}
+	Sei $G$ ein planares Netz und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$, sodass $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ eine Familie stark stetiger einparametriger Gruppen auf $L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$ mit infinitesimalem Erzeugerfeld $\{\hat{h}(x)\}_{x\in V}$ ist. Dann gilt:
+\[\hat{h}(x)\psi=0 \forall x\in V \implies \psi\equiv 0\]
 \end{corollary}
 \begin{proof}
-	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebsgue Ma\ss{} $\mu(U)>0$. Nach (10.9) muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
+	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebesgue Ma\ss{} $\mu(U)>0$. Nach \eqref{eq:crazy_curve} muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 \end{proof}
 \noindent
 Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
