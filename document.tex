@@ -1170,12 +1170,12 @@ Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch 
 \begin{proposition}
 	Sei \(T\) wie in Definition~\ref{def:potential_def}. Dann gilt
 	\[
-	\mathrm{kern}(T) = \left\{ \begin{pmatrix} -\xi' \\ r\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
+	\ker(T) = \left\{ \begin{pmatrix} -\xi' \\ r\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
 	\]
 \end{proposition}
 \noindent
 \begin{proof}
-	Sei \((\phi, a) \in \mathrm{kern}(T)\). Dann gilt für alle \(t\):
+	Sei \((\phi, a) \in \ker(T)\). Dann gilt für alle \(t\):
 	\[
 	0 = \mathrm{div}_D \bigl(r^{-1} a(t)\bigr).
 	\]
@@ -1758,8 +1758,8 @@ Der elektrische Feldoperator $\hat{e}$ transformiert unter $\hat{U}$ analog zum 
 	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U\hat{e}
 \end{align}
 Die orthogonale Matrix $U$ zerlegt den Konfigurationsraum $\mathfrak{K}(G)$ der Helmoltzzerlegung entsprechend in einen 
-$(|V|-1)$-dimensionalen Teilraum $A = \ker Q=\ker = \operatorname{Bild}(r\mathrm{grad})$ (Eichfreiheitsgrade) und sein orthogonales 
-Komplement $B = A^\perp$ der Dimension $(|F|-1)$. Auf $A$ verschwindet das Potential 
+$(|V|-1)$-dimensionalen Teilraum $A = \ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ (Eichfreiheitsgrade) und sein orthogonales 
+Komplement $B = A^\perp = \ker \mathrm{div} r$ der Dimension $(|F|-1)$. Auf $A$ verschwindet das Potential 
 $\hat{V}|_A = 0$, während auf $B$ die Dynamik die eines harmonischen Oszillators mit 
 Frequenzen $\{\omega_j\}_{j=1}^{|F|-1}$ ist.  
 \\
@@ -3467,25 +3467,30 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebesgue Ma\ss{} $\mu(U)>0$. Nach \eqref{eq:crazy_curve} muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 \end{proof}
 \noindent
-Falls $\xi$ im orthogonalen Komplement der konstanten Funktionen liegt, lassen sich die Funktionen $\psi$, die invariant unter $\hat{U}_\xi$ sind durch einen Darstellungssatz abdecken.
-\begin{definition}
-	Sei $G$ ein planarer Graph, $A$ die Fl\"achen von $G$, $r>0\in \mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\text{grad}$, $u:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|A|-1}$, sodass $uu^T=1_{\mathbb{R}^{|A|-1}}$ und $u^Tu=P_{\text{kern}(\text{div r})}$ und  $v:\mathfrak{K}(G)\rightarrow \mathbb{R}^{|V|-1}$, sodass $vv^T=1_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\text{kern}(\text{div}_D\text{ r})}$\footnote{Die Zeilen von $u$ und $v$ sind einfach orthogonale Basen der entsprechenden Teilr\"aumen.} dann definieren wir eine Abbildung $\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\rightarrow  \mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}$ durch
+Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ sich die unter $\hat{U}_\xi$-invarianten Funktionen $\psi$ mittels eines Darstellungssatzes charakterisieren lassen.
+\begin{definition}\label{def:trafo2}
+	Sei $G$ ein planares Netz mit Flächen $f$, $r>0\in\mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\mathrm{grad}$, sowie $u:\mathfrak{K}(G)\to\mathbb{R}^{|f|-1}$ mit $uu^T=\mathbf{1}_{\mathbb{R}^{|f|-1}}$ und $u^Tu=P_{\ker(\mathrm{div}\,r)}$, und $v:\mathfrak{K}(G)\to\mathbb{R}^{|V|-1}$ mit $vv^T=\mathbf{1}_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\ker(\mathrm{div}_D\,r^{-1})}$.
+	\\
+	\\
+	Die Zeilen von $u$ und $v$ bilden orthonormale Basen der Räume $\ker(\mathrm{div}\,r)$ bzw. $\ker(\mathrm{div}_D\,r^{-1})$. 
+	\\
+	\\
+	Dann definieren wir die Abbildung 
 	\begin{equation}
-		\gamma(\Phi, a) = (\Phi e^{-iQ(a)}, u(a), v(a))
+	\gamma:\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G)\to\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1}, \quad
+	\gamma(\Phi,a)=(\Phi e^{-iQ(a)},u(a),v(a)).
 	\end{equation}
-f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ und $a\in\mathfrak{K}(G)$.\\
-\\
-Die Abbildung $\gamma$ induziert eine Abbildung $\Gamma:F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})\rightarrow F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ definiert durch.
-\begin{equation}
-	\Gamma(f)=f\circ\gamma
-\end{equation}
-f\"ur alle Funktionen $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$.
+	Diese induziert eine Abbildung 
+	\begin{equation}
+	\Gamma:F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1},\mathbb{C})\to F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C}), \quad \Gamma(f)=f\circ\gamma.
+\label{eq:darstell_gamma}
+	\end{equation}
 \end{definition}
-\begin{remark}
-	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda$.
-\end{remark}
+\begin{proposition}
+	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2}, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda$ für alle $f \in L^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1},\mathbb{C})$.
+\end{proposition}
 \begin{proof}
-	Die Abbildung $\gamma$ ist offensichtlich stetig differenzierbar, es verbleibt somit zu zeigen, dass dies auch f\"ur die Inverse $\gamma^{-1}$ gilt und dass die Determinante der Ableitung $\det{D\gamma}$ den Betrag Eins hat.\\
+	Die Abbildung $\gamma$ ist offensichtlich stetig differenzierbar, es verbleibt somit zu zeigen, dass dies auch f\"ur die Inverse $\gamma^{-1}$ gilt und dass das Integral unverändert bleibt.\\
 	\\
 	Sei $x\in \mathbb{R}^{|A|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$, dann definieren wir
 	\begin{align*}
@@ -3512,32 +3517,38 @@ Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A
 \end{align*}
 Wir erweiterten zuerst mit dem Satz von Fubini auf ein Mehrfachintegral, nutzen dann den Fakt, dass bei konstantem $a$ die Abbildung $\Phi \mapsto \Phi e^{-iQ(a)}$ eine unit\"are Abbidlung ist. Am Ende stellen wir fest, dass $a\mapsto (u(a), v(a))$ ebenfalls eine unit\"are Abbbildung ist, da $u$ und $v$ Basen zu zueinander orthogonalen Teilr\"aumen sind welche zusammen den ganzen Raum $\mathfrak{K}(G)$ aufspannen.
 \end{proof}
-\begin{proposition}
-	Sei $G$ ein planarer Graph, $\Gamma$ wie in Definition 10.4 und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
+\begin{proposition}\label{prop:eich_darstell}
+	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2} und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
 \end{proposition}
 \begin{proof}
-Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ durch 
+Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ durch 
 \begin{equation*}
-	f(.,.) = \psi(.,u^T(.))
+	f(x,y) = \psi(x,u^T(y))
 \end{equation*}
+für alle $x\in \mathfrak{E}_\mathbb{C}(G)$ und $y \in \mathbb{R}^{|A|-1}$.
 Unter Ausnutzung der Eichinvarianz von $\psi$ gilt dann:
 \begin{align*}
 	\psi(\Phi, a) &= \psi(\Phi e^{-iQa}, a-r\text{grad}Qa)=\psi(\Phi e^{-iQa}, P_{\text{kern}(\text{div r})}a)\\&=\psi(\Phi e^{-iQa}, u^Tu(a))
 	=f(\Phi e^{-iQa}, u(a))
 \end{align*}
-Bedenke die Bildmenge von $Q$ ist jene Teilmenge von $\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$.\\
+Bedenke die Bildmenge von $Q$ ist $\ker(\mathrm{grad})^\perp$ oder equivalent jene Teilmenge von $\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$.\\
 \\
-Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt nach (10.10)
+Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt:
 \begin{align*}
 	\psi(\Phi e^{i\xi}, a + r\text{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\text{grad}\xi)}, u(a + r\text{grad}\xi))\\&=f(\Phi e^{-iQ(a )}, u(a))=\psi(\Phi, a)
 \end{align*}
-Dies gilt, weil ja nach Voraussetzung $\text{kern}(u)=\text{Bild}(r\text{grad})$ ist.
+Weil nach Voraussetzung $\text{kern}(u)=\text{Bild}(r\text{grad})$ ist.
 \end{proof}
 \noindent
 \begin{corollary}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\text{Bild}(r\text{grad})$ mit kompakter Periode.
+	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\text{Bild}(r\text{grad})$ mit kompakter Periode.
 \end{corollary}
-\begin{proof} Laut Voraussetzung k\"onnen wir $\psi$ nach Satz 10.2 als (10.10) darstellen.
+\begin{proof} 
+	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann gibt es laut
+	Satz~\ref{prop:eich_darstell} ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ sodass
+	\[
+	\psi(\Phi, a) = f(\Phi e^{-iQa}, u(a))
+	\]
 Betrachte die kompakte Menge
 	\begin{equation}
 		\mathfrak{T} = r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\})
@@ -3553,31 +3564,38 @@ Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak
 Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(\text{div r})$ ist und \\damit $\{r\text{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(r\text{grad})$ ist.\\
 Als n\"achstes betrachten wir die Menge
 \begin{align*}
-\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x*f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
-&=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x*r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
+\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
+&=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
 Sei $Q$ die Pseudoinverse von $r\text{grad}$ und $a_1\in\text{Bild}(r\text{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
 \begin{equation}
-	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x*r\text{grad}(f_x)
+	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x r\text{grad}(f_x)
 \end{equation}
 damit gilt
 \begin{align*}
 	e^{-iQ(a_1)}=e^{-i(Q(a_0) + 2\pi \sum_{x\in(V-\{z\})}n_xf_x)}=e^{-i(Q(a_0)}
 \end{align*}
-
+Woraus das Resultat folgt:
+\[
+\psi(\Phi, a_1) = f(\Phi e^{-iQa_1}, u(a_1))=f(\Phi e^{-iQa_0}, u(a_0))=\psi(\Phi, a_0)
+\]
 \end{proof}
 \noindent
-Dies gibt uns einen Ansatz wie $\mathfrak{H}_{\text{qed}}$ konstruiert werden kann. Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste L\"osung ist die Funktionen unter Betrachtung auf unser kompaktes $\mathfrak{T}$ einzuschränken, das f\"ur jede periodische Komponente eine volle Periode darstellt.\\
+Dies liefert einen Ansatz zur Konstruktion von $\mathfrak{H}_{\mathrm{QED}}$. \\
 \\
-Bevor wir jedoch endlich $\mathfrak{H}_{qed}$ definieren, f\"uhren wir einen weiteren Begriff ein und geben einen damit assoziierten Darstellungssatz mit dem wir den verbleibenden Eichgruppen Freiheitsgrad von $(\Phi, a)$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(r\text{grad})$ beziehungsweise konstantem $\xi$.
-\begin{definition}
-	Sei $G$ ein planarer Graph, dann definieren wir
+ Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste Lösung besteht darin, $\psi$ auf die kompakte Fundamentaldomäne 
+$\mathfrak{T}$ einzuschränken, die jeweils eine volle Periode aller periodischen 
+Komponenten repräsentiert und somit $\psi$ vollständig charakterisiert.\\
+\\
+Bevor wir jedoch endlich $\mathfrak{H}_{QED}$ definieren, f\"uhren wir einen weiteren Begriff ein und geben einen damit assoziierten Darstellungssatz mit dem wir den verbleibenden Eichgruppen Freiheitsgrad von $(\Phi, a)$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(\text{grad})$ beziehungsweise konstantem $\xi$.
+\begin{definition}\label{def:symmetric_hilbert_space}
+	Sei $G$ ein planares Netz, dann definieren wir
 	\begin{equation}
-		\mathfrak{H}_{\text{sym}}=\{\psi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})| \hat{U}_\xi\psi=\psi \forall \xi\in \text{kern}(r\text{grad})\}
+		\mathfrak{H}_{\text{sym}}=\{\psi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})| \hat{U}_\xi\psi=\psi \forall \xi\in \mathrm{kern}(\mathrm{grad})\}
 	\end{equation}
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planarer Graph und $y\in V$ beliebig, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in L^2(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
+	Sei $G$ ein planares Netz und $y\in V$ beliebig, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in L^2(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
 	\begin{equation}
 		\psi(\Phi) = f(\Phi e^{-i\arg(\Phi)(y)})
 	\end{equation}
