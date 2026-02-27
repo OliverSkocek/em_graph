@@ -3346,7 +3346,7 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  	\begin{align}\label{eq:QED-Hamilton}
  		\begin{split}
  			\hat{H}_{\mathrm{QED}} = \frac{1}{2}\Biggl(&-\sum_{x\in V}\left(\frac{\partial^2}{\partial\Phi_R(x)^2} + \frac{\partial^2}{\partial\Phi_I(x)^2}\right) + \bigl\langle \hat{\Phi}, (\Delta_r^{\hat{a}} + m^2)\hat{\Phi} \bigr\rangle_{\mathfrak{E},\mathbb{C}} \\
- 			&- \frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial\hat{a}(e)^2} + \bigl\langle \mathrm{div}_D(r^{-1}\hat{a}), \mathrm{div}_D(r^{-1}\hat{a})/\mu \bigr\rangle_{\mathfrak{F}}\Biggr)
+ 			&- \frac{1}{\epsilon}\sum_{e\in E}\frac{\partial^2}{\partial a(e)^2} + \bigl\langle \mathrm{div}_D(r^{-1}\hat{a}), \mathrm{div}_D(r^{-1}\hat{a})/\mu \bigr\rangle_{\mathfrak{F}}\Biggr)
  		\end{split}
  	\end{align}
  	definiert.
@@ -3385,7 +3385,7 @@ Nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED
 	\noindent
 	Das infinitesimale Erzeugerfeld der Eichgruppe kann punktweise mit dem  Feldoperator
 	\begin{equation}\label{eq:QED-Eichgenerator}
-		\hat{h}(x) = \bigl(\mathrm{div}(r\epsilon\hat{e})\bigr)(x) - \hat{q}(x),
+		\hat{h}(x) = \hat{q}(x) - \mathrm{div}(r\epsilon\hat{e})(x),
 	\end{equation}
 	identifiziert werden, wobei $\hat{e}$ der elektrische Feldstärkeoperator aus Gleichung~\eqref{def:ek} und
 	\[
@@ -3418,9 +3418,9 @@ Sei hierzu die $\{e_x\}_{x\in V}\subset\mathfrak{E}(G)$ sodass $e_x(y)=\begin{ca
 \end{equation*}
 F\"ur jedes $x\in V$ ist $\hat{U}_{\xi(x)e_x}$ eine einparametrige Gruppe und wir k\"onnen den infinitesimalen Erzeuger berechnen. Hierzu wechseln wir in Polarkoordinaten $\Phi=\rho e^{i\phi}$ und erhalten \eqref{eq:QED-Eichgenerator}. 
 \begin{align*}
-	\hat{h}(x)\psi(\rho, \phi, a) &=-i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_{\epsilon e_x}(\psi)-\psi}{\epsilon}(\rho, \phi, a) \\
-	&=-i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x \epsilon, a + r \text{grad}(e_x \epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
-	&=(-i\frac{\partial}{\partial\phi(x)}-\text{div}(-ir\frac{\partial}{\partial a})(x))\psi(\rho, \phi, a)
+	\hat{h}(x)\psi(\rho, \phi, a) &=i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_{\epsilon e_x}(\psi)-\psi}{\epsilon}(\rho, \phi, a) \\
+	&=i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi + e_x \epsilon, a + r \text{grad}(e_x \epsilon))-\psi(\rho, \phi, a)}{\epsilon} \\
+	&=(i\frac{\partial}{\partial\phi(x)}-\text{div}(ir\frac{\partial}{\partial a})(x))\psi(\rho, \phi, a)
 \end{align*}
 Die Ableitung nach $\phi$ l\"asst sich in karthesischen Koordinaten schreiben als:
 \begin{equation*}
@@ -3432,11 +3432,11 @@ somit gilt nach \eqref{eq:KG-Ladungsfeldoperator}:
 \end{equation*}
 und nach \eqref{def:ek}  gilt:
 \begin{equation*}
-	\text{div}(-ir\frac{\partial}{\partial a}) = -\text{div}(r\epsilon \hat{e})
+	\text{div}(ir\frac{\partial}{\partial a}) = \text{div}(r\epsilon \hat{e})
 \end{equation*}
 womit wir zusammenfassend gezeigt haben:
 \begin{equation*}
-\hat{h}(x) = \text{div}(r\epsilon \hat{e})(x)-\hat{q}(x)
+\hat{h}(x) = \hat{q}(x) - \text{div}(r\epsilon \hat{e})(x)
 \end{equation*}
 
 \end{proof}
@@ -3535,13 +3535,13 @@ Bedenke die Bildmenge von $Q$ ist $\ker(\mathrm{grad})^\perp$ oder equivalent je
 \\
 Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt:
 \begin{align*}
-	\psi(\Phi e^{i\xi}, a + r\text{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\text{grad}\xi)}, u(a + r\text{grad}\xi))\\&=f(\Phi e^{-iQ(a )}, u(a))=\psi(\Phi, a)
+	\psi(\Phi e^{i\xi}, a + r\mathrm{grad}\xi) &= f(\Phi e^{i\xi} e^{-iQ(a + r\mathrm{grad}\xi)}, u(a + r\mathrm{grad}\xi))\\&=f(\Phi e^{-iQ(a )}, u(a))=\psi(\Phi, a)
 \end{align*}
-Weil nach Voraussetzung $\text{kern}(u)=\text{Bild}(r\text{grad})$ ist.
+Weil nach Voraussetzung $\ker(u)=\mathrm{Bild}(r\mathrm{grad})$ ist.
 \end{proof}
 \noindent
 \begin{corollary}
-	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\text{Bild}(r\text{grad})$ mit kompakter Periode.
+	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathrm{Bild}(r\mathrm{grad})$ mit kompakter Periode \(\mathfrak{T}\subset\mathfrak{K}(G)\).
 \end{corollary}
 \begin{proof} 
 	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann gibt es laut
@@ -3551,7 +3551,7 @@ Weil nach Voraussetzung $\text{kern}(u)=\text{Bild}(r\text{grad})$ ist.
 	\]
 Betrachte die kompakte Menge
 	\begin{equation}
-		\mathfrak{T} = r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\})
+		\mathfrak{T} = r\mathrm{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\})
 	\end{equation}
 Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak{E}(G)$ als
 \begin{equation}
@@ -3561,15 +3561,15 @@ Sei $z \in V$ , dann definieren wir eine Basis $\{f_x\}_{x\in V}$ von $\mathfrak
 		0 & \text{sonst. } 
 	\end{cases}
 \end{equation}
-Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(\text{div r})$ ist und \\damit $\{r\text{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\text{Bild}(r\text{grad})$ ist.\\
+Bemerke, dass $\{f_x\}_{x\in V-\{z\}}$ eine Basis von $\mathrm{Bild}(\mathrm{div r})$ ist und \\damit $\{r\mathrm{grad}(f_x)\}_{x\in V-\{z\}}$ eine Basis von $\mathrm{Bild}(r\mathrm{grad})$ ist.\\
 Als n\"achstes betrachten wir die Menge
 \begin{align*}
-\text{Bild}(r\text{grad}) &= r\text{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
-&=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x r\text{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
+\mathrm{Bild}(r\mathrm{grad}) &= r\mathrm{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
+&=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x r\mathrm{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
-Sei $Q$ die Pseudoinverse von $r\text{grad}$ und $a_1\in\text{Bild}(r\text{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
+Sei $Q$ die Pseudoinverse von $r\mathrm{grad}$ und $a_1\in\mathrm{Bild}(r\mathrm{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
 \begin{equation}
-	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x r\text{grad}(f_x)
+	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x r\mathrm{grad}(f_x)
 \end{equation}
 damit gilt
 \begin{align*}
@@ -3583,11 +3583,12 @@ Woraus das Resultat folgt:
 \noindent
 Dies liefert einen Ansatz zur Konstruktion von $\mathfrak{H}_{\mathrm{QED}}$. \\
 \\
- Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\text{Bild}(r\text{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste Lösung besteht darin, $\psi$ auf die kompakte Fundamentaldomäne 
-$\mathfrak{T}$ einzuschränken, die jeweils eine volle Periode aller periodischen 
-Komponenten repräsentiert und somit $\psi$ vollständig charakterisiert.\\
+ Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\mathrm{Bild}(r\mathrm{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste Lösung besteht darin, $\psi$ auf die kompakte Periode $\mathfrak{T}$ einzuschränken, die jeweils eine volle Periode aller periodischen Komponenten repräsentiert und somit $\psi$ vollständig charakterisiert.\\
 \\
-Bevor wir jedoch endlich $\mathfrak{H}_{QED}$ definieren, f\"uhren wir einen weiteren Begriff ein und geben einen damit assoziierten Darstellungssatz mit dem wir den verbleibenden Eichgruppen Freiheitsgrad von $(\Phi, a)$ fixieren, nämlich jener  bez\"uglich $\xi\in \text{kern}(\text{grad})$ beziehungsweise konstantem $\xi$.
+Bisher wurde der Eichfreiheitsgrad bezüglich konstanter $\xi\in\ker(\mathrm{grad})$ 
+ausgeklammert. Dieser Freiheitsgrad betrifft nicht das Problem unendlicher Norm, da er das 
+Vektorpotential $\hat{a}$ nicht berührt. Dennoch ist für die Erfüllung des Gaußschen 
+Gesetzes die Invarianz bezüglich dieses globalen Phasenfreiheitsgrads erforderlich.
 \begin{definition}\label{def:symmetric_hilbert_space}
 	Sei $G$ ein planares Netz, dann definieren wir
 	\begin{equation}
@@ -3595,36 +3596,52 @@ Bevor wir jedoch endlich $\mathfrak{H}_{QED}$ definieren, f\"uhren wir einen wei
 	\end{equation}
 \end{definition}
 \begin{lemma}
-	Sei $G$ ein planares Netz und $y\in V$ beliebig, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in L^2(\mathbb{R}^{\{y\}}\times\mathbb{C}^{V-\{y\}}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
+	Sei $G$ ein planares Netz, $y\in V$ beliebig und $J:[|V|]\rightarrow V$ eine Aufzählung von $V$ mit $J(1)=y$, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn es ein $f\in L^2(	\mathbb{R}_{\geq0}\times\mathbb{C}^{|V|-1}, \mathbb{C})$ gibt sodass f\"ur alle $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ gilt
 	\begin{equation}
-		\psi(\Phi) = f(\Phi e^{-i\arg(\Phi)(y)})
+		\psi(\Phi) = f(|\Phi(y)|,\Phi(J(2))e^{-i\arg(\Phi)(y)},\dots,\Phi(J(|V|))e^{-i\arg(\Phi)(y)})\label{eq:symlink}
 	\end{equation}
 \end{lemma}
 \begin{proof}
-
+Sei $\psi\in \mathfrak{H}_{\text{sym}}$, $y\in V$ und $J$ eine entsprechende Aufzählung dann definieren
+wir $f\in L^2(\mathbb{R}_{\geq0}\times\mathbb{C}^{|V|-1}, \mathbb{C})$ für $\rho \mathbb{R}_{\geq0}$ und $\phi\in\mathbb{C}^{|V|-1}$ durch:
+\[
+f(\rho, \phi) = \psi(\tilde{\Phi})\textrm{ für } \tilde{\Phi}(x) = \begin{cases}
+	\rho & \text{wenn } x = y \\
+	\phi(J^{-1}(x)) & \text{wenn } x \neq y
+\end{cases}
+\]
+Es gilt dann
+\begin{align*}
+\psi(\Phi) &= \psi(\Phi e^{-i\arg(\Phi)(y)}) \\&= f(|\Phi(y)|,\Phi(J(2))e^{-i\arg(\Phi)(y)},\dots,\Phi(J(|V|))e^{-i\arg(\Phi)(y)})
+\end{align*}
+Sei nun $\psi$ gegeben durch \eqref{eq:symlink}, und $\xi$ eine konstante Eckfunktion dann gilt:
+\begin{align*}
+\psi(\Phi e^{i\xi}) &= f(|\Phi(y)|,\Phi(J(2)) e^{i\xi} e^{-i(\arg(\Phi) +\xi)(y)},\dots,\Phi(J(|V|)) e^{i\xi}e^{-i(\arg(\Phi) +\xi)(y)})\\&=\psi(\Phi)
+\end{align*}
 \end{proof}
 \noindent
-Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\psi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. Diese Funktionen lassen sich auch \"uber ein anderes Kriterium identifizieren.
+Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\psi\in L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C})=\mathfrak{H}_{\mathrm{KG}}$, die invariant unter globaler Rotation sind, daher unter Rotation jeder Ecke um denselben Winkel. Diese Funktionen lassen sich auch \"uber ein anderes Kriterium identifizieren.
 \begin{proposition}
-	Sei $G$ ein planarer Graph, $\Phi = (\rho, \phi)$ eine Polarkoordinatendarstellung, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn
+	Sei $G$ ein planares Netz, $\Phi = (\rho, \phi)$ eine Polarkoordinatendarstellung, dann gilt $\psi\in \mathfrak{H}_{\text{sym}}$ genau dann wenn
 	\begin{equation}
-		\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
+		\hat{Q}(\psi)=i\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})$, daher $\xi$ ist eine Konstante. Analog zu Satz 10.1 berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. Sei hierzu $\psi\in \mathfrak{H}_{\text{sym}}$.
+	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})$, daher $\xi$ ist eine Konstante. Analog zu Satz 10.1 berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. \\
+	Sei hierzu $\psi\in \mathfrak{H}_{\text{sym}}$.
 	\begin{align*}
-		\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_\epsilon\psi(\rho, \phi, a)-\psi(\rho, \phi, a)}{\epsilon} &= \lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi +\epsilon, a)-\psi(\rho, \phi, a)}{\epsilon}\\
-		&=\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi(\rho, \phi, a)
+		i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_\epsilon\psi(\rho, \phi, a)-\psi(\rho, \phi, a)}{\epsilon} &= i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi +\epsilon, a)-\psi(\rho, \phi, a)}{\epsilon}\\
+		&=\sum_{x\in V}i\frac{\partial}{\partial \phi(x)}\psi(\rho, \phi, a)
 	\end{align*}
-	Nachdem die linke Seite von (10.17) der Erzeuger von $\hat{U}_\xi$ ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
+	Nachdem der Gesamtladungsoperator damit als der Erzeuger von $\hat{U}_\xi$ identifiziert worden ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
 \end{proof}
 \noindent
-Im Beweis von Satz 10.1 haben wir gesehen, dass $\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}$ und somit handelt es sich bei $\mathfrak{H}_{\text{sym}}$ um den Teilraum der Zust\"ande mit Gesamtladung 0.\\
+Im Beweis von Satz~\ref{prop:QED-Eich-Invarianz} haben wir gesehen, dass $\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}$ und somit handelt es sich bei $\mathfrak{H}_{\text{sym}}$ um den Teilraum der Zust\"ande mit Gesamtladung 0.\\
 \\
-Als n\"achstes k\"onnen wir endlich den Hilbertraum der skalaren Quantenelektrodynamik definieren.
+Als n\"achstes k\"onnen wir den Hilbertraum der skalaren Quantenelektrodynamik definieren.
 \begin{definition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in \mathfrak{E}_\mathbb{C}$ Element von $\mathfrak{H}_\text{sym}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
+	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in \mathfrak{E}_\mathbb{C}$ Element von $\mathfrak{H}_\text{sym}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a))
 	\end{equation}
