@@ -565,7 +565,7 @@ $\mathrm{grad}_D$ und $\mathrm{div}_D$ besitzen direkte Analoga zu den klassisch
 Insbesondere spielt die duale Divergenz die Rolle der Rotation. 
 Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 \begin{theorem}[Diskreter de Rham-Komplex]\label{thm:derham}
-	Sei $G$ ein gerichtetes Netz. 
+	Sei $G$ ein gerichtetes planares Netz. 
 	Dann erfüllen die Operatoren die folgenden exakten Sequenzen:
 	\begin{equation} \label{eq:derham1}
 		\mathbb{R}\longrightarrow \mathfrak{E}(G) 
@@ -597,7 +597,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	Denn entlang jedes Umlaufs hebt sich die Pfadsumme auf, da jeder Wert von $u$ 
 	genau einmal mit positivem und einmal mit negativem Vorzeichen auftritt.  
 	Umgekehrt: Sei $f \in \ker(\mathrm{div}_D)$. 
-	Dann zeigen die Resultate aus Satz 2.2, dass die Pfadsummen zwischen zwei Ecken nur vom Start- und Endpunkt abhängen, nicht von der Wahl des Pfades. 
+	Dann folgt wegen der Planarität aus Satz 2.2, dass die Pfadsummen zwischen zwei Ecken nur vom Start- und Endpunkt abhängen, nicht von der Wahl des Pfades. 
 	Definiere nun $F\in \mathfrak{E}(G)$ durch 
 	\[
 	F(x) = \text{Pfadsumme von einer fixen Ecke $x_0$ nach $x$},
@@ -3472,7 +3472,7 @@ Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ 
 	Sei $G$ ein planares Netz mit Flächen $f$, $r>0\in\mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\mathrm{grad}$, sowie $u:\mathfrak{K}(G)\to\mathbb{R}^{|f|-1}$ mit $uu^T=\mathbf{1}_{\mathbb{R}^{|f|-1}}$ und $u^Tu=P_{\ker(\mathrm{div}\,r)}$, und $v:\mathfrak{K}(G)\to\mathbb{R}^{|V|-1}$ mit $vv^T=\mathbf{1}_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\ker(\mathrm{div}_D\,r^{-1})}$.
 	\\
 	\\
-	Die Zeilen von $u$ und $v$ bilden orthonormale Basen der Räume $\ker(\mathrm{div}\,r)$ bzw. $\ker(\mathrm{div}_D\,r^{-1})$. 
+	Die Zeilen von $u$ und $v$ bilden orthonormale Basen der Räume $\ker(\mathrm{div}\,r)$ bzw. $\ker(\mathrm{div}_D\,r^{-1})$. Beachte $\mathfrak{K}= \ker(\mathrm{div}\,r)\oplus \ker(\mathrm{div}_D\,r^{-1})$
 	\\
 	\\
 	Dann definieren wir die Abbildung 
@@ -3486,7 +3486,7 @@ Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ 
 \label{eq:darstell_gamma}
 	\end{equation}
 \end{definition}
-\begin{proposition}
+\begin{proposition}\label{thm: integral_invar}
 	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2}, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda$ für alle $f \in L^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1},\mathbb{C})$.
 \end{proposition}
 \begin{proof}
@@ -3518,7 +3518,7 @@ Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A
 Wir erweiterten zuerst mit dem Satz von Fubini auf ein Mehrfachintegral, nutzen dann den Fakt, dass bei konstantem $a$ die Abbildung $\Phi \mapsto \Phi e^{-iQ(a)}$ eine unit\"are Abbidlung ist. Am Ende stellen wir fest, dass $a\mapsto (u(a), v(a))$ ebenfalls eine unit\"are Abbbildung ist, da $u$ und $v$ Basen zu zueinander orthogonalen Teilr\"aumen sind welche zusammen den ganzen Raum $\mathfrak{K}(G)$ aufspannen.
 \end{proof}
 \begin{proposition}\label{prop:eich_darstell}
-	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2} und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
+	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2} und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
 \end{proposition}
 \begin{proof}
 Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ durch 
@@ -3540,7 +3540,7 @@ Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt:
 Weil nach Voraussetzung $\ker(u)=\mathrm{Bild}(r\mathrm{grad})$ ist.
 \end{proof}
 \noindent
-\begin{corollary}
+\begin{corollary}\label{thm:corr_period}
 	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathrm{Bild}(r\mathrm{grad})$ mit kompakter Periode \(\mathfrak{T}\subset\mathfrak{K}(G)\).
 \end{corollary}
 \begin{proof} 
@@ -3567,7 +3567,7 @@ Als n\"achstes betrachten wir die Menge
 \mathrm{Bild}(r\mathrm{grad}) &= r\mathrm{grad}(\{\phi\in\mathfrak{E}(G):\sum_{x\in V}\phi_x=0, -\pi\leq\phi<\pi\} \\&+ 2\pi\{\sum_{x\in(V-\{z\})}n_x f_x: n\in \mathbb{Z}^{V-\{z\}}\})\\
 &=\mathfrak{T} + 2\pi\{\sum_{x\in(V-\{z\})}n_x r\mathrm{grad}(f_x): n\in \mathbb{Z}^{V-\{z\}}\}
 \end{align*}
-Sei $Q$ die Pseudoinverse von $r\mathrm{grad}$ und $a_1\in\mathrm{Bild}(r\mathrm{grad})$, dann gibt es ein $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
+Sei $Q$ die Pseudoinverse von $r\mathrm{grad}$ und $a_1\in\mathrm{Bild}(r\mathrm{grad})$, dann gibt es ein eindeutiges $a_0\in \mathfrak{T}$ und ein $n\in \mathbb{Z}^{V-\{z\}}$, sodass
 \begin{equation}
 	a_1 = a_0 + 2\pi \sum_{x\in(V-\{z\})}n_x r\mathrm{grad}(f_x)
 \end{equation}
@@ -3603,7 +3603,7 @@ Gesetzes die Invarianz bezüglich dieses globalen Phasenfreiheitsgrads erforderl
 \end{lemma}
 \begin{proof}
 Sei $\psi\in \mathfrak{H}_{\text{sym}}$, $y\in V$ und $J$ eine entsprechende Aufzählung dann definieren
-wir $f\in L^2(\mathbb{R}_{\geq0}\times\mathbb{C}^{|V|-1}, \mathbb{C})$ für $\rho \mathbb{R}_{\geq0}$ und $\phi\in\mathbb{C}^{|V|-1}$ durch:
+wir $f\in L^2(\mathbb{R}_{\geq0}\times\mathbb{C}^{|V|-1}, \mathbb{C})$ für $\rho\in \mathbb{R}_{\geq0}$ und $\phi\in\mathbb{C}^{|V|-1}$ durch:
 \[
 f(\rho, \phi) = \psi(\tilde{\Phi})\textrm{ für } \tilde{\Phi}(x) = \begin{cases}
 	\rho & \text{wenn } x = y \\
@@ -3637,76 +3637,81 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\psi\
 	Nachdem der Gesamtladungsoperator damit als der Erzeuger von $\hat{U}_\xi$ identifiziert worden ist, folgt die Aussage direkt aus dem Stoneschen Theorem.
 \end{proof}
 \noindent
-Im Beweis von Satz~\ref{prop:QED-Eich-Invarianz} haben wir gesehen, dass $\hat{q}(x)=i\frac{\partial}{\partial\phi(x)}$ und somit handelt es sich bei $\mathfrak{H}_{\text{sym}}$ um den Teilraum der Zust\"ande mit Gesamtladung 0.\\
+Es handelt sich bei $\mathfrak{H}_{\text{sym}}$ also um genau den Teilraum der Zust\"ande mit Gesamtladung 0.
+\begin{remark}
+	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r}))$ einer eichinvarianten Funktion $\psi\in F(\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K},\mathbb{C})$ ist nach Folgerung~\ref{thm:corr_period} durch periodische Fortsetzung umkehrbar. Jeder Operator der auf $F(\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K},\mathbb{C})$ erklärt ist, ist somit auch auf $F(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r})),\mathbb{C})$ erklärt und umgekehrt.
+	\\
+	\\
+	In der Tat ist ein eichinvariantes $\psi$ bereits durch den Wert bezüglich eines  einzigen $g\in\mathfrak{T}$ vollständig charakterisiert:
+	\\
+	\\
+	Sei $\xi\in \mathfrak{T}$, $f\in L^1(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r})),\mathbb{C})$ und $\gamma$ so wie in Definition~\ref{def:trafo2} dann gilt 
+		\begin{align*}
+	\int_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r}))}\Gamma(f) d\lambda&= 
+	\int_{\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}}f(\Phi e^{-iQa}, u(a),v(a)) 1_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r}))}(a) d\lambda(\Phi)d\lambda(a) \\ &=
+	 \int_{\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}}f(\Phi e^{-iQ\xi}, u(a),v(\xi)) 1_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r}))}(a) d\lambda(\Phi)d\lambda(a) \\ &= 
+	 \int_{\mathfrak{E}_{\mathbb{C}}\times\mathbb{R}^{|f|-1}}f(\Phi e^{-iQ\xi}, x,v(\xi))d\lambda(\Phi)\\& \int_{\mathbb{R}^{|V|-1}}1_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\ker(\text{div r}))}(v^Ty) d\lambda(x)d\lambda(y) \\ &= 
+	 \lambda(\mathfrak{T})\int_{\mathfrak{E}_{\mathbb{C}}\times\mathbb{R}^{|f|-1}}f(\Phi e^{-iQ\xi}, x,v(\xi)) d\lambda(\Phi)d\lambda(x) \\ &= \lambda(\mathfrak{T})\int_{\mathfrak{E}_{\mathbb{C}}\times(\xi + \ker(\text{div r}))}\Gamma(f) d\lambda
+\end{align*}
+Wir verwenden hier dieselben Argumente wie im Satz~\ref{thm: integral_invar} und das $f$ laut Satz~\ref{prop:eich_darstell} entlang $y$ konstant ist.
 \\
-Als n\"achstes k\"onnen wir den Hilbertraum der skalaren Quantenelektrodynamik definieren.
-\begin{definition}
-	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}$ und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ sowie $u$ wie in Satz 10.2, dann sagen wir $\psi\in \mathfrak{H}_{qed}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ gibt sodass die Einschr\"ankung von $\tilde{\psi}$ auf die erste Koordinate $\Phi\in \mathfrak{E}_\mathbb{C}$ Element von $\mathfrak{H}_\text{sym}$ ist und $\psi$ sich \"uber $\tilde{\psi}$ nach (10.10) darstellen l\"asst als
+\\
+Integration über $\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})$ liefert eine konstante Funktion auf $\mathfrak{T}$. Jeder Punkt in $\mathfrak{T}$ beschreibt eine Isometrie des Raums $\mathfrak{E}_{\mathbb{C}}$ und offenbart daher keine zusätzliche Information über ein eichinvariantes $\psi$. Wir kommen daher zu folgender Definition des Hilbertraums der skalaren Quantenelektrodynamik.
+\end{remark}
+\begin{definition}\label{def:QED2}
+	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$, sodass
+	\[
+	\hat{Q}\psi=0
+	\] sowie \(u\) wie in Defintion~\eqref{def:trafo2}, dann gilt $\psi\in \mathfrak{H}_{QED}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^\infty(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ gibt, sodass sich $\psi$ nach \ref{eq:darstell_gamma} schreiben lässt als:
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a))
 	\end{equation}
-	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{T}+\text{kern}(\text{div r})$ oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
+	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\text{kern}(\text{div r})$ oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
 	\begin{equation}
-	\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
-\end{equation}
-Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{qed}$ ist der topologische Abschluss  
-\begin{equation*}
-	\mathfrak{H}_{qed} = \overline{\mathfrak{H}_{qed}^{pre}}
-\end{equation*}
-bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r})),\mathbb{C})$ induziert durch das Skalarprodukt
-\begin{equation}
-	\langle \phi, \psi\rangle_{\text{qed}} := \frac{1}{\lambda(\tau)}\int_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))}\overline{\phi}\psi d\lambda
-\end{equation}
+		\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
+	\end{equation}
+	Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{QED}$ ist der topologische Abschluss  
+	\begin{equation*}
+		\mathfrak{H}_{QED} = \overline{\mathfrak{H}_{QED}^{pre}}
+	\end{equation*}
+	bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\mathrm{div}r),\mathbb{C})$ induziert durch das Skalarprodukt
+	\begin{equation}
+		\langle \phi, \psi\rangle_{\text{QED}} := \int_{\mathfrak{E}_{\mathbb{C}}\times\ker(\mathrm{div}r)}\overline{\phi}\psi d\lambda\label{eq:integrant2}
+	\end{equation}
 \end{definition}
-\begin{remark}
-	Die Einschr\"ankung auf $\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))$ der Funktion $\psi$ ist durch periodische Fortsetzung umkehrbar nach Folgerung 10.6. Entsprechend k\"onnen wir alle bisher behandelten Operatoren \"uber diese Fortsetzung wie gehabt auf $\mathfrak{H}_{\text{qed}}$ definieren.\\
-	\\
-	Mit Hilfe von Bemerkung 10.5 l\"asst sich das Integral (10.20) als Integral auf dem niedrigdimensionaleren Raum $\mathfrak{E}_\mathbb{C}\times\mathbb{R}^{|A|-1}$ darstellen. Seien $\phi$ und $\psi$ aus $\mathfrak{H}_{\text{qed}}$ und $\tilde{\phi}$ sowie $\tilde{\psi}$ wie in Definition 10.9 dann gilt 
-	\begin{align*}
-		\int_{\mathfrak{E}_{\mathbb{C}}\times(\mathfrak{T}+\text{kern}(\text{div r}))}\overline{\phi}\psi d\lambda&= \int_{\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K}}\overline{\phi}\psi 1_{\mathfrak{T}} d\lambda \\ &= |\mathfrak{T}|\int_{\mathfrak{E}_{\mathbb{C}}\times \mathbb{R}^{|A| - 1}} \overline{\tilde{\phi}}\tilde{\psi} d\lambda(\phi)d\lambda(x)
-	\end{align*}
-	weil $\tilde{\phi}$ und $\tilde{\psi}$ entlang $y$ konstant sind und $\Gamma$ das Integral nicht ver\"andert.
-\end{remark}
-\noindent
 \begin{proposition}
-	Sei $\psi\in\mathfrak{H}_{\text{qed}}$ wie in Definition 10.9, dann gilt 
-	$\hat{h}(x)\psi=0\forall x\in V$.
+	Sei $\psi\in\mathfrak{H}_{\text{QED}}$ wie in Definition~\ref{def:QED2}, dann gilt 
+	$\hat{h}(x)\psi=0\forall x\in V$. 
 \end{proposition}
 \begin{proof}
-	Sei $\psi\in \mathfrak{H}_{\text{qed}}$, $x\in V$ und berechnen die Ableitung nach $\phi$ und $a$. Um die partiellen Ableitungen von $\psi$ und $\tilde{\psi}$ zu unterscheiden, schreiben wir die Variablen als $\tilde{\psi}(\tilde{\rho},\tilde{\phi},\tilde{a})$
+	Sei $\psi\in \mathfrak{H}_{\text{QED}}$, $x\in V$ und berechnen die Ableitung nach $\phi$ und $a$. Um die partiellen Ableitungen von $\psi$ und $\tilde{\psi}$ zu unterscheiden, schreiben wir die Variablen als $\tilde{\psi}(\tilde{\rho},\tilde{\phi},\tilde{a})$
 	\begin{align*}
 		\frac{\partial}{\partial \phi(x)}\psi(\rho,\phi,a)&=\frac{\partial}{\partial \tilde{\phi}(x)}\tilde{\psi}(\rho, \phi-Q(a), u(a))\\
 	\frac{\partial}{\partial a}\psi(\rho,\phi,a)&=-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}(\rho, \phi-Q(a),  u(a))\\
 	&+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}(\rho, \phi-Q(a), u(a))
 	\end{align*}
-Es gilt somit nach (10.5)
+Es gilt somit nach \eqref{eq:QED-Eichgenerator}
 \begin{align*}
 	\hat{h}(x)\psi(\rho,\phi,a) &= i(\text{div}(r\frac{\partial}{\partial a})(x)-\frac{\partial}{\partial\phi(x)})\psi(\rho,\phi,a)
 	\\&=i(\text{div}(r(-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}+u^T\frac{\partial}{\partial \tilde{a}}\tilde{\psi}))(x)-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
 	&=i(P_{\text{Bild}(\text{div r})}\frac{\partial}{\partial \tilde{\phi}})(x)\tilde{\psi}-\frac{\partial}{\partial\tilde{\phi}(x)}\tilde{\psi})(\rho, \phi-Q(a), u(a))\\
 	&=-i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)
 \end{align*}
-Nach Satz 10.3 gilt nach Vorraussetzung auch
-\begin{equation*}
-\sum_{x\in V}\frac{\partial}{\partial \phi(x)}\psi = 0
-\end{equation*}
-Weiters liegt ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ wenn $\sum_{x\in V}u(x)=0$ ist. Es folgt daher
+Wegen der Voraussetzung $\hat{Q}\psi=\sum_{x\in V}i\frac{\partial}{\partial \phi(x)}\psi = 0$ und weil
+ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ wenn $\sum_{x\in V}u(x)=0$ ist, folgt weiter
 \begin{equation*}
 -i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)=0
 \end{equation*}
 \end{proof}
 \noindent
-Kommen wir nun zur\"uck zu den Eigenschaften der Eichgruppe.
-\begin{proposition}
-	Sei $G$ ein planarer Graph, $r>0\in\mathfrak{K}$, $\xi\in \mathfrak{E}$, $\psi\in\mathfrak{H}_{qed}$,  und $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ wie in Definition 10.2, dann ist $\{\hat{U}_\xi\}_{\xi\in \mathfrak{E}}$ eine stark stetige Darstellung der Gruppe der erweiterten Eichtransformationen im Raum der unit\"aren Operatoren auf $\mathfrak{H}_\text{qed}$.
-\end{proposition}
-\begin{proof}
-Es verbleibt nach Satz (10.1) zu zeigen, dass f\"ur beliebiges $\xi\in\mathfrak{E}$ $\hat{U}_\xi$ unit\"ar ist und die Darstellung stark stetig ist. In Polarkoordinaten handelt es sich bei der Eichgruppe einfach um einen Translationsoperator. Es ist damit leicht zu zeigen, dass die Eigenschaft erf\"ullt ist.
-\end{proof}
+Kommen wir nun zur\"uck zur Eichgruppe.
+\begin{remark}
+Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger der mit $\hat{h}$ identifiziert werden kann. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
+\end{remark}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
-	Sei $\hat{H}_\text{qed}$ wie in Definition 10.1 und $\mathfrak{H}_\text{qed}$ wie in 10.6, dann gibt es ein $D(\hat{H}_\text{qed})$, dicht in $\mathfrak{H}_\text{qed}$, sodass $\hat{H}_\text{qed}:D(\hat{H}_\text{qed})\mapsto\mathfrak{H}_\text{qed}$ ein selbstadjungierter Operator ist.
+	Sei $\hat{H}_\text{QED}$ wie in Definition~\ref{def:QED-Hamilton} und $\mathfrak{H}_\text{QED}$ wie in Definition~\ref{def:QED2}, dann gibt es ein $\mathfrak{D}_\text{QED}$, dicht in $\mathfrak{H}_\text{QED}$, sodass $\hat{H}_\text{QED}:\mathfrak{D}_\text{QED}\mapsto\mathfrak{H}_\text{QED}$ ein selbstadjungierter Operator ist.
 \end{theorem}
 \begin{proof}
 \end{proof}
