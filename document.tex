@@ -3492,7 +3492,7 @@ Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ 
 \begin{proof}
 	Die Abbildung $\gamma$ ist offensichtlich stetig differenzierbar, es verbleibt somit zu zeigen, dass dies auch f\"ur die Inverse $\gamma^{-1}$ gilt und dass das Integral unverändert bleibt.\\
 	\\
-	Sei $x\in \mathbb{R}^{|A|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$, dann definieren wir
+	Sei $x\in \mathbb{R}^{|f|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$, dann definieren wir
 	\begin{align*}
 		\gamma^{-1}(\Phi, x, y) &= (\Phi e^{iQ(u^T(x)+v^T(y))},u^T(x)+v^T(y))\\
 		&= (\Phi e^{iQ(v^T(y))},u^T(x)+v^T(y))
@@ -3503,13 +3503,13 @@ Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ 
 		&= (\Phi e^{-iQ(a)}e^{iQ(v^Tv(a))}, u^Tu(a) + v^Tv(a))\\
 		&= (\Phi , a)\\
 	\end{align*}
-	Umgekehrt gilt f\"ur $x\in \mathbb{R}^{|A|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$:
+	Umgekehrt gilt f\"ur $x\in \mathbb{R}^{|f|-1}$, $y\in \mathbb{R}^{|V|-1}$ und $\Phi\in\mathfrak{E}_\mathbb{C}$:
 	\begin{align*}
 		\gamma\circ\gamma^{-1}(\Phi, x, y)&= \gamma(\Phi e^{iQ(v^T(y))},u^T(x)+v^T(y))\\
 		&= (\Phi e^{iQ(v^T(y))}e^{-iQ(v^T(y))},uu^T(x),vv^T(y))\\
 		&= (\Phi,x,y)\\
 	\end{align*}
-Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$
+Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$
 \begin{align*}
 	\int \Gamma(f) d\lambda &= \int\int f(\Phi e^{-iQ(a)}, u(a), v(a))d\lambda(\Phi)d\lambda(a)\\
 	&= \int\int f(\Phi, u(a), v(a))d\lambda(\Phi)d\lambda(a)\\
@@ -3521,11 +3521,11 @@ Wir erweiterten zuerst mit dem Satz von Fubini auf ein Mehrfachintegral, nutzen 
 	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2} und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
 \end{proposition}
 \begin{proof}
-Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ durch 
+Sei $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ invariant, dann definieren wir $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{C})$ durch 
 \begin{equation*}
 	f(x,y) = \psi(x,u^T(y))
 \end{equation*}
-für alle $x\in \mathfrak{E}_\mathbb{C}(G)$ und $y \in \mathbb{R}^{|A|-1}$.
+für alle $x\in \mathfrak{E}_\mathbb{C}(G)$ und $y \in \mathbb{R}^{|f|-1}$.
 Unter Ausnutzung der Eichinvarianz von $\psi$ gilt dann:
 \begin{align*}
 	\psi(\Phi, a) &= \psi(\Phi e^{-iQa}, a-r\text{grad}Qa)=\psi(\Phi e^{-iQa}, P_{\text{kern}(\text{div r})}a)\\&=\psi(\Phi e^{-iQa}, u^Tu(a))
@@ -3545,7 +3545,7 @@ Weil nach Voraussetzung $\ker(u)=\mathrm{Bild}(r\mathrm{grad})$ ist.
 \end{corollary}
 \begin{proof} 
 	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann gibt es laut
-	Satz~\ref{prop:eich_darstell} ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ sodass
+	Satz~\ref{prop:eich_darstell} ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{C})$ sodass
 	\[
 	\psi(\Phi, a) = f(\Phi e^{-iQa}, u(a))
 	\]
@@ -3662,7 +3662,7 @@ Integration über $\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})$ liefert ei
 	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$, sodass
 	\[
 	\hat{Q}\psi=0
-	\] sowie \(u\) wie in Defintion~\eqref{def:trafo2}, dann gilt $\psi\in \mathfrak{H}_{QED}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^\infty(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|A|-1}, \mathbb{C})$ gibt, sodass sich $\psi$ nach \ref{eq:darstell_gamma} schreiben lässt als:
+	\] sowie \(u\) wie in Defintion~\eqref{def:trafo2}, dann gilt $\psi\in \mathfrak{H}_{QED}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^\infty(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{C})$ gibt, sodass sich $\psi$ nach \ref{eq:darstell_gamma} schreiben lässt als:
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a))
 	\end{equation}
@@ -3709,6 +3709,60 @@ Kommen wir nun zur\"uck zur Eichgruppe.
 Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger der mit $\hat{h}$ identifiziert werden kann. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
 \end{remark}
 \noindent
+Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich die Selbstadjungiertheit und die Lösbarkeit der Schrödingergleichung der skalaren Quantenelektrodynamik. Starten wir mit einer Eigenschaft des Hamiltonoperators auf deren Basis wir das Resultat beweisen werden. Wir folgend dabei dem klassischen Pfad für Schrödingeroperatoren mit konfinierenden Potentialen.
+\begin{proposition}
+	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{K}\) eine nichtnegative Flächenfunktion,$m>0$, $\hat{H}_{QED}=\hat{T}+\hat{V}$ aus \eqref{def:QED-Hamilton}, wobei die potentielle Energie gegeben ist durch
+	\begin{equation*}
+		V(\Phi, a)= \frac{1}{2}\Biggl(\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
+		+ \bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \bigr\rangle_{\mathfrak{F}}\Biggr),
+	\end{equation*}
+	für $(\Phi,a)\in\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div}r)$ dann definieren wir 
+	\begin{equation}
+\omega(R)=\inf_{\substack{(\Phi,a)\in\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div}r)\\ \Vert(\Phi, a)\Vert>R}}V(\Phi,a)
+	\end{equation}
+	und es gilt
+	\begin{equation}
+		\lim_{R\rightarrow \infty}\omega(R)=\infty
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Die Matrix $R=r^{-1}\mathrm{grad}_D \mu^{-1} \mathrm{div}_D(r^{-1})$ ist positiv und den kleinsten Eigenwert nennen wir  $\epsilon_0>0$, dann gilt:
+	\[
+	\omega(R)\geq (m^2 + \epsilon_0) R^2
+	\]
+	womit das Resultat bewiesen ist.
+\end{proof}
+\noindent
+Als nächstes definieren wir die mit dem Hamiltonoperator assoziierte quadratische Form
+\begin{definition}
+	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{F}\) eine nichtnegative Flächenfunktion, \(\epsilon>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion,$m>0$, und $u, v\in \mathfrak{D}_{QED}$, wobei:
+	\begin{align}
+		\mathfrak{D}_{\mathrm{QED}} = \operatorname{span}\Bigl\{ 
+		(\Phi,a) \mapsto \Phi_R^\alpha \Phi_I^\beta a^\gamma
+		&e^{-\frac{\|\Phi_R\|^2 + \|\Phi_I\|^2 + |a|^2}{2}} 
+		\ :\ 
+		\alpha,\beta \in \mathbb{N}^V,\gamma\in\mathbb{N}^{|f|} \Bigr\}\label{eq:QED-Hermite-Raum} \\&
+		\subseteq \mathfrak{H}_{\mathrm{QED}}(G)\nonumber, 
+	\end{align}
+	 dann nennen wir
+	\begin{align}
+		a(u, v ) := \frac{1}{2}\Biggl(\int_{\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})}&\nabla_\Phi\overline{u}\nabla_\Phi v + \nabla_a\overline{u}\nabla_a v + (\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
+		+ \\ & \bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \bigr\rangle_{\mathfrak{F}})\overline{u}v\Biggr)d\lambda(\Phi, a)\nonumber
+	\end{align}
+	die mit $\hat{H}_{QED}$ \textbf{assoziierte quadratische Form}.
+\end{definition}
+\noindent
+Die Divergenz des Potentials im Unendlichen erlaubt es den $L^2$-Anteil im Unendlichen der Wellenfunktion mit der quadratischen Form $a$ abzuschätzen.
+\begin{lemma}
+\begin{equation}
+	||\psi 1_{\Vert(\Phi, a)\Vert>R}||_{QED}^2\leq \frac{1}{\omega(R)}a(\psi, \psi)
+\end{equation}
+\end{lemma}
+\noindent
+Als nächstes zeigen wir, dass sich ein $\psi\in\mathfrak{D}_{QED}$ beliebig genau annähern lässt durch ein $\psi^{'}\in\mathfrak{D}_{QED}$ mit Träger in $B_R:=\{(\Phi, a)\in \mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}):\Vert(\Phi, a)\Vert<R\}$.
+\begin{lemma}
+	Sei $n>1$ und $\psi\in C^\infty(\mathbb{R}^n,\mathbb{C})\cap L^2(\mathbb{R}^n,\mathbb{C})$, dann gilt für die Funktion $\gamma:\mathbb{R}^n\rightarrow\mathbb{C}$
+\end{lemma}
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
 	Sei $\hat{H}_\text{QED}$ wie in Definition~\ref{def:QED-Hamilton} und $\mathfrak{H}_\text{QED}$ wie in Definition~\ref{def:QED2}, dann gibt es ein $\mathfrak{D}_\text{QED}$, dicht in $\mathfrak{H}_\text{QED}$, sodass $\hat{H}_\text{QED}:\mathfrak{D}_\text{QED}\mapsto\mathfrak{H}_\text{QED}$ ein selbstadjungierter Operator ist.
