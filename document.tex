@@ -122,8 +122,6 @@
 \markboth{Contents}{Contents}
 
 \vfill
-
-
 \chapter*{Einf\"uhrung}
 Zu Beginn (Kapitel 1) werden zentrale Begriffe aus der Graphentheorie und aus der diskreten Geometrie eingeführt – insbesondere die Definitionen von planaren Graphen, Netzen, Teilgraphen sowie der dualen Graphstruktur. Diese baulichen Grundlagen ermöglichen, in Kapitel 2 Funktionenräume auf Graphen zu definieren ($\mathfrak{E},\mathfrak{K},\mathfrak{F}$) und die diskreten Äquivalente des Gradienten, der Divergenz und des Rotors zu konstruieren. Die algebraische Struktur dieser Operatoren wird in einem diskreten de Rham-Komplex geklärt.\\
 \\
@@ -3709,8 +3707,10 @@ Kommen wir nun zur\"uck zur Eichgruppe.
 Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger der mit $\hat{h}$ identifiziert werden kann. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
 \end{remark}
 \noindent
-Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich die Selbstadjungiertheit und die Lösbarkeit der Schrödingergleichung der skalaren Quantenelektrodynamik. Starten wir mit einer Eigenschaft des Hamiltonoperators auf deren Basis wir das Resultat beweisen werden. Wir folgend dabei dem klassischen Pfad für Schrödingeroperatoren mit konfinierenden Potentialen.
-\begin{proposition}
+Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich die Selbstadjungiertheit und die Lösbarkeit der Schrödingergleichung der skalaren Quantenelektrodynamik. Starten wir mit einer Eigenschaft des Hamiltonoperators auf deren Basis wir das Resultat beweisen werden. Wir folgend dabei dem klassischen Pfad für Schrödingeroperatoren mit konfinierenden Potentialen.\\
+\\
+Zuerst zeigen wir ein Analogon des Rellichschen Kompaktheitssatzes:
+\begin{lemma}
 	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{K}\) eine nichtnegative Flächenfunktion,$m>0$, $\hat{H}_{QED}=\hat{T}+\hat{V}$ aus \eqref{def:QED-Hamilton}, wobei die potentielle Energie gegeben ist durch
 	\begin{equation*}
 		V(\Phi, a)= \frac{1}{2}\Biggl(\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
@@ -3724,7 +3724,7 @@ Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich
 	\begin{equation}
 		\lim_{R\rightarrow \infty}\omega(R)=\infty
 	\end{equation}
-\end{proposition}
+\end{lemma}
 \begin{proof}
 	Die Matrix $R=r^{-1}\mathrm{grad}_D \mu^{-1} \mathrm{div}_D(r^{-1})$ ist positiv und den kleinsten Eigenwert nennen wir  $\epsilon_0>0$, dann gilt:
 	\[
@@ -3734,17 +3734,8 @@ Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich
 \end{proof}
 \noindent
 Als nächstes definieren wir die mit dem Hamiltonoperator assoziierte quadratische Form
-\begin{definition}
-	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{F}\) eine nichtnegative Flächenfunktion, \(\epsilon>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion,$m>0$, und $u, v\in \mathfrak{D}_{QED}$, wobei:
-	\begin{align}
-		\mathfrak{D}_{\mathrm{QED}} = \operatorname{span}\Bigl\{ 
-		(\Phi,a) \mapsto \Phi_R^\alpha \Phi_I^\beta a^\gamma
-		&e^{-\frac{\|\Phi_R\|^2 + \|\Phi_I\|^2 + |a|^2}{2}} 
-		\ :\ 
-		\alpha,\beta \in \mathbb{N}^V,\gamma\in\mathbb{N}^{|f|} \Bigr\}\label{eq:QED-Hermite-Raum} \\&
-		\subseteq \mathfrak{H}_{\mathrm{QED}}(G)\nonumber, 
-	\end{align}
-	 dann nennen wir
+\begin{definition}\label{def:quad}
+	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{F}\) eine nichtnegative Flächenfunktion, \(\epsilon>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion,$m>0$, und $u, v\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\subseteq \mathfrak{H}_{\mathrm{QED}}(G)$, dann nennen wir
 	\begin{align}
 		a(u, v ) := \frac{1}{2}\Biggl(\int_{\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})}&\nabla_\Phi\overline{u}\nabla_\Phi v + \nabla_a\overline{u}\nabla_a v + (\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
 		+ \\ & \bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \bigr\rangle_{\mathfrak{F}})\overline{u}v\Biggr)d\lambda(\Phi, a)\nonumber
@@ -3752,20 +3743,46 @@ Als nächstes definieren wir die mit dem Hamiltonoperator assoziierte quadratisc
 	die mit $\hat{H}_{QED}$ \textbf{assoziierte quadratische Form}.
 \end{definition}
 \noindent
-Die Divergenz des Potentials im Unendlichen erlaubt es den $L^2$-Anteil im Unendlichen der Wellenfunktion mit der quadratischen Form $a$ abzuschätzen.
-\begin{lemma}
+Die Divergenz des Potentials im Unendlichen erlaubt es den $L^2$-Anteil im Unendlichen der Wellenfunktion mit der quadratischen Form $a$ abzuschätzen, analog zur Poincare Ungleichung.
+\begin{lemma} 
+Sei $G$ ein planares Netz, $R>0$, $a$ und $\omega$ wie in Definition~\ref{def:quad}, dann gilt für $B_R:=\{(\Phi, a)\in \mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}):\Vert(\Phi, a)\Vert<R\}$
 \begin{equation}
-	||\psi 1_{\Vert(\Phi, a)\Vert>R}||_{QED}^2\leq \frac{1}{\omega(R)}a(\psi, \psi)
+	||\psi 1_{B_R}||_{QED}^2\leq \frac{1}{\omega(R)}a(\psi, \psi)
 \end{equation}
 \end{lemma}
 \noindent
-Als nächstes zeigen wir, dass sich ein $\psi\in\mathfrak{D}_{QED}$ beliebig genau annähern lässt durch ein $\psi^{'}\in\mathfrak{D}_{QED}$ mit Träger in $B_R:=\{(\Phi, a)\in \mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}):\Vert(\Phi, a)\Vert<R\}$.
+Damit haben wir gezeigt, dass sich ein $\psi\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ beliebig genau durch  $\psi 1_{B_R}$ annähern lässt .\\
+\\
+Als nächstes definieren wir eine Abschneidefunktion mit deren Hilfe wir durch Multiplikation $\psi$ auf den Träger $B_R$ reduzieren können, ohne dabei den Definitionsbereich von $a$ zu verlassen.
+\begin{definition}
+	Sei $n\geq 1$ und $R>0$ dann nennen wir eine Funktion $\gamma\in C^1(\mathbb{R}^n, \mathbb{R})$ eine \textbf{R-Abschneidefunktion} falls
+	\begin{itemize}
+		\item $\gamma(x)=1$ für $||x||<=R$
+		\item $\gamma(x)=0$ für $||x||>2R$
+		\item $||\nabla\gamma(x)||\leq \frac{1}{R}$ für $2R\geq||x||>R$
+	\end{itemize}
+\end{definition}
+\noindent
+Es fehlt nur noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei beliebig klein wählen können.
 \begin{lemma}
-	Sei $n>1$ und $\psi\in C^\infty(\mathbb{R}^n,\mathbb{C})\cap L^2(\mathbb{R}^n,\mathbb{C})$, dann gilt für die Funktion $\gamma:\mathbb{R}^n\rightarrow\mathbb{C}$
+	Sei $n>1$, $R>0$, $u\in C^\infty(\mathbb{R}^n,\mathbb{C})\cap L^2(\mathbb{R}^n,\mathbb{C})$ und $\gamma$ eine $R$-Abscheidefunktion, dann gilt:
+	\begin{equation}
+		a(u\gamma ,u\gamma )<(1+\frac{1}{\omega(R)R})^2 a(u,u)
+	\end{equation}
 \end{lemma}
+\noindent
+Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt. 
+\begin{lemma}[Rellich Kompaktheit]
+	Sei $G$ ein planares Netz und $a$ wie in Definition~\eqref{def:quad}, dann ist die durch $a$ definierte Menge
+	\begin{equation}
+		\{\psi\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C}): a(\psi,\psi)\leq 1\}
+	\end{equation}
+	totalbeschränkt bezüglich der Norm $||.||_{\mathrm{QED}}$.
+\end{lemma}
+\noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
-	Sei $\hat{H}_\text{QED}$ wie in Definition~\ref{def:QED-Hamilton} und $\mathfrak{H}_\text{QED}$ wie in Definition~\ref{def:QED2}, dann gibt es ein $\mathfrak{D}_\text{QED}$, dicht in $\mathfrak{H}_\text{QED}$, sodass $\hat{H}_\text{QED}:\mathfrak{D}_\text{QED}\mapsto\mathfrak{H}_\text{QED}$ ein selbstadjungierter Operator ist.
+	Sei $\hat{H}_\text{QED}$ wie in Definition~\ref{def:QED-Hamilton} und $\mathfrak{H}_\text{QED}$ wie in Definition~\ref{def:QED2}, dann gibt es ein $\mathfrak{D}_\text{QED}$, dicht in $\mathfrak{H}_\text{QED}$, sodass $\hat{H}_\text{QED}:\mathfrak{D}_\text{QED}\mapsto\mathfrak{H}_\text{QED}$ ein selbstadjungierter Operator ist mit kompakter Resolvente.
 \end{theorem}
 \begin{proof}
 \end{proof}
