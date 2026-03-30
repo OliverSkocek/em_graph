@@ -3707,77 +3707,110 @@ Kommen wir nun zur\"uck zur Eichgruppe.
 Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger der mit $\hat{h}$ identifiziert werden kann. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
 \end{remark}
 \noindent
-Wir kommen nun zur Vorbereitung des zentralen Theorems dieses Kapitels, nämlich die Selbstadjungiertheit und die Lösbarkeit der Schrödingergleichung der skalaren Quantenelektrodynamik. Starten wir mit einer Eigenschaft des Hamiltonoperators auf deren Basis wir das Resultat beweisen werden. Wir folgend dabei dem klassischen Pfad für Schrödingeroperatoren mit konfinierenden Potentialen.\\
-\\
-Zuerst zeigen wir ein Analogon des Rellichschen Kompaktheitssatzes:
-\begin{lemma}
-	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{K}\) eine nichtnegative Flächenfunktion,$m>0$, $\hat{H}_{QED}=\hat{T}+\hat{V}$ aus \eqref{def:QED-Hamilton}, wobei die potentielle Energie gegeben ist durch
-	\begin{equation*}
-		V(\Phi, a)= \frac{1}{2}\Biggl(\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
-		+ \bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \bigr\rangle_{\mathfrak{F}}\Biggr),
-	\end{equation*}
-	für $(\Phi,a)\in\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div}r)$ dann definieren wir 
+Wir bereiten nun das zentrale Theorem dieses Kapitels vor, das die Selbstadjungiertheit des Hamiltonoperators sowie die Lösbarkeit der Schrödingergleichung in der skalaren Quantenelektrodynamik betrifft. Als Grundlage beweisen wir zunächst eine Eigenschaft des Hamiltonoperators.
+\begin{definition}\label{def:konf-pot}
+	Sei $V \in C(\mathbb{R}^n, \mathbb{R})$. Wir nennen $V$ ein \textbf{konfinierendes Potential}, falls es eine \textbf{Wachstumsfunktion} $\omega: \mathbb{R}^+ \to \mathbb{R}^+$ gibt, sodass
 	\begin{equation}
-\omega(R)=\inf_{\substack{(\Phi,a)\in\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div}r)\\ \Vert(\Phi, a)\Vert>R}}V(\Phi,a)
+		V(x) \ge \omega(R) \quad \text{für alle } x \in \mathbb{R}^n \text{ mit } \|x\| > R
 	\end{equation}
-	und es gilt
+	gilt und
 	\begin{equation}
-		\lim_{R\rightarrow \infty}\omega(R)=\infty
+		\lim_{R \to \infty} \omega(R) = \infty.
 	\end{equation}
-\end{lemma}
-\begin{proof}
-	Die Matrix $R=r^{-1}\mathrm{grad}_D \mu^{-1} \mathrm{div}_D(r^{-1})$ ist positiv und den kleinsten Eigenwert nennen wir  $\epsilon_0>0$, dann gilt:
-	\[
-	\omega(R)\geq (m^2 + \epsilon_0) R^2
-	\]
-	womit das Resultat bewiesen ist.
-\end{proof}
-\noindent
-Als nächstes definieren wir die mit dem Hamiltonoperator assoziierte quadratische Form
-\begin{definition}\label{def:quad}
-	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{F}\) eine nichtnegative Flächenfunktion, \(\epsilon>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion,$m>0$, und $u, v\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\subseteq \mathfrak{H}_{\mathrm{QED}}(G)$, dann nennen wir
-	\begin{align}
-		a(u, v ) := \frac{1}{2}\Biggl(\int_{\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})}&\nabla_\Phi\overline{u}\nabla_\Phi v + \nabla_a\overline{u}\nabla_a v + (\bigl\langle \Phi, (\Delta_r^{a} + m^2)\Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} 
-		+ \\ & \bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)/\mu \bigr\rangle_{\mathfrak{F}})\overline{u}v\Biggr)d\lambda(\Phi, a)\nonumber
-	\end{align}
-	die mit $\hat{H}_{QED}$ \textbf{assoziierte quadratische Form}.
 \end{definition}
 \noindent
-Die Divergenz des Potentials im Unendlichen erlaubt es den $L^2$-Anteil im Unendlichen der Wellenfunktion mit der quadratischen Form $a$ abzuschätzen, analog zur Poincare Ungleichung.
-\begin{lemma} 
-Sei $G$ ein planares Netz, $R>0$, $a$ und $\omega$ wie in Definition~\ref{def:quad}, dann gilt für $B_R:=\{(\Phi, a)\in \mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}):\Vert(\Phi, a)\Vert<R\}$
-\begin{equation}
-	||\psi 1_{B_R}||_{QED}^2\leq \frac{1}{\omega(R)}a(\psi, \psi)
-\end{equation}
+Wir folgen dem klassischen Ansatz für Schrödingeroperatoren mit konfinierenden Potentialen und zeigen ein Analogon des Rellichschen Kompaktheitssatzes.
+\begin{lemma}
+	Sei $G$ ein planares Netz,\(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, \(\mu>0\in\mathfrak{K}\) eine nichtnegative Flächenfunktion,$m>0$, und
+	\[
+	\hat{H}_\text{QED} = \hat{T} + \hat{V}
+	\]
+	aus \eqref{def:QED-Hamilton}, wobei das Potential für alle $(\Phi, a) \in \mathfrak{E}_\mathbb{C} \times \ker(\operatorname{div} r)$ gegeben ist durch
+	\begin{equation*}
+		V(\Phi, a) = \frac{1}{2} \Biggl( \bigl\langle \Phi, (\Delta_r^a + m^2) \Phi \bigr\rangle_{\mathfrak{E},\mathbb{C}} + \bigl\langle \operatorname{div}_D(r^{-1} a), \operatorname{div}_D(r^{-1} a)/\mu \bigr\rangle_{\mathfrak{F}} \Biggr).
+	\end{equation*}
+	Dann ist $V$ ein konfinierendes Potential, d.\,h.\ es gibt eine Wachstumsfunktion $\omega: \mathbb{R}^+ \to \mathbb{R}^+$ im Sinne der Definition~\ref{def:konf-pot}.
 \end{lemma}
+\begin{proof}
+	Betrachte die Matrix $R = r^{-1} \operatorname{grad}_D \mu^{-1} \operatorname{div}_D (r^{-1} \cdot)$, die positiv definit ist mit kleinstem Eigenwert $\epsilon_0 > 0$. Für $\|(\Phi, a)\| > R$ schätzen wir
+	\[
+	V(\Phi, a) \ge \frac{1}{2} (\epsilon_0 \|a\|^2 + m^2 \|\Phi\|^2) \ge \frac{1}{2} \min(\epsilon_0, m^2) R^2.
+	\]
+	Die Funktion $\omega(R) := \frac{1}{2} \min(\epsilon_0, m^2) R^2$ erfüllt $\lim_{R \to \infty} \omega(R) = \infty$, womit $V$ konfinierend ist.
+\end{proof}
 \noindent
-Damit haben wir gezeigt, dass sich ein $\psi\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ beliebig genau durch  $\psi 1_{B_R}$ annähern lässt .\\
+Als Nächstes definieren wir die mit dem Hamiltonoperator assoziierte quadratische Form.
+\begin{definition}\label{def:quad}
+	Sei $n \ge 1$, $V \in C(\mathbb{R}^n, \mathbb{R})$ und 
+	\[
+	\hat{H} = -\frac{1}{2}\Delta + V \label{eq:schroe}
+	\]
+	der zugehörige Schrödingeroperator, der zumindest auf $D = C^\infty_0(\mathbb{R}^n, \mathbb{C})$ definiert ist. 
+	Die mit $\hat{H}$  \textbf{assoziierte quadratische Form} ist die sesquilinear Form $a_{\hat{H}}: D \times D \to \mathbb{C}$, gegeben durch
+	\begin{equation}
+		a_{\hat{H}}(u, v) := \int_{\mathbb{R}^n} \left( \frac{1}{2} \nabla \overline{u} \cdot \nabla v + V \overline{u} v \right) \mathrm{d}\lambda
+		\label{eq:quad-form}
+	\end{equation}
+	für alle $u,v \in D$.
+\end{definition}
+\begin{remark}
+	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}$, $\mu>0\in\mathfrak{F}$, $\epsilon>0\in\mathfrak{K}$ nichtnegative Funktionen und $m>0$. Für $u,v\in C^\infty_0(\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div} r),\mathbb{C})\subseteq \mathfrak{H}_\text{QED}(G)$ ist die mit $\hat{H}_\text{QED}$ assoziierte quadratische Form gegeben durch
+	\begin{align}
+		a(u,v) := \frac{1}{2} \int_{\mathfrak{E}_\mathbb{C}\times\ker(\operatorname{div} r)} \Bigl(& \nabla_\Phi \overline{u} \cdot \nabla_\Phi v + \nabla_a \overline{u} \cdot \nabla_a v \notag 
+		+ \bigl[ \langle \Phi, (\Delta_r^a + m^2)\Phi \rangle_{\mathfrak{E},\mathbb{C}} \\ &+ \langle \operatorname{div}_D(r^{-1}a), \operatorname{div}_D(r^{-1}a)/\mu \rangle_{\mathfrak{F}} \bigr] \overline{u} v \Bigr) \, \mathrm{d}\lambda(\Phi,a).
+	\end{align}
+\end{remark}
+\noindent
+Die Divergenz des Potentials im Unendlichen erlaubt es, den $L^2$-Anteil der Wellenfunktion außerhalb eines Balls mittels der quadratischen Form $a_{\hat{H}}$ abzuschätzen -- analog zur Poincaré-Ungleichung.
+\begin{lemma}\label{lem:poincare-konf}
+	Sei $n \ge 1$, $V \in C(\mathbb{R}^n, \mathbb{R})$ ein konfinierendes Potential mit Wachstumsfunktion $\omega: \mathbb{R}^+ \to \mathbb{R}^+$ und $\hat{H}$ der Schrödingeroperator aus \eqref{eq:schroe} mit assoziierter quadratischer Form $a_{\hat{H}}$ aus \eqref{eq:quad-form}. 
+	Dann gilt für alle $R > 0$ und $\psi \in D$:
+	\begin{equation}\label{eq:poincare-konf}
+		\int_{\mathbb{R}^n \setminus B_R} |\psi|^2 \, \mathrm{d}\lambda \le \frac{1}{\omega(R)} a_{\hat{H}}(\psi, \psi),
+	\end{equation}
+	wobei $B_R := \{ x \in \mathbb{R}^n : \|x\| < R \}$.
+\end{lemma}
+\begin{proof}
+	Für $\psi \in D$ und $R > 0$ gilt aufgrund der Definition von $V$ und $\omega$:
+	\[
+	\int_{\mathbb{R}^n \setminus B_R} |\psi|^2 \, \mathrm{d}\lambda \le \frac{1}{\omega(R)} \int_{\mathbb{R}^n \setminus B_R} V(x) |\psi|^2 \, \mathrm{d}\lambda \le \frac{1}{\omega(R)} a_{\hat{H}}(\psi, \psi),
+	\]
+	da $a_{\hat{H}}(\psi, \psi)$ den Potentialanteil $\int V |\psi|^2$ sowie den (positiven) kinetischen Term enthält.
+\end{proof}
+\noindent
+Damit haben wir gezeigt, dass sich jede $\psi \in C^\infty_0(\mathbb{R}^n, \mathbb{C})$ beliebig genau durch $\psi 1_{B_R}$ approximieren lässt.\\
 \\
-Als nächstes definieren wir eine Abschneidefunktion mit deren Hilfe wir durch Multiplikation $\psi$ auf den Träger $B_R$ reduzieren können, ohne dabei den Definitionsbereich von $a$ zu verlassen.
-\begin{definition}
-	Sei $n\geq 1$ und $R>0$ dann nennen wir eine Funktion $\gamma\in C^1(\mathbb{R}^n, \mathbb{R})$ eine \textbf{R-Abschneidefunktion} falls
+Als Nächstes definieren wir Abschneidefunktionen, mit deren Hilfe wir $\psi$ auf den Träger $B_R$ reduzieren können, ohne den Definitionsbereich der quadratischen Form $a_{\hat{H}}$ zu verlassen.
+\begin{definition}\label{def:abschneide}
+	Sei $n \ge 1$, $C>0$ und $R > 0$. Eine Funktion $\gamma \in C^1(\mathbb{R}^n, \mathbb{R})$ heißt \textbf{$R$-Abschneidefunktion}, falls
 	\begin{itemize}
-		\item $\gamma(x)=1$ für $||x||<=R$
-		\item $\gamma(x)=0$ für $||x||>2R$
-		\item $||\nabla\gamma(x)||\leq \frac{1}{R}$ für $2R\geq||x||>R$
+		\item $\gamma(x) = 1$ für $\|x\| \le R$,
+		\item $\gamma(x) = 0$ für $\|x\| > 2R$,
+		\item $\|\nabla \gamma(x)\| \le \frac{C}{R}$ für $R < \|x\| \le 2R$,
 	\end{itemize}
 \end{definition}
 \noindent
 Es fehlt nur noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei beliebig klein wählen können.
 \begin{lemma}
-	Sei $n>1$, $R>0$, $u\in C^\infty(\mathbb{R}^n,\mathbb{C})\cap L^2(\mathbb{R}^n,\mathbb{C})$ und $\gamma$ eine $R$-Abscheidefunktion, dann gilt:
+	Sei $n\geq 1$, $V\in C(\mathbb{R}^n,\mathbb{R})$, $a_{\hat{H}}:D\times D\rightarrow \mathbb{C}$ wie in Definition~\ref{def:quad}  und $\gamma$ eine $R$-Abschneidefunktion, dann gilt für alle $u\in C^\infty_0(\mathbb{R}^n,\mathbb{C})$
 	\begin{equation}
-		a(u\gamma ,u\gamma )<(1+\frac{1}{\omega(R)R})^2 a(u,u)
+		a(\gamma u , \gamma u)<(1+\frac{1}{\omega(R)R})^2 a(u,u)
 	\end{equation}
 \end{lemma}
+\begin{proof}
+	Sei $R>0$, $\gamma$ eine $R$-Abschneidefunktion und $u\in C^\infty_0(\mathbb{R}^n,\mathbb{C})$, dann gilt:
+	\begin{equation}
+		a(\gamma u , \gamma u) = 
+	\end{equation}
+\end{proof}
 \noindent
 Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt. 
 \begin{lemma}[Rellich Kompaktheit]
-	Sei $G$ ein planares Netz und $a$ wie in Definition~\eqref{def:quad}, dann ist die durch $a$ definierte Menge
+	Sei $n\geq 1$, $V\in C(\mathbb{R}^n,\mathbb{R})$, $a_{\hat{H}}:D\times D\rightarrow \mathbb{C}$ wie in Definition~\ref{def:quad}  und $\gamma$ eine $R$-Abschneidefunktion, dann ist die Einheitskugel
 	\begin{equation}
-		\{\psi\in C^\infty_0(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C}): a(\psi,\psi)\leq 1\}
+		\{\psi\in C^\infty_0(\mathbb{R}^n,\mathbb{C}): a(\psi,\psi)\leq 1\}
 	\end{equation}
-	totalbeschränkt bezüglich der Norm $||.||_{\mathrm{QED}}$.
+	totalbeschränkt bezüglich der Norm $||.||_{L^2(\mathbb{R}^n,\mathbb{C})}$.
 \end{lemma}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
