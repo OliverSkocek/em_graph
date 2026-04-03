@@ -3790,20 +3790,69 @@ Als Nächstes definieren wir Abschneidefunktionen, mit deren Hilfe wir $\psi$ au
 	\end{itemize}
 \end{definition}
 \noindent
-Es fehlt nur noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei beliebig klein wählen können.
-\begin{lemma}
-	Sei $n\geq 1$, $V\in C(\mathbb{R}^n,\mathbb{R})$, $a_{\hat{H}}:D\times D\rightarrow \mathbb{C}$ wie in Definition~\ref{def:quad}  und $\gamma$ eine $R$-Abschneidefunktion, dann gilt für alle $u\in C^\infty_0(\mathbb{R}^n,\mathbb{C})$
-	\begin{equation}
-		a(\gamma u , \gamma u)<(1+\frac{1}{\omega(R)R})^2 a(u,u)
+Es fehlt noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei beliebig klein wählen können.
+\begin{lemma}\label{lem:cutoff-estimate}
+	Sei $n \ge 1$, $V \in C(\mathbb{R}^n, \mathbb{R})$, $a_{\hat{H}}: D \times D \to \mathbb{C}$ die quadratische Form aus Definition~\ref{def:quad} und $\gamma$ eine $R$-Abschneidefunktion. Dann gilt für alle $u \in C^\infty_0(\mathbb{R}^n, \mathbb{C})$:
+	\begin{equation}\label{eq:cutoff-est}
+		a_{\hat{H}}(\gamma u, \gamma u) \le a_{\hat{H}}(u,u) \left( 1 + 2\frac{C}{R\omega(R)} + \frac{C^2}{R^2\omega(R)} \right).
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	Sei $R>0$, $\gamma$ eine $R$-Abschneidefunktion und $u\in C^\infty_0(\mathbb{R}^n,\mathbb{C})$, dann gilt:
+	Sei $R > 0$, $\gamma$ eine $R$-Abschneidefunktion und $u \in C^\infty_0(\mathbb{R}^n, \mathbb{C})$. Dann gilt:
 	\begin{equation}
-		a(\gamma u , \gamma u) = 
+		a_{\hat{H}}(\gamma u , \gamma u) = ||\nabla(\gamma u)||_{L^2(\mathbb{R}^n,\mathbb{C})}^2 + ||V^\frac{1}{2}\gamma u||_{L^2(\mathbb{R}^n,\mathbb{C})}^2
 	\end{equation}
+	Schätzen wir zuerst den ersten Summanden separat ab:
+	\begin{align*}
+		||\nabla(\gamma u)||_{L^2(\mathbb{R}^n,\mathbb{C})}^2 &= ||\gamma \nabla(u) + \nabla(\gamma) u||_{L^2(\mathbb{R}^n,\mathbb{C})}^2\\
+		&\leq(||\gamma \nabla(u)||_{L^2(\mathbb{R}^n,\mathbb{C})} + ||\nabla(\gamma) u||_{L^2(\mathbb{R}^n,\mathbb{C})})^2\\
+		&\leq(||\nabla(u)||_{L^2(\mathbb{R}^n,\mathbb{C})} + \frac{C}{R}||u||_{L^2(\Omega,\mathbb{C})})^2\\
+		&\leq||\nabla(u)||_{L^2(\mathbb{R}^n,\mathbb{C})}^2 +2\frac{C}{R}||\nabla u||_{L^2(\mathbb{R}^n,\mathbb{C})}||u||_{L^2(\Omega,\mathbb{C})} + \frac{C^2}{R^2}||u||_{L^2(\Omega,\mathbb{C})}^2
+	\end{align*}
+	wobei $\Omega = \{x\in\mathbb{R}^n:R < \|x\| \le 2R\}$. Dies folgt aus der Dreiecksungleichung und $|\nabla \gamma| \le C/R$ auf $\Omega$, der zweite aus $\gamma^2 \le 1$.
+	Fassen wir zusammen und zeigen weil $\Omega \subset \mathbb{R}^n \setminus B_R$ gilt das gesuchte Resultat:
+	\[
+	\|u\|_{L^2(\Omega)}^2 \le \frac{1}{\omega(R)} a_{\hat{H}}(u,u).
+	\] mit Hilfe von \eqref{lem:poincare-konf}:
+	\begin{align*}
+		a_{\hat{H}}(\gamma u , \gamma u)&\leq ||\nabla(u)||_{L^2(\mathbb{R}^n,\mathbb{C})}^2 +2\frac{C}{R}||\nabla u||_{L^2(\mathbb{R}^n,\mathbb{C})}||u||_{L^2(\Omega,\mathbb{C})} \\&+ \frac{C^2}{R^2}||u||_{L^2(\Omega,\mathbb{C})}^2 +||V^\frac{1}{2}\gamma u||_{L^2(\mathbb{R}^n,\mathbb{C})}^2\\
+		&\leq a_{\hat{H}}(u,u)(1 + 2\frac{C}{R\omega(R)} + \frac{C^2}{R^2\omega(R)})
+	\end{align*}
 \end{proof}
 \noindent
+Als nächstes beweisen wir einige Sätze, die uns helfen die Annäherung der $a(u,u)\leq 1$ Einheitskugel mit Elementen eines endlich dimensionalen Raums abzuschätzen.
+\begin{lemma}\label{lem:1} Sei $u\in C^1_0(\mathbb{R}^n)$ dann gilt \begin{small}\begin{equation}||u(.+h)-u||_{L^2(\mathbb{R}^n)}\leq|h|||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
+\begin{proof}\cite{Haslinger}[p. 35]: Sei $x,h\in\mathbb{R}^n$. Wir starten mit dem Fundamentalsatz der Analysis:
+	\begin{equation*} u(x+h)-u(x)=\int_0^1\nabla u(x+th)h\mathrm{d}t\end{equation*}
+	Integration des Quadrats des Ausdrucks und Abschätzung gibt uns:
+	\begin{align*}
+		\int_{\mathbb{R}^n}|u(x+h)-u(x)|^2\mathrm{d}\lambda(x)&\overset{\text{Jensen}}{\leq} |h|^2\int_{\mathbb{R}^n}\int_0^1|\nabla u(x+th)|^2\mathrm{d}t\mathrm{d}\lambda(x)\\
+		&\overset{\text{Fubini}}{=}|h|^2\int_0^1\int_{\mathbb{R}^n}|\nabla u(x+th)|^2\mathrm{d}\lambda(x)\mathrm{d}t\\
+		&=|h|^2||u||_{H^1_0(\mathbb{R}^n)}^2
+	\end{align*}
+\end{proof}
+\begin{definition} Sei $\chi\in C^1_0(\mathbb{R}^n)$, sodass $\chi\geq 0$, $\int_{\mathbb{R}^n}\chi d\lambda=1$ und $\chi|_{\mathbb{R}^n\setminus B_{\mathbb{R}^n}}=0$. Dann nennen wir die Familie der Funktionen $(\chi_\delta)_{\delta>0}$ gegeben für jedes $\delta>0$ und alle $x\in\mathbb{R}^n$ durch 
+	$\chi_\delta(x)=\frac{\chi(\frac{x}{\delta})}{\delta^n}$
+	eine \textbf{Glättungsfunktion}. 
+\end{definition}
+\begin{lemma} Sei $\chi_\delta$ eine Glättungsfunktion und $u\in C^1_0(\mathbb{R}^n)$ dann gilt \begin{small}\begin{equation}||\chi_\delta*u-u||_{L^2(\mathbb{R}^n)}\leq\delta||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
+\begin{proof}\cite{Haslinger} [p. 29-35] : Let $u\in C^1_0(\mathbb{R}^n)$
+	\begin{align*}||\chi_\delta*u-u||_{L^2(\mathbb{R}^n)}^2&=\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(x-y)(u(y)-u(x))\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
+		&\overset{\text{Jensen}}{\leq} \int_{\mathbb{R}^n}\int_{\mathbb{R}^n}\chi_\delta(x-y)(u(y)-u(x))^2\mathrm{d}\lambda(y)\mathrm{d}\lambda(x)\\
+		&\overset{\text{Subst. \& Fubini}}{=} \int_{\mathbb{R}^n}\chi_\delta(y)\int_{\mathbb{R}^n}(u(x-y)-u(x))^2\mathrm{d}\lambda(x)\mathrm{d}\lambda(y)\\
+		&\overset{\text{Hilfssatz~\ref{lem:1} }}{=} \int_{\mathbb{R}^n}\chi_\delta(y)|y|^2||u||_{H^1_0(\mathbb{R}^n)}^2\mathrm{d}\lambda(y)\leq \delta^2||u||_{H^1_0(\mathbb{R}^n)}^2\end{align*}
+\end{proof} 
+\begin{lemma} Sei $n\geq 1$ und $\chi_\delta$ eine Glättungsfunktion, dann gilt für alle $u\in C^1_0(\mathbb{R}^n)$ die folgende Abschätzung:
+	\begin{small}\begin{equation}||\chi_\delta*u||_{H^1_0(\mathbb{R}^n)}\leq||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
+\begin{proof} Sei $u\in C^1_0(\mathbb{R}^n)$
+	\begin{align*}||\chi_\delta*u||_{H^1_0(\mathbb{R}^n)}^2&=\int_{\mathbb{R}^n}(\nabla_x \int_{\mathbb{R}^n}\chi_\delta(x-y)u(y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
+		&\overset{\text{Subst.}}{=}\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(y)\nabla_x u(x-y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
+		&\overset{\text{Subst.}}{=}\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(x-y)\nabla_y u(y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
+		&\overset{\text{Jensen}}{\leq}\int_{\mathbb{R}^n}\int_{\mathbb{R}^n}\chi_\delta(x-y)(\nabla u(y))^2\mathrm{d}\lambda(y)\mathrm{d}\lambda(x)\\
+		&\overset{\text{Fubini}}{=}\int_{\mathbb{R}^n}\int_{B_\delta(\mathbb{R}^n)}\chi_\delta(x-y)\mathrm{d}\lambda(x)(\nabla u(y))^2\mathrm{d}\lambda(y)\\
+		&=\int_{\mathbb{R}^n}(\nabla u(y))^2\mathrm{d}\lambda(y)=||u||_{H^1_0(\mathbb{R}^n)}^2\end{align*}
+\end{proof}
+
 Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt. 
 \begin{lemma}[Rellich Kompaktheit]
 	Sei $n\geq 1$, $V\in C(\mathbb{R}^n,\mathbb{R})$, $a_{\hat{H}}:D\times D\rightarrow \mathbb{C}$ wie in Definition~\ref{def:quad}  und $\gamma$ eine $R$-Abschneidefunktion, dann ist die Einheitskugel
@@ -3812,6 +3861,9 @@ Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt.
 	\end{equation}
 	totalbeschränkt bezüglich der Norm $||.||_{L^2(\mathbb{R}^n,\mathbb{C})}$.
 \end{lemma}
+\begin{proof}
+	Sei $\epsilon>0$
+\end{proof}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
@@ -3825,6 +3877,10 @@ Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
 \\
 Es war sehr sch\"on, es hat mich sehr gefreut!
+
+\begin{thebibliography}{}
+	\bibitem{Haslinger} F. Haslinger, {\em Skript zu Theorie partieller Differentialgleichungen},\\ \url{http://www.mat.univie.ac.at/~has/main2.pdf}, 2013.
+\end{thebibliography}
 \end{document}
 
 
