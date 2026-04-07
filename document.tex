@@ -3821,48 +3821,131 @@ Es fehlt noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei belieb
 \end{proof}
 \noindent
 Als nächstes beweisen wir einige Sätze, die uns helfen die Annäherung der $a(u,u)\leq 1$ Einheitskugel mit Elementen eines endlich dimensionalen Raums abzuschätzen.
-\begin{lemma}\label{lem:1} Sei $u\in C^1_0(\mathbb{R}^n)$ dann gilt \begin{small}\begin{equation}||u(.+h)-u||_{L^2(\mathbb{R}^n)}\leq|h|||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
-\begin{proof}\cite{Haslinger}[p. 35]: Sei $x,h\in\mathbb{R}^n$. Wir starten mit dem Fundamentalsatz der Analysis:
-	\begin{equation*} u(x+h)-u(x)=\int_0^1\nabla u(x+th)h\mathrm{d}t\end{equation*}
-	Integration des Quadrats des Ausdrucks und Abschätzung gibt uns:
+\begin{lemma}\label{lem:1}
+	Sei $u \in C^1_0(\mathbb{R}^n)$. Dann gilt
+	\[
+	\|u(\cdot + h) - u\|_{L^2(\mathbb{R}^n)} \leq |h| \|\nabla u\|_{L^2(\mathbb{R}^n)}
+	\]
+	für alle $h \in \mathbb{R}^n$.
+\end{lemma}
+
+\begin{proof}\cite{Haslinger}[p. 35]:
+	Für $x, h \in \mathbb{R}^n$ gilt durch den Fundamentalsatz der Analysis
+	\[
+	u(x + h) - u(x) = \int_0^1 \nabla u(x + t h) \cdot h \, dt.
+	\]
+	Dann
 	\begin{align*}
-		\int_{\mathbb{R}^n}|u(x+h)-u(x)|^2\mathrm{d}\lambda(x)&\overset{\text{Jensen}}{\leq} |h|^2\int_{\mathbb{R}^n}\int_0^1|\nabla u(x+th)|^2\mathrm{d}t\mathrm{d}\lambda(x)\\
-		&\overset{\text{Fubini}}{=}|h|^2\int_0^1\int_{\mathbb{R}^n}|\nabla u(x+th)|^2\mathrm{d}\lambda(x)\mathrm{d}t\\
-		&=|h|^2||u||_{H^1_0(\mathbb{R}^n)}^2
+		\int_{\mathbb{R}^n} |u(x + h) - u(x)|^2 \, dx
+		&\overset{\text{Jensen}}{\leq} |h|^2 \int_{\mathbb{R}^n} \int_0^1 |\nabla u(x + t h)|^2 \, dt \, d\lambda(x) \\
+		&\overset{\text{Fubini}}{=} |h|^2 \int_0^1 \int_{\mathbb{R}^n} |\nabla u(x + t h)|^2 \, d\lambda(x) \, dt \\
+		&= |h|^2 \|\nabla u\|_{L^2(\mathbb{R}^n)}^2.
 	\end{align*}
 \end{proof}
-\begin{definition} Sei $\chi\in C^1_0(\mathbb{R}^n)$, sodass $\chi\geq 0$, $\int_{\mathbb{R}^n}\chi d\lambda=1$ und $\chi|_{\mathbb{R}^n\setminus B_{\mathbb{R}^n}}=0$. Dann nennen wir die Familie der Funktionen $(\chi_\delta)_{\delta>0}$ gegeben für jedes $\delta>0$ und alle $x\in\mathbb{R}^n$ durch 
-	$\chi_\delta(x)=\frac{\chi(\frac{x}{\delta})}{\delta^n}$
-	eine \textbf{Glättungsfunktion}. 
+
+\begin{definition}
+	Sei $\chi \in C^1_0(\mathbb{R}^n)$ mit $\chi \geq 0$, $\int_{\mathbb{R}^n} \chi \, d\lambda = 1$ und $\operatorname{supp} \chi \subset B_1(0)$. 
+	Für $\delta > 0$ definieren wir $\chi_\delta(x) = \delta^{-n} \chi(x/\delta)$. 
+	Diese Familie $(\chi_\delta)_{\delta > 0}$ heißt \textbf{Glättungsfunktion}.
 \end{definition}
-\begin{lemma} Sei $\chi_\delta$ eine Glättungsfunktion und $u\in C^1_0(\mathbb{R}^n)$ dann gilt \begin{small}\begin{equation}||\chi_\delta*u-u||_{L^2(\mathbb{R}^n)}\leq\delta||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
-\begin{proof}\cite{Haslinger} [p. 29-35] : Let $u\in C^1_0(\mathbb{R}^n)$
-	\begin{align*}||\chi_\delta*u-u||_{L^2(\mathbb{R}^n)}^2&=\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(x-y)(u(y)-u(x))\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
-		&\overset{\text{Jensen}}{\leq} \int_{\mathbb{R}^n}\int_{\mathbb{R}^n}\chi_\delta(x-y)(u(y)-u(x))^2\mathrm{d}\lambda(y)\mathrm{d}\lambda(x)\\
-		&\overset{\text{Subst. \& Fubini}}{=} \int_{\mathbb{R}^n}\chi_\delta(y)\int_{\mathbb{R}^n}(u(x-y)-u(x))^2\mathrm{d}\lambda(x)\mathrm{d}\lambda(y)\\
-		&\overset{\text{Hilfssatz~\ref{lem:1} }}{=} \int_{\mathbb{R}^n}\chi_\delta(y)|y|^2||u||_{H^1_0(\mathbb{R}^n)}^2\mathrm{d}\lambda(y)\leq \delta^2||u||_{H^1_0(\mathbb{R}^n)}^2\end{align*}
-\end{proof} 
-\begin{lemma} Sei $n\geq 1$ und $\chi_\delta$ eine Glättungsfunktion, dann gilt für alle $u\in C^1_0(\mathbb{R}^n)$ die folgende Abschätzung:
-	\begin{small}\begin{equation}||\chi_\delta*u||_{H^1_0(\mathbb{R}^n)}\leq||u||_{H^1_0(\mathbb{R}^n)}\end{equation}\end{small}\end{lemma}
+
+\begin{lemma}\label{lem:2}
+	Sei $\chi_\delta$ eine Glättungsfunktion und $u \in C^1_0(\mathbb{R}^n)$. Dann gilt
+	\[
+	\|\chi_\delta * u - u\|_{L^2(\mathbb{R}^n)} \leq \delta \|\nabla u\|_{L^2(\mathbb{R}^n)}.
+	\]
+\end{lemma}
+
+\begin{proof}\cite{Haslinger} [p. 29-35] 
+	\[
+	\|\chi_\delta * u - u\|_{L^2}^2 = \int_{\mathbb{R}^n} \left( \int_{\mathbb{R}^n} \chi_\delta(x - y) (u(y) - u(x)) \, d\lambda(y) \right)^2 d\lambda(x)
+	\]
+	\[
+	\overset{\text{Jensen}}{\leq} \int_{\mathbb{R}^n} \int_{\mathbb{R}^n} \chi_\delta(x - y) (u(y) - u(x))^2 \, d\lambda(y) \, d\lambda(x).
+	\]
+	Substitution $z = x - y$ (Jacobi 1) und Fubini:
+	\[
+	= \int_{\mathbb{R}^n} \chi_\delta(z) \int_{\mathbb{R}^n} (u(x - z) - u(x))^2 \, d\lambda(x) \, d\lambda(z)
+	\overset{\text{Lemma~\ref{lem:1}}}{=} \|\nabla u\|_{L^2}^2 \int_{\mathbb{R}^n} \chi_\delta(z) |z|^2 \, d\lambda(z).
+	\]
+	Da $\operatorname{supp} \chi_\delta \subset B_\delta(0)$, gilt $|z|^2 \leq \delta^2$ und somit $\int \chi_\delta(z) |z|^2 \, d\lambda(z) \leq \delta^2$.
+\end{proof}
+
+\begin{lemma}\label{lem:3}
+	Sei $n \geq 1$, $V \in C(\mathbb{R}^n, \mathbb{R}_{\geq 0})$, $\chi_\delta$ eine Glättungsfunktion und $a_{\hat{H}}$ die quadratische Form aus Definition~\ref{def:quad}. 
+	Für $u \in C^1_0(\mathbb{R}^n)$ mit $\operatorname{supp} u \subset B_R(0)$ gilt
+	\[
+	a_{\hat{H}}(\chi_\delta * u, \chi_\delta * u) \leq a_{\hat{H}}(u,u) \bigl(1 + 2 C_R \delta + C_R^2 \delta^2\bigr),
+	\]
+	wobei $C_R = \sup_{\|x\| \leq R + \delta} V^{1/2}(x)$.
+\end{lemma}
+
 \begin{proof} Sei $u\in C^1_0(\mathbb{R}^n)$
-	\begin{align*}||\chi_\delta*u||_{H^1_0(\mathbb{R}^n)}^2&=\int_{\mathbb{R}^n}(\nabla_x \int_{\mathbb{R}^n}\chi_\delta(x-y)u(y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
+	\begin{align*}
+		||\nabla(\chi_\delta*u)||_{L^2(\mathbb{R}^n)}^2&=\int_{\mathbb{R}^n}(\nabla_x \int_{\mathbb{R}^n}\chi_\delta(x-y)u(y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
 		&\overset{\text{Subst.}}{=}\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(y)\nabla_x u(x-y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
 		&\overset{\text{Subst.}}{=}\int_{\mathbb{R}^n}(\int_{\mathbb{R}^n}\chi_\delta(x-y)\nabla_y u(y)\mathrm{d}\lambda(y))^2\mathrm{d}\lambda(x)\\
 		&\overset{\text{Jensen}}{\leq}\int_{\mathbb{R}^n}\int_{\mathbb{R}^n}\chi_\delta(x-y)(\nabla u(y))^2\mathrm{d}\lambda(y)\mathrm{d}\lambda(x)\\
-		&\overset{\text{Fubini}}{=}\int_{\mathbb{R}^n}\int_{B_\delta(\mathbb{R}^n)}\chi_\delta(x-y)\mathrm{d}\lambda(x)(\nabla u(y))^2\mathrm{d}\lambda(y)\\
-		&=\int_{\mathbb{R}^n}(\nabla u(y))^2\mathrm{d}\lambda(y)=||u||_{H^1_0(\mathbb{R}^n)}^2\end{align*}
-\end{proof}
+		&\overset{\text{Fubini}}{=}\int_{\mathbb{R}^n}\int_{\mathbb{R}^n}\chi_\delta(x-y)\mathrm{d}\lambda(x)(\nabla u(y))^2\mathrm{d}\lambda(y)\\
+		&=\int_{\mathbb{R}^n}(\nabla u(y))^2\mathrm{d}\lambda(y)=||\nabla u||_{L^2(\mathbb{R}^n)}^2
+	\end{align*}
+Jetzt fehlt noch die Abschätzung für den Potentialteil:
+	\begin{align*}
+	||V^\frac{1}{2}\chi_\delta*u||_{L^2(\mathbb{R}^n)}^2&\overset{\text{Dreiecks-Ungl.}}{\leq} (||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)} + ||V^\frac{1}{2}\chi_\delta*u-V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)})^2\\
+	&\overset{\text{Beschränkt.}}{\leq} (||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)} + C_R||\chi_\delta*u-u||_{L^2(\mathbb{R}^n)})^2\\
+	&\overset{\text{Hilfssatz~\ref{lem:2}}}{\leq} (||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)} + C_R\delta||\nabla u||_{L^2(\mathbb{R}^n)})^2\\
+	&=||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)}^2 +2C_R\delta||\nabla u||_{L^2(\mathbb{R}^n)}||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)}+C_R^2\delta^2||\nabla u||_{L^2(\mathbb{R}^n)}^2\\
+	&\leq||V^\frac{1}{2}u||_{L^2(\mathbb{R}^n)}^2 +(2C_R\delta+C_R^2\delta^2)a_{\hat{H}}(u,u)
+\end{align*}
+Wir fassen zusammen
+\begin{align*}
+a_{\hat{H}}(\chi_\delta * u, \chi_\delta * u) &= \frac{1}{2}\|\nabla(\chi_\delta * u)\|^2 + \|V^{1/2}(\chi_\delta * u)\|^2 
+\\&\leq \frac{1}{2}\|\nabla u\|^2 + \|V^{1/2}u\|^2 + (2C_R\delta + C_R^2\delta^2)a_{\hat{H}}(u,u)
+\end{align*}
 
+\end{proof}
+\noindent
 Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt. 
-\begin{lemma}[Rellich Kompaktheit]
-	Sei $n\geq 1$, $V\in C(\mathbb{R}^n,\mathbb{R})$, $a_{\hat{H}}:D\times D\rightarrow \mathbb{C}$ wie in Definition~\ref{def:quad}  und $\gamma$ eine $R$-Abschneidefunktion, dann ist die Einheitskugel
-	\begin{equation}
-		\{\psi\in C^\infty_0(\mathbb{R}^n,\mathbb{C}): a(\psi,\psi)\leq 1\}
-	\end{equation}
-	totalbeschränkt bezüglich der Norm $||.||_{L^2(\mathbb{R}^n,\mathbb{C})}$.
+\begin{lemma}[Rellich-Kompaktheit]\label{lem:rellich}
+	Sei $n \geq 1$, $V \in C(\mathbb{R}^n, \mathbb{R}_{\geq 0})$, $a_{\hat{H}}$ wie in Definition~\ref{def:quad}. 
+	Die Einheitskugel
+	\[
+	b_a = \{ \psi \in C^\infty_0(\mathbb{R}^n, \mathbb{C}) : a_{\hat{H}}(\psi, \psi) \leq 1 \}
+	\]
+	ist totalbeschränkt bezüglich $\|\cdot\|_{L^2(\mathbb{R}^n, \mathbb{C})}$.
 \end{lemma}
+
 \begin{proof}
-	Sei $\epsilon>0$
+	Sei $\epsilon>0$. Im ersten Schritt wählen wir nach Hilfssatz~\ref{lem:cutoff-estimate} und Hilfssatz~\ref{lem:poincare-konf} $R>0$ sodass für die $R$-Abschneidefunktion $\gamma$
+	\begin{equation*} 
+		A_R=\left\{\frac{\gamma\psi}{\left( 1 + 2\frac{C}{R\omega(R)} + \frac{C^2}{R^2\omega(R)} \right)}:\psi\in b_a\right\}
+	\end{equation*}
+	eine $\epsilon/3$-Annäherung von $b_{a}$ bezüglich der $L^2(\mathbb{R}^n)$-Norm  ist und $A_R\subset b_{a}$.\\
+	\\
+	Die Funktionen in $A_R$ haben Träger in $B_{2R}$ und daher können wir als nächstesmit Hilfe von Hilfssatz~\ref{lem:2} und Hilfssatz~\ref{lem:3} ein $\delta>0$ und eine zugehörige Glättungsfunktion $\chi_\delta$ wählen, sodass
+	\begin{equation*} 
+	D_\delta=\left\{\frac{\chi_\delta*\psi}{\left(1+2C_{2R}\delta+C_{2R}^2\delta^2 \right)}:\psi\in A_R\right\}
+\end{equation*}
+	eine $\epsilon/3$-Annäherung von $A_R$ bezüglich der $L^2(\mathbb{R}^n)$-Norm  ist und $D_\delta\subset b_{a}$.\\
+\\
+Abschließend machen wir die Beobachtung, dass wir eine $2\epsilon/3$-Annäherung von $b_a$ haben, die punktweise beschränkt
+\begin{equation*}
+	|\chi_{\delta} * u|(x)
+	\overset{\text{C.S.}}{\leq}
+	\|\chi_{\delta}\|_{L^2(\mathbb{R}^n,\mathbb{C})}
+	\|u\|_{L^2(\mathbb{R}^n,\mathbb{C})}\forall x \in \mathbb{R}^n
+\end{equation*}
+ und gleichgradig stetig ist:
+ \begin{align*}
+ 	|\chi_{\delta} * u(x+h)-\chi_{\delta} * u(x)|
+ 	&\overset{\text{C.S.}}{\leq}
+ 	\|\chi_{\delta}\|_{L^2(\mathbb{R}^n,\mathbb{C})}
+ 	\|u(.+h)-u\|_{L^2(\mathbb{R}^n,\mathbb{C})}\\
+ 	&\overset{\text{Hilfssatz~\ref{lem:1}}}{\leq}h \|\chi_{\delta}\|_{L^2(\mathbb{R}^n,\mathbb{C})}a_{\hat{H}}(u,u)
+ \end{align*}
+Wir können deshalb das Arzela-Ascoli Theorem auf $C(\overline{B_{2R}},\mathbb{C})$ verwenden um eine endliche $\sqrt{\frac{\epsilon}{3|B_{2R}|}}$ Näherung $\{\phi_n: 1\leq n\leq N\}$ von $D_\delta$ bezüglich der $||.||_\infty$-Norm zu konstruieren und damit eine $\frac{\epsilon}{3}$ Näherung bezüglich der $L^2(\overline{B_{2R}},\mathbb{C})$-Norm.\\
+\\
+Zusammengefasst haben wir damit eine endliche $\epsilon$ Näherung von $b_a$ konstruiert.
 \end{proof}
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
