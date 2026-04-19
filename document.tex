@@ -482,8 +482,8 @@ Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Ope
 		\langle v, \mathrm{grad}(u)\rangle_{\mathfrak{K}}
 		&= \sum_{e\in E} v(e)\,\bigl(u(p(e)) - u(q(e))\bigr) \\
 		&= \sum_{e\in E} v(e) u(p(e)) - \sum_{e\in E} v(e) u(q(e))\\
-		&= \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ p(e)=x}}v(e) - \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ p(e)=x}}v(e)\\
-		&= \sum_{x\in V} u(x) \left( \sum_{\substack{e\in E \\ p(e)=x}} v(e) - \sum_{\substack{e\in E \\ p(e)=x}} v(e)\right) \\
+		&= \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ p(e)=x}}v(e) - \sum_{x\in V} u(x) \sum_{\substack{e\in E \\ q(e)=x}}v(e)\\
+		&= \sum_{x\in V} u(x) \left( \sum_{\substack{e\in E \\ p(e)=x}} v(e) - \sum_{\substack{e\in E \\ q(e)=x}} v(e)\right) \\
 		&= - \langle \mathrm{div}(v), u\rangle_{\mathfrak{E}}.
 	\end{align*}
 	Damit folgt die Aussage.
@@ -3792,7 +3792,7 @@ Als Nächstes definieren wir Abschneidefunktionen, mit deren Hilfe wir $\psi$ au
 \noindent
 Es fehlt noch, dass wir die Zunahme der quadratischen Form $a(.,.)$ dabei beliebig klein wählen können.
 \begin{lemma}\label{lem:cutoff-estimate}
-	Sei $n \ge 1$, $V \in C(\mathbb{R}^n, \mathbb{R})$, $a_{\hat{H}}: D \times D \to \mathbb{C}$ die quadratische Form aus Definition~\ref{def:quad} und $\gamma$ eine $R$-Abschneidefunktion. Dann gilt für alle $u \in C^\infty_0(\mathbb{R}^n, \mathbb{C})$:
+	Sei $n \ge 1$, $V \in C(\mathbb{R}^n, \mathbb{R}_{\geq 0})$, $a_{\hat{H}}: D \times D \to \mathbb{C}$ die quadratische Form aus Definition~\ref{def:quad} und $\gamma$ eine $R$-Abschneidefunktion. Dann gilt für alle $u \in C^\infty_0(\mathbb{R}^n, \mathbb{C})$:
 	\begin{equation}\label{eq:cutoff-est}
 		a_{\hat{H}}(\gamma u, \gamma u) \le a_{\hat{H}}(u,u) \left( 1 + 2\frac{C}{R\omega(R)} + \frac{C^2}{R^2\omega(R)} \right).
 	\end{equation}
@@ -3907,7 +3907,7 @@ a_{\hat{H}}(\chi_\delta * u, \chi_\delta * u) &= \frac{1}{2}\|\nabla(\chi_\delta
 \noindent
 Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt. 
 \begin{lemma}[Rellich-Kompaktheit]\label{lem:rellich}
-	Sei $n \geq 1$, $V \in C(\mathbb{R}^n, \mathbb{R}_{\geq 0})$, $a_{\hat{H}}$ wie in Definition~\ref{def:quad}. 
+	Sei $n \geq 1$, $V \in C(\mathbb{R}^n, \mathbb{R}_{\geq 0})$ ein konfinierendes Potential und $a_{\hat{H}}$ wie in Definition~\ref{def:quad}. 
 	Die Einheitskugel
 	\[
 	b_a = \{ \psi \in C^\infty_0(\mathbb{R}^n, \mathbb{C}) : a_{\hat{H}}(\psi, \psi) \leq 1 \}
@@ -3922,7 +3922,7 @@ Damit haben wir die $L^2$ Kompaktheit der $a(u,u)\leq 1$ Einheitskugel gezeigt.
 	\end{equation*}
 	eine $\epsilon/3$-Annäherung von $b_{a}$ bezüglich der $L^2(\mathbb{R}^n)$-Norm  ist und $A_R\subset b_{a}$.\\
 	\\
-	Die Funktionen in $A_R$ haben Träger in $B_{2R}$ und daher können wir als nächstesmit Hilfe von Hilfssatz~\ref{lem:2} und Hilfssatz~\ref{lem:3} ein $\delta>0$ und eine zugehörige Glättungsfunktion $\chi_\delta$ wählen, sodass
+	Die Funktionen in $A_R$ haben Träger in $B_{2R}$ und daher können wir als nächstes mit Hilfe von Hilfssatz~\ref{lem:2} und Hilfssatz~\ref{lem:3} ein $\delta>0$ und eine zugehörige Glättungsfunktion $\chi_\delta$ wählen, sodass
 	\begin{equation*} 
 	D_\delta=\left\{\frac{\chi_\delta*\psi}{\left(1+2C_{2R}\delta+C_{2R}^2\delta^2 \right)}:\psi\in A_R\right\}
 \end{equation*}
@@ -3950,10 +3950,137 @@ Zusammengefasst haben wir damit eine endliche $\epsilon$ Näherung von $b_a$ kon
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
-	Sei $\hat{H}_\text{QED}$ wie in Definition~\ref{def:QED-Hamilton} und $\mathfrak{H}_\text{QED}$ wie in Definition~\ref{def:QED2}, dann gibt es ein $\mathfrak{D}_\text{QED}$, dicht in $\mathfrak{H}_\text{QED}$, sodass $\hat{H}_\text{QED}:\mathfrak{D}_\text{QED}\mapsto\mathfrak{H}_\text{QED}$ ein selbstadjungierter Operator ist mit kompakter Resolvente.
+	Sei \(n \geq 1\), \(V \in C(\mathbb{R}^n,\mathbb{R}_{\geq 0})\) ein konfinierendes Potential und \(\hat{H}\) wie in Definition~\ref{def:quad}. Dann gibt es einen dichten Definitionsbereich \(\mathfrak{D}_{\hat{H}} \subset L^2(\mathbb{R}^n,\mathbb{C})\), so dass
+	\[
+	\hat{H} : \mathfrak{D}_{\hat{H}} \to L^2(\mathbb{R}^n,\mathbb{C})
+	\]
+	ein selbstadjungierter Operator mit kompakter Resolvente ist.
 \end{theorem}
 \begin{proof}
+	Wir betrachten zunächst den Raum der Testfunktionen \(D=C_0^\infty(\mathbb{R}^n,\mathbb{C})\), versehen mit der Norm
+	\[
+	\|u\|_{\hat{H}} = a_{\hat{H}}(u,u)^{1/2}, \qquad u \in D.
+	\]
+	Die metrische Vervollständigung von \(D\) bezüglich \(\|\cdot\|_{\hat{H}}\) bezeichnen wir mit \(\mathfrak{Q}_{\hat{H}}\).
+	\\
+	\\
+	Wir zeigen nun, dass \(\mathfrak{Q}_{\hat{H}} \subset L^2(\mathbb{R}^n,\mathbb{C})\). Sei dazu \(\{f_n\}_{n\geq 1} \subset D\) eine Cauchyfolge bezüglich \(\|\cdot\|_{\hat{H}}\). Für ein festes \(R>0\), eine \(R\)-Abschneidefunktion \(\gamma\) mit Konstante \(C \geq 1\) und die Wachstumsfunktion \(\omega\) des Potentials \(V\) gilt dann
+	\begin{align*}
+		\|f_n-f_m\|_{L^2(\mathbb{R}^n,\mathbb{C})}
+		&\leq \frac{1}{\omega(R)^{1/2}}\|f_n-f_m\|_{\hat{H}}
+		+ \|\gamma(f_n-f_m)\|_{L^2(B_{2R},\mathbb{C})} \\
+		&\leq \frac{1}{\omega(R)^{1/2}}\|f_n-f_m\|_{\hat{H}}
+		+ C_p(R)\,\|\gamma(f_n-f_m)\|_{H_0^1(B_{2R},\mathbb{C})} \\
+		&\leq \Bigl(\frac{1}{\omega(R)^{1/2}}
+		+ C_p(R)\bigl(1 + 2\frac{C}{R\omega(R)} + \frac{C^2}{R^2\omega(R)}\bigr)^{1/2}\Bigr)
+		\|f_n-f_m\|_{\hat{H}} \\
+		&=: A(R)\,\|f_n-f_m\|_{\hat{H}}.
+	\end{align*}
+Hierbei verwenden wir zunächst Hilfssatz~\ref{lem:poincare-konf} mit der von \(R\) abhängigen Poincaré-Konstante \(C_p(R)\), sodann die Poincaré-Ungleichung in \(H_0^1(B_{2R},\mathbb{C})\) und schließlich Hilfssatz~\ref{lem:cutoff-estimate} zur Kontrolle von Produkten mit Abschneidefunktionen.
+	\\
+	\\
+	Falls $V$ strikt positiv also $V\geq c>0$ wäre, folgt die Abschätzung noch einfacher:
+	\begin{equation*}
+			\|f\|_{L^2(\mathbb{R}^n,\mathbb{C})}\leq c\|f\|_{\hat{H}}
+	\end{equation*}
+	\noindent
+	\\
+	\\
+	Sei nun \(\varepsilon>0\). Da \(\{f_n\}\) eine Cauchyfolge in \(\|\cdot\|_{\hat{H}}\) ist, existiert ein \(N \in \mathbb{N}\) mit
+	\[
+	\|f_n-f_m\|_{\hat{H}} < \frac{\varepsilon}{A(R)}
+	\qquad \text{für alle } n,m \geq N.
+	\]
+	Daraus folgt unmittelbar
+	\[
+	\|f_n-f_m\|_{L^2(\mathbb{R}^n,\mathbb{C})} < \varepsilon
+	\qquad \text{für alle } n,m \geq N.
+	\]
+	Also ist jede \(\|\cdot\|_{\hat{H}}\)-Cauchyfolge auch eine \(L^2\)-Cauchyfolge. Damit lässt sich \(\mathfrak{Q}_{\hat{H}}\) als Teilraum von \(L^2(\mathbb{R}^n,\mathbb{C})\) auffassen.
+	\\
+	\\
+	Als nächstes sei $f\in L^2(\mathbb{R}^n)$, dann definieren wir ein lineares Funktional:
+	\begin{equation}
+		l(v) = \int_{\mathbb{R}^n}\overline{f}v d\lambda
+	\end{equation}
+	Mit Hilfe der Cauchy Schwarz'schen Ungleichung können wir zeigen, dass $l$ ein stetiges Funktional bezüglich der $L^2$-Norm ist. Nachdem $D$ dicht in \(\mathfrak{Q}_{\hat{H}}\) bezüglich der $||\cdot||_{\hat{H}}$-Norm als auch der $L^2$-Norm ist folgt aus dem Hilfssatz zur Rellich Kompaktheit, dass die Einheitskugel von \(\mathfrak{Q}_{\hat{H}}\) total beschränkt bezüglich der $L^2$-Norm ist. Als Konsequenz können wir die Funktionalnorm berechnen
+	\[
+	|||l|||=\sup_{v\in\mathfrak{Q}_{\hat{H}}}\frac{|l(v)|}{||v||_{\hat{H}}}
+	\]
+	Aus dem Rieszschen Darstellungssatz folgt sodann, dass ein $u\in \mathfrak{Q}_{\hat{H}}$ existiert, sodass für alle $v\in\mathfrak{Q}_{\hat{H}}$
+	\[
+	a_{\hat{H}}(u, v)=l(v)
+	\]
+	Wir definieren den Lösungsoperator $\hat{\mathfrak{L}}:L^2(\mathbb{R}^n,\mathbb{C})\rightarrow\mathfrak{Q}_{\hat{H}}$ durch $\hat{\mathfrak{L}}(f)=u$. Der Lösungsoperator $\hat{\mathfrak{L}}$ ist ein  linearer Operator und ist für $\psi\in D$ linksinvers zu $\hat{H}$:
+	\[
+	\hat{\mathfrak{L}}(\hat{H}(\psi))=\psi
+	\]
+	Es folgt, dass das $\mathrm{Bild}(\hat{\mathfrak{L}})$ dicht in $L^2(\mathbb{R}^n,\mathbb{C})$ ist, weil $D$ dicht ist.
+	\\
+	\\
+	Wir definieren als nächstes die Inverse:
+	\[\hat{\mathfrak{L}}^{-1}:\mathrm{Bild}(\hat{\mathfrak{L}})\rightarrow L^2(\mathbb{R}^n,\mathbb{C})\]
+	Sei hierzu $u\in\mathrm{Bild}(\hat{\mathfrak{L}})$, dann gibt es ein $f\in L^2(\mathbb{R}^n,\mathbb{C})$ sodass $\hat{\mathfrak{L}}^{-1}(u)=f$.\\
+	\\
+	Nachdem zusätzlich gilt, dass für $f\in L^2(\mathbb{R}^n,\mathbb{C})$ mit $||f||_{L^2(\mathbb{R}^n,\mathbb{C})}>0$ laut Konstruktion $||\hat{\mathfrak{L}}(f)||_{L^2(\mathbb{R}^n,\mathbb{C})}>0$ gilt, ist $\hat{\mathfrak{L}}$ auch injektiv wodurch die Inverse ein wohl(dicht)definierter linearer Operator ist.
+	\\
+	\\
+	Für $u\in D$ gilt außerdem:
+	\[\hat{\mathfrak{L}}^{-1}(u)=\hat{H}(u)\]
+	Wir wissen zudem, dass für alle $u,v\in D$
+	\[
+	\langle \hat{H}u,v\rangle_{L^2}=\langle u,\hat{H}v\rangle_{L^2}
+	\]
+	Es folgt, dass der Operator $\hat{\mathfrak{L}}^{-1}$ ebenfalls symmetrisch ist. Sei hierzu $u,v\in \mathrm{Bild}(\hat{\mathfrak{L}})$ und $(u_n)_{n\geq 0}, (v_n)_{n\geq 0}$ Folgen in $D$, sodass $u_n\rightarrow u$ und $v_n\rightarrow v$ bezüglich der $L^2$-Norm, dann gilt wegen der Abgeschlossenheit des Graphen von $\hat{\mathfrak{L}}$ $\hat{H}u_n\rightarrow \hat{\mathfrak{L}}^{-1}u$ und $\hat{H}v_n\rightarrow \hat{\mathfrak{L}}^{-1}v$ und somit:
+	\[
+	\langle \hat{\mathfrak{L}}^{-1}u,v\rangle_{L^2}=\lim_{m\rightarrow\infty}\lim_{n\rightarrow\infty}\langle \hat{H}u_n,v_m\rangle_{L^2}=\lim_{m\rightarrow\infty}\lim_{n\rightarrow\infty}\langle u_n,\hat{H}v_m\rangle_{L^2}=\langle u,\hat{\mathfrak{L}}^{-1}v\rangle_{L^2}
+	\]
+	Umgekehrt ist auch $\hat{\mathfrak{L}}$ symmetrisch, sei hierzu $u, v\in L^2(\mathbb{R}^n,\mathbb{C})$ und $u=\hat{\mathfrak{L}}^{-1}(g), v=\hat{\mathfrak{L}}^{-1}(h)$:
+	\[
+		\langle \hat{\mathfrak{L}}u,v\rangle_{L^2}=\langle g,\hat{\mathfrak{L}}^{-1}(h)\rangle_{L^2}=\langle \hat{\mathfrak{L}}^{-1}(g), h\rangle_{L^2}=\langle u, \hat{\mathfrak{L}}(v)\rangle_{L^2}
+	\]
+	Fassen wir zunächst die Situation zusammen:
+	\begin{align*}
+		&\hat{\mathfrak{L}}:L^2(\mathbb{R}^n,\mathbb{C})\rightarrow\mathfrak{Q}_{\hat{H}}\\
+		&\hat{\mathfrak{j}}:\mathfrak{Q}_{\hat{H}}\rightarrow L^2(\mathbb{R}^n,\mathbb{C})\\
+		&\hat{\mathfrak{j}}(v)=v\forall v\in \mathfrak{Q}
+	\end{align*}
+Als nächstes identifizieren wir die Einbettung $\hat{\mathfrak{j}}$ mit $\hat{\mathfrak{L}}$. \\
+\\
+Sei hierzu $v\in\mathfrak{Q}\subset L^2(\mathbb{R}^n,\mathbb{C})$ und $f\in L^2(\mathbb{R}^n,\mathbb{C})$, dann gilt:
+\begin{equation*}
+	\langle f, v\rangle_{L^2}=\langle f, \hat{\mathfrak{j}}v\rangle_{L^2}=\langle \hat{\mathfrak{j}}^\dagger f, v\rangle_{\hat{H}}=a_{\hat{H}}(\hat{\mathfrak{j}}^\dagger f, v)
+\end{equation*}
+Die Definition von $\hat{\mathfrak{j}}^\dagger$ stimmt damit genau mit der von $\hat{\mathfrak{L}}$ überein.\\
+\\
+Nachdem $\hat{\mathfrak{j}}$ ein kompakter Operator ist, ist es  auch seine Adjungierte $\hat{\mathfrak{L}}$ und damit auch die Komposition $\hat{\mathfrak{j}}\hat{\mathfrak{L}}$.
+\\
+\\
+Damit wurde gezeigt, dass $\hat{\mathfrak{j}}\hat{\mathfrak{L}}$ ein positiver kompakter Operator auf $L^2(\mathbb{R}^n,\mathbb{C})$ ist. 
+\\
+\\
+Als nächstes zeigen wir, dass der Lösungsoperator tatsächlich normierbar ist.
+	\begin{align*}
+		||\hat{\mathfrak{L}}||^2 &= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}} \Big( \frac{||\hat{\mathfrak{L}}f||_{\hat{H}}}{||f||_{L^2}}\Big)^2= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{a_{\hat{H}}(\hat{\mathfrak{L}}f, \hat{\mathfrak{L}}f)}{\langle f, f\rangle_{L^2}}\\&= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{\langle f, \hat{\mathfrak{L}}f\rangle_{L^2}}{\langle f, f\rangle_{L^2}}=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||
+	\end{align*}
+Im letzten Schritt haben wir die Positivität von $\hat{\mathfrak{L}}$ ausgenutzt.\\
+Es gilt aber auch:
+\begin{align*}
+||\hat{\mathfrak{j}}||^2 &= \sup_{\substack{u \in D \\ u \neq 0}}\Big( \frac{||u||_{L^2}}{||u||_{\hat{H}}}\Big)^2= \sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle u, u\rangle_{L^2}}{\langle \hat{H}u, u\rangle_{L^2}}\\&= \Big(\inf_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{H}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}\Big)^{-1}=\sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{\mathfrak{L}}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||
+\end{align*}
+Im letzten Schritt haben wir wieder die Positivät von $\hat{\mathfrak{L}}$ ausgenutzt, genauso wie im Schritt davor wo wir implizit die Existenz der Quadratwurzel von $\hat{\mathfrak{L}}$ benutzt haben um die Umformung zu machen.\\
+\\
+Zusammengefasst gilt also:
+\begin{equation*}
+	||\hat{\mathfrak{j}}||^2=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||=||\hat{\mathfrak{L}}||^2
+\end{equation*}
+Wegen der ersten Resolventengleichung:
+\begin{equation*}
+	(T-\lambda )^{-1}-(T-\mu )^{-1}= (\lambda-\mu)(T-\lambda )^{-1}(T-\mu )^{-1}
+\end{equation*}
+ist die Resolvente $(\hat{H}-\lambda)^{-1}$ für beliebiges $\lambda$ in der Resolventenmenge von $\hat{H}$ kompakt wenn es das für eines ist.	
 \end{proof}
+
 \noindent
 \chapter{Numerische Simulation der skalaren Quantenelektrodynamik auf einem Tetraeder}
 \chapter*{Abschluss}
