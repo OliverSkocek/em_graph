@@ -89,7 +89,7 @@
 \vspace*{5cm}
 \begin{center}
 \rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \Huge \bfseries Von elektrischen Netzwerken zur diskreten Quantenelektrodynamik} \\[0.2cm]
+{ \Huge \bfseries Feldtheorie auf planaren Netzen: Klassische Maxwelltheorie bis skalare Quantenfeldtheorie} \\[0.2cm]
 \rule{\linewidth}{0.5mm} \\[3.5cm]
 \begin{minipage}[t]{0.4\textwidth}
 %\begin{flushleft} \large
@@ -1112,7 +1112,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	\[
 	q'(t) = -\,\mathrm{div}(r j(t)).
 	\]
-	Schließlich ergibt die Summation über alle Ecken
+	Schließlich ergibt die Summierung über alle Ecken
 	\[
 	\sum_{v\in V} q'(t)(v) = - \sum_{v\in V}\mathrm{div}(r j(t))(v) = 0,
 	\]
@@ -1533,8 +1533,8 @@ Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte
 \begin{equation}
 	[\hat{a}(e), \hat{\pi}(e')] = i\,\delta_{e,e'}.
 \end{equation}
-Dabei werden die Definitionsbereiche der Operatoren zunächst nicht berücksichtigt; 
-insbesondere wurde nicht überprüft, ob die entsprechenden Kompositionen dicht definiert sind.  
+Nachdem diese Operatoren den Hermite Polynomraum invariant lassen, sind auch ihre Kompositionen
+dicht definiert.
 \\
 \\
 Die möglichen Ergebnisse einer Messung einer mit einem selbstadjungierten Operator 
@@ -3704,7 +3704,7 @@ ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ we
 \noindent
 Kommen wir nun zur\"uck zur Eichgruppe.
 \begin{remark}
-Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger der mit $\hat{h}$ identifiziert werden kann. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
+Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger $\hat{h}$. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
 \end{remark}
 \noindent
 Wir bereiten nun das zentrale Theorem dieses Kapitels vor, das die Selbstadjungiertheit des Hamiltonoperators sowie die Lösbarkeit der Schrödingergleichung in der skalaren Quantenelektrodynamik betrifft. Als Grundlage beweisen wir zunächst eine Eigenschaft des Hamiltonoperators.
@@ -4042,10 +4042,9 @@ Hierbei verwenden wir zunächst Hilfssatz~\ref{lem:poincare-konf} mit der von \(
 	Fassen wir zunächst die Situation zusammen:
 	\begin{align*}
 		&\hat{\mathfrak{L}}:L^2(\mathbb{R}^n,\mathbb{C})\rightarrow\mathfrak{Q}_{\hat{H}}\\
-		&\hat{\mathfrak{j}}:\mathfrak{Q}_{\hat{H}}\rightarrow L^2(\mathbb{R}^n,\mathbb{C})\\
-		&\hat{\mathfrak{j}}(v)=v\forall v\in \mathfrak{Q}
+		&\hat{\mathfrak{j}}:\mathfrak{Q}_{\hat{H}}\rightarrow L^2(\mathbb{R}^n,\mathbb{C})\text{ wobei }\hat{\mathfrak{j}}(v)=v\forall v\in \mathfrak{Q}
 	\end{align*}
-Als nächstes identifizieren wir die Einbettung $\hat{\mathfrak{j}}$ mit $\hat{\mathfrak{L}}$. \\
+Als nächstes identifizieren wir die Adjungierte der Einbettung $\hat{\mathfrak{j}}$ mit dem Lösungsoperator $\hat{\mathfrak{L}}$. \\
 \\
 Sei hierzu $v\in\mathfrak{Q}\subset L^2(\mathbb{R}^n,\mathbb{C})$ und $f\in L^2(\mathbb{R}^n,\mathbb{C})$, dann gilt:
 \begin{equation*}
@@ -4059,7 +4058,7 @@ Nachdem $\hat{\mathfrak{j}}$ ein kompakter Operator ist, ist es  auch seine Adju
 Damit wurde gezeigt, dass $\hat{\mathfrak{j}}\hat{\mathfrak{L}}$ ein positiver kompakter Operator auf $L^2(\mathbb{R}^n,\mathbb{C})$ ist. 
 \\
 \\
-Als nächstes zeigen wir, dass der Lösungsoperator tatsächlich normierbar ist.
+Die Normen der Operatoren entsprechen unserer Erwartung:.
 	\begin{align*}
 		||\hat{\mathfrak{L}}||^2 &= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}} \Big( \frac{||\hat{\mathfrak{L}}f||_{\hat{H}}}{||f||_{L^2}}\Big)^2= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{a_{\hat{H}}(\hat{\mathfrak{L}}f, \hat{\mathfrak{L}}f)}{\langle f, f\rangle_{L^2}}\\&= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{\langle f, \hat{\mathfrak{L}}f\rangle_{L^2}}{\langle f, f\rangle_{L^2}}=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||
 	\end{align*}
@@ -4078,10 +4077,12 @@ Wegen der ersten Resolventengleichung:
 \begin{equation*}
 	(T-\lambda )^{-1}-(T-\mu )^{-1}= (\lambda-\mu)(T-\lambda )^{-1}(T-\mu )^{-1}
 \end{equation*}
-ist die Resolvente $(\hat{H}-\lambda)^{-1}$ für beliebiges $\lambda$ in der Resolventenmenge von $\hat{H}$ kompakt wenn es das für eines ist.	
+ist die Resolvente $(\hat{H}-\lambda)^{-1}$ für beliebiges $\lambda$ in der Resolventenmenge von $\hat{H}$ kompakt wenn es das für ein einziges $\mu$ ist.	
 \end{proof}
-
 \noindent
+
+
+
 \chapter{Numerische Simulation der skalaren Quantenelektrodynamik auf einem Tetraeder}
 \chapter*{Abschluss}
 Es hat mich sehr gefreut diese Arbeit zu schreiben. Ich wei\ss{} nicht wirklich ob sie jemals jemandem n\"utzlich sein wird, aber falls ja w\"urde mich das sehr freuen. Im dreidimensionalen ist alles eine Spur komplizierter, aber in einigen Punkten auch wieder nicht. Elektromagnetismus passt halt recht gut zu drei Raumdimensionen. Besonders wichtig war es mir zu zeigen, warum Widerstandsnetzwerke so nett l\"osbar sind, und aber auch das man von der Intuition von elektrischen Netzwerken die dicht den Raum erf\"ullen alle elektromagnetischen Ph\"anomene beschreiben kann. Eine Diskretisierung (Finite Differenzen) der Maxwellgleichungen der Ebene entspricht genau den Maxwellgleichungen die im vierten Kapitel entwickelt wurden. Zu diesem Zeitpunkt war ich \"urspr\"unglich der Meinung, dass dieses Projekt abgeschlossen ist, aber aus einem Interesse and Quantenfeldtheorie, dass ich parallel entwickelt hatte, entschied ich mich eine skalare Quantenelektrodynamik auf planaren Graphen zu entwickeln.\\
