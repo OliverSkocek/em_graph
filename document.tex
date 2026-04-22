@@ -970,8 +970,7 @@ Die Elektrodynamik beschreibt elektromagnetische Phänomene als durch Felder ver
 Diese Felder gehorchen den Maxwell-Gleichungen, die im 19.~Jahrhundert von James Clerk Maxwell formuliert wurden. 
 Es handelt sich dabei um partielle Differentialgleichungen, welche die zeitliche Entwicklung elektromagnetischer Felder in Abhängigkeit von Strömen und Ladungen beschreiben. \\
 \\
-In diesem Kapitel formulieren wir ein diskretes Analogon der Maxwell-Gleichungen auf Netzen, 
-genauer auf planaren Netzen. Diese Formulierung dient als Grundlage für die folgenden Kapitel.  
+In diesem Kapitel formulieren wir ein diskretes Analogon der Maxwell-Gleichungen auf planaren Netzen. Diese Formulierung dient als Grundlage für die folgenden Kapitel.  
 Wir orientieren uns dabei an einer Diskretisierung der klassischen Maxwell-Gleichungen, 
 nehmen jedoch einige Vereinfachungen vor: es wird nicht die konkrete geometrische Einbettung 
 eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur.
@@ -1687,7 +1686,7 @@ und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
 	\\
 	$Q$ ist positiv semidefinit und symmetrisch. Nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} hat $\ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ die Dimension $|V|-1$. Das orthogonale Komplement 
 	ist dementsprechend $|F|-1$-dimensional.\footnote{Der eulersche Polyedersatz 
-		$|V| + |F| - |E| = 2$ folgt hieraus für zusammenhängende Netze.}
+		$|V| + |F| - |E| = 2$ folgt hieraus für planare Netze.}
 	\\
 	\\
 	Nach dem Spektralsatz für kompakte, selbstadjungierte Operatoren auf endlichdimensionalen 
@@ -3049,7 +3048,7 @@ Wir können nun den Ladungsfeldoperator basierend auf der klassischen Theorie an
 \noindent
 Es scheint notwendig unsere Vermutung auch via der quantenmechanischen Kontinuit\"atsgleichung zu belegen. Sp\"ater werden wir mit Hilfe eines Symmetrie Arguments eine fundierte Herleitung der Form des Ladungsfeldoperators erhalten.
 \begin{theorem}\label{thm:KG-QM-Kontinuitaet}
-	Sei $G$ ein \textbf{planares Netz}, $\hat{H}_{\mathrm{KG}}$ der Hamiltonoperator aus Definition~\ref{def:KG-Feldoperatoren} und $\psi:\mathbb{R}\to\mathfrak{D}_{\mathrm{KG}}\subset\mathfrak{H}_{\mathrm{KG}}(G)$ eine Lösung der Schrödinger-Gleichung~\eqref{eq:KG-Schroedinger}.
+	Sei $G$ ein planares Netz, $\hat{H}_{\mathrm{KG}}$ der Hamiltonoperator aus Definition~\ref{def:KG-Feldoperatoren} und $\psi:\mathbb{R}\to\mathfrak{D}_{\mathrm{KG}}\subset\mathfrak{H}_{\mathrm{KG}}(G)$ eine Lösung der Schrödinger-Gleichung~\eqref{eq:KG-Schroedinger}.
 	\\
 	\\
 	Dann gilt für jeden Knoten $x\in V$ und den Ladungsfeldoperator $\hat{q}(x)$ aus~\eqref{eq:KG-Ladungsfeldoperator} die \textbf{Kontinuitätsgleichung}:
@@ -3950,9 +3949,10 @@ Zusammengefasst haben wir damit eine endliche $\epsilon$ Näherung von $b_a$ kon
 \noindent
 Wir können nun das zentrale Theorem dieses Kapitels beweisen, n\"amlich die L\"osbarkeit der Schr\"odingergleichung der skalaren Quantenelektrodynamik
 \begin{theorem}
-	Sei \(n \geq 1\), \(V \in C(\mathbb{R}^n,\mathbb{R}_{\geq 0})\) ein konfinierendes Potential und \(\hat{H}\) wie in Definition~\ref{def:quad}. Dann gibt es einen dichten Definitionsbereich \(\mathfrak{D}_{\hat{H}} \subset L^2(\mathbb{R}^n,\mathbb{C})\), so dass
+	Sei \(n \geq 1\), \(V \in C(\mathbb{R}^n,\mathbb{R}_{\geq 0})\) ein konfinierendes Potential und \(\hat{H}\) wie in Definition~\ref{def:quad}. 
+	Dann gibt es einen dichten Teilraum \(\mathfrak{D}_{\hat{H}} \subset L^2(\mathbb{R}^n,\mathbb{C})\) und eine Erweiterung  $\hat{H}_F$ von $\hat{H}$ so dass:
 	\[
-	\hat{H} : \mathfrak{D}_{\hat{H}} \to L^2(\mathbb{R}^n,\mathbb{C})
+	\hat{H}_F : \mathfrak{D}_{\hat{H}} \to L^2(\mathbb{R}^n,\mathbb{C})
 	\]
 	ein selbstadjungierter Operator mit kompakter Resolvente ist.
 \end{theorem}
@@ -4060,24 +4060,27 @@ Damit wurde gezeigt, dass $\hat{\mathfrak{j}}\hat{\mathfrak{L}}$ ein positiver k
 \\
 Die Normen der Operatoren entsprechen unserer Erwartung:.
 	\begin{align*}
-		||\hat{\mathfrak{L}}||^2 &= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}} \Big( \frac{||\hat{\mathfrak{L}}f||_{\hat{H}}}{||f||_{L^2}}\Big)^2= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{a_{\hat{H}}(\hat{\mathfrak{L}}f, \hat{\mathfrak{L}}f)}{\langle f, f\rangle_{L^2}}\\&= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{\langle f, \hat{\mathfrak{L}}f\rangle_{L^2}}{\langle f, f\rangle_{L^2}}=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||
+		|||\hat{\mathfrak{L}}|||^2 &= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}} \Big( \frac{||\hat{\mathfrak{L}}f||_{\hat{H}}}{||f||_{L^2}}\Big)^2= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{a_{\hat{H}}(\hat{\mathfrak{L}}f, \hat{\mathfrak{L}}f)}{\langle f, f\rangle_{L^2}}\\&= \sup_{\substack{f \in L^2(\mathbb{R}^n,\mathbb{C}) \\ f \neq 0}}  \frac{\langle f, \hat{\mathfrak{L}}f\rangle_{L^2}}{\langle f, f\rangle_{L^2}}=|||\hat{\mathfrak{j}}\hat{\mathfrak{L}}|||
 	\end{align*}
 Im letzten Schritt haben wir die Positivität von $\hat{\mathfrak{L}}$ ausgenutzt.\\
 Es gilt aber auch:
 \begin{align*}
-||\hat{\mathfrak{j}}||^2 &= \sup_{\substack{u \in D \\ u \neq 0}}\Big( \frac{||u||_{L^2}}{||u||_{\hat{H}}}\Big)^2= \sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle u, u\rangle_{L^2}}{\langle \hat{H}u, u\rangle_{L^2}}\\&= \Big(\inf_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{H}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}\Big)^{-1}=\sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{\mathfrak{L}}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||
+|||\hat{\mathfrak{j}}|||^2 &= \sup_{\substack{u \in D \\ u \neq 0}}\Big( \frac{||u||_{L^2}}{||u||_{\hat{H}}}\Big)^2= \sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle u, u\rangle_{L^2}}{\langle \hat{H}u, u\rangle_{L^2}}\\&= \Big(\inf_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{H}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}\Big)^{-1}=\sup_{\substack{u \in D \\ u \neq 0}} \frac{\langle \hat{\mathfrak{L}}u, u\rangle_{L^2}}{\langle u, u\rangle_{L^2}}=|||\hat{\mathfrak{j}}\hat{\mathfrak{L}}|||
 \end{align*}
 Im letzten Schritt haben wir wieder die Positivät von $\hat{\mathfrak{L}}$ ausgenutzt, genauso wie im Schritt davor wo wir implizit die Existenz der Quadratwurzel von $\hat{\mathfrak{L}}$ benutzt haben um die Umformung zu machen.\\
 \\
 Zusammengefasst gilt also:
 \begin{equation*}
-	||\hat{\mathfrak{j}}||^2=||\hat{\mathfrak{j}}\hat{\mathfrak{L}}||=||\hat{\mathfrak{L}}||^2
+	|||\hat{\mathfrak{j}}|||^2=|||\hat{\mathfrak{j}}\hat{\mathfrak{L}}|||=|||\hat{\mathfrak{L}}|||^2
 \end{equation*}
+Wir definieren abschließend $\hat{H}_F=\hat{\mathfrak{L}}^{-1}$ und $\mathfrak{D}_{\hat{H}}=\mathrm{Bild}(\hat{\mathfrak{L}})$. Dies ist ein selbstadjugnierter linearer Operator, weil seine Inverse selbstadjungiert ist.
+\\
+\\
 Wegen der ersten Resolventengleichung:
 \begin{equation*}
 	(T-\lambda )^{-1}-(T-\mu )^{-1}= (\lambda-\mu)(T-\lambda )^{-1}(T-\mu )^{-1}
 \end{equation*}
-ist die Resolvente $(\hat{H}-\lambda)^{-1}$ für beliebiges $\lambda$ in der Resolventenmenge von $\hat{H}$ kompakt wenn es das für ein einziges $\mu$ ist.	
+ist die Resolvente $(\hat{H}_F-\lambda)^{-1}$ für beliebiges $\lambda$ in der Resolventenmenge von $\hat{H}$ kompakt wenn es das für ein einziges $\mu$ ist.	
 \end{proof}
 \noindent
 
