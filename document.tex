@@ -272,7 +272,7 @@ Betrachten wir eine der planaren Darstellungen des Beispielgraphen. Die Kreise $
 \noindent
 Wir wollen uns im Folgenden mit Graphen beschäftigen, die geschlossene Flächen beschreiben. Zu diesem Zweck führen wir das mit planaren Graphen eng verwandte Konzept des Netzes ein.
 \begin{definition}[Netz]
-	Sei $g=(V,E)$ ein Graph und $f=\{A_1, A_2, \dots, A_n\}$ eine Menge von kreisartigen induzierten Teilgraphen von $g$, die man \textbf{Flächen} bezeichnet werden.\\
+	Sei $g=(V,E)$ ein Graph und $f=\{A_1, A_2, \dots, A_n\}$ eine Menge von kreisartigen induzierten Teilgraphen von $g$, die \textbf{Flächen} bezeichnet werden.\\
 	Dann heißt $G=(g,f)$ ein \textbf{Netz}, wenn gilt:
 	\begin{enumerate}
 	\item jede Ecke $v\in V$ liegt in mindestens einer Fläche,
@@ -3323,10 +3323,11 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  Kurz gesagt wir werden die Interpretation der Anregungen des Klein-Gordon Feldes als Teilchen voll rechtfertigen.
  \fi
  \chapter{Skalare Quantenelektrodynamik auf planaren Netzen}\label{chap:QED}
- Eine Quantenelektrodynamik beschreibt die quantenmechanische Dynamik sowohl elektromagnetischer Felder als auch der zugehörigen Quellenfelder (Ladung und Strom).
+ \section{Der Hilbertraum der Quantenelektrodynamik}
+In diesem Kapitel befassen wir uns mit der Entwicklung eines Modells, dass sowohl die Dynamik der elektromagnetischen Felder als auch die zugehörigen Quellenfelder (Ladung und Strom) quantenmechanisch beschreibt. Wir verwenden als Quellen die mit der Klein-Gordon Dynamik assoziierte Ladung und Stroms der Kontinuitätsgleichung.
 \\
 \\
- Die Kopplung von Klein-Gordon- und Maxwell-Theorie erfolgt durch Addition der Hamiltonfunktionen aus Gleichung~\eqref{eq:KG-Hamilton} und~\eqref{eq:schroedinger_maxwell}:
+Wir starten mit der Herleitung der Hamiltonfunktion des gekoppelten Systems. Wir orientieren uns dabei wie üblich an der Symmetrie gegeben durch die allgemeine Eichtransformation~\eqref{eq:erw_eich}. Die Hamiltonfunktion der Klein-Gordontheorie~\eqref{eq:KG-Hamilton} ist bereits invariant unter der allgemeinen Eichtransformation, beinhaltet aber noch nicht die Dynamik des $a$-Feldes. Hierzu addieren wir die stromlose (\(j=0\)) Hamiltonfunktion der Maxwelltheorie ~\eqref{eq:schroedinger_maxwell} hinzu und erhalten folgende Hamiltonfunktion:
  \begin{align}\label{eq:QED-Hamilton-klassisch}
  	\begin{split}
  		H(\Phi, \pi_\Phi, a, \pi_a) = \frac{1}{2}\Bigl(&\langle \pi_\Phi, \pi_\Phi \rangle_{\mathfrak{E},\mathbb{C}} + \langle \Phi, (\Delta_r^a + m^2)\Phi \rangle_{\mathfrak{E},\mathbb{C}} \\
@@ -3334,10 +3335,10 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  	\end{split}
  \end{align}
  \noindent
- Die resultierende Hamiltonfunktion ist invariant unter der erweiterten Eichtransformation aus Gleichung~\eqref{eq:erw_eich}.
+ Nachdem beide Summanden invariant sind ist auch die resultierende Hamiltonfunktion invariant unter der erweiterten Eichtransformation.
 \\
 \\
- Die Quantisierung erfolgt analog zur Quantisierung der Maxwell-Theorie und der Klein-Gordon-Theorie:
+ Die Quantisierung erfolgt analog zur Quantisierung der Maxwell-Theorie und der Klein-Gordon-Theorie. Wir starten unsere Diskussion mit dem formalen Ausdruck des Hamiltonoperators unserer skalaren Quantenelektrodynamik.
  \begin{definition}[Hamiltonoperator der skalaren QED]\label{def:QED-Hamilton}
  	Sei $G$ ein planares Netz, $r:E\to\mathbb{R}_{>0}$, $\epsilon\in\mathfrak{K}(G)$ Kantenfunktionen. Auf einem geeigneten Teilraum \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) eines geeigneten Hilbertraum $\mathfrak{H}_{\mathrm{QED}}(G)$ ist der \textbf{Hamiltonoperator der skalaren Quantenelektrodynamik}
  	\begin{align}\label{eq:QED-Hamilton}
@@ -3350,14 +3351,18 @@ Diese alternative Quantisierung nennen wir die \textbf{zweite Quantisierung.}\\
  \end{definition}
 \noindent
 \noindent
-Der Hilbertraum $\mathfrak{H}_{\mathrm{QED}}$ und Definitionsbereich \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) bleiben zunächst offen. Zur korrekten Definition des Hamiltonoperators $\hat{H}_{\mathrm{QED}}$ konstruieren wir im Folgenden einen geeigneten Hilbertraum. Bis dahin betrachten wir den Definitionsbereich allgemein als eine Teilmenge der Menge der Abbildungen von $\mathbb{C}^V \times \mathbb{R}^E$ nach $\mathbb{C}$.
+Der Hilbertraum $\mathfrak{H}_{\mathrm{QED}}$ und Definitionsbereich \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) müssen erst entwickelt werden. Bis dahin betrachten wir den Definitionsbereich allgemein als eine Teilmenge der Menge der Abbildungen von $\mathbb{C}^V \times \mathbb{R}^E$ nach $\mathbb{C}$. 
 \[
 \mathfrak{D}(\hat{H}_{\mathrm{QED})} \subset F(\mathbb{C}^V \times \mathbb{R}^E, \mathbb{C}),
 \]
 wobei wir die komplexen Feldkomponenten $\Phi \in \mathbb{C}^V$ je nach Kontext als kartesisch-reelle Paare $(\Phi_R, \Phi_I)$ oder in Polarkoordinaten $(\rho, \phi)$ schreiben.
 \\
 \\
-Die klassische erweiterte Eichtransformation aus Gleichung~\eqref{eq:erw_eich} bildet eine Lie-Gruppe. In der Quantenmechanik entspricht ihr eine unitäre Darstellung dieser Gruppe im Raum der unitären Operatoren auf $\mathfrak{H}_{\mathrm{QED}}$.
+Wir werden mit einigen plausible Annahmen starten und erstmal rein formal an den korrekten Hilbertraum herantasten.
+\\
+\\
+Die klassische erweiterte Eichtransformation aus Gleichung~\eqref{eq:erw_eich} bildet eine Lie-Gruppe.
+In der Quantenmechanik werden solche Gruppen durch eine stark stetige, mehrparametrige unitäre Darstellung auf einem geeigneten Hilbertraum realisiert. Wenn wir einen geeigneten Hilbertraum hätten, könnten wir eine Darstellung der Eichtransformationen folgendermaßen definieren.
 \begin{definition}\label{def:QED-Eichgruppe}
 	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$, $\xi\in\mathfrak{E}(G)$ und $\psi\in\mathfrak{H}_{\mathrm{QED}}$. 
 	Die Familie unitärer Operatoren $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ definiert durch
@@ -3369,7 +3374,7 @@ Die klassische erweiterte Eichtransformation aus Gleichung~\eqref{eq:erw_eich} b
 	wird \textbf{kanonische Darstellung der erweiterten Eichtransformation} oder kurz \textbf{Eichgruppe} genannt.
 \end{definition}
 \noindent
-Nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED}}$ bleibt zu zeigen, dass die Operatoren $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ der Eichgruppe tatsächlich unitär auf $\mathfrak{H}_{\mathrm{QED}}$ wirken. Später werden wir zudem zeigen, dass die Eichgruppe in den Parametern $\xi$ stark stetig ist.
+Wir nehmen an, dass wir nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED}}$ nachweisen können, dass die Ausdrücke $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ tatsächlich die geforderten Eigenschaften haben.
 \begin{proposition}\label{prop:QED-Eich-Invarianz}
 	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$, $\epsilon\in\mathfrak{K}(G)$ und $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ wie in Definition~\ref{def:QED-Eichgruppe}. Dann gilt für alle $\xi\in\mathfrak{E}(G)$ und alle $\psi\in C^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$:
 	\begin{equation}\label{eq:QED-HU-comm}
@@ -3705,7 +3710,7 @@ Kommen wir nun zur\"uck zur Eichgruppe.
 \begin{remark}
 Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger $\hat{h}$. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
 \end{remark}
-\noindent
+\section{Selbstadjungiertheit des Hamiltonoperators}
 Wir bereiten nun das zentrale Theorem dieses Kapitels vor, das die Selbstadjungiertheit des Hamiltonoperators sowie die Lösbarkeit der Schrödingergleichung in der skalaren Quantenelektrodynamik betrifft. Als Grundlage beweisen wir zunächst eine Eigenschaft des Hamiltonoperators.
 \begin{definition}\label{def:konf-pot}
 	Sei $V \in C(\mathbb{R}^n, \mathbb{R})$. Wir nennen $V$ ein \textbf{konfinierendes Potential}, falls es eine \textbf{Wachstumsfunktion} $\omega: \mathbb{R}^+ \to \mathbb{R}^+$ gibt, sodass
