@@ -3374,7 +3374,9 @@ In der Quantenmechanik werden solche Gruppen durch eine stark stetige, mehrparam
 	wird \textbf{kanonische Darstellung der erweiterten Eichtransformation} oder kurz \textbf{Eichgruppe} genannt.
 \end{definition}
 \noindent
-Wir nehmen an, dass wir nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED}}$ nachweisen können, dass die Ausdrücke $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ tatsächlich die geforderten Eigenschaften haben.
+Wir nehmen an, dass wir nach der vollständigen Konstruktion des Hilbertraums $\mathfrak{H}_{\mathrm{QED}}$ nachweisen können, dass die Ausdrücke $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ tatsächlich die geforderten Eigenschaften haben.\\
+\\
+Als nächstes berechnen wir den formalen Kommutator und infinitesimalen Erzeuger der Eichgruppe.
 \begin{proposition}\label{prop:QED-Eich-Invarianz}
 	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$, $\epsilon\in\mathfrak{K}(G)$ und $\{\hat{U}_\xi\}_{\xi\in\mathfrak{E}(G)}$ wie in Definition~\ref{def:QED-Eichgruppe}. Dann gilt für alle $\xi\in\mathfrak{E}(G)$ und alle $\psi\in C^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G),\mathbb{C})$:
 	\begin{equation}\label{eq:QED-HU-comm}
@@ -3443,7 +3445,7 @@ womit wir zusammenfassend gezeigt haben:
 
 \end{proof}
 \noindent
-Der Operator $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{QED}$. \\
+Das Erzeugerfeld $\hat{h}$ steht in enger Verbindung mit dem Gau\ss{}schen Gesetz. In der klassischen Maxwelltheorie in Potentialformulierung wird Dieses ja zu einer Anfangsbedingung. Im Rahmen der Quantisierung der Theorie f\"uhrt es zum ersten Hinweis bez\"uglich der Konstruktion von $\mathfrak{H}_{QED}$. \\
 \\
 Wenn wir formal den Regeln der Heisenbergschen Bewegungsgleichung folgen, dann gilt wegen \eqref{eq:QED-HU-comm}, dass $\hat{h}$ eine Erhaltungsgr\"o\ss{}e unter der Dynamik der Schr\"odingergleichung $i\psi^\prime=\hat{H}_{QED}\psi$ ist. Zusammen mit der Kontinuit\"atsgleichung der Klein-Gordon Theorie (Theorem~\ref{thm:KG-QM-Kontinuitaet}) k\"onnen wir den Klein-Gordon Strom mit dem elektromagnetischen Strom $\hat{j}_{\text{em}}$ laut 
 \begin{equation}
@@ -3469,7 +3471,7 @@ Eine direkte Konsequenz dieser Beobachtung ist die Unm\"oglichkeit, dass $\mathf
 	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})\cap L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ und $\psi>0$, dann gibt es ein $\epsilon>0$ sodass $\psi(\Phi, a)>\epsilon$ auf einer Teilmenge $U$ mit Lebesgue Ma\ss{} $\mu(U)>0$. Nach \eqref{eq:crazy_curve} muss diese Menge unbeschr\"ankt sein solange $\text{grad}\neq 0$. Als Konsequenz m\"usste gelten $||\psi||_{L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})}=\infty$ und daher $\psi \notin L^2(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$.
 \end{proof}
 \noindent
-Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ sich die unter $\hat{U}_\xi$-invarianten Funktionen $\psi$ mittels eines Darstellungssatzes charakterisieren lassen.
+Wir zeigen als Nächstes, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ sich die unter $\hat{U}_\xi$-invarianten Funktionen $\psi$ mit wenig Mühe konstruieren lassen.
 \begin{definition}\label{def:trafo2}
 	Sei $G$ ein planares Netz mit Flächen $f$, $r>0\in\mathfrak{K}(G)$, $Q$ die Pseudoinverse von $r\mathrm{grad}$, sowie $u:\mathfrak{K}(G)\to\mathbb{R}^{|f|-1}$ mit $uu^T=\mathbf{1}_{\mathbb{R}^{|f|-1}}$ und $u^Tu=P_{\ker(\mathrm{div}\,r)}$, und $v:\mathfrak{K}(G)\to\mathbb{R}^{|V|-1}$ mit $vv^T=\mathbf{1}_{\mathbb{R}^{|V|-1}}$ und $v^Tv=P_{\ker(\mathrm{div}_D\,r^{-1})}$.
 	\\
@@ -3488,6 +3490,8 @@ Wir werden sehen, dass für $\xi\in\mathfrak{E}(G)$ mit $\sum_{x\in V}\xi(x)=0$ 
 \label{eq:darstell_gamma}
 	\end{equation}
 \end{definition}
+\noindent
+Diese Transformation hat einige wichtige Regularitätseigenschaften.
 \begin{proposition}\label{thm: integral_invar}
 	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2}, dann ist $\gamma$ ein Diffeomorphismus und es gilt $\int \Gamma(f)d\lambda = \int f d\lambda$ für alle $f \in L^1(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1},\mathbb{C})$.
 \end{proposition}
@@ -3519,6 +3523,8 @@ Sein nun abschlie\ss{}end $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f
 \end{align*}
 Wir erweiterten zuerst mit dem Satz von Fubini auf ein Mehrfachintegral, nutzen dann den Fakt, dass bei konstantem $a$ die Abbildung $\Phi \mapsto \Phi e^{-iQ(a)}$ eine unit\"are Abbidlung ist. Am Ende stellen wir fest, dass $a\mapsto (u(a), v(a))$ ebenfalls eine unit\"are Abbbildung ist, da $u$ und $v$ Basen zu zueinander orthogonalen Teilr\"aumen sind welche zusammen den ganzen Raum $\mathfrak{K}(G)$ aufspannen.
 \end{proof}
+\noindent
+Wir können jetzt zeigen, dass sich die eichinvarianten Funktionen umkehrbar eindeutig über diese Transformation darstellen lassen.
 \begin{proposition}\label{prop:eich_darstell}
 	Sei $G$ ein planares Netz, $\Gamma$ wie in Definition~\ref{def:trafo2} und $\psi\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$, dann ist $\psi$ genau dann invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\ker(\mathrm{grad})^\perp$ falls es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{R})$\footnote{Also dass es ein $f\in F(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}\times\mathbb{R}^{|V|-1}, \mathbb{C})$ gibt sodass $f$ konstant entlang $\mathbb{R}^{|V|-1}$ ist.} gibt sodass $\psi=\Gamma(f)$.
 \end{proposition}
@@ -3542,8 +3548,9 @@ Sei umgekehrt $\xi\in\mathfrak{E}(G)$ sodass $\sum_{x\in V}\xi(x)=0$ dann gilt:
 Weil nach Voraussetzung $\ker(u)=\mathrm{Bild}(r\mathrm{grad})$ ist.
 \end{proof}
 \noindent
+Es stellt sich heraus, dass die eichinvarianten Funktionen periodisch entlang $\mathrm{Bild}(r\mathrm{grad})$ sind.
 \begin{corollary}\label{thm:corr_period}
-	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodische in $a$ auf $\mathrm{Bild}(r\mathrm{grad})$ mit kompakter Periode \(\mathfrak{T}\subset\mathfrak{K}(G)\).
+	Sei $G$ ein planares Netz, $r>0\in\mathfrak{K}(G)$ und $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann ist $\psi:(\Phi,a)\mapsto\psi(\Phi, a)$ periodisch in $a$ auf $\mathrm{Bild}(r\mathrm{grad})$ mit kompakter Periode \(\mathfrak{T}\subset\mathfrak{K}(G)\).
 \end{corollary}
 \begin{proof} 
 	Sei $\psi\in C^1(\mathfrak{E}_\mathbb{C}(G)\times\mathfrak{K}(G), \mathbb{C})$ invariant unter $\hat{U}_\xi$ f\"ur beliebiges $\xi\in\mathfrak{E}(G)$, dann gibt es laut
@@ -3585,7 +3592,7 @@ Woraus das Resultat folgt:
 \noindent
 Dies liefert einen Ansatz zur Konstruktion von $\mathfrak{H}_{\mathrm{QED}}$. \\
 \\
- Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\mathrm{Bild}(r\mathrm{grad})$ auf und $\psi$ ist entlang dieser Komponenten periodisch. Die einfachste Lösung besteht darin, $\psi$ auf die kompakte Periode $\mathfrak{T}$ einzuschränken, die jeweils eine volle Periode aller periodischen Komponenten repräsentiert und somit $\psi$ vollständig charakterisiert.\\
+ Das Problem der unendlichen Norm tritt wegen der Unbeschränktheit des Teilraums $\mathrm{Bild}(r\mathrm{grad})$ auf und weil $\psi$ entlang dieser Komponenten periodisch ist. Die einfachste Lösung besteht darin, $\psi$ auf die kompakte Periode $\mathfrak{T}$ einzuschränken, die jeweils eine volle Periode aller periodischen Komponenten repräsentiert und somit $\psi$ vollständig charakterisiert.\\
 \\
 Bisher wurde der Eichfreiheitsgrad bezüglich konstanter $\xi\in\ker(\mathrm{grad})$ 
 ausgeklammert. Dieser Freiheitsgrad betrifft nicht das Problem unendlicher Norm, da er das 
@@ -3661,32 +3668,33 @@ Wir verwenden hier dieselben Argumente wie im Satz~\ref{thm: integral_invar} und
 Integration über $\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})$ liefert eine konstante Funktion auf $\mathfrak{T}$. Jeder Punkt in $\mathfrak{T}$ beschreibt eine Isometrie des Raums $\mathfrak{E}_{\mathbb{C}}$ und offenbart daher keine zusätzliche Information über ein eichinvariantes $\psi$. Wir kommen daher zu folgender Definition des Hilbertraums der skalaren Quantenelektrodynamik.
 \end{remark}
 \begin{definition}\label{def:QED2}
-	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$, sodass
+	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion und $\psi\in L^2(\mathfrak{E}_{\mathbb{C}}\times\mathfrak{K},\mathbb{C})$, sodass
 	\[
 	\hat{Q}\psi=0
-	\] sowie \(u\) wie in Defintion~\eqref{def:trafo2}, dann gilt $\psi\in \mathfrak{H}_{QED}^{pre}$ genau dann wenn es ein $\tilde{\psi}\in C^\infty(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{C})$ gibt, sodass sich $\psi$ nach \ref{eq:darstell_gamma} schreiben lässt als:
+	\] sowie \(u\) wie in Defintion~\eqref{def:trafo2}, dann gilt $\psi\in \mathfrak{V}$ genau dann wenn es ein $\tilde{\psi}\in C^\infty(\mathfrak{E}_\mathbb{C}(G)\times\mathbb{R}^{|f|-1}, \mathbb{C})$ gibt, sodass sich $\psi$ nach \ref{eq:darstell_gamma} schreiben lässt als:
 	\begin{equation}
 		\psi(\Phi, a) = \tilde{\psi}(\Phi e^{-iQ(a)}, u(a))
 	\end{equation}
-	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\text{kern}(\text{div r})$ oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
+	f\"ur beliebige $\Phi\in\mathfrak{E}(G)_{\mathbb{C}}$ und $a\in\mathfrak{K}$ oder in Polarkoordinaten $\Phi = \rho e^{i\phi}$
 	\begin{equation}
 		\psi(\rho, \phi, a) = \tilde{\psi}(\rho, \phi-Q(a), u(a))
 	\end{equation}
-	Der Hilbertraum der skalaren Quantenelektrodynamik $\mathfrak{H}_{QED}$ ist der topologische Abschluss  
-	\begin{equation*}
-		\mathfrak{H}_{QED} = \overline{\mathfrak{H}_{QED}^{pre}}
-	\end{equation*}
-	bez\"uglich der Metrik des Raums $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\mathrm{div}r),\mathbb{C})$ induziert durch das Skalarprodukt
+	Für jedes $\xi\in\mathfrak{T}$, wird ein Skalarprodukt auf $\mathfrak{V}$ definiert durch
 	\begin{equation}
-		\langle \phi, \psi\rangle_{\text{QED}} := \int_{\mathfrak{E}_{\mathbb{C}}\times\ker(\mathrm{div}r)}\overline{\phi}\psi d\lambda\label{eq:integrant2}
+		\langle \phi, \psi\rangle_{\xi} := \int_{\mathfrak{E}_{\mathbb{C}}\times(\xi + \ker(\mathrm{div}r))}\overline{\phi}\psi d\lambda\label{eq:integrant2}
 	\end{equation}
+	Sei $\mathfrak{H}_{\xi}$ die Vervollständigung bezüglich der durch $\langle ., .\rangle_{\xi}$ induzierten Metrik auf $\mathfrak{V}$, dann erhalten wir die
+	\textbf{Schar der Hilberträume der Quantenelektrodynamik}:
+	\[
+	\bigl(\mathfrak{H}_\xi, \langle \cdot,\cdot\rangle_\xi \bigr)_{\xi \in \mathfrak{T}}
+	\]
 \end{definition}
 \begin{proposition}
-	Sei $\psi\in\mathfrak{H}_{\text{QED}}$ wie in Definition~\ref{def:QED2}, dann gilt 
+	Sei $\psi\in\mathfrak{V}$ wie in Definition~\ref{def:QED2}, dann gilt 
 	$\hat{h}(x)\psi=0\forall x\in V$. 
 \end{proposition}
 \begin{proof}
-	Sei $\psi\in \mathfrak{H}_{\text{QED}}$, $x\in V$ und berechnen die Ableitung nach $\phi$ und $a$. Um die partiellen Ableitungen von $\psi$ und $\tilde{\psi}$ zu unterscheiden, schreiben wir die Variablen als $\tilde{\psi}(\tilde{\rho},\tilde{\phi},\tilde{a})$
+	Sei $\psi\in \mathfrak{V}$, $x\in V$ und berechnen die Ableitung nach $\phi$ und $a$. Um die partiellen Ableitungen von $\psi$ und $\tilde{\psi}$ zu unterscheiden, schreiben wir die Variablen als $\tilde{\psi}(\tilde{\rho},\tilde{\phi},\tilde{a})$
 	\begin{align*}
 		\frac{\partial}{\partial \phi(x)}\psi(\rho,\phi,a)&=\frac{\partial}{\partial \tilde{\phi}(x)}\tilde{\psi}(\rho, \phi-Q(a), u(a))\\
 	\frac{\partial}{\partial a}\psi(\rho,\phi,a)&=-Q^T\frac{\partial}{\partial \tilde{\phi}}\tilde{\psi}(\rho, \phi-Q(a),  u(a))\\
@@ -3708,7 +3716,13 @@ ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ we
 \noindent
 Kommen wir nun zur\"uck zur Eichgruppe.
 \begin{remark}
-Wir haben unsere Suche nach einem geeigneten Hilbertraum unter der Annahme begonnen, dass wir die Eichgruppe als stark stetige Gruppe auf diesem Hilbertraum interpretieren können mit einem Erzeuger $\hat{h}$. Es hat sich herausgestellt, dass wir für jede Eichtransformation $\xi$ einen Hilbertraum finden können auf dem ein echinvariantes $\psi$ vollständig charakterisiert ist. Die Elemente der Eichgruppe sind dann Transformationen zwischen diesen Hilberträumen $\mathfrak{H}(\xi)$.  Wir können eine kompakte Teilmenge der Eichtransformationen, wie $\mathfrak{T}$, nehmen und einen Hilbertraum durch Integration über diese $\mathfrak{H}(\xi)$ bilden. Dort können wir dann die Eichgruppe als stark stetige Gruppe mit entsprechendem Erzeuger interpretieren, aber ohne ersichtlichen Mehrwert.
+Wir haben unsere Suche nach einem geeigneten Hilbertraum zunächst unter der Annahme begonnen, die Eichgruppe als stark stetige Gruppe auf einem Hilbertraum mit Erzeuger $\hat h$ realisieren zu können. 
+Im Verlauf der Untersuchung hat sich jedoch gezeigt, dass es zweckmäßig ist das Skalarprodukt so zu definieren, dass das zugrunde liegende Maß keine Maße in Richtung der Eichfreiheitsgrade hat. Als Konsequenz gibt es unendlich viele equivalente passende Hilberträume und die Eichtransformationen bilden Diese aufeinander ab.
+\end{remark}
+\noindent
+Abschließend fixieren wir die Eichfreiheit durch die Wahl $\xi = 0$ und entfernen gleichzeitig die redundanten Anteile des Vektorpotentials $a$. Auf diese Weise verbleiben nur die physikalisch relevanten Freiheitsgrade. Der so gewählte reduzierte Sektor genügt für die weitere Analyse des Hamiltonoperators und der zugehörigen Schrödingergleichung.
+\begin{remark}\label{rem:QED3}
+	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, dann können wir $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ mit dem Hilbertraum $\mathfrak{H}_0$ identifizieren. Im Rest dieser Arbeit setzen wir \[\mathfrak{H}_\mathrm{QED}=L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\]
 \end{remark}
 \section{Selbstadjungiertheit des Hamiltonoperators}
 Wir bereiten nun das zentrale Theorem dieses Kapitels vor, das die Selbstadjungiertheit des Hamiltonoperators sowie die Lösbarkeit der Schrödingergleichung in der skalaren Quantenelektrodynamik betrifft. Als Grundlage beweisen wir zunächst eine Eigenschaft des Hamiltonoperators.
