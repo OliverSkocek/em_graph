@@ -3667,12 +3667,21 @@ Integration über $\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r})$ liefert ei
 	\begin{equation}
 		\langle \phi, \psi\rangle_{\xi} := \int_{\mathfrak{E}_{\mathbb{C}}\times(\xi + \ker(\mathrm{div}r))}\overline{\phi}\psi d\lambda\label{eq:integrant2}
 	\end{equation}
-	Sei $\mathfrak{H}_{\xi}$ die Vervollständigung bezüglich der durch $\langle ., .\rangle_{\xi}$ induzierten Metrik auf $\mathfrak{V}$, dann erhalten wir die
-	\textbf{Schar der Hilberträume der Quantenelektrodynamik}:
+	Sei $\mathfrak{H}_{\xi}$ die Vervollständigung bezüglich der durch $\langle ., .\rangle_{\xi}$ induzierten Metrik auf $\mathfrak{V}$, dann erhalten wir eine
+	Schar von Hilberträumen:
 	\[
 	\bigl(\mathfrak{H}_\xi, \langle \cdot,\cdot\rangle_\xi \bigr)_{\xi \in \mathfrak{T}}
 	\]
 \end{definition}
+\noindent
+Wir haben unsere Suche nach einem geeigneten Hilbertraum zunächst unter der Annahme begonnen, die Eichgruppe als stark stetige Gruppe auf einem Hilbertraum mit Erzeuger $\hat h$ realisieren zu können. 
+Im Verlauf der Untersuchung hat sich jedoch gezeigt, dass es zweckmäßig ist das Skalarprodukt so zu definieren, dass das zugrunde liegende Maß keine Maße in Richtung der Eichfreiheitsgrade hat. Als Konsequenz gibt es unendlich viele equivalente passende Hilberträume und die Eichtransformationen bilden Diese aufeinander ab.
+\\
+\\
+Abschließend fixieren wir die Eichfreiheit durch die Wahl $\xi = 0$ und entfernen gleichzeitig die redundanten Anteile des Vektorpotentials $a$. Auf diese Weise verbleiben nur die physikalisch relevanten Freiheitsgrade. Der so gewählte reduzierte Sektor genügt für die weitere Analyse des Hamiltonoperators und der zugehörigen Schrödingergleichung.
+\begin{remark}\label{rem:QED3}
+	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, dann können wir $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ mit dem Hilbertraum $\mathfrak{H}_0$ identifizieren. Im Rest dieser Arbeit setzen wir \[\mathfrak{H}_\mathrm{QED}=L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\]
+\end{remark}
 \begin{proposition}
 	Sei $\psi\in\mathfrak{V}$ wie in Definition~\ref{def:QED2}, dann gilt 
 	$\hat{h}(x)\psi=0\forall x\in V$. 
@@ -3697,15 +3706,7 @@ ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ we
 -i(P_{\text{kern}(r\text{grad})}\frac{\partial}{\partial\phi}\psi(\rho,\phi,a))(x)=0
 \end{equation*}
 \end{proof}
-\noindent
-Wir haben unsere Suche nach einem geeigneten Hilbertraum zunächst unter der Annahme begonnen, die Eichgruppe als stark stetige Gruppe auf einem Hilbertraum mit Erzeuger $\hat h$ realisieren zu können. 
-Im Verlauf der Untersuchung hat sich jedoch gezeigt, dass es zweckmäßig ist das Skalarprodukt so zu definieren, dass das zugrunde liegende Maß keine Maße in Richtung der Eichfreiheitsgrade hat. Als Konsequenz gibt es unendlich viele equivalente passende Hilberträume und die Eichtransformationen bilden Diese aufeinander ab.
-\\
-\\
-Abschließend fixieren wir die Eichfreiheit durch die Wahl $\xi = 0$ und entfernen gleichzeitig die redundanten Anteile des Vektorpotentials $a$. Auf diese Weise verbleiben nur die physikalisch relevanten Freiheitsgrade. Der so gewählte reduzierte Sektor genügt für die weitere Analyse des Hamiltonoperators und der zugehörigen Schrödingergleichung.
-\begin{remark}\label{rem:QED3}
-	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, dann können wir $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ mit dem Hilbertraum $\mathfrak{H}_0$ identifizieren. Im Rest dieser Arbeit setzen wir \[\mathfrak{H}_\mathrm{QED}=L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\]
-\end{remark}
+
 \section{Selbstadjungiertheit des Hamiltonoperators}
 Wir bereiten nun das zentrale Theorem dieses Kapitels vor, das die Selbstadjungiertheit des Hamiltonoperators sowie die Lösbarkeit der Schrödingergleichung in der skalaren Quantenelektrodynamik betrifft. Als Grundlage beweisen wir zunächst eine Eigenschaft des Hamiltonoperators.
 \begin{definition}\label{def:konf-pot}
