@@ -85,31 +85,15 @@
 
 
 \begin{titlepage}
-
-\vspace*{5cm}
-\begin{center}
-\rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \Huge \bfseries Feldtheorie auf planaren Netzen: Klassische Maxwelltheorie bis skalare Quantenfeldtheorie} \\[0.2cm]
-\rule{\linewidth}{0.5mm} \\[3.5cm]
-\begin{minipage}[t]{0.4\textwidth}
-%\begin{flushleft} \large
-%\emph{Author:}\\
-%Oliver \textsc{Sko\v{c}ek} \\[4cm]
-%\small
-%
-%\end{flushleft}
-
-
-\end{minipage}
-\begin{minipage}[t]{0.4\textwidth}
-
-\end{minipage}
- 
-% Bottom of the page
-
- 
-\end{center}
- 
+	\vspace*{5cm}
+	\begin{center}
+		\rule{\linewidth}{0.5mm} \\[0.7cm]
+		
+		{\Huge \bfseries Meine kleine Eichtheorie} \\[0.35cm]
+		{\normalsize Feldtheorien auf planaren Graphen von Maxwell bis Quantentheorie} \\[0.7cm]
+		
+		\rule{\linewidth}{0.5mm} \\[4cm]
+	\end{center}
 \end{titlepage}
 
 %\maketitle
@@ -3351,11 +3335,11 @@ Wir starten mit der Herleitung der Hamiltonfunktion des gekoppelten Systems. Wir
  \end{definition}
 \noindent
 \noindent
-Der Hilbertraum $\mathfrak{H}_{\mathrm{QED}}$ und Definitionsbereich \(\mathfrak{D}(\hat{H}_{\mathrm{QED})}\) müssen erst entwickelt werden. Bis dahin betrachten wir den Definitionsbereich allgemein als eine Teilmenge der Menge der Abbildungen von $\mathbb{C}^V \times \mathbb{R}^E$ nach $\mathbb{C}$. 
+Der Hilbertraum $\mathfrak{H}_{\mathrm{QED}}$ und Definitionsbereich \(\mathfrak{D}(\hat{H}_{\mathrm{QED}})\) müssen erst entwickelt werden. Bis dahin betrachten wir den Definitionsbereich allgemein als eine Teilmenge der Menge der Abbildungen von $\mathfrak{E}_\mathbb{C}\times\mathfrak{K}$ nach $\mathbb{C}$. 
 \[
-\mathfrak{D}(\hat{H}_{\mathrm{QED})} \subset F(\mathbb{C}^V \times \mathbb{R}^E, \mathbb{C}),
+\mathfrak{D}(\hat{H}_{\mathrm{QED})} \subset F(\mathfrak{E}_\mathbb{C}\times\mathfrak{K}, \mathbb{C}),
 \]
-wobei wir die komplexen Feldkomponenten $\Phi \in \mathbb{C}^V$ je nach Kontext als kartesisch-reelle Paare $(\Phi_R, \Phi_I)$ oder in Polarkoordinaten $(\rho, \phi)$ schreiben.
+wobei wir die komplexen Feldkomponenten $\Phi \in \mathfrak{E}_\mathbb{C}$ je nach Kontext als kartesisch-reelle Paare $(\Phi_R, \Phi_I)$ oder in Polarkoordinaten $(\rho, \phi)$ schreiben.
 \\
 \\
 Wir werden mit einigen plausible Annahmen starten und erstmal rein formal an den korrekten Hilbertraum herantasten.
@@ -3637,7 +3621,7 @@ Dieser Satz gibt uns eine explizite Konstruktion des Raums der Funktionen $\psi\
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})$, daher $\xi$ ist eine Konstante. Analog zu Satz 10.1 berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. \\
+	Betrachten wir zun\"achst die Abbildung $\hat{U}_\xi$ mit $\xi\in\text{kern}(r\text{grad})$, daher $\xi$ ist eine Konstante. Analog zu Satz~\ref{prop:QED-Eich-Invarianz} berechnen wir den infinitesimalen Erzeuger zu $\hat{U}_\xi$. \\
 	Sei hierzu $\psi\in \mathfrak{H}_{\text{sym}}$.
 	\begin{align*}
 		i\lim_{\epsilon\rightarrow 0}\frac{\hat{U}_\epsilon\psi(\rho, \phi, a)-\psi(\rho, \phi, a)}{\epsilon} &= i\lim_{\epsilon\rightarrow 0}\frac{\psi(\rho, \phi +\epsilon, a)-\psi(\rho, \phi, a)}{\epsilon}\\
@@ -3714,12 +3698,10 @@ ein Vektor $u\in\mathfrak{E}$ genau dann in $\text{kern}(r\text{grad})^\perp$ we
 \end{equation*}
 \end{proof}
 \noindent
-Kommen wir nun zur\"uck zur Eichgruppe.
-\begin{remark}
 Wir haben unsere Suche nach einem geeigneten Hilbertraum zunächst unter der Annahme begonnen, die Eichgruppe als stark stetige Gruppe auf einem Hilbertraum mit Erzeuger $\hat h$ realisieren zu können. 
 Im Verlauf der Untersuchung hat sich jedoch gezeigt, dass es zweckmäßig ist das Skalarprodukt so zu definieren, dass das zugrunde liegende Maß keine Maße in Richtung der Eichfreiheitsgrade hat. Als Konsequenz gibt es unendlich viele equivalente passende Hilberträume und die Eichtransformationen bilden Diese aufeinander ab.
-\end{remark}
-\noindent
+\\
+\\
 Abschließend fixieren wir die Eichfreiheit durch die Wahl $\xi = 0$ und entfernen gleichzeitig die redundanten Anteile des Vektorpotentials $a$. Auf diese Weise verbleiben nur die physikalisch relevanten Freiheitsgrade. Der so gewählte reduzierte Sektor genügt für die weitere Analyse des Hamiltonoperators und der zugehörigen Schrödingergleichung.
 \begin{remark}\label{rem:QED3}
 	Sei $G$ ein planares Netz, \(r>0\in\mathfrak{K}\) eine nichtnegative Kantenfunktion, dann können wir $L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})$ mit dem Hilbertraum $\mathfrak{H}_0$ identifizieren. Im Rest dieser Arbeit setzen wir \[\mathfrak{H}_\mathrm{QED}=L^2(\mathfrak{E}_{\mathbb{C}}\times\ker(\text{div r}),\mathbb{C})\]
