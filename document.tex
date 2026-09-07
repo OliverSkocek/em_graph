@@ -158,7 +158,7 @@ Eine Abbildung \(p\), die jeder Kante \(e\) die Ecke \(x\) zuordnet, auf die der
 	und für jede Kante \(e\in E\) interpretieren wir \(q(e)\) als Schaft (Anfangspunkt) und \(p(e)\) als Spitze (Endpunkt) von \(e\).
 \end{definition}
 \noindent
-Genauso wie Kanten eine Ausrichtung haben, besitzen Elemente eine Orientierung. Eine \textbf{Orientierung} eines Kreisgraphen erhalten wir durch eine Ausrichtung, bei der jede Pfeilspitze auf den Schaft der nächsten Kante zeigt. Für jedes Element gibt es genau zwei solche Orientierungen: im Uhrzeigersinn und gegen den Uhrzeigersinn. Dies liefert uns die erste Abstraktion einer Komponente der Gitter: Ein \textbf{Element eines Netzes} $(A,o)$ ist ein Kreisgraph $A$ zusammen mit einer Orientierung $o$. 
+Genauso wie Kanten eine Ausrichtung haben, besitzen Elemente eine Orientierung. Eine \textbf{Orientierung} eines Kreisgraphen erhalten wir durch eine Ausrichtung desselben, bei der jede Pfeilspitze auf den Schaft der nächsten Kante zeigt. Für jedes Element gibt es genau zwei solche Orientierungen: im Uhrzeigersinn und gegen den Uhrzeigersinn. Dies liefert uns die erste Abstraktion einer Komponente der Gitter: Ein \textbf{Element eines Netzes} $(A,o)$ ist ein Kreisgraph $A$ zusammen mit einer Orientierung $o$. Wenn wir vom Umlauf eines Elements im \textbf{Uhrzeigersinn} sprechen, bedeutet dies, dass das Element im Sinn der Orientierung durchlaufen wird.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Abbildungen/Orientierung.pdf}
@@ -247,7 +247,17 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	$$
 	f(G^D) := \{\mathbb{F}(x) : x \in V(G)\}.
 	$$
-	Jeder Kreisgraph $\mathbb{F}(x)$ kann mit einer Orientierung ausgestattet werden, indem man jede Kante $e$ des Kreisgraphs auf jenes der zwei Elemente in der sie liegt zeigen lässt, dessen Orientierung $e$ eine Richtung gibt die von $x$ wegzeigt. Dies erfüllt auch automatisch die Verträglichkeitsbedingung.
+	Jeder Kreisgraph $\mathbb{F}(x)$ kann mit einer Orientierung ausgestattet werden, indem man jede Kante $e$ des Kreisgraphs auf jenes der zwei Elemente in der sie liegt zeigen lässt, dessen Orientierung $e$ eine Richtung gibt die von $x$ wegzeigt.\\
+	\\
+	Seien $x,y$ Ecken und $A_1, A_2$ Elemente  von $G$, dann gibt uns die Konstruktion der dualen Orientierung folgendes Bild:
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{Abbildungen/proof_orientation.pdf}
+		\caption{Orientierung (schwarz) und duale Orientierung(rot).}
+		\label{fig:proof_orienation}
+	\end{figure}
+	\noindent
+	Wegen der Verträglichkeit von $G$, zeigt jede Kante in $\mathbb{F}(x)$ auf den Schaft der nächsten Kante und auch die Verträglichkeitsbedingung der dualen Orientierung ist automatisch erfüllt. Siehe Abbildung ~\ref{fig:proof_orienation}.
 	\\
 	\\
 	\smallskip
@@ -256,7 +266,7 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	\\
 	Seien $A, B \in F$, dann gibt es nach Definition~\ref{def:netz} (Punkt 1) ein $x,y\in V$ sodass $x\in A$ und $y\in B$ gilt. Nachdem $(V,E,p,q)$ ein zusammenhängender Graph ist, gibt es einen Pfad $(x, x_1, \dots, y)$	in $G$.\\
 	\\
-	Nach Definition~\ref{def:netz} (Punkt 1) finden wir zu jeder Ecke im Pfad ein Element, dass die Ecke enthält $\gamma=(A, A_1, \dots, B)$. Dies ist noch kein Pfad in $G^D$, aber wir können ja jede der Ecken \(x_i\) von $G$ mit einem Kreisgraph in $G^D$ identifizieren. Somit lässt sich $\gamma$ zu einem Pfad in $G^D$ vervollständigen.
+	Nach Definition~\ref{def:netz} (Punkt 1) finden wir zu jeder Ecke im Pfad ein Element, dass die Ecke enthält $\gamma=(A, A_1, \dots, B)$. Dies ist noch kein Pfad in $G^D$, aber wir können ja jede der Ecken \(x_i\) von $G$ mit einem Kreisgraph in $G^D$ identifizieren. Somit lassen sich die Lücken in $\gamma$ zu einem Pfad in $G^D$ vervollständigen.
 	\\
 	\\
 	\smallskip	
@@ -272,39 +282,14 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	\\
 	\smallskip
 	\emph{4. Rückkehr zum Ausgangsgraphen.}  
-	Schließlich folgt, dass die Ecken von $G$ über die Abbildung $x \mapsto \mathbb{F}(x)$ eindeutig mit den Flächen von $(G^D)^D$ übereinstimmen. Seien $x,y$ Ecken und $A_1, A_2$ Elemente  von $G$, dann gibt uns die Konstruktion der dualen Orientierung folgendes Bild:
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.3]{Abbildungen/proof_orientation.pdf}
-		\caption{Orientierung und duale Orientierung.}
-		\label{fig:proof_orienation}
-	\end{figure}
-	\noindent
-	Die Definition der dualen Orientierung führt bei der zweiten Anwendung wieder zurück zur ursprünglichen Orientierung. Folgen wir aber der Definition der dualen Ausrichtung so liefert die zweifache Anwendung die entgegengesetzte Richtung der Kanten. Die ungerichtete Kantenbeziehung bleibt aber erhalten womit der Satz bewiesen ist.
+	Die Ecken von $G$ stimmen über die Abbildung $x \mapsto \mathbb{F}(x)$ eindeutig mit den Flächen von $(G^D)^D$ überein.
+	\\
+	\\
+	Die Definition der dualen Orientierung~\ref{fig:proof_orienation} führt bei der zweiten Anwendung wieder zurück zur ursprünglichen Orientierung. Wenn die primäre Orientierung von $A_1$ von $x$ nach $y$ zeigt, dann zeigt die duale Orientierung von $\mathbb{F}(x)$ von $A_2$ anch $A_1$. Weiters zeigt die biduale Orientierung von $A_1$ zeigt dann wieder von $x$ nach $y$.
+	\\
+	\\
+	Folgen wir aber analog der Definition der dualen Ausrichtung so liefert die zweifache Anwendung die entgegengesetzte Richtung der Kanten. Die ungerichtete Kantenbeziehung bleibt aber erhalten womit der Satz bewiesen ist.
 \end{proof}
-
-\begin{proposition}\label{prop:plan}
-	
-	Ein Netz $G=((V,E),F)$ ist genau dann planar, wenn es eine Anordnung
-	$A_1,\dots,A_n$ der Flächen gibt, so dass für jedes $k\leq n$
-	der induzierte Teilgraph von
-	\[
-	\bigcup_{i=1}^{k} V(A_i)
-	\]
-	zusammenhängend ist.
-\end{proposition}
-\begin{proof}
-	Sei $G=(g,F)$ ein planares Netz, dann gibt es eine Einbettung $\gamma$ von $g$.
-	
-	
-	
-	Dies bedeutet anschaulich: man kann $G$ zeichnen, indem man zunächst $A_1$ einbettet und dann sukzessive $A_2,A_3,\dots$ hinzufügt, ohne dabei eine neue eingeschlossene Fläche zu erzeugen, die nicht selbst zu $f$ gehört. Dies schließt Konfigurationen wie solche auf einem Torus aus.
-\end{proof}
-\begin{definition}[Innenfläche, Außenfläche]
-	Sei $G=((V,E),f)$ ein planares Netz und $F={A_1,\dots,A_n}$ eine Flächenmenge wie in Satz~\ref{prop:plan}, so nennt man $A_1,\dots,A_{n-1}$ die \textbf{Innenflächen}, und die verbleibende Fläche $A_n$, auch $A_\infty$ genannt, die \textbf{Außenfläche}.
-	Eine Kante $e$ heißt \textbf{Randkante}, wenn sie zu $A_\infty$ gehört. Der induzierte Teilgraph $A_\infty$ wird der Rand des Netzes genannt. 
-\end{definition}
-
 
 \section{Diskrete Funktionenräume und Operatoren}
 In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operatoren, die zwischen den verschiedenen Funktionenräumen wirken. 
