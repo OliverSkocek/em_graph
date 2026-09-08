@@ -158,7 +158,7 @@ Eine Abbildung \(p\), die jeder Kante \(e\) die Ecke \(x\) zuordnet, auf die der
 	und für jede Kante \(e\in E\) interpretieren wir \(q(e)\) als Schaft (Anfangspunkt) und \(p(e)\) als Spitze (Endpunkt) von \(e\).
 \end{definition}
 \noindent
-Genauso wie Kanten eine Ausrichtung haben, besitzen Elemente eine Orientierung. Eine \textbf{Orientierung} eines Kreisgraphen erhalten wir durch eine Ausrichtung desselben, bei der jede Pfeilspitze auf den Schaft der nächsten Kante zeigt. Für jedes Element gibt es genau zwei solche Orientierungen: im Uhrzeigersinn und gegen den Uhrzeigersinn. Dies liefert uns die erste Abstraktion einer Komponente der Gitter: Ein \textbf{Element eines Netzes} $(A,o)$ ist ein Kreisgraph $A$ zusammen mit einer Orientierung $o$. Wenn wir vom Umlauf eines Elements im \textbf{Uhrzeigersinn} sprechen, bedeutet dies, dass das Element im Sinn der Orientierung durchlaufen wird.
+Genauso wie Kanten eine Ausrichtung haben, besitzen Elemente eine Orientierung. Eine \textbf{Orientierung} eines Kreisgraphen erhalten wir durch eine Ausrichtung desselben, bei der jede Pfeilspitze auf den Schaft der nächsten Kante zeigt. Für jedes Element gibt es genau zwei solche Orientierungen: im Uhrzeigersinn und gegen den Uhrzeigersinn. Dies führt zur ersten Abstraktion einer Komponente der Gitter: Ein \textbf{Element eines Netzes} $(A,o)$ ist ein Kreisgraph $A$ zusammen mit einer Orientierung $o$. Wenn wir vom Umlauf eines Elements im \textbf{Uhrzeigersinn} sprechen, bedeutet dies, dass das Element im Sinn der Orientierung durchlaufen wird.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Abbildungen/Orientierung.pdf}
@@ -214,20 +214,22 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	\\
 	Dann nennt man \(G=(V,E,F,p,q)\) ein \textbf{Netz}, wenn die folgenden Bedingungen erfüllt sind:
 	\begin{enumerate}
-		\item Jede Ecke \(v\in V\) liegt in mindestens einem Element.
+		\item Für jede Ecke \(x\in V\) lassen sich die Elemente, die \(x\)
+		enthalten, zyklisch als \(A_1,\ldots,A_k\) anordnen, sodass
+		\(A_i\) und \(A_{i+1}\) für \(i=1,\ldots,k\), mit \(A_{k+1}=A_1\),
+		eine gemeinsame Kante besitzen, deren Endpunkte \(x\) und eine von
+		\(x\) verschiedene Ecke sind.
 		\item Jede Kante \(e\in E\) liegt in genau zwei Elementen.
 		\item Je zwei Elemente \(A,A'\in F\) haben höchstens eine gemeinsame Kante. Falls sie eine gemeinsame Kante haben, sind sie bezüglich dieser verträglich.
-		\item Für jede Ecke \(x\in V\) gibt eine zyklische Anordnung \(A_1,\dots,A_k\) jener Elemente, die \(x\) enthalten, sodass \(A_i\) und \(A_{i+1}\) 
-		(mit \(A_{k+1}:=A_1\)) eine gemeinsame Kante haben, die an \(x\) liegt.
 	\end{enumerate}
 	Sei weiters $r,r^*:E\to \mathbb{R}_{>0}$, dann nennen wir \(H=(g,F,r,r^*)\) ein \textbf{metrisches Netz} sowie $r$ die Metrik  und $r^*$ die *-Metrik des Netzes.
 	\\
 	\\
-	Falls es eine Einbettung von \(g\) in die Ebene gibt, deren Polygone mit \(F\) übereinstimmen, nennt man \(G\) ein \textbf{planares Netz}.
+	Falls es eine Einbettung von \(g\) in die Ebene gibt, deren abgeschlossenene Gebiete, einschließlich des unbeschränkten Gebiets mit \(F\) übereinstimmen, nennt man \(G\) ein \textbf{planares Netz}.
 \end{definition}
 \noindent
 \begin{proposition}
-	Sei \(G=(V,E,F,p,q)\) ein Netz und $p^{'},q^{'}:E\to F$ die Spitze- und Schaftfunktion der dualen Ausrichtung. Dann ist \(G^D=(F,E,V,p^{'},q^{'})\) ebenfalls ein Netz, das \textbf{duale Netz}, und es gilt
+	Sei \(G=(V,E,F,p,q)\) ein Netz und $p_D,q_D:E\to F$ die Spitze- und Schaftfunktion der dualen Ausrichtung. Dann ist \(G^D=(F,E,V,p_D,q_D)\) ebenfalls ein Netz, das \textbf{duale Netz}, und es gilt
 	\[
 	(G^D)^D = (V,E,F,q,p)
 	\]
@@ -242,10 +244,10 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	$$
 	\{A \in F : x \in A\}
 	$$ 
-	der Elemente von $G$, die $x$ enthalten, bildet in $G^D$ einen induzierten Teilgraph, der nach Definition~\ref{def:netz} (Punkt 4) ein Kreis ist. Diesen nennen wir $\mathbb{F}(x)$.  
+	der Elemente von $G$, die $x$ enthalten, bildet in $G^D$ einen induzierten Teilgraph, der nach Definition~\ref{def:netz} (Punkt 1) ein Kreis ist. Diesen nennen wir $\mathbb{F}(x)$.  
 	Jedem $x \in V(G)$ können wir also eindeutig einen Kreis $\mathbb{F}(x)$ in $G^D$ zuordnen. Wir setzen daher
 	$$
-	f(G^D) := \{\mathbb{F}(x) : x \in V(G)\}.
+	F(G^D) := \{\mathbb{F}(x) : x \in V(G)\}.
 	$$
 	Jeder Kreisgraph $\mathbb{F}(x)$ kann mit einer Orientierung ausgestattet werden, indem man jede Kante $e$ des Kreisgraphs auf jenes der zwei Elemente in der sie liegt zeigen lässt, dessen Orientierung $e$ eine Richtung gibt die von $x$ wegzeigt.\\
 	\\
@@ -262,7 +264,7 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	\\
 	\smallskip
 	\emph{2. $G^D$ ist ein zusammenhängender einfacher Digraph.}  \\
-	Nach Definition~\ref{def:netz} (Punkt 2 und 3) ist $(F,E, p^{'},q^{'})$ ein einfacher Graph und wegen der Verträglichkeit aus Punkt 3 hat dieser Graph auch eine wohldefinierte Ausrichtung.\\
+	Nach Definition~\ref{def:netz} (Punkt 2 und 3) ist $(F,E, p_D,q_D)$ ein einfacher Graph und wegen der Verträglichkeit aus Punkt 3 hat dieser Graph auch eine wohldefinierte Ausrichtung.\\
 	\\
 	Seien $A, B \in F$, dann gibt es nach Definition~\ref{def:netz} (Punkt 1) ein $x,y\in V$ sodass $x\in A$ und $y\in B$ gilt. Nachdem $(V,E,p,q)$ ein zusammenhängender Graph ist, gibt es einen Pfad $(x, x_1, \dots, y)$	in $G$.\\
 	\\
@@ -285,12 +287,31 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	Die Ecken von $G$ stimmen über die Abbildung $x \mapsto \mathbb{F}(x)$ eindeutig mit den Flächen von $(G^D)^D$ überein.
 	\\
 	\\
-	Die Definition der dualen Orientierung~\ref{fig:proof_orienation} führt bei der zweiten Anwendung wieder zurück zur ursprünglichen Orientierung. Wenn die primäre Orientierung von $A_1$ von $x$ nach $y$ zeigt, dann zeigt die duale Orientierung von $\mathbb{F}(x)$ von $A_2$ anch $A_1$. Weiters zeigt die biduale Orientierung von $A_1$ zeigt dann wieder von $x$ nach $y$.
+	Die Definition der dualen Orientierung~\ref{fig:proof_orienation} führt bei der zweiten Anwendung wieder zurück zur ursprünglichen Orientierung. Wenn die primäre Orientierung von $A_1$ von die Kante $e$ von $x$ nach $y$ durchläuft, dann zeigt die duale Orientierung von $\mathbb{F}(x)$ von $A_2$ anch $A_1$. Weiters zeigt die biduale Orientierung von $A_1$ zeigt dann wieder von $x$ nach $y$.
 	\\
 	\\
 	Folgen wir aber analog der Definition der dualen Ausrichtung so liefert die zweifache Anwendung die entgegengesetzte Richtung der Kanten. Die ungerichtete Kantenbeziehung bleibt aber erhalten womit der Satz bewiesen ist.
 \end{proof}
+\begin{remark}[Bedeutung der Planarität]
 
+Abschließend sei auf die zentrale Bedeutung der Planarität für den Rest
+des Buches hingewiesen. Ein Netz ist planar, wenn der zugrundeliegende
+Graph sich in die Ebene (oder äquivalent in die 2-Sphäre) einbetten
+lässt und die durch die Einbettung entstehenden Flächen genau den
+Elementen des Netzes entsprechen. Alternativ lässt sich Planarität
+kombinatorisch charakterisieren: Ein Netz ist genau dann planar, wenn
+es eine Reihenfolge der Elemente gibt, sodass sich das Netz schrittweise
+durch Zusammenfügen entlang von Kanten konstruieren lässt und nach
+jedem Schritt der Rand der bereits zusammengefügten Teilmenge
+zusammenhängend ist.\\
+\\
+Die entscheidende Konsequenz der Planarität ist, dass jede einfach
+geschlossene Kurve in der Einbettungsebene das Netz in ein inneres und
+ein äußeres Teilnetz zerlegt (Jordan'scher Kurvensatz). Diese Zerlegungseigenschaft ist die
+Grundlage für den Stokes-Satz und damit für die gesamte nachfolgende
+Feldtheorie.
+\end{remark}
+\newpage
 \section{Diskrete Funktionenräume und Operatoren}
 In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operatoren, die zwischen den verschiedenen Funktionenräumen wirken. 
 
