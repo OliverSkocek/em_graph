@@ -298,16 +298,56 @@ Abschließend sei auf die zentrale Bedeutung der Planarität für den Rest
 des Buches hingewiesen. Ein Netz ist planar, wenn der zugrundeliegende
 Graph sich in die Ebene (oder äquivalent in die 2-Sphäre) einbetten
 lässt und die durch die Einbettung entstehenden Flächen genau den
-Elementen des Netzes entsprechen. Alternativ lässt sich Planarität
+Elementen des Netzes entsprechen. \\
+\\
+Alternativ lässt sich Planarität
 kombinatorisch charakterisieren: Ein Netz ist genau dann planar, wenn
 es eine Reihenfolge der Elemente gibt, sodass sich das Netz schrittweise
 durch Zusammenfügen entlang von Kanten konstruieren lässt und nach
 jedem Schritt der Rand der bereits zusammengefügten Teilmenge
-zusammenhängend ist.\\
-\\
-Die entscheidende Konsequenz der Planarität ist, dass jede einfach
-geschlossene Kurve in der Einbettungsebene das Netz in ein inneres und
-ein äußeres Teilnetz zerlegt (Jordan'scher Kurvensatz). Diese Zerlegungseigenschaft ist die
+zusammenhängend ist.
+\begin{definition}[Netzteilung]
+	Sei \(G=(V,E,F,p,q)\) ein  Netz und
+	\(\gamma=(x_1,\dots,x_N)\) ein einfach geschlossener Pfad in \(G\).\\
+	\\
+	Eine \textbf{Netzteilung} bezüglich \(\gamma\) ist eine Zerlegung
+	\[
+	F = I(\gamma) \,\dot\cup\, U(\gamma)
+	\]
+	mit den folgenden Eigenschaften:
+	\begin{itemize}
+		\item Für jedes an \(\gamma\) angrenzende Element \(A\) (d.h.\ \(A\) teilt
+		eine Kante mit \(\gamma\)) gilt:
+		\(A\in U(\gamma)\), falls \(\gamma\) die gemeinsame Kante im Uhrzeigersinn
+		von \(A\) durchläuft, und \(A\in I(\gamma)\) sonst.
+		
+		\item Für jedes nicht an \(\gamma\) angrenzende Element \(A\) gilt:
+		\(A\) gehört zu derselben Teilmenge wie alle zu \(A\) benachbarten
+		Elemente.
+	\end{itemize}
+	Wenn eine Netzteilung bezüglich $\gamma$ existiert, dann nennen wir $\gamma$ \textbf{zerlegend}.\\
+	\\
+	Die Mengen \(I(\gamma)\) und \(U(\gamma)\) nennen wir das \textbf{innere}
+	beziehungsweise \textbf{äußere Teilnetz} von \(G\) bezüglich \(\gamma\).
+\end{definition}
+\begin{proposition}[Jordanscher Kurvensatz]\label{prop: 13}
+Sei \(G=(V,E,F,p,q)\) ein planares Netz, dann ist jeder nichttiviale\footnote{Ein nichttrivialer Pfad besteht aus mindestens einer Kante.} einfach geschlossener Pfad $\gamma$ zerlegend.	
+\end{proposition}
+\begin{proof}
+	Sei \(\iota\colon G\hookrightarrow\mathbb{R}^2\) eine planare Einbettung.
+	Dann ist \(\iota(\gamma)\) eine einfache geschlossene Kurve in der Ebene.
+	Nach dem Jordan-Kurvensatz zerlegt \(\iota(\gamma)\) die Ebene in zwei
+	Zusammenhangskomponenten \(U_{\mathrm{in}},U_{\mathrm{out}}\). Jedes
+	Element \(A\in F\) liegt vollständig im Abschluss genau einer dieser
+	Komponenten. Durch
+	\[
+	I(\gamma):=\{A\in F:\mathrm{int}(A)\subseteq U_{\mathrm{in}}\},\qquad
+	U(\gamma):=\{A\in F:\mathrm{int}(A)\subseteq U_{\mathrm{out}}\}
+	\]
+	ist eine Netzteilung gemäß Definition gegeben.
+\end{proof}
+\noindent
+Diese Zerlegungseigenschaft ist die
 Grundlage für den Stokes-Satz und damit für die gesamte nachfolgende
 Feldtheorie.
 \end{remark}
@@ -316,8 +356,7 @@ Feldtheorie.
 In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operatoren, die zwischen den verschiedenen Funktionenräumen wirken. 
 
 \begin{definition}
-	Sei $G=(V,E,F)$ ein Netz, wobei $V$ die Menge der Ecken, $E$ die Menge der Kanten und $F$ die Menge der Flächen sei. 
-	Dann definieren wir drei reelle, endlichdimensionale Funktionenräume:
+	Sei $G=(V,E,F, p, q)$ ein Netz, dann definieren wir drei reelle, endlichdimensionale Funktionenräume:
 	\[
 	\mathfrak{E}(G) = \{f \mid f: V \to \mathbb{R}\}, \qquad
 	\mathfrak{K}(G) = \{f \mid f: E \to \mathbb{R}\}, \qquad
@@ -326,41 +365,36 @@ In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operator
 	Die analogen komplexwertigen Räume werden durch $\mathfrak{E}_\mathbb{C}(G)$, 
 	$\mathfrak{K}_\mathbb{C}(G)$ und $\mathfrak{F}_\mathbb{C}(G)$ bezeichnet.
 \end{definition}
-\begin{remark}
-	\emph{Bemerkung:} Die Räume der Eck- und Kantenfunktionen lassen sich bereits auf allgemeinen Graphen definieren. 
-	Der Flächenfunktionsraum $\mathfrak{F}(G)$ setzt jedoch die Netzstruktur voraus.
-\end{remark}
 \noindent
-Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen. 
-\begin{definition}[Gradient]
-	Sei $G=(V,E)$ ein Graph mit einer Orientierung. 
-	Seien $p,q:E\to V$ die \emph{Spitzen-} bzw. \emph{Schaftfunktion}, die jeder Kante ihre End- bzw. Anfangsecke zuordnen. 
-	Für $f \in \mathfrak{E}(G)$ definieren wir den \emph{Gradienten}
+Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
+\begin{definition}[Gradient und Divergenz]\label{def:grad_dev}
+	Sei $G=(V,E, p, q)$ ein Digraph, dann definieren wir für jedes $f \in \mathfrak{E}(G)$ den \textbf{Gradient}
 	\[
-	\mathrm{grad}(f)\in \mathfrak{K}(G), \qquad 
+	\mathrm{grad}:\mathfrak{E}(G) \to \mathfrak{K}(G), \qquad 
 	\mathrm{grad}(f)(e) = f(p(e)) - f(q(e)).
 	\]
-\end{definition}
-\begin{definition}[Divergenz]
-	Sei $G=(V,E)$ ein orientierter Graph, $v\in \mathfrak{K}(G)$. 
-	Dann ist die \emph{Divergenz} definiert als Funktion $\mathrm{div}(v)\in \mathfrak{E}(G)$:
+	und für jedes $v\in \mathfrak{K}(G)$ die \textbf{Divergenz}
 	\[
+	\mathrm{div}:\mathfrak{K}(G) \to \mathfrak{E}(G), \qquad 
 	\mathrm{div}(v)(x) = 
 	\sum_{\substack{e\in E \\ q(e)=x}}v(e) \;-\!
 	\sum_{\substack{e\in E \\ p(e)=x}}v(e).
 	\]
-	Sie misst den Nettofluss von $x$ weg.
 \end{definition}
 \noindent
-Der Gradient hebt Funktionen von den Ecken auf die Kanten, während die Divergenz Kantenfunktionen auf Eckfunktionen abbildet.  
-Da $G$ und sein Dual $G^D$ dieselbe Kantenmenge besitzen, bilden die Kantenfunktionen die Brücke zwischen den Operatoren auf $G$ und jenen auf $G^D$.  
-Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Operatoren auf dem Dualgraphen. 
+
+\begin{remark}
+	Sei $G=(V,E, p, q)$ ein Digraph und $x \in V$, dann misst die Divergenz an der Ecke $x$ den Nettofluss von $x$ weg.
+	\\
+	\\
+	Sei $G=(V,E, F, p, q)$ ein Netz, dann gibt es das duale Netz $G_D$ und da $G$ und sein Dual $G^D$ dieselbe Kantenmenge besitzen, bilden die Kantenfunktionen die Brücke zwischen den Operatoren auf $G$ und jenen auf $G^D$. Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Operatoren auf dem dualen Netz. 
+\end{remark}
 \begin{proposition}
-	Sei $G$ ein gerichteter Graph. Der Gradient und die Divergenz sind lineare Operatoren und es gilt
+	Sei $G=(V,E,F, p, q)$ ein Digraph. Der Gradient und die Divergenz sind lineare Operatoren und es gilt
 	\[
 	\mathrm{div} = - \mathrm{grad}^\top
 	\]
-	bezüglich des Standardskalarprodukts.
+	bezüglich der Standardskalarprodukte: $\langle v, u\rangle_\mathfrak{E} = \sum_{x\in V} u(x)v(x)$ für $u,v$ Eckfunktionen und $\langle r, s\rangle_\mathfrak{K} = \sum_{e\in E} r(e)s(e)$  für $r,s$ Kantenfunktionen.
 \end{proposition}
 \begin{proof}
 	Seien $u \in \mathfrak{E}(G)$ und $v \in \mathfrak{K}(G)$. Dann gilt:
@@ -375,7 +409,7 @@ Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Ope
 	Damit folgt die Aussage.
 \end{proof}
 \begin{definition}[Pfadsumme]
-	Sei $G=(V,E)$ ein gerichteter Graph, $f \in \mathfrak{K}(G)$, und sei
+	Sei $G=(V,E,p,q)$ ein Digraph, $f \in \mathfrak{K}(G)$, und sei
 	$\gamma=(x_1,\dots, x_n)$ ein Pfad in $G$. 
 	Für die dazugehörigen Kanten $(e_1,\dots, e_{n-1})$ definieren wir Vorzeichen
 	\[
@@ -388,65 +422,55 @@ Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Ope
 	\[
 	S_G(\gamma)(f)=\sum_{i=1}^{n-1}\sigma_i f(e_i)
 	\]
-	als die \emph{Pfadsumme}.
+	als die \textbf{Pfadsumme}.
 \end{definition}
+\begin{remark}\label{bem: 1}
+	Sei $G=(V,E, F, p, q)$ ein Netz, dann ist der Operator $\mathrm{div}_D$ das Analogon der Rotation aus der Vektoranalyis, daher sein Wert für ein Element $A\in F$ stimmt mit der Pfadsumme des gegen den Uhrzeigersinn laufenden Pfades um $A$ überein. Von hier an schreiben wir anstelle von $\mathrm{div}_D$ deshalb $\mathrm{rot}$.
+\end{remark}
 \begin{lemma}[Stokes]
-	Sei $G = (g, F)$ ein gerichtetes planares Netz und $\gamma$ ein geschlossener Pfad, der den Rand von $G$ gegen den Uhrzeigersinn durchläuft, sowie $f \in \mathfrak{K}(G)$. 
+	Sei $G = (V, E, F, p, q)$ ein Netz, \(\gamma=(x_1,\dots,x_N)\) ein zerlegender geschlossener Pfad und $f \in \mathfrak{K}(G)$. 
 	Dann gilt:
 	\begin{equation}
-		S_G(\gamma)(f) \;=\; \sum_{A \in F(G)} \mathrm{div}_D(f)(A).
+		S_G(\gamma)(f) \;=\; \sum_{A \in I(\gamma)} \mathrm{rot}(f)(A).
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	Für jede Fläche $A \in F(G)$ entspricht die Pfadsumme des gegen den Uhrzeigersinn orientierten Randes von $A$ genau dem Wert $\mathrm{div}_D(f)(A)$ nach Definition.\\
-	\\
-	Wir betrachten eine Fläche $A \in F(G)$, die eine gemeinsame Kante $e \in E$ mit dem Rand von $G$ besitzt.
-	Erweitern wir den Pfad $\gamma$, indem wir zwischen $p(e)$ und $q(e)$ die übrigen Ecken von $A$ einfügen, sodass der resultierende Pfad $\gamma'$ weiterhin gegen den Uhrzeigersinn durchlaufen wird.
+	Nach Bemerkung~\ref{bem: 1} genügt es ein Element $A \in I(\gamma)$, das eine oder mehrere Kanten mit $\gamma$ teilt, die $x_k$, $x_{k+1}$ $\dots$ $x_{k+n}$ verbinden, zu betrachten.
+	Erweitern wir den Pfad $\gamma$, indem wir zwischen $x_k$ und $x_{k+n}$,  die übrigen Ecken von $A$, im Uhrzeigersinn von A laufend einfügen, sodass für resultierende Pfad $\gamma'$ gilt $I(\gamma')=I(\gamma)\setminus\{A\}$.
 	Dann gilt die Zerlegungsformel
 	\[
-	S_G(\gamma)(f) \;=\; S_G(\gamma')(f) \;+\; \mathrm{div}_D(f)(A).
+	S_G(\gamma)(f) \;=\; S_G(\gamma')(f) \;+\; \mathrm{rot}(f)(A).
 	\]
 	Da $G$ nur endlich viele Flächen enthält, wiederholen wir diesen Vorgang endlich oft, bis keine Fläche mehr übrig bleibt und erhalten so das gesuchte Resultat.
 \end{proof}
 \begin{proposition}
-	Sei $G=(g,F)$ ein gerichtetes planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{div}_D(f)=0$. 
+	Sei $G=(V,E,F,p,q)$ ein planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{rot}(f)=0$. 
 	Dann gilt: Jeder geschlossene Pfad in $G$ hat Pfadsumme Null.
 \end{proposition}
 \begin{proof}
 	Es genügt, einfach geschlossene Pfade zu betrachten, da jeder komplexere geschlossene Pfad sich als Zusammensetzung solcher schreiben lässt.
 	Sei also $\gamma$ ein einfach geschlossener Pfad in $G$, der gegen den Uhrzeigersinn durchlaufen wird.\\
 	\\
-	Dieser Pfad zerlegt $G$ in zwei Teilnetze, deren Schnitt genau $\gamma$ ist.
-	Da $G$ planar ist, bezeichnen wir den Teil, der nicht den äußeren Rand des Gesamtnetzes enthält, als \emph{inneren Graph} $H$.\\
+	Dieser Pfad zerlegt $G$ laut Satz~\ref{prop: 13} in zwei Teilnetze, deren Schnitt genau $\gamma$ ist.
 	\\
-	Das Teilnetz $H$ ist planar, sein Rand ist durch den Pfad $\gamma$ gegeben.
+	\\
 	Daher können wir den Stokes-Hilfssatz anwenden und erhalten:
 	\begin{equation}
-		S_H(\gamma)(f) \;=\; \sum_{A \in F(H)} \mathrm{div}_D(f)(A) = 0.
+		S_H(\gamma)(f) \;=\; \sum_{A \in I(\gamma))} \mathrm{div}_D(f)(A) = 0.
 	\end{equation}
 	Somit verschwindet die Pfadsumme für jeden einfach geschlossenen Pfad und folglich auch für beliebige geschlossene Pfade.
 \end{proof}
 \noindent
 \begin{remark}
-	Entscheidend im obigen Argument ist die \emph{Planarität} des Netzes. 
-	Nur im planaren Fall lässt sich jeder einfach geschlossene Pfad als Rand 
-	eines wohldefinierten inneren Teilnetzes auffassen, das aus endlich vielen 
-	Flächen besteht. Dadurch können diese Flächen sukzessive entfernt werden, 
-	wodurch sich die Pfadsumme Schritt für Schritt auf Null reduziert. \\
-	\\
-	Genau diese Möglichkeit, eingeschlossene Flächen nacheinander 
-	"abzutragen", ist die zentrale Idee im Beweis. \\
-	\\
 	In nicht-planaren Situationen (etwa bei Netzen auf einem Torus) ist eine solche 
 	Flächen-Elimination im Allgemeinen nicht möglich: Dort existieren geschlossene 
-	Pfade, die zwar zusammenziehbar erscheinen, aber kein durch Flächen aufgespanntes 
+	Pfade, die kein aufgespanntes 
 	Inneres besitzen. In solchen Fällen kann die Pfadsumme auch bei 
-	$\mathrm{div}_D(f)=0$ von Null verschieden sein.
+	$\mathrm{rot}(f)=0$ von Null verschieden sein.
 \end{remark}
 \noindent
 Die hier eingeführten Operatoren $\mathrm{grad}$, $\mathrm{div}$, 
-$\mathrm{grad}_D$ und $\mathrm{div}_D$ besitzen direkte Analoga zu den klassischen Differentialoperatoren der Vektoranalysis. 
-Insbesondere spielt die duale Divergenz die Rolle der Rotation. 
+$\mathrm{grad}_D$ und $\mathrm{rot}$ besitzen direkte Analoga zu den klassischen Differentialoperatoren der Vektoranalysis. 
 Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 \begin{theorem}[Diskreter de Rham-Komplex]\label{thm:derham}
 	Sei $G$ ein gerichtetes planares Netz. 
@@ -454,7 +478,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	\begin{equation} \label{eq:derham1}
 		\mathbb{R}\longrightarrow \mathfrak{E}(G) 
 		\overset{\mathrm{grad}}{\longrightarrow} \mathfrak{K}(G) 
-		\overset{\mathrm{div}_D}{\longrightarrow} \mathfrak{F}(G)/\mathbb{R} 
+		\overset{\mathrm{rot}}{\longrightarrow} \mathfrak{F}(G)/\mathbb{R} 
 		\longrightarrow 0,
 	\end{equation}
 	\begin{equation} \label{eq:derham2}
