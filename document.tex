@@ -441,9 +441,9 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
 	\[
 	S_G(\gamma)(f) \;=\; S_G(\gamma')(f) \;+\; \mathrm{rot}(f)(A).
 	\]
-	Da $G$ nur endlich viele Flächen enthält, wiederholen wir diesen Vorgang endlich oft, bis keine Fläche mehr übrig bleibt und erhalten so das gesuchte Resultat.
+	Da $G$ nur endlich viele Elemente enthält, wiederholen wir diesen Vorgang endlich oft, bis keine Elemente mehr übrig bleibt und erhalten so das gesuchte Resultat.
 \end{proof}
-\begin{proposition}
+\begin{proposition}\label{pfadunab}
 	Sei $G=(V,E,F,p,q)$ ein planares Netz und $f \in \mathfrak{K}(G)$ mit $\mathrm{rot}(f)=0$. 
 	Dann gilt: Jeder geschlossene Pfad in $G$ hat Pfadsumme Null.
 \end{proposition}
@@ -462,7 +462,7 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
 \end{proof}
 \noindent
 \begin{remark}
-	In nicht-planaren Situationen (etwa bei Netzen auf einem Torus) ist eine solche 
+	In nicht-planaren Situationen (etwa bei Gittern auf einem Torus) ist eine solche 
 	Flächen-Elimination im Allgemeinen nicht möglich: Dort existieren geschlossene 
 	Pfade, die kein aufgespanntes 
 	Inneres besitzen. In solchen Fällen kann die Pfadsumme auch bei 
@@ -473,7 +473,7 @@ Die hier eingeführten Operatoren $\mathrm{grad}$, $\mathrm{div}$,
 $\mathrm{grad}_D$ und $\mathrm{rot}$ besitzen direkte Analoga zu den klassischen Differentialoperatoren der Vektoranalysis. 
 Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 \begin{theorem}[Diskreter de Rham-Komplex]\label{thm:derham}
-	Sei $G$ ein gerichtetes planares Netz. 
+	Sei $G$ ein planares Netz. 
 	Dann erfüllen die Operatoren die folgenden exakten Sequenzen:
 	\begin{equation} \label{eq:derham1}
 		\mathbb{R}\longrightarrow \mathfrak{E}(G) 
@@ -500,12 +500,12 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	Da $G$ zusammenhängend ist, folgt, dass $f$ konstant ist.  \\
 	\\
 	\medskip\noindent
-	\textbf{2. Schritt:} $ \operatorname{Bild}(\mathrm{grad}) = \ker(\mathrm{div}_D)$.  
-	Zunächst: Für jedes $u \in \mathfrak{E}(G)$ gilt $\mathrm{div}_D(\mathrm{grad}(u))=0$.  
+	\textbf{2. Schritt:} $ \operatorname{Bild}(\mathrm{grad}) = \ker(\mathrm{rot})$.  
+	Zunächst: Für jedes $u \in \mathfrak{E}(G)$ gilt $\mathrm{rot}(\mathrm{grad}(u))=0$.  
 	Denn entlang jedes Umlaufs hebt sich die Pfadsumme auf, da jeder Wert von $u$ 
 	genau einmal mit positivem und einmal mit negativem Vorzeichen auftritt.  
-	Umgekehrt: Sei $f \in \ker(\mathrm{div}_D)$. 
-	Dann folgt wegen der Planarität aus Satz 2.2, dass die Pfadsummen zwischen zwei Ecken nur vom Start- und Endpunkt abhängen, nicht von der Wahl des Pfades. 
+	Umgekehrt: Sei $f \in \ker(\mathrm{rot})$. 
+	Dann folgt wegen der Planarität aus Satz~\ref{pfadunab}, dass die Pfadsummen zwischen zwei Ecken nur vom Start- und Endpunkt abhängen, nicht von der Wahl des Pfades. 
 	Definiere nun $F\in \mathfrak{E}(G)$ durch 
 	\[
 	F(x) = \text{Pfadsumme von einer fixen Ecke $x_0$ nach $x$},
@@ -513,7 +513,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	die wohldefiniert ist. Dann gilt $\mathrm{grad}(F)=f$.  \\
 	\\
 	\medskip\noindent
-	\textbf{3. Schritt:} $ \operatorname{Bild}(\mathrm{div}_D)$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
+	\textbf{3. Schritt:} $ \operatorname{Bild}(\mathrm{rot})$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
 	Dies folgt unmittelbar aus dem adjungierten Zusammenhang $\mathrm{div} = -\mathrm{grad}^\top$: 
 	das Bild von $\mathrm{div}_D$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
 	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle =0\}$.\\
@@ -538,7 +538,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 \noindent
 Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem diskreten de Rham-Komplex.
 \begin{corollary}[Helmholtz-Zerlegung]\label{eq:helmoltz}
-	Sei \(G\) ein planares Netz mit Orientierung. Dann gilt:
+	Sei \(G\) ein planares Netz. Dann gilt:
 	\[
 	\mathfrak{K}(G) =  \operatorname{Bild}(\mathrm{grad}) \oplus  \operatorname{Bild}(\mathrm{grad}_D).
 	\]
@@ -629,7 +629,7 @@ Ein solcher Sonderfall tritt auf, wenn $\rho$ und $\Omega$ entlang der $z$-Achse
 und das Problem sich effektiv auf zwei Dimensionen reduziert. 
 Genau für diesen Fall – eine zweidimensionale Formulierung der Maxwell-Gleichungen – 
 wird im folgenden Kapitel eine Theorie entwickelt. 
-\begin{proposition}[Eigenschaften des gewichteten Laplace-Operators]
+\begin{proposition}[Eigenschaften des gewichteten Laplace-Operators]\label{prop:gew_lap}
 	Sei $G=(V,E)$ ein zusammenhängender Graph, $r:E\to (0,\infty)$ eine positive Kantenfunktion 
 	und $\Delta_r$ der $r$-gewichtete Laplace-Operator. Dann gilt:
 	\begin{enumerate}
@@ -750,7 +750,7 @@ für das Poisson-Problem im diskreten Rahmen zu formulieren:
 \begin{proof}
 	\emph{Fall 1: $\partial = \emptyset$.}  
 	In diesem Fall genügt es, den Lösungsraum von $\Delta_r u = f$ zu analysieren. 
-	Da der Kern von $\Delta_r$ (vgl. Satz 3.1) durch die konstanten Funktionen beschrieben wird 
+	Da der Kern von $\Delta_r$ (vgl. Satz~\ref{prop:gew_lap}) durch die konstanten Funktionen beschrieben wird 
 	und $\Delta_r$ symmetrisch ist, ist der Bildraum genau das orthogonale Komplement 
 	der konstanten Funktionen. 
 	Somit existiert eine Lösung genau dann, wenn $f \perp \mathbf{1}$ gilt. 
