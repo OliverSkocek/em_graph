@@ -188,12 +188,31 @@ Die Ausrichtung $p$ des dem Gitter zugrunde liegenden Graphen induziert, wenn da
 	\caption{Duale Ausrichtung.}
 \end{figure}
 \noindent
-Nachdem wir die topologischen Aspekte eines Gitters beschrieben haben, betrachten wir nun dessen metrische Eigenschaften. Seien \(r,r^*\colon E\to\mathbb{R}\) Abbildungen von der Kantenmenge \(E\) nach \(\mathbb{R}\). Die Abbildung \(r\) ordnet jeder Kante \(e\) ihre Länge zu. Die Abbildung \(r^*\) ordnet jeder Kante \(e\) hingegen die Länge der Komponente der dualen Kante \(e^*\) zu, die orthogonal auf \(e\) steht. Wir nennen $r$ die Metrik und $r^*$ die $*-Metrik$ des Gitters.
-Aus der Konstruktion der Abbildungen \(r\) und \(r^*\) folgt unmittelbar, dass für jede Kante \(e\) das Produkt
+Nachdem wir die topologischen Aspekte eines Gitters beschrieben haben, betrachten wir nun dessen metrische Eigenschaften. Sei \(r\colon E\to\mathbb{R}_{> 0}\) und \(s\colon  E\to\mathbb{R}_{> 0}\times\mathbb{R}_{> 0}\). Die Abbildung \(r\) ordnet jeder Kante \(e\) ihre Länge zu. 
+\\
+\\
+Die Abbildung \(s\) ordnet jeder Kante \(e\) zwei positive Längen zu.
+Beide Längen sind Anteile der dualen Kante \(e^*\), die orthogonal auf
+\(e\) steht. Die erste Länge ist der Anteil von \(e^*\), der im
+Element \(A_2\) liegt, das rechts von \(e\) liegt (d.h.\ die Kante
+\(e\) zeigt in Richtung des Uhrzeigersinns von \(A_2\)). Die zweite
+Länge ist der Anteil von \(e^*\), der im Element \(A_1\) liegt, das
+links von \(e\) liegt (d.h.\ die Kante \(e\) zeigt entgegen der
+Richtung des Uhrzeigersinns von \(A_1\)).
+\\
+\\
+Wir nennen $r$ die \textbf{Metrik} und $s$ die \textbf{Höhenfunktion} des Gitters. Aufbauend auf der Höhenfunktion können wir die $*$-\textbf{Metrik} \(r^*\colon E\to \mathbb{R}_{>0}\) definieren durch $r^*(e) := s(e)_0 + s(e)_1$. Sei weiters $A$ ein Element, dann definieren wir die \textbf{Flächenfunktion} \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) durch \(\mathbb{A}(A) := \sum_{e \in A}r(e)s(e)_{j(e, A)}\), wobei 
 \[
-r(e)\,r^*(e)
+j(e,A):=\begin{cases}
+	0 , & A \text{ steht rechts zu } e\\
+	1 , & A \text{ steht links zu } e\\
+\end{cases}
 \]
-der mit \(e\) assoziierten Fläche entspricht. Das zugehörige Kantenflächenelement ist in Abbildung~\ref{fig:dualarea} dargestellt.
+Aus der Konstruktion der Abbildungen \(r\) und \(s\) folgt unmittelbar, dass für jede Kante \(e\)  und Fläche $A$ das Produkt
+\[
+r(e)\,s(e)_{j(e, A)}
+\]
+der mit \(e\) assoziierten Fläche im Element $A$ entspricht. Das zugehörige Kantenflächenelement ist in Abbildung~\ref{fig:dualarea} dargestellt.
 
 \begin{figure}[H]
 	\centering
@@ -222,7 +241,7 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 		\item Jede Kante \(e\in E\) liegt in genau zwei Elementen.
 		\item Je zwei Elemente \(A,A'\in F\) haben höchstens eine gemeinsame Kante. Falls sie eine gemeinsame Kante haben, sind sie bezüglich dieser verträglich.
 	\end{enumerate}
-	Sei weiters $r,r^*:E\to \mathbb{R}_{>0}$, dann nennen wir \(H=(g,F,r,r^*)\) ein \textbf{metrisches Netz} sowie $r$ die Metrik  und $r^*$ die *-Metrik des Netzes.
+	Sei weiters $r:E\to \mathbb{R}_{>0}$ und \(s\colon  E\to\mathbb{R}_{> 0}\times\mathbb{R}_{> 0}\), dann nennen wir \(H=(V, E,F,r,s)\) ein \textbf{metrisches Netz} sowie $r$ die Metrik  und $s$ die Höhenfunktion des Netzes. Die *-Metrik \(r^*\colon E\to \mathbb{R}_{>0}\) und Flächenfunktion \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) werden analog zu Gittern definiert.
 	\\
 	\\
 	Falls es eine Einbettung von \(g\) in die Ebene gibt, deren abgeschlossenene Gebiete, einschließlich des unbeschränkten Gebiets mit \(F\) übereinstimmen, nennt man \(G\) ein \textbf{planares Netz}.
@@ -389,8 +408,8 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
 	\\
 	Sei $G=(V,E, F, p, q)$ ein Netz, dann gibt es das duale Netz $G_D$ und da $G$ und sein Dual $G^D$ dieselbe Kantenmenge besitzen, bilden die Kantenfunktionen die Brücke zwischen den Operatoren auf $G$ und jenen auf $G^D$. Wir schreiben $\mathrm{grad}_D$ und $\mathrm{div}_D$ für die entsprechenden Operatoren auf dem dualen Netz. 
 \end{remark}
-\begin{proposition}
-	Sei $G=(V,E,F, p, q)$ ein Digraph. Der Gradient und die Divergenz sind lineare Operatoren und es gilt
+\begin{proposition}\label{prop:adj_div_grad}
+	Sei $G=(V,E, p, q)$ ein Digraph. Der Gradient und die Divergenz sind lineare Operatoren und es gilt
 	\[
 	\mathrm{div} = - \mathrm{grad}^\top
 	\]
@@ -680,7 +699,7 @@ In der kontinuierlichen Theorie des Poisson-Problems spielt die
 \emph{Poincaré-Ungleichung} eine zentrale Rolle. 
 Im Folgenden formulieren wir ein diskretes Analogon 
 innerhalb der hier entwickelten Graphentheorie:
-\begin{proposition}[Diskrete Poincaré-Ungleichung]
+\begin{proposition}[Diskrete Poincaré-Ungleichung]\label{prop:poincare}
 	Sei $G=(V,E)$ ein Graph, $\partial \subseteq V$ eine nichtleere Teilmenge 
 	der Ecken, $r:E\to (0,\infty)$ eine Kantenfunktion und $u \in \mathfrak{E}(G)$ 
 	eine Eckfunktion mit $u|_\partial = 0$. Dann gilt:
@@ -763,7 +782,7 @@ für das Poisson-Problem im diskreten Rahmen zu formulieren:
 	Wir zeigen, dass $\ker(A)=\{0\}$.  \\
 	\\
 	\quad\; 1. Möglichkeit:  
-	Die Poincaré-Ungleichung (Satz 3.2) garantiert unmittelbar, 
+	Die Poincaré-Ungleichung (Satz~\ref{prop:poincare}) garantiert unmittelbar, 
 	dass der Kern trivial ist.  \\
 	\\
 	\quad\; 2. Möglichkeit:  
@@ -885,8 +904,8 @@ Wir orientieren uns dabei an einer Diskretisierung der klassischen Maxwell-Gleic
 nehmen jedoch einige Vereinfachungen vor: es wird nicht die konkrete geometrische Einbettung 
 eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur.
 \begin{definition}[Diskrete Maxwell-Gleichungen]
-	Sei $G=(g,F)$ ein planares Netz.  
-	Wir wählen feste Parameter $r>0$, $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
+	Sei $G=(V,E,F,p,q,r,s)$ ein planares metrisches Netz.  
+	Wir wählen feste Parameter $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
 	\[
 	e_0 \in \mathfrak{K}(G), 
 	\quad b_0 \in \mathfrak{F}(G), 
@@ -902,10 +921,10 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 	\]
 	eine \textbf{Lösung der Maxwell-Gleichungen}, falls für alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
-		\mathrm{div}(r\epsilon e(t)) &= q(t), \label{eq:disk-gauss}\\
-		\mathrm{div}_D(r^{-1} e(t)) &= -\, b'(t), \label{eq:disk-faraday}\\
-		-\,r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) &= \epsilon e'(t) + j(t), \label{eq:disk-ampere}\\
-		\sum_{f\in F} b(t)(f) &= 0. \label{eq:disk-magnetgauss}
+		\mathrm{div}(r^*\epsilon e(t)) &= q(t), \label{eq:disk-gauss}\\
+		\frac{\mathrm{rot}}{\mathbb{A}}(r e(t)) &= -\, b'(t), \label{eq:disk-faraday}\\
+		-\,r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) &= \epsilon e'(t) + j(t), \label{eq:disk-ampere} \\
+		\sum_{A\in F} b(t)(A)\mathbb{A}(A) &= 0. \label{eq:disk-magnetgauss}
 	\end{align}
 	sowie die Anfangsbedingungen
 	\begin{align}
@@ -932,7 +951,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
 	Die Energie des Systems sei definiert als
 	\[
-	E(t) = \frac{1}{2} \left(\sum_{f \in F} \frac{b(f,t)^2}{\mu(f)} + \sum_{k \in E} \epsilon(k) e(k,t)^2 \right).
+	E(t) = \frac{1}{2} \left(\sum_{A \in F} \frac{b(A,t)^2}{\mu(A)}\mathbb{A}(A) + \sum_{k \in E} \epsilon(k) e(k,t)^2r^*(k)r(k)\right).
 	\]
 	Dann ist $E(t)$ zeitlich konstant, also gilt
 	\[
@@ -942,37 +961,37 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 \begin{proof}
 	Wir berechnen die Ableitung der Magnetfeldenergie:
 	\[
-	\frac{d}{dt} \sum_{f \in F} \frac{b(f)^2}{\mu(f)} = 2 \sum_{f \in F} \frac{b(f) b'(f)}{\mu(f)} 
-	= 2 \left\langle b/\mu, b' \right\rangle_{\mathfrak{F}}.
+	\frac{d}{dt} \sum_{A \in F} \frac{b(A)^2}{\mu(A)}\mathbb{A}(A)  = 2 \sum_{A \in F} \frac{b(A) b'(A)}{\mu(A)}\mathbb{A}(A)  
+	= 2 \left\langle b/\mu, \mathbb{A} b' \right\rangle_{\mathfrak{F}}.
 	\]
 	Unter Verwendung von Gleichung \eqref{eq:disk-faraday} gilt
 	\[
-	b' = -\mathrm{div}_D(r^{-1} e),
+	b'  = -\frac{\mathrm{rot}}{\mathbb{A}}(r e),
 	\]
-	woraus
+	woraus folgt
 	\[
-	\frac{d}{dt} \sum_{f \in F} \frac{b(f)^2}{\mu(f)} = - 2 \langle b/\mu, \mathrm{div}_D(r^{-1} e) \rangle_{\mathfrak{F}}.
+	\frac{d}{dt} \sum_{A \in F} \frac{b(A)^2}{\mu(A)}\mathbb{A}(A) = - 2 \langle b/\mu, \mathrm{rot}(r e) \rangle_{\mathfrak{F}}.
+	\]
+	Durch Adjunktion und Satz~\ref{prop:adj_div_grad} gilt
+	\[
+	\langle b/\mu, \mathrm{rot}(r e) \rangle_{\mathfrak{F}} = -\langle r \mathrm{grad}_D (b/\mu), e \rangle_{\mathfrak{K}}=-\langle r^{*-1} \mathrm{grad}_D (b/\mu), rr^*e \rangle_{\mathfrak{K}},
 	\]
 	Analog berechnen wir die zeitliche Ableitung der elektrischen Energie:
 	\[
-	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2 = 2 \sum_{k \in E} \epsilon(k) e(k) e'(k) = 2 \langle \epsilon e, e' \rangle_{\mathfrak{K}}.
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r^*(k)r(k) = 2 \sum_{k \in E} \epsilon(k) e(k) e'(k)r^*(k)r(k) = 2 \langle \epsilon e, rr^*e' \rangle_{\mathfrak{K}}.
 	\]
 	Mit Gleichung \eqref{eq:disk-ampere} erhalten wir
 	\[
-	e' = - r^{-1} \mathrm{grad}_D \left(\frac{b}{\mu}\right) / \epsilon - j / \epsilon,
+	e' = - r^{*-1} \mathrm{grad}_D \left(\frac{b}{\mu}\right) / \epsilon - j / \epsilon,
 	\]
 	daher
 	\[
-	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2 = - 2 \langle e, r^{-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}} - 2\langle e, j\rangle_{\mathfrak{K}}.
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r^*(k)r(k) = - 2 \langle rr^*e, r^{*-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}} - 2\langle rr^*e, j\rangle_{\mathfrak{K}}.
 	\]
-	Durch Adjunktion und Satz 2.1 gilt
-	\[
-	\langle b/\mu, \mathrm{div}_D(r^{-1} e) \rangle_{\mathfrak{F}} = -\langle e, r^{-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}},
-	\]
-	wodurch sich die Ableitungen der Feldenergien gegenseitig aufheben und einzig der Beitrag des Stroms 
+	Nachdem das reele Skalarprodukt symmetrisch ist heben sich die Ableitungen der Feldenergien gegenseitig auf und einzig der Beitrag des Stroms 
 	 \(j\) verbleibt
 	\[
-	\frac{d}{dt} E(t) = \langle e, j\rangle_{\mathfrak{K}}.
+	\frac{d}{dt} E(t) = \langle rr^*e, j\rangle_{\mathfrak{K}}.
 	\]
 	Insbesondere bedeutet dies im stromlosen Fall \(j=0\), dass die Energie erhalten bleibt:
 		\[
@@ -991,7 +1010,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	Lösungen der diskreten Maxwell-Gleichungen mit Stromfunktion \(j : \mathbb{R} \to \mathfrak{K}(G)\).  
 	Dann gilt das \textbf{Kontinuitätsgesetz}
 	\[
-	q'(t) \;=\; -\,\mathrm{div}(r \, j(t)),
+	q'(t) \;=\; -\,\mathrm{div}(r^* \, j(t)),
 	\]
 	welches die lokale Erhaltung der elektrischen Ladung ausdrückt. Daraus folgt insbesondere die Erhaltung der Gesamtladung:
 	\[
@@ -1001,29 +1020,29 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 \begin{proof}
 	Wir beginnen mit dem Ampèreschen Gesetz \eqref{eq:disk-ampere}:
 	\[
-	-\, r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\; \epsilon e'(t) + j(t).
+	-\, r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\; \epsilon e'(t) + j(t).
 	\]
 	Teilen durch \(\epsilon\) ergibt
 	\[
-	-\, \epsilon^{-1}r^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\;  e'(t) + \epsilon^{-1}j(t).
+	-\, \epsilon^{-1}r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\;  e'(t) + \epsilon^{-1}j(t).
 	\]
-	Wenden wir nun den Operator \(\mathrm{div}(r\epsilon\,\cdot)\) an:
+	Wenden wir nun den Operator \(\mathrm{div}(r^*\epsilon\,\cdot)\) an:
 	\[
 	-\mathrm{div}(\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right)) 
-	= \,\mathrm{div}(r\epsilon e'(t)) + \mathrm{div}(r j(t)).
+	= \,\mathrm{div}(r^*\epsilon e'(t)) + \mathrm{div}(r^* j(t)).
 	\]
 	Der erste Term verschwindet aufgrund des de Rham Komplexes \(\mathrm{div}\circ \mathrm{grad}_D = 0\).  
 	Somit bleibt
 	\[
-	0=\mathrm{div}(r\epsilon e'(t)) +\,\mathrm{div}(r j(t)).
+	0=\mathrm{div}(r^*\epsilon e'(t)) +\,\mathrm{div}(r^* j(t)).
 	\]
-	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\mathrm{div}(r\epsilon e(t))=q(t)\), folgt
+	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\mathrm{div}(r^*\epsilon e(t))=q(t)\), folgt
 	\[
-	q'(t) = -\,\mathrm{div}(r j(t)).
+	q'(t) = -\,\mathrm{div}(r^* j(t)).
 	\]
 	Schließlich ergibt die Summierung über alle Ecken
 	\[
-	\sum_{v\in V} q'(t)(v) = - \sum_{v\in V}\mathrm{div}(r j(t))(v) = 0,
+	\sum_{v\in V} q'(t)(v) = - \sum_{v\in V}\mathrm{div}(r^* j(t))(v) = 0,
 	\]
 	da jede Kante in den Divergenztermen mit entgegengesetztem Vorzeichen erscheint. Damit ist die Erhaltung der Gesamtladung gezeigt.
 \end{proof}
