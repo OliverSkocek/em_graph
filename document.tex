@@ -179,7 +179,7 @@ UHU
 \fi
 \\
 \\
-Kommen wir zurück zur dualen Struktur der Gitter. Wir wollen Gitter betrachten, bei denen wir jedes Element $A$ mit einem Punkt $p(A)$ im Inneren dieses Elements identifizieren können, sodass falls $A_1$ und $A_2$ Elemente sind, die durch eine Kante $e$ verbunden sind die Verbindungslinie $e^*$ zwischen $p(A_1)$ und $p(A_2)$, die Kante $e$ schneidet und keine andere Kante berührt. Die mit der Kante $e$ assozierte Verbindungslinie $e^*$ nennen wir die \textbf{duale Kante}.\\
+Kommen wir zurück zur dualen Struktur der Gitter. Wir wollen Gitter mit \textbf{primaler dualer Orthogonalität} betrachten, bei denen wir jedes Element $A$ mit einem Punkt $p(A)$ im Inneren dieses Elements identifizieren können, sodass falls $A_1$ und $A_2$ Elemente sind, die durch eine Kante $e$ verbunden sind die Verbindungslinie $e^*$ zwischen $p(A_1)$ und $p(A_2)$, die Kante $e$ in einem rechten Winkel schneidet. Die mit der Kante $e$ assozierte Verbindungslinie $e^*$ nennen wir die \textbf{duale Kante}.\\
 \\
 Die Ausrichtung $p$ des dem Gitter zugrunde liegenden Graphen induziert, wenn das Gitter eine Orientierung hat, eine duale Ausrichtung $p_D$ auf dem dualen Graphen. Seien $A_1$ und $A_2$ Elemente eines orientierten Gitters (oder Netzes) und $e$ die Kante, die sie verbindet, dann setzen wir die \textbf{duale Ausrichtung} $p_D(e) = A_1$, wenn die Richtung der Kante $e$ im Uhrzeigersinn des Elements $A_1$ zeigt und andernfalls $p_D(e)=A_2$.
 \begin{figure}[H]
@@ -188,12 +188,12 @@ Die Ausrichtung $p$ des dem Gitter zugrunde liegenden Graphen induziert, wenn da
 	\caption{Duale Ausrichtung.}
 \end{figure}
 \noindent
-Nachdem wir die topologischen Aspekte eines Gitters beschrieben haben, betrachten wir nun dessen metrische Eigenschaften. Sei \(r\colon E\to\mathbb{R}_{> 0}\) und \(s\colon  E\to\mathbb{R}_{> 0}\times\mathbb{R}_{> 0}\). Die Abbildung \(r\) ordnet jeder Kante \(e\) ihre Länge zu. 
+Nachdem wir die topologischen Aspekte eines Gitters beschrieben haben, betrachten wir nun dessen metrische Eigenschaften. Sei \(r\colon E\to\mathbb{R}_{> 0}\) und \(h\colon  E\to\mathbb{R}_{> 0}\times\mathbb{R}_{> 0}\). 
 \\
 \\
-Die Abbildung \(s\) ordnet jeder Kante \(e\) zwei positive Längen zu.
-Beide Längen sind Anteile der dualen Kante \(e^*\), die orthogonal auf
-\(e\) steht. Die erste Länge ist der Anteil von \(e^*\), der im
+Die Abbildung \(r\) ordnet jeder Kante \(e\) ihre Länge zu. 
+Die Abbildung \(h\) ordnet jeder Kante \(e\) zwei positive Längen zu.
+Beide Längen sind Teile der dualen Kante \(e^*\). Die erste Länge ist der Teil von \(e^*\), der im
 Element \(A_2\) liegt, das rechts von \(e\) liegt (d.h.\ die Kante
 \(e\) zeigt in Richtung des Uhrzeigersinns von \(A_2\)). Die zweite
 Länge ist der Anteil von \(e^*\), der im Element \(A_1\) liegt, das
@@ -201,16 +201,16 @@ links von \(e\) liegt (d.h.\ die Kante \(e\) zeigt entgegen der
 Richtung des Uhrzeigersinns von \(A_1\)).
 \\
 \\
-Wir nennen $r$ die \textbf{Metrik} und $s$ die \textbf{Höhenfunktion} des Gitters. Aufbauend auf der Höhenfunktion können wir die $*$-\textbf{Metrik} \(r^*\colon E\to \mathbb{R}_{>0}\) definieren durch $r^*(e) := s(e)_0 + s(e)_1$. Sei weiters $A$ ein Element, dann definieren wir die \textbf{Flächenfunktion} \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) durch \(\mathbb{A}(A) := \sum_{e \in A}r(e)s(e)_{j(e, A)}\), wobei 
+Wir nennen $r$ die \textbf{Metrik} und $h$ die \textbf{Höhenfunktion} des Gitters. Aufbauend auf der Höhenfunktion können wir die \textbf{duale Metrik} \(r_D\colon E\to \mathbb{R}_{>0}\) definieren durch $r_D(e) := h(e)_0 + h(e)_1$. Sei weiters $A$ ein Element, dann definieren wir die \textbf{Flächenfunktion} \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) durch \(\mathbb{A}(A) := \sum_{e \in A}\frac{r(e)h(e)_{j(e, A)}}{2}\), wobei 
 \[
-j(e,A):=\begin{cases}
+in(e,A):=\begin{cases}
 	0 , & A \text{ steht rechts zu } e\\
 	1 , & A \text{ steht links zu } e\\
 \end{cases}
 \]
-Aus der Konstruktion der Abbildungen \(r\) und \(s\) folgt unmittelbar, dass für jede Kante \(e\)  und Fläche $A$ das Produkt
+Aus der Konstruktion der Abbildungen \(r\) und \(h\) folgt unmittelbar, dass für jede Kante \(e\)  und Fläche $A$ das Produkt
 \[
-r(e)\,s(e)_{j(e, A)}
+\frac{r(e)\,h(e)_{j(e, A)}}{2}
 \]
 der mit \(e\) assoziierten Fläche im Element $A$ entspricht. Das zugehörige Kantenflächenelement ist in Abbildung~\ref{fig:dualarea} dargestellt.
 
@@ -241,9 +241,6 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 		\item Jede Kante \(e\in E\) liegt in genau zwei Elementen.
 		\item Je zwei Elemente \(A,A'\in F\) haben höchstens eine gemeinsame Kante. Falls sie eine gemeinsame Kante haben, sind sie bezüglich dieser verträglich.
 	\end{enumerate}
-	Sei weiters $r:E\to \mathbb{R}_{>0}$ und \(s\colon  E\to\mathbb{R}_{> 0}\times\mathbb{R}_{> 0}\), dann nennen wir \(H=(V, E,F,r,s)\) ein \textbf{metrisches Netz} sowie $r$ die Metrik  und $s$ die Höhenfunktion des Netzes. Die *-Metrik \(r^*\colon E\to \mathbb{R}_{>0}\) und Flächenfunktion \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) werden analog zu Gittern definiert.
-	\\
-	\\
 	Falls es eine Einbettung von \(g\) in die Ebene gibt, deren abgeschlossenene Gebiete, einschließlich des unbeschränkten Gebiets mit \(F\) übereinstimmen, nennt man \(G\) ein \textbf{planares Netz}.
 \end{definition}
 \noindent
@@ -311,6 +308,49 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	\\
 	Folgen wir aber analog der Definition der dualen Ausrichtung so liefert die zweifache Anwendung die entgegengesetzte Richtung der Kanten. Die ungerichtete Kantenbeziehung bleibt aber erhalten womit der Satz bewiesen ist.
 \end{proof}
+\begin{definition}[Metrisches Netz]
+	Sei \(G=(V,E,F, p,q)\) ein Netz,
+	\(h \colon E \to \mathbb{R}_{>0} \times \mathbb{R}_{>0}\) die
+	Höhenfunktion von \(G\) und \(h_D \colon E \to \mathbb{R}_{>0} \times \mathbb{R}_{>0}\) die
+	Höhenfunktion des dualen Netzes \(G^D\).\\
+	\\
+	Dann nennen wir das Tupel
+	\[
+	(V, E, F, p, q, h, h_D)
+	\]
+	ein \textbf{metrisches Netz}.
+	 Dabei bezeichnen wir \(h\) als die
+	\textbf{Höhenfunktion} und \(h_D\) als die \textbf{duale Höhenfunktion} des Netzes.\\
+	\\
+	Die \textbf{Metrik} \(r \colon E \to \mathbb{R}_{>0}\) und die
+	\textbf{dual Metrik} \(r_D \colon E \to \mathbb{R}_{>0}\) werden
+	definiert durch
+	\[
+	r(e) := h_{D1}(e) + h_{D2}(e), \qquad
+	r_D(e) := h_{1}(e) + h_{2}(e).
+	\]
+	Die \textbf{Flächenfunktion} \(\mathbb{A} \colon F \to \mathbb{R}_{>0}\) und
+	die \textbf{duale Flächenfunktion} \(\mathbb{A}_D \colon V \to
+	\mathbb{R}_{>0}\) werden definiert durch
+	\[
+	\mathbb{A}(A) := \sum_{e \in \partial A} r(e) \cdot h_{\mathrm{in}(A)}(e),
+	\qquad
+	\mathbb{A}_D(x) := \sum_{e \in \partial \mathbb{F}(x)} r_D(e) \cdot
+	h_{D,\mathrm{in}(\mathbb{F}(x))}(e),
+	\]
+	wobei \(\mathbb{F}(x)\) das duale Element um die Ecke \(x\) ist und
+	\(h_{\mathrm{in}(A)}(e)\) bzw. \(h_{D,\mathrm{in}(\mathbb{F}(x))}(e)\) der
+	Anteil von \(h(e)\) bzw. \(h_D(e)\) ist, der im Element \(A\) bzw.
+	\(\mathbb{F}(x)\) liegt.
+\end{definition}
+\noindent
+Ein metrisches Netz ist sowohl als Netz als auch als duales Netz mit
+einem Längenbegriff für Kanten und einem Flächenbegriff für Elemente
+ausgestattet. Die duale Metrik \(r_D\) und die duale Höhenfunktion
+\(h_D\) ordnen den dualen Elementen (d.h. den primalen Ecken) einen
+Flächenbegriff zu, was insbesondere für die physikalische
+Interpretation von Ladung und Strom in den Maxwell-Gleichungen
+wesentlich ist.
 \begin{remark}[Bedeutung der Planarität]
 
 Abschließend sei auf die zentrale Bedeutung der Planarität für den Rest
@@ -373,16 +413,28 @@ Feldtheorie.
 \newpage
 \section{Diskrete Funktionenräume und Operatoren}
 In diesem Kapitel betrachten wir Funktionen auf diesen Netzen sowie die Operatoren, die zwischen den verschiedenen Funktionenräumen wirken. 
-
-\begin{definition}
-	Sei $G=(V,E,F, p, q)$ ein Netz, dann definieren wir drei reelle, endlichdimensionale Funktionenräume:
+\begin{definition}[Funktionenräume]
+	Sei \(G=(V,E,F,p,q)\) ein Netz. Dann definieren wir drei reelle,
+	endlichdimensionale Funktionenräume:
 	\[
-	\mathfrak{E}(G) = \{f \mid f: V \to \mathbb{R}\}, \qquad
-	\mathfrak{K}(G) = \{f \mid f: E \to \mathbb{R}\}, \qquad
-	\mathfrak{F}(G) = \{f \mid f: F \to \mathbb{R}\}.
+	\mathfrak{E}(G) := \{f \mid f: V \to \mathbb{R}\}, \qquad
+	\mathfrak{K}(G) := \{f \mid f: E \to \mathbb{R}\}, \qquad
+	\mathfrak{F}(G) := \{f \mid f: F \to \mathbb{R}\}.
 	\]
-	Die analogen komplexwertigen Räume werden durch $\mathfrak{E}_\mathbb{C}(G)$, 
-	$\mathfrak{K}_\mathbb{C}(G)$ und $\mathfrak{F}_\mathbb{C}(G)$ bezeichnet.
+	Die analogen komplexwertigen Räume werden durch
+	\(\mathfrak{E}_\mathbb{C}(G)\), \(\mathfrak{K}_\mathbb{C}(G)\) und
+	\(\mathfrak{F}_\mathbb{C}(G)\) bezeichnet.
+	\\
+	\\
+	Für diese Räume definieren wir folgende Standardskalarprodukte:
+	\[
+	\langle u, v \rangle_{\mathfrak{E}} := \sum_{x\in V} u(x)v(x)
+	\quad\text{für } u,v \in \mathfrak{E}(G),
+	\]
+	\[
+	\langle \phi, \psi \rangle_{\mathfrak{K}} := \sum_{e\in E} \phi(e)\psi(e)
+	\quad\text{für } \phi,\psi \in \mathfrak{K}(G).
+	\]
 \end{definition}
 \noindent
 Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
@@ -413,7 +465,6 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
 	\[
 	\mathrm{div} = - \mathrm{grad}^\top
 	\]
-	bezüglich der Standardskalarprodukte: $\langle v, u\rangle_\mathfrak{E} = \sum_{x\in V} u(x)v(x)$ für $u,v$ Eckfunktionen und $\langle r, s\rangle_\mathfrak{K} = \sum_{e\in E} r(e)s(e)$  für $r,s$ Kantenfunktionen.
 \end{proposition}
 \begin{proof}
 	Seien $u \in \mathfrak{E}(G)$ und $v \in \mathfrak{K}(G)$. Dann gilt:
@@ -475,7 +526,7 @@ Es gibt eine nat\"urliche Beziehung zwischen diesen drei R\"aumen:
 	\\
 	Daher können wir den Stokes-Hilfssatz anwenden und erhalten:
 	\begin{equation}
-		S_H(\gamma)(f) \;=\; \sum_{A \in I(\gamma))} \mathrm{div}_D(f)(A) = 0.
+		S_H(\gamma)(f) \;=\; \sum_{A \in I(\gamma))} \mathrm{rot}(f)(A) = 0.
 	\end{equation}
 	Somit verschwindet die Pfadsumme für jeden einfach geschlossenen Pfad und folglich auch für beliebige geschlossene Pfade.
 \end{proof}
@@ -534,7 +585,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	\medskip\noindent
 	\textbf{3. Schritt:} $ \operatorname{Bild}(\mathrm{rot})$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
 	Dies folgt unmittelbar aus dem adjungierten Zusammenhang $\mathrm{div} = -\mathrm{grad}^\top$: 
-	das Bild von $\mathrm{div}_D$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
+	das Bild von $\mathrm{rot}$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
 	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle =0\}$.\\
 	\\
 	\medskip
@@ -551,7 +602,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	für eine Fläche $M$.  
 	Im Diskreten nehmen die Räume $\mathfrak{E}(G)$, $\mathfrak{K}(G)$ und $\mathfrak{F}(G)$ 
 	die Rolle der 0‑, 1‑ und 2‑Formen ein, und die Operatoren 
-	$\mathrm{grad}$, $\mathrm{div}$, $\mathrm{grad}_D$ und $\mathrm{div}_D$ 
+	$\mathrm{grad}$, $\mathrm{div}$, $\mathrm{grad}_D$ und $\mathrm{rot}$ 
 	entsprechen den äußeren Ableitungen im klassischen de Rham-Komplex.
 \end{remark}
 \noindent
@@ -565,11 +616,11 @@ Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem disk
 \begin{proof}
 	Wegen dem diskreten de Rham-Komplex gilt:
 	\[
-	\ker(\mathrm{div}_D) =  \operatorname{Bild}(\mathrm{grad}).
+	\ker(\mathrm{rot}) =  \operatorname{Bild}(\mathrm{grad}).
 	\]
 	Mit der Hilbertraum-Zerlegung
 	\[
-	\mathfrak{K}(G) = \ker(\mathrm{div}_D) \oplus \ker(\mathrm{div}_D)^\perp,
+	\mathfrak{K}(G) = \ker(\mathrm{rot}) \oplus \ker(\mathrm{rot})^\perp,
 	\]
 	und der linearen Algebra-Identität
 	\[
@@ -580,6 +631,32 @@ Ein weiteres zentrales Theorem der Vektoranalysis folgt unmittelbar aus dem disk
 	\mathfrak{K}(G) =  \operatorname{Bild}(\mathrm{grad}) \oplus  \operatorname{Bild}(\mathrm{grad}_D).
 	\]
 \end{proof}
+\noindent
+Bisher haben wir in diesem Kapitel nur kombinatorische Strukturen betrachtet, aber metrische Netze lassen sich mit Gradient, Divergenz und Rotation ausstatten, die mit der metrischen Struktur verträglich sind. 
+\begin{definition}
+	Sei $G=(V,E,F,p,q,h,h_D)$ ein metrisches Netz, $\mathfrak{E}$ $\mathfrak{K}$ und $\mathfrak{F}$ die Eckfunktionen, Kantenfunktionen und Flächenfunktionen auf $G$, dann definieren wir die metrischen Skalarprodukte:
+	\begin{align}
+		\langle g, h \rangle_{\lambda\mathfrak{E}} &= \langle u, \mathbb{A}_Dv \rangle_{\mathfrak{K}}\\
+		\langle u, v \rangle_{\lambda\mathfrak{K}} &= \langle u, r_D rv \rangle_{\mathfrak{K}}\\
+		\langle f, g \rangle_{\lambda\mathfrak{F}} &= \langle u, \mathbb{A}v \rangle_{\mathfrak{F}}
+	\end{align}
+	für alle $g,h\in\mathfrak{E}$, $u,v\in\mathfrak{K}$ und $f,g\in\mathfrak{F}$.
+\end{definition}
+\begin{proposition}
+	Sei $G=(V,E,F,p,q,h,h_D)$ ein metrisches Netz, dann gilt
+\[
+	\frac{\mathrm{div}r_D}{\mathbb{A}_D} = - r^{-1}\mathrm{grad}^\top
+\]
+\end{proposition}
+\begin{proof}
+	Sie $u\in (\mathfrak{E}, \langle ., . \rangle_{\lambda\mathfrak{E}})$ und $v\in (\mathfrak{K}, \langle ., . \rangle_{\lambda\mathfrak{K}})$
+	\[
+	\langle r^{-1}\mathrm{grad}u, v \rangle_{\lambda\mathfrak{K}} = \langle r_D\mathrm{grad}u, v \rangle_{\mathfrak{K}}= -\langle u, \mathbb{A}_D\frac{\mathrm{div}r_D}{\mathbb{A}_D}v \rangle_{\mathfrak{E}}
+	\]
+\end{proof}
+\begin{remark}
+	Das de Rham-Komplex-Theorem und der Stokes für metrisches Netze ist eine ähnlich einfache Übung.
+\end{remark}
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das \emph{(verallgemeinerte) Poisson-Problem}. 
 Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf den bisher entwickelten graphentheoretischen Methoden formuliert und gelöst.
@@ -904,7 +981,7 @@ Wir orientieren uns dabei an einer Diskretisierung der klassischen Maxwell-Gleic
 nehmen jedoch einige Vereinfachungen vor: es wird nicht die konkrete geometrische Einbettung 
 eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur.
 \begin{definition}[Diskrete Maxwell-Gleichungen]
-	Sei $G=(V,E,F,p,q,r,s)$ ein planares metrisches Netz.  
+	Sei $G=(V,E,F,p,q,h,h_D)$ ein planares metrisches Netz.  
 	Wir wählen feste Parameter $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
 	\[
 	e_0 \in \mathfrak{K}(G), 
@@ -921,9 +998,9 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 	\]
 	eine \textbf{Lösung der Maxwell-Gleichungen}, falls für alle $t\in\mathbb{R}$ gilt:
 	\begin{align}
-		\mathrm{div}(r^*\epsilon e(t)) &= q(t), \label{eq:disk-gauss}\\
+		\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e(t)) &= q(t), \label{eq:disk-gauss}\\
 		\frac{\mathrm{rot}}{\mathbb{A}}(r e(t)) &= -\, b'(t), \label{eq:disk-faraday}\\
-		-\,r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) &= \epsilon e'(t) + j(t), \label{eq:disk-ampere} \\
+		-\,r_D^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) &= \epsilon e'(t) + j(t), \label{eq:disk-ampere} \\
 		\sum_{A\in F} b(t)(A)\mathbb{A}(A) &= 0. \label{eq:disk-magnetgauss}
 	\end{align}
 	sowie die Anfangsbedingungen
@@ -935,23 +1012,23 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 \end{definition}
 \begin{remark} Die Maxwellgleichunge lassen sich wie folgt zusammenfassen
 	\begin{itemize}
-		\item \textbf{Gaußsches Gesetz} \eqref{eq:disk-gauss}: Das elektrische Feld \( e \) steht in Zusammenhang mit den elektrischen Ladungen \( q \). Aus der Sicht der Flussbilanz stellt \( q \) den Nettofluss von Feldlinien aus einer Ecke dar.
+		\item \textbf{Gaußsches Gesetz} \eqref{eq:disk-gauss}: Das elektrische Feld \( e \) steht in Zusammenhang mit der elektrischen Ladungsdichte \( q \). Aus der Sicht der Flussbilanz stellt \( q \) den Nettofluss von Feldlinien aus einer Ecke dar.
 		
 		\item \textbf{Faradaysches Gesetz} \eqref{eq:disk-faraday}: Es beschreibt die zeitliche Änderung des magnetischen Feldes \( b \) in Abhängigkeit vom elektrischen Feld \( e \). Die Kantenfunktion \( r \) kann hierbei als eine Art "Länge" der Kante interpretiert werden. Die Parameter \( \epsilon \) und \( \mu \) sind der elektrische beziehungsweise der magnetische Leitwert und geben an, wie gut das Netz das Feld leitet.
 		
 		\item \textbf{Ampèresches Gesetz} \eqref{eq:disk-ampere}: Dieses Gesetz erklärt, wie sich das elektrische Feld im Zeitverlauf ändert, beeinflusst durch das magnetische Feld und den elektrischen Strom \( j \). Unter Annahme des Ohmschen Gesetzes \( j = \sigma e \) wirkt der Strom als Dämpfungsterm.
 		
-		\item \textbf{Magnetisches Gaußsches Gesetz} \eqref{eq:disk-magnetgauss}: Es besagt, dass es keine magnetischen Monopole gibt. Dieses Gesetz folgt direkt aus Faradays Gesetz, sobald die Anfangsbedingung \( b_0 \) die Bedingung \( \sum_{f \in F} b_0(f) = 0 \) bzw. äquivalent \( b_0 \in  \operatorname{Bild}(\mathrm{div}_D) \) erfüllt.
+		\item \textbf{Magnetisches Gaußsches Gesetz} \eqref{eq:disk-magnetgauss}: Es besagt, dass es keine magnetischen Monopole gibt. Dieses Gesetz folgt direkt aus Faradays Gesetz, sobald die Anfangsbedingung \( b_0 \) die Bedingung \( \sum_{f \in F} b_0(f) = 0 \) bzw. äquivalent \( b_0 \in  \operatorname{Bild}(\mathrm{rot}) \) erfüllt.
 	\end{itemize}
 \end{remark}
 \noindent
 Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der elektrischen Energie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die über die Zeit ineinander umgewandelt werden.
 \begin{proposition}[Energieerhaltung]\label{thm:Energieerhaltung}
-	Sei $G=(g,F)$ ein planares Netz mit den Parametern $r>0$, $\epsilon>0$, $\mu>0$  
+	Sei $G$ ein planares metrisches Netz mit den Parametern $r>0$, $\epsilon>0$, $\mu>0$  
 	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
 	Die Energie des Systems sei definiert als
 	\[
-	E(t) = \frac{1}{2} \left(\sum_{A \in F} \frac{b(A,t)^2}{\mu(A)}\mathbb{A}(A) + \sum_{k \in E} \epsilon(k) e(k,t)^2r^*(k)r(k)\right).
+	E(t) = \frac{1}{2} \left(\sum_{A \in F} \frac{b(A,t)^2}{\mu(A)}\mathbb{A}(A) + \sum_{k \in E} \epsilon(k) e(k,t)^2r_D(k)r(k)\right).
 	\]
 	Dann ist $E(t)$ zeitlich konstant, also gilt
 	\[
@@ -974,32 +1051,33 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	\]
 	Durch Adjunktion und Satz~\ref{prop:adj_div_grad} gilt
 	\[
-	\langle b/\mu, \mathrm{rot}(r e) \rangle_{\mathfrak{F}} = -\langle r \mathrm{grad}_D (b/\mu), e \rangle_{\mathfrak{K}}=-\langle r^{*-1} \mathrm{grad}_D (b/\mu), rr^*e \rangle_{\mathfrak{K}},
+	\langle b/\mu, \mathrm{rot}(r e) \rangle_{\mathfrak{F}} = -\langle r \mathrm{grad}_D (b/\mu), e \rangle_{\mathfrak{K}}=-\langle r_D^{-1} \mathrm{grad}_D (b/\mu), rr_De \rangle_{\mathfrak{K}},
 	\]
 	Analog berechnen wir die zeitliche Ableitung der elektrischen Energie:
 	\[
-	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r^*(k)r(k) = 2 \sum_{k \in E} \epsilon(k) e(k) e'(k)r^*(k)r(k) = 2 \langle \epsilon e, rr^*e' \rangle_{\mathfrak{K}}.
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r_D(k)r(k) = 2 \sum_{k \in E} \epsilon(k) e(k) e'(k)r_D(k)r(k) = 2 \langle \epsilon e, rr_De' \rangle_{\mathfrak{K}}.
 	\]
 	Mit Gleichung \eqref{eq:disk-ampere} erhalten wir
 	\[
-	e' = - r^{*-1} \mathrm{grad}_D \left(\frac{b}{\mu}\right) / \epsilon - j / \epsilon,
+	e' = - r_D^{-1} \mathrm{grad}_D \left(\frac{b}{\mu}\right) / \epsilon - j / \epsilon,
 	\]
 	daher
 	\[
-	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r^*(k)r(k) = - 2 \langle rr^*e, r^{*-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}} - 2\langle rr^*e, j\rangle_{\mathfrak{K}}.
+	\frac{d}{dt} \sum_{k \in E} \epsilon(k) e(k)^2r_D(k)r(k) = - 2 \langle rr_De, r_D^{-1} \mathrm{grad}_D (b/\mu) \rangle_{\mathfrak{K}} - 2\langle rr_De, j\rangle_{\mathfrak{K}}.
 	\]
 	Nachdem das reele Skalarprodukt symmetrisch ist heben sich die Ableitungen der Feldenergien gegenseitig auf und einzig der Beitrag des Stroms 
 	 \(j\) verbleibt
 	\[
-	\frac{d}{dt} E(t) = \langle rr^*e, j\rangle_{\mathfrak{K}}.
+	\frac{d}{dt} E(t) = \langle rr_De, j\rangle_{\mathfrak{K}}.
 	\]
 	Insbesondere bedeutet dies im stromlosen Fall \(j=0\), dass die Energie erhalten bleibt:
 		\[
 	\frac{d}{dt} E(t) = 0
 	\]
 \end{proof}
+
 \begin{proposition}[Kontinuitätsgesetz]
-	Sei \(G=(g,F)\) ein planares Netz mit Kantenfunktion \(r>0\), elektrischer Permittivität \(\epsilon>0\) 
+	Sei \(G\) ein planares metrisches Netz mit Kantenfunktion \(r>0\), elektrischer Permittivität \(\epsilon>0\) 
 	und magnetischer Permeabilität \(\mu>0\).  
 	Seien 
 	\[
@@ -1010,39 +1088,39 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	Lösungen der diskreten Maxwell-Gleichungen mit Stromfunktion \(j : \mathbb{R} \to \mathfrak{K}(G)\).  
 	Dann gilt das \textbf{Kontinuitätsgesetz}
 	\[
-	q'(t) \;=\; -\,\mathrm{div}(r^* \, j(t)),
+	q'(t) \;=\; -\,\frac{\mathrm{div}}{\mathbb{A}_D}(r_D \, j(t)),
 	\]
 	welches die lokale Erhaltung der elektrischen Ladung ausdrückt. Daraus folgt insbesondere die Erhaltung der Gesamtladung:
 	\[
-	\sum_{v\in V} q'(t)(v) \;=\; 0.
+	\sum_{v\in V} q'(t)(v)\mathbb{A}_D(v) \;=\; 0.
 	\]
 \end{proposition}
 \begin{proof}
 	Wir beginnen mit dem Ampèreschen Gesetz \eqref{eq:disk-ampere}:
 	\[
-	-\, r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\; \epsilon e'(t) + j(t).
+	-\, r_D^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\; \epsilon e'(t) + j(t).
 	\]
 	Teilen durch \(\epsilon\) ergibt
 	\[
-	-\, \epsilon^{-1}r^{*-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\;  e'(t) + \epsilon^{-1}j(t).
+	-\, \epsilon^{-1}r_D^{-1}\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right) \;=\;  e'(t) + \epsilon^{-1}j(t).
 	\]
-	Wenden wir nun den Operator \(\mathrm{div}(r^*\epsilon\,\cdot)\) an:
+	Wenden wir nun den Operator \(\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon\,\cdot)\) an:
 	\[
-	-\mathrm{div}(\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right)) 
-	= \,\mathrm{div}(r^*\epsilon e'(t)) + \mathrm{div}(r^* j(t)).
+	-\frac{\mathrm{div}}{\mathbb{A}_D}(\mathrm{grad}_D\!\left(\tfrac{1}{\mu} b(t)\right)) 
+	= \,\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e'(t)) + \frac{\mathrm{div}}{\mathbb{A}_D}(r_D j(t)).
 	\]
 	Der erste Term verschwindet aufgrund des de Rham Komplexes \(\mathrm{div}\circ \mathrm{grad}_D = 0\).  
 	Somit bleibt
 	\[
-	0=\mathrm{div}(r^*\epsilon e'(t)) +\,\mathrm{div}(r^* j(t)).
+	0=\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e'(t)) +\,\mathrm{div}(r_D j(t)).
 	\]
-	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\mathrm{div}(r^*\epsilon e(t))=q(t)\), folgt
+	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e(t))=q(t)\), folgt
 	\[
-	q'(t) = -\,\mathrm{div}(r^* j(t)).
+	q'(t) = -\,\frac{\mathrm{div}}{\mathbb{A}_D}(r_D j(t)).
 	\]
 	Schließlich ergibt die Summierung über alle Ecken
 	\[
-	\sum_{v\in V} q'(t)(v) = - \sum_{v\in V}\mathrm{div}(r^* j(t))(v) = 0,
+	\sum_{v\in V} q'(t)(v)\mathbb{A}_D(v) = - \sum_{v\in V}\frac{\mathrm{div}}{\mathbb{A}_D}(r_D j(t))(v)\mathbb{A}_D(v) = 0,
 	\]
 	da jede Kante in den Divergenztermen mit entgegengesetztem Vorzeichen erscheint. Damit ist die Erhaltung der Gesamtladung gezeigt.
 \end{proof}
@@ -1052,7 +1130,7 @@ Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleic
 
 Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planaren Netzen über Potentiale ausdrücken.  
 \begin{definition} \label{def:potential_def}
-	Sei \(G\) ein planares Netz und \(r > 0\) eine Kantenfunktion auf \(G\).  
+	Sei \(G\) ein planares metrisches Netz und \(r > 0\) eine Kantenfunktion auf \(G\).  
 	Dann definieren wir eine lineare Transformation 
 	\[
 	T : C^1(\mathbb{R}, \mathfrak{E}) \times C^1(\mathbb{R}, \mathfrak{K}) \to C^1(\mathbb{R}, \mathfrak{K}) \times C^1(\mathbb{R}, \mathfrak{F})
@@ -1061,24 +1139,24 @@ Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planare
 	\begin{equation}
 		T \begin{pmatrix} \phi(t) \\ a(t) \end{pmatrix}
 		= \begin{pmatrix}
-			\mathrm{div}_D \bigl(r^{-1} a(t)\bigr) \\
-			- a'(t) - r\, \mathrm{grad}(\phi(t))
+			\frac{\mathrm{rot}(r a(t)}{\mathbb{A}}  \\
+			- a'(t) - r^{-1}\, \mathrm{grad}(\phi(t))
 		\end{pmatrix}= \begin{pmatrix} b(t) \\ e(t) \end{pmatrix}\label{eq:eich_trafo}
 	\end{equation}
 	für alle \(t \in \mathbb{R}\). Die Funktionen \(\phi\) und \(a\) heißen \textbf{Skalarpotential} bzw. \textbf{Vektorpotential}, die über \(T\) in die Felder \(b\) und \(e\) überführt werden.
 \end{definition}
 \noindent
-Es sei angemerkt, dass \(\mathrm{div}_D\) nicht surjektiv ist, sondern nur Flächenfunktionen abbildet, die orthogonal zu den konstanten Funktionen sind. Diese Eigenschaft entspricht dem magnetischen Gaußschen Gesetz und erlaubt es uns, eine der Maxwellgleichungen bereits durch Wahl der Potentiale zu erfüllen.  \\
+Es sei angemerkt, dass \(\mathrm{rot}\) nicht surjektiv ist, sondern nur Flächenfunktionen abbildet, die orthogonal zu den konstanten Funktionen sind. Diese Eigenschaft führt dazu, dass das magnetischen Gaußschen Gesetz automatisch erfüllt ist.  \\
 \\
 Die Definition von \(b\) aus \eqref{eq:eich_trafo} führt durch Einsetzen in die Definition von \(e\) unmittelbar zum Faradayschen Gesetz. Damit sind zwei der vier Maxwellgleichungen automatisch erfüllt.  
 \\
 \\
-Das Gaußsche Gesetz in Kombination mit dem Ampèreschen Gesetz koppelt das elektrodynamische Feld an die Größen \(q\) (Ladung) und \(j\) (Strom). Diese erfüllen nach den Maxwellgleichungen das Kontinuitätsgesetz, deren Dynamik jedoch außerhalb des Systems liegt. Im Folgenden betrachten wir daher den Vereinfachungsfall, in dem \(j\) als vorgegebene zeitabhängige Funktion gegeben ist und \(q\) sich über das Gaußsche Gesetz definiert.  \\
+Das Gaußsche Gesetz in Kombination mit dem Ampèreschen Gesetz koppelt das elektrodynamische Feld an die Größen \(q\) (Ladung) und \(j\) (Strom). Diese erfüllen nach den Maxwellgleichungen das Kontinuitätsgesetz. Im Folgenden betrachten wir daher den Vereinfachungsfall, in dem \(j\) als vorgegebene zeitabhängige Funktion gegeben ist und \(q\) sich über das Gaußsche Gesetz definiert.  \\
 \\
 Daraus reduziert sich die Potentialformulierung der Maxwellgleichungen auf die Gleichung  
 \begin{equation} \label{eq:potential_ampere}
-	r^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \mathrm{div}_D \left( r^{-1} a(t) \right) \right)
-	= \epsilon \left( a''(t) + r\, \mathrm{grad}(\phi'(t)) \right) - j(t).
+	r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}\left( r a(t) \right)}{\mathbb{A}}  \right)
+	= \epsilon \left( a''(t) + r^{-1}\, \mathrm{grad}(\phi'(t)) \right) - j(t).
 \end{equation}
 Der Vorteil dieser Darstellung liegt in der Vereinfachung des Systems sowie in der größeren Flexibilität. \\ 
 \\
@@ -1088,7 +1166,7 @@ Es ist leicht zu erkennen, dass die Abbildung \(T\) nicht injektiv ist. Die Char
 	Die \textbf{Eichtransformation} \(\gamma_\xi\) ist definiert durch
 	\begin{equation}
 		\gamma_\xi \begin{pmatrix} \phi \\ a \end{pmatrix}
-		= \begin{pmatrix} \phi - \xi' \\ a + r\, \mathrm{grad}(\xi) \end{pmatrix}.
+		= \begin{pmatrix} \phi - \xi' \\ a + r^{-1}\, \mathrm{grad}(\xi) \end{pmatrix}.
 	\end{equation}
 \end{definition}
 \noindent
@@ -1096,31 +1174,31 @@ Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch 
 \begin{proposition}
 	Sei \(T\) wie in Definition~\ref{def:potential_def}. Dann gilt
 	\[
-	\ker(T) = \left\{ \begin{pmatrix} -\xi' \\ r\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
+	\ker(T) = \left\{ \begin{pmatrix} -\xi' \\ r^{-1}\, \mathrm{grad}(\xi) \end{pmatrix} : \xi \in C^1(\mathbb{R}, \mathfrak{E}) \right\}.
 	\]
 \end{proposition}
 \noindent
 \begin{proof}
 	Sei \((\phi, a) \in \ker(T)\). Dann gilt für alle \(t\):
 	\[
-	0 = \mathrm{div}_D \bigl(r^{-1} a(t)\bigr).
+	0 = \mathrm{rot} \bigl(r a(t)\bigr).
 	\]
 	Aus dem diskreten de Rham-Komplex wissen wir, dass
 	\[
-	\ker(\mathrm{div}_D) =  \operatorname{Bild}(\mathrm{grad}),
+	\ker(\mathrm{rot}) =  \operatorname{Bild}(\mathrm{grad}),
 	\]
 	wobei alle Konstantenfunktionen im Kern von \(\mathrm{grad}\) liegen.
 	Da \(r > 0\) ist, folgt daraus direkt, dass für jedes \(t\) gilt:
 	\[
-	r^{-1} a(t) \in  \operatorname{Bild}(\mathrm{grad}),
+	r a(t) \in  \operatorname{Bild}(\mathrm{grad}),
 	\]
 	das heißt es existiert \(\xi(t) \in \mathfrak{E}\), so dass
 	\[
-	r^{-1} a(t) = \mathrm{grad}(\xi(t)) \quad \Rightarrow \quad a(t) = r\, \mathrm{grad}(\xi(t)).
+	r a(t) = \mathrm{grad}(\xi(t)) \quad \Rightarrow \quad a(t) = r^{-1}\, \mathrm{grad}(\xi(t)).
 	\]
 	Nun setze diesen Ausdruck in die zweite Komponente von \(T(\phi,a) = 0\) ein:
 	\[
-	0 = -a'(t) - r\, \mathrm{grad}(\phi(t)) = - r\, \mathrm{grad}(\xi'(t)) - r\, \mathrm{grad}(\phi(t)) = - r\, \mathrm{grad}(\xi'(t) + \phi(t)).
+	0 = -a'(t) - r^{-1}\, \mathrm{grad}(\phi(t)) = - r^{-1}\, \mathrm{grad}(\xi'(t)) - r^{-1}\, \mathrm{grad}(\phi(t)) = - r^{-1}\, \mathrm{grad}(\xi'(t) + \phi(t)).
 	\]
 	Da \(r\) invertierbar ist und der Kern von \(\mathrm{grad}\) genau die konstanten Funktionen enthält, folgt:
 	\[
@@ -1130,9 +1208,9 @@ Potenziale sind somit stets nur bis auf eine Eichtransformation eindeutig durch 
 	\[
 	\tilde{\xi}(t) = \xi(t) - \int_{0}^{t}c(s)ds
 	\]
-	Die Gegenrichtung \(\supseteq\) folgt unmittelbar durch Einsetzen der Darstellung \(\bigl(-\xi'(t), r\, \mathrm{grad}(\xi(t))\bigr)\) in \(T\), da dann
+	Die Gegenrichtung \(\supseteq\) folgt unmittelbar durch Einsetzen der Darstellung \(\bigl(-\xi'(t), r^ {-1}\, \mathrm{grad}(\xi(t))\bigr)\) in \(T\), da dann
 	\[
-	T\begin{pmatrix} -\xi'(t) \\ r\, \mathrm{grad}(\xi(t)) \end{pmatrix} = 0.
+	T\begin{pmatrix} -\xi'(t) \\ r^{-1}\, \mathrm{grad}(\xi(t)) \end{pmatrix} = 0.
 	\]
 	Damit ist der Kern von \(T\) vollständig charakterisiert.
 \end{proof}
@@ -1184,10 +1262,11 @@ Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine 
 	\]
 	wobei \(R_n\) das entsprechende Diagonalelement von \(R\) ist. Durch Umschreiben in Matrixform und Rücktransformation mit \( U^\dagger \) erhält man das Resultat \eqref{eq:loesung1}.
 \end{proof}
+
 \begin{proposition}
-	Sei \( G \) ein planares Netz, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
+	Sei \( G \) ein planares metrisches Netz, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
 	\begin{equation}
-		a''(t) - r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D \bigl( r^{-1} a(t) \bigr)}{\mu} \right) / \epsilon = 0\label{eq:prop_eq123}
+		a''(t) - r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}} \left( r a(t) \right) \right) / \epsilon = 0\label{eq:prop_eq123}
 	\end{equation}
 	und die Anfangsbedingungen
 	\begin{align}
@@ -1199,14 +1278,14 @@ Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine 
 \begin{proof}
 	Es bleibt zu zeigen, dass die lineare Abbildung \( L : \mathfrak{K} \to \mathfrak{K} \), definiert durch
 	\[
-	L(u) := - r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) / \epsilon,
+	L(u) := -r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}} \left( r u \right) \right) / \epsilon,
 	\]
-	positiv semidefinit ist:
+	positiv semidefinit. Hierzu wählen $\langle .,. \rangle_{\lambda\mathfrak{K}}$ Skalarprodukt.
 	\begin{align*}
-		\langle u, L(u) \rangle_{\mathfrak{K}} 
-		&= \left\langle u, -r^{-1} \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) / \epsilon \right\rangle_{\mathfrak{K}} \\
-		&= \left\langle r^{-1} u, - \mathrm{grad}_D \left( \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right) \right\rangle_{\mathfrak{K}} / \epsilon \\
-		&= \left\langle \mathrm{div}_D (r^{-1} u), \frac{\mathrm{div}_D (r^{-1} u)}{\mu} \right\rangle_{\mathfrak{F}} / \epsilon \geq 0.
+		\langle u, L(u) \rangle_{\lambda\mathfrak{K}}
+		&= \left\langle r_Dru, -r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}} \left( r u \right) \right) / \epsilon \right\rangle_{\mathfrak{K}} \\
+		&= \left\langle r u, - \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}}\left( r u \right) \right) \right\rangle_{\mathfrak{K}} / \epsilon \\
+		&= \left\langle \mathrm{rot} (r u), \frac{\mathrm{rot}}{\mathbb{A}}\left( r u \right) \right\rangle_{\mathfrak{F}} / \epsilon \geq 0.
 	\end{align*}
 \end{proof}
 \noindent
@@ -1266,7 +1345,7 @@ wie im \eqref{lem:loesung_anfangswert} konstruiert werden.
 \\
 Zum Abschluss geben wir eine weitere alternative Darstellung der Maxwell\-Gleichungen, 
 nämlich die \textbf{Hamiltonsche Formulierung der Maxwell\-Theorie}. 
-Diese orientiert sich an der Gesamtenergie aus dem Energieerhaltungssatz~4.1. 
+Diese orientiert sich an der Gesamtenergie aus dem Energieerhaltungssatz~\ref{thm:Energieerhaltung}. 
 Allerdings ergibt sich in der Potentialdarstellung der Maxwell\-Gleichungen 
 (Gleichung~\eqref{eq:potential_ampere}) zunächst ein Problem: 
 das Skalarpotential \(\phi\) tritt nur linear über seine zeitliche Ableitung auf. \\
@@ -1288,64 +1367,52 @@ zu einem in der Zeit konstanten \(\xi\) gehören, entsprechen dieser Eichung.
 	Die \textbf{Hamilton Eichtransformation} \(\gamma_\xi\) ist definiert durch
 	\begin{equation}
 		\gamma_\xi (a)
-		=  a + r\, \mathrm{grad}(\xi) 
+		=  a + r^{-1}\, \mathrm{grad}(\xi) 
 	\end{equation}
 \end{definition}
 \noindent
 Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir mit dem Begriff Eichtransformation stets die Hamilton- Eichtransformation.
 \begin{theorem} \label{thm:hamiltongl}
-	Sei \( G \) ein planares Netz, 
+	Sei \( G \) ein planares metrisches Netz, 
 	\( r>0 \), \(\epsilon>0\) positive Kantenfunktionen, 
 	\( a,\pi,j \in C^{1}(\mathbb{R}, \mathfrak{K}) \) zeitabhängige Funktionen 
 	und \(\mu > 0 \) eine Flächenfunktion.  
 	Dann heißt 
 	\begin{equation}\label{eq:Hamilton}
 		H(\pi, a) \;=\; 
-		\frac{1}{2}\,\langle \tfrac{\pi}{\epsilon}, \pi \rangle_{\mathfrak{K}}
-		\;+\; \frac{1}{2}\,\left\langle \mathrm{div}_D(r^{-1}a), 
-		\frac{\mathrm{div}_D(r^{-1}a)}{\mu} \right\rangle_{\mathfrak{F}}
-		\;-\; \langle a, j \rangle_{\mathfrak{K}}
+		\frac{1}{2}\,\langle \tfrac{\pi}{\epsilon\,rr_D}, \tfrac{\pi}{rr_D} \rangle_{\lambda\mathfrak{K}}
+		\;+\; \frac{1}{2}\,\left\langle \frac{\mathrm{rot}(r a)}{\mathbb{A}}, 
+		\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} \right\rangle_{\lambda\mathfrak{F}}
+		\;-\; \langle a, j \rangle_{\lambda\mathfrak{K}}
 	\end{equation}
 	die \textbf{Hamiltonfunktion der Maxwell\-Gleichungen}. \\
 	\\
 	Dann gilt: 
 	das Vektorpotential \(a\) ist eine Lösung von \eqref{eq:potential_ampere}, 
-	wobei \(\pi = - \epsilon e\) der \textbf{kanonisch konjugierte Impuls} ist 
+	wobei \(\pi = - \epsilon err_D\) der \textbf{kanonisch konjugierte Impuls} ist 
 	(\(e\) das elektrische Feld nach Definition~\ref{def:potential_def}), 
 	genau dann, wenn
 	\begin{align}
-		a'(t) &= \;\;\;\;\frac{\partial H}{\partial \pi}, \\[4pt]
-		\pi'(t) &= -\,\frac{\partial H}{\partial a}.
+		a'(t) &= \;\;\;\;\frac{\partial H}{\partial \pi},\label{thm:hamil_eq1} \\[4pt]
+		\pi'(t) &= -\,\frac{\partial H}{\partial a}.\label{thm:hamil_eq2}
 	\end{align}
 \end{theorem}
 \begin{proof}
-	Ein Einsetzen von \eqref{eq:Hamilton} in die Hamilton\-Gleichungen liefert:\\
-	\\
-	Zunächst aus
-	\[
-	a'(t) = \frac{\partial H}{\partial \pi}
-	\]
-	resultiert unmittelbar
+	Ein Einsetzen von \eqref{eq:Hamilton} in \eqref{thm:hamil_eq1} liefert:\\
 	\begin{equation}\label{eq:eidenpi}
-		a'(t) \;=\; \frac{\pi}{\epsilon},
+		a'(t) = \frac{\partial H}{\partial \pi}=\frac{\pi}{\epsilon\,rr_D}
 	\end{equation}
-	was gerade die Identität des kanonischen Impulses \(\pi = \epsilon\,a'\) ist.  
+	was gerade die Identität des kanonischen Impulses \(\pi = \epsilon\,a'\,rr_D\) ist.  
 	Da nach Definition \(e = -a'\) gilt, folgt daraus die gewohnte Beziehung\\
-	\(\pi = -\,\epsilon e\).
+	\(\pi = -\,\epsilon e\,rr_D\).\\
 	\\
-	Analog ergibt das Einsetzen in
-	\[
-	\pi'(t) = -\,\frac{\partial H}{\partial a},
-	\]
-	die Gleichung
+	Analog ergibt von \eqref{eq:Hamilton} in \eqref{thm:hamil_eq2}:\\
 	\begin{equation}
-		\pi'(t) \;=\; r^{-1}\,\mathrm{grad}_D 
-		\left( \frac{1}{\mu}\,\mathrm{div}_D\!\left(r^{-1} a(t)\right)\right) \;+\; j.
+		\pi'(t) \;=\; \left(r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} \;+\; j\right)\,rr_D.
 	\end{equation}
 	Kombiniert man diese Beziehung mit \eqref{eq:eidenpi}, so erhält man
 	\begin{equation}
-		r^{-1}\,\mathrm{grad}_D 
-		\left( \frac{1}{\mu}\,\mathrm{div}_D\!\left(r^{-1} a(t)\right)\right) 
+		r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} 
 		\;=\; \epsilon\,a''(t) \;-\; j,
 	\end{equation}
 	was exakt der Potentialgleichung \eqref{eq:potential_ampere} entspricht.
@@ -1362,58 +1429,69 @@ während in der Quantenmechanik Zustandsvektoren, Operatoren und Distributionen 
 In diesem Abschnitt formulieren wir eine Quantentheorie der Maxwell-Gleichungen auf planaren Netzen. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
 \\
 Der Zustand eines quantenmechanischen Systems ist, wie bekannt, ein Strahl in einem komplexen Hilbertraum \(\mathfrak{H}\) typischerweise repräsentiert durch einen Vektor \(\psi\in \mathfrak{H}\) mit Norm \(||\psi|| = \sqrt{\langle \psi, \psi\rangle}=1\).
-\begin{definition}
-	Sei \(G\) ein planares Netz und \(r>0\) eine Kantenfunktion. 
-	Der \textbf{Hilbertraum der quantisierten Maxwell-Theorie} ist definiert als Raum der quadratintegrierbaren, komplexwertigen Funktionen auf \(\mathfrak{K}(G)\):
-	\[
-	\mathfrak{H} = L^2(\mathfrak{K}(G), \mathbb{C}; \lambda),
-	\]
-	bezüglich des Lebesgue-Maßes \(\lambda\).
-	Das Skalarprodukt ist gegeben durch
-	\[
-	\langle \phi, \psi \rangle_{\mathfrak{H}} = \int_{\mathfrak{K}(G)} \overline{\phi(x)}\, \psi(x)\, d\lambda(x).
-	\]
+\begin{definition} \label{def:quanten_hilbertraum}
+	Sei \(G\) ein planares metrisches Netz und \(r>0\) eine Kantenfunktion. 
+	Der \textbf{Hilbertraum der quantisierten Maxwell-Theorie} ist definiert als 
+	der Raum der quadratintegrierbaren, komplexwertigen Funktionen auf \(\mathfrak{K}(G)\):
+	\begin{equation}
+		\mathfrak{H} = L^2(\mathfrak{K}(G), \mathbb{C}; \lambda),
+	\end{equation}
+	bezüglich des Lebesgue-Maßes \(\lambda\). Das Skalarprodukt ist gegeben durch
+	\begin{equation}
+		\langle \phi, \psi \rangle_{\mathfrak{H}} = \int_{\mathfrak{K}(G)} \overline{\phi(a)}\, \psi(a) \, d\lambda(a).
+	\end{equation}
 \end{definition}
 \noindent
 Als Nächstes soll die Schrödingergleichung für das elektromagnetische Feld formuliert werden. 
 Eine Betrachtung der Hamiltonfunktion \eqref{eq:Hamilton} zeigt, dass das Problem 
-äquivalent zur Bewegung von \( |E| \) Punktmassen mit Massen \(\epsilon(k)\) 
-für jedes \( k \in E \) in einem geeigneten Potential ist.
-\begin{definition}
-	Sei \(G\) ein planares Netz. Gegeben seien positive Kantenfunktionen 
+äquivalent zur Bewegung von \( |E| \) Punktmassen mit Massen \((\epsilon\,rr_D)(k)\) 
+für jedes \( k \in E \) im entsprechenden Potential ist.
+\begin{definition} \label{def:hermite_raum}
+	Sei \(G\) ein planares metrisches Netz. Gegeben seien positive Kantenfunktionen 
 	\(r, \epsilon: E \to \mathbb{R}_{>0}\), eine positive Flächenfunktion 
 	\(\mu: F \to \mathbb{R}_{>0}\) sowie eine stetige Kurve selbstadjungierter Operatoren 
-	\(\hat{j}: \mathbb{R} \to \mathcal{L}(\mathfrak{H}(G))\), welche die externe Stromdichte beschreibt.
+	\(\hat{j}: \mathbb{R} \to L(\mathfrak{H}(G))\), welche die externe Stromdichte beschreibt.
 	\\
 	\\
-	Sei weiter der \textbf{Hermite-Polynomraum der Maxwell theorie} definiert als
+	Der \textbf{Hermite-Polynomraum} der Maxwell-Theorie ist definiert als
 	\begin{equation}
-		\mathfrak{D} = \operatorname{span}\bigl\{(a\mapsto a^\alpha e^{-\frac{\|a\|^2}{2}}): \alpha\in\mathbb{N}^E\bigr\}
-		\subseteq \mathfrak{H}(G), \label{def:hermite}
+		\mathcal{D} = \operatorname{span}\left\{ a \mapsto a^\alpha e^{-\frac{\|a\|^2}{2}} 
+		\;:\; \alpha \in \mathbb{N}^{E} \right\} \subseteq \mathfrak{H}(G),
 	\end{equation}
-	\\
-	\\
-	Der \textbf{(zeitabhängige) Hamiltonoperator} \(\hat{H}(t): \mathfrak{D} \to \mathfrak{H}(G)\) 
-	des elektromagnetischen Feldes ist definiert durch
-	\footnote{Der Definitionsbereich \(D(\hat{H}) = \mathfrak{D}\) ist eine dichte Teilmenge von 
-		\(\mathfrak{H}(G)\), invariant unter den Operatoren \(\partial_{a_k}^2\) und Multiplikation mit 
-		polynomiellen Kantenfunktionen.}
-	\begin{equation}
-		\hat{H}(t) = -\sum_{k\in E}\frac{1}{2\,\epsilon(k)}\,\frac{\partial^2}{\partial a_k^2}
-		+ \frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a),
-		\frac{\mathrm{div}_D(r^{-1}a)}{\mu}\Bigr\rangle_{\mathfrak{F}}
-		- \langle a, \hat{j}(t)\rangle_{\mathfrak{K}}, \label{eq:hamilton}
+	wobei \(\|a\|^2 = \sum_{k \in E} |a_k|^2\) und \(a^\alpha = \prod_{k \in E} a_k^{\alpha_k}\).
+\end{definition}
+\begin{remark}
+Der Raum \(\mathcal{D}\) ist dicht in \(\mathfrak{H}\) und invariant 
+unter den relevanten Operatoren (Multiplikation mit Polynomen und Ableitungen).
+\end{remark}
+\begin{definition} \label{def:hamilton_operator}
+	Der \textbf{(zeitabhängige) Hamiltonoperator} \(\hat{H}(t): \mathcal{D} \to \mathfrak{H}(G)\) 
+	des elektromagnetischen Feldes ist definiert durch\footnote{Der Definitionsbereich 
+		\(D(\hat{H}) = \mathcal{D}\) ist eine dichte Teilmenge von \(\mathfrak{H}(G)\), 
+		invariant unter den Operatoren \(\frac{\partial^2}{\partial a_k^2}\) und Multiplikation 
+		mit polynomiellen Kantenfunktionen.}
+	\begin{equation} \label{eq:quanten_hamilton}
+		\hat{H}(t) = -\sum_{k \in E} \frac{1}{2(\epsilon\,rr_D)(k)} \frac{\partial^2}{\partial a_k^2} 
+		+ \frac{1}{2} \left\langle \frac{\operatorname{rot}(r a)}{\mathbb{A}}, 
+		\frac{\operatorname{rot}(r a)}{\mathbb{A}\mu} \right\rangle_{\lambda\mathfrak{F}} 
+		- \langle a, \hat{j}(t) \rangle_{\lambda\mathfrak{K}}.
 	\end{equation}
-	wobei \(a = (a_k)_{k \in E}\) die Kantenvariablen (das Vektorpotential) bezeichnet.
-	\\
-	\\
-	Für \(\psi_0 \in \mathfrak{D}\) heißt eine stetig differenzierbare Abbildung 
-	\(\psi: \mathbb{R} \to \mathfrak{D}\) eine Lösung der zeitabhängigen Schrödingergleichung, 
-	wenn sie die Gleichung
-	\begin{equation}
-		i\,\frac{\mathrm{d}}{\mathrm{d}t}\psi(t) = \hat{H}(t)\psi(t), \label{eq:schroedinger_maxwell}
+	Dabei bezeichnet \(a = (a_k)_{k \in E}\) die Kantenvariablen (das Vektorpotential).
+\end{definition}
+\begin{remark}
+Der kinetische Term entspricht dem klassischen Impulsterm 
+\(\frac{\pi^2}{2\epsilon rr_D}\), wobei in der Quantisierung 
+\(\pi_k \to -i\frac{\partial}{\partial a_k}\) wird. Der Potentialterm ist die 
+quantisierte Version der magnetischen Energie.
+\end{remark}
+\begin{definition} \label{def:schroedinger}
+	Für \(\psi_0 \in \mathcal{D}\) heißt eine stetig differenzierbare Abbildung 
+	\(\psi: \mathbb{R} \to \mathcal{D}\) eine \textbf{Lösung der zeitabhängigen 
+		Schrödingergleichung}, wenn sie die Gleichung
+	\begin{equation} \label{eq:schroedinger}
+		i \frac{d}{dt}\psi(t) = \hat{H}(t)\psi(t),
 	\end{equation}
-	für alle \(t \in \mathbb{R}\) erfüllt und die Anfangsbedingung \(\psi(0)=\psi_0\) gilt.
+	für alle \(t \in \mathbb{R}\) erfüllt und die Anfangsbedingung \(\psi(0) = \psi_0\) gilt.
 \end{definition}
 \noindent
 Meßgrößen werden in der Quantenmechanik durch selbstadjungierte Operatoren dargestellt. 
@@ -1422,31 +1500,28 @@ das Vektorpotential \(a\) oder der zugehörige konjugierte Impuls \(\pi\)
 werden entsprechend durch operatorwertige Eck-, Kanten- und Flächenfunktionen beschrieben.  
 Diese Operatoren sind in der Regel nur auf einem Teilraum eines (unendlichdimensionalen) komplexen Hilbertraums definiert und unbeschränkt, 
 also nicht stetig.
-\begin{definition}
-	Sei \(G\) ein planares Netz und \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
+\begin{definition} \label{def:feldoperatoren}
+	Sei \(G\) ein planares metrisches Netz und \(\epsilon: E \to \mathbb{R}_{>0}\) eine positive Kantenfunktion, 
 	sowie \(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion.  
 	\\
 	\\
 	Für jedes \(k \in E\) bezeichnen wir mit
 	\begin{align}
 		\hat{a}_k &: \psi \longmapsto 
-		\big(a \mapsto a_k\,\psi(a)\big), \label{def:ak} \\[4pt]
+		\big(a \mapsto a_k\,\psi(a)\big), \label{eq:ak} \\[4pt]
 		\hat{\pi}_k &: \psi \longmapsto 
-		\big(a \mapsto -\,i\,\frac{\partial\psi}{\partial a_k}(a)\big) \label{def:pi}
+		\big(a \mapsto -\,i\,\frac{\partial\psi}{\partial a_k}(a)\big) \label{eq:pi}
 	\end{align}
-	den Vektorpotentialoperator $\hat{a} = (\hat{a}_k)_{k\in E}$ und den konjugierten Impulsoperator 
-	$\hat{\pi} = (\hat{\pi}_k)_{k\in E}$.  
+	den \textbf{Vektorpotentialoperator} \(\hat{a} = (\hat{a}_k)_{k\in E}\) und den 
+	\textbf{konjugierten Impulsoperator} \(\hat{\pi} = (\hat{\pi}_k)_{k\in E}\).  
 	\\
 	\\
 	Die \textbf{elektrischen und magnetischen Feldoperatoren} sind dann gegeben durch
 	\begin{align}
-		\hat{e}_k &= -\frac{\hat{\pi}_k}{\epsilon(k)}, \label{def:ek} \\[2pt]
-		\hat{b} &= \mathrm{div}_D(r^{-1}\hat{a}). \label{def:b}
+		\hat{e}_k &= -\frac{\hat{\pi}_k}{(\epsilon\,rr_D)(k)}, \label{eq:ek} \\[4pt]
+		\hat{b} &= \frac{\operatorname{rot}(r \hat{a})}{\mathbb{A}}. \label{eq:b}
 	\end{align}
 \end{definition}
-\begin{remark}
-	Der Hermite- Polynomraum \(\mathfrak{D}\) ist dicht in \(\mathfrak{H}\) und invariant unter \(\hat{a}, \hat{e}\) und \(\hat{H}\).
-\end{remark}
 \noindent
 Hierbei bezeichnet \(a_k\) den Wert der Kantenfunktion \(a\) an der Kante \(k \in E\), 
 und \(\frac{\partial}{\partial a_k}\) die Ableitung nach demselben Argument.  
@@ -1456,12 +1531,12 @@ Die Definitionsbereiche sind für jedes \(k \in E\) gegeben durch
 	D(\hat{a}_k) = \bigl\{\phi\in\mathfrak{H}:\, a_k\phi \in \mathfrak{H}\bigr\}.
 \end{equation}
 \noindent
-Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte 
-\textbf{Vertauschungsrelation}:
+Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte \textbf{Vertauschungsrelation}:
 \begin{equation}
 	[\hat{a}(e), \hat{\pi}(e')] = i\,\delta_{e,e'}.
 \end{equation}
-Nachdem diese Operatoren den Hermite Polynomraum invariant lassen, sind auch ihre Kompositionen
+\noindent
+Nachdem diese Operatoren den Hermite-Polynomraum invariant lassen, sind auch ihre Kompositionen 
 dicht definiert.
 \\
 \\
@@ -1475,8 +1550,7 @@ als Spektralwerte besitzen.
 Da insbesondere Größen wie das elektrische Feld unbeschränkt sein können, 
 müssen auch die zugehörigen Operatoren unbeschränkt sein.  
 Dies bedingt, dass der zugrunde liegende Hilbertraum notwendig unendlichdimensional ist 
-und viele der in der Theorie auftretenden Operatoren unstetig sind.  
-
+und viele der in der Theorie auftretenden Operatoren unstetig sind.
 \paragraph{Interpretation}
 \begin{itemize}
 	\item Jedes Element \(\psi \in \mathfrak{H}\) beschreibt einen möglichen Zustand des quantisierten elektromagnetischen Feldes. 
@@ -1489,13 +1563,13 @@ und viele der in der Theorie auftretenden Operatoren unstetig sind.
 \end{itemize}
 \noindent
 Widmen wir uns dem Korrespondenzprinzip zwischen klassischer und quantenmechanischer Theorie. 
-Wir zeigen, dass die Erwartungswerte der Feldoperatoren \eqref{def:ek}--\eqref{def:b} 
+Wir zeigen, dass die Erwartungswerte der Feldoperatoren aus Definition~\ref{def:feldoperatoren} 
 die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
 
 \begin{theorem}[Ehrenfest-Theorem]
 	Sei \(G\) ein planares Netz, \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
 	\(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
-	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{eq:schroedinger_maxwell}.  
+	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{def:schroedinger}.  
 	\\
 	\\
 	Dann gelten die Erwartungswertegleichungen:
@@ -1506,7 +1580,7 @@ die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
 		\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime 
 		&= -\mathrm{div}_D\!\left(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}}\right). \label{eq:ehrenfest2}
 	\end{align}
-	wobei die Feldoperatoren durch \eqref{def:ek}--\eqref{def:b} gegeben sind.
+	wobei die Feldoperatoren in \ref{def:feldoperatoren} gegeben sind.
 \end{theorem}
 \begin{proof}[Beweisskizze]
 	Wir starten mit der linken Seite von \eqref{eq:ehrenfest1}, wenden die Produktregel der Differentiation an und formen um:
