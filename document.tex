@@ -976,16 +976,17 @@ Die Elektrodynamik beschreibt elektromagnetische Phänomene als durch Felder ver
 Diese Felder gehorchen den Maxwell-Gleichungen, die im 19.~Jahrhundert von James Clerk Maxwell formuliert wurden. 
 Es handelt sich dabei um partielle Differentialgleichungen, welche die zeitliche Entwicklung elektromagnetischer Felder in Abhängigkeit von Strömen und Ladungen beschreiben. \\
 \\
-In diesem Kapitel formulieren wir ein diskretes Analogon der Maxwell-Gleichungen auf planaren Netzen. Diese Formulierung dient als Grundlage für die folgenden Kapitel.  
+In diesem Kapitel formulieren wir ein diskretes Analogon der Maxwell-Gleichungen auf planaren metrischen Netzen. Diese Formulierung dient als Grundlage für die folgenden Kapitel, in denen wir die Quantisierung des elektromagnetischen Feldes entwickeln.  
 Wir orientieren uns dabei an einer Diskretisierung der klassischen Maxwell-Gleichungen, 
-nehmen jedoch einige Vereinfachungen vor: es wird nicht die konkrete geometrische Einbettung 
-eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur.
-\begin{definition}[Diskrete Maxwell-Gleichungen]
+nehmen jedoch folgende Vereinfachung vor: Anstelle der konkreten geometrischen Einbettung 
+eines Netzes verwenden wir ausschließlich die kombinatorische Struktur zusammen mit den 
+metrischen Daten \(r\), \(r_D\), \(\mathbb{A}\) und \(\mathbb{A}_D\).
+\begin{definition}[Diskrete Maxwell-Gleichungen]\label{def:diskrete_maxwell}
 	Sei $G=(V,E,F,p,q,h,h_D)$ ein planares metrisches Netz.  
 	Wir wählen feste Parameter $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
 	\[
 	e_0 \in \mathfrak{K}(G), 
-	\quad b_0 \in \mathfrak{F}(G), 
+	\quad b_0 \in \{\mathbb{A}\}^\perp, 
 	\quad q_0 \in \mathfrak{E}(G).
 	\]
 	Weiter sei $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ eine zeitabhängige Stromfunktion.\\  
@@ -1009,6 +1010,7 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 		b(0) &= b_0, &
 		q(0) &= q_0.
 	\end{align}
+	wobei \(e_0\) und \(q_0\) die Bedingung \(\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e_0) = q_0\) erfüllen.
 \end{definition}
 \begin{remark} Die Maxwellgleichunge lassen sich wie folgt zusammenfassen
 	\begin{itemize}
@@ -1024,7 +1026,7 @@ eines Netzes betrachtet, sondern ausschließlich dessen kombinatorische Struktur
 \noindent
 Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der elektrischen Energie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die über die Zeit ineinander umgewandelt werden.
 \begin{proposition}[Energieerhaltung]\label{thm:Energieerhaltung}
-	Sei $G$ ein planares metrisches Netz mit den Parametern $r>0$, $\epsilon>0$, $\mu>0$  
+	Sei $G$ ein planares metrisches Netz mit den Parametern $\epsilon>0$, $\mu>0$  
 	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
 	Die Energie des Systems sei definiert als
 	\[
@@ -1077,7 +1079,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 \end{proof}
 
 \begin{proposition}[Kontinuitätsgesetz]
-	Sei \(G\) ein planares metrisches Netz mit Kantenfunktion \(r>0\), elektrischer Permittivität \(\epsilon>0\) 
+	Sei \(G\) ein planares metrisches Netz mit elektrischer Permittivität \(\epsilon>0\) 
 	und magnetischer Permeabilität \(\mu>0\).  
 	Seien 
 	\[
@@ -1123,6 +1125,32 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	\sum_{v\in V} q'(t)(v)\mathbb{A}_D(v) = - \sum_{v\in V}\frac{\mathrm{div}}{\mathbb{A}_D}(r_D j(t))(v)\mathbb{A}_D(v) = 0,
 	\]
 	da jede Kante in den Divergenztermen mit entgegengesetztem Vorzeichen erscheint. Damit ist die Erhaltung der Gesamtladung gezeigt.
+\end{proof}
+Zuerst muss sicher gestellt werden, dass die Maxwell-Gleichungen konsistent sind:
+\begin{corollary}[Kompatibilität der Anfangsdaten]
+	Sei \(G\) ein planares metrisches Netz, \(\epsilon\,\mu\, e_0\, b_0\, q_0\, \) wie in Definition~\ref{def:diskrete_maxwell}, also
+	\[
+	\sum_{A\in F} b_0(A)\mathbb{A}(A) =0, \,
+	\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e_0) = q_0
+	\]
+	und
+	\[
+	e \in C^1(\mathbb{R},\mathfrak{K}(G)), 
+	\quad b \in C^1(\mathbb{R},\mathfrak{F}(G)), 
+	\quad q \in C^1(\mathbb{R},\mathfrak{E}(G))
+	\]
+	Lösungen des Faradayschen~\ref{eq:disk-faraday} und Ampèresches Gesetz~\ref{eq:disk-ampere}, dann sind bereits die Gaußschen Gesetze
+	\[
+	\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e(t)) = q(t), \, 
+	\sum_{A\in F} b(t)(A)\mathbb{A}(A) = 0
+	\]
+	erfüllt für alle \(t\in\mathbb{R}\).
+\end{corollary}
+\begin{proof}
+	Die Aussage für das elektrische Gaußsche Gesetz folgt direkt aus der Kontinuitätsgleichung und für das magnetische Gaußsche Gesetz folgt es bereits aus dem de Rham Komplex Theorem, weil:
+	\[
+	b(t) = b_0 - \int_0^t\frac{\mathrm{rot}}{\mathbb{A}}(r e(t)) ds 
+	\]
 \end{proof}
 \noindent
 Die Maxwellgleichungen sind ein System gew\"ohnlicher linearer Differentialgleichungen und als solches gibt es keine Probleme wegen Existenz und Eindeutigkeit einer L\"osung f\"ur jeden Zeitpunkt. Bevor wir jedoch die Maxwellgleichungen l\"osen, sollen Diese noch in eine bek\"omlichere Form gebracht werden.
@@ -1426,7 +1454,7 @@ Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die m
 Die klassischen Theorien beschreiben Kurven, Kräfte und Felder,
 während in der Quantenmechanik Zustandsvektoren, Operatoren und Distributionen die entsprechenden Rollen übernehmen. Die messbaren Größen bleiben identisch, nur die mathematischen Strukturen zu ihrer Beschreibung werden komplexer.\\
 \\
-In diesem Abschnitt formulieren wir eine Quantentheorie der Maxwell-Gleichungen auf planaren Netzen. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
+In diesem Abschnitt formulieren wir eine Quantentheorie der Maxwell-Gleichungen auf planaren metrischen Netzen. Ausgangspunkt ist die Hamiltonsche Formulierung der Theorie (Theorem~\ref{thm:hamiltongl}).\\
 \\
 Der Zustand eines quantenmechanischen Systems ist, wie bekannt, ein Strahl in einem komplexen Hilbertraum \(\mathfrak{H}\) typischerweise repräsentiert durch einen Vektor \(\psi\in \mathfrak{H}\) mit Norm \(||\psi|| = \sqrt{\langle \psi, \psi\rangle}=1\).
 \begin{definition} \label{def:quanten_hilbertraum}
