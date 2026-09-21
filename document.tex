@@ -1126,6 +1126,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	\]
 	da jede Kante in den Divergenztermen mit entgegengesetztem Vorzeichen erscheint. Damit ist die Erhaltung der Gesamtladung gezeigt.
 \end{proof}
+\noindent
 Zuerst muss sicher gestellt werden, dass die Maxwell-Gleichungen konsistent sind:
 \begin{corollary}[Kompatibilität der Anfangsdaten]
 	Sei \(G\) ein planares metrisches Netz, \(\epsilon\,\mu\, e_0\, b_0\, q_0\, \) wie in Definition~\ref{def:diskrete_maxwell}, also
@@ -1167,7 +1168,7 @@ Analog zum kontinuierlichen Fall lassen sich die Maxwell-Gleichungen auf planare
 	\begin{equation}
 		T \begin{pmatrix} \phi(t) \\ a(t) \end{pmatrix}
 		= \begin{pmatrix}
-			\frac{\mathrm{rot}(r a(t)}{\mathbb{A}}  \\
+			\frac{\mathrm{rot}}{\mathbb{A}}(r a(t))  \\
 			- a'(t) - r^{-1}\, \mathrm{grad}(\phi(t))
 		\end{pmatrix}= \begin{pmatrix} b(t) \\ e(t) \end{pmatrix}\label{eq:eich_trafo}
 	\end{equation}
@@ -1183,7 +1184,7 @@ Das Gaußsche Gesetz in Kombination mit dem Ampèreschen Gesetz koppelt das elek
 \\
 Daraus reduziert sich die Potentialformulierung der Maxwellgleichungen auf die Gleichung  
 \begin{equation} \label{eq:potential_ampere}
-	r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}\left( r a(t) \right)}{\mathbb{A}}  \right)
+	r_D^{-1} \mathrm{grad}_D \left(\frac{\mathrm{rot}}{\mu\mathbb{A}}\left( r a(t) \right)  \right)
 	= \epsilon \left( a''(t) + r^{-1}\, \mathrm{grad}(\phi'(t)) \right) - j(t).
 \end{equation}
 Der Vorteil dieser Darstellung liegt in der Vereinfachung des Systems sowie in der größeren Flexibilität. \\ 
@@ -1313,7 +1314,7 @@ Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine 
 		\langle u, L(u) \rangle_{\lambda\mathfrak{K}}
 		&= \left\langle r_Dru, -r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}} \left( r u \right) \right) / \epsilon \right\rangle_{\mathfrak{K}} \\
 		&= \left\langle r u, - \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}}\left( r u \right) \right) \right\rangle_{\mathfrak{K}} / \epsilon \\
-		&= \left\langle \mathrm{rot} (r u), \frac{\mathrm{rot}}{\mathbb{A}}\left( r u \right) \right\rangle_{\mathfrak{F}} / \epsilon \geq 0.
+		&= \left\langle \mathrm{rot} (r u), \frac{\mathrm{rot}}{\mu\mathbb{A}}\left( r u \right) \right\rangle_{\mathfrak{F}} / \epsilon \geq 0.
 	\end{align*}
 \end{proof}
 \noindent
@@ -1391,7 +1392,7 @@ immer noch nicht eindeutig bestimmt.
 Genau die Eichtransformationen, die nach Definition~\ref{def:eich} 
 zu einem in der Zeit konstanten \(\xi\) gehören, entsprechen dieser Eichung. 
 \begin{definition}[Hamilton Eichung]
-	Sei \( a\) das Vektorpotential, \(\xi \in \mathfrak{E}\) und \(r>0\) wie in Definition~\ref{def:potential_def}.  
+	Sei \(G\) ein planares metrisches Netz \( a\) das Vektorpotential und \(\xi \in \mathfrak{E}\) wie in Definition~\ref{def:potential_def}.  
 	Die \textbf{Hamilton Eichtransformation} \(\gamma_\xi\) ist definiert durch
 	\begin{equation}
 		\gamma_\xi (a)
@@ -1401,8 +1402,7 @@ zu einem in der Zeit konstanten \(\xi\) gehören, entsprechen dieser Eichung.
 \noindent
 Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir mit dem Begriff Eichtransformation stets die Hamilton- Eichtransformation.
 \begin{theorem} \label{thm:hamiltongl}
-	Sei \( G \) ein planares metrisches Netz, 
-	\( r>0 \), \(\epsilon>0\) positive Kantenfunktionen, 
+	Sei \( G \) ein planares metrisches Netz, \(\epsilon>0\) positive Kantenfunktionen, 
 	\( a,\pi,j \in C^{1}(\mathbb{R}, \mathfrak{K}) \) zeitabhängige Funktionen 
 	und \(\mu > 0 \) eine Flächenfunktion.  
 	Dann heißt 
@@ -1410,7 +1410,7 @@ Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir 
 		H(\pi, a) \;=\; 
 		\frac{1}{2}\,\langle \tfrac{\pi}{\epsilon\,rr_D}, \tfrac{\pi}{rr_D} \rangle_{\lambda\mathfrak{K}}
 		\;+\; \frac{1}{2}\,\left\langle \frac{\mathrm{rot}(r a)}{\mathbb{A}}, 
-		\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} \right\rangle_{\lambda\mathfrak{F}}
+		\frac{\mathrm{rot}(r a)}{\mu\mathbb{A}} \right\rangle_{\lambda\mathfrak{F}}
 		\;-\; \langle a, j \rangle_{\lambda\mathfrak{K}}
 	\end{equation}
 	die \textbf{Hamiltonfunktion der Maxwell\-Gleichungen}. \\
@@ -1436,11 +1436,11 @@ Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir 
 	\\
 	Analog ergibt von \eqref{eq:Hamilton} in \eqref{thm:hamil_eq2}:\\
 	\begin{equation}
-		\pi'(t) \;=\; \left(r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} \;+\; j\right)\,rr_D.
+		\pi'(t) \;=\; \left(r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mu\mathbb{A}} \;+\; j\right)\,rr_D.
 	\end{equation}
 	Kombiniert man diese Beziehung mit \eqref{eq:eidenpi}, so erhält man
 	\begin{equation}
-		r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mathbb{A}\mu} 
+		r_D^{-1}\mathrm{grad}_D\frac{\mathrm{rot}(r a)}{\mu\mathbb{A}} 
 		\;=\; \epsilon\,a''(t) \;-\; j,
 	\end{equation}
 	was exakt der Potentialgleichung \eqref{eq:potential_ampere} entspricht.
