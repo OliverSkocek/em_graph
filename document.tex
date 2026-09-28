@@ -655,8 +655,33 @@ Bisher haben wir in diesem Kapitel nur kombinatorische Strukturen betrachtet, ab
 	\]
 \end{proof}
 \begin{remark}
-	Das de Rham-Komplex-Theorem und der Stokes für metrisches Netze ist eine ähnlich einfache Übung.
+	Das de Rham-Komplex-Theorem und der Stokes-Satz für metrische Netze sind ähnlich einfache Übungen. 
+	Zum Abschluss zeigen wir noch das metrische Helmholtz-Theorem.
 \end{remark}
+
+\begin{corollary}[Metrische Helmholtz-Zerlegung]\label{cor:metrisch_helmholtz}
+	Sei \(G\) ein planares metrisches Netz. Dann gilt die orthogonale Zerlegung:
+	\[
+	\mathfrak{K}(G) = \operatorname{Bild}\!\left(\frac{1}{r}\operatorname{grad}\right) 
+	\oplus \operatorname{Bild}\!\left(\frac{1}{r_D}\operatorname{grad}_D\right),
+	\]
+	wobei die Orthogonalität bezüglich des metrischen Skalarprodukts 
+	\(\langle\cdot,\cdot\rangle_{\lambda\mathfrak{K}}\) zu verstehen ist.
+\end{corollary}
+
+\begin{proof}
+	Seien \(u \in \mathfrak{E}\) und \(v \in \mathfrak{F}\). Dann gilt:
+	\[
+	\left\langle \frac{1}{r}\operatorname{grad}u, \frac{1}{r_D}\operatorname{grad}_D v\right\rangle_{\lambda\mathfrak{K}}
+	= \bigl\langle\operatorname{grad}u, \operatorname{grad}_D v\bigr\rangle_{\mathfrak{K}} = 0,
+	\]
+	wegen der Helmholtz-Zerlegung~\ref{eq:helmoltz} für das ungewichtete Netz. 
+	Da \(r\) und \(r_D\) strikt positiv und damit invertierbar sind, bleiben die 
+	Dimensionen der Bildräume erhalten. Die Orthogonalität bezüglich 
+	\(\langle\cdot,\cdot\rangle_{\lambda\mathfrak{K}}\) folgt aus der Rechnung oben, 
+	und das Resultat ist gezeigt.
+\end{proof}
+
 \chapter{Das Poisson Problem}
 Ein klassisches Problem der Theorie elektrischer Netzwerke sowie der Elektrostatik ist das \emph{(verallgemeinerte) Poisson-Problem}. 
 Dieses Problem wird hier in einigen seiner Facetten vorgestellt und basierend auf den bisher entwickelten graphentheoretischen Methoden formuliert und gelöst.
@@ -1447,6 +1472,36 @@ Im Rahmen der hamiltonschen Formulierung der Maxwell-Gleichungen bezeichnen wir 
 \end{proof}
 \noindent
 Wenn wir \eqref{eq:Hamilton} mit dem Energieerhaltungssatz~\ref{thm:Energieerhaltung}, vergleichen, erkennen wir, dass, die ersten beiden Terme genau die dort proklamierte Gesamtenergie sind und der \"ubrige Term genauso beschaffen scheint um die zeitliche Ableitung nach Satz~\ref{thm:Energieerhaltung} zu kompensieren, solange $j$ zeitunabh\"anging ist und somit auch $H$ nicht explizit von der Zeit abh\"angt, ist dies auch der Fall.
+\\
+\\
+Das magnetische Gaußsche Gesetz ist in der Potentialformulierung automatisch erfüllt. 
+Welchen Status hat hingegen das elektrische Gaußsche Gesetz? Beschränken wir uns auf 
+den Fall der Hamilton-Eichung. Gegeben seien Anfangsdaten \(a_0'\in\mathfrak{K}(G)\) 
+für die Ableitung des Vektorpotentials und \(q_0\in\mathfrak{E}(G)\) für die 
+Ladungsdichte. Dann muß gelten:
+\[
+\frac{\mathrm{div}}{\mathbb{A}_D}(\epsilon r_D a_0') = -q_0.
+\]
+Umgerechnet auf die Anfangsdaten des kanonischen Impulses \(\pi_0 = -\epsilon r r_D a_0'\) 
+erhalten wir:
+\[
+\frac{\mathrm{div}}{\mathbb{A}_D}\!\left(\frac{\pi_0}{r}\right) = -q_0.
+\]
+Im ladungsfreien und stromlosen Fall (\(q\equiv 0\), \(j\equiv 0\)) ergibt sich die 
+Nebenbedingung
+\[
+\frac{\mathrm{div}}{\mathbb{A}_D}\!\left(\frac{\pi}{r}\right) = 0.
+\]
+Es gilt nun die folgende Zerlegung:
+\[
+\ker\!\left(\frac{\mathrm{div}}{\mathbb{A}_D}\frac{1}{r}\right) 
+= (\operatorname{Bild}( r^{-1}\mathrm{grad}))^\perp
+= \bigl(\ker(\operatorname{rot}_{\mathbb{A}} r)\bigr)^\perp.
+\]
+Da \(\ker(\operatorname{rot}_{\mathbb{A}} r)\) genau der Raum ist, auf dem das Potential 
+der Hamiltonfunktion verschwindet (reine Eichfreiheitsgrade), können wir das Problem 
+auf den physikalischen Unterraum \(\bigl(\ker(\operatorname{rot}_{\mathbb{A}} r)\bigr)^\perp\) 
+einschränken.
 \newpage
 \section{Quantentheorie des elektromagnetischen Feldes}
 Anfang des 20.~Jahrhunderts wurde zur Erklärung verschiedener Phänomene, die mit den damals etablierten Theorien nicht erklärbar waren, die Quantentheorie entwickelt.\\
@@ -1559,9 +1614,9 @@ Die Definitionsbereiche sind für jedes \(k \in E\) gegeben durch
 	D(\hat{a}_k) = \bigl\{\phi\in\mathfrak{H}:\, a_k\phi \in \mathfrak{H}\bigr\}.
 \end{equation}
 \noindent
-Für jedes Kantenpaar \(e, e' \in E\) gilt die sogenannte \textbf{Vertauschungsrelation}:
+Für jedes Kantenpaar \(k, k' \in E\) gilt die sogenannte \textbf{Vertauschungsrelation}:
 \begin{equation}
-	[\hat{a}(e), \hat{\pi}(e')] = i\,\delta_{e,e'}.
+	[\hat{a}(k), \hat{\pi}(k')] = i\,\delta_{k,k'}.
 \end{equation}
 \noindent
 Nachdem diese Operatoren den Hermite-Polynomraum invariant lassen, sind auch ihre Kompositionen 
@@ -1586,69 +1641,72 @@ und viele der in der Theorie auftretenden Operatoren unstetig sind.
 	\item Messergebnisse entsprechen zufälligen Spektralwerten von \(\hat{\Omega}\); 
 	der Erwartungswert eines solchen Messvorgangs ist gegeben durch
 	\[
-	\frac{\langle \psi, \hat{\Omega}\psi \rangle_{\mathfrak{H}}}{\langle \psi, \psi \rangle_{\mathfrak{H}}}.
+	\langle \hat{\Omega} \rangle_\psi:=\frac{\langle \psi, \hat{\Omega}\psi \rangle_{\mathfrak{H}}}{\langle \psi, \psi \rangle_{\mathfrak{H}}}.
 	\]
 \end{itemize}
 \noindent
 Widmen wir uns dem Korrespondenzprinzip zwischen klassischer und quantenmechanischer Theorie. 
 Wir zeigen, dass die Erwartungswerte der Feldoperatoren aus Definition~\ref{def:feldoperatoren} 
 die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
-
-\begin{theorem}[Ehrenfest-Theorem]
-	Sei \(G\) ein planares Netz, \(r, \epsilon: E \to \mathbb{R}_{>0}\) positive Kantenfunktionen, 
-	\(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
-	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung \eqref{def:schroedinger}.  
-	\\
-	\\
-	Dann gelten die Erwartungswertegleichungen:
+\begin{theorem}[Ehrenfest-Theorem] \label{thm:ehrenfest}
+	Sei \(G\) ein planares metrisches Netz, \(\epsilon: E \to \mathbb{R}_{>0}\) eine positive 
+	Kantenfunktion, \(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
+	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung 
+	\eqref{eq:schroedinger}. Dann gelten die Erwartungswertgleichungen:
 	\begin{align}
-		\epsilon \langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime
-		&= -r^{-1} \mathrm{grad}_D\!\left(\frac{\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}}{\mu}\right) 
-		- \langle \psi, \hat{j}\psi\rangle_{\mathfrak{H}}, \label{eq:ehrenfest1} \\
-		\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime 
-		&= -\mathrm{div}_D\!\left(r^{-1}\langle\psi, \hat{e}\psi\rangle_{\mathfrak{H}}\right). \label{eq:ehrenfest2}
+		\epsilon \langle \hat{e} \rangle_\psi^\prime
+		&= -\,r_D^{-1}\operatorname{grad}_D\!\left(\frac{\langle \hat{b} \rangle_\psi}{\mu}\right) 
+		- \langle \hat{j} \rangle_\psi, \label{eq:ehrenfest_1} \\[4pt]
+		\langle \hat{b} \rangle_\psi^\prime
+		&= -\,\frac{\operatorname{rot}}{\mathbb{A}}(r\langle \hat{e} \rangle_\psi). \label{eq:ehrenfest_2}
 	\end{align}
-	wobei die Feldoperatoren in \ref{def:feldoperatoren} gegeben sind.
+	wobei die Feldoperatoren durch \eqref{eq:ek}--\eqref{eq:b} gegeben sind und 
+	\(\langle \hat{\Omega} \rangle_\psi\) den Erwartungswert des Operators \(\hat{\Omega}\) 
+	im Zustand \(\psi\) bezeichnet.
 \end{theorem}
+
 \begin{proof}[Beweisskizze]
-	Wir starten mit der linken Seite von \eqref{eq:ehrenfest1}, wenden die Produktregel der Differentiation an und formen um:
-	\begin{align*}
-		\epsilon\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}}^\prime 
-		&= -\langle \psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}^\prime \\
-		&= -(\langle \psi^\prime, \hat{\pi}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{\pi}\psi^\prime\rangle_{\mathfrak{H}}) \\
-		&= \langle i\hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{\pi}i\hat{H}\psi\rangle_{\mathfrak{H}} \\
-		&= i\bigl(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \hat{H}\psi, \hat{\pi}\psi\rangle_{\mathfrak{H}}\bigr) \\
-		&= i\bigl(\langle \psi, \hat{\pi}\hat{H}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{H}\hat{\pi}\psi\rangle_{\mathfrak{H}}\bigr) \\
-		&= -r^{-1} \mathrm{grad}_D\!\Bigl(\frac{\langle\psi,\mathrm{div}_D(r^{-1}\hat{a})\psi\rangle_{\mathfrak{H}}}{\mu}\Bigr) 
-		- \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}} \\
-		&= -r^{-1} \mathrm{grad}_D\!\Bigl(\frac{\langle\psi,\hat{b}\psi\rangle_{\mathfrak{H}}}{\mu}\Bigr) 
-		- \langle \psi, \hat{j} \psi\rangle_{\mathfrak{H}} \eqref{def:b}.
-	\end{align*}
-	Nun zeigen wir \eqref{eq:ehrenfest2} indem wir ausgehend von der Definition \eqref{def:b} die Formel
-	\begin{align}
-		\langle \psi, \hat{b}\psi\rangle_{\mathfrak{H}}^\prime 
-		&= \mathrm{div}_D\bigl(r^{-1}\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime\bigr) \label{eq:bprime}
-	\end{align}
-	ableiten. Anschließend wenden wir wieder die Produktregel auf den Ausdruck 
-	$\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime$ an und formen um:
-	\begin{align*}
-		\langle \psi, \hat{a}\psi\rangle_{\mathfrak{H}}^\prime 
-		&= \bigl(\langle \psi^\prime, \hat{a}\psi\rangle_{\mathfrak{H}} + \langle \psi, \hat{a}\psi^\prime\rangle_{\mathfrak{H}}\bigr) \\
-		&= i\bigl(\langle \psi, \hat{H}\hat{a}\psi\rangle_{\mathfrak{H}} - \langle \psi, \hat{a}\hat{H}\psi\rangle_{\mathfrak{H}}\bigr) \\
-		&= i\langle \psi, [\hat{H},\hat{a}]\psi\rangle_{\mathfrak{H}} \\
-		&= i\left\langle \psi, \Bigl[\frac{1}{2\epsilon}\hat{\pi}^2,\hat{a}\Bigr]\psi\right\rangle_{\mathfrak{H}}\\
-		&= \left\langle \psi, \frac{\hat{\pi}}{\epsilon}\psi\right\rangle_{\mathfrak{H}} \\
-		&= -\langle \psi, \hat{e}\psi\rangle_{\mathfrak{H}} \eqref{def:ek}.
-	\end{align*}		
-	Am Ende haben wir die kanonischen Vertauschungsrelationen 
-	und die Rechenregeln des Kommutators verwendet. 
-	Wir setzen den erhaltenen Ausdruck nun in \eqref{eq:bprime} ein und erhalten das gesuchte Resultat \eqref{eq:ehrenfest2}.
+	Wir beginnen mit der linken Seite von \eqref{eq:ehrenfest_1} und verwenden die 
+	Produktregel der Differentiation:
+	\[
+	\epsilon\, r\, r_D\,\langle \hat{e} \rangle_\psi^\prime 
+	= -\langle \hat{\pi} \rangle_\psi^\prime 
+	= -\bigl(\langle \psi', \hat{\pi}\psi \rangle_{\mathfrak{H}} 
+	+ \langle \psi, \hat{\pi}\psi' \rangle_{\mathfrak{H}}\bigr).
+	\]
+	Mit der Schrödingergleichung \(i\psi' = \hat{H}\psi\) folgt:
+	\[
+	\epsilon\, r\, r_D\, \langle \hat{e} \rangle_\psi^\prime 
+	= i\bigl(\langle \psi, \hat{\pi}\hat{H}\psi \rangle_{\mathfrak{H}}
+	- \langle \hat{H}\psi, \hat{\pi}\psi \rangle_{\mathfrak{H}}\bigr)
+	= i\langle \psi, [\hat{\pi}, \hat{H}]\psi \rangle_{\mathfrak{H}}.
+	\]
+	Der Kommutator \([\hat{\pi}, \hat{H}]\) liefert:
+	\[
+	i[\hat{\pi}, \hat{H}] 
+	= -\,r_D^{-1}\operatorname{grad}_D\!\left(\frac{\hat{b}}{\mu}\right) - \hat{j}.
+	\]
+	Einsetzen ergibt \eqref{eq:ehrenfest_1}.\\
+	\\
+	Für \eqref{eq:ehrenfest_2} starten wir mit der Definition \(\hat{b} = \frac{\operatorname{rot}}{\mathbb{A}}(r\hat{a})\):
+	\[
+	\langle \hat{b} \rangle_\psi^\prime 
+	= \frac{\operatorname{rot}}{\mathbb{A}}\bigl(r\langle \hat{a} \rangle_\psi^\prime\bigr).
+	\]
+	Mit \(\langle \hat{a} \rangle_\psi^\prime = i\langle [\hat{H}, \hat{a}] \rangle_\psi\) und 
+	\([\hat{H}, \hat{a}] = \bigl[\frac{\hat{\pi}^2}{2\epsilon\, rr_D},\hat{a}\bigr]=-i\hat{\pi}/(\epsilon rr_D) = i\hat{e}\) folgt:
+	\[
+	\langle \hat{b} \rangle_\psi^\prime 
+	= -\,\frac{\operatorname{rot}}{\mathbb{A}}(r\langle \hat{e} \rangle_\psi).
+	\]
 \end{proof}
 \noindent
-Die Gleichungen \eqref{eq:ehrenfest1}--\eqref{eq:ehrenfest2} stellen somit eine 
-Quantisierung der diskreten Maxwell-Gleichungen \eqref{eq:disk-gauss} dar.
-\\
-\\
+\begin{remark}
+	Das Ehrenfest-Theorem zeigt, daß die Erwartungswerte der Feldoperatoren die 
+	klassischen Maxwell-Gleichungen erfüllen. Dies rechtfertigt die Interpretation 
+	von \(\hat{e}\) und \(\hat{b}\) als quantisierte elektrische und magnetische Felder.
+\end{remark}
+\noindent
 \iffalse
 Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit $\hat{j}=0$ untersucht werden.
 \begin{theorem}
@@ -1663,17 +1721,18 @@ Als n\"achstes soll die Eichinvarianz der freien Schr\"odingergleichung also mit
 \noindent
 TODO\\
 \fi
-Bislang fehlt noch die Bestätigung, dass die Schrödingergleichung \eqref{eq:schroedinger_maxwell} 
+Bislang fehlt noch die Bestätigung, dass die Schrödingergleichung \eqref{def:schroedinger} 
 Lösungen besitzt und der Hamiltonoperator $\hat{H}$ selbstadjungiert ist 
 im Sinne der Theorie unbeschränkter linearer Operatoren. 
-Dies wollen wir für den vereinfachten Fall $\epsilon \equiv 1$, $\mu \equiv 1$ 
-und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
-\begin{theorem}\label{thm:hamilton_sum}
-	Sei \(G\) ein planares Netz, \(\epsilon \equiv 1\), \(\mu \equiv 1\) und \(r: E \to \mathbb{R}_{>0}\) 
-	eine positive Kantenfunktion. Dann existiert eine unitäre Abbildung 
-	\(\hat{U}: \mathfrak{H}(G) \to \mathfrak{H}(G)\) und Frequenzen 
+\\
+\\
+Dies wollen wir für den vereinfachten Fall des ladungsfreien und stromlosen Falles (\(q\equiv 0\), \(j\equiv 0\)) nachholen.
+\begin{lemma}\label{lem:hamilton_sum}
+	Sei \(G\) ein planares metrisches Netz, \(\epsilon: E \to \mathbb{R}_{>0}\) eine positive 
+	Kantenfunktion und \(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion. Dann existiert eine 
+	unitäre Abbildung \(\hat{U}: \mathfrak{H}(G) \to \mathfrak{H}(G)\) und Frequenzen 
 	\((\omega_j)_{j=1}^{|F|-1} \subset \mathbb{R}_{>0}\), sodass für den Hamiltonoperator 
-	\(\hat{H}\) aus \eqref{eq:hamilton} mit \(\hat{j} \equiv 0\) gilt:
+	\(\hat{H}\) aus \eqref{eq:quanten_hamilton} mit \(\hat{j} \equiv 0\) gilt:
 	\begin{equation}
 		\hat{U}^\dagger \hat{H} \hat{U} = \sum_{j=1}^{|E|} \hat{h}_j. \label{eq:diagonal}
 	\end{equation}
@@ -1681,7 +1740,7 @@ und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
 	\begin{equation}
 		\hat{h}_j = 
 		\begin{cases} 
-			-\frac{1}{2} \frac{\partial^2}{\partial a_j^2} & \text{falls } j \leq |V|-1, \\
+			-\frac{1}{2} \frac{\partial^2}{\partial a_j^2} & \text{falls } j \leq |V|-1, \\[6pt]
 			-\frac{1}{2} \frac{\partial^2}{\partial a_j^2} + \frac{1}{2} \omega_j^2 a_j^2 & \text{sonst,}
 		\end{cases} \label{eq:hj}
 	\end{equation}
@@ -1689,171 +1748,211 @@ und zeitunabhängigem $\hat{j} \equiv 0$ nachholen.
 	\begin{equation*}
 		[\hat{h}_k, \hat{h}_n] = 0 \quad \forall\, k,n \in \mathbb{N}.
 	\end{equation*}
-\end{theorem}
+\end{lemma}
 \begin{proof}
-	Der Hamiltonoperator lässt sich zerlegen in:
-	\begin{equation*}
-		\hat{H} = \hat{T} + \hat{V},
-	\end{equation*}
-	wobei der kinetische Teil
-	\begin{equation*}
-		\hat{T} = -\frac{1}{2}\sum_{k\in E} \frac{\partial^2}{\partial a_k^2}
-	\end{equation*}
-	und der Potentialteil durch
-	\begin{equation*}
-		\hat{V} = \frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)\Bigr\rangle_{\mathfrak{F}}
-	\end{equation*}
-	gegeben ist \eqref{eq:hamilton}. Beachte, dass \(\mathfrak{D}\) invariant unter \(\hat{T}\) und \(\hat{V}\) ist.
+	Der Beweis erfolgt in vier Schritten.\\
+	\\
+	\textbf{Schritt 1: Isotropisierung des kinetischen Terms.}\\
+	\\
+	Der Hamiltonoperator lautet:
+	\[
+	\hat{H} = -\sum_{k\in E} \frac{1}{2(\epsilon r r_D)(k)} \frac{\partial^2}{\partial a_k^2} 
+	+ \frac{1}{2}\left\langle \frac{\operatorname{rot}(r a)}{\mathbb{A}\mu}, 
+	\frac{\operatorname{rot}(r a)}{\mathbb{A}}\right\rangle_{\lambda\mathfrak{F}}.
+	\]
+	Definiere neue Koordinaten \(\tilde{a} \in \mathbb{R}^{|E|}\) durch:
+	\[
+	\tilde{a}_k := \sqrt{(\epsilon r r_D)(k)} \, a_k, \quad k \in E.
+	\]
+	Die Transformation \(a \mapsto \tilde{a}\) ist eine lineare Skalierung mit der 
+	Diagonalmatrix \(S = \sqrt{\epsilon r r_D}\). In den neuen 
+	Koordinaten wird der kinetische Term:
+	\[
+	\hat{T} = -\frac{1}{2}\sum_{k\in E} \frac{\partial^2}{\partial \tilde{a}_k^2} 
+	= -\frac{1}{2}\Delta_{\tilde{a}},
+	\]
+	wobei \(\Delta_{\tilde{a}}\) der gewöhnliche Laplace-Operator in den \(\tilde{a}\)-Koordinaten ist.
 	\\
 	\\
-	Wir formen $\hat{V}$ um:
+	\textbf{Schritt 2: Potentialterm in neuen Koordinaten.}\\
+	\\
+	Der Potentialterm ist:
+	\[
+	\hat{V} = \frac{1}{2}\left\langle \frac{\operatorname{rot}(r a)}{\mathbb{A}\mu}, 
+	\frac{\operatorname{rot}(r a)}{\mathbb{A}}\right\rangle_{\lambda\mathfrak{F}}
+	= \frac{1}{2}\bigl\langle a, Q a\bigr\rangle_{\mathfrak{K}},
+	\]
+	wobei \(Q = -r\operatorname{grad}_D\bigl(\mu^{-1}\frac{\operatorname{rot}}{\mathbb{A}}r\bigr): \mathfrak{K} \to \mathfrak{K}\).\\
+	\\
+	In \(\tilde{a}\)-Koordinaten (\(a = S^{-1}\tilde{a}\)) wird daraus:
+	\[
+	\hat{V} = \frac{1}{2}\bigl\langle S^{-1}\tilde{a}, Q S^{-1}\tilde{a}\bigr\rangle_{\mathfrak{K}}
+	= \frac{1}{2}\bigl\langle \tilde{a}, \tilde{Q} \tilde{a}\bigr\rangle_{\mathfrak{K}},
+	\]
+	wobei \(\tilde{Q} := S^{-1} Q S^{-1}\). Der Operator \(\tilde{Q}\) ist symmetrisch und positiv 
+	semidefinit, weil \(Q\) positiv semidefinit ist (als Produkt adjungierter Operatoren) 
+	und \(S\) positiv definit und diagonal.\\
+	\\
+	\textbf{Schritt 3: Diagonalisierung des Potentialterms.}\\
+	\\
+	Nach dem Spektralsatz für symmetrische Matrizen existiert eine orthogonale Matrix 
+	\(U \in \mathbb{R}^{|E|\times|E|}\) und eine Diagonalmatrix 
+	\(R = \operatorname{diag}(\lambda_1,\dots,\lambda_{|E|})\) mit:
+	\[
+	\tilde{Q} = U^T R U.
+	\]
+	Die Eigenwerte \(\lambda_j\) sind nichtnegativ. Nach dem de-Rham-Komplex 
+	(Theorem~\ref{thm:derham}) gilt \(\ker Q = \ker(\frac{\operatorname{rot}}{\mathbb{A}}r) 
+	= \operatorname{Bild}(\frac{1}{r}\operatorname{grad})\) und wegen der metrischen Helmholtz-Zerlegung~\ref{cor:metrisch_helmholtz} ist die Dimension des Bildes gleich \(|V|-1\). Daher sind 
+	genau \(|V|-1\) Eigenwerte Null und die restlichen \(|F|-1\) Eigenwerte positiv. 
+	Wir schreiben:
+	\[
+	R = \operatorname{diag}(0,\dots,0,\omega_1^2,\dots,\omega_{|F|-1}^2),
+	\]
+	wobei \(\omega_j > 0\) für \(j=1,\dots,|F|-1\).\\
+	\\
+	Definiere die rotierten Koordinaten \(a' = U \tilde{a}\). In diesen Koordinaten ist:
+	\[
+	\hat{V} = \frac{1}{2}\bigl\langle a', R a'\bigr\rangle_{\mathfrak{K}} 
+	= \frac{1}{2}\sum_{j=|V|}^{|E|} \omega_{j-|V|+1}^2 {a'}_j^2.
+	\]
+	Der kinetische Term bleibt unter der orthogonalen Transformation invariant:
+	\[
+	\hat{T} = -\frac{1}{2}\Delta_{\tilde{a}} = -\frac{1}{2}\Delta_{a'} 
+	= -\frac{1}{2}\sum_{j=1}^{|E|} \frac{\partial^2}{\partial {a'}_j^2}.
+	\]
+	Sei hierzu \(\phi\in C^2(\mathfrak{K},\mathbb{C})\). Dann gilt:
 	\begin{align*}
-		\frac{1}{2}\Bigl\langle \mathrm{div}_D(r^{-1}a), \mathrm{div}_D(r^{-1}a)\Bigr\rangle_{\mathfrak{F}}
-		&= \frac{1}{2}\Bigl\langle a, (-r^{-1}\mathrm{grad}_D\mathrm{div}_D r^{-1})a\Bigr\rangle_{\mathfrak{K}} \\
-		&= \frac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}},
+		\sum_{k=1}^{|E|}\frac{\partial^2}{\partial \tilde{a}_k^{2}}\phi(U\tilde{a})
+		&=\sum_{k=1}^{|E|}\frac{\partial}{\partial \tilde{a}_k}
+		\left(\sum_{j=1}^{|E|}U_{j,k}\frac{\partial\phi}{\partial a'_j}\right)(U\tilde{a})\\
+		&=\sum_{k=1}^{|E|}\sum_{i=1}^{|E|}\sum_{j=1}^{|E|}
+		U_{i,k}U_{j,k}\frac{\partial^2\phi}{\partial a'_j\partial a'_i}(U\tilde{a})\\
+		&=\sum_{i=1}^{|E|}\sum_{j=1}^{|E|}\delta_{i,j}
+		\frac{\partial^2\phi}{\partial a'_j\partial a'_i}(U\tilde{a})\\
+		&=\sum_{j=1}^{|E|}\frac{\partial^2\phi}{\partial {a'}_j^2}(U\tilde{a}).
 	\end{align*}
-	wobei $Q = -r^{-1}\mathrm{grad}_D\mathrm{div}_D r^{-1}: \mathfrak{K} \to \mathfrak{K}$. 
+	\textbf{Schritt 4: Unitäre Transformation.}\\
 	\\
+	Die Gesamttransformation ist die Komposition:
+	\[
+	a \xrightarrow{S} \tilde{a} \xrightarrow{U} a' = U S a.
+	\]
+	Definiere den unitären Operator \(\hat{U}: \mathfrak{H} \to \mathfrak{H}\) durch:
+	\[
+	\bigl(\hat{U}\phi\bigr)(a) = \frac{1}{\sqrt{\det S}} \, \phi\bigl(US a\bigr), 
+	\quad \phi \in \mathfrak{H}.
+	\]
+	Da \(S\) eine positive Diagonalmatrix und \(U\) orthogonal ist, ist \(\hat{U}\) unitär 
+	(Transformationssatz für Integrale mit Jacobi-Determinante \(1/\det S\)).\\
 	\\
-	$Q$ ist positiv semidefinit und symmetrisch. Nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} hat $\ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ die Dimension $|V|-1$. Das orthogonale Komplement 
-	ist dementsprechend $|F|-1$-dimensional.\footnote{Der eulersche Polyedersatz 
-		$|V| + |F| - |E| = 2$ folgt hieraus für planare Netze.}
-	\\
-	\\
-	Nach dem Spektralsatz für kompakte, selbstadjungierte Operatoren auf endlichdimensionalen 
-	Räumen existiert eine orthogonale Matrix $U \in \mathbb{R}^{|E| \times |E|}$ und eine 
-	Diagonalmatrix $R = \operatorname{diag}(0,\dots,0,\omega_1^2,\dots,\omega_{|F|-1}^2)$ mit:
-	\begin{equation*}
-		Q = U^T R U. \label{eq:spektralQ}
-	\end{equation*}
-	Einsetzen in $\hat{V}$ ergibt:
+	Der adjungierte Operator \(\hat{U}^\dagger: \mathfrak{H} \to \mathfrak{H}\) ist gegeben durch:
+	\[
+	\bigl(\hat{U}^\dagger\phi\bigr)(a') = \sqrt{\det S} \, \phi\bigl(S^{-1}U^T a'\bigr), 
+	\quad \phi \in \mathfrak{H}.
+	\]
+	Es gilt somit:
 	\begin{align*}
-		\frac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}}
-		&= \frac{1}{2}\Bigl\langle a, U^T R U(a)\Bigr\rangle_{\mathfrak{K}} \\
-		&= \frac{1}{2}\Bigl\langle U(a), R U(a)\Bigr\rangle_{\mathfrak{K}}.
+		\hat{U}^\dagger \hat{V} \hat{U}\phi(a')
+		&= \hat{U}^\dagger \left( \frac{1}{2}\bigl\langle a, Q a\bigr\rangle_{\mathfrak{K}} \right) 
+		\frac{1}{\sqrt{\det S}}\phi(US a)\\
+		&= \frac{1}{2}\bigl\langle S^{-1}U^T a', Q S^{-1}U^T a'\bigr\rangle_{\mathfrak{K}}\phi(a')\\
+		&= \frac{1}{2}\bigl\langle a', U S^{-1} Q S^{-1}U^T a'\bigr\rangle_{\mathfrak{K}}\phi(a')\\
+		&= \frac{1}{2}\bigl\langle a', R a'\bigr\rangle_{\mathfrak{K}} \phi(a')\\
+		&= \sum_{j=|V|}^{|E|} \frac{1}{2} \omega_{j-|V|+1}^2 {a'}_j^2\phi(a').
 	\end{align*}
-	Wir definieren die Frequenzen durch $\omega_j^2 = R_{|V|-1+j}$ für $1 \leq j \leq |F|-1$ 
-	\eqref{eq:hj} und konstruieren den unitären Operator $\hat{U}: \mathfrak{H} \to \mathfrak{H}$ durch
-	\begin{equation*}
-		\bigl(\hat{U}\phi\bigr)(a) = \phi\bigl(U(a)\bigr), \quad \phi \in \mathfrak{H}, \; a \in \mathfrak{K}.
-	\end{equation*}
-	Da $U$ orthogonal ist, folgt durch den Transformationssatz für Integrale die Unitarität und die Adjungierte ist gegeben durch:
-	\begin{equation*}
-		\hat{U}^\dagger\phi(a) = \phi\bigl(U^T(a)\bigr).
-	\end{equation*}
-	Für den kinetischen Energie Operator gilt durch Kettenregel:
-	\begin{align*}
-		\sum_{k=1}^N\frac{\partial^2}{\partial a_k^{2}}\phi(U(a))=\sum_{k=1}^N\frac{\partial}{\partial a_k}\frac{\partial}{\partial a_k}\phi(U(a))&=
-		\sum_{k=1}^N\frac{\partial}{\partial a_k}(\sum_{j=1}^NU_{j,k}\frac{\partial}{\partial a^{'}_j}\phi)(U(a))\\
-		&=
-		\sum_{k=1}^N(\sum_{i=1}^N\sum_{j=1}^NU_{i,k}U_{j,k}\frac{\partial^2}{\partial a^{'}_j\partial a^{'}_i}\phi)(U(a))\\
-		&=
-		(\sum_{i=1}^N\sum_{j=1}^N\delta_{i,j}\frac{\partial^2}{\partial a^{'}_j\partial a^{'}_i})\phi(U(a))\\
-		&=
-		(\sum_{i=1}^N\frac{\partial^2}{\partial a_i^{'2}}\phi)(U(a))\\
-	\end{align*}
-und somit
-	\begin{align*}
-		\hat{U}^\dagger \Delta \hat{U}= \Delta',
-	\end{align*}
-	wobei $\Delta'$ der Laplace Operator in den transformierten Koordinaten $a' = U(a)$ ist.
+	In den Koordinaten \(a'\) lautet der Hamiltonoperator daher:
+	\[
+	\hat{H} = -\frac{1}{2}\sum_{j=1}^{|E|} \frac{\partial^2}{\partial {a'}_j^2} 
+	+ \frac{1}{2}\sum_{j=|V|}^{|E|} \omega_{j-|V|+1}^2 {a'}_j^2
+	= \sum_{j=1}^{|E|} \hat{h}_j,
+	\]
+	wobei \(\hat{h}_j\) durch \eqref{eq:hj} gegeben ist. Die ersten \(|V|-1\) Moden sind 
+	freie Teilchen (reine Eichfreiheitsgrade), die restlichen \(|F|-1\) Moden sind 
+	harmonische Oszillatoren mit Frequenzen \(\omega_j\).\\
 	\\
+	Die Frequenzen \(\omega_j\) hängen von \(\epsilon\), \(\mu\), \(r\) und \(r_D\) ab und 
+	sind die positiven Eigenwerte des Operators \(\tilde{Q} = S^{-1} Q S^{-1}\).\\
 	\\
-	Für den Potentialteil erhalten wir analog:
-	\begin{align*}
-		\hat{U}^\dagger \hat{V} \hat{U}\phi(a^{'})
-		&= \hat{U}^\dagger \Bigl( \tfrac{1}{2}\Bigl\langle a, Q(a)\Bigr\rangle_{\mathfrak{K}} \Bigr) \phi(U(a))\\
-		&= \tfrac{1}{2}\Bigl\langle U^T(a^{'}), Q U^T(a^{'})\Bigr\rangle_{\mathfrak{K}}\phi(a^{'})\\
-		&= \tfrac{1}{2}\Bigl\langle a^{'}, U Q U^T a^{'}\Bigr\rangle_{\mathfrak{K}}\phi(a^{'})\\
-		&= \tfrac{1}{2}\Bigl\langle a^{'}, R a^{'}\Bigr\rangle_{\mathfrak{K}} \phi(a^{'})\\
-		&= \sum_{j=|V|}^{|E|} \tfrac{1}{2} \omega_{j-|V|+1}^2 {a}_j^{'2}\phi(a^{'}).
-	\end{align*}
-	Zusammen ergibt sich somit \eqref{eq:diagonal}.
+	Damit ist die Behauptung gezeigt.
 \end{proof}
 \noindent
 Wir haben gezeigt, dass sich der Hamiltonoperator \eqref{eq:diagonal} durch die unitäre 
 Transformation $\hat{U}$ in eine Summe unabhängiger harmonischer Oszillatoren zerlegen lässt:
 \begin{equation*}
-	\hat{U}^\dagger \hat{H} \hat{U} = -\frac{1}{2}\Delta' + \sum_{j=1}^{|F|-1} \frac{1}{2}\omega_j^2 a_{j+|V|-1}'^2.
+	\hat{U}^\dagger \hat{H} \hat{U} = -\frac{1}{2}\Delta' + \sum_{j=1}^{|F|-1} \frac{1}{2}\omega_j^2 {a'}_{j+|V|-1}^2.
 \end{equation*}
-Als nächstes werden wir die Spektraleigenschaften dieser Oszillatoren und ihre 
-physikalische Interpretation als elektromagnetische Wellen erarbeiten.  
+Im nächsten Abschnitt werden wir die spektralen Eigenschaften dieser Oszillatoren 
+herleiten und ihre physikalische Interpretation als elektromagnetische Wellen erarbeiten.\\
 \\
-\\
-Der elektrische Feldoperator $\hat{e}$ transformiert unter $\hat{U}$ analog zum Vektorpotential Operator $\hat{a}$:
+Der elektrische Feldoperator $\hat{e}$ transformiert unter $\hat{U}$ analog zum 
+Vektorpotential-Operator $\hat{a}$:
 \begin{align}
-	&\hat{a} \mapsto \hat{a}^{'} = \hat{U}\hat{a}\hat{U}^\dagger = U\hat{a}\\
-	&\hat{e} \mapsto \hat{e}^{'} = \hat{U}\hat{e}\hat{U}^\dagger = U\hat{e}
+	\hat{a} &\mapsto \hat{a}' = \hat{U}\hat{a}\hat{U}^\dagger = U\hat{a},\\
+	\hat{e} &\mapsto \hat{e}' = \hat{U}\hat{e}\hat{U}^\dagger = U\hat{e}.
 \end{align}
-Die orthogonale Matrix $U$ zerlegt den Konfigurationsraum $\mathfrak{K}(G)$ der Helmoltzzerlegung entsprechend in einen 
-$(|V|-1)$-dimensionalen Teilraum $A = \ker Q=\ker \mathrm{div}_D r^{-1} = \operatorname{Bild}(r\mathrm{grad})$ (Eichfreiheitsgrade) und sein orthogonales 
-Komplement $B = A^\perp = \ker \mathrm{div} r$ der Dimension $(|F|-1)$. Auf $A$ verschwindet das Potential 
-$\hat{V}|_A = 0$, während auf $B$ die Dynamik die eines harmonischen Oszillators mit 
-Frequenzen $\{\omega_j\}_{j=1}^{|F|-1}$ ist.  
+Die orthogonale Matrix $U$ zerlegt den Konfigurationsraum $\mathfrak{K}(G)$ gemäß 
+der metrischen Helmholtz-Zerlegung (Korollar~\ref{cor:metrisch_helmholtz}) in einen 
+$(|V|-1)$-dimensionalen Teilraum 
+$\ker Q = \ker(\frac{\operatorname{rot}}{\mathbb{A}}r) = \operatorname{Bild}(\frac{1}{r}\operatorname{grad})$ 
+(Eichfreiheitsgrade) und sein orthogonales Komplement 
+$(\ker Q)^\perp = \ker(\frac{\operatorname{div}}{\mathbb{A}_D}r_D)$ der Dimension $(|F|-1)$. 
+Auf $\ker Q$ verschwindet das Potential, während auf $(\ker Q)^\perp$ die Dynamik 
+die eines harmonischen Oszillators mit Frequenzen $\{\omega_j\}_{j=1}^{|F|-1}$ ist.\\
 \\
+Jeder der $(|F|-1)$ Oszillatoren besitzt ein diskretes Spektrum 
+$E_{n,j} = \hbar\omega_j(n + 1/2)$ mit $n \in \mathbb{N}_0$. Diese Feldmoden 
+korrespondieren exakt mit den im Netz fortpflanzenden elektromagnetischen Wirbelfeldern, 
+da $(\ker Q)^\perp$ nach der Helmholtz-Zerlegung~\ref{cor:metrisch_helmholtz} 
+präzise der Raum der divergenzfreien Felder ist.\\
 \\
-Jeder der $(|F|-1)$ Oszillatoren besitzt ein diskretes Spektrum $E_n = \hbar\omega_j(n + 1/2)$, 
-$n \in \mathbb{N}_0$. Diese Normalmoden korrespondieren exakt mit den im Netz fortpflanzenden 
-elektromagnetischen Wirbelfeldern, da $B$ nach der Helmholtz-Zerlegung \eqref{eq:helmoltz} 
-präzise der Raum der divergenzfreien Felder ist.
-\\
-\\
-Die Komponenten des Raumes $A$, also die entsprechenden Projektionen von $\hat{a}$ 
-und der konjugierten Impulse $\hat{\pi}$ und damit auch des elektrischen Feldoperators 
-$\hat{e}$, weisen im Sinne der Quantentheorie eine besondere Struktur auf. 
-Die $A$-Komponenten der Operatoren $\hat{a}$ sind keine Messgrößen, sondern reine 
-Eichvariablen, während $\hat{e}$ eine beobachtbare Größe ist. Das Feld $\hat{e}$ 
-müsste sich daher prinzipiell beliebig genau bestimmen lassen, ohne dabei Information 
-über eine andere Messgröße zu verlieren.
-\\
-\\
-Entsprechend gilt, dass es analog zur Quantenmechanik, wo es keinen Zustandsvektor 
-mit exakt bestimmtem Impuls gibt in unserer Quantenfeldtheorie keinen Zustandsvektor
-gibt, der einem exakt ladungsfreien Raum im Sinne von
+Analog zur Quantenmechanik, wo es keinen Zustandsvektor mit exakt bestimmtem Impuls 
+gibt, existiert in unserer Quantenfeldtheorie kein Zustandsvektor, der einem exakt 
+ladungsfreien Raum im Sinne von
 \begin{equation}
 	\mathrm{div}\bigl(r\,\epsilon\,\hat{e}\bigr)\psi = 0
 \end{equation}
 entspricht. Die zugehörigen Zustände wären uneigentliche Elemente des Hilbertraums 
-$\mathfrak{H}$. Da wir jedoch Zustände mit ladungsfreiem Raum beschreiben 
-wollen und Bewegungen eines Wellenpakets entlang von Raumrichtungen aus dem $A$-Raum 
-zwar Energie tragen, aber nicht direkt messbar sind, führen wir zu diesem Zweck 
-einen reduzierten Hilbertraum ein. 
+$\mathfrak{H}$. Da wir jedoch Zustände mit ladungsfreiem Raum beschreiben wollen, 
+führen wir einen reduzierten Hilbertraum ein.
 \begin{definition}
-	Sei \(G\) ein planares Netz und \(r>0\) eine Kantenfunktion. 
-	Der \textbf{Hilbertraum der ladungsfreien Maxwell-Theorie} ist
+	Sei \(G\) ein planares metrisches Netz, dann definieren wir den \textbf{Hilbertraum der ladungsfreien Maxwell-Theorie} als
 	\[
-	\mathfrak{H}_{\mathrm{frei}} = L^2(\mathbb{R}^{|F|-1}, \mathbb{C}; \lambda),
+	\mathfrak{H}_{\mathrm{frei}} = L^2(\mathbb{R}^{|F|-1}, \mathbb{C}),
 	\]
-	wobei $\mathbb{R}^{|F|-1}$ mit $B = \operatorname{Bild}\bigl(\tfrac{1}{r}\,\mathrm{grad}_D\bigr)$ über die orthonormale Basis \(\{b_k\}_{k=1}^{|F|-1}\):
+	wobei \(\mathbb{R}^{|F|-1}\) mit \(\operatorname{Bild}\bigl(\frac{1}{r_D}\operatorname{grad}_D\bigr)\) 
+	über die orthonormale Basis \(\{b_k\}_{k=1}^{|F|-1}\) identifiziert wird:
 	\[
-	b_k = U^T e_{k + |V|-1}, \quad \{e_k\}_{k=1}^{|E|}\text{ Standardbasis von }\mathfrak{K}.
+	b_k = U^T e_{k + |V|-1}, \quad k=1,\dots,|F|-1,
 	\]
-	identifiziert wird.\\
+	mit \(\{e_k\}_{k=1}^{|E|}\) als Standardbasis von \(\mathfrak{K}\).\\
 	\\
 	Das Skalarprodukt ist wie gewohnt
 	\[
 	\langle \phi, \psi \rangle_{\mathfrak{H}_{\mathrm{frei}}} 
-	= \int_{\mathbb{R}^{|F|-1}} \overline{\phi(a)}\, \psi(a)\, d\lambda.
+	= \int_{\mathbb{R}^{|F|-1}} \overline{\phi(a)}\, \psi(a)\, da.
 	\]
 	Der \textbf{freie Hermite-Polynomraum} ist
 	\begin{equation}
 		\mathfrak{D}_{\mathrm{frei}} 
-		= \operatorname{span}\bigl\{\,a \mapsto a^\alpha 
-		e^{-\frac{\|a\|^2}{2}} : \alpha\in\mathbb{N}^{|F|-1}\bigr\}
+		= \operatorname{span}\bigl\{\,a \mapsto P_\alpha(a) 
+		e^{-\frac{\|a\|^2}{2}} : \alpha\in\mathbb{N}_0^{|F|-1}\bigr\}
 		\subseteq \mathfrak{H}_{\mathrm{frei}}, \label{def:hermite_frei}
 	\end{equation}
+	wobei \(P_\alpha(a) = \prod_{j=1}^{|F|-1} a_j^{\alpha_j}\) das Monom zum Multiindex 
+	\(\alpha = (\alpha_1,\dots,\alpha_{|F|-1})\) bezeichnet.\\
 	\\
-	\\
-	Der \textbf{freie Hamiltonoperator} ist die Summe der eindimensionalen harmonischen Oszillatoren aus \ref{eq:hj}
+	Der \textbf{freie Hamiltonoperator} ist die Summe der eindimensionalen harmonischen 
+	Oszillatoren aus \eqref{eq:hj}:
 	\begin{equation}
 		\hat{H}_{\mathrm{frei}} = \sum_{j=1}^{|F|-1} \hat{h}_j, \quad
 		\hat{h}_j = \frac{1}{2}\bigl(\hat{\pi}_j^2 + \omega_j^2 \hat{a}_j^2\bigr), \label{eq:free_hamilton}
 	\end{equation}
-	mit $\hat{\pi}_j = -i\partial_{a_j}$.
+	mit \(\hat{\pi}_j = -i\partial_{a_j}\).
 \end{definition}
 \noindent
 Im Folgenden lösen wir nach Dirac'scher Tradition den quantenmechanischen harmonischen 
-Oszillator. Nach Theorem~\ref{thm:hamilton_sum} reduziert sich der Hamiltonoperator 
+Oszillator. Nach Hilfssatz~\ref{lem:hamilton_sum} reduziert sich der Hamiltonoperator 
 des freien elektromagnetischen Feldes auf unabhängige harmonische Oszillatoren. Konkret existiert 
 für jeden Eigenwert $\omega_j$ der Matrix $Q$. Von nun an schreiben wir 
 vereinfacht $\omega$ statt $\omega_j$.  
@@ -2024,9 +2123,9 @@ Die Wirkung des Erzeugungsoperators auf ein Element\\ $\psi=(q\mapsto p(q)e^{-\o
 Falls $\{(q\mapsto q^ke^{-\omega q^2/2}): k\leq n\}\subset \text{span}(\{\hat{a}_\omega^{\dagger k}\psi_0: k\leq n\})$ f\"ur ein $n\in\mathbb{N}$ gilt, dann gilt dies somit auch f\"ur $n+1$.\\Es gilt offensichtlich f\"ur $n=0$ und somit f\"ur ganz $\mathbb{N}$.
 \end{proof}
 \noindent
-Nach Theorem~\ref{thm:hamilton_sum} haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
+Nach Theorem~\ref{lem:hamilton_sum} haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
 \begin{equation}
-	\sigma(\hat{H}_{\mathrm{frei}}) = \{\omega(n+\frac{1}{2}): \omega^2\in\sigma(-r^{-1}\text{grad}_D\text{div}_Dr^{-1}), n\in\mathbb{N},\omega\neq 0\}
+	\sigma(\hat{H}_{\mathrm{frei}}) = \{\omega(n+\frac{1}{2}): \omega^2\in\sigma(-r\operatorname{grad}_D\bigl(\mu^{-1}\frac{\operatorname{rot}}{\mathbb{A}}r\bigr)), n\in\mathbb{N},\omega\neq 0\}
 \end{equation}
 und somit haben wir die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen gezeigt.
 \\
