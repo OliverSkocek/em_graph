@@ -201,7 +201,7 @@ links von \(e\) liegt (d.h.\ die Kante \(e\) zeigt entgegen der
 Richtung des Uhrzeigersinns von \(A_1\)).
 \\
 \\
-Wir nennen $r$ die \textbf{Metrik} und $h$ die \textbf{Höhenfunktion} des Gitters. Aufbauend auf der Höhenfunktion können wir die \textbf{duale Metrik} \(r_D\colon E\to \mathbb{R}_{>0}\) definieren durch $r_D(e) := h(e)_0 + h(e)_1$. Sei weiters $A$ ein Element, dann definieren wir die \textbf{Flächenfunktion} \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) durch \(\mathbb{A}(A) := \sum_{e \in A}\frac{r(e)h(e)_{j(e, A)}}{2}\), wobei 
+Wir nennen $r$ die \textbf{Metrik} und $h$ die \textbf{Höhenfunktion} des Gitters. Aufbauend auf der Höhenfunktion können wir die \textbf{duale Metrik} \(r_D\colon E\to \mathbb{R}_{>0}\) definieren durch $r_D(e) := h(e)_0 + h(e)_1$. Sei weiters $A$ ein Element, dann definieren wir die \textbf{Flächenfunktion} \(\mathbb{A}\colon F\to \mathbb{R}_{>0}\) durch \(\mathbb{A}(A) := \sum_{e \in A}\frac{r(e)h(e)_{in(e, A)}}{2}\), wobei 
 \[
 in(e,A):=\begin{cases}
 	0 , & A \text{ steht rechts zu } e\\
@@ -210,7 +210,7 @@ in(e,A):=\begin{cases}
 \]
 Aus der Konstruktion der Abbildungen \(r\) und \(h\) folgt unmittelbar, dass für jede Kante \(e\)  und Fläche $A$ das Produkt
 \[
-\frac{r(e)\,h(e)_{j(e, A)}}{2}
+\frac{r(e)\,h(e)_{in(e, A)}}{2}
 \]
 der mit \(e\) assoziierten Fläche im Element $A$ entspricht. Das zugehörige Kantenflächenelement ist in Abbildung~\ref{fig:dualarea} dargestellt.
 
@@ -333,10 +333,10 @@ Wir fassen die bisher beschriebenen Eigenschaften von Gittern nun in einer Defin
 	die \textbf{duale Flächenfunktion} \(\mathbb{A}_D \colon V \to
 	\mathbb{R}_{>0}\) werden definiert durch
 	\[
-	\mathbb{A}(A) := \sum_{e \in \partial A} r(e) \cdot h_{\mathrm{in}(A)}(e),
+	\mathbb{A}(A) := \sum_{e \in \partial A} \frac{r(e) \cdot h_{\mathrm{in}(A)}(e)}{2},
 	\qquad
-	\mathbb{A}_D(x) := \sum_{e \in \partial \mathbb{F}(x)} r_D(e) \cdot
-	h_{D,\mathrm{in}(\mathbb{F}(x))}(e),
+	\mathbb{A}_D(x) := \sum_{e \in \partial \mathbb{F}(x)} \frac{r_D(e) \cdot
+		h_{D\mathrm{in}(\mathbb{F}(x))}(e)}{2},
 	\]
 	wobei \(\mathbb{F}(x)\) das duale Element um die Ecke \(x\) ist und
 	\(h_{\mathrm{in}(A)}(e)\) bzw. \(h_{D,\mathrm{in}(\mathbb{F}(x))}(e)\) der
@@ -586,7 +586,7 @@ Dies führt zur Formulierung eines diskreten Gegenstücks des de Rham-Komplexes.
 	\textbf{3. Schritt:} $ \operatorname{Bild}(\mathrm{rot})$ ist das orthogonale Komplement der konstanten Flächenfunktionen.  
 	Dies folgt unmittelbar aus dem adjungierten Zusammenhang $\mathrm{div} = -\mathrm{grad}^\top$: 
 	das Bild von $\mathrm{rot}$ besteht genau aus den Flächenfunktionen mit verschwindendem Skalarprodukt 
-	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle =0\}$.\\
+	gegenüber allen Konstanten, also aus dem Unterraum $\{g\in \mathfrak{F}(G): \langle g, \mathbf{1}_F\rangle_{\mathfrak{F}} =0\}$.\\
 	\\
 	\medskip
 	Damit ist die Exaktheit der Sequenz \eqref{eq:derham1} gezeigt,
@@ -1008,7 +1008,7 @@ eines Netzes verwenden wir ausschließlich die kombinatorische Struktur zusammen
 metrischen Daten \(r\), \(r_D\), \(\mathbb{A}\) und \(\mathbb{A}_D\).
 \begin{definition}[Diskrete Maxwell-Gleichungen]\label{def:diskrete_maxwell}
 	Sei $G=(V,E,F,p,q,h,h_D)$ ein planares metrisches Netz.  
-	Wir wählen feste Parameter $\epsilon>0$ sowie $\mu>0$ und Anfangsdaten
+	Wir wählen feste Parameter $ \epsilon: E \to \mathbb{R}_{>0}$ sowie $ \mu: F \to \mathbb{R}_{>0}$ und Anfangsdaten
 	\[
 	e_0 \in \mathfrak{K}(G), 
 	\quad b_0 \in \{\mathbb{A}\}^\perp, 
@@ -1051,7 +1051,7 @@ metrischen Daten \(r\), \(r_D\), \(\mathbb{A}\) und \(\mathbb{A}_D\).
 \noindent
 Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der elektrischen Energie und der elektrischen Ladung. Die Energie teilt sich in magnetische und elektrische Energie, die über die Zeit ineinander umgewandelt werden.
 \begin{proposition}[Energieerhaltung]\label{thm:Energieerhaltung}
-	Sei $G$ ein planares metrisches Netz mit den Parametern $\epsilon>0$, $\mu>0$  
+	Sei $G$ ein planares metrisches Netz mit den Parametern $ \epsilon: E \to \mathbb{R}_{>0}$, $ \mu: F \to \mathbb{R}_{>0}$  
 	und seien $e(t)$ und $b(t)$ Lösungen der Maxwell-Gleichungen ohne Stromfluss, also $j \equiv 0$.  
 	Die Energie des Systems sei definiert als
 	\[
@@ -1095,7 +1095,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	Nachdem das reele Skalarprodukt symmetrisch ist heben sich die Ableitungen der Feldenergien gegenseitig auf und einzig der Beitrag des Stroms 
 	 \(j\) verbleibt
 	\[
-	\frac{d}{dt} E(t) = \langle rr_De, j\rangle_{\mathfrak{K}}.
+	\frac{d}{dt} E(t) = -\langle rr_De, j\rangle_{\mathfrak{K}}.
 	\]
 	Insbesondere bedeutet dies im stromlosen Fall \(j=0\), dass die Energie erhalten bleibt:
 		\[
@@ -1104,8 +1104,8 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 \end{proof}
 
 \begin{proposition}[Kontinuitätsgesetz]
-	Sei \(G\) ein planares metrisches Netz mit elektrischer Permittivität \(\epsilon>0\) 
-	und magnetischer Permeabilität \(\mu>0\).  
+	Sei \(G\) ein planares metrisches Netz mit elektrischer Permittivität \( \epsilon: E \to \mathbb{R}_{>0}\) 
+	und magnetischer Permeabilität \( \mu: F \to \mathbb{R}_{>0}\).  
 	Seien 
 	\[
 	e : \mathbb{R} \to \mathfrak{K}(G), 
@@ -1139,7 +1139,7 @@ Eine direkte Konsequenz der Maxwellgleichungen sind die Erhaltungssätze der ele
 	Der erste Term verschwindet aufgrund des de Rham Komplexes \(\mathrm{div}\circ \mathrm{grad}_D = 0\).  
 	Somit bleibt
 	\[
-	0=\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e'(t)) +\,\mathrm{div}(r_D j(t)).
+	0=\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e'(t)) +\,\frac{\mathrm{div}}{\mathbb{A}_D}(r_D j(t)).
 	\]
 	Mit dem gaußschen Gesetz \eqref{eq:disk-gauss}, also \(\frac{\mathrm{div}}{\mathbb{A}_D}(r_D\epsilon e(t))=q(t)\), folgt
 	\[
@@ -1318,7 +1318,7 @@ Aufgrund der Eichinvarianz von \eqref{eq:potential_ampere} existiert stets eine 
 \end{proof}
 
 \begin{proposition}
-	Sei \( G \) ein planares metrisches Netz, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \(\mu > 0\) eine Flächenfunktion auf \(G\) und \(\epsilon > 0\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
+	Sei \( G \) ein planares metrisches Netz, \( r > 0 \), \( a_0, e_0 \) Kantenfunktionen, \( \mu: F \to \mathbb{R}_{>0}\) eine Flächenfunktion auf \(G\) und \( \epsilon: E \to \mathbb{R}_{>0}\). Dann existiert eine Kurve \( a \in C^2(\mathbb{R}, \mathfrak{K}) \), sodass für alle \( t \in \mathbb{R} \) gilt:
 	\begin{equation}
 		a''(t) - r_D^{-1} \mathrm{grad}_D \left( \frac{1}{\mu} \frac{\mathrm{rot}}{\mathbb{A}} \left( r a(t) \right) \right) / \epsilon = 0\label{eq:prop_eq123}
 	\end{equation}
@@ -1571,7 +1571,7 @@ quantisierte Version der magnetischen Energie.
 	Für \(\psi_0 \in \mathcal{D}\) heißt eine stetig differenzierbare Abbildung 
 	\(\psi: \mathbb{R} \to \mathcal{D}\) eine \textbf{Lösung der zeitabhängigen 
 		Schrödingergleichung}, wenn sie die Gleichung
-	\begin{equation} \label{eq:schroedinger}
+	\begin{equation} \label{eq:maxwell_schrödinger}
 		i \frac{d}{dt}\psi(t) = \hat{H}(t)\psi(t),
 	\end{equation}
 	für alle \(t \in \mathbb{R}\) erfüllt und die Anfangsbedingung \(\psi(0) = \psi_0\) gilt.
@@ -1652,7 +1652,7 @@ die diskreten Maxwell-Gleichungen \eqref{eq:disk-faraday} erfüllen.
 	Sei \(G\) ein planares metrisches Netz, \(\epsilon: E \to \mathbb{R}_{>0}\) eine positive 
 	Kantenfunktion, \(\mu: F \to \mathbb{R}_{>0}\) eine positive Flächenfunktion und 
 	\(\psi: \mathbb{R} \to \mathfrak{H}(G)\) eine Lösung der Schrödingergleichung 
-	\eqref{eq:schroedinger}. Dann gelten die Erwartungswertgleichungen:
+	\eqref{eq:maxwell_schrödinger}. Dann gelten die Erwartungswertgleichungen:
 	\begin{align}
 		\epsilon \langle \hat{e} \rangle_\psi^\prime
 		&= -\,r_D^{-1}\operatorname{grad}_D\!\left(\frac{\langle \hat{b} \rangle_\psi}{\mu}\right) 
