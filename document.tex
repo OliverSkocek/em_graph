@@ -1910,7 +1910,7 @@ Analog zur Quantenmechanik, wo es keinen Zustandsvektor mit exakt bestimmtem Imp
 gibt, existiert in unserer Quantenfeldtheorie kein Zustandsvektor, der einem exakt 
 ladungsfreien Raum im Sinne von
 \begin{equation}
-	\mathrm{div}\bigl(r\,\epsilon\,\hat{e}\bigr)\psi = 0
+	\frac{\mathrm{div}}{\mathbb{A}_D}\bigl(r_D\,\epsilon\,\hat{e}\bigr)\psi = 0
 \end{equation}
 entspricht. Die zugehörigen Zustände wären uneigentliche Elemente des Hilbertraums 
 $\mathfrak{H}$. Da wir jedoch Zustände mit ladungsfreiem Raum beschreiben wollen, 
@@ -1995,7 +1995,7 @@ Der Kern des Operators $\hat{a}_\omega$ erf\"ullt folgende Differentialgleichung
 \begin{equation*}
 	f^\prime=-\omega a f
 \end{equation*}
-Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{R}$ eine eindeutige L\"osung. Diese L\"osung ist gegeben durch
+Dies ist eine homogene lineare Differentialgleichung und als solche gibt es f\"ur jeden Anfangswert $f(0)=c$ mit $c\in \mathbb{C}$ eine eindeutige L\"osung. Diese L\"osung ist gegeben durch
 \begin{equation*}
 	f_c(a) = c\textrm{ }e^{-\omega a^2 / 2}
 \end{equation*}
@@ -2063,7 +2063,7 @@ Um diese Interpretation zu untermauern untersuchen wir den Teilchenzahloperator 
 \begin{proposition}
 	Das Spektrum des Teilchenzahloperator $\hat{N}_\omega$ ist die Menge der nat\"urlichen Zahlen mit Null. \label{thm:tz-spec}
 	\begin{equation}
-		\sigma(\hat{N}_\omega)=\mathbb{N}\footnote{$0\in\mathbb{N}$.}
+		\sigma(\hat{N}_\omega)=\mathbb{N}_0.
 	\end{equation}
 Alle Spektralwerte sind Eigenwerte $\sigma(\hat{N}_\omega)=\sigma_p(\hat{N}_\omega)$ und die Eigenr\"aume sind eindimensional.
 \end{proposition}
@@ -2100,7 +2100,7 @@ Damit ist aber $u_1\psi_a+u_2\psi_b$ im Kern von $\hat{a}_\omega$ und damit im K
 Das einzige Element des Eigenraums zu $n+1$, das dies erf\"ullt ist der Nullvektor.\\
 \\
 Als n\"achstes zeigen wir, das es keine anderen Eigenwerte gibt.\\
-Sei $n<\lambda<n+1$ mit $n\in\mathbb{N}$ ein Eigenwert. Durch $n+1$-maliges anwenden von $\hat{a}_\omega$ auf den zugeh\"origen Eigenvektor erhalten wir einen Eigenvektor zu einem negative Eigenwert, was $\sigma(\hat{N}_\omega)$ widerspricht.\\
+Sei $n<\lambda<n+1$ mit \(n\in\mathbb{N}_0\) ein Eigenwert. Durch $n+1$-maliges anwenden von $\hat{a}_\omega$ auf den zugeh\"origen Eigenvektor erhalten wir einen Eigenvektor zu einem negative Eigenwert, was $\sigma(\hat{N}_\omega)$ widerspricht.\\
 \\
 Wir haben bislang gezeigt dass $\sigma_p(\hat{N}_\omega)=
 \mathbb{N}$ ist. Um zu zeigen, dass dies alle Spektralwerte sind reicht es zu bemerken, dass die Menge der Eigenvektoren von $\hat{N}_\omega$ ein Orthogonalsystem bilden, dass den dichten Teilraum $\Omega_\omega=\{q\mapsto p(q)e^{-\omega x^2 / 2}: \text{p ist ein komplexes Polynom auf $\mathbb{R}$}\}$ aufspannt.
@@ -2125,9 +2125,11 @@ Falls $\{(q\mapsto q^ke^{-\omega q^2/2}): k\leq n\}\subset \text{span}(\{\hat{a}
 \noindent
 Nach Theorem~\ref{lem:hamilton_sum} haben wir hiermit gezeigt, dass der Hamiltonoperator des freien elektromagnetischen Feldes ein reines Punktspektrum hat
 \begin{equation}
-	\sigma(\hat{H}_{\mathrm{frei}}) = \{\omega(n+\frac{1}{2}): \omega^2\in\sigma(-r\operatorname{grad}_D\bigl(\mu^{-1}\frac{\operatorname{rot}}{\mathbb{A}}r\bigr)), n\in\mathbb{N},\omega\neq 0\}
+	\sigma(\hat{H}_{\mathrm{frei}}) = \left\{\sum_{j=1}^{|F|-1} \omega_j\left(n_j + \frac{1}{2}\right) : n \in \mathbb{N}_0^{|F|-1}\right\},
 \end{equation}
-und somit haben wir die Existenz und Eindeutigkeit von L\"osungen der zugeh\"origen Schr\"odingergleichung zu beliebigen Anfangsbedingungen gezeigt.
+wobei \(\{\omega_1^2, \omega_2^2, \dots, \omega_{|F|-1}^2\} = \sigma\bigl(-r\operatorname{grad}_D(\mu^{-1}\frac{\operatorname{rot}}{\mathbb{A}}r)\bigr) \setminus \{0\}\) 
+die positiven Eigenwerte von \(Q\) sind. Somit haben wir die Existenz und Eindeutigkeit 
+von Lösungen der zugehörigen Schrödingergleichung zu beliebigen Anfangsbedingungen gezeigt.
 \\
 \\
 Wir erkennen, dass das freie elektromagnetische Feld seine Energie nur in 
@@ -2140,40 +2142,36 @@ die die gleiche Diskretheit aufweisen, wie wir sie von Teilchen im klassischen S
 
 \chapter{Die Klein-Gordon-Gleichung}
 \section{Grundlagen}
-Es verbleibt die Beschreibung von Strom und Ladung, den Quellen des elektromagnetischen Feldes. \\
+Es verbleibt die Beschreibung von Strom und Ladung, den Quellen des elektromagnetischen Feldes. 
+In der klassischen Theorie folgt für beide Größen eine Kontinuitätsgleichung direkt aus den 
+Maxwell-Gleichungen. Es müssen jedoch noch Gleichungen formuliert werden, welche die Dynamik 
+von Strom und Ladung selbst in Abhängigkeit vom elektromagnetischen Feld beschreiben.\\
 \\
-In der klassischen Theorie folgt für beide Größen eine Kontinuitätsgleichung direkt aus den Maxwell-Gleichungen. \\
+Der einfachste Ansatz wäre das Ohmsche Gesetz \(j = \sigma e\). Wir verwenden jedoch eine 
+diskrete Version der Klein-Gordon-Gleichung, um näher an die Quantenelektrodynamik zu kommen. 
 \\
-Es verbleibt jedoch noch Gleichungen zu formulieren, welche die Dynamik von Strom und Ladung selbst in Abhängigkeit vom elektromagnetischen Feldes beschreiben. \\
-\\
-Der einfachste Ansatz wäre das Ohmsche Gesetz $j=\sigma e$. \\
-\\
-Wir verwenden jedoch eine diskrete Version der Klein-Gordon-Gleichung, um näher an die Quantenelektrodynamik zu kommen. \\
 \\
 Zur Formulierung führen wir zunächst den Eichgradienten ein.
-\begin{definition}
-	Sei $G$ ein \textbf{planares Netz}, $a\in\mathfrak{K}(G)$ eine Kantenfunktion und $\Phi\in\mathfrak{E}_\mathbb{C}(G)$ eine komplexe Eckfunktion.\\
-	\\
-	Der \textbf{Eichgradient} ist für jede Kante $e\in E$ definiert durch:
+\begin{definition}[Eichgradient und Eich-Laplace-Operator]
+	Sei \(G\) ein planares Netz, \(a \in \mathfrak{K}(G)\) eine Kantenfunktion und 
+	\(\Phi \in \mathfrak{E}_\mathbb{C}(G)\) eine komplexe Eckfunktion. Der \textbf{Eichgradient} 
+	ist für jede Kante \(e \in E\) definiert durch:
 	\begin{equation}
-		\mathrm{grad}^a(\Phi)(e) := \Phi(p(e)) - \Phi(q(e))e^{ia(e)}.
+		\mathrm{grad}^a(\Phi)(e) := \Phi(p(e)) - \Phi(q(e)) e^{i a(e)}.
 	\end{equation}
-	\\
-	Sei weiter $r:E\to\mathbb{R}_{>0}$ eine positive Kantenfunktion. \\
-	\\
-	Dann heißt
+	Falls \(G\) zusätzlich ein metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\) ist, 
+	dann heißt
 	\begin{equation}
-		\Delta^a_r(\Phi)(v) := \bigl(\mathrm{grad}^{\frac{a}{r}\dagger} (r^{-2} \mathrm{grad}^{\frac{a}{r}}(\Phi))\bigr)(v)
+		\Delta^a_r(\Phi)(v) := \left(\mathrm{grad}^{a r\,\dagger} \left(r^{-2} \mathrm{grad}^{a r}(\Phi)\right)\right)(v)
 	\end{equation}
-	der \textbf{$a$-gewichtete Eich-Laplace-Operator} an der Ecke $v\in V$.
+	der \textbf{\(a\)-gewichtete Eich-Laplace-Operator} an der Ecke \(v \in V\).
 \end{definition}
-\noindent
 \begin{remark}\label{rem:Eichgradient-Kern}
-	Sei $G$ ein \textbf{planares Netz}, $r:E\to\mathbb{R}_{>0}$ und $a\in\mathfrak{K}(G)$ Kantenfunktionen. 
-	Dann hat der Eichgradient $\mathrm{grad}^{\frac{a}{r}}$ genau dann einen nichttrivialen Kern, 
-	wenn 
+	Sei \(G\) ein planares Netz und \(a \in \mathfrak{K}(G)\) eine Kantenfunktion. 
+	Dann hat der Eichgradient \(\mathrm{grad}^{a}\) genau dann einen nichttrivialen Kern, 
+	wenn
 	\begin{equation}\label{eq:Eichgradient-Kernbedingung}
-		\frac{a}{r} \in \operatorname{Bild}(\mathrm{grad}).
+		a \in \operatorname{Bild}(\mathrm{grad}).
 	\end{equation}
 \end{remark}
 \begin{lemma}\label{lem:eichgradient}
@@ -2186,9 +2184,7 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	\end{equation}
 \end{lemma}
 \begin{proof}
-	Sei $e \in E$. \\
-	\\
-	Dann gilt:
+	Sei $e \in E$, dann gilt:
 	\begin{align*}
 		\mathrm{grad}^{\,a + \mathrm{grad}(\xi)}\!\bigl(e^{i\xi}\Phi\bigr)(e)
 		&= e^{i\xi(p(e))}\Phi(p(e))
@@ -2198,20 +2194,16 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	\end{align*}
 \end{proof}
 \begin{definition}[Klein-Gordon-Gleichung]\label{def:klein_gordon}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
-	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
-	$\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
-	sowie $\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten. \\
-	\\
-	Dann heißt $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine 
-	\textbf{Lösung der Klein-Gordon-Gleichung}, wenn für alle $t \in \mathbb{R}$ gilt:
+	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), 
+	\(m > 0\) eine reelle Zahl, \(a \in C^1(\mathbb{R}, \mathfrak{K}(G))\), 
+	\(\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))\), sowie \(\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)\) 
+	Anfangsdaten. Dann heißt \(\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))\) eine 
+	\textbf{Lösung der Klein-Gordon-Gleichung}, wenn für alle \(t \in \mathbb{R}\) gilt:
 	\begin{equation}\label{eq:klein_gordon}
 		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
 		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
 		+ \Delta_r^{\,a(t)} \Phi(t) + m^2 \Phi(t) = 0.
 	\end{equation}
-	\\
 	Die Anfangsbedingungen lauten:
 	\begin{align}
 		\Phi(0) &= \Phi_0, \label{eq:kg_init1}\\
@@ -2219,72 +2211,59 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	\end{align}
 \end{definition}
 \noindent
-Das Feld $\Phi$ ist keine Messgröße und wir werden in Kürze sehen, 
-wie sich die Stromdichte und die Ladung der Materie aus $\Phi$ ableiten lassen. \\
+Das Feld \(\Phi\) ist keine Messgröße, und wir werden in Kürze sehen, wie sich die 
+Stromdichte und die Ladungsdichte der Materie aus \(\Phi\) ableiten lassen.\\
 \\
-Die Klein-Gordon-Gleichung ist so konstruiert, 
-dass jede Lösung durch Multiplikation mit einer lokalen Phase 
-\emph{erneut} eine Lösung einer Klein-Gordon-Gleichung bleibt. \\
-\\
-Diese Transformation beinhaltet die Eichtransformation der Maxwell-Theorie,
-geht jedoch über diese hinaus. 
-Die erweiterte Eichtransformation ermöglicht die Kopplung des Klein-Gordon-Feldes 
-an die Felder der Maxwell-Theorie. 
+Die Klein-Gordon-Gleichung ist so konstruiert, dass jede Lösung durch Multiplikation 
+mit einer lokalen Phase \emph{erneut} eine Lösung einer
+Klein-Gordon-Gleichung bleibt. Diese Transformation beinhaltet die Eichtransformation 
+der Maxwell-Theorie, geht jedoch über diese hinaus. Die \textbf{erweiterte Eichtransformation} 
+ermöglicht die Kopplung des Klein-Gordon-Feldes an die Felder der Maxwell-Theorie.
 \begin{definition}[Erweiterte Eichtransformation]\label{def:erw_eich}
-	Seien $\phi$, $r$ und $a$ wie in Definition~\ref{def:klein_gordon} 
-	gegeben, und sei $\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))$. \\
-	\\
-	Dann heißt die Abbildung 
+	Seien \(\phi\), \(r\) und \(a\) wie in Definition~\ref{def:klein_gordon} gegeben, 
+	und sei \(\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))\). Dann heißt die Abbildung
 	\begin{equation}\label{eq:erw_eich}
 		\gamma_\xi
-		\!\left(
-		\begin{array}{c}
+		\begin{pmatrix}
 			\phi \\[4pt]
 			a \\[4pt]
 			\Phi
-		\end{array}
-		\right)
+		\end{pmatrix}
 		=
-		\left(
-		\begin{array}{c}
+		\begin{pmatrix}
 			\phi - \xi' \\[4pt]
-			a + r\,\mathrm{grad}(\xi) \\[4pt]
+			a + \frac{1}{r}\,\mathrm{grad}(\xi) \\[4pt]
 			e^{i\xi}\Phi
-		\end{array}
-		\right)
+		\end{pmatrix}
 	\end{equation}
-	die zu $\xi$ gehörende \textbf{erweiterte Eichtransformation}.
+	die zu \(\xi\) gehörende \textbf{erweiterte Eichtransformation}.
 \end{definition}
-\begin{proposition}\label{prop:eichinvarianz_kg}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
-	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
-	$\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
-	$\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))$, 
-	und sei $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine Lösung der Klein-Gordon-Gleichung~\eqref{eq:klein_gordon}: 
+\begin{proposition}[Eichinvarianz der Klein-Gordon-Gleichung]\label{prop:eichinvarianz_kg}
+	Sei \(G\) ein planares metrisches Netz, \(m > 0\) eine reelle Zahl, 
+	\(a \in C^1(\mathbb{R}, \mathfrak{K}(G))\), 
+	\(\phi \in C^1(\mathbb{R}, \mathfrak{E}(G))\), 
+	\(\xi \in C^1(\mathbb{R}, \mathfrak{E}(G))\), 
+	und sei \(\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))\) eine Lösung der 
+	Klein-Gordon-Gleichung~\eqref{eq:klein_gordon}: 
 	\begin{equation}\label{eq:eichinv_ursprung} 
 		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
 		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
 		+ \Delta_r^{\,a(t)}\Phi(t) + m^2\Phi(t) = 0.
 	\end{equation}
-	\\
 	Dann ist auch das durch die erweiterte Eichtransformation~\eqref{eq:erw_eich}
 	\begin{equation}\label{eq:eich_transformierte}
-		\left(
-		\begin{array}{c}
+		\begin{pmatrix}
 			\tilde{\phi} \\[4pt]
 			\tilde{a} \\[4pt]
 			\tilde{\Phi}
-		\end{array}\right)
+		\end{pmatrix}
 		=
 		\gamma_\xi
-		\!\left(
-		\begin{array}{c}
+		\begin{pmatrix}
 			\phi \\[4pt]
 			a \\[4pt]
 			\Phi
-		\end{array}
-		\right)
+		\end{pmatrix}
 	\end{equation}
 	definierte Tripel ebenfalls eine Lösung der Klein-Gordon-Gleichung:
 	\begin{equation}\label{eq:eichinv_transformierte}
@@ -2295,35 +2274,34 @@ an die Felder der Maxwell-Theorie.
 		+ m^2\tilde{\Phi}(t) = 0.
 	\end{equation}
 \end{proposition}
+
 \begin{proof}
-	Sei $u \in \mathfrak{E}_\mathbb{C}(G)$ eine komplexe Eckfunktion. Dann gilt:
+	Sei \(u \in \mathfrak{E}_\mathbb{C}(G)\) eine komplexe Eckfunktion. Dann gilt:
 	\begin{align*}
 		\langle u, e^{i\xi}\, \Delta_r^{\,a}(\Phi) \rangle_{\mathfrak{E}}
-		&= \langle r^{-1}\,\mathrm{grad}^{\,\frac{a}{r}}(e^{-i\xi}u),\, 
-		r^{-1}\,\mathrm{grad}^{\,\frac{a}{r}}(\Phi) \rangle_{\mathfrak{K}}.
+		&= \langle r^{-1}\,\mathrm{grad}^{a r}(e^{-i\xi}u),\, 
+		r^{-1}\,\mathrm{grad}^{a r}(\Phi) \rangle_{\mathfrak{K}}.
 	\end{align*}
-	\\
-	Wir erweitern nun den Ausdruck im Skalarprodukt mit $e^{i\xi(p(e))}$ und wenden Hilfssatz~\ref{lem:eichgradient} an: 
+	Wir erweitern nun den Ausdruck im Skalarprodukt mit \(e^{i\xi(p(e))}\) und wenden 
+	Hilfssatz~\ref{lem:eichgradient} an: 
 	\begin{align*}
-		&\langle r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,\frac{a}{r}}(e^{-i\xi}u),\, 
-		r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,\frac{a}{r}}(\Phi) \rangle_{\mathfrak{K}}\\[4pt]
-		&= \langle r^{-1}\,\mathrm{grad}^{\,\frac{a + r\,\mathrm{grad}(\xi)}{r}}u,\, 
-		r^{-1}\,\mathrm{grad}^{\,\frac{a + r\,\mathrm{grad}(\xi)}{r}}(e^{i\xi}\Phi) \rangle_{\mathfrak{K}} \\[4pt]
-		&= \langle u,\, \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}}.
+		&\langle r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{a r}(e^{-i\xi}u),\, 
+		r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,a r}(\Phi) \rangle_{\mathfrak{K}}\\
+		&= \langle r^{-1}\,\mathrm{grad}^{(a + r^{-1}\mathrm{grad}(\xi))r}u,\, 
+		r^{-1}\,\mathrm{grad}^{(a + r^{-1}\mathrm{grad}(\xi))r}\Phi \rangle_{\mathfrak{K}} \\
+		&= \langle u,\, \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}}.
 	\end{align*}
-	\\
 	Damit folgt:
 	\begin{equation*}
 		\langle u,\, e^{i\xi}\,\Delta_r^{\,a}(\Phi)
-		- \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}} = 0.
+		- \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}} = 0.
 	\end{equation*}
-	Da $u$ beliebig war, gilt somit
+	Da \(u\) beliebig war, gilt somit:
 	\begin{equation}\label{eq:eichinv_delta}
 		e^{i\xi}\,\Delta_r^{\,a}(\Phi)
-		= \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi).
+		= \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi).
 	\end{equation}
-	\\
-	Außerdem zeigt eine direkte Rechnung, dass
+	Außerdem zeigt eine direkte Rechnung, dass:
 	\begin{equation}\label{eq:eichinv_time}
 		\left(\frac{\partial}{\partial t}
 		- i\bigl(\phi - \xi'\bigr)\right)
@@ -2333,25 +2311,28 @@ an die Felder der Maxwell-Theorie.
 		\left(\frac{\partial}{\partial t} - i\phi\right)
 		\left(\frac{\partial}{\partial t} + i\phi\right)\Phi,
 	\end{equation}
-	wobei $\tilde{\Phi} = e^{i\xi}\Phi$. \\
-	\\
-	Setzt man \eqref{eq:eichinv_delta} und \eqref{eq:eichinv_time} in die Gleichung~\eqref{eq:eichinv_ursprung} ein, so erhält man unmittelbar die transformierte Gleichung~\eqref{eq:eichinv_transformierte}. Damit ist die Aussage gezeigt.
+	wobei \(\tilde{\Phi} = e^{i\xi}\Phi\). Setzt man \eqref{eq:eichinv_delta} und 
+	\eqref{eq:eichinv_time} in die Gleichung~\eqref{eq:eichinv_ursprung} ein, so erhält 
+	man unmittelbar die transformierte Gleichung~\eqref{eq:eichinv_transformierte}. 
+	Damit ist die Aussage gezeigt.\qedhere
 \end{proof}
 \noindent
-Wir können uns somit, wie bereits in der Maxwell-Theorie getan,
-ohne Beschränkung der Allgemeinheit auf den Fall $\phi \equiv 0$ beschränken 
-und werden dies von nun an auch so tun, um eine hamiltonsche Formulierung der Theorie zu erhalten. \\
+Wir können uns somit, wie bereits in der Maxwell-Theorie, ohne Beschränkung der 
+Allgemeinheit auf den Fall \(\phi \equiv 0\) beschränken und werden dies von nun an 
+so tun, um eine hamiltonsche Formulierung der Theorie zu erhalten.\\
 \\
-Betrachten wir nun einige grundlegende Eigenschaften der Gleichung, 
-insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösungen. 
+Betrachten wir nun einige grundlegende Eigenschaften der Gleichung, insbesondere 
+Erhaltungsgrößen und die physikalische Interpretation der Lösungen.
 \begin{proposition}[Kontinuitätsgleichung]\label{prop:kontinuitaet}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
+	Sei $G$ ein planares metrisches Netz, $m > 0$ eine reelle Zahl, 
 	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
-	und sei $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
+	und sei $\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
 	eine Lösung der Klein-Gordon-Gleichung~\eqref{eq:klein_gordon} 
-	mit Anfangsbedingung $\Phi(0) = \Phi_0 \in \mathfrak{E}_\mathbb{C}(G)$. \\
-	\\
+	mit Anfangsbedingung 
+	\begin{align}
+		\Phi(0) &= \Phi_0\in \mathfrak{E}_\mathbb{C}(G)\nonumber\\
+		\Phi'(0) &= v_0 \in \mathfrak{E}_\mathbb{C}(G)\nonumber
+	\end{align}
 	Dann erfüllen die Größen 
 	\emph{Ladungsdichte} $q \in C^1(\mathbb{R}, \mathfrak{E}(G))$ 
 	und \emph{Stromdichte} $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ die Kontinuitätsgleichung
@@ -2362,13 +2343,12 @@ insbesondere Erhaltungsgrößen und die physikalische Interpretation der Lösung
 	Hierbei sind $q$ und $j$ durch
 	\begin{align}
 		q(t) &= \Im\!\bigl(\Phi(t)\,\overline{\Phi'(t)}\bigr), \label{eq:kg_qdef}\\[4pt]
-		j(e,t) &= -\text{div}^{-1} \Im(\overline{\Phi(t)}\Delta^a_r(\Phi(t)))(e)\label{eq:kg_jedge}\\
-		&= -\Im\!\left(
+		j(e,t) & -\Im\!\left(
 		\frac{1}{r(e)^2}\,
 		\overline{\Phi(p(e),t)}\,
 		\Phi(q(e),t)\,
-		e^{\,i\,a(e)/r(e)}
-		\right) \nonumber
+		e^{\,i\,a(e)r(e)}
+		\right) \label{eq:kg_jedge}
 	\end{align}
 	definiert.
 \end{proposition}
@@ -2984,7 +2964,7 @@ Falls die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} nicht erf�
 einen nicht-trivialen Kern besitzt, existiert keine unter der Klein-Gordon- Zeitentwicklung 
 erhaltene Wahrscheinlichkeitsdichte. Dies ist im Fall der Klein-Gordon-Gleichung genau dann der Fall wenn (siehe \ref{rem:Eichgradient-Kern})
 \begin{equation}
-	\frac{a}{r} \in \operatorname{Bild}(\mathrm{grad})
+	ar \in \operatorname{Bild}(\mathrm{grad})
 \end{equation}
 \iffalse
 Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es keine M\"oglichkeit , dass die Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
