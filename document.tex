@@ -642,7 +642,7 @@ Bisher haben wir in diesem Kapitel nur kombinatorische Strukturen betrachtet, ab
 	\end{align}
 	für alle $g,h\in\mathfrak{E}$, $u,v\in\mathfrak{K}$ und $f,g\in\mathfrak{F}$.
 \end{definition}
-\begin{proposition}
+\begin{proposition}\label{prop:metr_adj}
 	Sei $G=(V,E,F,p,q,h,h_D)$ ein metrisches Netz, dann gilt
 \[
 	\frac{\mathrm{div}r_D}{\mathbb{A}_D} = - r^{-1}\mathrm{grad}^\top
@@ -2160,22 +2160,23 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 		\mathrm{grad}^a(\Phi)(e) := \Phi(p(e)) - \Phi(q(e)) e^{i a(e)}.
 	\end{equation}
 	Falls \(G\) zusätzlich ein metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\) ist, 
-	dann heißt
+	dann nennen wir mit
 	\begin{equation}
-		\Delta^a_r(\Phi)(v) := \left(\mathrm{grad}^{a r\,\dagger} \left(r^{-2} \mathrm{grad}^{a r}(\Phi)\right)\right)(v)
+	(\frac{1}{r}\mathrm{grad}^{a r}\Phi)(e) = \frac{1}{r(e)}(\Phi(p(e)) - \Phi(q(e)) e^{i a(e)r(e)})
 	\end{equation}
-	der \textbf{\(a\)-gewichtete Eich-Laplace-Operator} an der Ecke \(v \in V\).
+	den metrischen Eichgradieten.
 \end{definition}
 \begin{remark}\label{rem:Eichgradient-Kern}
 	Sei \(G\) ein planares Netz und \(a \in \mathfrak{K}(G)\) eine Kantenfunktion. 
 	Dann hat der Eichgradient \(\mathrm{grad}^{a}\) genau dann einen nichttrivialen Kern, 
 	wenn
 	\begin{equation}\label{eq:Eichgradient-Kernbedingung}
-		a \in \operatorname{Bild}(\mathrm{grad}).
+		a \in \operatorname{Bild}(\mathrm{grad})+2\pi n.
 	\end{equation}
+	für $n\in\mathbb{Z}^E$.
 \end{remark}
 \begin{lemma}\label{lem:eichgradient}
-	Sei $G$ ein \textbf{planares Netz}, $a \in \mathfrak{K}(G)$ eine reelle Kantenfunktion und $\xi \in \mathfrak{E}(G)$ eine reelle Eckfunktion. \\
+	Sei $G$ ein planares Netz, $a \in \mathfrak{K}(G)$ eine reelle Kantenfunktion und $\xi \in \mathfrak{E}(G)$ eine reelle Eckfunktion. \\
 	\\
 	Dann gilt für jede komplexe Eckfunktion $\Phi \in \mathfrak{E}_\mathbb{C}(G)$ und jede Kante $e \in E$:
 	\begin{equation}
@@ -2193,6 +2194,27 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 		&= e^{i\xi(p(e))}\, \mathrm{grad}^{\,a}(\Phi)(e).
 	\end{align*}
 \end{proof}
+\begin{remark}
+	Sei \(G\) ein planares Netz und \(a \in \mathfrak{K}(G)\) eine Kantenfunktion, dann lässt sich analog zur Divergenz die Adjungierte des Eichgradienten schreiben als
+	\[
+	(\mathrm{grad}^{a})^\dagger\Phi(x) = \sum_{\substack{e\in E \\ p(e)=x}}\Phi(e) \;-\!
+	\sum_{\substack{e\in E \\ q(e)=x}}\Phi(e)e^ {-ia(e)}.\
+	\]
+	Wir definieren daher die \textbf{Eichdivergenz} als \(\mathrm{div}^a=-(\mathrm{grad}^{a})^\dagger\).\\
+	\\
+	Falls $G$ ein planares metrisches Netz ist gilt für die Adjunktion bezüglich der metrischen Skalarprodukte analog zu Satz~\ref{prop:metr_adj}
+	\[
+	\frac{\mathrm{div}^ar_D}{\mathbb{A}_D} = - r^{-1}\mathrm{grad}^{a\dagger}
+	\]
+\end{remark}
+\begin{definition}[Eich-Laplace-Operator]
+	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), \(a \in \mathfrak{K}(G)\) eine Kantenfunktion und 
+	\(\Phi \in \mathfrak{E}_\mathbb{C}(G)\) eine komplexe Eckfunktion, dann heißt
+	\begin{equation}
+		\Delta^a_r(\Phi)(v) := -\left(\frac{\mathrm{div}^{a r}}{\mathbb{A}_D}r_D \left(\frac{1}{r} \mathrm{grad}^{a r}(\Phi)\right)\right)(v)
+	\end{equation}
+	der \textbf{\(a\)-gewichtete Eich-Laplace-Operator} an der Ecke \(v \in V\).
+\end{definition}
 \begin{definition}[Klein-Gordon-Gleichung]\label{def:klein_gordon}
 	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), 
 	\(m > 0\) eine reelle Zahl, \(a \in C^1(\mathbb{R}, \mathfrak{K}(G))\), 
@@ -2278,23 +2300,23 @@ ermöglicht die Kopplung des Klein-Gordon-Feldes an die Felder der Maxwell-Theor
 \begin{proof}
 	Sei \(u \in \mathfrak{E}_\mathbb{C}(G)\) eine komplexe Eckfunktion. Dann gilt:
 	\begin{align*}
-		\langle u, e^{i\xi}\, \Delta_r^{\,a}(\Phi) \rangle_{\mathfrak{E}}
+		\langle u, e^{i\xi}\, \Delta_r^{\,a}(\Phi) \rangle_{\lambda\mathfrak{E}}
 		&= \langle r^{-1}\,\mathrm{grad}^{a r}(e^{-i\xi}u),\, 
-		r^{-1}\,\mathrm{grad}^{a r}(\Phi) \rangle_{\mathfrak{K}}.
+		r^{-1}\,\mathrm{grad}^{a r}(\Phi) \rangle_{\lambda\mathfrak{K}}.
 	\end{align*}
 	Wir erweitern nun den Ausdruck im Skalarprodukt mit \(e^{i\xi(p(e))}\) und wenden 
 	Hilfssatz~\ref{lem:eichgradient} an: 
 	\begin{align*}
 		&\langle r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{a r}(e^{-i\xi}u),\, 
-		r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,a r}(\Phi) \rangle_{\mathfrak{K}}\\
+		r^{-1}\,e^{i\xi(p(e))}\,\mathrm{grad}^{\,a r}(\Phi) \rangle_{\lambda\mathfrak{K}}\\
 		&= \langle r^{-1}\,\mathrm{grad}^{(a + r^{-1}\mathrm{grad}(\xi))r}u,\, 
-		r^{-1}\,\mathrm{grad}^{(a + r^{-1}\mathrm{grad}(\xi))r}\Phi \rangle_{\mathfrak{K}} \\
-		&= \langle u,\, \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}}.
+		r^{-1}\,\mathrm{grad}^{(a + r^{-1}\mathrm{grad}(\xi))r}\Phi \rangle_{\lambda\mathfrak{K}} \\
+		&= \langle u,\, \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\lambda\mathfrak{E}}.
 	\end{align*}
 	Damit folgt:
 	\begin{equation*}
 		\langle u,\, e^{i\xi}\,\Delta_r^{\,a}(\Phi)
-		- \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\mathfrak{E}} = 0.
+		- \Delta_r^{\,a + r^{-1}\mathrm{grad}(\xi)}(e^{i\xi}\Phi) \rangle_{\lambda\mathfrak{E}} = 0.
 	\end{equation*}
 	Da \(u\) beliebig war, gilt somit:
 	\begin{equation}\label{eq:eichinv_delta}
@@ -2337,14 +2359,14 @@ Erhaltungsgrößen und die physikalische Interpretation der Lösungen.
 	\emph{Ladungsdichte} $q \in C^1(\mathbb{R}, \mathfrak{E}(G))$ 
 	und \emph{Stromdichte} $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ die Kontinuitätsgleichung
 	\begin{equation}\label{eq:kg_kontinuitaet}
-		q'(t) + \mathrm{div}(j(t)) = 0.
+		q'(t) + \frac{\mathrm{div}}{\mathbb{A}_D}(r_Dj(t)) = 0.
 	\end{equation}
 	\\
 	Hierbei sind $q$ und $j$ durch
 	\begin{align}
 		q(t) &= \Im\!\bigl(\Phi(t)\,\overline{\Phi'(t)}\bigr), \label{eq:kg_qdef}\\[4pt]
 		j(e,t) &= -\Im\!\left(
-		\frac{1}{r(e)^2}\,
+		\frac{1}{r(e)}\,
 		\overline{\Phi(p(e),t)}\,
 		\Phi(q(e),t)\,
 		e^{\,i\,a(e)r(e)}
@@ -2389,58 +2411,58 @@ Erhaltungsgrößen und die physikalische Interpretation der Lösungen.
 	\noindent
 	Die Ableitung \(q'\) liegt im Bild der Divergenz. Nach dem de'Rham Komplex Theorem liegt eine Eckfunktion genau dann im Bild der Divergenz falls die Summe über alle Ecken gleich Null ist. Dies ist leicht zu zeigen
 	\[
-	\sum_{v \in V} \Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr)
-	= \Im\!\bigl(\langle \Phi, \Delta_r^{\,a}(\Phi) \rangle_{\mathfrak{E}}\bigr) = 0,
+	\sum_{v \in V} \mathbb{A}_D(v)\Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr)
+	= \Im\!\bigl(\langle \Phi, \Delta_r^{\,a}(\Phi) \rangle_{\lambda\mathfrak{E}}\bigr) = 0,
 	\]	
-	denn \(\Delta_r^{\,a}\) ist selbstadjungiert und der Erwartungswert daher reell.  \\
+	denn \(\Delta_r^{\,a}\) ist selbstadjungiert bezüglich $\langle.,.\rangle_{\lambda\mathfrak{E}}$ und der Erwartungswert ist daher reell.  \\
 	\\
 	Es folgt, dass eine Kantenfunktion \(j \in \mathfrak{K}(G)\) existiert mit
 	\[
-	q'(t) = -\,\mathrm{div}(j(t)).
+	q'(t) = -\,\frac{\mathrm{div}}{\mathbb{A}_D}(r_Dj(t)).
 	\]
 	Wir bestimmen diese explizit. Sei \(x \in V\) und definiere \(\psi \in \mathfrak{E}(G)\) durch
 	\[
 	\psi(y) = \Phi(x)\,\delta_{x,y}.
 	\]
 	Dann gilt für die Divergenz des Stromes:
-	\begin{align*}
+	\begin{align*} 
 		\Im\!\bigl(\overline{\Phi(x)}\,\Delta_r^{\,a} \Phi(x)\bigr)
-		&= \Im\!\bigl(\langle \psi,\, \Delta_r^{\,a}(\Phi)\rangle_{\mathfrak{E}}\bigr)
-		= -\Im\!\bigl(\langle \mathrm{grad}^{\,a/r}(\psi),\, 
-		\tfrac{1}{r^2}\mathrm{grad}^{\,a/r}(\Phi) \rangle_{\mathfrak{K}}\bigr) \\[4pt]
-		&=\Im\!\left(
+		&= \mathbb{A}_D(x)^{-1}\Im\!\bigl(\langle \psi,\, \Delta_r^{\,a}(\Phi)\rangle_{\lambda\mathfrak{E}}\bigr)
+		= \mathbb{A}_D(x)^{-1}\Im\!\bigl(\langle \mathrm{grad}^{\,ar}(\psi),\, 
+		\tfrac{r_D}{r}\mathrm{grad}^{\,ar}(\Phi) \rangle_{\lambda\mathfrak{K}}\bigr) \\[4pt]
+		&=\mathbb{A}_D(x)^{-1}\Im\!\left(
 		\sum_{\substack{e\in E \\ q(e)=x}}
-		\frac{1}{r(e)^2}\,
+		\frac{r_D}{r}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
-		e^{i a(e)/r(e)}
+		e^{i a(e)r(e)}
 		\right. \\[2pt]
 		&\hspace{3.5cm}\left.
 		- 
 		\sum_{\substack{e\in E \\ p(e)=x}}
-		\frac{1}{r(e)^2}\,
+		\frac{r_D}{r}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
-		e^{i a(e)/r(e)} 
+		e^{i a(e)r(e)} 
 		\right) \\[4pt]
-		&= \mathrm{div}\!\left(
+		&= \frac{\mathrm{div}}{\mathbb{A}_D}\!\left(
 		\Im\!\left(
-		\frac{1}{r(e)^2}\,
+		\frac{r_D}{r}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
-		e^{i a(e)/r(e)}
+		e^{i a(e)r(e)}
 		\right)
 		\right)(x).
 	\end{align*}
 	\\
 	Damit ergibt sich der gesuchte Ausdruck
 	\[
-	q'(t) = -\,\mathrm{div}(j(t)), \qquad
+	q'(t) = -\,\frac{\mathrm{div}}{\mathbb{A}_D}(r_Dj(t)), \qquad
 	j(e,t) = -\Im\!\left(
-	\frac{1}{r(e)^2}\,
+	\frac{1}{r(e)}\,
 	\overline{\Phi(p(e),t)}\,
 	\Phi(q(e),t)\,
-	e^{i a(e)/r(e)}
+	e^{i a(e)r(e)}
 	\right),
 	\]
 	und somit die Kontinuitätsgleichung~\eqref{eq:kg_kontinuitaet}.
