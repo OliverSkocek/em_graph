@@ -2350,11 +2350,7 @@ Erhaltungsgrößen und die physikalische Interpretation der Lösungen.
 	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
 	und sei $\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
 	eine Lösung der Klein-Gordon-Gleichung~\eqref{eq:klein_gordon} 
-	mit Anfangsbedingung 
-	\begin{align}
-		\Phi(0) &= \Phi_0\in \mathfrak{E}_\mathbb{C}(G)\nonumber\\
-		\Phi'(0) &= v_0 \in \mathfrak{E}_\mathbb{C}(G)\nonumber
-	\end{align}
+	mit Anfangsdaten \(\Phi(0)=\Phi_0\) und \(\Phi'(0)=v_0\).
 	Dann erfüllen die Größen 
 	\emph{Ladungsdichte} $q \in C^1(\mathbb{R}, \mathfrak{E}(G))$ 
 	und \emph{Stromdichte} $j \in C^1(\mathbb{R}, \mathfrak{K}(G))$ die Kontinuitätsgleichung
@@ -2468,76 +2464,91 @@ Erhaltungsgrößen und die physikalische Interpretation der Lösungen.
 	und somit die Kontinuitätsgleichung~\eqref{eq:kg_kontinuitaet}.
 \end{proof}
 \noindent
-Die Ladungsdichte $q$ und der Strom $j$ sind die \textbf{Messgrößen} 
-der Klein-Gordon-Theorie, während $\Phi$, analog zu den Potentialen der 
-Maxwell-Theorie, keine direkte beobachtbare Größe ist. \\
+\noindent
+Die Ladungsdichte \(q\) und die Stromdichte \(j\) sind die \textbf{Messgrößen} 
+der Klein-Gordon-Theorie, während \(\Phi\), analog zu den Potentialen der 
+Maxwell-Theorie, keine unmittelbar beobachtbare Größe ist.\\
 \\
-Wir vergewissern uns zunächst, dass die in~\eqref{eq:kg_qdef} 
-und~\eqref{eq:kg_jedge} definierten Größen $q$ und $j$ 
-tatsächlich unverändert unter der erweiterten Eichtransformation 
-(Definition~\ref{def:erw_eich}) bleiben.\footnote{Da wir hier 
+Wir vergewissern uns zunächst, dass die durch \eqref{eq:kg_qdef} und 
+\eqref{eq:kg_jedge} definierten Größen \(q\) und \(j\) unter der erweiterten 
+Eichtransformation aus Definition~\ref{def:erw_eich} invariant sind.\footnote{Da wir hier 
 	$\phi \equiv 0$ annehmen, ist $\xi$ zeitlich konstant.} 
 \begin{corollary}\label{cor:eichinvarianz_qj}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
-	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
-	und $\xi \in \mathfrak{E}(G)$. \\
-	\\
-	Dann bleiben die in~\eqref{eq:kg_qdef} und~\eqref{eq:kg_jedge} 
-	definierten Größen
-	\[
-	q = \Im(\Phi\,\overline{\Phi}'), 
-	\qquad
-	j(e) = -\Im\!\left(
-	\frac{1}{r(e)^2}\,
-	\overline{\Phi(p(e))}\,
-	\Phi(q(e))\,
-	e^{i a(e)/r(e)}
-	\right)
-	\]
-	nach Anwendung der Transformation $\gamma_\xi$ 
-	aus Definition~\ref{def:erw_eich} unverändert, d.\,h.
-	\[
-	\tilde{q} = q, 
-	\qquad
-	\tilde{j} = j.
-	\]
-\end{corollary}
-\noindent
+		Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), \(m>0\), 
+		\(a\in C^1(\mathbb R,\mathfrak K(G))\), 
+		\(\Phi\in C^2(\mathbb R,\mathfrak E_{\mathbb C}(G))\) und 
+		\(\xi\in\mathfrak E(G)\). \\
+		\\
+		Dann bleiben die durch \eqref{eq:kg_qdef} und \eqref{eq:kg_jedge} definierten 
+		Ladungsdichte
+		\[
+		q=\Im(\Phi\,\overline{\Phi'})
+		\]
+		und Stromdichte
+		\[
+		j(e)=-\Im\!\left(
+		\frac1{r(e)}\,
+		\overline{\Phi(p(e))}\,
+		\Phi(q(e))\,
+		e^{ia(e)r(e)}
+		\right)
+		\]
+		unter der erweiterten Eichtransformation \(\gamma_\xi\) aus 
+		Definition~\ref{def:erw_eich} invariant, das heißt
+		\[
+		\tilde q=q,
+		\qquad
+		\tilde j=j.
+		\]
+	\end{corollary}
 \begin{proof}
-	Da $\xi$ zeitlich konstant ist, gilt für die transformierte Funktion 
-	\(\tilde{\Phi} = e^{i\xi}\Phi\): 
+	Da \(\xi\) zeitlich konstant ist, gilt für \(\tilde\Phi=e^{i\xi}\Phi\):
 	\[
-	\tilde{\Phi}' = e^{i\xi}\Phi',
+	\tilde\Phi'=e^{i\xi}\Phi'.
 	\]
-	woraus unmittelbar folgt, dass
+	Somit folgt
 	\[
-	\tilde{q} 
-	= \Im(\tilde{\Phi}\,\overline{\tilde{\Phi}}')
-	= \Im\!\left(e^{i\xi}\Phi\, \overline{e^{i\xi}\Phi}'\right)
-	= \Im(\Phi\,\overline{\Phi}')
-	= q.
+	\tilde q
+	=\Im\!\left(\tilde\Phi\,\overline{\tilde\Phi'}\right)
+	=\Im\!\left(e^{i\xi}\Phi\,\overline{e^{i\xi}\Phi'}\right)
+	=\Im(\Phi\,\overline{\Phi'})
+	=q.
 	\]
-	\\
-	Um zu zeigen, dass auch $j$ unverändert bleibt, genügt es zu prüfen, 
-	dass der Ausdruck 
-	\(\Im(\overline{\Phi}\,\Delta_r^{\,a}(\Phi))\) invariant ist. \\
-	\\
-	Im Beweis von Satz~\ref{prop:eichinvarianz_kg} 
-	(unter Verwendung von Hilfssatz~\ref{lem:eichgradient}) wurde gezeigt, dass
+	Für die Stromdichte gilt nach Definition~\ref{def:erw_eich}
 	\[
-	e^{i\xi}\,\Delta_r^{\,a}(\Phi)
-	= \Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi).
+	\tilde a=a+\frac1r\operatorname{grad}(\xi),
 	\]
-	Nimmt man hier von den Imaginärteil nach Multiplikation mit 
-	\(\overline{e^{i\xi}\Phi}\), erhält man
+	und daher ist
 	\[
-	\Im\!\bigl(\overline{e^{i\xi}\Phi}\,
-	\Delta_r^{\,a + r\,\mathrm{grad}(\xi)}(e^{i\xi}\Phi)\bigr)
-	= \Im\!\bigl(\overline{\Phi}\,\Delta_r^{\,a}(\Phi)\bigr).
+	\tilde a(e)r(e)
+	=a(e)r(e)+\operatorname{grad}(\xi)(e)
+	=a(e)r(e)+\xi(p(e))-\xi(q(e)).
 	\]
-	Damit folgt, dass $\tilde{j} = j$ gilt und somit beide Größen 
-	Eichinvarianz besitzen.
+	Einsetzen ergibt
+	\[
+	\begin{aligned}
+		\tilde j(e)
+		&=-\Im\!\left(
+		\frac1{r(e)}
+		\overline{\tilde\Phi(p(e))}
+		\tilde\Phi(q(e))
+		e^{i\tilde a(e)r(e)}
+		\right)\\
+		&=-\Im\!\left(
+		\frac1{r(e)}
+		\overline{e^{i\xi(p(e))}\Phi(p(e))}
+		e^{i\xi(q(e))}\Phi(q(e))
+		e^{i(a(e)r(e)+\xi(p(e))-\xi(q(e)))}
+		\right)\\
+		&=-\Im\!\left(
+		\frac1{r(e)}
+		\overline{\Phi(p(e))}\Phi(q(e))
+		e^{ia(e)r(e)}
+		\right)\\
+		&=j(e).
+	\end{aligned}
+	\]
+	Somit sind \(q\) und \(j\) eichinvariant.
 \end{proof}
 \noindent
 Um das Thema Ladung und Strom abzuschließen, 
@@ -2545,8 +2556,7 @@ betrachten wir nun eine spezielle Transformation, die sogenannte
 \textbf{Ladungskonjugation}, 
 welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
 \begin{proposition}[Ladungskonjugation]\label{prop:ladungskonjugation}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion 
+	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), \(m>0\) eine reelle Zahl
 	und $a \in C^1(\mathbb{R}, \mathfrak{K}(G))$ wie in Definition~\ref{def:klein_gordon}. \\
 	\\
 	Ist $\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ eine Lösung der 
@@ -2603,16 +2613,16 @@ welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
 	\begin{align*}
 		j_{\overline{\Phi}}^{-a}(e) 
 		&= -\,\Im\!\left(
-		\frac{1}{r(e)^2}\,
+		\frac{1}{r(e)}\,
 		\overline{\overline{\Phi(p(e))}}\,
 		\overline{\Phi(q(e))}\,
-		e^{-i a(e)/r(e)}
+		e^{-i a(e)r(e)}
 		\right) \\[4pt]
 		&= +\,\Im\!\left(
-		\frac{1}{r(e)^2}\,
+		\frac{1}{r(e)}\,
 		\overline{\Phi(p(e))}\,
 		\Phi(q(e))\,
-		e^{i a(e)/r(e)} 
+		e^{i a(e)r(e)} 
 		\right)
 		= -\,j_{\Phi}^{\,a}(e).
 	\end{align*}
