@@ -2633,59 +2633,95 @@ welche die Vorzeichen von Ladung $q$ und Strom $j$ invertiert.
 	womit die Behauptung gezeigt ist.
 \end{proof}
 \noindent
-Das Klein-Gordon-Feld besitzt analog zur Maxwell-Theory
-eine zugehörige \textbf{Energiefunktion}, welche das System vollständig beschreibt. 
+Das Klein-Gordon-Feld besitzt analog zur Maxwell-Theorie
+eine zugehörige Energiefunktion, welche das System vollständig beschreibt. 
 Es gilt ein Energieerhaltungssatz, sofern das Eichpotential $a$ zeitunabhängig ist.
-\begin{proposition}[Hamiltonsche Formulierung und Energieerhaltung]\label{prop:kg_hamilton}
-	Sei $G$ ein \textbf{planares Netz}, $m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
-	$a \in \mathfrak{K}(G)$, sowie $\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten. \\
+\begin{proposition}[Hamiltonsche Formulierung und Energieerhaltung]
+	\label{prop:kg_hamilton}
+	Sei \(G\) ein planares metrisches Netz mit Metrik 
+	\(r:E\to\mathbb{R}_{>0}\), \(m>0\), \(a\in\mathfrak{K}(G)\) und 
+	\(\Phi_0,v_0\in\mathfrak{E}_{\mathbb C}(G)\). 
 	\\
-	Seien ferner $\Phi, \pi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ komplexwertige Eckenfunktionen, 
-	wobei wir Real‑ und Imaginärteil durch
-	\begin{align}
-		\Phi &= \Phi_R + i\,\Phi_I, \label{eq:kg_split_phi}\\[4pt]
-		\pi  &= \pi_R + i\,\pi_I \label{eq:kg_split_pi}
-	\end{align}
-	bezeichnen. \\
 	\\
-	Die \textbf{Hamilton-Funktion} der Klein-Gordon-Theorie ist definiert als\footnote{%
-		Die Skalarprodukte beziehen sich auf die Standardskalarprodukte der komplexen 
-		Vektorräume $\mathfrak{E}_\mathbb{C}(G)$ und $\mathfrak{K}_\mathbb{C}(G)$.}
-	\begin{equation}\label{eq:kg_hamilton} 
-		H(\Phi, \pi) 
-		= \frac{1}{2}\Bigl(
-		\langle \pi, \pi \rangle_{\mathfrak{E},\mathbb{C}}
-		+ \langle \Phi, (\Delta_r^{\,a} + m^2)\Phi \rangle_{\mathfrak{E},\mathbb{C}}
-		\Bigr).
+	Seien \(\Phi,\pi\in C^1(\mathbb{R},\mathfrak{E}_{\mathbb C}(G))\), wobei
+	\[
+	\Phi=\Phi_R+i\Phi_I,
+	\qquad
+	\pi=\pi_R+i\pi_I.
+	\]
+	Die \textbf{Hamilton-Funktion} der Klein-Gordon-Theorie ist
+	\begin{equation}\label{eq:kg_hamilton}
+		H(\Phi,\pi)
+		=
+		\frac12\left(
+		\left\langle\frac{\pi}{\mathbb A_D},
+		\frac{\pi}{\mathbb A_D}\right\rangle_{\lambda\mathfrak E}
+		+
+		\left\langle\Phi,(\Delta_r^a+m^2)\Phi\right\rangle_{\lambda\mathfrak E}
+		\right).
 	\end{equation}
-	\\
-	Dann ist $\Phi$ genau dann eine Lösung der Klein-Gordon-Gleichung 
-	mit Impulsvariable $\pi = \Phi'$,
-	wenn die \textbf{Hamiltonschen Bewegungsgleichungen}
+	Dann ist \(\Phi\) genau dann eine Lösung der Klein-Gordon-Gleichung mit
+	\[
+	\pi=\mathbb A_D\Phi',
+	\]
+	wenn \((\Phi,\pi)\) die Hamilton-Gleichungen
 	\begin{align}
-		\frac{1}{2}\,\Phi' &= 
-		\frac{\partial H}{\partial \overline{\pi}}, \label{eq:kg_ham_eq1}\\[4pt]
-		\frac{1}{2}\,\pi' &= 
-		-\,\frac{\partial H}{\partial \overline{\Phi}} \label{eq:kg_ham_eq2}
+		\Phi' &= 2\frac{\partial H}{\partial\overline\pi},
+		\label{eq:kg_ham_eq1}\\
+		\pi' &= -2\frac{\partial H}{\partial\overline\Phi}
+		\label{eq:kg_ham_eq2}
 	\end{align}
-	erfüllt sind.\footnote{%
-		Die Ableitungen sind im Sinne des Wirtinger-Kalküls zu verstehen, 
-		d.\,h. $\partial H / \partial \overline{z}$ behandelt $z$ und $\overline{z}$ 
-		als unabhängige Variablen.}
+	erfüllt.
+	Hierbei sind die Ableitungen im Sinne des Wirtinger-Kalküls zu verstehen.
 \end{proposition}
 \begin{proof}
-	Einsetzen von \eqref{eq:kg_hamilton} in \eqref{eq:kg_ham_eq1} ergibt durch Wirtinger-Differentation:
-	\begin{equation}
-		\frac{\partial H}{\partial \overline{\pi}} = \frac{1}{2} \pi \quad \implies \quad \Phi' = \pi.
-	\end{equation}
-	Einsetzen in \eqref{eq:kg_ham_eq2} liefert:
-	\begin{align}
-		\frac{1}{2} \pi' &= -\frac{\partial H}{\partial \overline{\Phi}} \\
-		&= -\frac{1}{2} (\Delta_r^a + m^2) \Phi \notag \\
-		\implies \quad \Phi'' &= -(\Delta_r^a + m^2) \Phi.
-	\end{align}
-	Damit erfüllen die Hamiltonschen Gleichungen exakt die Klein-Gordon-Gleichung \eqref{eq:klein_gordon} mit Anfangsdaten $\Phi(0) = \Phi_0$, $\Phi'(0) = v_0$. 
+	Wir berechnen zunächst die Wirtinger-Ableitungen der Hamilton-Funktion 
+	\eqref{eq:kg_hamilton}. Wegen
+	\[
+	\left\langle\frac{\pi}{\mathbb A_D},
+	\frac{\pi}{\mathbb A_D}\right\rangle_{\lambda\mathfrak E}
+	=
+	\left\langle\pi,
+	\frac{\pi}{\mathbb A_D}\right\rangle_{\mathfrak E},
+	\]
+	folgt
+	\[
+	\frac{\partial H}{\partial\overline\pi}
+	=
+	\frac12\frac{\pi}{\mathbb A_D}.
+	\]
+	Die erste Hamilton-Gleichung \eqref{eq:kg_ham_eq1} liefert daher
+	\[
+	\Phi'
+	=
+	2\frac{\partial H}{\partial\overline\pi}
+	=
+	\frac{\pi}{\mathbb A_D},
+	\]
+	also
+	\[
+	\pi=\mathbb A_D\Phi'.
+	\]
+	Die zweite Hamilton-Gleichung \eqref{eq:kg_ham_eq2} ergibt
+	\[
+	\pi'
+	=
+	-2\frac{\partial H}{\partial\overline\Phi}
+	=
+	-\mathbb{A}_D(\Delta_r^a+m^2)\Phi.
+	\]
+	Da \(\pi=\mathbb A_D\Phi'\) und \(\mathbb A_D\) zeitunabhängig ist, folgt
+	\[
+	\Phi''
+	=
+	-(\Delta_r^a+m^2)\Phi.
+	\]
+	Dies ist genau die Klein-Gordon-Gleichung \eqref{eq:klein_gordon} für \(\phi\equiv0\).
+	\\
+	\\
+	Umgekehrt folgt aus einer Lösung \(\Phi\) der Klein-Gordon-Gleichung mit 
+	\(\pi=\mathbb A_D\Phi'\) unmittelbar, dass die beiden Hamilton-Gleichungen 
+	erfüllt sind.
 \end{proof}
 \iffalse
 TODO Existenz Lösungen: m+\omega, teilchen abhängig von feld, 
@@ -2696,9 +2732,8 @@ TODO charge and current in classical electrodynamics (following QED Hamiltonian)
 TODO Noether current
 \fi
 \begin{corollary}[Energieerhaltung]\label{cor:kg_energieerhaltung}
-	Sei $G$ ein \textbf{planares Netz}, 
+	Sei $G$ ein planares metrisches Netz mit Metrik $r : E \to \mathbb{R}_{>0}$, 
 	$m > 0$ eine reelle Zahl, 
-	$r : E \to \mathbb{R}_{>0}$ eine positive Kantenfunktion, 
 	$a \in C^1(\mathbb{R}, \mathfrak{K}(G))$, 
 	$\Phi_0, v_0 \in \mathfrak{E}_\mathbb{C}(G)$ Anfangsdaten 
 	und $\Phi \in C^1(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))$ 
@@ -2755,7 +2790,7 @@ TODO Noether current
 \noindent
 Abschließend bemerken wir, dass sich die Klein-Gordon-Gleichung 
 in eine Schrödinger-Form umschreiben lässt. 
-\begin{lemma}[Schrödinger-Form der Klein-Gordon-Gleichung]\label{lem:schroedingerform}
+\begin{lemma}\label{lem:schroedingerform}
 	Sei $L$ eine positiv semidefinite lineare Abbildung auf $V = \mathbb{C}^n$ 
 	($n \geq 1$), $m > 0$ und $u \in C^2(\mathbb{R}, V)$ eine Lösung der Gleichung
 	\begin{equation}\label{eq:kg_abstrakt}
@@ -2827,8 +2862,8 @@ in eine Schrödinger-Form umschreiben lässt.
  		u^{\prime\prime} + Lu+m^2 u&= 0
  	\end{align*}
 \end{proof}
-\begin{proposition}
-	Sei $G$ ein planeres Netz, $m>0$, $r:E\to\mathbb{R}_{>0}$, $a\in\mathfrak{K}(G)$, 
+\begin{proposition}[Schrödinger-Form der Klein-Gordon-Gleichung]
+	Sei $G$ ein planeres metrisches Netz mit Metrik $r:E\to\mathbb{R}_{>0}$, $m>0$, $a\in\mathfrak{K}(G)$, 
 	$\Phi_0,v_0\in\mathfrak{E}_\mathbb{C}(G)$. \\
 	\\
 	Dann existiert selbstadjungierter $H$ auf $\mathfrak{E}_\mathbb{C}(G)\oplus\mathfrak{E}_\mathbb{C}(G)$, sodass 
@@ -2847,7 +2882,7 @@ in eine Schrödinger-Form umschreiben lässt.
 \end{proposition}
 \begin{proof}
 	Der lineare Operator $L = \Delta_r^a:\mathfrak{E}_\mathbb{C}(G)\to\mathfrak{E}_\mathbb{C}(G)$ 
-	ist positiv semidefinit.\\
+	ist positiv semidefinit bezüglich des metrischen Skalarprodukts.\\
 	\\
 	Daher können wir Hilfsatz~\ref{lem:schroedingerform} anwenden und finden eine äquivalente Schrödinger-Form 
 	mit Lösung 
@@ -2996,8 +3031,9 @@ Falls die Voraussetzung $m>0$ im Hilfssatz~\ref{lem:schroedingerform} nicht erf�
 einen nicht-trivialen Kern besitzt, existiert keine unter der Klein-Gordon- Zeitentwicklung 
 erhaltene Wahrscheinlichkeitsdichte. Dies ist im Fall der Klein-Gordon-Gleichung genau dann der Fall wenn (siehe \ref{rem:Eichgradient-Kern})
 \begin{equation}
-	ar \in \operatorname{Bild}(\mathrm{grad})
+	ar \in \operatorname{Bild}(\mathrm{grad}) + 2\pi n
 \end{equation}
+für $n\in\mathbb{Z}^V$.
 \iffalse
 Da die Definition einer Wahrscheinlichkeit in dem Fall unm\"oglich ist, gibt es keine M\"oglichkeit , dass die Assoziation mit einem Knoten(Ort) nicht m\"oglich ist.
 \\
