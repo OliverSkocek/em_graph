@@ -2193,7 +2193,7 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 		&= e^{i\xi(p(e))}\!\left(\Phi(p(e)) - \Phi(q(e))\, e^{i a(e)}\right) \\[4pt]
 		&= e^{i\xi(p(e))}\, \mathrm{grad}^{\,a}(\Phi)(e).
 	\end{align*}
-\end{proof}
+\end{proof} 
 \begin{remark}
 	Sei \(G\) ein planares Netz und \(a \in \mathfrak{K}(G)\) eine Kantenfunktion, dann lässt sich analog zur Divergenz die Adjungierte des Eichgradienten schreiben als
 	\[
@@ -2222,7 +2222,7 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	Anfangsdaten. Dann heißt \(\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))\) eine 
 	\textbf{Lösung der Klein-Gordon-Gleichung}, wenn für alle \(t \in \mathbb{R}\) gilt:
 	\begin{equation}\label{eq:klein_gordon}
-		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
+		\left(\frac{\partial}{\partial t} + i\phi(t)\right)
 		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
 		+ \Delta_r^{\,a(t)} \Phi(t) + m^2 \Phi(t) = 0.
 	\end{equation}
@@ -2268,7 +2268,7 @@ ermöglicht die Kopplung des Klein-Gordon-Feldes an die Felder der Maxwell-Theor
 	und sei \(\Phi \in C^2(\mathbb{R}, \mathfrak{E}_\mathbb{C}(G))\) eine Lösung der 
 	Klein-Gordon-Gleichung~\eqref{eq:klein_gordon}: 
 	\begin{equation}\label{eq:eichinv_ursprung} 
-		\left(\frac{\partial}{\partial t} - i\phi(t)\right)
+		\left(\frac{\partial}{\partial t} + i\phi(t)\right)
 		\left(\frac{\partial}{\partial t} + i\phi(t)\right)\Phi(t)
 		+ \Delta_r^{\,a(t)}\Phi(t) + m^2\Phi(t) = 0.
 	\end{equation}
@@ -2289,7 +2289,7 @@ ermöglicht die Kopplung des Klein-Gordon-Feldes an die Felder der Maxwell-Theor
 	\end{equation}
 	definierte Tripel ebenfalls eine Lösung der Klein-Gordon-Gleichung:
 	\begin{equation}\label{eq:eichinv_transformierte}
-		\left(\frac{\partial}{\partial t} - i\tilde{\phi}(t)\right)
+		\left(\frac{\partial}{\partial t} + i\tilde{\phi}(t)\right)
 		\left(\frac{\partial}{\partial t} + i\tilde{\phi}(t)\right)
 		\tilde{\Phi}(t)
 		+ \Delta_r^{\,\tilde{a}(t)}\tilde{\Phi}(t)
@@ -2326,11 +2326,11 @@ ermöglicht die Kopplung des Klein-Gordon-Feldes an die Felder der Maxwell-Theor
 	Außerdem zeigt eine direkte Rechnung, dass:
 	\begin{equation}\label{eq:eichinv_time}
 		\left(\frac{\partial}{\partial t}
-		- i\bigl(\phi - \xi'\bigr)\right)
+		+ i\bigl(\phi - \xi'\bigr)\right)
 		\left(\frac{\partial}{\partial t}
 		+ i\bigl(\phi - \xi'\bigr)\right)\tilde{\Phi}
 		= e^{i\xi}
-		\left(\frac{\partial}{\partial t} - i\phi\right)
+		\left(\frac{\partial}{\partial t} + i\phi\right)
 		\left(\frac{\partial}{\partial t} + i\phi\right)\Phi,
 	\end{equation}
 	wobei \(\tilde{\Phi} = e^{i\xi}\Phi\). Setzt man \eqref{eq:eichinv_delta} und 
