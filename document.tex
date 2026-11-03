@@ -2204,10 +2204,10 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	\\
 	Falls $G$ ein planares metrisches Netz ist gilt für die Adjunktion bezüglich der metrischen Skalarprodukte analog zu Satz~\ref{prop:metr_adj}
 	\[
-	\frac{\mathrm{div}^ar_D}{\mathbb{A}_D} = - r^{-1}\mathrm{grad}^{a\dagger}
+	\frac{\mathrm{div}^ar_D}{\mathbb{A}_D} = - (r^{-1}\mathrm{grad}^{a})^\dagger
 	\]
 \end{remark}
-\begin{definition}[Eich-Laplace-Operator]
+\begin{definition}[Eich-Laplace-Operator]\label{def:eich_lap}
 	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), \(a \in \mathfrak{K}(G)\) eine Kantenfunktion und 
 	\(\Phi \in \mathfrak{E}_\mathbb{C}(G)\) eine komplexe Eckfunktion, dann heißt
 	\begin{equation}
@@ -2215,6 +2215,23 @@ Zur Formulierung führen wir zunächst den Eichgradienten ein.
 	\end{equation}
 	der \textbf{\(a\)-gewichtete Eich-Laplace-Operator} an der Ecke \(v \in V\).
 \end{definition}
+\begin{remark}
+	Der \(a\)-gewichtete Eich-Laplace-Operator lässt sich explizit als
+	\begin{equation}
+		\Delta^a_r(\Phi)(x)
+		= \mathbb{A}_D^{-1}\Bigg(
+		\sum_{\substack{e\in E\\ p(e)=x}} r_D(e)\bigl(\Phi(x)-e^{iar(e)}\Phi(q(e))\bigr)
+		-\sum_{\substack{e\in E\\ q(e)=x}} r_D(e)\bigl(e^{-iar(e)}\Phi(p(e))-\Phi(x)\bigr)
+		\Bigg)
+	\end{equation}
+	schreiben.\\
+	\\
+	Der Operator ist unabhängig von der Wahl der Kantenorientierung:
+	Dreht man die Ausrichtung einer einzelnen Kante \(e\) um, so wechselt
+	\(a(e)\) sein Vorzeichen, da die Phase \(a\) relativ zur Kantenrichtung
+	definiert ist. Der Beitrag der gedrehten Kante geht damit von einer
+	Teilsumme in die andere über und bleibt dabei unverändert.
+\end{remark}
 \begin{definition}[Klein-Gordon-Gleichung]\label{def:klein_gordon}
 	Sei \(G\) ein planares metrisches Netz mit Metrik \(r : E \to \mathbb{R}_{>0}\), 
 	\(m > 0\) eine reelle Zahl, \(a \in C^1(\mathbb{R}, \mathfrak{K}(G))\), 
