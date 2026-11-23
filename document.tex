@@ -1790,7 +1790,7 @@ Dies wollen wir für den vereinfachten Fall des ladungsfreien und stromlosen Fal
 	= \frac{1}{2}\bigl\langle \tilde{a}, \tilde{Q} \tilde{a}\bigr\rangle_{\mathfrak{K}},
 	\]
 	wobei \(\tilde{Q} := S^{-1} Q S^{-1}\). Der Operator \(\tilde{Q}\) ist symmetrisch und positiv 
-	semidefinit, weil \(Q\) positiv semidefinit ist (als Produkt adjungierter Operatoren) 
+	semidefinit bezüglich des $\langle \cdot,\cdot\rangle_\mathfrak{K}$ Skalarprodukts, weil \(Q\) positiv semidefinit ist (als Produkt adjungierter Operatoren) 
 	und \(S\) positiv definit und diagonal.\\
 	\\
 	\textbf{Schritt 3: Diagonalisierung des Potentialterms.}\\
@@ -3060,113 +3060,192 @@ Es gibt daher keine Ein-Photon Schr\"odingergleichung!
 \newpage
 
 \section{Quantentheorie des Klein-Gordon-Feldes}
-Die Quantisierung der Klein-Gordon-Theorie erfolgt analog zur Maxwell-Theorie. 
-Zunächst definieren wir den zugehörigen Hilbertraum. 
-\begin{definition}[Hilbertraum der Klein-Gordon-Theorie]\label{def:KG-Hilbertraum}
-	Sei $G$ ein \textbf{planares Netz}. Der \textbf{Hilbertraum der quantisierten Klein-Gordon-Theorie} ist der Raum quadratintegrierbarer komplexwertiger Funktionen auf $\mathfrak{E}_\mathbb{C}(G)$:
+Die Quantisierung der Klein-Gordon-Theorie erfolgt analog zur Quantisierung
+der Maxwell-Theorie. Zunächst definieren wir den zugehörigen Hilbertraum.
+
+\begin{definition}[Hilbertraum der Klein-Gordon-Theorie]
+	\label{def:KG-Hilbertraum}
+	Sei $G$ ein planares Netz. Der \textbf{Hilbertraum der quantisierten
+		Klein-Gordon-Theorie} ist der Raum der quadratintegrierbaren, komplexwertigen
+	Funktionen auf $\mathfrak{E}_{\mathbb C}(G)$:
 	\[
-	\mathfrak{H}_{KG}(G) = L^2(\mathfrak{E}_\mathbb{C}(G), \mathbb{C}; \lambda),
+	\mathfrak H_{KG}(G)
+	=
+	L^2\bigl(\mathfrak E_{\mathbb C}(G),\mathbb C;\lambda\bigr),
 	\]
-	wobei $\lambda$ das Lebesgue-Maß auf $\mathfrak{E}_\mathbb{C}(G)$ bezeichnet. 
+	wobei $\lambda$ das Lebesgue-Maß auf $\mathfrak E_{\mathbb C}(G)$ bezeichnet.
 	\\
 	\\
 	Das Skalarprodukt ist gegeben durch
-	\begin{equation}\label{eq:KG-Hilbertraum-Skalarprodukt}
-		\langle \phi, \xi \rangle_{\mathfrak{H}} = \int_{\mathfrak{E}_\mathbb{C}(G)} \overline{\phi(x)}\, \xi(x)\, d\lambda(x)
+	\begin{equation}
+		\label{eq:KG-Hilbertraum-Skalarprodukt}
+		\langle \phi,\xi\rangle_{\mathfrak H_{KG}}
+		=
+		\int_{\mathfrak E_{\mathbb C}(G)}
+		\overline{\phi(x)}\,\xi(x)\,d\lambda(x)
 	\end{equation}
-	für alle $\phi, \xi \in \mathfrak{H}_{KG}(G)$.
+	für alle $\phi,\xi\in\mathfrak H_{KG}(G)$.
 \end{definition}
 \noindent
-Als Nächstes definieren wir die Feldoperatoren der Klein-Gordon-Theorie. Eine Betrachtung der Hamilton-Funktion der Klein-Gordon-Theorie liefert dann, analog zum elektromagnetischen Feld, die zugehörige Schrödinger-Gleichung.
-\begin{definition}[Feldoperatoren und Hamiltonoperator des Klein-Gordon-Feldes]\label{def:KG-Feldoperatoren}
-	Sei $G$ ein \textbf{planares Netz}, $m>0$ eine reelle Zahl, 
-	sowie $r:E\to\mathbb{R}_{>0}$ und $a\in\mathfrak{K}(G)$ Kantenfunktionen.  
+Als Nächstes definieren wir die Feldoperatoren der Klein-Gordon-Theorie. 
+Eine Betrachtung der Hamilton-Funktion der Klein-Gordon-Theorie liefert dann, 
+analog zum elektromagnetischen Feld, die zugehörige Schrödinger-Gleichung.
+
+\begin{definition}[Feldoperatoren und Hamiltonoperator des Klein-Gordon-Feldes]
+	\label{def:KG-Feldoperatoren}
+	Sei $G$ ein planares metrisches Netz, $m>0$ eine reelle Zahl, 
+	sowie $r:E\to\mathbb R_{>0}$ und $a\in\mathfrak K(G)$ Kantenfunktionen.  
 	\\
 	\\
 	Der \textbf{Hermite-Polynomraum des Klein-Gordon-Feldes} ist definiert als
 	\begin{equation}
-		\mathfrak{D}_{\mathrm{KG}} = \operatorname{span}\Bigl\{ 
-		\Phi \mapsto \Phi_R^\alpha \Phi_I^\beta 
-		e^{-\frac{\|\Phi_R\|^2 + \|\Phi_I\|^2}{2}} 
-		\ :\ 
-		\alpha,\beta \in \mathbb{N}^V \Bigr\} 
-		\subseteq \mathfrak{H}_{\mathrm{KG}}(G), \label{eq:KG-Hermite-Raum}
+		\mathfrak D_{\mathrm{KG}}
+		=
+		\operatorname{span}\Bigl\{
+		\Phi\mapsto
+		\Phi_R^\alpha\Phi_I^\beta
+		e^{-\frac{\|\Phi_R\|^2+\|\Phi_I\|^2}{2}}
+		\;:\;
+		\alpha,\beta\in\mathbb N^V
+		\Bigr\}
+		\subseteq
+		\mathfrak H_{\mathrm{KG}}(G),
+		\label{eq:KG-Hermite-Raum}
 	\end{equation}
-	wobei $\Phi = \Phi_R + i \Phi_I$ mit $\Phi_R, \Phi_I \in \mathfrak{E}(G)$ 
-	und $\alpha = (\alpha_j)_{j\in V}$, $\beta = (\beta_j)_{j\in V}$ 
+	wobei $\Phi=\Phi_R+i\Phi_I$ mit $\Phi_R,\Phi_I\in\mathfrak E(G)$ 
+	und $\alpha=(\alpha_j)_{j\in V}$, $\beta=(\beta_j)_{j\in V}$ 
 	multiindizierte Exponenten sind.\\
 	\\
-	Für jede Ecke $j\in V$ sind der Realteil 
-	$\hat{\Phi}_R(j):\mathfrak{D}_{\mathrm{KG}} \to \mathfrak{D}_{\mathrm{KG}}$ 
-	und Imaginärteil $\hat{\Phi}_I(j):\mathfrak{D}_{\mathrm{KG}} \to \mathfrak{D}_{\mathrm{KG}}$ 
-	des \textbf{Klein-Gordon-Feldoperators} 
-	$\hat{\Phi}(j) = \hat{\Phi}_R(j) + i\,\hat{\Phi}_I(j)$ definiert durch
-	\begin{align}
-		\hat{\Phi}_R(j):\psi \longmapsto (\Phi\mapsto \Phi_{R}(j)\psi(\Phi))\label{eq:KG-PhiR-op}\\
-		\hat{\Phi}_I(j):\psi \longmapsto (\Phi\mapsto \Phi_{I}(j)\psi(\Phi))\label{eq:KG-PhiI-op}
-	\end{align}
-	für alle $\psi \in \mathfrak{D}_{\mathrm{KG}}$.\\
-	\\
-	Analog sind die \textbf{kanonisch konjugierten Impulsoperatoren} 
-	$\hat{\pi}_\Phi(j) = \hat{\pi}_{\Phi_R}(j) + i\,\hat{\pi}_{\Phi_I}(j)$ 
+	Für jede Ecke $j\in V$ sind der Realteil
+	$\hat\Phi_R(j):\mathfrak D_{\mathrm{KG}}\to\mathfrak D_{\mathrm{KG}}$
+	und der Imaginärteil
+	$\hat\Phi_I(j):\mathfrak D_{\mathrm{KG}}\to\mathfrak D_{\mathrm{KG}}$
+	des \textbf{Klein-Gordon-Feldoperators}
+	$\hat\Phi(j)=\hat\Phi_R(j)+i\hat\Phi_I(j)$
 	definiert durch
 	\begin{align}
-		\hat{\pi}_{\Phi_R}(j):\psi \longmapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{R}(j)}(q))\label{eq:KG-piR-op}\\
-		\hat{\pi}_{\Phi_I}(j):\psi \longmapsto (\Phi\mapsto -i\frac{\partial\psi}{\partial \Phi_{I}(j)}(q))\label{eq:KG-piI-op}
+		\hat\Phi_R(j):\psi
+		\longmapsto
+		\bigl(\Phi\mapsto\Phi_R(j)\psi(\Phi)\bigr),
+		\label{eq:KG-PhiR-op}\\
+		\hat\Phi_I(j):\psi
+		\longmapsto
+		\bigl(\Phi\mapsto\Phi_I(j)\psi(\Phi)\bigr),
+		\label{eq:KG-PhiI-op}
 	\end{align}
-	für alle $\psi \in \mathfrak{D}_{\mathrm{KG}}$ und $j\in V$.\\
+	für alle $\psi\in\mathfrak D_{\mathrm{KG}}$.\\
 	\\
-	Die Operatoren $\hat{\Phi}_R(j),\hat{\Phi}_I(j)$ sind Multiplikationsoperatoren, 
-	während $\hat{\pi}_{\Phi_R}(j),\hat{\pi}_{\Phi_I}(j)$ als partielle Ableitungen 
-	nach den Feldkomponenten wirken.\\
+	Analog sind die \textbf{kanonisch konjugierten Impulsoperatoren}
+	$\hat\pi_\Phi(j)=\hat\pi_{\Phi_R}(j)+i\hat\pi_{\Phi_I}(j)$
+	definiert durch
+	\begin{align}
+		\hat\pi_{\Phi_R}(j):\psi
+		\longmapsto
+		\bigl(\Phi\mapsto
+		-i\frac{\partial\psi}{\partial\Phi_R(j)}(\Phi)\bigr),
+		\label{eq:KG-piR-op}\\
+		\hat\pi_{\Phi_I}(j):\psi
+		\longmapsto
+		\bigl(\Phi\mapsto
+		-i\frac{\partial\psi}{\partial\Phi_I(j)}(\Phi)\bigr),
+		\label{eq:KG-piI-op}
+	\end{align}
+	für alle $\psi\in\mathfrak D_{\mathrm{KG}}$ und $j\in V$.\\
 	\\
-	Der \textbf{Hamiltonoperator des Klein-Gordon-Feldes} \(\hat{H}_{\mathrm{KG}}:\mathfrak{D}_{\mathrm{KG}}\mapsto\mathfrak{D}_{\mathrm{KG}}\) definiert durch
+	Die Operatoren $\hat\Phi_R(j)$ und $\hat\Phi_I(j)$ sind
+	Multiplikationsoperatoren, während $\hat\pi_{\Phi_R}(j)$ und
+	$\hat\pi_{\Phi_I}(j)$ als partielle Ableitungen nach den
+	Feldkomponenten wirken.\\
+	\\
+	Der \textbf{Hamiltonoperator des Klein-Gordon-Feldes}
+	\[
+	\hat H_{\mathrm{KG}}:\mathfrak D_{\mathrm{KG}}\to\mathfrak D_{\mathrm{KG}}
+	\]
+	ist definiert durch
 	\begin{equation}
-		\hat{H}_{\mathrm{KG}} 
-		= \frac{1}{2}\left(
-		\sum_{x\in V}\bigl(\hat{\pi}_{\Phi_R}(x)^2 + \hat{\pi}_{\Phi_I}(x)^2\bigr)
-		+ \big\langle \hat{\Phi},\ (\Delta_r^{\,a} + m^2)\hat{\Phi}\big\rangle_{\mathfrak{E},\mathbb{C}}
+		\hat H_{\mathrm{KG}}
+		=
+		\frac12
+		\left(
+		\sum_{x\in V}
+		\left(
+		\frac{\hat\pi_{\Phi_R}(x)^2}{\mathbb A_D(x)}
+		+
+		\frac{\hat\pi_{\Phi_I}(x)^2}{\mathbb A_D(x)}
+		\right)
+		+
+		\left\langle
+		\hat\Phi,
+		(\Delta_r^a+m^2)\hat\Phi
+		\right\rangle_{\lambda\mathfrak E}
 		\right).
 		\label{eq:KG-Hamilton}
 	\end{equation}
-	Hierbei wird das Skalarprodukt $\langle\cdot,\cdot\rangle_{\mathfrak{E},\mathbb{C}}$ komponentenweise auf 
-	$\mathfrak{E}_\mathbb{C}(G)$ verstanden, d.\,h.
+	Hierbei wird das Skalarprodukt
+	$\langle\cdot,\cdot\rangle_{\lambda\mathfrak E}$
+	komponentenweise auf $\mathfrak E_{\mathbb C}(G)$ verstanden, d.\,h.
 	\[
-	\big\langle \hat{\Phi},\ (\Delta_r^{\,a} + m^2)\hat{\Phi}\big\rangle_{\mathfrak{E},\mathbb{C}}
-	= \sum_{x\in V} 
-	\overline{\hat{\Phi}(x)}\,\bigl((\Delta_r^{\,a} + m^2)\hat{\Phi}\bigr)(x).
+	\left\langle
+	\hat\Phi,
+	(\Delta_r^a+m^2)\hat\Phi
+	\right\rangle_{\lambda\mathfrak E}
+	=
+	\sum_{x\in V}\mathbb{A}_D(x)
+	\overline{\hat\Phi(x)}
+	\bigl((\Delta_r^a+m^2)\hat\Phi\bigr)(x).
 	\]
-	Sei $\psi_0 \in \mathfrak{H}(G)$ gegeben. 
-	Eine Abbildung $\psi \in C^1(\mathbb{R},\mathfrak{H}(G))$ heißt 
-	\textbf{Lösung der Schrödinger-Gleichung des Klein-Gordon-Feldes}, 
+	Sei $\psi_0\in\mathfrak H(G)$ gegeben. Eine Abbildung
+	$\psi\in C^1(\mathbb R,\mathfrak H(G))$ heißt
+	\textbf{Lösung der Schrödinger-Gleichung des Klein-Gordon-Feldes},
 	wenn sie die Gleichung
 	\begin{equation}
-		i\,\frac{\mathrm{d}}{\mathrm{d}t}\,\psi(t) = \hat{H}_{\mathrm{KG}}\,\psi(t),
-		\qquad t\in\mathbb{R},
+		i\frac{\mathrm d}{\mathrm dt}\psi(t)
+		=
+		\hat H_{\mathrm{KG}}\psi(t),
+		\qquad t\in\mathbb R,
 		\label{eq:KG-Schroedinger}
 	\end{equation}
 	mit der Anfangsbedingung
 	\begin{equation}
-		\psi(0) = \psi_0
+		\psi(0)=\psi_0
 		\label{eq:KG-Schroedinger-IC}
 	\end{equation}
 	erfüllt.
 \end{definition}
-\begin{theorem}\label{thm:KG-Hamilton-Spektral} 
-	Sei $G$ ein planares Netz, $a\in\mathfrak{K}(G)$ und $r:E\to\mathbb{R}_{>0}$ Kantenfunktionen. 
-	Dann existiert eine unitäre Abbildung $\hat{U}:\mathfrak{H}_{\mathrm{KG}}(G)\to\mathfrak{H}_{\mathrm{KG}}(G)$, 
-	nichtnegative Frequenzen 
-	$(\omega_j)_{j=0}^{|V|-1} \subset \mathbb{R}_{>0}$, sodass für den Hamiltonoperator 
-	$\hat{H}_{\mathrm{KG}}$ des Klein-Gordon-Feldes aus Gleichung~\eqref{eq:KG-Hamilton} gilt:
+\begin{theorem}\label{thm:KG-Hamilton-Spektral}
+	Sei $G$ ein planares metrisches Netz mit Metrik
+	$r:E\to\mathbb R_{>0}$, dualer Metrik
+	$r_D:E\to\mathbb R_{>0}$, Flächenfunktion
+	$\mathbb A:F\to\mathbb R_{>0}$ und dualer Flächenfunktion
+	$\mathbb A_D:V\to\mathbb R_{>0}$.
+	Sei weiterhin $a\in\mathfrak K(G)$ eine Kantenfunktion und
+	$m>0$ eine reelle Zahl.
+	\\
+	\\
+	Dann existiert eine unitäre Abbildung
+	\[
+	\hat U:\mathfrak H_{\mathrm{KG}}(G)\to\mathfrak H_{\mathrm{KG}}(G)
+	\]
+	und nichtnegative Frequenzen
+	\[
+	(\omega_j)_{j=0}^{|V|-1}\subset\mathbb R_{\ge0},
+	\]
+	sodass für den Hamiltonoperator
+	$\hat H_{\mathrm{KG}}$ des Klein-Gordon-Feldes aus
+	Gleichung~\eqref{eq:KG-Hamilton} gilt:
 	\begin{equation}\label{eq:KG-Hamilton-diagonal}
-		\hat{U}^\dagger \hat{H}_{\mathrm{KG}} \hat{U} = \sum_{j=0}^{|V|-1} \hat{h}_j.
+		\hat U^\dagger\hat H_{\mathrm{KG}}\hat U
+		=
+		\sum_{j=0}^{|V|-1}\hat h_j.
 	\end{equation}
-	Dabei sind die eindimensionalen Modenoperatoren $\hat{h}_j$ gegeben durch
+	Dabei sind die eindimensionalen Modenoperatoren $\hat h_j$ gegeben durch
 	\begin{equation}\label{eq:KG-hj-Wirtinger}
-	\hat{h}_j =  
-	-2\frac{\partial^2}{\partial z_j \partial \overline{z}_j} 
-	+ \frac{1}{2}(m^2 + \omega_j^2) z_j\overline{z_j}	
-\end{equation}
+		\hat h_j
+		=
+		-2\frac{\partial^2}{\partial z_j\partial\overline z_j}
+		+
+		\frac12\bigl(m^2+\omega_j^2\bigr)z_j\overline z_j.
+	\end{equation}
 \end{theorem}
 \begin{proof} 
 	Der Hamiltonoperator l\"asst sich zerlegen als:
